@@ -23,11 +23,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from "@/c
 import StarRating from "@/components/StarRating";
 import { useState } from "react";
 import DoctorCard from "@/components/DoctorCard";
-import Katzman from '../public/ScottKatzman.png'
-import Monica from '../public/Monica.png'
-import David from '../public/David.png'
-import Douglas from '../public/DouglasSlaughter.png'
-import Christopher from '../public/ChristopherMcarthy.png'
 import MRI1 from '../public/MRI1.png'
 import MRI2 from '../public/MRI2.png'
 import MRI3 from '../public/MRI3.png'
@@ -39,6 +34,7 @@ import { ConsultationForm } from "@/components/ContactForm";
 import ClinicsMap from "@/components/ClinicsMap";
 import ContactUsSection from "@/components/ContactUsSection";
 import RatingsAndReviews from "@/components/RatingsAndReviews";
+import { Doctors } from "@/components/data/doctors";
 const ServicesAndExpertise = [
   {
     img : Foot,
@@ -122,39 +118,6 @@ const Testimonials = [
     desc : 'Customer Support'
   }
 
-]
-
-export const Doctors = [
-  {
-  img : Katzman,
-  name  : 'Dr.Scott Katzman',
-  practice : 'Orthopediatric',
-  socials : '',
-  },
-  {
-  img : David,
-  name  : 'Dr. David Cowin',
-  practice : 'Orthopediatric',
-  socials : '',
-  },
-  {
-  img : Christopher,
-  name  : 'Dr. Christopher McCarthy',
-  practice : 'Orthopediatric',
-  socials : '',
-  },
-  {
-  img : Monica,
-  name  : 'Dr. Monica McPhail-Pruitt',
-  practice : 'Orthopediatric',
-  socials : '',
-  },
-  {
-    img : Douglas,
-    name  : 'Dr. Douglas Slaughter',
-    practice : 'Orthopediatric',
-    socials : '',
-    },
 ]
 
 const Amenities = [
@@ -332,7 +295,7 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-[10px] mt-[40px]">
                   {
                     ServicesAndExpertise.map(( item ) => (
-                      <div key={item.title} className={`flex flex-row px-[20px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
+                      <div key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC] border-[1px]' : ''}`} onClick={() => setSelectedService(item.title)}>
                         <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/>
                         <h1 className={`${selectedService == item.title ? 'text-[#2358AC]' : 'text-[#5B5F67]'} `}>{item.title}</h1>
                       </div>
@@ -379,18 +342,18 @@ export default function Home() {
                   ServicesAndExpertise.map((item,index) => (
                     <div className="flex flex-col p-4 rounded-[24px] space-y-[24px]" key={item.title}
                     style={{
-                      background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : 'bg-[#FAFAFA]'
+                      background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
                     }}
                     >
                       <div className=" flex flex-row items-center justify-between">
-                        <div className=" rounded-full border border-[#EFF5FF] py-3 px-4 ">
+                        <div className=" rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
                           <h1 
                           style={{
                             fontFamily: "var(--font-reem-kufi)",
                             fontWeight: 500,
                             color : selectedService == item.title  ? 'white' : '#022968'
                           }}
-                          className="text-lg"
+                          className="text-lg self-center"
                           >0{index + 1}</h1>
                         </div>
 
@@ -448,12 +411,12 @@ export default function Home() {
               </h1>
               <h1
               style={{
-                fontFamily: "var(--font-reem-kufi)",
+                fontFamily: "var(--font-inter)",
                 fontWeight: 500,
                 color : '#5B5F67',
                 lineHeight : 1.3
               }}
-              className="text-2xl text-center"
+              className="text-xl text-center w-[60%] self-center"
               >
               We combine cutting-edge orthopaedic innovations with compassionate care to treat spine disorders, fractures, arthritis, sports injuries, and joint pain. 
               </h1>
@@ -461,11 +424,8 @@ export default function Home() {
 
 
            <div className=" flex flex-row w-full justify-between w-full relative">
-            <div className=" absolute top-0 border border-white rounded-full w-[55%] left-0 right-0 mx-auto "/>
-            <div className=" absolute top-[2%] border border-white rounded-full w-[50%] bg-[#F5F8FD] h-[50%] left-0 right-0 mx-auto z-[0] "/>
-
              {/* Shoulder Treatment Categories */}
-             <div className=" pt-32  z-[1]">
+             <div className=" py-24  z-[2]">
                 <h1
                 style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -489,12 +449,94 @@ export default function Home() {
              </div>
 
 
-            <div className=" z-[1]">
-              <Image src={HumanModel} className="w-full h-[100%] object-cover py-4 " alt="Human Anatomy Model" />
-            </div>
+             <div className="relative z-10"> {/* Wrapper with high z-index */}
+                {/* Circles behind the image */}
+                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] -right-[45%] mx-auto z-0" />
+                <div className="absolute top-[16%] border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] -right-[15%] mx-auto flex items-center justify-center z-0">
+                  <div className="bg-white h-[70%] w-[70%] rounded-full z-0" />
+                </div>
+
+                {/* Head */}
+                <div className="rounded-[50px] absolute p-[10px] top-8 z-20 left-[44%]"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                >
+                  <div className=" h-7 w-7 rounded-full bg-white" />
+                </div>
+
+                {/* Right Shoulder Dot */}
+                <div className="rounded-[50px] absolute p-[10px] top-34 z-20 left-[55%]"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                >
+                  <div className=" h-7 w-7 rounded-full bg-white" />
+                </div>
 
 
-             <div className=" flex flex-col space-y-[10px]w w-[20%]  pt-50">
+                {/*Left Abdomen*/}
+                <div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[54%]"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                >
+                  <div className=" h-7 w-7 rounded-full bg-white" />
+                </div>
+
+
+                {/* Right Hip */}
+                <div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[53%]"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                >
+                  <div className=" h-7 w-7 rounded-full bg-white" />
+                </div>
+
+                {/* Left Knee */}
+                <div className="rounded-[50px] absolute p-[10px] top-110 z-20 right-[53%]"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                >
+                  <div className=" h-7 w-7 rounded-full bg-white" />
+                </div>
+
+                 {/* Right Foot */}
+                 <div className="rounded-[50px] absolute p-[10px] top-150 z-20 left-[54%]"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                >
+                  <div className=" h-7 w-7 rounded-full bg-white" />
+                </div>
+
+
+                {/* Foreground image */}
+                <div className="relative z-10">
+                  <Image 
+                    src={HumanModel} 
+                    alt="Human Anatomy Model"
+                    className="w-full max-h-[705px] h-full object-cover py-4" 
+                  />
+                </div>
+              </div>
+
+
+             <div className=" flex flex-col space-y-[10px] w-[20%]  pt-50 z-20">
              <h1
                 style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -506,8 +548,21 @@ export default function Home() {
                   Shoulder Procedures
                 </h1>
                 <h1>
-                Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn per form advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are commit ted to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recover y time.
+                Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn per form advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are commit ted to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recovery time.
                 </h1>
+                <button 
+                className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex items-center justify-between bg-[#0094E0] text-white font-[500px] text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+                >
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                    }}
+                    >View all Shoulder Treatment</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                      <path d="M12.9985 1.46524C12.752 1.23664 12.4267 1.10984 12.1498 1.03007C11.8544 0.944969 11.5165 0.886948 11.1686 0.84632C10.4713 0.764898 9.65365 0.744548 8.88838 0.751159C8.11878 0.757808 7.38161 0.791999 6.83826 0.824347C6.56612 0.840548 6.34152 0.856353 6.18445 0.868151C6.1059 0.874051 6.04417 0.878953 6.00177 0.882408L5.95295 0.88645L5.93999 0.887552L5.93495 0.887986C5.5223 0.923934 5.21693 1.2876 5.25287 1.70025C5.28882 2.11288 5.65303 2.4182 6.06565 2.38228L6.06817 2.38207L6.07907 2.38114L6.12358 2.37745C6.16303 2.37424 6.2216 2.36959 6.2968 2.36394C6.44725 2.35264 6.66405 2.33737 6.92741 2.3217C7.45506 2.29028 8.16529 2.25746 8.90134 2.2511C9.64171 2.24471 10.3879 2.26536 10.9946 2.3362C11.0287 2.34017 11.062 2.34428 11.0947 2.34852L0.46967 12.9736C0.176777 13.2665 0.176777 13.7413 0.46967 14.0342C0.762563 14.3271 1.23744 14.3271 1.53033 14.0342L12.1578 3.40672C12.1596 3.42107 12.1614 3.43557 12.1631 3.45021C12.2334 4.05004 12.2544 4.80047 12.2486 5.55046C12.2429 6.29576 12.211 7.01955 12.1803 7.55855C12.1651 7.82757 12.1501 8.04947 12.1391 8.20364C12.1336 8.2807 12.129 8.34078 12.1258 8.3813L12.1222 8.42705L12.121 8.44154C12.0868 8.85431 12.3936 9.21673 12.8063 9.25104C13.2191 9.28536 13.5816 8.97805 13.6159 8.56526L13.6163 8.56067L13.6174 8.54746L13.6213 8.49761C13.6247 8.45428 13.6295 8.39119 13.6352 8.31094C13.6467 8.15046 13.6622 7.9211 13.6779 7.64367C13.7094 7.08976 13.7426 6.33985 13.7485 5.56198C13.7545 4.7888 13.7338 3.96659 13.6529 3.27563C13.6125 2.93136 13.5547 2.59687 13.4689 2.30777C13.3907 2.04431 13.258 1.70593 12.9985 1.46524Z" fill="#E5F6FF"/>
+                    </svg>
+                </button>
              </div>
               
            </div>
@@ -840,10 +895,10 @@ export default function Home() {
         style={{
           background : 'linear-gradient(246deg, #FAFBFC 13.17%, #E0F5FF 52.92%, #E1ECFE 99.53%)'
         }}
-        className=" w-full p-[40px] rounded-[24px] flex items-center justify-center flex flex-col space-y-[0px]"
+        className=" w-full p-[40px] rounded-[24px] items-center justify-center flex flex-col space-y-[0px]"
         > 
 
-          <div className="w-full flex items-center justify-center flex flex-col">
+          <div className="w-full flex items-center justify-center flex-col">
             <div className=" bg-white px-[14px] py-[7px] flex items-center justify-center max-w-[150px] rounded-[62px] self-center">
               <h1
               style={{
@@ -894,7 +949,7 @@ export default function Home() {
                 <CarouselItem className="basis-1/3 pl-4 relative" key={index}>
                   <div className=" bg-[#EFF5FF] flex flex-col p-4 rounded-[24px] space-y-[32px]" key={item.title}>
                      <div >
-                      <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
+                      <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]" draggable={false}/>
                      </div>
 
                       <div className=" flex flex-col space-y-[16px]">

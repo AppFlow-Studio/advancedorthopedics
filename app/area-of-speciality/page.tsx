@@ -79,7 +79,6 @@ export default function AreaOfSpeciality() {
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
-
               }}
               className='text-[#111315] text-5xl'
               >
@@ -90,7 +89,6 @@ export default function AreaOfSpeciality() {
                style={{
                 fontFamily : 'var(--font-inter)',
                 fontWeight : 500,
-
               }}
               className='text-[#5B5F67] text-xl w-[75%]'
               >
@@ -105,7 +103,7 @@ export default function AreaOfSpeciality() {
                 fontWeight : 500,
 
               }}
-              className='text-[#111315] text-3xl'
+              className='text-[#111315] text-2xl'
               >
                 WELL, YOU’RE NOT ALONE.
               </h1>

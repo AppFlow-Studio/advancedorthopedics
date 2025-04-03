@@ -4,24 +4,132 @@ import Image from 'next/image'
 import Logo from "../public/logo.png"
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-export default function NavBar() {
-  const pathname = usePathname();
-  function NavLink({ href, children, screen }: { href: string; children: React.ReactNode, screen : string }) {
-    return (
-      <Link href={href} className={`${pathname === `${screen}` ? "text-[#022968] rounded-[24px] border-white border-1 gap-8 bg-[rgba(239, 245, 255, 0.50)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500]" : "text-black font-[400]"} hover:text-[#022968] transition-colors text-[16px] text-center `}
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen : string, pathname : string, sublinks : {title : string, href : string}[] }) {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger
+      asChild
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{border : 0}}
+      className='focus-visible:ring-0'
       >
-        <h1 
+        <Link href={href} className={`${pathname === screen ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,0.5)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px] "} hover:text-[#022968] transition-colors text-[16px] text-center `}
         style={{
-            fontFamily: "var(--font-reem-kufi)",
-            fontWeight: 500,
-            fontSize: "16px",
-            lineHeight: "24px",
-            letterSpacing: "0.02em",
+          border : 1,
+          borderStyle : pathname === screen ? 'solid' : 'none',
+          borderColor : pathname === screen ? 'white' : ''
         }}
-        >{children}</h1>
-      </Link>
-    )
-  }
+        >
+          <h1 
+          style={{
+              fontFamily: "var(--font-reem-kufi)",
+              fontWeight: 500,
+              fontSize: "16px",
+              lineHeight: "24px",
+              letterSpacing: "0.02em",
+          }}
+          >{title}</h1>
+        </Link>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        className="self-end"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          background : 'rgba(239, 245, 255, 0.50)',
+          border: '1px solid white',
+          borderRadius : '8px',
+          backdropFilter : 'blur(10px)'
+        }}
+      >
+        {
+          sublinks.map((link) => (
+            <DropdownMenuItem key={link.title}>
+              <Link href={link.href}>
+                <h1 
+                style={{
+                      fontFamily: "var(--font-reem-kufi)",
+                      fontWeight: 400,
+                  }}
+                  >{link.title}
+                </h1>
+              </Link>
+            </DropdownMenuItem>
+          ))
+        }
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+
+
+const NavBarLinks = [
+  {
+    href : '/',
+    screen : '/',
+    title : 'HOME',
+    subLinks : [
+     
+    ]
+  },
+  {
+    href : '/find-care',
+    screen : '/find-care',
+    title : 'FIND CARE',
+    subLinks : [
+      
+    ]
+  },
+  {
+    href : '/area-of-speciality',
+    screen : '/area-of-speciality',
+    title : 'AREA OF SPECIALITY',
+    subLinks : [
+      
+    ]
+  },
+  {
+    href : '/about',
+    screen : '/about',
+    title : 'ABOUT',
+    subLinks : [
+      {
+        title : 'Meet our Doctors',
+        href : '/about/meetourdoctors'
+      }
+    ]
+  },
+  {
+    href : '/location',
+    screen : '/location',
+    title : 'LOCATION',
+    subLinks : [
+      
+    ]
+  },
+  
+]
+
+export default function NavBar() {  
+  const pathname = usePathname();
   return (
     <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-6 max-h-[128px] lg:h-[60px]'>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-[40px] py-2">
@@ -40,12 +148,14 @@ export default function NavBar() {
                     <h2 className="font-[400] text-lg">Orthopedics</h2>    
                 </div>
             </div>
+
             <div className="flex space-x-8 text-[16px] font-semibold items-center justify-center">
-            <NavLink href='/' screen='/' >HOME</NavLink >
-            <NavLink href='/find-care' screen='/find-care'>FIND CARE</NavLink >
-            <NavLink href='/area-of-speciality' screen='/area-of-speciality' >AREA OF SPECIALITY</NavLink >
-            <NavLink href='/find-care' screen='/find-care'>ABOUT</NavLink >
-            <NavLink href='/find-care' screen='/find-care' >LOCATIONS</NavLink >
+            {
+              NavBarLinks.map((link, index) => (
+                <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} pathname={pathname} />
+              ))
+            }
+            
             </div>
 
             <button 

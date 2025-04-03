@@ -85,7 +85,7 @@ export default function RatingsAndReviews() {
                     </div>
                     <div className="w-full h-full rounded-[24px] bg-[#F8FAF9] max-h-[419px] lg:h-[419px] flex flex-col p-[32px]">
                         <div className="self-end">
-                          <StarRating rating={item.rating}/>
+                          <StarRating rating={item.rating} size={30}/>
                         </div>
                         <div className=" mt-auto flex flex-col space-y-[32px] ">
                           <h1

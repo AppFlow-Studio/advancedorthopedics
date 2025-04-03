@@ -3,7 +3,7 @@ import { ConditionInfoProp } from "../ConditionCard";
 export const Conditions : ConditionInfoProp[] = [
     {
       "title": "Adjacent Segment Disease",
-      "body": "Adjacent segment disc disease is the presence of a degenerative disc that affects the spinal column above and below a previously operated segment. It can occur in any...",
+      "body": "An adjacent segment disc disease is the presence of a degenerative disc that affects the spinal column above and below a previously operated segment. It can occur in any patient who has had previous spine surgery.",
       "slug": "adjacentsegmentdisease"
     },
     {
