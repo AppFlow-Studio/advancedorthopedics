@@ -43,7 +43,7 @@ export default function NavBar() {
             <div className="flex space-x-8 text-[16px] font-semibold items-center justify-center">
             <NavLink href='/' screen='/' >HOME</NavLink >
             <NavLink href='/find-care' screen='/find-care'>FIND CARE</NavLink >
-            <NavLink href='/find-care' screen='/find-care' >AREA OF SPECIALITY</NavLink >
+            <NavLink href='/area-of-speciality' screen='/area-of-speciality' >AREA OF SPECIALITY</NavLink >
             <NavLink href='/find-care' screen='/find-care'>ABOUT</NavLink >
             <NavLink href='/find-care' screen='/find-care' >LOCATIONS</NavLink >
             </div>
