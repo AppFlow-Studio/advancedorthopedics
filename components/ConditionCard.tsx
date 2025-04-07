@@ -10,6 +10,10 @@ export interface ConditionInfoProp {
     slug : string
 }
 
+function truncateString(str : string, maxLength = 172) {
+    if (str.length <= maxLength) return str;
+    return str.slice(0, maxLength) + '...';
+  }
 export default function ConditionCard({ ConditionInfo } : { ConditionInfo : ConditionInfoProp}) {
   return (
     <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/area-of-speciality/${ConditionInfo.slug}`}>
@@ -50,7 +54,7 @@ export default function ConditionCard({ ConditionInfo } : { ConditionInfo : Cond
                 }}
                 className="text-md overflow-ellipsis"
                 >
-                {ConditionInfo.body}
+                {truncateString(ConditionInfo.body)}
                 </h1>
             </div>
 

@@ -11,9 +11,12 @@ import DoctorCard from '@/components/DoctorCard'
 export default function ConditionDetails({
     params,
   }: {
-    params: { ConditionDetails : string }
+    params: Promise<{ ConditionDetails : string }>
   }) {
-  const condition_details = Conditions.find( x => x.slug === params.ConditionDetails)
+// Unwrap the promise using React.use (the experimental hook)
+  const resolvedParams = React.use(params)
+  const conditionSlug = resolvedParams.ConditionDetails
+  const condition_details = Conditions.find( x => x.slug === conditionSlug)
   if (!condition_details) {
     return (
       <main className="w-full h-screen flex items-center justify-center">

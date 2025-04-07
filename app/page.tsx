@@ -35,6 +35,9 @@ import ClinicsMap from "@/components/ClinicsMap";
 import ContactUsSection from "@/components/ContactUsSection";
 import RatingsAndReviews from "@/components/RatingsAndReviews";
 import { Doctors } from "@/components/data/doctors";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
 const ServicesAndExpertise = [
   {
     img : Foot,
@@ -165,9 +168,19 @@ const PainToProgress = [
   },
 ]
 
+const OrthoConditionsWeTreat = [
+  {
+    area : 'Shoulder',
+    area_procedures  : {title :  'Shoulder Procedures', desc : 'Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn per form advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are commit ted to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recovery time.'},
+    view_all_treatments : { text : 'View all Shoulder Treatments', href : '/'},
+    treatment_categories  : ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair' ]
+  },
+
+]
+
 export default function Home() {
   const [ selectedService , setSelectedService ] = useState('Foot & Ankle')
-
+  const [ selectedOrthoCondition, setSelectedOrthoCondition ] = useState(OrthoConditionsWeTreat[0])
   return (
     <main className=" w-full flex flex-col items-center justify-center bg-white h-full" >
       {/* Hero Section */}
@@ -234,7 +247,7 @@ export default function Home() {
           <div className="z-[2] px-[80px] my-[24px] w-[55%] flex flex-row space-x-[16px]">
             <div className=""><BookAnAppoitmentButton /></div>
             <button 
-                className=" max-h-[40px] h-full max-h-[56px] px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[white] text-[#0094E0] font-[500px] text-[14px] font-semibold"
+                className="h-full max-h-[56px] px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[white] text-[#0094E0] font-[500] text-[14px] "
                 >
                 Contact Us
                 <div className='pl-[10px]'>
@@ -295,7 +308,7 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-[10px] mt-[40px]">
                   {
                     ServicesAndExpertise.map(( item ) => (
-                      <div key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC] border-[1px]' : ''}`} onClick={() => setSelectedService(item.title)}>
+                      <div key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
                         <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/>
                         <h1 className={`${selectedService == item.title ? 'text-[#2358AC]' : 'text-[#5B5F67]'} `}>{item.title}</h1>
                       </div>
@@ -395,7 +408,7 @@ export default function Home() {
 
       {/* Expert Orthopedic Conditions We Treat */}
       <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px] items-center justify-center">
-          <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-[60px] px-[60px] space-y-[60px] relative flex flex-col">
+          <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-[60px] px-[60px] space-y-[60px] relative flex-col">
 
            <div className=" flex flex-col space-y-[16px]">
               <h1
@@ -423,7 +436,7 @@ export default function Home() {
            </div>
 
 
-           <div className=" flex flex-row w-full justify-between w-full relative">
+           <div className=" flex flex-row justify-between w-full relative">
              {/* Shoulder Treatment Categories */}
              <div className=" py-24  z-[2]">
                 <h1
@@ -439,8 +452,8 @@ export default function Home() {
 
                 <div className=" space-y-[20px] flex flex-col mt-[24px]">
                   {
-                    ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair' ].map((item) => (
-                      <button key={item} className=" px-[28px] py-[14px] bg-white rounded-[62px]">
+                    selectedOrthoCondition.treatment_categories.map((item) => (
+                      <button key={item} className=" px-[28px] py-[14px] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01]">
                         <p className=" font-[500] text-black text-lg">{item}</p>
                       </button>
                     ))
@@ -457,7 +470,7 @@ export default function Home() {
                 </div>
 
                 {/* Head */}
-                <div className="rounded-[50px] absolute p-[10px] top-8 z-20 left-[44%]"
+                <div className="rounded-[50px] absolute p-[10px] top-8 z-20 left-[44%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -468,19 +481,30 @@ export default function Home() {
                 </div>
 
                 {/* Right Shoulder Dot */}
-                <div className="rounded-[50px] absolute p-[10px] top-34 z-20 left-[55%]"
+                <motion.div
+                className="rounded-[50px] absolute p-[10px] top-34 z-20 left-[55%] hover:cursor-pointer"
                 style={{
-                  background  : 'rgba(255, 255, 255, 0.40)',
-                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
-                  backdropFilter : 'blur(2.950000047683716px)',
+                  background: "rgba(255, 255, 255, 0.40)",
+                  boxShadow: "0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)",
+                  backdropFilter: "blur(2.95px)",
                 }}
-                >
-                  <div className=" h-7 w-7 rounded-full bg-white" />
-                </div>
+                animate={
+                  selectedOrthoCondition.area == 'Shoulder' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Shoulder' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Shoulder' ? 'bg-[#5E96F0]' : 'bg-white'}` }/>
+              </motion.div>
 
 
                 {/*Left Abdomen*/}
-                <div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[54%]"
+                <div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[54%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -492,7 +516,7 @@ export default function Home() {
 
 
                 {/* Right Hip */}
-                <div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[53%]"
+                <div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[53%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -503,7 +527,7 @@ export default function Home() {
                 </div>
 
                 {/* Left Knee */}
-                <div className="rounded-[50px] absolute p-[10px] top-110 z-20 right-[53%]"
+                <div className="rounded-[50px] absolute p-[10px] top-110 z-20 right-[53%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -514,7 +538,7 @@ export default function Home() {
                 </div>
 
                  {/* Right Foot */}
-                 <div className="rounded-[50px] absolute p-[10px] top-150 z-20 left-[54%]"
+                 <div className="rounded-[50px] absolute p-[10px] top-150 z-20 left-[54%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -545,24 +569,25 @@ export default function Home() {
                 }}
                 className=" text-2xl"
                 >
-                  Shoulder Procedures
+                 {selectedOrthoCondition.area_procedures.title}
                 </h1>
                 <h1>
-                Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn per form advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are commit ted to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recovery time.
+                {selectedOrthoCondition.area_procedures.desc}
                 </h1>
-                <button 
-                className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex items-center justify-between bg-[#0094E0] text-white font-[500px] text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+                <Link 
+                className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex  bg-[#0094E0] text-white text-[14px] font-[500] w-full justify-center items-center hover:cursor-pointer"
+                href={selectedOrthoCondition.view_all_treatments.href}
                 >
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
-                    >View all Shoulder Treatment</h1>
+                    >{selectedOrthoCondition.view_all_treatments.text}</h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                       <path d="M12.9985 1.46524C12.752 1.23664 12.4267 1.10984 12.1498 1.03007C11.8544 0.944969 11.5165 0.886948 11.1686 0.84632C10.4713 0.764898 9.65365 0.744548 8.88838 0.751159C8.11878 0.757808 7.38161 0.791999 6.83826 0.824347C6.56612 0.840548 6.34152 0.856353 6.18445 0.868151C6.1059 0.874051 6.04417 0.878953 6.00177 0.882408L5.95295 0.88645L5.93999 0.887552L5.93495 0.887986C5.5223 0.923934 5.21693 1.2876 5.25287 1.70025C5.28882 2.11288 5.65303 2.4182 6.06565 2.38228L6.06817 2.38207L6.07907 2.38114L6.12358 2.37745C6.16303 2.37424 6.2216 2.36959 6.2968 2.36394C6.44725 2.35264 6.66405 2.33737 6.92741 2.3217C7.45506 2.29028 8.16529 2.25746 8.90134 2.2511C9.64171 2.24471 10.3879 2.26536 10.9946 2.3362C11.0287 2.34017 11.062 2.34428 11.0947 2.34852L0.46967 12.9736C0.176777 13.2665 0.176777 13.7413 0.46967 14.0342C0.762563 14.3271 1.23744 14.3271 1.53033 14.0342L12.1578 3.40672C12.1596 3.42107 12.1614 3.43557 12.1631 3.45021C12.2334 4.05004 12.2544 4.80047 12.2486 5.55046C12.2429 6.29576 12.211 7.01955 12.1803 7.55855C12.1651 7.82757 12.1501 8.04947 12.1391 8.20364C12.1336 8.2807 12.129 8.34078 12.1258 8.3813L12.1222 8.42705L12.121 8.44154C12.0868 8.85431 12.3936 9.21673 12.8063 9.25104C13.2191 9.28536 13.5816 8.97805 13.6159 8.56526L13.6163 8.56067L13.6174 8.54746L13.6213 8.49761C13.6247 8.45428 13.6295 8.39119 13.6352 8.31094C13.6467 8.15046 13.6622 7.9211 13.6779 7.64367C13.7094 7.08976 13.7426 6.33985 13.7485 5.56198C13.7545 4.7888 13.7338 3.96659 13.6529 3.27563C13.6125 2.93136 13.5547 2.59687 13.4689 2.30777C13.3907 2.04431 13.258 1.70593 12.9985 1.46524Z" fill="#E5F6FF"/>
                     </svg>
-                </button>
+                </Link>
              </div>
               
            </div>

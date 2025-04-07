@@ -114,6 +114,10 @@ const NavBarLinks = [
       {
         title : 'Meet our Doctors',
         href : '/about/meetourdoctors'
+      },
+      {
+        title : 'FAQs',
+        href : '/about/FAQs'
       }
     ]
   },
