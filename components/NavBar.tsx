@@ -87,7 +87,18 @@ const NavBarLinks = [
     screen : '/',
     title : 'HOME',
     subLinks : [
-     
+      {
+        title : 'Insurance Policy',
+        href : '/insurance-policy'
+      },
+      {
+        title : 'Patient Forms',
+        href : '/patient-forms'
+      },
+      {
+        title : 'Condition Check',
+        href : '/condition-check'
+      }
     ]
   },
   {

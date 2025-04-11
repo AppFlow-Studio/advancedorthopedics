@@ -8,6 +8,7 @@ import RatingsAndReviews from '@/components/RatingsAndReviews';
 import { socials } from '@/components/DoctorCard';
 import { MiniContactForm } from '@/components/MiniContactForm';
 import { Dot } from 'lucide-react';
+import { DoctorContactForm } from '@/components/DoctorContactForm';
 export default function DocotorDetails(
     {
         params,
@@ -139,7 +140,7 @@ export default function DocotorDetails(
                             
                     </div>
                 </div>
-                <MiniContactForm backgroundcolor='#FAFAFA'/>
+                <DoctorContactForm backgroundcolor='#FAFAFA'/>
             </div>
             <div className=' w-[70%] h-full flex flex-col space-y-[40px]'>
                 <div className=' flex flex-col space-y-[24px]'>
@@ -202,7 +203,7 @@ export default function DocotorDetails(
                             ['Laser Spine Surgery', 'Laminoforaminotomy', 'Endoscopic Foraminotomy', 'Orthopedic Surgery', 'Interlaminar Spacer'].map((item) => (
                             <div className=' flex flex-row space-x-2 items-center' key={item}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.29199 8.99996C1.29199 13.2572 4.74313 16.7083 9.00033 16.7083C13.2575 16.7083 16.7087 13.2572 16.7087 8.99996C16.7087 4.74276 13.2575 1.29163 9.00033 1.29163C4.74313 1.29163 1.29199 4.74276 1.29199 8.99996ZM9.00033 17.9583C4.05277 17.9583 0.0419922 13.9475 0.0419922 8.99996C0.0419922 4.05241 4.05277 0.041626 9.00033 0.041626C13.9479 0.041626 17.9587 4.05241 17.9587 8.99996C17.9587 13.9475 13.9479 17.9583 9.00033 17.9583ZM12.7944 6.92229C13.0276 6.66784 13.0104 6.27249 12.756 6.03924C12.5015 5.806 12.1062 5.82319 11.8729 6.07764L7.73069 10.5964L6.10893 8.97469C5.86486 8.73061 5.46913 8.73061 5.22505 8.97469C4.98097 9.21877 4.98097 9.61449 5.22505 9.85857L7.30838 11.9419C7.42892 12.0624 7.59347 12.1285 7.7639 12.1248C7.93433 12.1211 8.09586 12.048 8.21105 11.9223L12.7944 6.92229Z" fill="#92BCFF"/>
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M1.29199 8.99996C1.29199 13.2572 4.74313 16.7083 9.00033 16.7083C13.2575 16.7083 16.7087 13.2572 16.7087 8.99996C16.7087 4.74276 13.2575 1.29163 9.00033 1.29163C4.74313 1.29163 1.29199 4.74276 1.29199 8.99996ZM9.00033 17.9583C4.05277 17.9583 0.0419922 13.9475 0.0419922 8.99996C0.0419922 4.05241 4.05277 0.041626 9.00033 0.041626C13.9479 0.041626 17.9587 4.05241 17.9587 8.99996C17.9587 13.9475 13.9479 17.9583 9.00033 17.9583ZM12.7944 6.92229C13.0276 6.66784 13.0104 6.27249 12.756 6.03924C12.5015 5.806 12.1062 5.82319 11.8729 6.07764L7.73069 10.5964L6.10893 8.97469C5.86486 8.73061 5.46913 8.73061 5.22505 8.97469C4.98097 9.21877 4.98097 9.61449 5.22505 9.85857L7.30838 11.9419C7.42892 12.0624 7.59347 12.1285 7.7639 12.1248C7.93433 12.1211 8.09586 12.048 8.21105 11.9223L12.7944 6.92229Z" fill="#92BCFF"/>
                                 </svg>
                                 <h1
                                 style={{

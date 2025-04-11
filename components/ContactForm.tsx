@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
+
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
@@ -55,13 +56,13 @@ export function ConsultationForm() {
   }
 
   return (
-     <div className="w-full p-8 rounded-3xl overflow-hidden backdrop-blur-[15px] bg-white bg-opacity-50" 
+     <div className="w-full rounded-3xl overflow-hidden backdrop-blur-[15px] bg-white bg-opacity-50" 
      
      >
         <Form {...form} 
         
         >
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
   
             {/* Name Fields */}
             <div className="grid grid-cols-1  gap-6">
@@ -205,9 +206,8 @@ export function ConsultationForm() {
                 </FormItem>
               )}
             />
-  
-            <div className="w-full self-center flex items-center justify-center"><BookAnAppoitmentButton /></div>
-          </form>
+            <div className="w-full self-center flex items-center justify-center mt-[40px]"><BookAnAppoitmentButton /></div>
+            </form>
         </Form>
      </div>
   )

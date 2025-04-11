@@ -60,7 +60,6 @@ export function MiniContactForm({backgroundcolor = 'white'}) {
         
         >
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
-  
             {/* Name Fields */}
             <div className="grid grid-cols-1  gap-6">
               <FormField

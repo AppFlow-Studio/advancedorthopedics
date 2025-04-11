@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function BookAnAppoitmentButton() {
   return (
-    <button 
-    className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[#0094E0] text-white font-[500px] text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+    <div 
+    className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
     >
          <div className='pr-[10px]'>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -19,6 +19,6 @@ export default function BookAnAppoitmentButton() {
             letterSpacing: "0.02em"
         }}
         >Book an Appointment</h1>
-    </button>
+    </div>
   )
 }
