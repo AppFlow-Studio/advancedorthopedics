@@ -63,7 +63,7 @@ export default function Blogs() {
             />
 
         <div className=' px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-[20%] items-center justify-center px-[20px] py-[10px]'
+            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -75,7 +75,7 @@ export default function Blogs() {
                 }}
                 className="text-[#022968]"
                 >
-                    Home
+                    About
                 </h1>
 
                 <h1

@@ -30,7 +30,8 @@ const formSchema = z.object({
   pain_source : z.string().nonempty({}),
   pain_test : z.string(),
 // Step 3 Questions
- name : z.string().min(2),
+ first_name : z.string().min(2),
+ last_name : z.string().min(2),
  email : z.string().email(),
  phone : z.string().min(10, "Phone number must be at least 10 digits"),
  state : z.string(),
@@ -170,8 +171,13 @@ const ConditionCheckSteps = [
     caption : "Lastly, a few details about you helps us better protect your information and allows us to quickly give you a targeted diagnosis.",
     questions : [
         {
-            question : "Name",
-            control : "name",
+            question : "First Name",
+            control : "first_name",
+            options : []
+        },
+        {
+            question : "Last Name",
+            control : "last_name",
             options : []
         },
         {
@@ -227,7 +233,8 @@ export default function ConditionChecker() {
         pain_source : "",
         pain_test : "",
 
-        name : "",
+        first_name : "",
+        last_name : "",
         email : "",
         phone : "",
         state : "",
@@ -333,7 +340,7 @@ export default function ConditionChecker() {
 
                             <h1
                             style={{
-                                fontFamily: "var(--font-inter)",
+                                fontFamily: "var(--font-reem-kufi)",
                                 fontWeight: 500,
                             }}
                             className="text-black text-xl"

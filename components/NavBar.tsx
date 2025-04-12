@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Logo from "../public/logo.png"
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { cn } from "@/lib/utils"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -43,99 +44,57 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
   // Use Navigation Menu Shadcn
 
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger
-      asChild
-      onMouseEnter={handleMouseEnter}
-      style={{border : 0}}
-      className='focus-visible:ring-0'
-      >
-        <Link href={href} className={`${pathname === screen ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,0.5)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px] "} hover:text-[#022968] transition-colors text-[16px] text-center `}
-        style={{
+     <NavigationMenuItem>
+        <NavigationMenuTrigger
+         className={`${pathname === screen ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,0.5)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px] "} hover:text-[#022968] transition-colors text-[16px] text-center `}
+         style={{
           border : 1,
           borderStyle : pathname === screen ? 'solid' : 'none',
           borderColor : pathname === screen ? 'white' : ''
         }}
         >
-          <h1 
+          <Link href={href}
+          >
+            <h1 
+            style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+                fontSize: "16px",
+                lineHeight: "24px",
+                letterSpacing: "0.02em",
+            }}
+            >
+              {title}
+            </h1>
+          </Link>
+        </NavigationMenuTrigger>
+        <NavigationMenuContent
+          className="self-end"
           style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-              fontSize: "16px",
-              lineHeight: "24px",
-              letterSpacing: "0.02em",
+            background : 'rgba(239, 245, 255, 0.50)',
+            border: '1px solid white',
+            borderRadius : '8px',
+            backdropFilter : 'blur(10px)'
           }}
-          >{title}</h1>
-        </Link>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        className="self-end"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          background : 'rgba(239, 245, 255, 0.50)',
-          border: '1px solid white',
-          borderRadius : '8px',
-          backdropFilter : 'blur(10px)'
-        }}
-      >
-        {
-          sublinks.map((link) => {
-
-            return (
-            <>
-              {
-                link.subLinks.length > 0 ?
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger >
-                      <Link href={link.href} className='w-full'>
-                        <h1 
-                        style={{
-                              fontFamily: "var(--font-reem-kufi)",
-                              fontWeight: 400,
-                          }}
-                          >{link.title}
-                        </h1>
-                      </Link>
-                    </DropdownMenuSubTrigger>
-                        <DropdownMenuPortal>
-                          <DropdownMenuSubContent>
-                            {
-                              link.subLinks.map((sublink) => (
-                                <DropdownMenuItem key={sublink.href}>
-                                  <Link href={sublink.href} className='w-full'>
-                                      <h1 
-                                      style={{
-                                            fontFamily: "var(--font-reem-kufi)",
-                                            fontWeight: 400,
-                                        }}
-                                        >{sublink.title}
-                                      </h1>
-                                    </Link>
-                                </DropdownMenuItem>
-                              ))
-                            }
-                          </DropdownMenuSubContent>
-                        </DropdownMenuPortal>
-                  </DropdownMenuSub>
-                :
-                <DropdownMenuItem key={link.title}>
-                <Link href={link.href} className='w-full'>
-                  <h1 
-                  style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 400,
-                    }}
-                    >{link.title}
-                  </h1>
-                </Link>
-              </DropdownMenuItem>         
-              }    
-            </>
-          )})
-        }
-      </DropdownMenuContent>
-    </DropdownMenu>
+        >
+          <ul className=' flex flex-col'>
+            {
+              sublinks.map((link) => {
+                return (    
+                    <NavigationMenuLink key={link.title}  href={link.href} className='w-full'>
+                          <h1 
+                          style={{
+                                fontFamily: "var(--font-reem-kufi)",
+                                fontWeight: 400,
+                            }}
+                            >{link.title}
+                          </h1>
+                  </NavigationMenuLink>         
+              )})
+            }
+          </ul>
+        </NavigationMenuContent>
+     </NavigationMenuItem>
   )
 }
 
@@ -183,6 +142,31 @@ const NavBarLinks = [
     screen : '/find-care',
     title : 'FIND CARE',
     subLinks : [
+      {
+        title : 'Book An Appointment',
+        href : '/find-care/book-an-appointment',
+        subLinks : []
+      },
+      {
+        title : 'Find A Doctor',
+        href : '/find-care/find-a-doctor',
+        subLinks : []
+      },
+      {
+        title : 'Get a Second Opinion',
+        href : '/find-care/second-opinion',
+        subLinks : []
+      },
+      {
+        title : 'Get a Free MRI Review',
+        href : '/find-care/free-mri-review',
+        subLinks : []
+      },
+      {
+        title : 'Treatment Candidacy',
+        href : '/find-care/candidacy-check',
+        subLinks : []
+      },
       {
         title : 'Insurance Policy',
         href : '/insurance-policy',
@@ -261,7 +245,7 @@ export default function NavBar() {
   return (
     <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-6 max-h-[128px] lg:h-[60px]'>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-[40px] py-2">
-            <div className='flex flex-row items-center justify-center space-x-[8px]'> 
+            <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px]'> 
                 <Image src={Logo} alt="Advanced Orthopedics Logo" className="max-h-[32px] lg:h-[32px] w-auto  " />
                 <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                 <div className="flex flex-col text-white"
@@ -275,19 +259,22 @@ export default function NavBar() {
                     <h1 className="text-xl font-[600]">Advanced</h1>
                     <h2 className="font-[400] text-lg">Orthopedics</h2>    
                 </div>
-            </div>
+            </Link>
 
-            <div className="flex space-x-8 text-[16px] font-semibold items-center justify-center">
-            {
-              NavBarLinks.map((link, index) => (
-                <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} pathname={pathname} />
-              ))
-            }
+            <NavigationMenu className="flex space-x-8 text-[16px] font-semibold items-center justify-center">
+
+              <NavigationMenuList>
+                {
+                  NavBarLinks.map((link, index) => (
+                    <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} pathname={pathname} />
+                  ))
+                }
+              </NavigationMenuList>
             
-            </div>
+            </NavigationMenu>
 
             <button 
-                className=" max-h-[40px] h-full px-[20px] rounded-[62px] relative flex items-center justify-between bg-[#022968] text-white font-[500px] text-[14px] font-semibold"
+                className=" max-h-[40px] h-full px-[20px] rounded-[62px] relative flex items-center justify-between bg-[#022968] text-white text-[14px] font-semibold"
                 
                 >
                 Contact Us
@@ -303,3 +290,65 @@ export default function NavBar() {
     </header>
   )
 }
+
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
+
+// link.subLinks.length > 0 ?
+//                     <DropdownMenuSub>
+//                       <DropdownMenuSubTrigger >
+//                         <Link href={link.href} className='w-full'>
+//                           <h1 
+//                           style={{
+//                                 fontFamily: "var(--font-reem-kufi)",
+//                                 fontWeight: 400,
+//                             }}
+//                             >{link.title}
+//                           </h1>
+//                         </Link>
+//                       </DropdownMenuSubTrigger>
+//                           <DropdownMenuPortal>
+//                             <DropdownMenuSubContent>
+//                               {
+//                                 link.subLinks.map((sublink) => (
+//                                   <DropdownMenuItem key={sublink.href}>
+//                                     <Link href={sublink.href} className='w-full'>
+//                                         <h1 
+//                                         style={{
+//                                               fontFamily: "var(--font-reem-kufi)",
+//                                               fontWeight: 400,
+//                                           }}
+//                                           >{sublink.title}
+//                                         </h1>
+//                                       </Link>
+//                                   </DropdownMenuItem>
+//                                 ))
+//                               }
+//                             </DropdownMenuSubContent>
+//                           </DropdownMenuPortal>
+//                     </DropdownMenuSub>
+//                   :

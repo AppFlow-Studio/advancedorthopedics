@@ -2,11 +2,48 @@ import React from 'react'
 import Image from 'next/image'
 import { ConsultationForm } from './ContactForm'
 import HomeContactUs from '../public/HomeContactUs.jpeg'
-export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgroundcolor? : string}) {
+export default function FindCareContactUsSection({ page, backgroundcolor = '#FAFCFF'}  : { page : string, backgroundcolor? : string}) {
   return (
     <section className={`bg-[${backgroundcolor}] w-full h-full py-[50px]`}>
     <div className="max-w-[1440px] w-full px-[40px] mx-auto flex flex-row space-x-[60px]">
       <div className=" w-[50%]  flex flex-col p-[24px]">
+            <div className='pl-4 z-[2] w-full pb-2'>
+                <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center'
+                style={{
+                    background : 'rgba(255, 255, 255, 0.50)'
+                }}
+                    >
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 400,
+                    }}
+                    className="text-black"
+                    >
+                        Find Care
+                    </h1>
+
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 400,
+                    }}
+                    className="text-black"
+                    >
+                        /
+                    </h1>
+
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 400,
+                    }}
+                    className="text-[#2358AC]"
+                    >
+                        {page}
+                    </h1>
+                </div>
+            </div>
           <h1
           style={{
             fontFamily: "var(--font-reem-kufi)",
