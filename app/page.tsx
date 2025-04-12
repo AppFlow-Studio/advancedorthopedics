@@ -170,13 +170,60 @@ const PainToProgress = [
 
 const OrthoConditionsWeTreat = [
   {
-    area : 'Shoulder',
-    area_procedures  : {title :  'Shoulder Procedures', desc : 'Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn per form advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are commit ted to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recovery time.'},
-    view_all_treatments : { text : 'View all Shoulder Treatments', href : '/'},
-    treatment_categories  : ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair' ]
+    area: 'Neck',
+    area_procedures: {
+      title: 'Neck Procedures',
+      desc: 'Our expert spine specialists provide comprehensive neck care, treating conditions such as cervical disc herniation, spinal stenosis, and degenerative disc disease. We focus on relieving pain, restoring function, and using the least invasive techniques for optimal recovery.'
+    },
+    view_all_treatments: { text: 'View all Neck Treatments', href: '/' },
+    treatment_categories: ['Cervical Disc Replacement', 'Anterior Cervical Discectomy and Fusion (ACDF)', 'Cervical Laminectomy', 'Cervical Foraminotomy', 'Neck Pain Management', 'Cervical Epidural Injections']
   },
-
-]
+  {
+    area: 'Shoulder',
+    area_procedures: {
+      title: 'Shoulder Procedures',
+      desc: 'Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn perform advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are committed to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recovery time.'
+    },
+    view_all_treatments: { text: 'View all Shoulder Treatments', href: '/' },
+    treatment_categories: ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair']
+  },
+  {
+    area: 'Abdomen',
+    area_procedures: {
+      title: 'Abdominal & Core Procedures',
+      desc: 'Our orthopedic team addresses abdominal wall and core-related musculoskeletal injuries, such as sports hernias and muscle tears, with a combination of surgical expertise and targeted rehabilitation plans.'
+    },
+    view_all_treatments: { text: 'View all Abdomen Treatments', href: '/' },
+    treatment_categories: ['Sports Hernia Repair', 'Abdominal Muscle Tear Repair', 'Core Strengthening Therapy', 'Minimally Invasive Laparoscopic Repair']
+  },
+  {
+    area: 'Hip',
+    area_procedures: {
+      title: 'Hip Procedures',
+      desc: 'Our hip specialists treat arthritis, labral tears, and femoroacetabular impingement (FAI) through both surgical and non-surgical solutions. We aim to improve joint function and reduce hip pain using innovative, minimally invasive approaches.'
+    },
+    view_all_treatments: { text: 'View all Hip Treatments', href: '/' },
+    treatment_categories: ['Total Hip Replacement', 'Hip Arthroscopy', 'Hip Labral Repair', 'Hip Impingement Surgery', 'Hip Bursitis Treatment', 'Minimally Invasive Hip Surgery']
+  },
+  {
+    area: 'Knee',
+    area_procedures: {
+      title: 'Knee Procedures',
+      desc: 'From sports injuries to chronic arthritis, our knee surgeons provide advanced care including ACL repair, meniscus surgery, and total knee replacement. Our goal is to restore movement, relieve pain, and help patients return to daily activities faster.'
+    },
+    view_all_treatments: { text: 'View all Knee Treatments', href: '/' },
+    treatment_categories: ['ACL Reconstruction', 'Meniscus Repair', 'Total Knee Replacement', 'Knee Arthroscopy', 'Cartilage Restoration', 'Patellar Stabilization']
+  },
+  {
+    area: 'Foot',
+    area_procedures: {
+      title: 'Foot Procedures',
+      desc: 'Our foot and ankle specialists treat a wide range of conditions, including bunions, plantar fasciitis, and fractures. We use cutting-edge techniques to ensure the best outcomes and minimal downtime for our patients.'
+    },
+    view_all_treatments: { text: 'View all Foot Treatments', href: '/' },
+    treatment_categories: ['Bunion Correction', 'Plantar Fasciitis Surgery', 'Ankle Ligament Reconstruction', 'Achilles Tendon Repair', 'Foot Fracture Fixation', 'Hammer Toe Correction']
+  },
+];
 
 export default function Home() {
   const [ selectedService , setSelectedService ] = useState('Foot & Ankle')
@@ -437,8 +484,8 @@ export default function Home() {
 
 
            <div className=" flex flex-row justify-between w-full relative">
-             {/* Shoulder Treatment Categories */}
-             <div className=" py-24  z-[2]">
+             {/* Treatment Categories */}
+             <div className=" py-24  z-20 max-w-[30%] w-[20%]">
                 <h1
                 style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -464,21 +511,32 @@ export default function Home() {
 
              <div className="relative z-10"> {/* Wrapper with high z-index */}
                 {/* Circles behind the image */}
-                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] -right-[45%] mx-auto z-0" />
-                <div className="absolute top-[16%] border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] -right-[15%] mx-auto flex items-center justify-center z-0">
+                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] -right-[46%] mx-auto z-0" />
+                <div className="absolute top-[16%] border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] -right-[16%] mx-auto flex items-center justify-center z-0">
                   <div className="bg-white h-[70%] w-[70%] rounded-full z-0" />
                 </div>
 
                 {/* Head */}
-                <div className="rounded-[50px] absolute p-[10px] top-8 z-20 left-[44%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-8 z-20 left-[44%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
+                animate={
+                  selectedOrthoCondition.area == 'Neck' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Neck' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[0])}
                 >
-                  <div className=" h-7 w-7 rounded-full bg-white" />
-                </div>
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Neck' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                </motion.div>
 
                 {/* Right Shoulder Dot */}
                 <motion.div
@@ -498,55 +556,104 @@ export default function Home() {
                   repeat: selectedOrthoCondition.area == 'Shoulder' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[1])}
               >
                 <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Shoulder' ? 'bg-[#5E96F0]' : 'bg-white'}` }/>
               </motion.div>
 
 
                 {/*Left Abdomen*/}
-                <div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[54%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[54%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
+                animate={
+                  selectedOrthoCondition.area == 'Abdomen' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Abdomen' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[2])}
+
                 >
-                  <div className=" h-7 w-7 rounded-full bg-white" />
-                </div>
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Abdomen' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                </motion.div>
 
 
                 {/* Right Hip */}
-                <div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[53%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[53%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
+                animate={
+                  selectedOrthoCondition.area == 'Hip' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Hip' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[3])}
+
                 >
-                  <div className=" h-7 w-7 rounded-full bg-white" />
-                </div>
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Hip' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                </motion.div>
 
                 {/* Left Knee */}
-                <div className="rounded-[50px] absolute p-[10px] top-110 z-20 right-[53%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-110 z-20 right-[53%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
+                animate={
+                  selectedOrthoCondition.area == 'Knee' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Knee' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[4])}
+
                 >
-                  <div className=" h-7 w-7 rounded-full bg-white" />
-                </div>
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Knee' ? 'bg-[#5E96F0]' : 'bg-white'}` }  />
+                </motion.div>
 
                  {/* Right Foot */}
-                 <div className="rounded-[50px] absolute p-[10px] top-150 z-20 left-[54%] hover:cursor-pointer"
+                 <motion.div className="rounded-[50px] absolute p-[10px] top-150 z-20 left-[54%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
+                animate={
+                  selectedOrthoCondition.area == 'Foot' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Foot' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[5])}
+
                 >
-                  <div className=" h-7 w-7 rounded-full bg-white" />
-                </div>
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Foot' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                </motion.div>
 
 
                 {/* Foreground image */}

@@ -7,11 +7,29 @@ import Link from 'next/link';
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu"
 
-function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen : string, pathname : string, sublinks : {title : string, href : string}[] }) {
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
+function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen : string, pathname : string, sublinks : {title : string, href : string, subLinks: {title : string, href : string}[] }[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleMouseEnter = () => {
@@ -22,12 +40,13 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
     setIsOpen(false);
   };
 
+  // Use Navigation Menu Shadcn
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger
       asChild
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       style={{border : 0}}
       className='focus-visible:ring-0'
       >
@@ -61,19 +80,59 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
         }}
       >
         {
-          sublinks.map((link) => (
-            <DropdownMenuItem key={link.title}>
-              <Link href={link.href}>
-                <h1 
-                style={{
-                      fontFamily: "var(--font-reem-kufi)",
-                      fontWeight: 400,
-                  }}
-                  >{link.title}
-                </h1>
-              </Link>
-            </DropdownMenuItem>
-          ))
+          sublinks.map((link) => {
+
+            return (
+            <>
+              {
+                link.subLinks.length > 0 ?
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger >
+                      <Link href={link.href} className='w-full'>
+                        <h1 
+                        style={{
+                              fontFamily: "var(--font-reem-kufi)",
+                              fontWeight: 400,
+                          }}
+                          >{link.title}
+                        </h1>
+                      </Link>
+                    </DropdownMenuSubTrigger>
+                        <DropdownMenuPortal>
+                          <DropdownMenuSubContent>
+                            {
+                              link.subLinks.map((sublink) => (
+                                <DropdownMenuItem key={sublink.href}>
+                                  <Link href={sublink.href} className='w-full'>
+                                      <h1 
+                                      style={{
+                                            fontFamily: "var(--font-reem-kufi)",
+                                            fontWeight: 400,
+                                        }}
+                                        >{sublink.title}
+                                      </h1>
+                                    </Link>
+                                </DropdownMenuItem>
+                              ))
+                            }
+                          </DropdownMenuSubContent>
+                        </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                :
+                <DropdownMenuItem key={link.title}>
+                <Link href={link.href} className='w-full'>
+                  <h1 
+                  style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 400,
+                    }}
+                    >{link.title}
+                  </h1>
+                </Link>
+              </DropdownMenuItem>         
+              }    
+            </>
+          )})
         }
       </DropdownMenuContent>
     </DropdownMenu>
@@ -86,19 +145,37 @@ const NavBarLinks = [
     href : '/',
     screen : '/',
     title : 'HOME',
-    subLinks : [
+    subLinks : [       
       {
-        title : 'Insurance Policy',
-        href : '/insurance-policy'
+        title : 'Book An Appointment',
+        href : '/book-an-appointment',
+        subLinks : []
       },
       {
-        title : 'Patient Forms',
-        href : '/patient-forms'
+        title : 'Find a Doctor',
+        href : '/about/meetourdoctors',
+        subLinks : []
+      },
+      {
+        title : 'Get a Second Opinion',
+        href : '/',
+        subLinks : []
+      },
+      {
+        title : 'Get a Free MRI Review',
+        href : '/',
+        subLinks : []
+      },
+      {
+        title : 'Learn Treatment Candidacy',
+        href : '/',
+        subLinks : []
       },
       {
         title : 'Condition Check',
-        href : '/condition-check'
-      }
+        href : '/condition-check',
+        subLinks : []
+      },
     ]
   },
   {
@@ -106,7 +183,16 @@ const NavBarLinks = [
     screen : '/find-care',
     title : 'FIND CARE',
     subLinks : [
-      
+      {
+        title : 'Insurance Policy',
+        href : '/insurance-policy',
+        subLinks : []
+      },
+      {
+        title : 'Patient Forms',
+        href : '/patient-forms',
+        subLinks : []
+      }
     ]
   },
   {
@@ -114,6 +200,26 @@ const NavBarLinks = [
     screen : '/area-of-speciality',
     title : 'AREA OF SPECIALITY',
     subLinks : [
+      {
+        title : 'Back Pain',
+        href : '/area-of-speciality',
+        subLinks : []
+      },
+      {
+        title : 'Neck & Shoulder Pain',
+        href : '/area-of-speciality',
+        subLinks : []
+      },
+      {
+        title : 'View All Conditions',
+        href : '/area-of-speciality',
+        subLinks : []
+      },
+      {
+        title : 'View All Treatments',
+        href : '/treatments',
+        subLinks : []
+      }
       
     ]
   },
@@ -124,11 +230,18 @@ const NavBarLinks = [
     subLinks : [
       {
         title : 'Meet our Doctors',
-        href : '/about/meetourdoctors'
+        href : '/about/meetourdoctors',
+        subLinks : []
       },
       {
         title : 'FAQs',
-        href : '/about/FAQs'
+        href : '/about/FAQs',
+        subLinks : []
+      },
+      {
+        title : "Blogs",
+        href : '/blogs',
+        subLinks : []
       }
     ]
   },

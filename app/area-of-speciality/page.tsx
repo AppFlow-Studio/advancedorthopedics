@@ -8,6 +8,35 @@ import ConditionCard from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import {Conditions} from '@/components/data/conditions'
 export default function AreaOfSpeciality() {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(9);
+  const [data, setData] = React.useState(Conditions);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem)
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+    
+    const paginate = (pageNumber : number) => setCurrentPage(pageNumber);
+    
+    const renderPageNumbers = () => {
+      const pageNumbers = [];
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(
+          <button key={i} onClick={() => paginate(i)} className={` h-[40px] hover:cursor-pointer w-[40px] flex items-center  justify-center ${ i == currentPage ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
+            <h1
+              style={{
+                fontFamily : 'var(--font-reem-kufi)',
+                fontWeight : 500,
+              }}
+              className=' text-lg'
+            >
+              {i}
+            </h1>
+          </button>
+        );
+      }
+      return pageNumbers;
+    };
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -144,14 +173,12 @@ export default function AreaOfSpeciality() {
                 </svg>
                 </span>
                 <Input placeholder="Search Name or Keyword" className="h-12 text-lg rounded-l-none border-0 bg-[#EFF5FF] rounded-r-[62px] " onFocus={() => {}}/>
-              </div> 
-
-              
+            </div> 
           </div>
 
           <div className=' grid grid-cols-3 mt-[60px] gap-[32px] '>
               {
-                Conditions.slice(0,9).map((item) => 
+                currentItems.slice(0,9).map((item) => 
                 <ConditionCard ConditionInfo={item} key={item.title}/>
                 )
               }
@@ -175,7 +202,7 @@ export default function AreaOfSpeciality() {
                 </h1>
               </div>
 
-              <div className=' flex flex-row items-center space-x-[2px]'>
+             {/*  <div className=' flex flex-row items-center space-x-[2px]'>
                 {
                   [1,2,3,4,5,6,7,8,9,10].map((item) => (
                     <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
@@ -191,7 +218,11 @@ export default function AreaOfSpeciality() {
                     </div>
                   ))
                 }
+              </div> */} 
+              <div className=' flex flex-row items-center space-x-[2px]'>
+                {renderPageNumbers()}
               </div>
+              
 
               <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer '>
               <h1

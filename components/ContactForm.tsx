@@ -56,7 +56,7 @@ export function ConsultationForm() {
   }
 
   return (
-     <div className="w-full rounded-3xl overflow-hidden backdrop-blur-[15px] bg-white bg-opacity-50" 
+     <div className="w-full overflow-hidden backdrop-blur-[15px] bg-white bg-opacity-50" 
      
      >
         <Form {...form} 

@@ -10,7 +10,7 @@ export interface ConditionInfoProp {
     slug : string
 }
 
-function truncateString(str : string, maxLength = 172) {
+function truncateString(str : string, maxLength = 125) {
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
   }
