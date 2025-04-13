@@ -35,7 +35,7 @@ const timeSlots = [
   "4:00 PM - 5:00 PM",
 ]
 
-export function MiniContactForm({backgroundcolor = 'white'}) {
+export function MiniContactForm({backgroundcolor = 'white'} : { backgroundcolor? : string}) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,6 +56,14 @@ export function MiniContactForm({backgroundcolor = 'white'}) {
      <div className={`w-full p-8 rounded-3xl overflow-hidden backdrop-blur-[15px] bg-[${backgroundcolor}] bg-opacity-50`}
      
      >
+       <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-black text-2xl text-left w-full"
+          >Book Your Appointment</h1>
+
         <Form {...form} 
         
         >

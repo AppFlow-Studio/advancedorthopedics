@@ -30,6 +30,12 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
 function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen : string, pathname : string, sublinks : {title : string, href : string, subLinks: {title : string, href : string}[] }[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -44,7 +50,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
   // Use Navigation Menu Shadcn
 
   return (
-     <NavigationMenuItem>
+     <NavigationMenuItem className='relative'>
         <NavigationMenuTrigger
          className={`${pathname === screen ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,0.5)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px] "} hover:text-[#022968] transition-colors text-[16px] text-center `}
          style={{
@@ -68,8 +74,9 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
             </h1>
           </Link>
         </NavigationMenuTrigger>
-        <NavigationMenuContent
-          className="self-end"
+        <NavigationMenuContent 
+          
+          className=" absolute "
           style={{
             background : 'rgba(239, 245, 255, 0.50)',
             border: '1px solid white',
@@ -82,6 +89,8 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
               sublinks.map((link) => {
                 return (    
                     <NavigationMenuLink key={link.title}  href={link.href} className='w-full'>
+                          {
+                          link.subLinks.length == 0 ? 
                           <h1 
                           style={{
                                 fontFamily: "var(--font-reem-kufi)",
@@ -89,6 +98,45 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                             }}
                             >{link.title}
                           </h1>
+                          :
+                          <HoverCard>
+                            <HoverCardTrigger>
+                                <h1 
+                              style={{
+                                    fontFamily: "var(--font-reem-kufi)",
+                                    fontWeight: 400,
+                                }}
+                                >{link.title}
+                              </h1>
+                            </HoverCardTrigger>
+                            <HoverCardContent side='right'
+                            sideOffset={18}
+                            align="start"
+                            popover='auto'
+                            className="flex flex-col p-0 w-max justify-center"
+                            style={{
+                              background : 'rgba(239, 245, 255, 0.50)',
+                              border: '1px solid white',
+                              borderRadius : '8px',
+                              backdropFilter : 'blur(10px)'
+                            }}
+                            >
+                                {
+                                  link.subLinks.map((sub_link) => (
+                                    <NavigationMenuLink className='' href={sub_link.href}>
+                                      <h1 
+                                      style={{
+                                            fontFamily: "var(--font-reem-kufi)",
+                                            fontWeight: 400,
+                                        }}
+                                        >{sub_link.title}
+                                      </h1>
+                                    </NavigationMenuLink>
+                                  ))
+                                }
+                            </HoverCardContent>
+                          </HoverCard>
+                        }
                   </NavigationMenuLink>         
               )})
             }
@@ -105,31 +153,6 @@ const NavBarLinks = [
     screen : '/',
     title : 'HOME',
     subLinks : [       
-      {
-        title : 'Book An Appointment',
-        href : '/book-an-appointment',
-        subLinks : []
-      },
-      {
-        title : 'Find a Doctor',
-        href : '/about/meetourdoctors',
-        subLinks : []
-      },
-      {
-        title : 'Get a Second Opinion',
-        href : '/',
-        subLinks : []
-      },
-      {
-        title : 'Get a Free MRI Review',
-        href : '/',
-        subLinks : []
-      },
-      {
-        title : 'Learn Treatment Candidacy',
-        href : '/',
-        subLinks : []
-      },
       {
         title : 'Condition Check',
         href : '/condition-check',
@@ -187,12 +210,42 @@ const NavBarLinks = [
       {
         title : 'Back Pain',
         href : '/area-of-speciality',
-        subLinks : []
+        subLinks : [
+          {
+            title : 'Lower Back Pain',
+            href : '/area-of-pain/back-pain/lowerbackpain'
+          },
+          {
+            title : 'Lumbar Herniated Disc',
+            href : '/lumbarherniateddisc'
+          },
+          {
+            title : 'Sciatica',
+            href : '/area-of-pain/back-pain/sciatica'
+          },
+          {
+            title : 'Coccydynia',
+            href : '/area-of-pain/back-pain/coccydynia'
+          },
+          {
+            title : 'Back Pain Treament Options',
+            href : '/treatments'
+          }
+        ]
       },
       {
         title : 'Neck & Shoulder Pain',
         href : '/area-of-speciality',
-        subLinks : []
+        subLinks : [
+          {
+            title : 'Cervical Spinal Stenosis',
+            href : '/area-of-pain/neck-and-shoulder-pain/cervicalspinalstenosis'
+          },
+          {
+            title : 'Cervical Herniated Disc',
+            href : '/area-of-pain/neck-and-shoulder-pain/cervicalherniateddisc'
+          }
+        ]
       },
       {
         title : 'View All Conditions',
@@ -244,7 +297,7 @@ export default function NavBar() {
   const pathname = usePathname();
   return (
     <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-6 max-h-[128px] lg:h-[60px]'>
-        <nav className="flex justify-between items-center w-full max-w-[1440px] px-[40px] py-2">
+        <nav className="flex justify-between items-center w-full max-w-[1440px] px-[40px] py-2 z-[1]">
             <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px]'> 
                 <Image src={Logo} alt="Advanced Orthopedics Logo" className="max-h-[32px] lg:h-[32px] w-auto  " />
                 <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
@@ -261,7 +314,7 @@ export default function NavBar() {
                 </div>
             </Link>
 
-            <NavigationMenu className="flex space-x-8 text-[16px] font-semibold items-center justify-center">
+            <NavigationMenu className="flex space-x-8 text-[16px] font-semibold items-center justify-center z-1" viewport={false}>
 
               <NavigationMenuList>
                 {

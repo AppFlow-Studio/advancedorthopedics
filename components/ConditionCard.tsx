@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
 import Logo from '../public/Logo.png'
@@ -8,6 +8,8 @@ export interface ConditionInfoProp {
     title : string
     body : string
     slug : string
+    forum? : {}[]
+    side_img? : StaticImageData
 }
 
 function truncateString(str : string, maxLength = 125) {
