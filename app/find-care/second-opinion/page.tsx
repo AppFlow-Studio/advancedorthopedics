@@ -13,6 +13,7 @@ import DoctorCard from '@/components/DoctorCard';
 import FAQsSection from '@/components/FaqsSection';
 import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
 import FindCareContactUsSection from '@/components/FindCardContactUsSection';
+import { TextAnimate } from '@/components/magicui/text-animate';
 
 const faqItems : {question : string, answer : React.JSX.Element}[] = [
     {
@@ -80,7 +81,7 @@ export default function SecondOpinion() {
      <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>
               <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-                  <h1
+                  <TextAnimate animation="blurInUp" by="character" once
                   style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
@@ -89,7 +90,7 @@ export default function SecondOpinion() {
                   className='text-[#022968] text-6xl'
                   >
                     Get a Second Opinion
-                  </h1>
+                  </TextAnimate>
                   <h1
                   style={{
                     fontFamily : 'var(--font-reem-kufi)',

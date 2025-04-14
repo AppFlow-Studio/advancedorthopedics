@@ -24,6 +24,7 @@ import { Doctors } from '@/components/data/doctors';
 import DoctorCard from '@/components/DoctorCard';
 import FAQsSection from '@/components/FaqsSection';
 import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
+import { TextAnimate } from '@/components/magicui/text-animate'
 
 const formSchema = z.object({
 // Step 1 Questions
@@ -261,7 +262,7 @@ function CandidacyCheck() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
     <section className=' bg-[#6FC2ED] w-full flex flex-row'>
       <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-          <h1
+          <TextAnimate animation="blurInUp" by="character" once
           style={{
             fontFamily : 'var(--font-reem-kufi)',
             fontWeight : 500,
@@ -270,7 +271,7 @@ function CandidacyCheck() {
           className='text-[#022968] text-6xl'
           >
             Candidacy Check
-          </h1>
+          </TextAnimate>
           <h1
           style={{
             fontFamily : 'var(--font-reem-kufi)',

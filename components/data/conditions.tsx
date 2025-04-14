@@ -13,6 +13,14 @@ import coccydynia2 from '@/public/coccydynia2.jpeg'
 import coccydyniaside from '@/public/coccydyniaside.png'
 import cervicalhernia from '@/public/cervicalhernia.jpeg'
 import cervicalherniaside from '@/public/cervicalherniaside.png'
+import degendisc from '@/public/degendisc.png'
+import degendisc2 from '@/public/degendisc2.png'
+import degendiscside from '@/public/degendiscside.jpeg'
+import GradientOverlayImage from "../GradientOverlayImage"
+import lumbarherniateddisc from '@/public/lumberherniateddisc.jpeg'
+import lumbarherniateddisc2 from '@/public/lumberherniateddisc2.png'
+import lumbarherniateddiscside from '@/public/lumberherniateddiscside.png'
+
 export const Conditions : ConditionInfoProp[] = [
     {
       "title": "Adjacent Segment Disease",
@@ -22,6 +30,158 @@ export const Conditions : ConditionInfoProp[] = [
     {
       "title": "Degenerative Disc Disease",
       "body": "Around 40% of adults over 40 have a minimum of one degenerated vertebral disc. Approximately 80% of adults will have one by the age of 80. Disc...",
+      forum : [
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                What is Degenerative Disc Disease?
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                Degenerative Disc Disease is a spinal condition caused by age-related breakdown of the discs that cushion the vertebrae. These discs act like shock absorbers, allowing your spine to flex, bend, and twist. Over time, discs can lose water content, flatten, and develop small tears, reducing their ability to support your spine and absorb impact. Unlike acute injuries, DDD develops slowly over time and is especially common in individuals over 40. However, it can also affect younger individuals with physically demanding lifestyles or spinal injuries.
+                </h1>
+                <GradientOverlayImage
+                  imageData={degendisc} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              <h1 
+               style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+                >
+                  To diagnose DDD, our specialists begin with a full medical history and physical exam, followed by advanced imaging such as X-rays or MRI scans to evaluate disc height, disc shape, and any signs of degeneration. We also assess nerve function and spinal alignment to understand the full extent of the damage. Diagnosis may involve ruling out other conditions, such as herniated discs or spinal stenosis, that share similar symptoms.
+                </h1>
+
+                <OutlinedButton text="Do I have this Condition?"/>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Symptoms of Degenerative Disc Disease
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                Symptoms vary depending on the location and severity of the disc degeneration. Common signs include chronic lower back or neck pain that worsens with bending, twisting, or prolonged sitting. Some patients find relief when walking or changing positions. Others may experience muscle weakness or numbness in the arms or legs if nerve compression occurs. Many people also report stiffness or reduced flexibility in the spine. The pain may be intermittent, flaring up during activity and easing with rest.
+                </h1>
+                <OutlinedButton text="Find a Treatment"/>
+
+                <GradientOverlayImage
+                  imageData={degendisc2} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Risk Factors for Degenerative Disc Disease
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                You may be at higher risk for DDD if you are over the age of 40, smoke, or lead a sedentary lifestyle. A history of spinal injuries or trauma can increase your risk, especially if paired with poor posture or spinal misalignment. Genetic factors also contribute, and individuals with a family history of spine-related conditions are more likely to develop DDD. Identifying these risk factors early can help slow the progression of the disease and guide preventative care.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Treatment Options for Degenerative Disc Disease
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                At Advanced Orthopedics, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Schedule a Consultation Today
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Advanced Orthopedics, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
+                </h1>
+              </div>
+            </div>
+          )
+        }
+      ],
+      side_img : degendiscside,
       "slug": "degenerativediscdisease"
     },
     {
@@ -65,7 +225,11 @@ export const Conditions : ConditionInfoProp[] = [
                 >
                 Lower back conditions can present in many ways, including radiating pain, stiffness, numbness, or tingling that travels through one or both legs. The severity and type of symptoms often depend on the specific condition and how far it has progressed. Conditions like herniated discs, spinal stenosis, osteoarthritis, and spondylolisthesis are among the most common causes of chronic lower back pain. If you’re experiencing numbness or tingling in particular, this may point to nerve compression — which is often more serious than general discomfort and should be addressed immediately to prevent long-term damage.
                 </h1>
-                <Image src={LowerBackImage} alt="Lower Back Pain" className="w-full aspect-video rounded-[20px]"/>
+                <GradientOverlayImage
+                  imageData={LowerBackImage} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
                 <h1 
                style={{
                 fontFamily: "var(--font-inter)",
@@ -176,7 +340,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At OLSS, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.               </h1>
+                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At OLSS, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
+                </h1>
               </div>
             </div>
           )
@@ -607,11 +772,169 @@ If you’re experiencing persistent lower back pain, numbness, or radiating leg 
       ],
       "slug": "cervicalspinalstenosis"
     },
+
     {
       "title": "Lumbar Herniated Disc",
-       body : "",
+       body : "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
+       side_img : lumbarherniateddiscside,
+       forum : [
+        {
+          post : (
+          <div className=" flex flex-col space-y-[16px] ">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-4xl">
+              How Do I Know If I Have a Lumbar Herniated Disc?
+            </h1>
+            <div className=" flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+              >
+                Signs of a lumbar herniated disc often start gradually but may worsen over time if not treated. The most common symptom is a sharp or burning pain that radiates from the lower back into the leg, often following the path of the sciatic nerve. Many patients describe the pain as electric or stabbing, and it may worsen when sitting for long periods, bending forward, or coughing. Some patients also experience tingling, numbness, or muscle weakness in the leg or foot on the affected side. In severe cases, the condition can affect walking or standing for extended periods, reducing your quality of life.
+              </h1>
+              <GradientOverlayImage
+                  imageData={lumbarherniateddisc} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+              />
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+              >
+                If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Advanced Orthopedics offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
+              </h1>
+
+              <OutlinedButton text="Do I have this Condition?" />
+
+            </div>
+          </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-4xl">
+              What Lumbar Herniated Disc Treatment is Right for Me?
+            </h1>
+            <div className=" flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+              >
+                The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.<br/><br/>
+                At Advanced Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+            </div>
+          </div>
+          )
+        },
+        {
+          post : (
+          <div className=" flex flex-col space-y-[16px] ">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-4xl">
+              Pain Management for a Lumbar Herniated Disc
+            </h1>
+            <div className=" flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+              >
+                The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended. 
+                At Advanced Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+              </h1>
+              <GradientOverlayImage
+                  imageData={lumbarherniateddisc2} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+              />
+            </div>
+          </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-4xl">
+              Best Treatment to Prevent Pain From a Lumbar Herniated Disc
+            </h1>
+            <div className=" flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+              >
+               If you’re experiencing symptoms of a lumbar herniated disc, there are several treatment options available depending on the severity of your condition. If your pain is mild and manageable, starting with home care and guided physical therapy can often lead to improvement. Applying heat or ice, taking anti-inflammatory medications such as ibuprofen or naproxen, and making lifestyle adjustments like avoiding long periods of sitting or poor lifting techniques can help reduce strain on the lower back. Exercise programs that strengthen the core and improve flexibility are also an essential part of recovery.<br/><br/>
+                When conservative care is not enough, surgical treatment may be necessary to relieve pressure on the affected nerves. Discectomy is a common procedure where the portion of the disc pressing on the nerve is removed to relieve pain. In some cases, a laminectomy may be performed to widen the spinal canal and ease nerve compression. For patients with severe disc damage, spinal fusion may be considered to stabilize the spine and prevent further injury.<br/><br/>
+                Every patient is different, which is why the team at Advanced Orthopedics develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
+              </h1>
+            </div>
+          </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-4xl">
+              Schedule a Consultation Today
+            </h1>
+            <div className=" flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+              >
+               Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Advanced Orthopedics, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
+               Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Advanced Orthopedics on your side, a pain-free future is within reach.
+              </h1>
+            </div>
+          </div>
+          )
+        }
+       ],
       "slug": "lumbarherniateddisc"
     },
+
     {
       "title": "Sciatica",
       "body": "Sciatica occurs when the sciatic nerve is compressed, often due to a spinal condition like a herniated disc or spinal stenosis. Pain may radiate from the lower back into the buttocks, legs, or feet. Orthopedic specialists diagnose and treat sciatica using physical therapy, medications, or, when needed, minimally invasive surgery to relieve pressure and restore function.",
@@ -745,7 +1068,11 @@ If you’re experiencing persistent lower back pain, numbness, or radiating leg 
                   Foraminotomy relieves pressure by enlarging the foramen.<br />Discectomy removes the herniated disc causing nerve compression.<br /> Laminotomy removes part of the lamina to decompress the nerve.<br /><br />
                   Our orthopedic specialists will help determine the best option based on your condition, lifestyle, and treatment goals.
                 </h1>
-                <Image src={sciatica} alt="Sciatica Skeleton" className="w-full aspect-video rounded-[20px]" />
+                <GradientOverlayImage
+                  imageData={sciatica} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
               </div>
             </div>
           )
@@ -810,7 +1137,11 @@ If you’re experiencing persistent lower back pain, numbness, or radiating leg 
                   Coccydynia is the medical term for inflammation or injury to the coccyx (tailbone), located at the bottom of the spine. Pain may occur while sitting, standing up from a seated position, or during bowel movements. It can be dull and persistent or sharp and stabbing.<br /><br />
                   The cause isn't always obvious, but common triggers include a traumatic fall, stressful childbirth, or prolonged pressure from improper sitting posture. Rarely, it may be due to a tumor in the coccyx region. If the pain persists or intensifies, it’s important to consult with a spine specialist.
                 </h1>
-                <Image src={coccydynia} alt="Sciatica Skeleton" className="w-full aspect-video rounded-[20px]" />
+                <GradientOverlayImage
+                  imageData={coccydynia} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
                 <h1
                   style={{
                     fontFamily: "var(--font-inter)",
@@ -905,7 +1236,11 @@ If you’re experiencing persistent lower back pain, numbness, or radiating leg 
                     <li>Childbirth, especially when prolonged or difficult</li>
                     <li>Repetitive strain or poor posture In rare cases, bone tumors or infections may lead to coccyx pain, which is why imaging may be required when pain does not respond to treatment.</li>
                 </h1>
-                <Image src={coccydynia2} alt="Sciatica Skeleton Highlighted" className="w-full aspect-video rounded-[20px]" />
+                <GradientOverlayImage
+                  imageData={coccydynia2} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
               </div>
             </div>
           )

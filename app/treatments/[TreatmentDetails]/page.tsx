@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
 import DoctorCard from '@/components/DoctorCard'
 import Link from 'next/link'
+import { TextAnimate } from '@/components/magicui/text-animate'
 export default function ConditionDetails({
     params,
   }: {
@@ -58,7 +59,7 @@ export default function ConditionDetails({
                 }}
                 className="text-[#022968]"
                 >
-                    Condition
+                    Treatment
                 </h1>
     
                 <h1
@@ -78,12 +79,12 @@ export default function ConditionDetails({
                 }}
                 className="text-[#2358AC]"
                 >
-                    Condition Details
+                    Treatment Details
                 </h1>
             </div>
         </div>
         <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
-            <h1
+            <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -92,7 +93,7 @@ export default function ConditionDetails({
             className="text-[#022968]"
             >
                 {treatment_details.title}
-            </h1>
+            </TextAnimate>
         </div>
 
         <div className="z-[2] px-[80px] mt-[24px] w-[55%]">

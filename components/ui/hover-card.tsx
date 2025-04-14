@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 function HoverCard({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
-  return <HoverCardPrimitive.Root data-slot="hover-card" {...props} openDelay={5} />
+  return <HoverCardPrimitive.Root data-slot="hover-card" {...props} openDelay={5} closeDelay={5}/>
 }
 
 function HoverCardTrigger({

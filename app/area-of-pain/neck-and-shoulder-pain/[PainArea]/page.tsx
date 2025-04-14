@@ -13,6 +13,7 @@ import { DoctorContactForm } from '@/components/DoctorContactForm'
 import Link from 'next/link'
 import { BackPainDropdown } from '@/components/back-pain-dropdown'
 import { NeckAndShoulderDropDown } from '@/components/neck-and-shoulder-dropdown'
+import { TextAnimate } from '@/components/magicui/text-animate'
 export default function PainArea({
     params,
   }: {
@@ -108,7 +109,7 @@ export default function PainArea({
             </div>
         </div>
         <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
-            <h1
+            <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -117,7 +118,7 @@ export default function PainArea({
             className="text-[#022968]"
             >
                 {condition_details.title}
-            </h1>
+            </TextAnimate>
         </div>
 
         <div className="z-[2] px-[80px] mt-[24px] w-[55%]">

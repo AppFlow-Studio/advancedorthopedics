@@ -7,7 +7,7 @@ import ContactUsSection from '@/components/ContactUsSection'
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { m } from 'framer-motion'
+import { m, motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from '@/components/ui/textarea'
@@ -36,7 +36,9 @@ const formSchema = z.object({
  phone : z.string().min(10, "Phone number must be at least 10 digits"),
  state : z.string(),
  insurance_type : z.string(),
- comments : z.string()
+ comments : z.string(),
+ email_optout : z.string()
+ 
 })
 
 const ConditionCheckSteps = [
@@ -212,6 +214,11 @@ const ConditionCheckSteps = [
             question : "Comments",
             control : "comments",
             options : []
+        },
+        {
+            question : 'Email Opt Out',
+            control : 'email_optout',
+            options : []
         }
     ]
   }
@@ -239,7 +246,9 @@ export default function ConditionChecker() {
         phone : "",
         state : "",
         insurance_type : "",
-        comments : ""
+        comments : "",
+        email_optout : ""
+        
       },
     })
   return (
@@ -362,7 +371,11 @@ export default function ConditionChecker() {
                 }
             </div>
 
-            <div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px]'>
+            <motion.div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] overflow-hidden'
+            layout
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+
+            >
                     <div className=' bg-[#022968] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
                         <h1
                         style={{
@@ -528,6 +541,24 @@ export default function ConditionChecker() {
                                                         question.question == 'Comments' ? 
                                                         <Textarea placeholder={"Comments"} className={`min-h-[200px] text-lg resize-none  border-[#DCDEE1]  bg-[#EFF5FF]`} {...field} />
                                                         :
+                                                        question.question == 'Email Opt Out' ?
+                                                                <div className=' flex flex-row items-center justify-start space-x-[12px] w-full hover:cursor-pointer'
+                                                                onClick={() => field.onChange(field.value == 'false' ? 'true'  : 'false')}
+                                                                >
+                                                                    {
+                                                                        field.value == 'true' ? 
+                                                                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                                        <path fillRule="evenodd" clipRule="evenodd" d="M10.0526 0.604126C12.061 0.604126 13.6386 0.604131 14.8697 0.770048C16.1319 0.939631 17.1329 1.29439 17.9194 2.08089C18.7059 2.86739 19.0607 3.86837 19.2302 5.13062C19.3962 6.3617 19.3962 7.93929 19.3962 9.9477V10.0522C19.3962 12.0606 19.3962 13.6382 19.2302 14.8693C19.0607 16.1316 18.7059 17.1325 17.9194 17.919C17.1329 18.7055 16.1319 19.0603 14.8697 19.2299C13.6386 19.3958 12.061 19.3958 10.0526 19.3958H9.94807C7.93965 19.3958 6.36207 19.3958 5.13098 19.2299C3.86873 19.0603 2.86775 18.7055 2.08125 17.919C1.29475 17.1325 0.939998 16.1316 0.770414 14.8693C0.604498 13.6382 0.604492 12.0606 0.604492 10.0522V9.9477C0.604492 7.93929 0.604498 6.3617 0.770414 5.13062C0.939998 3.86837 1.29475 2.86739 2.08125 2.08089C2.86775 1.29439 3.86873 0.939631 5.13098 0.770048C6.36207 0.604131 7.93965 0.604126 9.94807 0.604126H10.0526ZM14.4718 6.35162C14.7147 6.79621 14.5516 7.35355 14.107 7.59646C12.8502 8.28396 11.6696 9.72313 10.7676 11.1027C10.3285 11.7755 9.97558 12.4025 9.73358 12.86C9.61259 13.0891 9.52 13.2743 9.45767 13.4017L9.36784 13.5896C9.22575 13.8995 8.92416 14.1048 8.58408 14.124C8.244 14.1424 7.92224 13.971 7.74715 13.6795C7.46207 13.2028 7.01016 12.7683 6.59033 12.4365C6.38683 12.2751 6.20348 12.1486 6.0724 12.0625L5.879 11.9424C5.43991 11.6912 5.28683 11.1311 5.538 10.692C5.78825 10.252 6.34832 10.099 6.78832 10.3501L7.07709 10.5289C7.24392 10.6389 7.47307 10.7975 7.72699 10.9982C7.92224 11.1522 8.1395 11.3374 8.35858 11.55C8.59417 11.1275 8.8884 10.6279 9.23307 10.1008C10.1653 8.67355 11.5513 6.90438 13.227 5.98771C13.6716 5.74479 14.2289 5.90796 14.4718 6.35162Z" fill="#022968"/>
+                                                                      </svg>
+                                                                      :
+                                                                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                                        <path fillRule="evenodd" clipRule="evenodd" d="M2.081 17.9184C3.55775 19.3952 5.711 19.3952 10.0001 19.3952C14.2892 19.3952 16.4424 19.3943 17.9192 17.9184C19.3959 16.4426 19.3959 14.2884 19.3959 9.99935C19.3959 5.71027 19.395 3.55703 17.9192 2.08028C16.4433 0.603525 14.2892 0.603516 10.0001 0.603516C5.711 0.603516 3.55775 0.603525 2.081 2.08028C0.604248 3.55611 0.604248 5.71026 0.604248 9.99934V9.99935V9.99936C0.604248 14.2884 0.604248 16.4417 2.081 17.9184ZM10 1.97852H10.0001H10.0001C13.9106 1.97852 15.8741 1.97852 16.9475 3.05193C18.0209 4.12626 18.0209 6.08884 18.0209 9.99933V9.99935V9.99937C18.0209 13.9099 18.0209 15.8734 16.9475 16.9468C15.8732 18.0202 13.9106 18.0202 10.0001 18.0202H10.0001H10.0001C6.08958 18.0202 4.127 18.0202 3.05267 16.9468C1.97925 15.8724 1.97925 13.9099 1.97925 9.99935C1.97925 6.08885 1.97925 4.12535 3.05267 3.05193C4.127 1.97852 6.08957 1.97852 10 1.97852ZM7.84688 13.9575C7.98805 14.1985 8.24563 14.3452 8.5243 14.3452H8.54814C8.83505 14.337 9.09263 14.1729 9.2228 13.9171C9.83605 12.7016 10.7435 11.0956 11.4521 10.2312L11.5851 10.069L11.5909 10.0618C11.9761 9.59031 12.2107 9.30316 12.6649 8.86629C12.9115 8.62979 13.0609 8.49505 13.3506 8.27505C13.5449 8.12655 13.896 7.91205 14.0142 7.84238C14.3415 7.64988 14.4505 7.22821 14.258 6.90096C14.0655 6.57371 13.6439 6.46464 13.3166 6.65714C13.2653 6.68739 12.8115 6.95597 12.5173 7.18055C12.1772 7.43813 11.9866 7.60956 11.7106 7.87539C11.1978 8.36908 10.9293 8.69742 10.5254 9.19142L10.5199 9.19813L10.3879 9.35947C9.69488 10.2056 8.9423 11.5127 8.45005 12.4257C8.27771 12.2195 8.0843 12.0224 7.87439 11.8629C7.47499 11.5596 6.873 11.1375 6.74807 11.0499C6.73595 11.0414 6.72832 11.036 6.7258 11.0342C6.41413 10.817 5.98605 10.893 5.7688 11.2047C5.55155 11.5164 5.62763 11.9445 5.9393 12.1617C5.93966 12.162 5.94218 12.1637 5.94667 12.1669C6.02181 12.2195 6.65025 12.6599 7.04205 12.9574C7.29046 13.1462 7.5838 13.511 7.84688 13.9575Z" fill="#838890"/>
+                                                                    </svg>
+
+                                                                    }
+                                                                    <h1>I don’t want to receive occasional emails from Orthopedic and Laser Spine Surgery.</h1>
+                                                                </div>
+                                                        :
                                                         <Input placeholder={question.question} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                                                     }
                                                 </FormControl>
@@ -599,7 +630,7 @@ export default function ConditionChecker() {
                             }
                         </button>
                     </div>
-            </div>
+            </motion.div>
         </section>
 
         <section className='w-full h-full flex flex-row space-x-[32px] relative overflow-hidden py-[50px] px-[80px]'>

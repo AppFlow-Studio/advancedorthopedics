@@ -17,6 +17,7 @@ import BlogsLanding from '@/public/BlogsLanding.png'
 import BlogPostCard, { BlogPostProp } from '@/components/BlogPostCard'
 import { Input } from '@/components/ui/input'
 import { BlogPosts } from '@/components/data/blogs'
+import { TextAnimate } from '@/components/magicui/text-animate'
 const ServicesAndExpertise = [
     {
         title : 'Treatment finder',
@@ -100,16 +101,16 @@ export default function Blogs() {
             </div>
         </div>
         <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
-            <h1
+            <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
                 fontSize : '72px'
             }}
-            className="text-[#022968]"
+            className="text-[#022968] w-[80%]"
             >
                 Spine Wellness Blog
-            </h1>
+            </TextAnimate>
         </div>
 
         <div className="z-[2] px-[80px] mt-[24px] w-[45%]">
@@ -121,7 +122,7 @@ export default function Blogs() {
             }}
             className="text-[#111315]"
             >
-                Get the latest news, updates and insights into spinal surgery and minimally invasive treatments
+                Get the latest news, updates and insights into spinal surgery and minimally invasive treatments
             </p>
         </div>
         </div>

@@ -48,15 +48,15 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
   };
 
   // Use Navigation Menu Shadcn
-
+  console.log(pathname)
   return (
      <NavigationMenuItem className='relative'>
         <NavigationMenuTrigger
-         className={`${pathname === screen ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,0.5)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px] "} hover:text-[#022968] transition-colors text-[16px] text-center `}
+         className={`${pathname.includes(screen) && screen != '/'  ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,1)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px]"} hover:text-[#022968] transition-colors text-[16px] text-center bg-[rgba(239,245,255,0)]`}
          style={{
           border : 1,
-          borderStyle : pathname === screen ? 'solid' : 'none',
-          borderColor : pathname === screen ? 'white' : ''
+          borderStyle : pathname.includes(screen) && screen != '/'  ? 'solid' : 'none',
+          borderColor : pathname.includes(screen) && screen != '/'  ? 'white' : ''
         }}
         >
           <Link href={href}
@@ -161,7 +161,7 @@ const NavBarLinks = [
     ]
   },
   {
-    href : '/find-care',
+    href : '/find-care/book-an-appointment',
     screen : '/find-care',
     title : 'FIND CARE',
     subLinks : [
@@ -216,8 +216,12 @@ const NavBarLinks = [
             href : '/area-of-pain/back-pain/lowerbackpain'
           },
           {
+            title : 'Degenerative Disc Disease',
+            href : '/area-of-pain/back-pain/degenerativediscdisease'
+          },
+          {
             title : 'Lumbar Herniated Disc',
-            href : '/lumbarherniateddisc'
+            href : '/area-of-pain/back-pain/lumbarherniateddisc'
           },
           {
             title : 'Sciatica',
@@ -229,7 +233,7 @@ const NavBarLinks = [
           },
           {
             title : 'Back Pain Treament Options',
-            href : '/treatments'
+            href : '/area-of-pain/back-pain/backpaintreatmentoptions'
           }
         ]
       },

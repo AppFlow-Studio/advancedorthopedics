@@ -37,6 +37,11 @@ import RatingsAndReviews from "@/components/RatingsAndReviews";
 import { Doctors } from "@/components/data/doctors";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { AnimatedList } from "@/components/magicui/animated-list";
+import Reveal from "@/components/RevealAnimation";
+import { NumberTicker } from "@/components/magicui/number-ticker";
+import SlidingDiv from "@/components/SlidingAnimation";
+import { TextAnimate } from "@/components/magicui/text-animate";
 
 const ServicesAndExpertise = [
   {
@@ -105,19 +110,23 @@ const OurSpecialtyItems = [
 ]
 const Testimonials = [
   {
-    stat : '15k+',
+    stat : '+',
+    value : 15,
     desc : 'Successful Treatments'
   },
   {
-    stat : '20+',
+    stat : '+',
+    value : 20,
     desc : 'Years of Experience'
   },
   {
-    stat : '95%',
+    stat : '%',
+    value : 95,
     desc : 'Patient Satasfaction Rate'
   },
   {
-    stat : '24/7',
+    stat : '/7',
+    value : 24,
     desc : 'Customer Support'
   }
 
@@ -248,62 +257,71 @@ export default function Home() {
           }}
           />
 
-         <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[128px] w-[55%]">
-            <Avatars />
-            <h1
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-              fontSize: "24px",
-              lineHeight: "24px",
-              letterSpacing: "0.02em",
-            }}
-            className=" text-white"
-            >
-              100,000+ Happy Patient's
-            </h1>
-         </div>
+         <SlidingDiv position="left" className="z-[2]">
+           <div className="px-[80px] flex flex-row space-x-[20px] items-center justify-start mt-[128px] w-[55%]">
+              <Avatars />
+              <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+                fontSize: "24px",
+                lineHeight: "24px",
+                letterSpacing: "0.02em",
+              }}
+              className=" text-white"
+              >
+                100,000+ Happy Patient's
+              </h1>
+           </div>
+         </SlidingDiv>
 
-         <div className="z-[2] px-[80px] my-[24px] w-[44%]">
-            <h1
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-              fontSize: "72px",
-              lineHeight: "110%",
-            }}
-            className="text-white"
-            >
-            Welcome to<br/> Advanced<br/> Orthopedics 
-            </h1>
-         </div>
+         <SlidingDiv position="left" className="z-[2]"
+         >
+           <div className="px-[80px] my-[24px] w-[44%]">
+              <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+                fontSize: "72px",
+                lineHeight: "110%",
+              }}
+              className="text-white"
+              >
+              Welcome to<br/> Advanced<br/> Orthopedics 
+              </h1>
+           </div>
+         </SlidingDiv>
 
-         <div className="z-[2] px-[80px] mb-[24px] w-[50%]">
-            <p
-            style={{
-              fontWeight: 400,
-              fontSize: "24px",
-              lineHeight: "148%",
-            }}
-            className="text-white"
-            >
-            Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
-            </p>
-         </div>
+         <SlidingDiv position="left" className="z-[2]">
+           <div className="px-[80px] mb-[24px] w-[50%]">
+              <p
+              style={{
+                fontWeight: 400,
+                fontSize: "24px",
+                lineHeight: "148%",
+              }}
+              className="text-white"
+              >
+              Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
+              </p>
+           </div>
+         </SlidingDiv>
           
-          <div className="z-[2] px-[80px] my-[24px] w-[55%] flex flex-row space-x-[16px]">
-            <div className=""><BookAnAppoitmentButton /></div>
-            <button 
-                className="h-full max-h-[56px] px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[white] text-[#0094E0] font-[500] text-[14px] "
-                >
-                Contact Us
-                <div className='pl-[10px]'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                        <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0094E0"/>
-                    </svg>
-                </div>
-            </button>
-          </div>
+          <SlidingDiv position="left" className="z-[2]">
+            <div className="px-[80px] my-[24px] w-[55%] flex flex-row space-x-[16px]">
+              <div className=""><BookAnAppoitmentButton /></div>
+              <button 
+                  className="h-full max-h-[56px] px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[white] text-[#0094E0] font-[500] text-[14px] "
+                  >
+                  Contact Us
+                  <div className='pl-[10px]'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+                          <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0094E0"/>
+                      </svg>
+                  </div>
+              </button>
+            </div>
+          </SlidingDiv>
 
           <div className="z-[2] w-full flex flex-row items-center justify-evenly absolute bottom-0 left-0 right-0 bg-white pt-[32px] pb-[50px]"
           style={{
@@ -312,12 +330,13 @@ export default function Home() {
           >
             {
               [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+                <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" draggable={false}/>
               ))
             }
           </div>
 
         </div>
+        
       </section>
       {/*  */}
 
@@ -397,59 +416,61 @@ export default function Home() {
               </div>
             </div>
 
-            <div className=" grid grid-cols-4 gap-[24px] mt-[32px]">
-                {
-                  ServicesAndExpertise.map((item,index) => (
-                    <div className="flex flex-col p-4 rounded-[24px] space-y-[24px]" key={item.title}
-                    style={{
-                      background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
-                    }}
-                    >
-                      <div className=" flex flex-row items-center justify-between">
-                        <div className=" rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
-                          <h1 
-                          style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                            color : selectedService == item.title  ? 'white' : '#022968'
-                          }}
-                          className="text-lg self-center"
-                          >0{index + 1}</h1>
+            <Reveal className="w-full" width="100%">
+              <div className=" grid grid-cols-4 gap-[24px] mt-[32px]">
+                  {
+                    ServicesAndExpertise.map((item,index) => (
+                      <div className="flex flex-col p-4 rounded-[24px] space-y-[24px]" key={item.title}
+                      style={{
+                        background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
+                      }}
+                      >
+                        <div className=" flex flex-row items-center justify-between">
+                          <div className=" rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
+                            <h1 
+                            style={{
+                              fontFamily: "var(--font-reem-kufi)",
+                              fontWeight: 500,
+                              color : selectedService == item.title  ? 'white' : '#022968'
+                            }}
+                            className="text-lg self-center"
+                            >0{index + 1}</h1>
+                          </div>
+  
+                         <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-4"> <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/> </div>
+                          
                         </div>
-
-                       <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-4"> <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/> </div>
-                        
+  
+                        <div className=" flex flex-col space-y-[16px]">
+                            <h1
+                             style={{
+                              fontFamily: "var(--font-reem-kufi)",
+                              fontWeight: 500,
+                              color : selectedService == item.title  ? 'white' : '#022968',
+                            }}
+                            className="text-3xl"
+                            >{item.title}</h1>
+  
+                            <h1
+                            style={{
+                              fontFamily: "var(--font-reem-kufi)",
+                              fontWeight: 500,
+                              color : selectedService == item.title  ? '#EFF5FF' : '#5B5F67',
+                            }}
+                            className="text-lg"
+                            >
+                              {item.desc}
+                            </h1>
+                        </div>
+  
+                       <div >
+                        <Image src={item.anatomy} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
+                       </div>
                       </div>
-
-                      <div className=" flex flex-col space-y-[16px]">
-                          <h1
-                           style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                            color : selectedService == item.title  ? 'white' : '#022968',
-                          }}
-                          className="text-3xl"
-                          >{item.title}</h1>
-
-                          <h1
-                          style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                            color : selectedService == item.title  ? '#EFF5FF' : '#5B5F67',
-                          }}
-                          className="text-lg"
-                          >
-                            {item.desc}
-                          </h1>
-                      </div>
-
-                     <div >
-                      <Image src={item.anatomy} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
-                     </div>
-                    </div>
-                  ))
-                }
-            </div>
+                    ))
+                  }
+              </div>
+            </Reveal>
       </section>
       {/*  */}
 
@@ -511,8 +532,8 @@ export default function Home() {
 
              <div className="relative z-10"> {/* Wrapper with high z-index */}
                 {/* Circles behind the image */}
-                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] -right-[46%] mx-auto z-0" />
-                <div className="absolute top-[16%] border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] -right-[16%] mx-auto flex items-center justify-center z-0">
+                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] -right-[46%] mx-auto z-0 max-h-[705px] lg:h-[705px]" />
+                <div className="absolute top-30 border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] lg:h-[480px] -right-[16%] mx-auto flex items-center justify-center z-0">
                   <div className="bg-white h-[70%] w-[70%] rounded-full z-0" />
                 </div>
 
@@ -668,29 +689,28 @@ export default function Home() {
 
 
              <div className=" flex flex-col space-y-[10px] w-[20%]  pt-50 z-20">
-             <h1
-                style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-                color : '#022968',
-                }}
-                className=" text-2xl"
-                >
-                 {selectedOrthoCondition.area_procedures.title}
-                </h1>
-                <h1>
-                {selectedOrthoCondition.area_procedures.desc}
+               <TextAnimate  animation="blurInUp" by="character" once style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                  color : '#022968',
+                  }}
+                  className=" text-2xl"> 
+                   {selectedOrthoCondition.area_procedures.title}
+               </TextAnimate>
+                <h1> 
+                  {selectedOrthoCondition.area_procedures.desc}
                 </h1>
                 <Link 
                 className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex  bg-[#0094E0] text-white text-[14px] font-[500] w-full justify-center items-center hover:cursor-pointer"
                 href={selectedOrthoCondition.view_all_treatments.href}
                 >
-                    <h1
+                    <TextAnimate
+                    animation="blurInUp" by="character" once 
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
-                    >{selectedOrthoCondition.view_all_treatments.text}</h1>
+                    >{selectedOrthoCondition.view_all_treatments.text}</TextAnimate>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                       <path d="M12.9985 1.46524C12.752 1.23664 12.4267 1.10984 12.1498 1.03007C11.8544 0.944969 11.5165 0.886948 11.1686 0.84632C10.4713 0.764898 9.65365 0.744548 8.88838 0.751159C8.11878 0.757808 7.38161 0.791999 6.83826 0.824347C6.56612 0.840548 6.34152 0.856353 6.18445 0.868151C6.1059 0.874051 6.04417 0.878953 6.00177 0.882408L5.95295 0.88645L5.93999 0.887552L5.93495 0.887986C5.5223 0.923934 5.21693 1.2876 5.25287 1.70025C5.28882 2.11288 5.65303 2.4182 6.06565 2.38228L6.06817 2.38207L6.07907 2.38114L6.12358 2.37745C6.16303 2.37424 6.2216 2.36959 6.2968 2.36394C6.44725 2.35264 6.66405 2.33737 6.92741 2.3217C7.45506 2.29028 8.16529 2.25746 8.90134 2.2511C9.64171 2.24471 10.3879 2.26536 10.9946 2.3362C11.0287 2.34017 11.062 2.34428 11.0947 2.34852L0.46967 12.9736C0.176777 13.2665 0.176777 13.7413 0.46967 14.0342C0.762563 14.3271 1.23744 14.3271 1.53033 14.0342L12.1578 3.40672C12.1596 3.42107 12.1614 3.43557 12.1631 3.45021C12.2334 4.05004 12.2544 4.80047 12.2486 5.55046C12.2429 6.29576 12.211 7.01955 12.1803 7.55855C12.1651 7.82757 12.1501 8.04947 12.1391 8.20364C12.1336 8.2807 12.129 8.34078 12.1258 8.3813L12.1222 8.42705L12.121 8.44154C12.0868 8.85431 12.3936 9.21673 12.8063 9.25104C13.2191 9.28536 13.5816 8.97805 13.6159 8.56526L13.6163 8.56067L13.6174 8.54746L13.6213 8.49761C13.6247 8.45428 13.6295 8.39119 13.6352 8.31094C13.6467 8.15046 13.6622 7.9211 13.6779 7.64367C13.7094 7.08976 13.7426 6.33985 13.7485 5.56198C13.7545 4.7888 13.7338 3.96659 13.6529 3.27563C13.6125 2.93136 13.5547 2.59687 13.4689 2.30777C13.3907 2.04431 13.258 1.70593 12.9985 1.46524Z" fill="#E5F6FF"/>
                     </svg>
@@ -706,89 +726,95 @@ export default function Home() {
 
       {/* Our Speciality */}
       <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px] items-center justify-center space-y-[60px]">
-          <div className=" flex flex-row space-x-[60px] w-full">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  color : '#111315'
-                 }}
-                 className=" text-6xl w-[100%]"
-                >
-                  Why Choose<br/>Advanced Orthopedics 
-                </h1>
-
-                <div>
+          <Reveal className="w-full" width="100%">
+            <div className=" flex flex-row space-x-[60px] w-full">
                   <h1
-                  style={{
+                   style={{
                     fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                    color : '#5B5F67'
+                    fontWeight: 500,
+                    color : '#111315'
                    }}
-                   className="text-md "
+                   className=" text-6xl w-[100%]"
                   >
-                  Trust Advanced Orthopaedic for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
+                    Why Choose<br/>Advanced Orthopedics 
                   </h1>
-
-                  <div className=" mt-[40px] w-[50%]"><BookAnAppoitmentButton /></div>
-                </div>
-          </div>
+  
+                  <div>
+                    <h1
+                    style={{
+                      fontFamily: "var(--font-reem-kufi)",
+                      fontWeight: 400,
+                      color : '#5B5F67'
+                     }}
+                     className="text-md "
+                    >
+                    Trust Advanced Orthopaedic for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
+                    </h1>
+  
+                    <div className=" mt-[40px] w-[50%]"><BookAnAppoitmentButton /></div>
+                  </div>
+            </div>
+          </Reveal>
 
           <div className=" flex flex-row w-full gap-[32px]">
               <div className=" w-[50%] rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full object-cover" alt="Doctor Diagnosing Patient " /></div>
 
               <div className=" w-[50%] flex flex-col space-y-[32px] ">
-                <div className=" flex flex-col w-full space-y-[16px]">
-                  <h1
-                    style={{
-                      fontFamily: "var(--font-reem-kufi)",
-                      fontWeight: 500,
-                      color : '#111315'
-                    }}
-                    className=" text-4xl"
-                    >
-                      Our Specialty
-                    </h1>
-  
+                <Reveal className="w-full" width="100%">
+                  <div className=" flex flex-col w-full space-y-[16px]">
                     <h1
-                    style={{
-                      fontFamily: "var(--font-reem-kufi)",
-                      fontWeight: 500,
-                      color : '#5B5F67'
-                    }}
-                    className=" text-lg"
-                    >
-                     At Advanced Orthopaedic, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
-                    </h1>
-                </div>
+                      style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                        color : '#111315'
+                      }}
+                      className=" text-4xl"
+                      >
+                        Our Specialty
+                      </h1>
+    
+                      <h1
+                      style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                        color : '#5B5F67'
+                      }}
+                      className=" text-lg"
+                      >
+                       At Advanced Orthopaedic, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
+                      </h1>
+                  </div>
+                </Reveal>
 
-                <div className=" grid grid-cols-2 rounded-[20px] overflow-hidden w-full">
-                    {
-                      OurSpecialtyItems.map(( item, index ) => (
-                        <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6`}>
-                          <div className=" rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] ">
-                            <item.icon />
-                          </div>
-                          <h1
-                          style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                            color : '#022968'
-                          }}  
-                          className=" text-xl"
-                          >{item.title}</h1>
-                          <h1
-                          style={{
-                            fontFamily: "var(--font-inter)",
-                            fontWeight: 500,
-                            color : '#5B5F67'
-                          }}  
-                          className="text-md"
-                          >{item.body}</h1>
-                        </div> 
-                      ))
-                    }
-                </div>
+                <Reveal className="w-full" width="100%" >
+                  <div className=" grid grid-cols-2 rounded-[20px] overflow-hidden w-full">
+                      {
+                        OurSpecialtyItems.map(( item, index ) => (
+                          <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6`}>
+                            <div className=" rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] ">
+                              <item.icon />
+                            </div>
+                            <h1
+                            style={{
+                              fontFamily: "var(--font-reem-kufi)",
+                              fontWeight: 500,
+                              color : '#022968'
+                            }}  
+                            className=" text-xl"
+                            >{item.title}</h1>
+                            <h1
+                            style={{
+                              fontFamily: "var(--font-inter)",
+                              fontWeight: 500,
+                              color : '#5B5F67'
+                            }}  
+                            className="text-md"
+                            >{item.body}</h1>
+                          </div> 
+                        ))
+                      }
+                  </div>
+                </Reveal>
 
               </div>
           </div>
@@ -800,14 +826,20 @@ export default function Home() {
         <div className=" w-full max-w-[1440px] flex flex-row mx-auto px-[40px] items-center justify-evenly">
             {
               Testimonials.map((item) => (
-                <div className=" flex flex-col space-y-[12px] p-[18px] max-h-[190px] lg:h-[190px] items-center justify-center" key={item.stat}>
+                <div className=" flex flex-col space-y-[12px] p-[18px] max-h-[190px] lg:h-[190px] items-center justify-center" key={item.desc}>
                   <h1
                   style={{
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                   }}
                   className=" text-white text-6xl"
-                  >{item.stat}</h1>
+                  >
+                    <NumberTicker 
+                      value={item.value}
+                      className="text-white"
+                    />
+                    {item.stat}
+                  </h1>
                   <h1
                   style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -934,90 +966,92 @@ export default function Home() {
 
           </div>
           
-          <div className=" flex flex-col space-y-[32px] w-[50%]">
-              <div className=" bg-[#EFF5FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%]">
-                <div className=" flex flex-col space-y-[8px] ">
-                  <h1
-                  style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color : 'black',
-                    lineHeight : 1.2
-                  }}
-                  className="text-2xl "
-                  >
-                  Complimentary MRI Reading
-                  </h1>
-                  <h1 
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 500,
-                    color : '#5B5F67',
-                  }}
-                  className="lg"
-                  > 
-                    Get a free MRI reading from our experts to tailor your treatment plan.
-                  </h1>
+          <Reveal className="w-[50%]" width="100%">
+            <div className=" flex flex-col space-y-[32px] w-full">
+                <div className=" bg-[#EFF5FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%]">
+                  <div className=" flex flex-col space-y-[8px] ">
+                    <h1
+                    style={{
+                      fontFamily: "var(--font-reem-kufi)",
+                      fontWeight: 500,
+                      color : 'black',
+                      lineHeight : 1.2
+                    }}
+                    className="text-2xl "
+                    >
+                    Complimentary MRI Reading
+                    </h1>
+                    <h1 
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 500,
+                      color : '#5B5F67',
+                    }}
+                    className="lg"
+                    > 
+                      Get a free MRI reading from our experts to tailor your treatment plan.
+                    </h1>
+                  </div>
+  
+                  <div className="grid grid-cols-3 gap-x-[16px]">
+                    {
+                      [MRI1,MRI2,MRI3].map((item, index) => (
+                        <Image src={item} className="w-full h-full aspect-square rounded-[12px]" alt="Image of an MRI Bone Scan" key={index}/>
+                      ))
+                    }
+                  </div>
+  
                 </div>
-
-                <div className="grid grid-cols-3 gap-x-[16px]">
-                  {
-                    [MRI1,MRI2,MRI3].map((item, index) => (
-                      <Image src={item} className="w-full h-full aspect-square rounded-[12px]" alt="Image of an MRI Bone Scan" key={index}/>
-                    ))
-                  }
-                </div>
-
-              </div>
-
-              <div className=" bg-[#E5F6FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%] items-center justify-center">
-                <div className=" flex flex-col space-y-[8px] items-center justify-center mt-10">
-                  <h1
-                  style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color : 'black',
-                    lineHeight : 1.2
-                  }}
-                  className="text-2xl "
-                  >
-                  Complimentary Amenities 
+  
+                <div className=" bg-[#E5F6FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%] items-center justify-center">
+                  <div className=" flex flex-col space-y-[8px] items-center justify-center mt-10">
+                    <h1
+                    style={{
+                      fontFamily: "var(--font-reem-kufi)",
+                      fontWeight: 500,
+                      color : 'black',
+                      lineHeight : 1.2
+                    }}
+                    className="text-2xl "
+                    >
+                    Complimentary Amenities 
+                    </h1>
+                    <h1 
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 500,
+                      color : '#5B5F67',
+                    }}
+                    className="w-[65%] text-center"
+                    > 
+                  Enjoy Complimentary Amenities: Free Car Service, Refreshments & WiFi                  
                   </h1>
-                  <h1 
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 500,
-                    color : '#5B5F67',
-                  }}
-                  className="w-[65%] text-center"
-                  > 
-                Enjoy Complimentary Amenities: Free Car Service, Refreshments & WiFi                  
-                </h1>
-                </div>
-
-                <div className="flex flex-row gap-x-[16px] items-center justify-center">
-                  {
-                    Amenities.map((item, index) => (
-                      <div className=" flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
-                        <div className=" bg-white rounded-[12px] aspect-square flex items-center justify-center p-[8px]">
-                          <item.icon />
+                  </div>
+  
+                  <div className="flex flex-row gap-x-[16px] items-center justify-center">
+                    {
+                      Amenities.map((item, index) => (
+                        <div className=" flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
+                          <div className=" bg-white rounded-[12px] aspect-square flex items-center justify-center p-[8px]">
+                            <item.icon />
+                          </div>
+                          <div>
+                            <h1
+                            style={{
+                              fontFamily: "var(--font-reem-kufi)",
+                              fontWeight: 500,
+                            }}
+                            className="text-sm text-[#022968]"
+                            >{item.title}</h1>
+                          </div>
                         </div>
-                        <div>
-                          <h1
-                          style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                          }}
-                          className="text-sm text-[#022968]"
-                          >{item.title}</h1>
-                        </div>
-                      </div>
-                    ))
-                  }
+                      ))
+                    }
+                  </div>
+  
                 </div>
-
-              </div>
-          </div>
+            </div>
+          </Reveal>
       </section>
       {/*  */}
 

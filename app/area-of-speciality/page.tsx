@@ -7,6 +7,9 @@ import { Input } from '@/components/ui/input'
 import ConditionCard from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import {Conditions} from '@/components/data/conditions'
+import Link from 'next/link'
+import { AnimatedList } from '@/components/magicui/animated-list'
+import { TextAnimate } from '@/components/magicui/text-animate'
 export default function AreaOfSpeciality() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(9);
@@ -58,7 +61,7 @@ export default function AreaOfSpeciality() {
             />
 
           <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] w-[55%]">
-              <h1
+              <TextAnimate animation="blurInUp" by="character" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -66,8 +69,8 @@ export default function AreaOfSpeciality() {
               }}
               className="text-[#022968]"
               >
-                CONDITIONS
-              </h1>
+                Conditions
+              </TextAnimate>
           </div>
 
           <div className="z-[2] px-[80px] mt-[24px] w-[50%]">
@@ -84,8 +87,9 @@ export default function AreaOfSpeciality() {
           </div>
 
           <div className='w-[45%] mt-[40px] px-[80px]'>
-              <button 
-                  className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[#0094E0] text-white font-[500px] text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+              <Link
+              href={'/condition-check'} 
+                  className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white  text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
                   >
                       <h1
                       style={{
@@ -96,7 +100,7 @@ export default function AreaOfSpeciality() {
                           letterSpacing: "0.02em"
                       }}
                       >Condition Checker</h1>
-              </button>
+              </Link>
           </div>
           </div>
         </section>
