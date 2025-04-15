@@ -20,6 +20,13 @@ import GradientOverlayImage from "../GradientOverlayImage"
 import lumbarherniateddisc from '@/public/lumberherniateddisc.jpeg'
 import lumbarherniateddisc2 from '@/public/lumberherniateddisc2.png'
 import lumbarherniateddiscside from '@/public/lumberherniateddiscside.png'
+import arthritis from '@/public/arthritis.png'
+import arthritis2 from '@/public/arthritis2.jpeg'
+import arthritisside from '@/public/arthritisside.jpeg'
+import pinchednerve from '@/public/pinchednerve.jpeg'
+import pinchednerve2 from '@/public/pinchednerve2.jpeg'
+import pinchednerveside from '@/public/pinchednerveside.jpeg'
+
 
 export const Conditions : ConditionInfoProp[] = [
     {
@@ -196,7 +203,176 @@ export const Conditions : ConditionInfoProp[] = [
     },
     {
       "title": "Arthritis",
-      "body": "Arthritis is an umbrella term that refers to inflammation of the joints. This can be due to many factors, including genetics, aging, prolonged joint stress from activities like...",
+      "body": `Arthritis is a common joint condition that causes inflammation, stiffness, and pain, affecting millions of people across the U.S. It can severely limit mobility and interfere with daily activities like walking, climbing stairs, or even gripping objects. While arthritis is often associated with aging, it can affect people of all ages depending on the type and underlying cause.
+At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
+      side_img : arthritisside,
+      forum : [
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                What Is Arthritis?
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                Arthritis refers to inflammation of one or more joints. It’s not a single disease but a broad term used to describe over 100 different types of joint disorders. The two most common types are osteoarthritis (OA) and rheumatoid arthritis (RA), though others like gout, psoriatic arthritis, and lupus-related arthritis are also common.<br/><br/>
+                The primary symptoms of arthritis include joint pain, stiffness, swelling, redness, and decreased range of motion. Over time, arthritis can lead to cartilage loss, bone erosion, and even joint deformity, particularly if left untreated.
+                </h1>
+                <GradientOverlayImage
+                  imageData={arthritis} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+                <h1 
+               style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+                >
+                  Many patients describe arthritis as a dull, aching pain that worsens with activity or after periods of rest. Understanding the exact type of arthritis you have is critical for choosing the most effective treatment path.
+                </h1>
+                <OutlinedButton text="Do I have this Condition?"/>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Symptoms of Arthritis
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                  <li>Joint stiffness, especially in the morning or after inactivity</li><br/>
+                  <li>Swelling around the joints</li><br/>
+                  <li>Persistent or sharp joint pain</li><br/>
+                  <li>Tenderness when touching the joint</li><br/>
+                  <li>Reduced range of motion</li><br/>
+                  <li>Clicking, popping, or grinding sounds</li><br/>
+                  <li>Warmth or redness over the joint</li><br/>
+                  <li>Fatigue or flu-like symptoms (common in inflammatory types like RA)</li><br/>
+                </h1>
+                
+                <h1 
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+                >
+                  In more advanced stages, arthritis can lead to joint deformity, loss of function, and reduced ability to perform everyday tasks. Early diagnosis and treatment can significantly slow progression and reduce permanent damage.
+                </h1>
+                <OutlinedButton text="Find a Treatment"/>
+                <GradientOverlayImage
+                  imageData={arthritis2} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Types of Arthritis
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                There are several major types of arthritis that affect people of all ages. Osteoarthritis is the most common and is caused by the gradual breakdown of cartilage, which cushions the ends of bones within a joint. As this cartilage deteriorates, bones begin to rub against each other, leading to pain and stiffness. Rheumatoid arthritis is an autoimmune disorder in which the immune system attacks the lining of the joints, causing chronic inflammation, swelling, and joint erosion. Gout results from a buildup of uric acid crystals, often in the big toe, and leads to sudden, intense pain. Psoriatic arthritis is associated with psoriasis and can cause both joint inflammation and skin symptoms. Each of these conditions presents unique challenges and requires a tailored treatment plan to effectively control pain and prevent further damage.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Learn About Arthritis Treatments
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                  Arthritis may be a chronic condition, but that doesn’t mean it has to control your life. With the right treatment plan, it’s possible to reduce pain, slow joint damage, and improve your mobility. At Advanced Orthopedics, our team of experts offers a full spectrum of arthritis care from advanced imaging and diagnosis to non-surgical therapies and state-of-the-art surgical solutions when needed. Whether you’re managing early signs of osteoarthritis or facing the challenges of an inflammatory condition like rheumatoid arthritis, we’re here to help guide you through every stage of your treatment.
+                </h1>
+              </div>
+          </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Schedule a Consultation Today
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                  If you’re living with persistent joint pain, stiffness, or swelling, don’t wait to get the help you need. Arthritis is a manageable condition when addressed early with the right treatment plan and expert care. At Advanced Orthopedics, our experienced specialists are here to evaluate your symptoms, provide a personalized diagnosis, and guide you toward lasting relief and better joint health.<br/><br/>
+                  Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Let’s take the first step together toward improving your mobility, comfort, and quality of life.
+                </h1>
+              </div>
+          </div>
+          )
+        }
+      ],
       "slug": "arthritis"
     },
     {
@@ -348,6 +524,181 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
         }
       ],
       "slug": "lowerbackpain",
+    },
+    {
+      "title": "Pinched Nerve",
+      "body": `Nerve pain can disrupt your daily life and limit your mobility. A pinched nerve, also known as nerve compression, occurs when surrounding tissues such as bones, cartilage, muscles, or discs put pressure on a nearby nerve. This pressure can interfere with the nerve's function and cause pain, numbness, or weakness.
+The most common areas for pinched nerves are the neck (cervical spine) and lower back (lumbar spine). When nerves in the lower back are affected, it often leads to sciatica, where pain radiates from the lower back into the legs. At Advanced Orthopedics, our spine specialists offer precise diagnosis and advanced treatment options to relieve nerve pressure and restore function.`,
+      forum : [
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                What Is a Pinched Nerve?
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                 style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                  A pinched nerve occurs when soft tissue or bone compresses a nearby nerve root, interrupting its ability to transmit signals correctly. This can result in pain that radiates from the spine to the extremities, depending on the location of the compression. When the cervical spine is affected, symptoms often extend into the arms or hands. If the lumbar spine is involved, the pain can travel into the buttocks, legs, or feet.<br/><br/>
+                  Common causes of nerve compression include herniated discs, bone spurs, spinal stenosis, and poor posture. Over time, continued pressure can lead to worsening symptoms and even permanent nerve damage if not treated properly.
+                </h1>
+                <GradientOverlayImage
+                  imageData={pinchednerve} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+                <h1 
+               style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+                >
+                  Many patients report that pinched nerve pain worsens with movement or after long periods of sitting. Some also experience burning sensations or weakness in the arms or legs. Early diagnosis and treatment are essential to preventing long-term nerve damage and restoring full function.
+                </h1>
+
+                <OutlinedButton text="Do I have this Condition?"/>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+               Symptoms of a Pinched Nerve
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                  Symptoms of a pinched nerve depend on where the nerve is compressed, but common warning signs include:<br/>
+                  <li>A sharp or burning pain radiating into the arms or legs</li><br/>
+                  <li>Numbness or tingling in the affected limb</li><br/>
+                  <li>Muscle weakness or feeling that the limb is "asleep"</li><br/>
+                  <li>Pain that worsens with certain movements, like turning the head or standing up</li><br/>
+                  <li>Discomfort that improves slightly when leaning forward or resting</li><br/>
+                </h1>
+                
+                <h1 
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+                >
+                  Pinched nerve symptoms can come and go or be constant, depending on the cause. If left untreated, nerve compression may lead to permanent nerve damage, chronic pain, or muscle atrophy. Recognizing these early warning signs is the first step toward finding lasting relief.
+                </h1>
+                <OutlinedButton text="Find a Treatment"/>
+                <GradientOverlayImage
+                  imageData={pinchednerve2} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1 
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-2xl">
+                Types of Pinched Nerve Conditions
+              </h1>
+              <div  className=" flex flex-col space-y-[40px]">
+                <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#5B5F67] text-xl"
+                >
+                Several spinal conditions can lead to pinched nerves. Herniated discs are one of the most common causes. When the soft inner material of the disc bulges out, it can press against nearby nerves and cause pain, tingling, or numbness. Spinal stenosis, which involves narrowing of the spinal canal, is another major cause especially in older adults.<br/><br/>
+                Bone spurs, often related to arthritis or spinal degeneration, can also contribute to nerve compression by invading space meant for nerves. In some cases, muscle tightness or repetitive strain from poor posture may also lead to a pinched nerve. Understanding what’s causing your symptoms is key to receiving the right care.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+            <h1 
+            style={{
+              fontFamily: "var(--font-reem-kufi)",
+              fontWeight: 500,
+            }}
+            className="text-[#111315] text-2xl">
+              Learn About Pinched Nerve Treatments
+            </h1>
+            <div  className=" flex flex-col space-y-[40px]">
+              <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+              >
+                A pinched nerve doesn’t have to control your life. With early intervention and the right treatment strategy, most patients experience relief without surgery. Non-surgical options may include physical therapy, anti-inflammatory medication, activity modification, ergonomic adjustments, and corticosteroid injections. When conservative care fails to relieve pressure on the nerve, minimally invasive surgical solutions such as microdiscectomy or foraminotomy may be considered.<br/><br/>
+                At Advanced Orthopedics, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
+              </h1>
+            </div>
+          </div>
+          )
+        },
+        {
+          post : (
+            <div className=" flex flex-col space-y-[16px] ">
+            <h1 
+            style={{
+              fontFamily: "var(--font-reem-kufi)",
+              fontWeight: 500,
+            }}
+            className="text-[#111315] text-2xl">
+              Schedule a Consultation Today
+            </h1>
+            <div  className=" flex flex-col space-y-[40px]">
+              <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+              >
+                If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Advanced Orthopedics, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
+                Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Lasting relief could be just one visit away.
+              </h1>
+            </div>
+          </div>
+          )
+        }
+      ],
+      side_img : pinchednerveside,
+      "slug": "pinchednerve"
     },
     {
       "title": "Bulging Disc",
@@ -524,7 +875,11 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                Cervical disc herniation can occur suddenly due to trauma or gradually as part of the aging process. The most common cause is wear and tear, which leads to disc degeneration. Over time, the discs lose elasticity and hydration, making them more prone to rupture. Other contributing factors include poor posture, obesity, repetitive strain, and spinal injury. In people over the age of 30, disc degeneration becomes more common, but even younger patients can suffer from herniated discs if their lifestyle puts excess stress on the spine.
               </h1>
 
-              <Image src={cervicalhernia} alt="Spinal Disc Hernination" className="w-full aspect-video rounded-[20px] " />
+              <GradientOverlayImage
+                  imageData={cervicalhernia} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
 
             </div>
           </div>
@@ -636,7 +991,11 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 Cervical spinal stenosis can cause a variety of symptoms depending on the severity and levels affected. Common signs include shock-like pain in the neck or arms, tingling sensations, arm weakness, numbness in the hands or fingers, loss of coordination, balance issues, difficulty walking, and in severe cases, loss of bladder control. These symptoms may suggest compression of the spinal cord or nerve roots and should never be ignored.
                 </h1>
 
-                <Image src={cervicalspinalstenosis1} alt="Lower Back Pain" className="w-full aspect-video rounded-[20px]"/>
+                <GradientOverlayImage
+                  imageData={cervicalspinalstenosis1} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
 
                 <h1
                  style={{
@@ -679,7 +1038,11 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
               <OutlinedButton text="Find a Treatment"/>
 
-              <Image src={cervicalspinalstenosis2} alt="Cervical Spinal Stenosis" className="w-full aspect-video rounded-[20px]"/>
+              <GradientOverlayImage
+                  imageData={cervicalspinalstenosis2} // Passing static image data
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
 
             </div>
           </div>
@@ -770,9 +1133,9 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
         },
        
       ],
+      side_img : pinchednerveside,
       "slug": "cervicalspinalstenosis"
     },
-
     {
       "title": "Lumbar Herniated Disc",
        body : "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",

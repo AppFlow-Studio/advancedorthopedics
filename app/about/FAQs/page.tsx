@@ -6,6 +6,7 @@ import FAQsLanding from '@/public/FAQs.jpeg'
 import { Minus, Plus } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import FAQsDocotorTestimony from '@/public/FAQsDoctorTestimony.png'
+import { TextAnimate } from '@/components/magicui/text-animate'
 export default function FAQs() {
     const [openItem, setOpenItem] = useState<number>(0)
 
@@ -155,8 +156,8 @@ export default function FAQs() {
                 </h1>
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
-            <h1
+        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[58%]">
+            <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -164,7 +165,7 @@ export default function FAQs() {
             className="text-[#022968] text-6xl"
             >
                 Frequently Asked Spine Surgery Questions
-            </h1>
+            </TextAnimate>
         </div>
         </div>
         </section>

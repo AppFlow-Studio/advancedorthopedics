@@ -13,6 +13,7 @@ import { motion } from 'framer-motion'
 import ClinicsMap from '@/components/ClinicsMap'
 import ContactUsSection from '@/components/ContactUsSection'
 import ConciergeServices from '@/public/ConceirgeServices.png'
+import { TextAnimate } from '@/components/magicui/text-animate'
 const ServicesAndExpertise = [
     {
         title : 'Renowed Spine Suregons',
@@ -96,7 +97,7 @@ export default function InsurancePolicy() {
             </div>
         </div>
         <div className="px-[80px] z-[2] flex flex-col space-y-[24px] items-center justify-start mt-[12px] w-[50%]">
-            <h1
+            <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -104,7 +105,7 @@ export default function InsurancePolicy() {
             className="text-[#022968] text-6xl"
             >
                 Advanced Orthopaedic Insurance Policy            
-            </h1>
+            </TextAnimate>
         </div>
         <div className='px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[60%]'>
             <h1

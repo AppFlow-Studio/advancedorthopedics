@@ -42,7 +42,7 @@ import Reveal from "@/components/RevealAnimation";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import SlidingDiv from "@/components/SlidingAnimation";
 import { TextAnimate } from "@/components/magicui/text-animate";
-
+import ExpertCare from '@/public/ExpertCare.png'
 const ServicesAndExpertise = [
   {
     img : Foot,
@@ -110,7 +110,7 @@ const OurSpecialtyItems = [
 ]
 const Testimonials = [
   {
-    stat : '+',
+    stat : 'k+',
     value : 15,
     desc : 'Successful Treatments'
   },
@@ -175,6 +175,11 @@ const PainToProgress = [
     title : 'Tailored Treatment Plan',
     body : 'Whether surgical or non-surgical, we develop a plan that aligns with your lifestyle and recover y timeline.'
   },
+  {
+    img : ExpertCare,
+    title : 'Expert Care',
+    body : 'Our skilled team per forms procedures with precision and compassion.'
+  }
 ]
 
 const OrthoConditionsWeTreat = [
@@ -374,7 +379,8 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-[10px] mt-[40px]">
                   {
                     ServicesAndExpertise.map(( item ) => (
-                      <div key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
+                      <div
+                      key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] hover:border hover:border-[#2358AC] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
                         <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/>
                         <h1 className={`${selectedService == item.title ? 'text-[#2358AC]' : 'text-[#5B5F67]'} `}>{item.title}</h1>
                       </div>
@@ -881,7 +887,9 @@ export default function Home() {
           </div>
 
           <div className="w-[50%] flex items-center justify-end">
-            <button className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px]">
+            <Link
+            href={'/about/meetourdoctors'}
+            className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px]">
             <h1
             style={{
               fontFamily: "var(--font-inter)",
@@ -892,7 +900,7 @@ export default function Home() {
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11" viewBox="0 0 18 11" fill="none">
               <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 9.79314 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#022968"/>
             </svg>
-            </button>
+            </Link>
           </div>
         </div>    
         <div className=" mt-[60px] grid grid-cols-3 gap-[32px]">
@@ -996,7 +1004,13 @@ export default function Home() {
                   <div className="grid grid-cols-3 gap-x-[16px]">
                     {
                       [MRI1,MRI2,MRI3].map((item, index) => (
-                        <Image src={item} className="w-full h-full aspect-square rounded-[12px]" alt="Image of an MRI Bone Scan" key={index}/>
+                        <motion.div 
+                          whileHover={{
+                            translateY : -10
+                          }}
+                        >
+                          <Image src={item} className="w-full h-full aspect-square rounded-[12px]" alt="Image of an MRI Bone Scan" key={index}/>
+                        </motion.div>
                       ))
                     }
                   </div>
@@ -1031,7 +1045,12 @@ export default function Home() {
                   <div className="flex flex-row gap-x-[16px] items-center justify-center">
                     {
                       Amenities.map((item, index) => (
-                        <div className=" flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
+                        <motion.div 
+                        whileHover={{
+                          translateY : -5,
+                          scale : 1.02
+                        }}
+                        className=" flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
                           <div className=" bg-white rounded-[12px] aspect-square flex items-center justify-center p-[8px]">
                             <item.icon />
                           </div>
@@ -1044,7 +1063,7 @@ export default function Home() {
                             className="text-sm text-[#022968]"
                             >{item.title}</h1>
                           </div>
-                        </div>
+                        </motion.div>
                       ))
                     }
                   </div>

@@ -248,6 +248,22 @@ const NavBarLinks = [
           {
             title : 'Cervical Herniated Disc',
             href : '/area-of-pain/neck-and-shoulder-pain/cervicalherniateddisc'
+          },
+          {
+            title : 'Degenerative Disc Disease',
+            href : '/area-of-pain/bneck-and-shoulder-pain/degenerativediscdisease'
+          },
+          {
+            title : 'Arthritis',
+            href : '/area-of-pain/neck-and-shoulder-pain/arthritis'
+          },
+          {
+            title : 'Pinched Nerve',
+            href : '/area-of-pain/neck-and-shoulder-pain/pinchednerve'
+          },
+          {
+            title : 'Neck and Shoulder Treatments',
+            href : '/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments'
           }
         ]
       },

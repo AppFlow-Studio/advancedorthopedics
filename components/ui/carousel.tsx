@@ -277,7 +277,7 @@ function CarouselContent({
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -10 && index < itemsLength - 1) {
+    if (x <= -10 && index < itemsLength - 2) {
       setIndex(index + 1);
     } else if (x >= 10 && index > 0) {
       setIndex(index - 1);
@@ -300,7 +300,7 @@ function CarouselContent({
         x: disableDrag ? undefined : dragX,
       }}
       animate={{
-        translateX: `-${index * (100 / visibleItemsCount)}%`,
+        translateX: `-${index * (103 / visibleItemsCount)}%`,
       }}
       onDragEnd={disableDrag ? undefined : onDragEnd}
       transition={

@@ -5,6 +5,9 @@ import backpaintreatment from '@/public/backpaintreatment.png'
 import backpaintreatment2 from '@/public/backpaintreatment2.jpeg'
 import backpaintreatmentside from '@/public/backpaintreatmentside.png'
 import GradientOverlayImage from "../GradientOverlayImage";
+import pinchednerve from '@/public/pinchednerve.jpeg'
+import pinchednerve2 from '@/public/pinchednerve2.jpeg'
+import pinchednerveside from '@/public/pinchednerveside.jpeg'
 
 export const PainAreaTreatments : ConditionInfoProp[] = [
     {
@@ -304,5 +307,209 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
         ],
         side_img : backpaintreatmentside,
         slug : "backpaintreatmentoptions"
+    },
+    {
+        title : "Neck & Shoulder Treatment Options",
+        body : `Chronic neck and shoulder pain can interfere with your everyday activities from working at a desk to sleeping through the night. Whether the cause is poor posture, a pinched nerve, muscle strain, arthritis, or a more complex spine condition, finding the right treatment starts with understanding the root cause.
+At Advanced Orthopedics, our team specializes in diagnosing and treating a wide range of neck and shoulder conditions. From non-invasive therapies to advanced surgical solutions, we help patients regain motion, strength, and long-term comfort. If you're unsure about your current care plan, we also offer second opinions and customized treatment strategies.`,
+        forum  : [
+            {
+                post : (
+                    <div className=" flex flex-col space-y-[16px] ">
+                    <h1
+                        style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                        }}
+                        className="text-[#111315] text-2xl">
+                        What Neck & Shoulder Treatments Are Available?
+                    </h1>
+                    <div className=" flex flex-col space-y-[40px]">
+                        <h1
+                        style={{
+                            fontFamily: "var(--font-inter)",
+                            fontWeight: 400,
+                        }}
+                        className="text-[#5B5F67] text-xl"
+                        >
+                            We take a comprehensive approach to neck and shoulder care, beginning with a detailed evaluation and diagnosis. Treatments may include:<br/>
+                            <li>Physical therapy to improve flexibility and reduce muscle strain</li><br/>
+                            <li>Anti-inflammatory medications and muscle relaxants</li><br/>
+                            <li>Corticosteroid injections to reduce inflammation around joints or nerves</li><br/>
+                            <li>Trigger point injections for myofascial pain</li><br/>
+                            <li>Minimally invasive surgery when conservative options fail</li><br/>
+
+                            Our specialists will guide you through every option so you can make the most informed decision for your lifestyle and condition.
+
+                        </h1>
+            
+                        <GradientOverlayImage
+                        imageData={pinchednerve} // Passing static image data
+                        height="500px"
+                        gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                        />
+
+                        <h1
+                        style={{
+                            fontFamily: "var(--font-inter)",
+                            fontWeight: 400,
+                        }}
+                        className="text-[#5B5F67] text-xl"
+                        >
+                            If you're struggling with persistent or worsening neck or shoulder pain, our team is here to help. Use our quick and easy condition checker to see if you're a candidate for treatment.
+                        </h1>
+        
+                        <OutlinedButton text="Do I have this Condition?" />
+        
+                    </div>
+                </div>
+                )
+            },
+            {
+                post : (
+                    <div className=" flex flex-col space-y-[16px] ">
+                    <h1
+                        style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                        }}
+                        className="text-[#111315] text-2xl">
+                       Top Neck & Shoulder Procedures at Advanced Orthopedics
+                    </h1>
+                    <div className=" flex flex-col space-y-[40px]">
+                        <h1
+                        style={{
+                            fontFamily: "var(--font-inter)",
+                            fontWeight: 400,
+                        }}
+                        className="text-[#5B5F67] text-xl"
+                        >
+                            <li>Cervical Discectomy & Fusion: Removes a damaged disc in the neck and fuses the vertebrae to relieve nerve pressure</li><br/>
+                            <li>Artificial Disc Replacement: Replaces a worn disc with a synthetic one to maintain motion in the cervical spine</li><br/>
+                            <li>Shoulder Arthroscopy: A minimally invasive surgery to repair rotator cuff tears or impingement</li><br/>
+                            <li>TTrigger Point Injections: Used to treat myofascial pain and shoulder stiffness</li><br/>
+                            <li>Cervical Laminoplasty: Expands the spinal canal in the neck to relieve nerve compression from spinal stenosis</li><br/><br/>
+
+                            These procedures are performed using the latest technology to reduce downtime and improve outcomes.
+                        </h1>
+                        <OutlinedButton text="Find a Treatment" />
+                        <GradientOverlayImage
+                        imageData={pinchednerve2} // Passing static image data
+                        height="500px"
+                        gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                        />
+                
+                    </div>
+                </div>
+                )
+            },
+            {
+                post : (
+                    <div className=" flex flex-col space-y-[16px] ">
+                        <h1
+                            style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 500,
+                            }}
+                            className="text-[#111315] text-4xl">
+                            How Are Neck & Shoulder Issues Treated Without Surgery?
+                        </h1>
+                        <div className=" flex flex-col space-y-[40px]">
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#5B5F67] text-xl">
+                            Many patients experience relief from conservative treatments without the need for surgery. Common non-invasive options include:<br/>
+                            <li>Targeted physical therapy to stretch and strengthen key muscles</li><br/>
+                            <li>Ergonomic adjustments for work or sleep posture</li><br/>
+                            <li>AAnti-inflammatory and neuropathic medications</li><br/>
+                            <li>Therapeutic massage or acupuncture</li><br/>
+                            <li>Cold and heat therapy for pain relief</li><br/>
+                            <br/>
+                            Early intervention can prevent symptoms from worsening and may eliminate the need for more aggressive procedures down the line.
+                            </h1>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                post : (
+                    <div className=" flex flex-col space-y-[16px] ">
+                        <h1
+                            style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 500,
+                            }}
+                            className="text-[#111315] text-4xl">
+                            Frequently Asked Questions About Neck & Shoulder Treatments
+                        </h1>
+                        <div className=" flex flex-col space-y-[40px]">
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#5B5F67] text-xl">
+                            <span className="text-black">Do I need surgery for chronic neck or shoulder pain?</span><br/>Not necessarily. Many conditions can be treated effectively with physical therapy, medications, or injections.
+                            </h1>
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#5B5F67] text-xl">
+                            <span className="text-black">When should I see a specialist?</span><br/>If your pain has lasted more than a few weeks or is interfering with daily activities, it's time to consult a physician.
+                            </h1>
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#5B5F67] text-xl">
+                            <span className="text-black">Are there long-term risks if I delay treatment?</span><br/>Prolonged nerve compression or joint damage can lead to permanent issues, so early care is best.
+                            </h1>
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#5B5F67] text-xl">
+                            <span className="text-black">Will I need physical therapy after surgery?</span><br/>In most cases, yes. Physical therapy helps improve range of motion and strengthen supporting muscles.
+                            </h1>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                post : (
+                    <div className=" flex flex-col space-y-[16px] ">
+                        <h1
+                            style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 500,
+                            }}
+                            className="text-[#111315] text-4xl">
+                           Schedule a Consultation Today
+                        </h1>
+                        <div className=" flex flex-col space-y-[40px]">
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#5B5F67] text-xl">
+                                Living with chronic pain in your neck or shoulders can limit your ability to enjoy everyday activities. At Advanced Orthopedics, our expert team is here to help you find lasting relief. We take the time to understand your condition, explain all your options, and create a treatment plan tailored to your goals.<br/><br/>
+                                Call us today at (855) 853-6542 or fill out our online consultation form to get started. Relief may be closer than you think.
+                            </h1>
+                           
+                        </div>
+                    </div>
+                )
+            }
+        ],
+        side_img : pinchednerveside,
+        slug : "neckandshoulderpaintreatments"
     }
 ]

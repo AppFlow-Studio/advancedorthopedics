@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image'
 import Landing from '../../public/AreaOfSpecLanding.jpeg'
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
@@ -20,7 +20,8 @@ export default function AreaOfSpeciality() {
   const totalPages = Math.ceil(data.length / itemsPerPage);
     
     const paginate = (pageNumber : number) => setCurrentPage(pageNumber);
-    
+    const paginationRef = useRef(null); // Create the ref
+
     const renderPageNumbers = () => {
       const pageNumbers = [];
       for (let i = 1; i <= totalPages; i++) {
@@ -40,6 +41,17 @@ export default function AreaOfSpeciality() {
       }
       return pageNumbers;
     };
+      // Scroll effect
+  useEffect(() => {
+    // Only scroll if the ref is attached to an element
+    if (paginationRef.current && currentPage != 1) {
+      // Scroll the pagination container into the nearest view
+      paginationRef.current.scrollIntoView({
+        behavior: 'smooth', // Optional: Use 'auto' or 'instant' for no animation
+        block: 'start',   // Tries to keep it vertically centered if possible, otherwise top/bottom
+      });
+    }
+  }, [currentPage]);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -158,7 +170,7 @@ export default function AreaOfSpeciality() {
 
         {/* All Our Conditions */}
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-[80px] space-y-[24px]'>
-          <div className='space-y-[16px] flex flex-row justify-between'>
+          <div className='space-y-[16px] flex flex-row justify-between' ref={paginationRef}>
               <h1
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
@@ -206,23 +218,6 @@ export default function AreaOfSpeciality() {
                 </h1>
               </div>
 
-             {/*  <div className=' flex flex-row items-center space-x-[2px]'>
-                {
-                  [1,2,3,4,5,6,7,8,9,10].map((item) => (
-                    <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
-                      <h1
-                        style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                        className=' text-lg'
-                      >
-                        {item}
-                      </h1>
-                    </div>
-                  ))
-                }
-              </div> */} 
               <div className=' flex flex-row items-center space-x-[2px]'>
                 {renderPageNumbers()}
               </div>

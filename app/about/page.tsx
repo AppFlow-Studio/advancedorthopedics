@@ -7,6 +7,7 @@ import ContactUsSection from '@/components/ContactUsSection'
 import { Doctors } from "@/components/data/doctors";
 import DoctorCard from '@/components/DoctorCard'
 import StarRating from '@/components/StarRating'
+import { TextAnimate } from '@/components/magicui/text-animate'
 export default function AboutUs() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -23,7 +24,7 @@ export default function AboutUs() {
         />
 
       <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[300px] w-[55%]">
-          <h1
+          <TextAnimate animation="blurInUp" by="character" once
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 400,
@@ -31,7 +32,7 @@ export default function AboutUs() {
           className="text-[#022968] text-6xl"
           >
             About Advanced Orthopaedics
-          </h1>
+          </TextAnimate>
       </div>
 
       <div className="z-[2] px-[80px] mt-[24px] w-[50%]">

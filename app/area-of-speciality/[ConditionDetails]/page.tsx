@@ -28,6 +28,18 @@ export default function ConditionDetails({
       </main>
     )
   }
+  // Function to perform a Fisher-Yates shuffle on the array
+    function shuffleArray(array) {
+        const newArray = [...array]; // Clone the array
+        for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
+        }
+        return newArray;
+    }
+    
+    // Shuffle the Doctors array and then take the first two doctors
+    const randomDoctors = shuffleArray(Doctors).slice(0, 2);    
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -352,8 +364,8 @@ export default function ConditionDetails({
                     </h1>
                     <div className='grid grid-cols-2 gap-x-[32px] '>
                         {
-                            Doctors.slice(0,2).map((item) => (
-                                <DoctorCard doctor={item} key={item.name}/>
+                            randomDoctors.map((doctor) => (
+                                <DoctorCard doctor={doctor} key={doctor.name} />
                             ))
                         }
                     </div>

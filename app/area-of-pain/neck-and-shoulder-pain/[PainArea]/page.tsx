@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { BackPainDropdown } from '@/components/back-pain-dropdown'
 import { NeckAndShoulderDropDown } from '@/components/neck-and-shoulder-dropdown'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { PainAreaTreatments } from '@/components/data/painareatreatments'
 export default function PainArea({
     params,
   }: {
@@ -22,7 +23,12 @@ export default function PainArea({
 // Unwrap the promise using React.use (the experimental hook)
   const resolvedParams = React.use(params)
   const conditionSlug = resolvedParams.PainArea
-  const condition_details = Conditions.find( x => x.slug === conditionSlug)
+  let condition_details 
+  if ( conditionSlug == 'neckandshoulderpaintreatments' ) {
+      condition_details = PainAreaTreatments.find( x => x.slug === conditionSlug)
+    }else{
+      condition_details = Conditions.find( x => x.slug === conditionSlug)
+    }
   if (!condition_details) {
     return (
       <main className="w-full h-screen flex items-center justify-center">
@@ -43,8 +49,8 @@ export default function PainArea({
         />
         <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
-            <div className="w-[565px] h-full absolute left-0 top-0"
+        <div className="z-[1] flex flex-col w-full h-full  max-h-[945px] text-left relative  pb-[160px]">
+            <div className="w-[565px] h-full absolute left-0 top-0 "
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}

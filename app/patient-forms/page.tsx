@@ -3,6 +3,7 @@ import PatientFormsLanding from '@/public/PatientFormsLanding.jpeg'
 import OrthoDoctos from '@/public/OrthoDoctors.jpeg'
 import Image from 'next/image'
 import ContactUsSection from '@/components/ContactUsSection'
+import { TextAnimate } from '@/components/magicui/text-animate'
 export default function PatientForms() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -55,7 +56,7 @@ export default function PatientForms() {
             </div>
         </div>
         <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
-            <h1
+            <TextAnimate  animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -64,7 +65,7 @@ export default function PatientForms() {
             className="text-[#022968]"
             >
                 Patient Forms
-            </h1>
+            </TextAnimate>
         </div>
 
         <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
@@ -83,12 +84,12 @@ export default function PatientForms() {
         </section>
 
         {/* Download Patient Forms */}
-        <section className='max-w-[1440px] w-full h-full flex flex-row relative overflow-hidden px-[80px] space-x-[32px] py-[50px] '>
+        <section className='max-w-[1440px] w-full h-full flex flex-row relative overflow-hidden px-[40px] space-x-[32px] py-[50px] '>
             <div className=' w-[45%] rounded-[24px] overflow-hidden '>
                 <Image src={OrthoDoctos} className=' aspect-square w-full object-cover object-center max-h-[500px]' alt='Group of Orthopedic doctors'/>
             </div>
 
-            <div className=' w-[50%] flex flex-col bg-[#FAFAFA] space-y-[40px] rounded-[24px] p-[40px] items-center justify-center '>
+            <div className=' w-[55%] flex flex-col bg-[#FAFAFA] space-y-[40px] rounded-[24px] p-[40px] items-center justify-center '>
                 <h1
                 style={{
                     fontFamily: "var(--font-reem-kufi)",

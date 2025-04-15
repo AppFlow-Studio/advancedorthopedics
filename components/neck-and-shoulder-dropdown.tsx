@@ -7,7 +7,7 @@ import Link from "next/link"
 import { ConditionInfoProp } from "./ConditionCard"
 import { Conditions } from "./data/conditions"
 
-const backPainOptions: ConditionInfoProp[] = Conditions.filter(x => x.title == 'Cervical Spinal Stenosis' || x.title == 'Cervical Herniated Disc' )
+const backPainOptions: ConditionInfoProp[] = Conditions.filter(x => x.title == 'Cervical Spinal Stenosis' || x.title == 'Cervical Herniated Disc' || x.title == 'Degenerative Disc Disease' || x.title == 'Arthritis' || x.title == 'Pinched Nerve' )
 
 export function NeckAndShoulderDropDown() {
   const [isOpen, setIsOpen] = useState(false)

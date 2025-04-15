@@ -4,6 +4,7 @@ import Landing from '@/public/MeetOurDoctorsLanding.jpeg'
 import { Doctors } from "@/components/data/doctors";
 import DoctorCard from '@/components/DoctorCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews';
+import { TextAnimate } from '@/components/magicui/text-animate';
 export default function MeetOurDoctors() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -18,8 +19,8 @@ export default function MeetOurDoctors() {
             }}
             />
 
-          <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] w-[55%]">
-              <h1
+          <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] w-[56%]">
+              <TextAnimate animation="blurInUp" by="character" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -27,8 +28,8 @@ export default function MeetOurDoctors() {
               }}
               className="text-[#022968]"
               >
-                Meet All our doctors
-              </h1>
+                Meet all our doctors
+              </TextAnimate>
           </div>
 
           <div className="z-[2] px-[80px] mt-[24px] w-[50%]">
