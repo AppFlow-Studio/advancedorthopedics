@@ -50,7 +50,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'Reason 1: Understand What’s Causing Your Back Pain',
         answer : (
             <p>
-               One of the main reasons why you should seek a second opinion is to obtain an accurate, thorough and conclusive MRI diagnosis. Approximately 12 million people are misdiagnosed in the U.S. every year. Even the most seasoned radiologists are bound to make a mistake. So it’s only right to have your results reviewed by a fresh pair of eyes.
+               Your back is a complex and highly engineered system made up of bones, muscles, joints, and ligaments. Unfortunately, it’s also vulnerable to pain. Whether caused by injuries, fractures, or conditions like spinal stenosis, disc degeneration, pinched nerves, or herniated discs, understanding the source of your pain is the first step toward treatment.
             </p>
         )
     },
@@ -58,7 +58,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'Reason 2: Don’t Ignore the Warning Signs',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
+                We’ve all experienced back pain but recurring or chronic pain should never be ignored. In fact, studies show that regular pain in your spine can increase your risk of death by up to 15%. Identifying and treating the root of your pain early can be lifesaving.
                 <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
             </p>
         )
@@ -67,7 +67,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'Reason 3: Explore Non-Surgical and Surgical Solutionss',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
+                The good news? Most patients respond well to non-surgical options like physical therapy and medication. However, if these don’t work, minimally invasive surgery may be the next step. Advanced Orthopedics provides advanced treatments tailored to your unique condition.
                 <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
             </p>
         )
@@ -85,7 +85,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
 
 const Testimonial = (
     <p>
-Request a Free Candidacy Evaluation from Our Spine Team: <br/> <br/>Knowing your options starts with the right diagnosis. That’s why OLSS offers free spine surgery candidacy checks. We help determine which treatments may be a fit for your condition at no cost to you. Whether you need physical therapy or surgery, you’ll get expert advice based on your specific needs.    </p>
+Request a Free Candidacy Evaluation from Our Spine Team: <br/> <br/>Knowing your options starts with the right diagnosis. That’s why Advanced Orthopedics offers free spine surgery candidacy checks. We help determine which treatments may be a fit for your condition at no cost to you. Whether you need physical therapy or surgery, you’ll get expert advice based on your specific needs.    </p>
 )
 
 const Header = (

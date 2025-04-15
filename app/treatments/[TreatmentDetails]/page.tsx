@@ -59,7 +59,7 @@ export default function ConditionDetails({
             />
 
         <div className=' px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-[20%] items-center justify-center px-[20px] py-[10px]'
+            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -93,9 +93,28 @@ export default function ConditionDetails({
                 >
                     Treatment Details
                 </h1>
+                <h1
+                style={{
+                    fontFamily: "var(--font-reem-kufi)",
+                    fontWeight: 400,
+                }}
+                className="text-[#022968]"
+                >
+                    /
+                </h1>
+    
+                <h1
+                style={{
+                    fontFamily: "var(--font-reem-kufi)",
+                    fontWeight: 400,
+                }}
+                className="text-[#2358AC]"
+                >
+                    {treatment_details.title}
+                </h1>
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[40%]">
             <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -190,7 +209,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-3xl'
+                        className='text-[#111315] text-4xl'
                         >
                         What Are the Symptoms of {treatment_details.title}?
                         </h1>
@@ -225,7 +244,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-3xl'
+                        className='text-[#111315] text-4xl'
                         >
                         Are There Specific Risk Factors for {treatment_details.title}?
                         </h1>

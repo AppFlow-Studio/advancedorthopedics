@@ -68,7 +68,7 @@ export default function PainArea({
                 }}
                 className="text-[#111315]"
                 >
-                    Area of Pain 
+                    Area of Speciality 
                 </h1>
     
                 <h1

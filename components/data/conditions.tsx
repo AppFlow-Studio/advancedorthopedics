@@ -388,7 +388,7 @@ At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailor
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
               }}
-              className="text-[#111315] text-2xl">
+              className="text-[#111315] text-4xl">
                 What Could Be Causing My Lower Back Pain?
               </h1>
               <div  className=" flex flex-col space-y-[40px]">
@@ -399,7 +399,7 @@ At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailor
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                Lower back conditions can present in many ways, including radiating pain, stiffness, numbness, or tingling that travels through one or both legs. The severity and type of symptoms often depend on the specific condition and how far it has progressed. Conditions like herniated discs, spinal stenosis, osteoarthritis, and spondylolisthesis are among the most common causes of chronic lower back pain. If you’re experiencing numbness or tingling in particular, this may point to nerve compression — which is often more serious than general discomfort and should be addressed immediately to prevent long-term damage.
+                Lower back conditions can present in many ways, including radiating pain, stiffness, numbness, or tingling that travels through one or both legs. The severity and type of symptoms often depend on the specific condition and how far it has progressed. Conditions like herniated discs, spinal stenosis, osteoarthritis, and spondylolisthesis are among the most common causes of chronic lower back pain. If you’re experiencing numbness or tingling in particular, this may point to nerve compression which is often more serious than general discomfort and should be addressed immediately to prevent long-term damage.
                 </h1>
                 <GradientOverlayImage
                   imageData={LowerBackImage} // Passing static image data
@@ -440,7 +440,7 @@ At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailor
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  The only way to determine the right treatment is through an accurate diagnosis. Our specialists use a variety of advanced tools, including MRI scans, X-rays, ultrasounds, and physical evaluations to assess the source of your lower back pain. These methods help detect conditions like herniated or bulging discs, osteoarthritis, spinal stenosis, spondylolisthesis, or even spinal fractures. Once a clear diagnosis is made, our highly trained doctors at OLSS can recommend a treatment plan tailored to your needs. With access to advanced procedures not widely available elsewhere, we’re able to offer both non-surgical and surgical options based on what’s best for your recovery. 
+                  The only way to determine the right treatment is through an accurate diagnosis. Our specialists use a variety of advanced tools, including MRI scans, X-rays, ultrasounds, and physical evaluations to assess the source of your lower back pain. These methods help detect conditions like herniated or bulging discs, osteoarthritis, spinal stenosis, spondylolisthesis, or even spinal fractures. Once a clear diagnosis is made, our highly trained doctors at Advanced Orthopedics can recommend a treatment plan tailored to your needs. With access to advanced procedures not widely available elsewhere, we’re able to offer both non-surgical and surgical options based on what’s best for your recovery. 
                </h1>
                <OutlinedButton text="Find a Treatment"/>
               </div>
@@ -516,7 +516,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At OLSS, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
+                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At Advanced Orthopedics, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
                 </h1>
               </div>
             </div>
@@ -847,7 +847,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                   }}
                   className="text-[#5B5F67] text-xl"
                 >
-                 In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at OLSS will help determine the best approach based on your condition.
+                 In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Advanced Orthopedics will help determine the best approach based on your condition.
                 </h1>
               </div>
             </div>
@@ -929,7 +929,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-               Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At OLSS, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
+               Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Advanced Orthopedics, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
               </h1>
             </div>
           </div>
@@ -954,7 +954,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-               Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Orthopedic & Laser Spine Surgery, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
+               Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Advanced Orthopedics, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
                Call us today at (855) 853-6542 or fill out our online form to schedule a consultation. You may have more options than you think and recovery may be closer than you realize.
               </h1>
             </div>
@@ -1032,7 +1032,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                At Orthopedic & Laser Spine Surgery, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi-level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
+                At Advanced Orthopedics, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
                 For patients with one or two affected levels, a decompression and artificial disc replacement is often ideal. This modern approach allows for motion preservation and avoids the long-term stiffness associated with spinal fusion. While multi-level fusion is sometimes used, it can leave patients with a permanently stiff neck, especially when four levels are involved. In contrast, laminoplasty provides the best option for multiple levels of compression without sacrificing mobility.
               </h1>
 
@@ -1123,7 +1123,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At OLSS, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
+                If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Advanced Orthopedics, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
                 Take the first step toward recovery. Call us at (855) 853-6542 or fill out our online form to schedule your consultation today.
               </h1>
 
@@ -1229,7 +1229,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-                The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended. 
+                The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.
                 At Advanced Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
               </h1>
               <GradientOverlayImage
@@ -1325,7 +1325,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                   Sciatica symptoms usually affect only one side of the body, most commonly the lower back and leg. They often intensify while sitting and may include radiating pain, numbness, tingling, and muscle weakness in the affected leg. If the condition advances, it may begin to impact your ability to walk or perform daily activities. In some cases, tingling or numbness in the arms and legs could signal a more advanced orthopedic issue.
                 </h1>
     
-                <div className="rounded-[24px] overflow-hidden"><iframe width="100%" height="315" src="https://www.youtube.com/embed/EVPlqu2FH2g?si=iSAQ8CBU0XJwmMAv" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>
+                <div className="rounded-[24px] overflow-hidden"><iframe width="100%" height="500" src="https://www.youtube.com/embed/EVPlqu2FH2g?si=iSAQ8CBU0XJwmMAv" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>
                 
                 <h1
                   style={{
@@ -1364,7 +1364,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                   className="text-[#5B5F67] text-xl"
                 >
                   Most cases of sciatica respond well to conservative treatment, especially when the underlying condition compressing the sciatic nerve is addressed. Treatment may include anti-inflammatory medication, stretching exercises, heat and ice therapy, and physical therapy. These methods aim to relieve pressure, reduce inflammation, and restore mobility.<br /><br />
-                  Only after conservative options have been exhausted is surgery considered. At OLSS, our board-certified orthopedic doctors are experts in treating sciatica. We offer advanced, customized care plans that many other practices are not equipped to provide.
+                  Only after conservative options have been exhausted is surgery considered. At Advanced Orthopedics, our board-certified orthopedic doctors are experts in treating sciatica. We offer advanced, customized care plans that many other practices are not equipped to provide.
                 </h1>
                 <OutlinedButton text="Find a Treatment" />
               </div>
@@ -1460,7 +1460,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                If you suspect you’re experiencing sciatica, don’t wait to seek help. Our team at Florida Orthopedic & Laser Spine Surgery specializes in diagnosing and treating sciatica with both non-invasive and surgical approaches. We’ve helped thousands of patients regain their comfort, mobility, and quality of life.<br/><br/>
+                If you suspect you’re experiencing sciatica, don’t wait to seek help. Our team at Advanced Orthopedics specializes in diagnosing and treating sciatica with both non-invasive and surgical approaches. We’ve helped thousands of patients regain their comfort, mobility, and quality of life.<br/><br/>
                 Call us today at (855) 853-6542 or fill out our online form to book your appointment. Let us help you find lasting relief.
               </h1>
 
@@ -1669,7 +1669,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  In rare cases, a coccygectomy (surgical removal of the coccyx) may be considered. At OLSS, we specialize in minimally invasive spine procedures to provide targeted relief while preserving mobility and reducing recovery time.
+                  In rare cases, a coccygectomy (surgical removal of the coccyx) may be considered. At Advanced Orthopedics, we specialize in minimally invasive spine procedures to provide targeted relief while preserving mobility and reducing recovery time.
                 </h1>
               </div>
             </div>
@@ -1767,7 +1767,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                Tailbone pain doesn’t have to interfere with your life. At Orthopedic & Laser Spine Surgery, our expert team offers effective, patient-centered solutions for coccydynia from non-surgical therapies to advanced procedures. We’ll help you get to the root of your pain and back to feeling your best.<br/><br/>
+                Tailbone pain doesn’t have to interfere with your life. At Advanced Orthopedics, our expert team offers effective, patient-centered solutions for coccydynia from non-surgical therapies to advanced procedures. We’ll help you get to the root of your pain and back to feeling your best.<br/><br/>
                 Call us today at (855) 853-6542 or complete our online form to schedule your consultation.
               </h1>
 

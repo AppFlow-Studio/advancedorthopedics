@@ -72,7 +72,7 @@ export default function InsurancePolicy() {
                 }}
                 className="text-[#022968]"
                 >
-                    Home
+                    Find Care
                 </h1>
 
                 <h1
@@ -107,7 +107,7 @@ export default function InsurancePolicy() {
                 Advanced Orthopaedic Insurance Policy            
             </TextAnimate>
         </div>
-        <div className='px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[60%]'>
+        <div className='px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[40%]'>
             <h1
             style={{
                 fontFamily: "var(--font-inter)",
@@ -164,7 +164,7 @@ export default function InsurancePolicy() {
                     }}
                     className="text-[#838890] text-lg w-[45%]"
                     >
-                        It is important for patients to note that OLSS does not accept HMO (Health Maintenance Organization) or EPO (Exclusive Provider Organization) plans for laser spine surgery coverage. This decision is based on the facility’s commitment to providing patient-centric care without the restrictions often imposed by these types of insurance plans.
+                        It is important for patients to note that Advanced Orthopedics does not accept HMO (Health Maintenance Organization) or EPO (Exclusive Provider Organization) plans for laser spine surgery coverage. This decision is based on the facility’s commitment to providing patient-centric care without the restrictions often imposed by these types of insurance plans.
                     </h1>
                     
                     <svg xmlns="http://www.w3.org/2000/svg" width="2" height="150" viewBox="0 0 2 210" fill="none">
@@ -178,7 +178,7 @@ export default function InsurancePolicy() {
                     }}
                     className="text-[#838890] text-lg w-[45%]"
                     >
-                        Furthermore, OLSS does not participate in Medicare & Medicaid programs in relation to spine surgery coverage. This decision is based on various administrative and policy considerations. Patients covered under Medicare & Medicaid are advised to consult with their plan administrators for alternative options for spine and orthopedic care.                    </h1>
+                        Furthermore, Advanced Orthopedics does not participate in Medicare & Medicaid programs in relation to spine surgery coverage. This decision is based on various administrative and policy considerations. Patients covered under Medicare & Medicaid are advised to consult with their plan administrators for alternative options for spine and orthopedic care.                    </h1>
                 </div>
         </section>
 

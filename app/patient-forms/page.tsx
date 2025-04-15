@@ -31,7 +31,7 @@ export default function PatientForms() {
                 }}
                 className="text-[#022968]"
                 >
-                    Home
+                    Find Care
                 </h1>
 
                 <h1
@@ -68,7 +68,7 @@ export default function PatientForms() {
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
+        <div className="z-[2] px-[80px] mt-[24px] w-[45%]">
             <p
             style={{
                 fontWeight: 400,

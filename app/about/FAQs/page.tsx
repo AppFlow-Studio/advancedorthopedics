@@ -27,8 +27,8 @@ export default function FAQs() {
             <p>
                 Advanced Orthopaedic has developed a special minimally invasive technique that lessens recovery time and the
                 pain associated with surgery by using tiny incisions and preserving the muscles and tissue surrounding your
-                spine. The results are longer lasting and more effective than traditional surgery. For more on OLSS's
-                minimally invasive methodology, check out our blog on what "minimally invasive" really means and how it can
+                spine. The results are longer lasting and more effective than traditional surgery. For more on minimally 
+                invasive methodology, check out our blog on what "minimally invasive" really means and how it can
                 help you find long-term pain relief.
             </p>
             </>
@@ -48,7 +48,7 @@ export default function FAQs() {
         question: "What do past patients have to say about their olss experience?",
         answer: (
             <p>
-            Our patients consistently report high satisfaction rates with their OLSS experience. Many highlight the
+            Our patients consistently report high satisfaction rates with their Advanced Orthopaedics experience. Many highlight the
             personalized care they received, the effectiveness of their treatment, and the significant improvement in
             their quality of life following surgery. We maintain a 95% patient satisfaction rate, with many patients
             returning to normal activities within weeks of their procedure.
