@@ -1172,8 +1172,6 @@ export default function Home() {
                           </svg>
                           </h1>
                       </div>
-
-                     
                     </div>
                 </CarouselItem>
                 ))            
