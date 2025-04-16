@@ -78,7 +78,7 @@ export default function DocotorDetails(
                     </h1>
                 </div>
             </div>
-            <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+            <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
                 <TextAnimate animation="blurInUp" by="character" once
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -162,7 +162,7 @@ export default function DocotorDetails(
                     }}
                     className='text-[#838890] text-lg'
                     >
-                        {doctor_details.desc}
+                        {doctor_details.aboutme}
                     </h1>
                 </div>
 

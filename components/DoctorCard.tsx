@@ -43,7 +43,7 @@ export default function DoctorCard({doctor} : {doctor  : DoctorProp}) {
               fontFamily: "var(--font-inter)",
               fontWeight: 400,
             }}
-            className="text-[#54535C] w-[50%]"
+            className="text-[#54535C] "
             >
               {doctor.practice}
             </h1>

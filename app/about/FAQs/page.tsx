@@ -66,7 +66,7 @@ export default function FAQs() {
         ),
         },
         {
-        question: "How do I begin the process of finding a treatment with olss?",
+        question: "How do I begin the process of finding a treatment with Advanced Orthopedics?",
         answer: (
             <p>
             The process begins with scheduling an initial consultation with one of our spine specialists. During this
