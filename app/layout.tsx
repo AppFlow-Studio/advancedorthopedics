@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { MapProvider } from "@/providers/map-provider";
+import { GeolocationProvider } from "@/providers/geolocationcontext";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,9 +42,11 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none`}
         >
           <MapProvider>
-            <NavBar />
-            {children}
-            <Footer />
+            <GeolocationProvider>
+              <NavBar />
+              {children}
+              <Footer />
+            </GeolocationProvider>
           </MapProvider>
         </body>
     </html>

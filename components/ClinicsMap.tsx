@@ -1,49 +1,48 @@
 'use client'
 
 //Map component Component from library
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 // Make sure to import MarkerF and useLoadScript if needed
 import { GoogleMap, Libraries, MarkerF, useLoadScript } from "@react-google-maps/api";
+import { useGeolocation } from '@/providers/geolocationcontext';
 //Map's styling
 export const defaultMapContainerStyle = {
   width: '100%',
   height: '680px',
   borderRadius: '24px',
 };
-const defaultMapCenter = {
-  lat: 35.8799866,
-  lng: 76.5048004
-}
 const defaultMapZoom = 18
 const defaultMapOptions = {
   zoomControl: true,
   tilt: 0,
   gestureHandling: 'auto',
   mapTypeId: 'satellite',
+  mapTypeControl: false, 
+  streetViewControl: false, 
+  fullscreenControl: false,
+  disableDefaultUI: true
 };
 
 // Define marker data (replace with your actual clinic data)
 const clinics = [
-  { id: 1, name: 'Clinic Alpha', lat: 35.881, lng: 76.506 },
-  { id: 2, name: 'Clinic Beta', lat: 35.878, lng: 76.503 },
-  { id: 3, name: 'Clinic Gamma (A)', lat: 35.8795, lng: 76.5045, isSpecial: true }, // Special marker
+  { id: 1, name: 'Altamonte Springs Spine Surgeon', lat: 28.670213, lng: -81.374701 },
+  { id: 2, name: 'Davenport Spine Surgeons ', lat: 28.167513, lng: -81.638889 },
+  { id: 3, name: 'Advanced Ambulatory Surgery Center', lat: 28.674217, lng: -81.374192 }, // Special marker
   // Add more clinics...
 ];
 
-
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-// We will define these properly once th
 export default function ClinicsMap() {
   
-    const { isLoaded, loadError } = useLoadScript({
-      googleMapsApiKey: process.env.NEXT_PUBLIC_Maps_API_KEYKEY!, // Ensure you have your API key in .env.local
-      "libraries" :[ "marker"],
-    });
-
-  
+  const location = useGeolocation();
+  console.log(location)
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
+   const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number} | undefined>()
+   const [ mapCenter, setMapCenter ] = useState({ lat: 28.670213, lng: -81.374701 })
+   const isInitialMount = useRef(true); // <-- Add this ref, initially true
+   
    const onLoad = useCallback(function callback(mapInstance) {
      // You can save the map instance if you need to interact with it
      setMap(mapInstance);
@@ -56,52 +55,163 @@ export default function ClinicsMap() {
    const onUnmount = useCallback(function callback(mapInstance) {
      setMap(null);
    }, []);
- 
- 
-   if (loadError) return <div>Error loading maps: {loadError.message}</div>;
-   if (!isLoaded) return <div>Loading Maps...</div>;
 
+   // Cache for generated selected icons to avoid recalculating SVG/URI/Icon object repeatedly
+   const selectedIconCache = {};
+
+  // --- Function to generate the SELECTED marker SVG ---
+  const createSelectedIcon = (clinicName) => {
+    // if (selectedIconCache[clinicName]) {
+    //   return selectedIconCache[clinicName];
+    // }
+
+    // --- Define the TARGET DISPLAY SIZE for the selected marker ---
+    // Adjust these values to make it look good relative to the 60x40 default marker
+    const targetScaledWidth = 300; // Make it wider for text
+    const targetScaledHeight = 80;  // Slightly taller than default? Adjust as needed.
+
+    // --- Internal SVG element dimensions (can be simpler now) ---
+    // --- Internal SVG element dimensions (INCREASED as requested) ---
+    const internalIconWidth = 30;   // Allocated space for the pin graphic
+    const internalIconHeight = 35;  // Allocated space for the pin graphic
+    const internalPaddingX = 35;    // INCREASED horizontal padding
+    const internalPaddingY = 60;    // INCREASED vertical padding
+    const internalFontSize = 34;    // INCREASED font size
+    const fontFamily = 'Reem Kufi, sans-serif'; // SET Font Family
+    const fontWeight = '600';     // Example: slightly bolder
+
+    // Estimate text width based on internal font size
+    const estimatedTextWidth = clinicName.length * (internalFontSize * 0.55);
+    const internalContentWidth = internalIconWidth + internalPaddingX + estimatedTextWidth;
+
+    // Calculate internal SVG dimensions (these define the viewBox)
+    const internalSvgWidth = internalContentWidth + internalPaddingX * 2;
+    const internalSvgHeight = internalIconHeight + internalPaddingY * 2;
+
+    // Simple white pin path (adjust 'd' if needed)
+    const iconPath = `<path fill-rule="evenodd" clip-rule="evenodd" d="M7.99996 17.75C7.33396 17.75 6.70296 17.496 6.22296 17.035C5.97982 16.7996 5.73291 16.5642 5.48317 16.3261L5.45894 16.303L5.45888 16.3029C2.48689 13.4739 -1.21203 9.95298 0.841952 5.01602C2.02695 2.16502 4.90396 0.25 7.99996 0.25C11.096 0.25 13.9739 2.16502 15.1589 5.01602C17.2199 9.9708 13.4903 13.5087 10.4943 16.3506L10.494 16.351C10.251 16.581 10.011 16.809 9.77696 17.034C9.29696 17.496 8.66596 17.75 7.99996 17.75ZM7.99996 1.75C5.50196 1.75 3.18196 3.29399 2.22696 5.59199C0.569017 9.57686 3.58078 12.4438 6.49269 15.2157L6.49298 15.216C6.75498 15.465 7.01295 15.711 7.26495 15.955C7.46195 16.144 7.72396 16.25 7.99996 16.25C8.27596 16.25 8.53797 16.145 8.73697 15.954C8.92005 15.7779 9.1067 15.6006 9.2951 15.4216L9.29511 15.4216L9.46197 15.263C12.401 12.476 15.439 9.59399 13.775 5.59199C12.819 3.29399 10.498 1.75 7.99996 1.75ZM8 11.25C6.208 11.25 4.75 9.792 4.75 8C4.75 6.208 6.208 4.75 8 4.75C9.792 4.75 11.25 6.208 11.25 8C11.25 9.792 9.792 11.25 8 11.25ZM8 6.25C7.035 6.25 6.25 7.035 6.25 8C6.25 8.965 7.035 9.75 8 9.75C8.965 9.75 9.75 8.965 9.75 8C9.75 7.035 8.965 6.25 8 6.25ZM1.25 19C1.25 20.889 4.749 21.75 8 21.75C11.251 21.75 14.75 20.889 14.75 19C14.75 18.586 14.411 18.25 14 18.25C13.589 18.25 13.255 18.581 13.25 18.991C13.132 19.342 11.36 20.25 8 20.25C4.64 20.25 2.868 19.343 2.75 18.991C2.745 18.581 2.414 18.25 2 18.25C1.586 18.25 1.25 18.586 1.25 19Z" fill="white"/>`;
+
+    // Generate SVG string using INTERNAL dimensions for viewBox and element positioning
+    const svgString = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${internalSvgWidth}" height="${internalSvgHeight}" viewBox="0 0 ${internalSvgWidth} ${internalSvgHeight}">
+        {/* Background fills the internal viewBox */}
+        <rect x="0" y="0" width="${internalSvgWidth}" height="${internalSvgHeight}" rx="${internalSvgHeight / 2}" fill="#022968"/>
+        {/* Icon positioned using internal padding */}
+        <g transform="translate(${internalPaddingX / 5}, ${internalPaddingY / 1.2}) scale(1.5)">
+          {/* Render icon using its internal base size */}
+          <svg width="${internalIconWidth}" height="${internalIconHeight}" x="${internalPaddingX - 5}" viewBox="0 0 ${20} ${20}"> ${iconPath} </svg>
+        </g>
+        {/* Text positioned using internal padding/sizes */}
+        <text
+          x="${internalPaddingX + 5 + internalIconWidth + internalPaddingX}"
+          y="${internalSvgHeight / 2}"
+          dy=".3em"
+          fill="white"
+          font-size="${internalFontSize}"
+          font-family="${fontFamily}"
+          font-weight="${fontWeight}"
+          text-anchor="start">
+          ${clinicName}
+        </text>
+      </svg>
+    `;
+
+    const iconObject = {
+      url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svgString),
+      // *** Set scaledSize explicitly to the TARGET dimensions ***
+      scaledSize: new window.google.maps.Size(targetScaledWidth, targetScaledHeight),
+      // *** Anchor point relative to the TARGET scaledSize ***
+      // Center anchor is often easiest when scaling this way:
+      anchor: new window.google.maps.Point(targetScaledWidth / 2, targetScaledHeight / 2),
+      // Or if you want to anchor bottom-center of where the pin *would be* if scaled:
+      // anchor: new window.google.maps.Point((internalPaddingX + internalIconWidth / 2) * (targetScaledWidth / internalSvgWidth), targetScaledHeight), // More complex calculation
+    };
+
+    selectedIconCache[clinicName] = iconObject;
+    return iconObject;
+  };
+   
+
+   const defaultSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="32" viewBox="0 0 48 32" fill="none">
+      <rect x="0" y="0" width="48" height="32" rx="16" fill="white"/>
+      <g transform="translate(16, 5)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99996 17.75C7.33396 17.75 6.70296 17.496 6.22296 17.035C5.97982 16.7996 5.73291 16.5642 5.48317 16.3261L5.45894 16.303L5.45888 16.3029C2.48689 13.4739 -1.21203 9.95298 0.841952 5.01602C2.02695 2.16502 4.90396 0.25 7.99996 0.25C11.096 0.25 13.9739 2.16502 15.1589 5.01602C17.2199 9.9708 13.4903 13.5087 10.4943 16.3506L10.494 16.351C10.251 16.581 10.011 16.809 9.77696 17.034C9.29696 17.496 8.66596 17.75 7.99996 17.75ZM7.99996 1.75C5.50196 1.75 3.18196 3.29399 2.22696 5.59199C0.569017 9.57686 3.58078 12.4438 6.49269 15.2157L6.49298 15.216C6.75498 15.465 7.01295 15.711 7.26495 15.955C7.46195 16.144 7.72396 16.25 7.99996 16.25C8.27596 16.25 8.53797 16.145 8.73697 15.954C8.92005 15.7779 9.1067 15.6006 9.2951 15.4216L9.29511 15.4216L9.46197 15.263C12.401 12.476 15.439 9.59399 13.775 5.59199C12.819 3.29399 10.498 1.75 7.99996 1.75ZM8 11.25C6.208 11.25 4.75 9.792 4.75 8C4.75 6.208 6.208 4.75 8 4.75C9.792 4.75 11.25 6.208 11.25 8C11.25 9.792 9.792 11.25 8 11.25ZM8 6.25C7.035 6.25 6.25 7.035 6.25 8C6.25 8.965 7.035 9.75 8 9.75C8.965 9.75 9.75 8.965 9.75 8C9.75 7.035 8.965 6.25 8 6.25ZM1.25 19C1.25 20.889 4.749 21.75 8 21.75C11.251 21.75 14.75 20.889 14.75 19C14.75 18.586 14.411 18.25 14 18.25C13.589 18.25 13.255 18.581 13.25 18.991C13.132 19.342 11.36 20.25 8 20.25C4.64 20.25 2.868 19.343 2.75 18.991C2.745 18.581 2.414 18.25 2 18.25C1.586 18.25 1.25 18.586 1.25 19Z" fill="#2358AC"/>
+      </g>
+    </svg>
+ `;
+
+
+  const defaultMarkerIcon = {
+    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(defaultSvg),
+    scaledSize: new window.google.maps.Size(60, 40), // Display size
+    anchor: new window.google.maps.Point(30, 20),    // Anchor at center
+  };
+
+
+  // --- Marker Click Handler ---
+  const handleMarkerClick = (clinicName) => {
+    if( clinicName == selectedClinc ){
+      setSeletecedClinic(undefined)
+    }else{
+      setSeletecedClinic(clinicName); // Update state with the ID of the clicked clinic
+    }
+ };
+  useEffect(() => {
+    setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))
+  }, [])
+  useEffect(() => {
+    console.log(isInitialMount, selectedClinc)
+    if( isInitialMount.current && selectedClinc ){
+      const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
+      setMapCenter(defaultMapCenter)
+      isInitialMount.current = false
+    }
+  }, [selectedClinc])
   return (
     <section className="bg-[#FAFCFF] w-full h-full py-[50px]">
       {/* This outer div needs to contain both map and overlay */}
       <div className="max-w-[1440px] w-full px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
-        <MapOverlayCard />
+        <MapOverlayCard selectedClinic={selectedClinc}/>
 
         {/* The Google Map */}
         <GoogleMap
           mapContainerStyle={defaultMapContainerStyle}
-          center={defaultMapCenter}
+          center={mapCenter}
           zoom={defaultMapZoom}
           options={defaultMapOptions}
           onLoad={onLoad}
           onUnmount={onUnmount}
         >
           {/* Render Markers Inside */}
-          {clinics.map((clinic) => (
-            <MarkerF
-              key={clinic.id}
-              position={{ lat: clinic.lat, lng: clinic.lng }}
-              // Optional: Add title for hover effect
-              title={clinic.name}
-              // Optional: Add onClick handler
-              // onClick={() => handleMarkerClick(clinic)}
-            />
-          ))}
+          {clinics.map((clinic) => {
+            // Determine which icon to use
+            const isSelected = clinic.name == selectedClinc?.name;
+            const iconToUse = isSelected
+              ? createSelectedIcon(clinic.name) // Generate selected icon with name
+              : defaultMarkerIcon;             // Use default icon
+
+            // Ensure iconToUse is not null before rendering MarkerF
+            if (!iconToUse) return null;
+            return (
+              <MarkerF
+                key={clinic.name}
+                position={{ lat: clinic.lat, lng: clinic.lng }}
+                icon={iconToUse} // Apply the determined icon
+                title={clinic.name}
+                onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
+                // Optional: Lower zIndex for non-selected markers if overlap is an issue
+              />
+            );
+          })}
         </GoogleMap>
       </div>
     </section>
   )
 }
 
-
-// Placeholder icons (replace with actual icons/SVG components)
-const LocationIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-  </svg>
-);
 
 const DropdownIcon = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -110,9 +220,9 @@ const DropdownIcon = () => (
 );
 
 
-function MapOverlayCard() {
+function MapOverlayCard({ selectedClinic } : { selectedClinic : {id : number, name : string, lat : number, lng : number} }) {
   return (
-    <div className="absolute top-5 left-14 z-10 bg-white p-6 rounded-lg shadow-lg w-full max-w-sm md:max-w-md space-y-4">
+    <div className="absolute top-5 left-14 z-10 bg-white p-6 rounded-lg shadow-lg w-full max-w-sm md:max-w-xl space-y-4">
       <h2 
       style={{
         fontFamily: "var(--font-reem-kufi)",
@@ -121,15 +231,20 @@ function MapOverlayCard() {
       className="text-2xl font-semibold text-[#5B5F67]">Find your Clinic</h2>
       
       <div  className=' flex flex-row space-x-[20px]'>
-        <div className="flex items-center border border-gray-300 rounded-md p-2 w-[50%] focus-within:ring-2 focus-within:ring-blue-500">
-          <LocationIcon />
-          <input
-            type="text"
-            placeholder="Sylhet" // Or use a dynamic placeholder/value
-            className="ml-2 flex-grow focus:outline-none text-gray-700"
-          />
+        <div className="flex items-center border border-gray-300 rounded-md p-2  space-x-[12px] w-[70%] focus-within:ring-2 focus-within:ring-blue-500 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">
+            <path fillRule="evenodd" clipRule="evenodd" d="M1.43803 4.51411C2.54766 1.84586 5.20376 0.145508 8.0004 0.145508C10.797 0.145508 13.4531 1.84586 14.5628 4.51411C15.5945 6.9951 15.0349 9.11414 13.8763 10.9193C12.9197 12.4098 11.5194 13.7368 10.2738 14.9171L10.2734 14.9174L10.2728 14.9181L10.2722 14.9186C10.0521 15.1272 9.83691 15.3311 9.62984 15.5306C9.19228 15.952 8.60795 16.1872 8.0004 16.1872C7.39285 16.1872 6.80856 15.952 6.371 15.5306L6.3695 15.5292C6.15009 15.3166 5.92129 15.099 5.68711 14.8762L5.68706 14.8762C4.45467 13.704 3.07333 12.3902 2.12659 10.9184C0.966597 9.11507 0.405005 6.99816 1.43803 4.51411ZM5.24992 7.24967C5.24992 5.73089 6.48114 4.49967 7.99992 4.49967C9.5187 4.49967 10.7499 5.73089 10.7499 7.24967C10.7499 8.76846 9.5187 9.99967 7.99992 9.99967C6.48114 9.99967 5.24992 8.76846 5.24992 7.24967ZM3.41274 17.0193C3.37008 16.5527 2.97769 16.1872 2.49992 16.1872C1.99366 16.1872 1.58325 16.5976 1.58325 17.1038C1.58325 17.7582 1.98195 18.2357 2.36474 18.5374C2.75787 18.8472 3.26992 19.0862 3.82096 19.2698C4.93261 19.6404 6.41003 19.8538 7.99992 19.8538C9.58981 19.8538 11.0672 19.6404 12.1789 19.2698C12.7299 19.0862 13.242 18.8472 13.6351 18.5374C14.0179 18.2357 14.4166 17.7582 14.4166 17.1038C14.4166 16.5976 14.0062 16.1872 13.4999 16.1872C13.0222 16.1872 12.6298 16.5527 12.5871 17.0193C12.5712 17.0367 12.5442 17.0629 12.5003 17.0975C12.3368 17.2264 12.0434 17.3825 11.5991 17.5306C10.7202 17.8236 9.44759 18.0205 7.99992 18.0205C6.55224 18.0205 5.27966 17.8236 4.40071 17.5306C3.95644 17.3825 3.66303 17.2264 3.49953 17.0975C3.45562 17.0629 3.4286 17.0367 3.41274 17.0193Z" fill="#838890"/>
+          </svg>
+          <h1
+          style={{
+            fontFamily : '(--var-inter)',
+          }}
+          className=' text-[#2358AC] text-md font-[500] overflow-ellipsis w-full'
+          >
+            {selectedClinic?.name}
+          </h1>
         </div>
-        <div className="flex items-center justify-between border border-gray-300 rounded-md w-[50%] p-2 text-gray-600">
+        <div className="flex items-center justify-between border border-gray-300 rounded-md w-[30%] p-2 text-gray-600">
           <span>Sort by <span className="font-medium text-blue-600">Near by</span></span>
            <DropdownIcon />
           {/* You would replace this with an actual dropdown/select component */}
@@ -138,4 +253,42 @@ function MapOverlayCard() {
 
     </div>
   );
+}
+
+function findNearestClinicNameGoogle(clinics, userLocation, google) {
+  // Check if geometry library is loaded
+  if (!google || !google.maps || !google.maps.geometry || !google.maps.geometry.spherical) {
+    console.error("Google Maps API or geometry library not loaded.");
+    return null;
+  }
+  if (!clinics || clinics.length === 0 || !userLocation) {
+    return null; // Handle empty input
+  }
+
+  let minDistance = Infinity;
+  let nearestClinic = null;
+
+  // Create LatLng object for user location
+  const userLatLng = new google.maps.LatLng(userLocation.latitude, userLocation.longitude);
+
+  for (const clinic of clinics) {
+     // Ensure clinic has valid coordinates
+    if (typeof clinic.lat !== 'number' || typeof clinic.lng !== 'number') {
+        console.warn(`Skipping clinic with invalid coordinates: ${clinic.name}`);
+        continue;
+    }
+    // Create LatLng object for clinic location
+    const clinicLatLng = new google.maps.LatLng(clinic.lat, clinic.lng);
+
+    // Calculate distance using Google Maps library (returns distance in meters)
+    const distance = google.maps.geometry.spherical.computeDistanceBetween(userLatLng, clinicLatLng);
+
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearestClinic = clinic;
+    }
+  }
+
+  console.log(`Nearest clinic: ${nearestClinic?.name}, Distance: ${(minDistance / 1000).toFixed(2)} km`); // Optional logging
+  return nearestClinic ? nearestClinic : null;
 }
