@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
@@ -10,7 +10,7 @@ import { Doctors } from '@/components/data/doctors'
 import DoctorCard from '@/components/DoctorCard'
 import Link from 'next/link'
 import { TextAnimate } from '@/components/magicui/text-animate'
-export default function ConditionDetails({
+export default function TreatmentDetails({
     params,
   }: {
     params: Promise<{ TreatmentDetails : string }>
@@ -38,6 +38,25 @@ export default function ConditionDetails({
       
       // Shuffle the Doctors array and then take the first two doctors
       const randomDoctors = shuffleArray(Doctors).slice(0, 2);    
+
+        useEffect(() => {
+          // Only scroll if the ref is attached to an element
+          if (paginationRef.current) {
+            // Check if this is the first render
+            if (isInitialMount.current) {
+              // If it IS the first render, set the ref to false
+              // so this block won't run again, and DO NOTHING ELSE.
+              isInitialMount.current = false;
+            } else {
+              // If it's NOT the first render (meaning currentPage changed
+              // due to a click), THEN scroll into view.
+              paginationRef.current.scrollIntoView({
+                behavior: 'smooth', // or 'auto' for instant scroll
+                block: 'nearest',
+              });
+            }
+          }
+        }, [currentPage]);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}

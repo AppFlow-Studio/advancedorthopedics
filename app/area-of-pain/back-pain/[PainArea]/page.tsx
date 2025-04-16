@@ -35,6 +35,17 @@ export default function PainArea({
       </main>
     )
   }
+    function shuffleArray(array) {
+          const newArray = [...array]; // Clone the array
+          for (let i = newArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
+          [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
+          }
+          return newArray;
+      }
+      
+      // Shuffle the Doctors array and then take the first two doctors
+      const randomDoctors = shuffleArray(Doctors).slice(0, 2); 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -146,7 +157,7 @@ export default function PainArea({
             <div className='w-[30%] bg-white flex flex-col space-y-[60px]'>
                 <DoctorContactForm backgroundcolor={'#FAFAFA'}/>
                 <div className=' space-y-[30px]'>
-                    <BackPainDropdown />
+                    <BackPainDropdown  CurrentCondition={condition_details.title}/>
                     <Image src={condition_details.side_img!} className="w-full rounded-[20px] max-h-[500px] aspect-1/2 object-center object-cover" alt='' />
                 </div>
             </div>
@@ -198,7 +209,7 @@ export default function PainArea({
                     </h1>
                     <div className='grid grid-cols-2 gap-x-[32px] '>
                         {
-                            Doctors.slice(0,2).map((item) => (
+                            randomDoctors.map((item) => (
                                 <DoctorCard doctor={item} key={item.name}/>
                             ))
                         }

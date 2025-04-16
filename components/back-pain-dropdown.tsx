@@ -9,8 +9,8 @@ import { Conditions } from "./data/conditions"
 
 const backPainOptions: ConditionInfoProp[] = Conditions.filter(x => x.title == 'Lower Back Pain' || x.title == 'Sciatica' || x.title == 'Coccydynia' || x.title == 'Lumbar Herniated Disc' || x.title == 'Degenerative Disc Disease')
 
-export function BackPainDropdown() {
-  const [isOpen, setIsOpen] = useState(false)
+export function BackPainDropdown({CurrentCondition} : { CurrentCondition : string}) {
+  const [isOpen, setIsOpen] = useState(true)
   const [selectedOption, setSelectedOption] = useState<string | null>("treatments")
   const [contentHeight, setContentHeight] = useState(0)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -58,7 +58,7 @@ export function BackPainDropdown() {
       >
         <div ref={contentRef} className="rounded-md space-y-[20px] mt-[20px]">
           {backPainOptions.map((option) => (
-             <Link href={`/area-of-pain/back-pain/${option.slug}`} className=' bg-[#FAFAFA] p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]' key={option.title}>
+             <Link href={`/area-of-pain/back-pain/${option.slug}`} className={`${CurrentCondition == option.title ? 'bg-[#EFF5FF]' : 'bg-[#FAFAFA]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]`} key={option.title}>
                 <h1
                 style={{
                 fontFamily: "var(--font-reem-kufi)",

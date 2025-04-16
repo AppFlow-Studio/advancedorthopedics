@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Reem_Kufi, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { MapProvider } from "@/providers/map-provider";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,13 +37,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased`}
-      >
-        <NavBar />
-        {children}
-        <Footer />
-      </body>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none`}
+        >
+          <MapProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </MapProvider>
+        </body>
     </html>
   );
 }

@@ -232,7 +232,7 @@ export default function FAQs() {
 
         <section className=' mt-[80px] py-[50px] max-w-[1440px] px-[80px] w-full max-h-[680px] lg:h-[680px]'>
             <div className=' h-full w-full rounded-[40px] bg-[#EDEEE9] p-[80px] relative border overflow-clip'>
-                <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' absolute -bottom-10 left-[40%] w-[75%] aspect-auto'/>
+                <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' absolute -bottom-8 left-[40%] w-[75%] z-20'/>
                 <h1 
                  style={{
                     fontFamily : 'var(--font-reem-kufi)',

@@ -18,7 +18,8 @@ export default function AreaOfSpeciality() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem)
   const totalPages = Math.ceil(data.length / itemsPerPage);
-    
+  const isInitialMount = useRef(true); // <-- Add this ref, initially true
+
     const paginate = (pageNumber : number) => setCurrentPage(pageNumber);
     const paginationRef = useRef(null); // Create the ref
 
@@ -44,12 +45,20 @@ export default function AreaOfSpeciality() {
       // Scroll effect
   useEffect(() => {
     // Only scroll if the ref is attached to an element
-    if (paginationRef.current && currentPage != 1) {
-      // Scroll the pagination container into the nearest view
-      paginationRef.current.scrollIntoView({
-        behavior: 'smooth', // Optional: Use 'auto' or 'instant' for no animation
-        block: 'start',   // Tries to keep it vertically centered if possible, otherwise top/bottom
-      });
+    if (paginationRef.current) {
+      // Check if this is the first render
+      if (isInitialMount.current) {
+        // If it IS the first render, set the ref to false
+        // so this block won't run again, and DO NOTHING ELSE.
+        isInitialMount.current = false;
+      } else {
+        // If it's NOT the first render (meaning currentPage changed
+        // due to a click), THEN scroll into view.
+        paginationRef.current.scrollIntoView({
+          behavior: 'smooth', // or 'auto' for instant scroll
+          block: 'nearest',
+        });
+      }
     }
   }, [currentPage]);
   return (
@@ -141,7 +150,7 @@ export default function AreaOfSpeciality() {
               </h1>
           </div>
 
-          <div className=' flex flex-col space-y-[16px] '>
+          <div className=' flex flex-col space-y-[16px] ' ref={paginationRef}>
               <h1
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
@@ -170,7 +179,7 @@ export default function AreaOfSpeciality() {
 
         {/* All Our Conditions */}
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-[80px] space-y-[24px]'>
-          <div className='space-y-[16px] flex flex-row justify-between' ref={paginationRef}>
+          <div className='space-y-[16px] flex flex-row justify-between' >
               <h1
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
@@ -203,7 +212,7 @@ export default function AreaOfSpeciality() {
           <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
 
           <div className=' mt-[16px] flex flex-row items-center justify-between'>
-              <div className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer'>
+              <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer' onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                   <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" fill="#5B5F67"/>
                 </svg>
@@ -216,14 +225,14 @@ export default function AreaOfSpeciality() {
                 >
                   Previous
                 </h1>
-              </div>
+              </button>
 
               <div className=' flex flex-row items-center space-x-[2px]'>
                 {renderPageNumbers()}
               </div>
               
 
-              <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer '>
+              <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer ' onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}>
               <h1
                 style={{
                   fontFamily : 'var(--font-inter)',
