@@ -6,6 +6,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { GoogleMap, Libraries, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useGeolocation } from '@/providers/geolocationcontext';
 import { Select, SelectContent, SelectItem, SelectTrigger } from './ui/select';
+import { clinics } from './data/clinics';
 //Map's styling
 export const defaultMapContainerStyle = {
   width: '100%',
@@ -24,26 +25,16 @@ const defaultMapOptions = {
   disableDefaultUI: true
 };
 
-// Define marker data (replace with your actual clinic data)
-const clinics = [
-  { id: 1, name: 'Altamonte Springs Spine Surgeon', lat: 28.670213, lng: -81.374701, address : '499 E Central Pkwy #130 Altamonte Springs, FL 32701' },
-  { id: 2, name: 'Davenport Spine Surgeons ', lat: 28.167513, lng: -81.638889, address : '2400 N. Blvd W. Davenport, FL, 33837'},
-  { id: 3, name: 'Advanced Ambulatory Surgery Center', lat: 28.674217, lng: -81.374192, address : '652 Palm Springs Dr Altamonte Springs, FL 32701' },
-  { id: 4, name: 'Advanced Orthopedics Hollywood, FL', lat: 26.011352, lng : -80.178874, address : '3500 Tyler St Hollywood, FL 33021' },
-  { id: 5, name: 'Advanced Orthopedics Orlando' , lat: 28.5144368, lng: -81.4658519, address : '6150 Metrowest Blvd Suite 102 Orlando, FL 32835'},
-  { id: 6, name: 'Advanced Orthopedics Palm Beach Gardens', lat: 26.8307353, lng : -80.0878284, address : '3355 Burns Rd #304 Palm Beach Gardens, FL 33410'},
-  { id: 7, name: 'Advanced Orthopedics Miami Beach', lat: 25.696306, lng : -80.30121, address : '8000 SW 67TH Ave, 2nd Floor Miami, Florida 33143'}
-];
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-export default function ClinicsMap() {
+export default function ClinicsMap({ startingClinic } :  {startingClinic? : {id : number, name : string, lat : number, lng : number, address : string}}) {
 
   const location = useGeolocation();
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
-   const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>()
-   const [ mapCenter, setMapCenter ] = useState({ lat: 28.670213, lng: -81.374701 })
+   const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
+   const [ mapCenter, setMapCenter ] = useState(startingClinic ? {lat: startingClinic.lat , lng: startingClinic.lng} : { lat: 28.670213, lng: -81.374701 })
    const isInitialMount = useRef(true); // <-- Add this ref, initially true
    
    const onLoad = useCallback(function callback(mapInstance) {
@@ -177,11 +168,11 @@ const handleClinicChange = (name: string) => {
   }
 };
   useEffect(() => {
-    setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))
+    if( !startingClinic ) {setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))}
   }, [])
   useEffect(() => {
     console.log(isInitialMount, selectedClinc)
-    if( isInitialMount.current && selectedClinc  ){
+    if( isInitialMount.current && selectedClinc && !startingClinic  ){
       const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
       setMapCenter(defaultMapCenter)
       isInitialMount.current = false

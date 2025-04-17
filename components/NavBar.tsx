@@ -35,7 +35,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
-
+import { clinics } from './data/clinics';
 function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen : string, pathname : string, sublinks : {title : string, href : string, subLinks: {title : string, href : string}[] }[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -303,11 +303,20 @@ const NavBarLinks = [
     ]
   },
   {
-    href : '/location',
-    screen : '/location',
+    href : '/locations',
+    screen : '/locations',
     title : 'LOCATION',
     subLinks : [
-      
+      {
+        title : "Florida",
+        href : '/locations',
+        subLinks : clinics.map((clinic) => {
+          return {
+            title : clinic.name,
+            href : `/locations/${clinic.id}`
+          }
+        })
+      }
     ]
   },
   
