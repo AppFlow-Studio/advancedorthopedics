@@ -76,6 +76,24 @@ export default function LocationDetails(
                         }}
                         className="text-[#5093FF]"
                         >
+                            Florida
+                        </h1>
+                        <h1
+                        style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 400,
+                        }}
+                        className="text-[#111315]"
+                        >
+                            /
+                        </h1>
+                        <h1
+                        style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 400,
+                        }}
+                        className="text-[#5093FF]"
+                        >
                             {location.name}
                         </h1>
 
