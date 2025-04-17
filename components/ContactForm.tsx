@@ -206,7 +206,7 @@ export function ConsultationForm() {
                 </FormItem>
               )}
             />
-            <div className="w-full self-center flex items-center justify-center mt-[40px]"><BookAnAppoitmentButton /></div>
+            <button className="w-full self-center flex items-center justify-center mt-[40px]" ><BookAnAppoitmentButton /></button>
             </form>
         </Form>
      </div>
