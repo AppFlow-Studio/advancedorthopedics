@@ -74,7 +74,7 @@ export default function LocationDetails(
                             fontFamily: "var(--font-reem-kufi)",
                             fontWeight: 400,
                         }}
-                        className="text-[#5093FF]"
+                        className="text-[#2258AC]"
                         >
                             Florida
                         </h1>
