@@ -13,7 +13,8 @@ export interface DoctorProp {
     desc : string,
     aboutme : string,
     bio : React.JSX.Element,
-    snapshot : string[]
+    snapshot : string[],
+    cert? : StaticImageData
 }
 export const Doctors : DoctorProp[] = [
     {
