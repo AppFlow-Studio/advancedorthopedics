@@ -57,12 +57,12 @@ export const Doctors : DoctorProp[] = [
             Outside the clinic, Dr. Cowin enjoys traveling, scuba diving, snowboarding, and spending time with his children as they participate in sports.
         </h1>),
     snapshot : ['Board-certified orthopedic surgeon with over 20 years of experience',
- 'Doctor of Medicine from University of Florida in 1998',
- 'Residency in Orthopaedics at University of Florida Department of Orthopaedics',
- 'Completed advanced training at Bone and Joint Institute in Arizona focusing on joint reconstruction',
- 'Specializes in sacroiliac fusion and minimally invasive spine procedures',
- 'Undergraduate research in orthopedic surgery at Dartmouth College',
- 'Experience treating both upper and lower extremities and spine conditions']
+    'Doctor of Medicine from University of Florida in 1998',
+    'Residency in Orthopaedics at University of Florida Department of Orthopaedics',
+    'Completed advanced training at Bone and Joint Institute in Arizona focusing on joint reconstruction',
+    'Specializes in sacroiliac fusion and minimally invasive spine procedures',
+    'Undergraduate research in orthopedic surgery at Dartmouth College',
+    'Experience treating both upper and lower extremities and spine conditions']
     },
     {
     img : Christopher,
@@ -123,7 +123,7 @@ export const Doctors : DoctorProp[] = [
         'Over two decades of experience in surgical anesthesia and pain relief',
         'Member of the American Society of Anesthesiologists and the American Society of Regional Anesthesia & Pain Medicine',
         'Expert in pre-surgical consultations, post-op pain management, and perioperative care',
-        'Key contributor to OLSS’s advanced surgical and therapeutic procedures'
+        'Key contributor to Mountain Spine & Care advanced surgical and therapeutic procedures'
       ]
     },
     {
@@ -152,7 +152,7 @@ export const Doctors : DoctorProp[] = [
       'Served in the United States Army Reserves during undergraduate studies',
       'Pioneered minimally invasive techniques now taught to surgeons across the western U.S.',
       'Named Top Orthopedic Spine Surgeon in 2023 by Findatopdoc',
-      'Currently practicing at NJ Spine & Orthopedic in New Jersey'
+      'Currently practicing at Mountain Spine & Care'
     ]
       },
 ]

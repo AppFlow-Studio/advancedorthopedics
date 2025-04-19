@@ -156,7 +156,7 @@ export const Conditions : ConditionInfoProp[] = [
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                At Advanced Orthopedics, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
+                At Mountain Spine & Care, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
                 </h1>
               </div>
             </div>
@@ -181,7 +181,7 @@ export const Conditions : ConditionInfoProp[] = [
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Advanced Orthopedics, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
+                If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Mountain Spine & Care, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
                 </h1>
               </div>
             </div>
@@ -204,7 +204,7 @@ export const Conditions : ConditionInfoProp[] = [
     {
       "title": "Arthritis",
       "body": `Arthritis is a common joint condition that causes inflammation, stiffness, and pain, affecting millions of people across the U.S. It can severely limit mobility and interfere with daily activities like walking, climbing stairs, or even gripping objects. While arthritis is often associated with aging, it can affect people of all ages depending on the type and underlying cause.
-At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
+At Mountain Spine & Care, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
       side_img : arthritisside,
       forum : [
         {
@@ -340,7 +340,7 @@ At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailor
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  Arthritis may be a chronic condition, but that doesn’t mean it has to control your life. With the right treatment plan, it’s possible to reduce pain, slow joint damage, and improve your mobility. At Advanced Orthopedics, our team of experts offers a full spectrum of arthritis care from advanced imaging and diagnosis to non-surgical therapies and state-of-the-art surgical solutions when needed. Whether you’re managing early signs of osteoarthritis or facing the challenges of an inflammatory condition like rheumatoid arthritis, we’re here to help guide you through every stage of your treatment.
+                  Arthritis may be a chronic condition, but that doesn’t mean it has to control your life. With the right treatment plan, it’s possible to reduce pain, slow joint damage, and improve your mobility. At Mountain Spine & Care, our team of experts offers a full spectrum of arthritis care from advanced imaging and diagnosis to non-surgical therapies and state-of-the-art surgical solutions when needed. Whether you’re managing early signs of osteoarthritis or facing the challenges of an inflammatory condition like rheumatoid arthritis, we’re here to help guide you through every stage of your treatment.
                 </h1>
               </div>
           </div>
@@ -365,7 +365,7 @@ At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailor
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  If you’re living with persistent joint pain, stiffness, or swelling, don’t wait to get the help you need. Arthritis is a manageable condition when addressed early with the right treatment plan and expert care. At Advanced Orthopedics, our experienced specialists are here to evaluate your symptoms, provide a personalized diagnosis, and guide you toward lasting relief and better joint health.<br/><br/>
+                  If you’re living with persistent joint pain, stiffness, or swelling, don’t wait to get the help you need. Arthritis is a manageable condition when addressed early with the right treatment plan and expert care. At Mountain Spine & Care, our experienced specialists are here to evaluate your symptoms, provide a personalized diagnosis, and guide you toward lasting relief and better joint health.<br/><br/>
                   Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Let’s take the first step together toward improving your mobility, comfort, and quality of life.
                 </h1>
               </div>
@@ -440,7 +440,7 @@ At Advanced Orthopedics, we offer comprehensive arthritis treatment plans tailor
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  The only way to determine the right treatment is through an accurate diagnosis. Our specialists use a variety of advanced tools, including MRI scans, X-rays, ultrasounds, and physical evaluations to assess the source of your lower back pain. These methods help detect conditions like herniated or bulging discs, osteoarthritis, spinal stenosis, spondylolisthesis, or even spinal fractures. Once a clear diagnosis is made, our highly trained doctors at Advanced Orthopedics can recommend a treatment plan tailored to your needs. With access to advanced procedures not widely available elsewhere, we’re able to offer both non-surgical and surgical options based on what’s best for your recovery. 
+                  The only way to determine the right treatment is through an accurate diagnosis. Our specialists use a variety of advanced tools, including MRI scans, X-rays, ultrasounds, and physical evaluations to assess the source of your lower back pain. These methods help detect conditions like herniated or bulging discs, osteoarthritis, spinal stenosis, spondylolisthesis, or even spinal fractures. Once a clear diagnosis is made, our highly trained doctors at Mountain Spine & Care can recommend a treatment plan tailored to your needs. With access to advanced procedures not widely available elsewhere, we’re able to offer both non-surgical and surgical options based on what’s best for your recovery. 
                </h1>
                <OutlinedButton text="Find a Treatment"/>
               </div>
@@ -516,7 +516,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At Advanced Orthopedics, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
+                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At Mountain Spine & Care, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
                 </h1>
               </div>
             </div>
@@ -528,7 +528,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     {
       "title": "Pinched Nerve",
       "body": `Nerve pain can disrupt your daily life and limit your mobility. A pinched nerve, also known as nerve compression, occurs when surrounding tissues such as bones, cartilage, muscles, or discs put pressure on a nearby nerve. This pressure can interfere with the nerve's function and cause pain, numbness, or weakness.
-The most common areas for pinched nerves are the neck (cervical spine) and lower back (lumbar spine). When nerves in the lower back are affected, it often leads to sciatica, where pain radiates from the lower back into the legs. At Advanced Orthopedics, our spine specialists offer precise diagnosis and advanced treatment options to relieve nerve pressure and restore function.`,
+The most common areas for pinched nerves are the neck (cervical spine) and lower back (lumbar spine). When nerves in the lower back are affected, it often leads to sciatica, where pain radiates from the lower back into the legs. At Mountain Spine & Care, our spine specialists offer precise diagnosis and advanced treatment options to relieve nerve pressure and restore function.`,
       forum : [
         {
           post : (
@@ -664,7 +664,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               className="text-[#5B5F67] text-xl"
               >
                 A pinched nerve doesn’t have to control your life. With early intervention and the right treatment strategy, most patients experience relief without surgery. Non-surgical options may include physical therapy, anti-inflammatory medication, activity modification, ergonomic adjustments, and corticosteroid injections. When conservative care fails to relieve pressure on the nerve, minimally invasive surgical solutions such as microdiscectomy or foraminotomy may be considered.<br/><br/>
-                At Advanced Orthopedics, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
+                At Mountain Spine & Care, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
               </h1>
             </div>
           </div>
@@ -689,7 +689,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Advanced Orthopedics, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
+                If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Mountain Spine & Care, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
                 Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Lasting relief could be just one visit away.
               </h1>
             </div>
@@ -847,7 +847,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                   }}
                   className="text-[#5B5F67] text-xl"
                 >
-                 In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Advanced Orthopedics will help determine the best approach based on your condition.
+                 In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Mountain Spine & Care will help determine the best approach based on your condition.
                 </h1>
               </div>
             </div>
@@ -929,7 +929,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-               Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Advanced Orthopedics, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
+               Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Mountain Spine & Care, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
               </h1>
             </div>
           </div>
@@ -954,7 +954,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-               Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Advanced Orthopedics, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
+               Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Mountain Spine & Care, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
                Call us today at (855) 853-6542 or fill out our online form to schedule a consultation. You may have more options than you think and recovery may be closer than you realize.
               </h1>
             </div>
@@ -1032,7 +1032,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                At Advanced Orthopedics, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
+                At Mountain Spine & Care, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
                 For patients with one or two affected levels, a decompression and artificial disc replacement is often ideal. This modern approach allows for motion preservation and avoids the long-term stiffness associated with spinal fusion. While multi-level fusion is sometimes used, it can leave patients with a permanently stiff neck, especially when four levels are involved. In contrast, laminoplasty provides the best option for multiple levels of compression without sacrificing mobility.
               </h1>
 
@@ -1123,7 +1123,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Advanced Orthopedics, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
+                If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Mountain Spine & Care, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
                 Take the first step toward recovery. Call us at (855) 853-6542 or fill out our online form to schedule your consultation today.
               </h1>
 
@@ -1174,7 +1174,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-                If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Advanced Orthopedics offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
+                If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Mountain Spine & Care offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
               </h1>
 
               <OutlinedButton text="Do I have this Condition?" />
@@ -1203,7 +1203,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 className="text-[#5B5F67] text-xl"
               >
                 The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.<br/><br/>
-                At Advanced Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+                At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
               </h1>
               <OutlinedButton text="Find a Treatment" />
             </div>
@@ -1230,7 +1230,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 className="text-[#5B5F67] text-xl"
               >
                 The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.
-                At Advanced Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+                At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
               </h1>
               <GradientOverlayImage
                   imageData={lumbarherniateddisc2} // Passing static image data
@@ -1262,7 +1262,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               >
                If you’re experiencing symptoms of a lumbar herniated disc, there are several treatment options available depending on the severity of your condition. If your pain is mild and manageable, starting with home care and guided physical therapy can often lead to improvement. Applying heat or ice, taking anti-inflammatory medications such as ibuprofen or naproxen, and making lifestyle adjustments like avoiding long periods of sitting or poor lifting techniques can help reduce strain on the lower back. Exercise programs that strengthen the core and improve flexibility are also an essential part of recovery.<br/><br/>
                 When conservative care is not enough, surgical treatment may be necessary to relieve pressure on the affected nerves. Discectomy is a common procedure where the portion of the disc pressing on the nerve is removed to relieve pain. In some cases, a laminectomy may be performed to widen the spinal canal and ease nerve compression. For patients with severe disc damage, spinal fusion may be considered to stabilize the spine and prevent further injury.<br/><br/>
-                Every patient is different, which is why the team at Advanced Orthopedics develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
+                Every patient is different, which is why the team at Mountain Spine & Care develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
               </h1>
             </div>
           </div>
@@ -1287,8 +1287,8 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
               >
-               Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Advanced Orthopedics, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
-               Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Advanced Orthopedics on your side, a pain-free future is within reach.
+               Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Mountain Spine & Care, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
+               Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Mountain Spine & Care on your side, a pain-free future is within reach.
               </h1>
             </div>
           </div>
@@ -1364,7 +1364,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                   className="text-[#5B5F67] text-xl"
                 >
                   Most cases of sciatica respond well to conservative treatment, especially when the underlying condition compressing the sciatic nerve is addressed. Treatment may include anti-inflammatory medication, stretching exercises, heat and ice therapy, and physical therapy. These methods aim to relieve pressure, reduce inflammation, and restore mobility.<br /><br />
-                  Only after conservative options have been exhausted is surgery considered. At Advanced Orthopedics, our board-certified orthopedic doctors are experts in treating sciatica. We offer advanced, customized care plans that many other practices are not equipped to provide.
+                  Only after conservative options have been exhausted is surgery considered. At Mountain Spine & Care, our board-certified orthopedic doctors are experts in treating sciatica. We offer advanced, customized care plans that many other practices are not equipped to provide.
                 </h1>
                 <OutlinedButton text="Find a Treatment" />
               </div>
@@ -1460,7 +1460,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                If you suspect you’re experiencing sciatica, don’t wait to seek help. Our team at Advanced Orthopedics specializes in diagnosing and treating sciatica with both non-invasive and surgical approaches. We’ve helped thousands of patients regain their comfort, mobility, and quality of life.<br/><br/>
+                If you suspect you’re experiencing sciatica, don’t wait to seek help. Our team at Mountain Spine & Care specializes in diagnosing and treating sciatica with both non-invasive and surgical approaches. We’ve helped thousands of patients regain their comfort, mobility, and quality of life.<br/><br/>
                 Call us today at (855) 853-6542 or fill out our online form to book your appointment. Let us help you find lasting relief.
               </h1>
 
@@ -1669,7 +1669,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
                 }}
                 className="text-[#5B5F67] text-xl"
                 >
-                  In rare cases, a coccygectomy (surgical removal of the coccyx) may be considered. At Advanced Orthopedics, we specialize in minimally invasive spine procedures to provide targeted relief while preserving mobility and reducing recovery time.
+                  In rare cases, a coccygectomy (surgical removal of the coccyx) may be considered. At Mountain Spine & Care, we specialize in minimally invasive spine procedures to provide targeted relief while preserving mobility and reducing recovery time.
                 </h1>
               </div>
             </div>
@@ -1767,7 +1767,7 @@ The most common areas for pinched nerves are the neck (cervical spine) and lower
               }}
               className="text-[#5B5F67] text-xl"
               >
-                Tailbone pain doesn’t have to interfere with your life. At Advanced Orthopedics, our expert team offers effective, patient-centered solutions for coccydynia from non-surgical therapies to advanced procedures. We’ll help you get to the root of your pain and back to feeling your best.<br/><br/>
+                Tailbone pain doesn’t have to interfere with your life. At Mountain Spine & Care, our expert team offers effective, patient-centered solutions for coccydynia from non-surgical therapies to advanced procedures. We’ll help you get to the root of your pain and back to feeling your best.<br/><br/>
                 Call us today at (855) 853-6542 or complete our online form to schedule your consultation.
               </h1>
 

@@ -202,7 +202,7 @@ const OrthoConditionsWeTreat = [
     area: 'Shoulder',
     area_procedures: {
       title: 'Shoulder Procedures',
-      desc: 'Our shoulder surgeons in Manhattan, Queens, The Bronx and Brooklyn perform advanced procedures, addressing conditions from rotator cuff injuries to instability and painful shoulder conditions. Employing state-of-the-art techniques, we are committed to reducing pain, enhancing mobility, and achieving the best possible outcomes and a faster recovery time.'
+      desc: 'At Mountain Spine & Care, our expert shoulder surgeons specialize in advanced shoulder procedures to treat a wide range of conditions, including rotator cuff tears, shoulder instability, and chronic shoulder pain. Using cutting-edge surgical techniques and minimally invasive approaches, we focus on relieving pain, restoring shoulder mobility, and delivering faster recovery times with optimal results.'
     },
     view_all_treatments: { text: 'View all Shoulder Treatments', href: '/' },
     treatment_categories: ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair']
@@ -298,7 +298,7 @@ export default function Home() {
               }}
               className="text-white"
               >
-              Welcome to<br/> Advanced<br/> Orthopedics 
+              Welcome to<br/> Mountain <br/> Spine & Care 
               </h1>
            </div>
          </SlidingDiv>
@@ -366,8 +366,8 @@ export default function Home() {
                     WebkitBackgroundClip : 'text',
                     WebkitTextFillColor : 'transparent'
                   }}
-                  className=" text-sm"
-                  >The Future of Advanced Orthopedic Care
+                  className=" text-sm text-center"
+                  >The Future of Mountain Spine & Care
                   </h1>
                 </div>
                 
@@ -411,8 +411,8 @@ export default function Home() {
                   }}
                   className="px-6"
                   >
-                    We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis,<br/> 
-                    sports injuries, and joint pain. Using minimally invasive techniques <br/>
+                    We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis,
+                    sports injuries, and joint pain. Using minimally invasive techniques
                     and evidence-based treatments, our specialists provide personalised solutions for faster recovery and lasting mobility.
                   </h1>
                 </div>
@@ -748,7 +748,7 @@ export default function Home() {
                    }}
                    className=" text-6xl w-[100%]"
                   >
-                    Why Choose<br/>Advanced Orthopedics 
+                    Why Choose<br/> Mountain Spine & Care 
                   </h1>
   
                   <div>
@@ -760,7 +760,7 @@ export default function Home() {
                      }}
                      className="text-md "
                     >
-                    Trust Advanced Orthopaedic for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
+                    Trust Mountain Spine & Care for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
                     </h1>
   
                     <div className=" mt-[40px] w-[50%]"><BookAnAppoitmentButton /></div>
@@ -793,7 +793,7 @@ export default function Home() {
                       }}
                       className=" text-lg"
                       >
-                       At Advanced Orthopaedic, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
+                       At Mountain Spine & Care, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
                       </h1>
                   </div>
                 </Reveal>
@@ -945,7 +945,7 @@ export default function Home() {
                 }}
                 className=""
                 >
-                 <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Advanced Orthopedics we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
+                 <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Care we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
                 </h1>
 
                 <div className="flex flex-row w-full space-x-[11px] justify-center items-center">
@@ -1128,7 +1128,7 @@ export default function Home() {
               }}
               className="text-lg text-[#5B5F67] mt-[20px] text-center w-[55%] self-center"
               >
-                Trust Advanced Orthopaedic for expert care, compassionate service, and results 
+                Trust Mountain Spine & Care for expert care, compassionate service, and results 
                 that make a difference. Your mobility and well-being are our top priority!
               </h1>
             </div>

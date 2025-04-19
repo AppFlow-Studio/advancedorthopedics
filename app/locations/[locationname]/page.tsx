@@ -43,7 +43,7 @@ export default function LocationDetails(
                     }}
                     className='text-white text-xl'
                     >
-                    Advanced Orthopedics delivers expert spine care across Florida with 7 locations and an Ambulatory Surgery Center. 
+                    Mountain Spine & Care delivers expert spine care across Florida with 7 locations and an Ambulatory Surgery Center. 
                     </h1>
                     <div className=' mt-[20px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                     style={{

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import Logo from "../public/logo.png"
+import Logo from "../public/newlogo4.png"
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { cn } from "@/lib/utils"
@@ -328,7 +328,7 @@ export default function NavBar() {
     <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-6 max-h-[128px] lg:h-[60px]'>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-[40px] py-2 z-[1]">
             <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px]'> 
-                <Image src={Logo} alt="Advanced Orthopedics Logo" className="max-h-[32px] lg:h-[32px] w-auto  " />
+                <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
                 <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                 <div className="flex flex-col text-white"
                 style={{
@@ -338,8 +338,8 @@ export default function NavBar() {
                     letterSpacing: "0.02em",
                 }}
                 >
-                    <h1 className="text-xl font-[600]">Advanced</h1>
-                    <h2 className="font-[400] text-lg">Orthopedics</h2>    
+                    <h1 className="text-xl font-[600]">MOUNTAIN</h1>
+                    <h2 className="font-[600] text-m"> SPINE & CARE</h2>    
                 </div>
             </Link>
 
