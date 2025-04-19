@@ -208,22 +208,22 @@ const OrthoConditionsWeTreat = [
     treatment_categories: ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair']
   },
   {
-    area: 'Abdomen',
+    area: 'Spine',
     area_procedures: {
-      title: 'Abdominal & Core Procedures',
-      desc: 'Our orthopedic team addresses abdominal wall and core-related musculoskeletal injuries, such as sports hernias and muscle tears, with a combination of surgical expertise and targeted rehabilitation plans.'
+      title: 'Spine Procedures',
+      desc: 'Our spine specialists treat a wide range of conditions including degenerative disc disease, spinal deformities, and nerve compression using both minimally invasive procedures and comprehensive non-surgical care to alleviate pain, improve stability, and enhance overall spinal health.'
     },
-    view_all_treatments: { text: 'View all Abdomen Treatments', href: '/' },
-    treatment_categories: ['Sports Hernia Repair', 'Abdominal Muscle Tear Repair', 'Core Strengthening Therapy', 'Minimally Invasive Laparoscopic Repair']
+    view_all_treatments: { text: 'View all Spine Treatments', href: '/' },
+    treatment_categories: ['Spinal Fusion', 'Spinal Decompression Surgery', 'Artificial Disc Replacement:', 'Kyphoplasty', 'Spinal Cord Stimulation']
   },
   {
-    area: 'Hip',
+    area: 'Lower Back',
     area_procedures: {
-      title: 'Hip Procedures',
-      desc: 'Our hip specialists treat arthritis, labral tears, and femoroacetabular impingement (FAI) through both surgical and non-surgical solutions. We aim to improve joint function and reduce hip pain using innovative, minimally invasive approaches.'
+      title: 'Lower Back Procedures',
+      desc: 'Our lower back specialists address conditions such as herniated discs, spinal stenosis, and sciatica through a combination of advanced surgical techniques and conservative therapies, aiming to relieve pain, restore mobility, and enhance spinal function.'
     },
-    view_all_treatments: { text: 'View all Hip Treatments', href: '/' },
-    treatment_categories: ['Total Hip Replacement', 'Hip Arthroscopy', 'Hip Labral Repair', 'Hip Impingement Surgery', 'Hip Bursitis Treatment', 'Minimally Invasive Hip Surgery']
+    view_all_treatments: { text: 'View all Lower Back Treatments', href: '/' },
+    treatment_categories: ['Spinal Fusion', 'Laminectomy', 'Artificial Disc Replacement:', 'Kyphoplasty', 'Spinal Cord Stimulation' ]
   },
   {
     area: 'Knee',
@@ -550,7 +550,7 @@ export default function Home() {
                 </div>
 
                 {/* Head */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-8 z-20 left-[44%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-28 z-20 left-[44%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -573,7 +573,7 @@ export default function Home() {
 
                 {/* Right Shoulder Dot */}
                 <motion.div
-                className="rounded-[50px] absolute p-[10px] top-34 z-20 left-[55%] hover:cursor-pointer"
+                className="rounded-[50px] absolute p-[10px] top-34 z-20 left-[60%] hover:cursor-pointer"
                 style={{
                   background: "rgba(255, 255, 255, 0.40)",
                   boxShadow: "0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)",
@@ -595,51 +595,51 @@ export default function Home() {
               </motion.div>
 
 
-                {/*Left Abdomen*/}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[54%] hover:cursor-pointer"
+                {/*Spine*/}
+                <motion.div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[43%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
                 animate={
-                  selectedOrthoCondition.area == 'Abdomen' 
+                  selectedOrthoCondition.area == 'Spine' 
                     ? { scale: [1, 1.2, 1] } // Active pulsating animation
                     : { scale: 1 } // Idle state
                 }
                 transition={{
                   duration: 1.5,
-                  repeat: selectedOrthoCondition.area == 'Abdomen' ? Infinity : 0,
+                  repeat: selectedOrthoCondition.area == 'Spine' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[2])}
 
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Abdomen' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Spine' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
 
-                {/* Right Hip */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[53%] hover:cursor-pointer"
+                {/* Lower Back */}
+                <motion.div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[45%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
                 animate={
-                  selectedOrthoCondition.area == 'Hip' 
+                  selectedOrthoCondition.area == 'Lower Back' 
                     ? { scale: [1, 1.2, 1] } // Active pulsating animation
                     : { scale: 1 } // Idle state
                 }
                 transition={{
                   duration: 1.5,
-                  repeat: selectedOrthoCondition.area == 'Hip' ? Infinity : 0,
+                  repeat: selectedOrthoCondition.area == 'Lower Back' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[3])}
 
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Hip' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Lower Back' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
                 {/* Left Knee */}

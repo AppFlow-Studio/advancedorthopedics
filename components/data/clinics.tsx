@@ -6,7 +6,8 @@ export const clinics = [
     { id: 4, name: 'Advanced Orthopedics Hollywood, FL', lat: 26.011352, lng : -80.178874, address : '3500 Tyler St Hollywood, FL 33021' },
     { id: 5, name: 'Advanced Orthopedics Orlando' , lat: 28.5144368, lng: -81.4658519, address : '6150 Metrowest Blvd Suite 102 Orlando, FL 32835'},
     { id: 6, name: 'Advanced Orthopedics Palm Beach Gardens', lat: 26.8307353, lng : -80.0878284, address : '3355 Burns Rd #304 Palm Beach Gardens, FL 33410'},
-    { id: 7, name: 'Advanced Orthopedics Miami Beach', lat: 25.696306, lng : -80.30121, address : '8000 SW 67TH Ave, 2nd Floor Miami, Florida 33143'}
+    { id: 7, name: 'Advanced Orthopedics Miami Beach', lat: 25.696306, lng : -80.30121, address : '8000 SW 67TH Ave, 2nd Floor Miami, Florida 33143'},
+    { id: 8, name: 'Ambulatory Surgery Center of Boca Raton', lat: 26.408449, lng: -80.125801, address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496'}
   ];
 
   // theres one problem if i change the names to Mountain Spine & Care ... then when people try to google it or put the adress it wont take them there so im keep the location how it is
