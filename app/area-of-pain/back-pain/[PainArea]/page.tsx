@@ -183,7 +183,7 @@ export default function PainArea({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.detail}
                         </h1>
                     </div>
                     

@@ -64,7 +64,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           }}
           className="text-lg mt-[24px]"
           >
-            Don’t let pain hold you back any longer. Whether you need a second opinion, non-surgical options, or Mountain Spine & Care surgery, our team is here to help.
+            Don’t let pain hold you back any longer. Whether you need a second opinion, non-surgical options, or Mountain Spine & Orthopedics surgery, our team is here to help.
           </h1>
 
           <Image src={HomeContactUs} className="w-full rounded-[24px] mt-[40px]" alt="Doctor teaching other doctors flex-1 flex" />

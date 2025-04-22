@@ -124,7 +124,7 @@ export const Doctors : DoctorProp[] = [
         'Over two decades of experience in surgical anesthesia and pain relief',
         'Member of the American Society of Anesthesiologists and the American Society of Regional Anesthesia & Pain Medicine',
         'Expert in pre-surgical consultations, post-op pain management, and perioperative care',
-        'Key contributor to Mountain Spine & Care advanced surgical and therapeutic procedures'
+        'Key contributor to Mountain Spine & Orthopedics advanced surgical and therapeutic procedures'
       ]
     },
     {
@@ -153,7 +153,7 @@ export const Doctors : DoctorProp[] = [
       'Served in the United States Army Reserves during undergraduate studies',
       'Pioneered minimally invasive techniques now taught to surgeons across the western U.S.',
       'Named Top Orthopedic Spine Surgeon in 2023 by Findatopdoc',
-      'Currently practicing at Mountain Spine & Care'
+      'Currently practicing at Mountain Spine & Orthopedics'
     ]
       },
 ]

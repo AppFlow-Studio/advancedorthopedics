@@ -179,7 +179,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.detail}
                         </h1>
                     </div>
                     
@@ -201,7 +201,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-lg'
                         >
-                            {condition_details.body}
+                            {condition_details?.what_sym}
                         </h1>
                     </div>
                     
@@ -236,7 +236,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.risk_fac}
                         </h1>
                     </div>
     
@@ -258,7 +258,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.diagnose}
                         </h1>
                     </div>
                     
@@ -280,7 +280,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.treatment}
                         </h1>
                     </div>
     
@@ -302,7 +302,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.pain_info}
                         </h1>
                     </div>
                     
@@ -325,7 +325,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.prevent}
                         </h1>
                     </div>
     
@@ -347,7 +347,7 @@ export default function ConditionDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {condition_details.body}
+                            {condition_details?.schedule}
                         </h1>
                     </div>
                 </section>

@@ -33,7 +33,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                             }}
                             className="text-[#5B5F67] text-xl"
                             >
-                            At Mountain Spine & Care, we specialize in personalized back pain care, starting with conservative options like physical therapy, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
+                            At Mountain Spine & Orthopedics, we specialize in personalized back pain care, starting with conservative options like physical therapy, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
                             </h1>
                 
                             <GradientOverlayImage
@@ -67,7 +67,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                             fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl">
-                            Top Back Pain & Spine Procedures at Mountain Spine & Care
+                            Top Back Pain & Spine Procedures at Mountain Spine & Orthopedics
                         </h1>
                         <div className=" flex flex-col space-y-[40px]">
                             <h1
@@ -297,7 +297,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                             fontWeight: 400,
                         }}
                         className="text-[#5B5F67] text-xl">
-                        Living with chronic back pain can be exhausting—but you don’t have to do it alone. At Mountain Spine & Care, our team specializes in advanced, minimally invasive techniques and personalized recovery plans to help you get back to doing what you love.<br/><br/>
+                        Living with chronic back pain can be exhausting—but you don’t have to do it alone. At Mountain Spine & Orthopedics, our team specializes in advanced, minimally invasive techniques and personalized recovery plans to help you get back to doing what you love.<br/><br/>
                         Call us today at (866) 272-9271 or fill out our online form to schedule your consultation. Relief may be closer than you think.
                         </h1>
                     </div>
@@ -311,7 +311,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
     {
         title : "Neck & Shoulder Treatment Options",
         body : `Chronic neck and shoulder pain can interfere with your everyday activities from working at a desk to sleeping through the night. Whether the cause is poor posture, a pinched nerve, muscle strain, arthritis, or a more complex spine condition, finding the right treatment starts with understanding the root cause.
-At Mountain Spine & Care, our team specializes in diagnosing and treating a wide range of neck and shoulder conditions. From non-invasive therapies to advanced surgical solutions, we help patients regain motion, strength, and long-term comfort. If you're unsure about your current care plan, we also offer second opinions and customized treatment strategies.`,
+At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating a wide range of neck and shoulder conditions. From non-invasive therapies to advanced surgical solutions, we help patients regain motion, strength, and long-term comfort. If you're unsure about your current care plan, we also offer second opinions and customized treatment strategies.`,
         forum  : [
             {
                 post : (
@@ -374,7 +374,7 @@ At Mountain Spine & Care, our team specializes in diagnosing and treating a wide
                         fontWeight: 500,
                         }}
                         className="text-[#111315] text-2xl">
-                       Top Neck & Shoulder Procedures at Mountain Spine & Care
+                       Top Neck & Shoulder Procedures at Mountain Spine & Orthopedics
                     </h1>
                     <div className=" flex flex-col space-y-[40px]">
                         <h1
@@ -500,7 +500,7 @@ At Mountain Spine & Care, our team specializes in diagnosing and treating a wide
                                 fontWeight: 400,
                             }}
                             className="text-[#5B5F67] text-xl">
-                                Living with chronic pain in your neck or shoulders can limit your ability to enjoy everyday activities. At Mountain Spine & Care, our expert team is here to help you find lasting relief. We take the time to understand your condition, explain all your options, and create a treatment plan tailored to your goals.<br/><br/>
+                                Living with chronic pain in your neck or shoulders can limit your ability to enjoy everyday activities. At Mountain Spine & Orthopedics, our expert team is here to help you find lasting relief. We take the time to understand your condition, explain all your options, and create a treatment plan tailored to your goals.<br/><br/>
                                 Call us today at (855) 853-6542 or fill out our online consultation form to get started. Relief may be closer than you think.
                             </h1>
                            

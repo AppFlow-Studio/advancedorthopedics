@@ -251,7 +251,7 @@ const NavBarLinks = [
           },
           {
             title : 'Degenerative Disc Disease',
-            href : '/area-of-pain/bneck-and-shoulder-pain/degenerativediscdisease'
+            href : '/area-of-pain/neck-and-shoulder-pain/degenerativediscdisease'
           },
           {
             title : 'Arthritis',
@@ -338,8 +338,8 @@ export default function NavBar() {
                     letterSpacing: "0.02em",
                 }}
                 >
-                    <h1 className="text-xl font-[600]">MOUNTAIN</h1>
-                    <h2 className="font-[600] text-m"> SPINE & CARE</h2>    
+                    <h1 className="text-lg font-[600]">MOUNTAIN</h1>
+                    <h2 className="font-[600] text-xs"> SPINE & ORTHOPEDIC</h2>    
                 </div>
             </Link>
 

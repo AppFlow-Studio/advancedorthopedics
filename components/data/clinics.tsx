@@ -10,4 +10,4 @@ export const clinics = [
     { id: 8, name: 'Ambulatory Surgery Center of Boca Raton', lat: 26.408449, lng: -80.125801, address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496'}
   ];
 
-  // theres one problem if i change the names to Mountain Spine & Care ... then when people try to google it or put the adress it wont take them there so im keep the location how it is
+  // theres one problem if i change the names to Mountain Spine & Orthopaedics ... then when people try to google it or put the adress it wont take them there so im keep the location how it is

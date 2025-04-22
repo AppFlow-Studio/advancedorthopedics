@@ -25,7 +25,7 @@ export default function FAQs() {
                 painful alternative.
             </p>
             <p>
-                Mountain Spine & Care has developed a special minimally invasive technique that lessens recovery time and the
+                Mountain Spine & Orthopedics has developed a special minimally invasive technique that lessens recovery time and the
                 pain associated with surgery by using tiny incisions and preserving the muscles and tissue surrounding your
                 spine. The results are longer lasting and more effective than traditional surgery. For more on minimally 
                 invasive methodology, check out our blog on what "minimally invasive" really means and how it can
@@ -48,7 +48,7 @@ export default function FAQs() {
         question: "What do past patients have to say about their olss experience?",
         answer: (
             <p>
-            Our patients consistently report high satisfaction rates with their Mountain Spine & Care experience. Many highlight the
+            Our patients consistently report high satisfaction rates with their Mountain Spine & Orthopedics experience. Many highlight the
             personalized care they received, the effectiveness of their treatment, and the significant improvement in
             their quality of life following surgery. We maintain a 95% patient satisfaction rate, with many patients
             returning to normal activities within weeks of their procedure.
@@ -66,7 +66,7 @@ export default function FAQs() {
         ),
         },
         {
-        question: "How do I begin the process of finding a treatment with Mountain Spine & Care?",
+        question: "How do I begin the process of finding a treatment with Mountain Spine & Orthopedics?",
         answer: (
             <p>
             The process begins with scheduling an initial consultation with one of our spine specialists. During this
@@ -240,7 +240,7 @@ export default function FAQs() {
                 }}
                 className=' text-[#5B5F67] w-[55%] text-2xl'
                 >
-                    At Mountain Spine & Care, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. We believe in equipping you with the knowledge needed to make an informed and confident decision about your spine care. View some of our commonly-asked questions.
+                    At Mountain Spine & Orthopedics, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. We believe in equipping you with the knowledge needed to make an informed and confident decision about your spine care. View some of our commonly-asked questions.
                 </h1>
             </div>
         </section>

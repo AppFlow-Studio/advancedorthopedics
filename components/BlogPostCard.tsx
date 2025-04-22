@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
-import Logo from '../public/newlogo2.png'
+import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
 import { motion } from 'motion/react'
 export interface BlogPostProp {
@@ -35,7 +35,7 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
             <div >
                 <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex">
                     <div className='flex flex-row  space-x-[8px] items-center justify-center'> 
-                        <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
+                        <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
                         <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                         <div className="flex flex-col text-white"
                         style={{
@@ -43,8 +43,8 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
                             letterSpacing: "0.02em",
                         }}
                         >
-                            <h1 className="text-lg font-[600] text-[#022968]"> MOUNTAIN</h1>
-                            <h2 className="font-[600] text-m text-[#0094E0]"> SPINE & CARE</h2>    
+                            <h1 className="text-xl font-[600] text-[#022968]"> MOUNTAIN</h1>
+                            <h2 className="font-[600] text-xs text-[#0094E0]"> SPINE & ORTHOPEDICS</h2>    
                         </div>
                     </div>
                 </div>

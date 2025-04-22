@@ -196,13 +196,13 @@ const OrthoConditionsWeTreat = [
       desc: 'Our expert spine specialists provide comprehensive neck care, treating conditions such as cervical disc herniation, spinal stenosis, and degenerative disc disease. We focus on relieving pain, restoring function, and using the least invasive techniques for optimal recovery.'
     },
     view_all_treatments: { text: 'View all Neck Treatments', href: '/' },
-    treatment_categories: ['Cervical Disc Replacement', 'Anterior Cervical Discectomy and Fusion (ACDF)', 'Cervical Laminectomy', 'Cervical Foraminotomy', 'Neck Pain Management', 'Cervical Epidural Injections']
+    treatment_categories: ['Cervical Disc Replacement', 'Anterior Cervical Discectomy and Fusion', 'Cervical Laminectomy', 'Cervical Foraminotomy', 'Neck Pain Management', 'Cervical Epidural Injections']
   },
   {
     area: 'Shoulder',
     area_procedures: {
       title: 'Shoulder Procedures',
-      desc: 'At Mountain Spine & Care, our expert shoulder surgeons specialize in advanced shoulder procedures to treat a wide range of conditions, including rotator cuff tears, shoulder instability, and chronic shoulder pain. Using cutting-edge surgical techniques and minimally invasive approaches, we focus on relieving pain, restoring shoulder mobility, and delivering faster recovery times with optimal results.'
+      desc: 'At Mountain Spine & Orthopedics, our expert shoulder surgeons specialize in advanced shoulder procedures to treat a wide range of conditions, including rotator cuff tears, shoulder instability, and chronic shoulder pain. Using cutting-edge surgical techniques and minimally invasive approaches, we focus on relieving pain, restoring shoulder mobility, and delivering faster recovery times with optimal results.'
     },
     view_all_treatments: { text: 'View all Shoulder Treatments', href: '/' },
     treatment_categories: ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair']
@@ -214,16 +214,16 @@ const OrthoConditionsWeTreat = [
       desc: 'Our spine specialists treat a wide range of conditions including degenerative disc disease, spinal deformities, and nerve compression using both minimally invasive procedures and comprehensive non-surgical care to alleviate pain, improve stability, and enhance overall spinal health.'
     },
     view_all_treatments: { text: 'View all Spine Treatments', href: '/' },
-    treatment_categories: ['Spinal Fusion', 'Spinal Decompression Surgery', 'Artificial Disc Replacement:', 'Kyphoplasty', 'Spinal Cord Stimulation']
+    treatment_categories: ['Anterior Cervical Discectomy & Fusion', 'Facet Joint Radiofrequency Ablation', 'Spinal Cord Stimulator Implant', 'Cervical Disc Arthroplasty', 'Spinal Cord Stimulation']
   },
   {
     area: 'Lower Back',
     area_procedures: {
-      title: 'Lower Back Procedures',
+      title: 'Lower Spine Procedure',
       desc: 'Our lower back specialists address conditions such as herniated discs, spinal stenosis, and sciatica through a combination of advanced surgical techniques and conservative therapies, aiming to relieve pain, restore mobility, and enhance spinal function.'
     },
     view_all_treatments: { text: 'View all Lower Back Treatments', href: '/' },
-    treatment_categories: ['Spinal Fusion', 'Laminectomy', 'Artificial Disc Replacement:', 'Kyphoplasty', 'Spinal Cord Stimulation' ]
+    treatment_categories: ['Lumbar Microdiscectomy', 'Lumbar Laminectomy', 'Posterior Lumbar Interbody Fusion', 'Kyphoplasty', 'Lumbar Artificial Disc Replacement' ]
   },
   {
     area: 'Knee',
@@ -298,7 +298,7 @@ export default function Home() {
               }}
               className="text-white"
               >
-              Welcome to<br/> Mountain <br/> Spine & Care 
+              Welcome to<br/> Mountain <br/> Spine & Orthopedics 
               </h1>
            </div>
          </SlidingDiv>
@@ -367,7 +367,7 @@ export default function Home() {
                     WebkitTextFillColor : 'transparent'
                   }}
                   className=" text-sm text-center"
-                  >The Future of Mountain Spine & Care
+                  >The Future of Mountain Spine & Orthopedics
                   </h1>
                 </div>
                 
@@ -511,7 +511,7 @@ export default function Home() {
               }}
               className="text-xl text-center w-[60%] self-center"
               >
-              We combine cutting-edge orthopaedic innovations with compassionate care to treat spine disorders, fractures, arthritis, sports injuries, and joint pain. 
+              We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis, sports injuries, and joint pain. 
               </h1>
            </div>
 
@@ -748,7 +748,7 @@ export default function Home() {
                    }}
                    className=" text-6xl w-[100%]"
                   >
-                    Why Choose<br/> Mountain Spine & Care 
+                    Why Choose<br/> Mountain Spine & Orthopedics
                   </h1>
   
                   <div>
@@ -760,7 +760,7 @@ export default function Home() {
                      }}
                      className="text-md "
                     >
-                    Trust Mountain Spine & Care for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
+                    Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
                     </h1>
   
                     <div className=" mt-[40px] w-[50%]"><BookAnAppoitmentButton /></div>
@@ -793,7 +793,7 @@ export default function Home() {
                       }}
                       className=" text-lg"
                       >
-                       At Mountain Spine & Care, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
+                       At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
                       </h1>
                   </div>
                 </Reveal>
@@ -945,7 +945,7 @@ export default function Home() {
                 }}
                 className=""
                 >
-                 <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Care we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
+                 <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
                 </h1>
 
                 <div className="flex flex-row w-full space-x-[11px] justify-center items-center">
@@ -1128,7 +1128,7 @@ export default function Home() {
               }}
               className="text-lg text-[#5B5F67] mt-[20px] text-center w-[55%] self-center"
               >
-                Trust Mountain Spine & Care for expert care, compassionate service, and results 
+                Trust Mountain Spine & Orthopaedics for expert care, compassionate service, and results 
                 that make a difference. Your mobility and well-being are our top priority!
               </h1>
             </div>
