@@ -10,23 +10,47 @@ export const AllTreatments = [
       "pain_info": "ACDF relieves nerve pain, numbness, and weakness by decompressing the spinal cord and nerve roots. Postoperative pain is generally well-controlled and subsides as healing progresses.",
       "prevent": "Maintaining good posture, avoiding repetitive neck strain, strengthening neck and upper back muscles, and managing arthritis early can reduce the risk of future cervical spine degeneration.",
       "schedule": "If you’re experiencing chronic neck pain or nerve symptoms, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, a thorough second opinion, and door-to-door transportation—then take the next step toward relief with a personalized ACDF surgery plan.",
-      "slug": "acdf-surgery"
+      "slug": "acdf-surgery" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "ACL Reconstruction Surgery",
+      "body": "ACL reconstruction is a surgical procedure that repairs a torn anterior cruciate ligament, a key stabilizer in the knee. At Mountain Spine & Orthopedics, we provide expert ACL repair supported by complimentary MRI reviews, second opinions, and convenient car service to restore knee stability, support safe return to sports, and prevent joint damage.",
+      "detail": "The anterior cruciate ligament is one of the major ligaments in the knee, critical for maintaining stability during cutting, pivoting, and sudden changes in direction. ACL tears commonly occur during sports or traumatic injury and often result in instability, swelling, and reduced knee function. ACL reconstruction surgery involves removing the damaged ligament and replacing it with a graft from the patient's own tissue or from a donor. The graft is anchored into the femur and tibia using screws or fixation devices, allowing it to function as a new ligament as it heals and integrates with surrounding tissue. This procedure is especially important for athletes or active individuals who want to return to sports, as well as for those experiencing knee instability that limits daily activities.",
+      "what_sym": "Knee instability or a sensation of the knee giving out, swelling shortly after injury, loss of range of motion or strength in the knee, pain with activity, pivoting, or climbing stairs, difficulty returning to sports or physical work.",
+      "risk_fac": "Complete ACL rupture, partial ACL tear with significant instability, multiligament knee injury, recurrent knee instability after a previous ACL tear, failure of conservative treatments.",
+      "diagnose": "Mountain Spine & Orthopedics conducts a thorough physical exam including the Lachman test, anterior drawer test, and pivot shift maneuver. Diagnosis is confirmed with high resolution MRI to assess the ACL tear and check for associated injuries like meniscus tears or cartilage damage.",
+      "treatment": "ACL reconstruction is typically performed arthroscopically using small incisions. The torn ligament is removed, and tunnels are drilled in the femur and tibia to place the new graft. The graft is secured with fixation devices, and the knee is stabilized. Surgery takes sixty to ninety minutes and is often performed as an outpatient procedure.",
+      "pain_info": "Postoperative pain is expected but managed with a combination of oral medications, icing, and elevation. Pain and swelling decrease over the first two weeks as healing begins. Most patients begin gentle range of motion exercises immediately.",
+      "prevent": "Rehabilitation focuses on regaining strength, neuromuscular control, and proper mechanics. To reduce the risk of future ACL tears, patients are educated on proper jumping, landing, and cutting techniques, and may be referred to sports specific injury prevention programs.",
+      "schedule": "If you have suffered an ACL injury and want to return to an active lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient door to door transportation then explore whether ACL reconstruction is the right path to recovery, mobility, and athletic performance.",
+      "slug": "aclreconstruction" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Aging Management",
-      "body": "Aging management focuses on maintaining bone health, joint flexibility, and muscle strength to prevent injury, delay degenerative changes, and preserve independence. At Advanced Orthopedics, we offer comprehensive aging-focused care—supported by complimentary MRI or DEXA reviews, free second opinions, and convenient car service—to keep you active, strong, and pain-free as you age.",
-      "detail": "As we age, bones become more fragile, cartilage thins, and muscles lose mass unless properly maintained. These changes can lead to conditions like arthritis, osteoporosis, spinal degeneration, and balance issues, all of which increase the risk of falls and loss of independence. Aging management is a proactive orthopedic strategy that emphasizes early detection, lifestyle modifications, and targeted therapies to support mobility and long-term health. At Advanced Orthopedics, we begin with a full health and activity assessment that includes physical exams, nutrition and lifestyle reviews, and diagnostic imaging. Complimentary DEXA scans assess bone density, while MRIs and ultrasounds evaluate joint and soft tissue health. These results are used to build a customized, long-term care plan.",
-      "what_sym": "Joint stiffness, loss of height, reduced grip strength, slowed walking speed, chronic back or joint pain, and difficulty rising from a seated position or maintaining balance.",
-      "risk_fac": "Osteoporosis, sedentary lifestyle, poor nutrition, vitamin D or calcium deficiency, smoking, chronic inflammation, diabetes, prior joint injury, and long-term corticosteroid use can all accelerate the aging process in the musculoskeletal system.",
-      "diagnose": "Advanced Orthopedics uses complimentary bone density testing (DEXA), MRIs, lab tests, and functional movement assessments to create a full picture of musculoskeletal health. Gait and balance evaluations may also be performed to assess fall risk.",
-      "treatment": "Treatment includes weight-bearing and resistance exercises, balance training, nutritional counseling, medication review, fall-prevention education, and anti-inflammatory or bone-supportive medications when needed. In some cases, joint injections or minimally invasive procedures may help reduce pain and improve mobility. Ongoing reassessment ensures the care plan evolves with each patient's needs.",
-      "pain_info": "Aging-related pain often results from low-grade inflammation, cartilage wear, or muscle loss. Our approach combines physical rehabilitation, regenerative techniques, and lifestyle strategies to minimize pain and maintain function.",
-      "prevent": "Improved posture, stronger bones and muscles, better balance, reduced fall risk, and continued independence and activity well into older age.",
-      "schedule": "If you're ready to take control of your orthopedic health as you age, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI or DEXA review, personalized second opinion, and convenient transportation—then start your custom aging management plan and stay active for years to come.",
-      "slug": "aging-management"
+      "body": "Aging management focuses on proactive measures that preserve bone density, joint integrity, and muscle strength as we grow older, reducing the risk of fractures, chronic pain, and loss of independence. Advanced Orthopedics offers personalized aging management programs supported by complimentary MRI reviews, free second opinions, and convenient car service to help you stay active, strong, and pain free throughout every decade",
+      "detail": "Starting in our thirties, bone mass gradually declines, cartilage loses hydration, and muscles shrink unless actively trained. These natural changes can culminate in osteopenia, arthritis, and balance deficits that heighten fall and fracture risk. Aging management reframes orthopedic care from reactive treatment to preventive maintenance by identifying vulnerabilities early, optimizing nutrition and exercise, and implementing targeted interventions to delay or reverse musculoskeletal decline. At Advanced Orthopedics evaluation begins with a comprehensive health and activity profile that includes dietary habits, previous injuries, and current fitness routine. A physical exam measures posture, flexibility, strength, and balance, while complimentary bone density DEXA scanning, MRI, or ultrasound gauges bone quality, cartilage thickness, and muscle composition. These data inform a customized roadmap that integrates medical, nutritional, and lifestyle strategies for lifelong mobility",
+      "what_sym": "Common indicators include gradual loss of height, new or worsening joint stiffness in the morning, decreased grip strength, slower walking speed, difficulty rising from low chairs, and episodic low back or joint pain after routine tasks",
+      "risk_fac": "Genetic predisposition to osteoporosis, sedentary lifestyle, smoking, excessive alcohol use, chronic inflammatory diseases, prolonged corticosteroid therapy, inadequate protein or calcium intake, and hormonal changes such as menopause can all speed tissue degeneration",
+      "diagnose": "Beyond imaging and DEXA scanning, Advanced Orthopedics performs laboratory tests to evaluate vitamin D status, inflammatory markers, and hormonal balance. Gait analysis and computerized balance testing pinpoint biomechanical inefficiencies that raise injury risk. These complimentary assessments create a precise baseline against which progress can be measured",
+      "treatment": "Our integrated program combines resistance and balance training supervised by physiotherapists, personalized nutrition plans rich in protein, calcium, and vitamin D, smoking cessation support, and medication review to minimize bone depleting drugs. When bone density falls below safe thresholds, pharmacologic therapies such as bisphosphonates or anabolic agents are introduced. Joint preservation techniques including viscosupplementation, platelet rich plasma injections, and minimally invasive arthroscopy address symptomatic degeneration early, delaying or avoiding joint replacement. Regular follow up reassessments track bone and muscle metrics, ensuring interventions evolve with your needs",
+      "pain_info": "Age related pain often stems from low grade inflammation, joint cartilage thinning, or tendon stiffness. Our approach combines anti inflammatory nutrition, targeted exercise, regenerative injections, and when appropriate image guided interventions to keep discomfort minimal and function high",
+      "prevent": "Participants commonly experience improved posture and balance, increased muscle mass, higher bone density scores, reduced fall incidence, and enhanced confidence to pursue active hobbies well into later life",
+      "schedule": "Take charge of healthy aging by scheduling a consultation with Advanced Orthopedics today. Enjoy a complimentary MRI or DEXA review, thorough second opinion, and door to door transportation then embark on a personalized aging management plan designed to keep you mobile strong and independent for decades to come",
+      "slug": "aging-management" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Ankle Ligament Reconstruction Surgery",
+      "body": "Ankle ligament reconstruction is a surgical procedure designed to restore stability and function in patients with chronic ankle instability caused by torn or stretched ligaments. At Mountain Spine and Orthopedics, we offer this advanced treatment supported by complimentary MRI reviews, second opinions, and convenient car service to help patients regain mobility, prevent recurrent sprains, and return to an active lifestyle.",
+      "detail": "This procedure involves repairing or tightening the lateral ligaments on the outside of the ankle, most commonly the anterior talofibular and calcaneofibular ligaments, which may become damaged due to repeated ankle sprains or trauma. In some cases, the ligaments are directly stitched back together, while in more severe cases, a tendon graft is used to reconstruct the damaged ligaments. The surgery is typically recommended for patients with persistent ankle instability that does not improve with physical therapy or bracing. Ankle ligament reconstruction is usually performed as an outpatient procedure under general or regional anesthesia, with most surgeries lasting under two hours.",
+      "what_sym": "Symptoms that may lead to ankle ligament reconstruction include chronic ankle pain, repeated ankle sprains, a sensation of the ankle giving way, swelling and instability during physical activity, and difficulty walking on uneven surfaces.",
+      "risk_fac": "Conditions treated with this surgery include chronic lateral ankle instability, torn ankle ligaments that have not healed with conservative care, ligament laxity following ankle fractures, and failed previous ankle stabilization procedures.",
+      "diagnose": "At Mountain Spine and Orthopedics, diagnosis includes a full physical examination, gait and balance testing, and imaging studies such as MRI or stress X rays to assess ligament integrity and rule out associated injuries. A tailored surgical plan is created based on the extent of ligament damage and patient activity goals.",
+      "treatment": "During the procedure, the surgeon makes a small incision over the outside of the ankle. The damaged ligaments are either repaired directly using sutures or reconstructed using a tendon graft harvested from the patient or a donor. The new or reinforced ligaments are anchored to the bones using suture anchors or screws. The ankle is then placed in a cast or boot to protect the repair during healing. Most patients go home the same day and begin rehabilitation shortly afterward.",
+      "pain_info": "Postoperative pain is managed with medication, rest, and elevation. Swelling and discomfort typically improve within the first one to two weeks. A gradual reduction in pain and increase in stability is expected as the ankle heals.",
+      "prevent": "Preventing future ankle injuries involves a combination of physical therapy, balance training, ankle strengthening exercises, and proper footwear. Avoiding uneven terrain and using ankle braces during sports may also help reduce the risk of reinjury.",
+      "schedule": "If you are experiencing chronic ankle instability or frequent sprains, schedule a consultation with Mountain Spine and Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation then find out if ankle ligament reconstruction is the right solution for restoring your ankle strength and stability.",
+      "slug": "ankleligamentreconstruction" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Anterior Cervical Corpectomy and Fusion",
       "body": "Anterior Cervical Corpectomy and Fusion (ACCF) is a surgical procedure used to treat spinal cord compression caused by bone spurs, herniated discs, or spinal instability in the cervical spine. At Advanced Orthopedics, we offer expert surgical solutions—supported by complimentary MRI reviews, free second opinions, and convenient car service—to restore spinal stability, relieve pressure on nerves, and improve overall neck and neurological function.",
@@ -38,9 +62,8 @@ export const AllTreatments = [
       "pain_info": "Postoperative pain is generally well-managed with medication and improves as healing progresses. The primary goal of ACCF is to relieve nerve-related pain, numbness, and weakness by decompressing the spinal cord.",
       "prevent": "Successful ACCF restores spinal stability and prevents further neurological decline. Patients often regain strength, balance, and mobility. Ongoing rehabilitation and follow-up imaging help ensure proper fusion and alignment.",
       "schedule": "If you're experiencing cervical spine symptoms affecting your mobility or quality of life, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door-to-door transportation—then move forward with a personalized plan that may include ACCF surgery for long-term relief and spinal health.",
-      "slug": "anterior-cervical-corpectomy-and-fusion"
+      "slug": "anterior-cervical-corpectomy-and-fusion" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Anterior Cervical Discectomy Surgery",
       "body": "Anterior Cervical Discectomy and Fusion (ACDF) is a common and highly effective spine surgery used to relieve pressure on spinal nerves caused by herniated discs or degenerative disc disease in the neck. At Advanced Orthopedics, we provide specialized ACDF care—backed by complimentary MRI reviews, free second opinions, and convenient car service—to restore spinal alignment, relieve pain, and protect long-term neurological function.",
@@ -52,7 +75,7 @@ export const AllTreatments = [
       "pain_info": "Post-surgical pain is usually minimal and temporary, especially compared to preoperative nerve pain. ACDF surgery offers long-term relief from chronic arm and neck pain caused by nerve compression.",
       "prevent": "Most patients experience significant pain reduction and improved arm strength and sensation within weeks. Proper fusion and recovery are supported by follow-up imaging and physical therapy. ACDF stabilizes the spine and helps prevent future disc-related symptoms.",
       "schedule": "If neck or arm symptoms are affecting your daily life, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, personalized second opinion, and door-to-door transportation—then move forward with a customized plan that may include anterior cervical discectomy surgery to help restore pain-free movement and quality of life.",
-      "slug": "anterior-cervical-discectomy-surgery"
+      "slug": "anterior-cervical-discectomy-surgery" // Ensure slug is unique in your full dataset
     },
     {
       "title": "Anterior Lumbar Corpectomy and Fusion",
@@ -65,9 +88,8 @@ export const AllTreatments = [
       "pain_info": "ALCF surgery targets the root cause of pain—mechanical instability and nerve compression. Post-surgical pain is managed with medication and typically improves as the spine heals and stabilizes.",
       "prevent": "Successful ALCF restores spinal alignment and prevents further neurological decline. Most patients experience relief from nerve symptoms and improved mobility. Recovery timelines vary depending on the number of levels treated and the patient’s overall health.",
       "schedule": "If you're experiencing severe lumbar spine symptoms, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then move forward with a personalized treatment plan that may include anterior lumbar corpectomy and fusion for long-lasting relief and spinal stability.",
-      "slug": "anterior-lumbar-corpectomy-and-fusion"
+      "slug": "anterior-lumbar-corpectomy-and-fusion" // Ensure slug is unique in your full dataset
     },
-    
     {
       "title": "Anterior Lumbar Interbody Fusion",
       "body": "Anterior Lumbar Interbody Fusion (ALIF) is a minimally invasive spine surgery designed to treat lower back pain caused by disc degeneration, spondylolisthesis, or spinal instability. At Advanced Orthopedics, we offer specialized ALIF care—supported by complimentary MRI reviews, free second opinions, and convenient car service—to restore spinal alignment, relieve nerve pressure, and improve long-term spine health and mobility.",
@@ -79,9 +101,8 @@ export const AllTreatments = [
       "pain_info": "ALIF targets the source of pain by relieving pressure on nerves and stabilizing the spine. Most patients report significant reduction in pain and improved function as fusion occurs.",
       "prevent": "ALIF restores spinal balance and reduces pain caused by instability or disc collapse. Successful fusion provides long-term stability and functional improvement. Recovery timelines vary but are supported by personalized rehab and follow-up imaging.",
       "schedule": "If you're experiencing chronic lower back pain or instability, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door-to-door transportation—then move forward with a personalized treatment plan that may include anterior lumbar interbody fusion for lasting relief and spinal support.",
-      "slug": "anterior-lumbar-interbody-fusion"
+      "slug": "anterior-lumbar-interbody-fusion" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Anti-Inflammatory Injections for Joint and Spine Pain",
       "body": "Anti-inflammatory injections are a highly effective treatment for reducing joint or spine-related pain and inflammation caused by arthritis, bursitis, tendonitis, and nerve compression. At Advanced Orthopedics, we provide image-guided injections—supported by complimentary MRI reviews, free second opinions, and convenient car service—to offer fast relief, restore mobility, and delay or avoid surgery.",
@@ -93,9 +114,21 @@ export const AllTreatments = [
       "pain_info": "These injections directly target inflammation—the source of pain—offering faster and more focused relief than oral medications. Many patients experience immediate improvement in movement and comfort.",
       "prevent": "Anti-inflammatory injections can provide sustained pain relief, delay the need for surgery, and allow for more effective participation in physical therapy and daily activities. They are often part of a comprehensive orthopedic care strategy.",
       "schedule": "If you're struggling with joint or spine pain due to inflammation, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, personalized second opinion, and convenient transportation—then explore whether anti-inflammatory injections are right for your recovery plan.",
-      "slug": "anti-inflammatory-injections"
+      "slug": "anti-inflammatory-injections" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Arthroscopic Knee Surgery",
+      "body": "Arthroscopic knee surgery is a minimally invasive procedure used to diagnose and treat a wide range of knee joint problems, from meniscus tears to cartilage damage. At Mountain Spine & Orthopedics, we provide expert arthroscopic knee care supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, restore joint function, and get you back on your feet with minimal downtime.",
+      "detail": "Arthroscopic knee surgery uses a small camera called an arthroscope and specialized instruments inserted through tiny incisions to examine and treat internal knee problems. Unlike traditional open surgery, arthroscopy results in less tissue disruption, lower risk of complications, and faster recovery. Common conditions treated include torn meniscus, cartilage damage, ligament injuries, loose bodies, and inflammation from arthritis. During the procedure, the surgeon can trim, repair, or remove damaged tissue, smooth rough cartilage, or clean out debris that may be causing joint irritation. This procedure is ideal for patients with chronic or acute knee pain that has not responded to conservative treatment like physical therapy, bracing, or injections.",
+      "what_sym": "Knee pain with movement or weight bearing, swelling, locking, or catching of the knee, joint stiffness or loss of range of motion, instability or giving way, and persistent discomfort despite rest and rehab may indicate the need for arthroscopic knee surgery.",
+      "risk_fac": "Meniscus tears, cartilage damage or degeneration, ACL or PCL injuries, loose bone or cartilage fragments, synovitis or inflammation inside the knee, early stage arthritis, and patellar tracking disorders are common conditions addressed through this procedure.",
+      "diagnose": "At Mountain Spine & Orthopedics, we begin with a thorough evaluation including physical examination and high resolution MRI to assess internal knee structures. If conservative treatments fail and imaging confirms mechanical damage, arthroscopic surgery may be recommended to directly address the cause of pain and dysfunction.",
+      "treatment": "The procedure is typically performed under general or regional anesthesia. Two or three small incisions are made around the knee to insert the arthroscope and surgical tools. Depending on the diagnosis, the surgeon may trim a torn meniscus, smooth rough cartilage, repair ligaments, or remove loose fragments. Most procedures take thirty to sixty minutes and are done on an outpatient basis. Patients return home the same day with a plan for recovery and rehabilitation.",
+      "pain_info": "Postoperative discomfort is generally mild and managed with over the counter or prescription medications. Many patients notice an improvement in pain and mobility within the first few weeks, especially after swelling subsides.",
+      "prevent": "Maintaining a healthy weight, strengthening the muscles around the knee, using proper athletic techniques, and treating injuries promptly can help prevent knee damage from recurring or worsening over time.",
+      "schedule": "If knee pain is interfering with your mobility or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then learn if arthroscopic knee surgery is the right solution for your long term knee health and comfort.",
+      "slug": "arthroscopickneesurgery" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Artificial Disc Replacement Surgery",
       "body": "Artificial Disc Replacement is a motion-preserving surgical solution for degenerative disc disease and spinal disc damage. At Advanced Orthopedics, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve pressure, restore mobility, and help patients return to an active lifestyle.",
@@ -107,9 +140,8 @@ export const AllTreatments = [
       "pain_info": "ADR relieves nerve pressure and inflammation, targeting the root cause of pain. Most patients report dramatic improvements in mobility, comfort, and quality of life post-surgery.",
       "prevent": "Artificial disc replacement offers long-term pain relief, preserved motion, and a quicker return to activity compared to fusion. Follow-up imaging and rehabilitation help ensure proper implant function and long-term success.",
       "schedule": "If chronic neck or back pain is limiting your lifestyle, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door-to-door transportation—then explore whether artificial disc replacement surgery is the right solution for your spinal health.",
-      "slug": "artificial-disc-replacement-surgery"
+      "slug": "artificial-disc-replacement-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Axial Fusion Surgery",
       "body": "Axial fusion is a minimally invasive surgical technique used to stabilize the lower spine by fusing the L5-S1 vertebrae through a small incision near the tailbone. At Advanced Orthopedics, we offer this cutting-edge procedure—backed by complimentary MRI reviews, free second opinions, and convenient car service—to reduce back pain, restore stability, and promote long-term spinal health.",
@@ -121,9 +153,8 @@ export const AllTreatments = [
       "pain_info": "Axial fusion targets the painful, unstable disc directly. Most patients report significant reductions in back pain and improved quality of life as the spine stabilizes and fuses.",
       "prevent": "Axial fusion promotes long-term spinal alignment, reduces nerve irritation, and restores stability at the base of the spine. Most patients return to light activity within weeks, with full recovery supported by physical therapy and follow-up imaging.",
       "schedule": "If chronic low back pain or disc instability is affecting your daily life, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then find out if axial fusion is the right solution for your spine health.",
-      "slug": "axial-fusion-surgery"
+      "slug": "axial-fusion-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Back Pain Treatment",
       "body": "Back pain is one of the most common musculoskeletal issues, affecting people of all ages and activity levels. At Advanced Orthopedics, we offer comprehensive, individualized treatment plans—backed by complimentary MRI reviews, free second opinions, and convenient car service—to relieve back pain, restore mobility, and prevent long-term complications.",
@@ -135,9 +166,8 @@ export const AllTreatments = [
       "pain_info": "Pain severity varies and may worsen with movement or remain constant. Our integrated treatments are designed to reduce inflammation, relieve nerve pressure, and restore normal spinal function.",
       "prevent": "With the right treatment, patients can achieve long-term relief, restored function, and a return to active living. Preventive strategies and home exercises support continued wellness and reduce the risk of future back pain episodes.",
       "schedule": "If back pain is limiting your comfort or mobility, schedule a consultation with Advanced Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then take the first step toward effective back pain treatment and lasting relief.",
-      "slug": "back-pain-treatment"
+      "slug": "back-pain-treatment" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Botox for Migraines Treatment",
       "body": "Botox injections are a proven treatment for chronic migraines, helping reduce headache frequency and severity by targeting the nerves and muscles involved in pain signaling. At Advanced Orthopedics, we offer expertly administered Botox therapy—supported by complimentary evaluations, free second opinions, and convenient car service—to provide lasting migraine relief and improve quality of life.",
@@ -149,9 +179,21 @@ export const AllTreatments = [
       "pain_info": "Botox reduces the intensity, duration, and frequency of migraine attacks. Most patients report a decrease in monthly headache days and reliance on acute pain medications.",
       "prevent": "With consistent treatment, Botox can reduce migraine impact on daily life, improve productivity, and decrease emergency room visits and medication use. Maintenance treatments every 12 weeks help sustain results.",
       "schedule": "If chronic migraines are interfering with your life, schedule a consultation with Advanced Orthopedics today. Receive a complimentary evaluation, second opinion, and door-to-door transportation—then discover if Botox for migraines can offer the long-term relief you’ve been seeking.",
-      "slug": "botox-for-migraines-treatment"
+      "slug": "botox-for-migraines-treatment" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Bunion Correction Surgery",
+      "body": "Bunion correction surgery is an effective solution for painful bony bumps at the base of the big toe that cause foot deformity and discomfort. At Mountain Spine & Orthopedics, we offer advanced minimally invasive and open bunion repair techniques supported by complimentary MRI or X ray reviews, expert second opinions, and convenient car service to realign the toe, relieve pain, and restore proper foot function.",
+      "detail": "A bunion, or hallux valgus deformity, occurs when the big toe drifts toward the second toe, creating a prominent bump on the inside of the forefoot. This misalignment can lead to joint inflammation, calluses, and difficulty fitting shoes. Bunion correction surgery involves removing or shaving the bony prominence, realigning the metatarsal and proximal phalanx bones, and stabilizing them with screws, plates, or wires. Techniques vary based on the severity of the deformity and may include distal osteotomy which is a bone cut near the toe, proximal osteotomy which is a bone cut near the midfoot, or Lapidus fusion which is fusion of the first tarsometatarsal joint for severe instability. Minimally invasive percutaneous approaches use small incisions and specialized instruments to reduce tissue disruption, pain, and recovery time.",
+      "what_sym": "Symptoms that may lead to bunion correction surgery include persistent pain and swelling at the base of the big toe that limits walking or standing, toe drift toward the second toe with overlapping or crowding of the forefoot, formation of calluses or corns from shoe pressure, difficulty or inability to wear normal shoes comfortably, and loss of range of motion in the big toe joint.",
+      "risk_fac": "Conditions treated with this surgery include hallux valgus deformity, bunionettes also known as tailor’s bunion on the fifth toe when present concurrently, severe joint arthritis or instability in the first metatarsophalangeal joint, recurrent bunion after prior unsuccessful correction, and painful metatarsalgia or second toe deformities resulting from bunion pressure.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis begins with a detailed foot exam, gait assessment, and imaging studies including X rays or MRI to measure the hallux valgus angle and evaluate joint health. We consider your activity level, shoe requirements, and overall foot biomechanics before recommending the most appropriate surgical approach.",
+      "treatment": "Under local or general anesthesia, the surgeon makes small incisions to access the bunion. Bone cuts known as osteotomies are performed to realign the metatarsal and phalanx bones. The deformity is corrected, and fixation devices such as screws or low profile plates hold the bones in position. Soft tissue structures are balanced to maintain alignment. Minimally invasive options use percutaneous tools through tiny incisions, while open techniques allow direct visualization for complex deformities. Surgery typically takes one to two hours. Patients may go home the same day or after an overnight stay depending on the procedure and overall health.",
+      "pain_info": "Postoperative discomfort is managed with ice, elevation, and a combination of non narcotic and narcotic medications. Because the bones are stabilized internally, many patients begin gentle weight bearing in a protective postoperative shoe within days.",
+      "prevent": "To maintain surgical results, choose well fitting shoes with a wide toe box, avoid high heels or narrow pointed shoes, and perform foot strengthening and stretching exercises. Weight management and addressing biomechanical factors such as flat feet or excessive pronation with orthotics can reduce the likelihood of new bunion development.",
+      "schedule": "If bunion pain or toe deformity is affecting your comfort or mobility, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary imaging review, expert second opinion, and door to door transportation then learn if bunion correction surgery is the right solution for restoring your foot health and activity.",
+      "slug": "bunioncorrectionsurgery" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Cancer Pain Treatment",
       "body": "Cancer pain can significantly affect quality of life, whether caused by tumors, treatment side effects, or nerve damage. At Advanced Orthopedics, we offer advanced cancer pain management solutions—supported by complimentary evaluations, free second opinions, and convenient car service—to improve comfort, function, and peace of mind during all stages of care.",
@@ -163,9 +205,21 @@ export const AllTreatments = [
       "pain_info": "Our goal is to address pain from every angle—reducing inflammation, blocking nerve signals, and supporting physical recovery. We focus on personalized, compassionate relief that aligns with each patient’s overall cancer care plan.",
       "prevent": "Effective cancer pain management helps preserve independence, ease emotional distress, and improve quality of life. Patients often experience better sleep, appetite, and engagement in therapy or daily activities.",
       "schedule": "If you or a loved one is living with cancer-related pain, schedule a consultation with Advanced Orthopedics today. Receive a complimentary evaluation, coordinated second opinion, and door-to-door transportation—then begin a customized plan for relief and compassionate care.",
-      "slug": "cancer-pain-treatment"
+      "slug": "cancer-pain-treatment" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Carpal Tunnel Release Surgery",
+      "body": "Carpal Tunnel Release is a minimally invasive surgical procedure designed to relieve pressure on the median nerve in the wrist, helping to resolve symptoms of carpal tunnel syndrome such as numbness, tingling, and hand weakness. At Mountain Spine & Orthopedics, we offer both traditional and percutaneous release techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore hand function and eliminate nerve compression.",
+      "detail": "Carpal tunnel syndrome occurs when the median nerve, which runs from the forearm into the hand, becomes compressed within the narrow carpal tunnel in the wrist. Repetitive motions, inflammation, fluid retention, or anatomical variations can narrow this space and put pressure on the nerve, causing pain and dysfunction. Carpal Tunnel Release surgery involves cutting the transverse carpal ligament that forms the roof of the carpal tunnel to reduce this pressure. This can be done through open surgery or percutaneous techniques depending on the severity of symptoms and the patient’s needs. This outpatient procedure is quick and effective, often restoring function and comfort within weeks.",
+      "what_sym": "Symptoms that may lead to Carpal Tunnel Release Surgery include numbness or tingling in the thumb, index, and middle fingers. Patients may also experience weak grip strength or difficulty holding objects, hand pain that worsens at night, burning or shock like sensations in the fingers, clumsiness, and dropping items frequently. These symptoms often persist or worsen despite bracing, injections, or therapy.",
+      "risk_fac": "Carpal Tunnel Release is commonly performed for moderate to severe carpal tunnel syndrome, median nerve compression confirmed through nerve conduction studies, failed conservative management such as splinting, therapy, or corticosteroid injections, repetitive strain injuries, and conditions like rheumatoid arthritis or diabetes contributing to nerve compression.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis begins with a detailed physical exam including tests like Phalen’s and Tinel’s signs. Diagnostic tools such as nerve conduction velocity studies, electromyography, and ultrasound or MRI are used when needed to ensure accurate localization of compression and confirm the severity of nerve involvement.",
+      "treatment": "Carpal Tunnel Release typically takes twenty to thirty minutes and is performed under local or regional anesthesia. In open surgery, a small incision is made at the base of the palm to directly view and release the ligament. In percutaneous release, a needle sized device is inserted with ultrasound guidance to sever the ligament with minimal tissue disruption. Patients return home the same day and may begin light hand use shortly afterward.",
+      "pain_info": "Postoperative discomfort is typically mild and managed with over the counter pain relief. Symptoms of numbness and tingling often improve within days or weeks especially if the nerve compression is caught early.",
+      "prevent": "Ergonomic adjustments, regular stretching, wrist splints during repetitive activities, and avoiding prolonged vibration exposure can help prevent recurrence. Managing contributing health conditions like diabetes and thyroid disease also reduces the risk of carpal tunnel syndrome returning.",
+      "schedule": "If you are experiencing symptoms of carpal tunnel syndrome that have not improved with conservative care, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation then find out if carpal tunnel release surgery is your path to restored hand comfort and function.",
+      "slug": "carpaltunnelrelease" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Cervical Disc Arthroplasty",
       "body": "Cervical disc arthroplasty is a motion-preserving surgical treatment for damaged or degenerative cervical discs. At Mountain Spine & Orthopedics, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve compression, reduce neck pain, and maintain spinal flexibility.",
@@ -177,9 +231,8 @@ export const AllTreatments = [
       "pain_info": "The procedure relieves nerve-related pain, numbness, and tingling by decompressing the spinal canal and affected nerve roots. Most patients experience significant and lasting pain relief.",
       "prevent": "Cervical disc arthroplasty preserves range of motion, reduces the risk of adjacent segment disease, and offers a quicker return to function compared to fusion. Long-term outcomes include improved quality of life and spinal health.",
       "schedule": "If you're experiencing neck pain or neurological symptoms related to cervical disc damage, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door-to-door transportation—then move forward with a personalized treatment plan that may include cervical disc arthroplasty for lasting relief and preserved mobility.",
-      "slug": "cervical-disc-arthroplasty"
+      "slug": "cervical-disc-arthroplasty" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Cervical Disc Replacement",
       "body": "Cervical disc replacement is a motion-preserving surgical treatment for damaged or degenerative cervical discs. At Mountain Spine & Orthopedics, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve compression, reduce neck pain, and maintain spinal flexibility.",
@@ -191,9 +244,8 @@ export const AllTreatments = [
       "pain_info": "The procedure relieves nerve-related pain, numbness, and tingling by decompressing the spinal canal and affected nerve roots. Most patients experience significant and lasting pain relief.",
       "prevent": "Cervical disc replacement preserves range of motion, reduces the risk of adjacent segment disease, and offers a quicker return to function compared to fusion. Long-term outcomes include improved quality of life and spinal health.",
       "schedule": "If you're experiencing neck pain or neurological symptoms related to cervical disc damage, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door-to-door transportation—then move forward with a personalized treatment plan that may include cervical disc replacement for lasting relief and preserved mobility.",
-      "slug": "cervical-disc-replacement"
+      "slug": "cervical-disc-replacement" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Coccygectomy (Tailbone Removal Surgery)",
       "body": "Coccygectomy is a surgical procedure to remove the coccyx, or tailbone, typically performed when chronic coccydynia (tailbone pain) does not improve with conservative treatments. At Mountain Spine & Orthopedics, we provide expert surgical care—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve tailbone pain and restore sitting comfort and quality of life.",
@@ -205,9 +257,8 @@ export const AllTreatments = [
       "pain_info": "Coccygectomy aims to eliminate pain caused by chronic tailbone inflammation and instability. Postoperative discomfort is common initially but is managed with medication and typically improves significantly with healing.",
       "prevent": "Most patients report lasting relief from tailbone pain, improved sitting comfort, and enhanced ability to perform daily activities. Proper wound care and gradual activity resumption are key to a smooth recovery.",
       "schedule": "If chronic tailbone pain is interfering with your comfort or daily life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door-to-door transportation—then explore whether coccygectomy is the right step toward lasting relief.",
-      "slug": "coccygectomy-tailbone-removal-surgery"
+      "slug": "coccygectomy-tailbone-removal-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Coccyx Nerve Ablation",
       "body": "Coccyx nerve ablation, specifically Impar Ganglion Ablation, is a minimally invasive pain management procedure that targets chronic tailbone pain (coccydynia). At Mountain Spine & Orthopedics, we offer this outpatient solution backed by complimentary MRI reviews, free second opinions, and convenient car service to interrupt pain signals at their source and improve daily comfort without the need for invasive surgery.",
@@ -219,9 +270,8 @@ export const AllTreatments = [
       "pain_info": "The procedure significantly reduces or eliminates coccyxrelated nerve pain by stopping pain signals at the ganglion. Relief may begin within days and often lasts for months or longer, with repeat treatments available if needed.",
       "prevent": "Impar ablation offers fast recovery, reduced reliance on medication, and longlasting pain relief. It helps many patients regain comfort in sitting, walking, and performing daily activities.",
       "schedule": "If chronic tailbone pain is limiting your quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation—then find out if coccyx nerve ablation is the right nonsurgical option for lasting relief.",
-      "slug": "coccyx-nerve-ablation"
+      "slug": "coccyx-nerve-ablation" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Cortisone Injections for Back Pain",
       "body": "Cortisone injections are a powerful, targeted treatment used to reduce inflammation and relieve back pain caused by conditions such as herniated discs, arthritis, spinal stenosis, and sciatica. At Mountain Spine & Orthopedics, we offer precise, image guided cortisone injections backed by complimentary MRI reviews, free second opinions, and convenient car service to help you return to pain free movement and function.",
@@ -233,9 +283,8 @@ export const AllTreatments = [
       "pain_info": "Cortisone injections reduce inflammation and nerve irritation at the source, offering targeted relief for many types of spine related pain. They are often combined with physical therapy to enhance long term outcomes.",
       "prevent": "While not a permanent cure, cortisone injections can break the pain cycle, improve mobility, and help patients avoid or delay surgery. Repeat injections may be considered if symptoms return.",
       "schedule": "If back pain is limiting your activity or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door to door transportation—then find out if cortisone injections are the right next step in your pain relief plan.",
-      "slug": "cortisone-injections-for-back-pain"
+      "slug": "cortisone-injections-for-back-pain" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Degenerative Disc Disease Surgery",
       "body": "Surgery for degenerative disc disease (DDD) is an advanced option for patients who suffer from chronic back pain, nerve compression, or spinal instability that hasn’t improved with conservative treatment. At Mountain Spine & Orthopedics, we offer minimally invasive surgical solutions supported by complimentary MRI reviews, free second opinions, and convenient car service to restore spinal health, relieve pain, and improve mobility.",
@@ -247,9 +296,21 @@ export const AllTreatments = [
       "pain_info": "Surgery targets the source of pain by removing inflamed disc material and decompressing nerves. Most patients experience significant pain relief and improved quality of life.",
       "prevent": "Surgical treatment of degenerative disc disease can restore spinal stability, improve posture and function, and reduce the need for ongoing pain medication. With proper rehabilitation, long term outcomes are excellent.",
       "schedule": "If you’re living with persistent back or neck pain from degenerative disc disease, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door to door transportation—then take the next step toward long lasting relief and restored mobility.",
-      "slug": "degenerative-disc-disease-surgery"
+      "slug": "degenerative-disc-disease-surgery-overview" // Made unique for example
     },
-
+    {
+      "title": "Degenerative Disc Disease Surgery Details",
+      "body": "When conservative care no longer controls pain from Degenerative Disc Disease DDD surgical intervention can restore stability relieve nerve pressure and reclaim active living. Mountain Spine & Orthopedics offers state of the art surgical solutions including lumbar or cervical fusion motion preserving disc replacement and minimally invasive decompression backed by complimentary MRI reviews free second opinions and convenient car service to guide you confidently from decision to recovery",
+      "detail": "Degenerative Disc Disease occurs as spinal discs dehydrate lose height and crack with age or repetitive stress. In most patients physiotherapy injections and lifestyle modifications ease symptoms but severe degeneration may collapse vertebral spacing inflame facet joints and compress nerve roots creating relentless pain and weakness. Surgical treatment aims to eliminate the mechanical source of pain either by removing the damaged disc and fusing adjacent vertebrae for stability or by replacing it with an artificial disc that maintains motion. At Mountain Spine & Orthopedics surgical candidacy evaluation begins with a meticulous review of symptom duration prior therapies imaging findings and functional goals. Complimentary high resolution MRI clarifies disc collapse Modic changes and nerve impingement while dynamic X rays assess spinal movement and instability. These data underpin a tailored surgical plan that balances durability motion preservation and recovery time",
+      "what_sym": "Persistent axial or radicular pain unresponsive to six months of comprehensive non operative therapy progressive neurologic deficits such as weakness or numbness radiographic evidence of severe disc collapse with instability and diminished quality of life that limits work sleep or mobility all support surgical consideration",
+      "risk_fac": "Better outcomes correlate with non smoking status healthy body weight strong core musculature and absence of multilevel degeneration. Risk factors such as osteoporosis diabetes active infection or unmanaged mental health conditions require optimization before surgery to ensure solid fusion and smooth recovery",
+      "diagnose": "Beyond MRI and X rays Mountain Spine & Orthopedics may perform provocative discography to confirm the symptomatic level and use CT to evaluate bone quality for hardware fixation. These complimentary diagnostics guarantee that surgery targets the precise pain generator and that implant selection aligns with individual anatomy",
+      "treatment": "Lumbar or cervical fusion where the damaged disc is removed and adjacent vertebrae are secured with cages and low profile titanium hardware filled with bone graft. Over several months the graft fuses the bones into one solid unit eliminating painful motion. Artificial disc replacement in carefully selected patients with preserved facet joints replaces the disc with a mobile implant that restores spacing and maintains natural movement reducing stress on adjacent segments. Minimally invasive decompression with interbody fusion uses small incisions and tubular retractors to remove herniated disc fragments and osteophytes decompress nerve roots and insert an interbody spacer with less muscle disruption and quicker rehabilitation. Postoperative rehabilitation at Mountain Spine & Orthopedics begins immediately with staged mobility core strengthening and ergonomic retraining guided by physical therapists who coordinate closely with your surgeon",
+      "pain_info": "Post surgical soreness typically peaks within the first few days and is managed with multimodal analgesia and early mobilization. As fusion matures or the artificial disc settles nerve irritation subsides producing durable pain relief and renewed confidence in movement",
+      "prevent": "Successful surgery markedly improves pain scores function and quality of life. Maintaining strong core and hip muscles practicing proper lifting mechanics avoiding tobacco and adhering to scheduled follow ups protect adjacent discs and extend surgical benefits",
+      "schedule": "If unrelenting disc related pain is limiting your life schedule a surgical evaluation at Mountain Spine & Orthopedics today. Receive a complimentary MRI review a comprehensive second opinion and door to door transportation then take the next step toward lasting relief through expertly planned Degenerative Disc Disease surgery",
+      "slug": "degenerative-disc-disease-surgery-detailed" // Made unique for example
+    },
     {
       "title": "Disc Replacement vs Fusion: What You Need to Know",
       "body": "When it comes to treating degenerative disc disease, two common surgical options are spinal fusion and artificial disc replacement. At Mountain Spine & Orthopedics, we help you understand your options supported by complimentary MRI reviews, second opinions, and convenient car service so you can make the right decision for lasting relief, mobility, and spinal health.",
@@ -261,9 +322,8 @@ export const AllTreatments = [
       "pain_info": "Both procedures relieve pain by removing pressure on nerves and stabilizing the spine. The choice of surgery depends on the underlying cause, location, and long term goals.",
       "prevent": "Benefits of Disc Replacement Preserves spinal motion. Reduces stress on adjacent segments. Lower chance of needing future surgery. Faster recovery time. Benefits of Spinal Fusion Strong and reliable long term stability. Better option for multilevel disease or instability. Effective in patients with deformity or severe degeneration.",
       "schedule": "If you're considering disc replacement or spinal fusion, schedule a consultation with Mountain Spine & Orthopedics today. We’ll provide a complimentary MRI review, a second opinion, and door to door transportation—then help you decide which treatment offers the best outcome for your spine.",
-      "slug": "disc-replacement-vs-fusion"
+      "slug": "disc-replacement-vs-fusion" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Endoscopic Discectomy Surgery",
       "body": "Endoscopic discectomy is a minimally invasive spine surgery that removes herniated disc material through a small incision using a tiny camera and specialized instruments. At Mountain Spine & Orthopedics, we provide this innovative outpatient solution supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve pressure and restore function with minimal recovery time.",
@@ -275,9 +335,8 @@ export const AllTreatments = [
       "pain_info": "Pain relief is often immediate as nerve pressure is removed. Most patients experience reduced reliance on pain medications and improved mobility within days.",
       "prevent": "Endoscopic discectomy provides lasting relief with a faster return to daily life, less scarring, and lower risk of complications. Physical therapy may support full recovery.",
       "schedule": "If you're suffering from a herniated disc that hasn’t responded to conservative care, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a personalized second opinion, and door to door transportation—then learn if endoscopic discectomy is right for you.",
-      "slug": "endoscopic-discectomy-surgery"
+      "slug": "endoscopic-discectomy-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Endoscopic Foraminotomy Surgery",
       "body": "Endoscopic foraminotomy is a minimally invasive procedure designed to relieve nerve compression caused by narrowed foraminal canals in the spine. At Mountain Spine & Orthopedics, we offer this advanced outpatient treatment backed by complimentary MRI reviews, second opinions, and convenient car service to restore space for nerves, reduce pain, and improve mobility with minimal recovery time.",
@@ -289,9 +348,8 @@ export const AllTreatments = [
       "pain_info": "Patients often experience significant relief from radiating pain, numbness, and weakness after the procedure, as pressure is removed from the compressed nerve.",
       "prevent": "Endoscopic foraminotomy restores nerve function, reduces inflammation, and improves daily comfort. Most patients resume light activities within days and achieve full recovery within a few weeks, supported by physical therapy if needed.",
       "schedule": "If you’re experiencing nerve related pain due to spinal stenosis or foraminal narrowing, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door to door transportation—then find out if endoscopic foraminotomy is the right solution for your spine health.",
-      "slug": "endoscopic-foraminotomy-surgery"
+      "slug": "endoscopic-foraminotomy-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Epidural Steroid Injection",
       "body": "Epidural steroid injections are a powerful, minimally invasive treatment for back and leg pain caused by nerve inflammation from conditions like herniated discs, spinal stenosis, and sciatica. At Mountain Spine & Orthopedics, we offer image guided injections supported by complimentary MRI reviews, second opinions, and convenient car service to help relieve pain, reduce inflammation, and restore mobility.",
@@ -303,9 +361,8 @@ export const AllTreatments = [
       "pain_info": "Pain relief may begin within 24 to 72 hours and can last weeks to months depending on the individual condition. ESIs are often part of a broader pain management strategy that includes physical therapy.",
       "prevent": "ESIs reduce inflammation, interrupt the pain cycle, and help patients return to everyday activities with less reliance on oral medications. They may help delay or prevent the need for surgery in some cases.",
       "schedule": "If back or neck pain is affecting your quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then learn if an epidural steroid injection is right for your pain relief plan.",
-      "slug": "epidural-steroid-injection"
+      "slug": "epidural-steroid-injection" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Extreme Lateral Interbody Fusion Surgery",
       "body": "Extreme Lateral Interbody Fusion (XLIF) is a minimally invasive spine surgery used to treat lumbar degenerative disc disease, scoliosis, and instability. At Mountain Spine & Orthopedics, we provide this cutting edge procedure supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve compression, restore spinal alignment, and reduce chronic back or leg pain.",
@@ -317,9 +374,8 @@ export const AllTreatments = [
       "pain_info": "XLIF directly relieves pressure on spinal nerves, significantly reducing back and leg pain while preserving muscle and soft tissue integrity.",
       "prevent": "Patients benefit from shorter hospital stays, minimal blood loss, faster recovery, and a high success rate in restoring spinal alignment and reducing symptoms. Physical therapy supports long term stability and function.",
       "schedule": "If you're dealing with persistent back pain, spinal instability, or scoliosis, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then explore if XLIF is the right surgical solution for lasting relief and mobility.",
-      "slug": "extreme-lateral-interbody-fusion-surgery"
+      "slug": "extreme-lateral-interbody-fusion-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Facet Ablation (Rhizotomy) Treatment",
       "body": "Facet ablation, also known as medial branch rhizotomy, is a minimally invasive treatment used to relieve chronic neck or back pain caused by facet joint arthritis. At Mountain Spine & Orthopedics, we offer precision guided rhizotomy supported by complimentary MRI reviews, second opinions, and convenient car service to interrupt pain signals, reduce inflammation, and improve mobility.",
@@ -331,9 +387,8 @@ export const AllTreatments = [
       "pain_info": "Pain relief may begin within days and often lasts six months to over a year. The nerves can regenerate over time, and repeat treatments may be performed if symptoms return.",
       "prevent": "Facet ablation can significantly reduce reliance on oral medications, improve mobility, and delay or prevent the need for spine surgery. Physical therapy is often recommended post procedure for optimal long term results.",
       "schedule": "If chronic back or neck pain from facet joint arthritis is affecting your quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then learn if facet ablation is the right nonsurgical solution for lasting relief.",
-      "slug": "facet-ablation-rhizotomy-treatment"
+      "slug": "facet-ablation-rhizotomy-treatment" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Facet Block, Facet Ablation (Rhizotomy), and Facet Fusion Treatment Information",
       "body": "Facet blocks, facet ablation (rhizotomy), and facet fusion are treatment options for chronic neck and back pain caused by facet joint arthritis. At Mountain Spine & Orthopedics, we offer personalized, minimally invasive procedures supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, reduce inflammation, and improve spinal stability and function.",
@@ -345,9 +400,21 @@ export const AllTreatments = [
       "pain_info": "Facet blocks and ablation offer immediate to long term pain relief, while facet fusion is designed for lasting pain elimination and spinal stabilization in advanced cases.",
       "prevent": "Each procedure is part of a continuum of care. From diagnosis to long term stabilization, these treatments help reduce pain, improve range of motion, and enhance quality of life. Patients often return to daily activities with improved comfort and reduced reliance on medication.",
       "schedule": "If chronic spinal pain is affecting your quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then explore if facet block, ablation, or fusion is the right treatment for your lasting relief and spinal health.",
-      "slug": "facet-block-ablation-fusion-treatment"
+      "slug": "facet-block-ablation-fusion-treatment" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Fracture Fixation Surgery",
+      "body": "Fracture fixation is a surgical procedure that stabilizes broken bones using metal plates, screws, rods, or pins to support proper alignment and healing. At Mountain Spine & Orthopedics, we specialize in advanced fracture care supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore strength, mobility, and function after injury.",
+      "detail": "Fracture fixation is used when a bone has broken in a way that cannot heal correctly without surgical intervention. In these cases, orthopedic surgeons use internal or external devices to stabilize the fracture, ensuring bones stay properly aligned during the healing process. Internal fixation involves surgically implanting metal screws, plates, rods, or nails to hold bone fragments together. External fixation involves a frame outside the body that is connected to the bone with pins or wires to stabilize the fracture externally. Percutaneous fixation uses minimally invasive methods with small incisions to place screws or pins for stabilization. This procedure is essential for complex, unstable, or displaced fractures, especially in weight bearing bones or joints where natural healing without surgical alignment could lead to chronic pain or dysfunction.",
+      "what_sym": "Symptoms that may lead to fracture fixation include severe pain at the site of a suspected fracture, inability to bear weight or move the affected limb, obvious bone deformity or protrusion, swelling or bruising, and loss of function in the injured area. Fractures that shift out of alignment or fail to heal with a cast alone may also require surgical intervention.",
+      "risk_fac": "Fracture fixation is commonly performed to treat long bone fractures such as those in the femur, tibia, or humerus, joint fractures including the ankle, wrist, hip, elbow, or shoulder, and pelvic or spinal fractures. It is also indicated for open or compound fractures and for non union or malunion fractures that failed to heal properly.",
+      "diagnose": "At Mountain Spine & Orthopedics, our team uses digital X rays, CT scans, and MRI to evaluate the severity and position of the fracture. We consider bone quality, alignment, and patient activity level before recommending fixation. A full orthopedic evaluation ensures the most effective treatment plan.",
+      "treatment": "Surgery is performed under anesthesia and typically lasts between one and three hours depending on the location and complexity of the break. Internal fixation involves repositioning bone fragments and securing them with metal hardware. External fixation may be used in cases of swelling, soft tissue damage, or when internal hardware is not feasible. The fixation devices remain in place during healing and may be removed after the bone fully recovers.",
+      "pain_info": "Postoperative pain is managed with medication and improves as the bone heals. Early stabilization reduces movement related pain and promotes faster functional recovery.",
+      "prevent": "To prevent future fractures, patients are encouraged to build bone strength through a calcium rich diet and weight bearing exercise. Avoiding high risk falls, treating underlying conditions like osteoporosis, and using protective gear during physical activity are also important preventive strategies.",
+      "schedule": "If you have sustained a fracture or are experiencing complications from a previous injury, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation then explore whether fracture fixation is the right path to your recovery and function.",
+      "slug": "fracturefixation" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Hip Arthroscopy Treatment",
       "body": "Hip arthroscopy is a minimally invasive surgical procedure used to diagnose and treat a wide range of hip joint issues, including labral tears, impingement, cartilage damage, and bursitis. At Mountain Spine & Orthopedics, we provide expert arthroscopic care backed by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, restore hip function, and support an active lifestyle.",
@@ -359,9 +426,8 @@ export const AllTreatments = [
       "pain_info": "Hip arthroscopy relieves pain caused by structural issues inside the joint. Postoperative discomfort is managed with medication and usually improves within days as healing progresses.",
       "prevent": "This procedure offers lasting relief from hip pain, improved joint mobility, and a return to sports or active living. Recovery involves physical therapy and a gradual return to activity over 4 to 12 weeks depending on the extent of repair.",
       "schedule": "If hip pain is limiting your movement or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then learn if hip arthroscopy is right for restoring your comfort and activity.",
-      "slug": "hip-arthroscopy-treatment"
+      "slug": "hip-arthroscopy-treatment" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Hybrid Cervical Spine Surgery",
       "body": "Hybrid cervical spine surgery is a personalized combination of spinal fusion and artificial disc replacement used to treat multilevel cervical disc disease. At Mountain Spine & Orthopedics, we offer this advanced surgical solution backed by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, protect spinal alignment, and preserve motion where possible.",
@@ -373,9 +439,8 @@ export const AllTreatments = [
       "pain_info": "The surgery relieves nerve pressure and mechanical neck pain. Most patients report substantial relief from radiating symptoms and improved neck function within weeks.",
       "prevent": "Hybrid surgery offers the stability of fusion and the flexibility of motion preservation. It reduces the risk of future degeneration at adjacent levels and supports faster recovery with physical therapy guidance.",
       "schedule": "If you're experiencing complex neck pain or nerve symptoms from multilevel cervical disc disease, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation—then explore how hybrid cervical surgery can deliver lasting relief and spinal balance.",
-      "slug": "hybrid-cervical-spine-surgery"
+      "slug": "hybrid-cervical-spine-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Hybrid Lumbar Spine Surgery",
       "body": "Hybrid lumbar spine surgery combines spinal fusion with artificial disc replacement to treat multilevel lumbar disc disease while preserving motion when possible. At Mountain Spine & Orthopedics, we deliver this customized solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, stabilize the spine, and support long term function.",
@@ -387,9 +452,8 @@ export const AllTreatments = [
       "pain_info": "Hybrid surgery relieves both mechanical back pain and nerve compression symptoms. Patients typically report improvements in mobility, leg strength, and comfort within weeks of surgery.",
       "prevent": "By preserving motion at select levels, hybrid lumbar surgery reduces the risk of adjacent segment disease while delivering the stability of fusion where necessary. Recovery includes physical therapy, walking soon after surgery, and a personalized rehabilitation plan.",
       "schedule": "If you're living with multilevel lumbar spine pain, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door to door transportation—then find out if hybrid lumbar spine surgery is the right solution for restoring your comfort and spinal stability.",
-      "slug": "hybrid-lumbar-spine-surgery"
+      "slug": "hybrid-lumbar-spine-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Impar Block Treatment",
       "body": "An Impar block is a targeted injection that relieves chronic tailbone (coccyx) pain by numbing the nerve ganglion at the base of the spine. At Mountain Spine & Orthopedics, we provide this minimally invasive outpatient procedure supported by complimentary MRI reviews, expert second opinions, and convenient car service to break the cycle of pain and restore daily comfort.",
@@ -401,9 +465,21 @@ export const AllTreatments = [
       "pain_info": "Many patients experience significant pain relief within days. For some, the injection serves as a long term solution; others may need repeat treatments or follow up procedures like Impar ablation.",
       "prevent": "Impar blocks are safe, fast acting, and often reduce the need for oral pain medications. They can restore sitting comfort, improve daily mobility, and are often part of a comprehensive pain management plan.",
       "schedule": "If tailbone or pelvic pain is limiting your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and door to door transportation—then learn if an Impar block is the key to your pain relief and comfort.",
-      "slug": "impar-block-treatment"
+      "slug": "impar-block-treatment" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Lumbar Decompression Surgery",
+      "body": "Lumbar decompression surgery is a highly effective procedure for relieving lower back and leg pain caused by spinal nerve compression. At Mountain Spine & Orthopedics, we specialize in minimally invasive decompression techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to reduce pressure on nerves, restore mobility, and improve quality of life.",
+      "detail": "Lumbar decompression surgery is performed to relieve pressure on the spinal nerves in the lower back. This pressure is typically caused by conditions such as spinal stenosis, herniated discs, bone spurs, or thickened ligaments. When nonsurgical treatments like physical therapy, medications, or injections fail to provide lasting relief, decompression may be recommended. The goal of lumbar decompression is to remove or trim the tissue pressing on the nerves usually through procedures like laminectomy, laminotomy, foraminotomy, or discectomy. These procedures help enlarge the spinal canal or nerve passageways, allowing compressed nerves to heal and function properly.",
+      "what_sym": "Symptoms that may lead to lumbar decompression surgery include chronic lower back pain, radiating pain in the legs known as sciatica, numbness or tingling in the legs or feet, muscle weakness or difficulty walking, pain that worsens with standing, walking, or bending, and limited mobility that disrupts daily activities.",
+      "risk_fac": "Conditions treated with lumbar decompression include lumbar spinal stenosis, herniated or bulging discs, degenerative disc disease, bone spurs also known as osteophytes, spondylolisthesis, and sciatica due to nerve impingement.",
+      "diagnose": "At Mountain Spine & Orthopedics, we perform a thorough diagnostic workup including a physical and neurological exam, high resolution MRI, CT scan, and X rays. We assess the degree of spinal canal narrowing and nerve involvement to determine if surgical decompression is the most appropriate treatment.",
+      "treatment": "The procedure is performed under general anesthesia. A small incision is made in the lower back, and the surgeon carefully removes the bone or soft tissue compressing the spinal nerves. Depending on the condition, a laminectomy, discectomy, or foraminotomy may be performed. In some cases, the decompression is combined with spinal fusion to stabilize the spine. Most procedures take one to two hours, and patients may go home the same day or after a brief hospital stay.",
+      "pain_info": "Patients often experience significant pain relief shortly after surgery as pressure is removed from the affected nerves. Postoperative discomfort is temporary and managed with pain medication. Recovery includes walking and light activity within days of surgery.",
+      "prevent": "To prevent further nerve compression, patients are encouraged to maintain a healthy weight, use proper body mechanics, stay active with core strengthening exercises, and avoid repetitive strain on the lower back.",
+      "schedule": "If lower back pain or nerve symptoms are interfering with your daily life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation then explore whether lumbar decompression surgery is your path to lasting relief and spinal freedom.",
+      "slug": "lumbardecompression" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Lumbar Disc Replacement Surgery",
       "body": "Lumbar disc replacement is a motion preserving alternative to spinal fusion for treating chronic low back pain caused by degenerative disc disease. At Mountain Spine & Orthopedics, we offer this innovative, minimally invasive procedure supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve pressure, reduce pain, and restore spinal function.",
@@ -415,9 +491,8 @@ export const AllTreatments = [
       "pain_info": "By replacing the damaged disc and relieving pressure on surrounding nerves, patients experience a significant decrease in back and leg pain. Many resume light activities within a few weeks.",
       "prevent": "Disc replacement preserves spinal flexibility, reduces the risk of adjacent segment degeneration, and offers lasting relief. Patients typically return to full activity faster than with fusion surgery, supported by a customized physical therapy program.",
       "schedule": "If you're living with chronic low back pain that hasn’t improved with conservative care, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then explore if lumbar disc replacement is the right solution for your spine health and mobility.",
-      "slug": "lumbar-disc-replacement-surgery"
+      "slug": "lumbar-disc-replacement-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Lumbar Fusion Surgery",
       "body": "Lumbar spinal fusion is a reliable and effective surgical treatment for chronic lower back pain caused by spinal instability, spondylolisthesis, or degenerative disc disease. At Mountain Spine & Orthopedics, we offer minimally invasive lumbar fusion options supported by complimentary MRI reviews, expert second opinions, and convenient car service to stabilize the spine, relieve nerve pressure, and improve long term mobility.",
@@ -429,9 +504,8 @@ export const AllTreatments = [
       "pain_info": "Fusion relieves pain caused by abnormal spinal motion, instability, or nerve irritation. Most patients report improved comfort, posture, and activity tolerance within weeks.",
       "prevent": "Lumbar fusion provides durable spine stabilization and long term relief. Recovery may take several weeks to months and includes a structured rehabilitation program to restore strength, flexibility, and function.",
       "schedule": "If chronic low back pain or spinal instability is impacting your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then find out if lumbar fusion surgery is the right next step for your spine health.",
-      "slug": "lumbar-fusion-surgery"
+      "slug": "lumbar-fusion-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Lumbar Laminectomy Surgery",
       "body": "Lumbar laminectomy is a common and highly effective procedure to relieve pressure on spinal nerves caused by spinal stenosis, herniated discs, or bone spurs. At Mountain Spine & Orthopedics, we perform this minimally invasive surgery backed by complimentary MRI reviews, expert second opinions, and convenient car service to reduce pain, improve mobility, and restore quality of life.",
@@ -443,9 +517,8 @@ export const AllTreatments = [
       "pain_info": "Laminectomy offers immediate and significant relief from radiating leg pain and nerve symptoms. Postoperative discomfort is typically well managed and improves rapidly.",
       "prevent": "Patients typically experience restored leg strength, improved mobility, and reduced back and leg pain. Recovery includes walking shortly after surgery and a personalized physical therapy plan over several weeks.",
       "schedule": "If spinal stenosis or nerve compression is affecting your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and door to door transportation—then explore whether lumbar laminectomy is the right step for your pain relief and spinal health.",
-      "slug": "lumbar-laminectomy-surgery"
+      "slug": "lumbar-laminectomy-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Lumbar Microdiscectomy Surgery",
       "body": "Lumbar microdiscectomy is a minimally invasive spine surgery designed to remove part of a herniated disc that is pressing on spinal nerves. At Mountain Spine & Orthopedics, we offer this outpatient solution backed by complimentary MRI reviews, second opinions, and convenient car service to relieve leg pain (sciatica), improve function, and support a faster recovery.",
@@ -457,9 +530,8 @@ export const AllTreatments = [
       "pain_info": "Microdiscectomy often results in immediate relief from leg pain and numbness. Postoperative pain is usually mild and well controlled with medication.",
       "prevent": "Patients typically return to light activities within a few weeks and experience sustained relief from nerve pain. Physical therapy helps strengthen the spine and prevent future disc issues.",
       "schedule": "If a herniated disc is causing persistent sciatica or lower back pain, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation—then explore whether lumbar microdiscectomy is right for your relief and recovery.",
-      "slug": "lumbar-microdiscectomy-surgery"
+      "slug": "lumbar-microdiscectomy-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Lumbar Microendoscopic Discectomy Surgery",
       "body": "Lumbar microendoscopic discectomy is a highly advanced, minimally invasive spine surgery used to treat herniated discs and nerve compression in the lower back. At Mountain Spine & Orthopedics, we offer this cutting edge outpatient procedure supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, restore function, and minimize recovery time.",
@@ -471,9 +543,21 @@ export const AllTreatments = [
       "pain_info": "This procedure effectively relieves nerve compression, resulting in rapid pain reduction. Patients often report significant improvements within days of surgery.",
       "prevent": "MED allows for faster recovery, less postoperative pain, and quicker return to daily activities compared to traditional open surgery. Physical therapy supports spinal strength and mobility.",
       "schedule": "If you're suffering from a herniated disc or sciatica that hasn’t responded to conservative care, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation—then discover if lumbar microendoscopic discectomy is right for your recovery and relief.",
-      "slug": "lumbar-microendoscopic-discectomy-surgery"
+      "slug": "lumbar-microendoscopic-discectomy-surgery" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Meniscus Repair Surgery",
+      "body": "Meniscus repair is a surgical procedure that treats tears in the knee’s cartilage to restore stability, reduce pain, and prevent joint damage. At Mountain Spine & Orthopedics, we offer advanced arthroscopic meniscus repair supported by complimentary MRI reviews, second opinions, and convenient car service to help patients return to pain free motion and preserve knee health.",
+      "detail": "The meniscus is a C shaped cartilage in the knee that acts as a shock absorber between the femur and tibia. Each knee has a medial and lateral meniscus, both vital for joint cushioning, stability, and load distribution. Meniscus tears are common in athletes and active individuals and often occur from twisting injuries or degeneration with age. Meniscus repair surgery involves suturing the torn cartilage back together to allow natural healing. It is performed arthroscopically through small incisions, using a camera and specialized instruments. This approach is favored over meniscus removal when the tear is in a vascular zone with healing potential. Preserving the meniscus helps maintain joint function and reduces the risk of arthritis, making repair the preferred choice in many patients especially younger active individuals.",
+      "what_sym": "Pain along the joint line of the knee, swelling and stiffness especially after activity, a popping sensation at the time of injury, locking or catching of the knee joint, difficulty fully bending or straightening the knee.",
+      "risk_fac": "Acute traumatic meniscus tears in younger or athletic patients, peripheral tears in the vascular red red or red white zones, complex or bucket handle tears with mechanical symptoms, associated ligament injuries, tears in patients seeking to avoid joint degeneration.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis begins with a thorough knee exam including McMurray’s test and joint line tenderness. High resolution MRI confirms the type location and severity of the tear helping us determine if it is repairable versus requiring partial removal.",
+      "treatment": "Meniscus repair is typically performed arthroscopically under general or regional anesthesia. The surgeon cleans the torn area and sutures the meniscus using small anchors or all inside devices. The entire procedure takes about forty five to ninety minutes and patients often return home the same day.",
+      "pain_info": "Postoperative pain is managed with ice medication and rest. Pain gradually improves within the first one to two weeks. Patients may use crutches to limit weight bearing depending on the repair’s location and extent.",
+      "prevent": "To prevent future meniscus injuries, patients are educated on proper knee mechanics, warm up techniques, balance training, and sports specific modifications. Strengthening the muscles around the knee also reduces stress on the cartilage.",
+      "schedule": "If you are experiencing knee pain locking or swelling after injury schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review expert second opinion and door to door transportation then discover if meniscus repair is the right path to preserving your knee health and active lifestyle.",
+      "slug": "meniscusrepairsurgery" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Motion Preservation Spine Surgery",
       "body": "Motion preservation spine surgery is an advanced treatment approach designed to relieve pain while maintaining natural spinal movement. At Mountain Spine & Orthopedics, we offer leading edge motion preserving procedures supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, avoid spinal fusion, and restore long term function.",
@@ -485,9 +569,8 @@ export const AllTreatments = [
       "pain_info": "Motion preserving surgery effectively relieves nerve compression and mechanical pain while maintaining mobility. Most patients experience rapid pain reduction and return to active lifestyles more quickly than with fusion.",
       "prevent": "These procedures preserve spinal motion, reduce stress on adjacent levels, and provide long lasting relief. Patients typically return to normal activities within weeks, supported by a structured rehabilitation plan.",
       "schedule": "If you're looking for a solution to back or neck pain that doesn’t compromise spinal movement, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation—then explore whether motion preservation surgery is right for your spine health and lifestyle.",
-      "slug": "motion-preservation-spine-surgery"
+      "slug": "motion-preservation-spine-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Multilevel Degenerative Disc Disease Surgery",
       "body": "Multilevel disc replacement is an advanced motion preserving surgical solution for patients with degenerative disc disease affecting more than one level of the spine. At Mountain Spine & Orthopedics, we offer customized disc replacement procedures supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, maintain spinal mobility, and improve long term spine health.",
@@ -499,9 +582,8 @@ export const AllTreatments = [
       "pain_info": "Disc replacement effectively alleviates nerve compression and mechanical pain, often providing faster recovery and less postoperative pain compared to fusion. Many patients experience symptom relief within the first few weeks.",
       "prevent": "To help prevent further degeneration and protect surgical results, patients are advised to maintain good posture, strengthen core and spinal muscles through physical therapy, avoid smoking, manage weight, and modify activities that involve repetitive strain or impact on the spine.",
       "schedule": "If you’ve been diagnosed with degenerative disc disease at multiple spinal levels and want a motion preserving solution, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then explore if multilevel disc replacement is the right option for long term pain relief and spine mobility.",
-      "slug": "multilevel-degenerative-disc-disease-surgery"
+      "slug": "multilevel-degenerative-disc-disease-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Neck Pain Treatment & Shoulder Pain Relief",
       "body": "Neck and shoulder pain can significantly impact your mobility, posture, and quality of life. At Mountain Spine & Orthopedics, we provide comprehensive, minimally invasive treatment options supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, restore function, and help you move freely again.",
@@ -513,9 +595,8 @@ export const AllTreatments = [
       "pain_info": "Many patients experience significant pain relief with conservative care. Surgical options are designed to target and eliminate the source of pain, often with faster recovery and fewer complications than traditional open procedures.",
       "prevent": "Our treatment plans aim to restore full range of motion, strengthen muscles, reduce inflammation, and prevent future injuries. Most patients return to normal activity with improved comfort and function.",
       "schedule": "If you're dealing with chronic neck or shoulder pain, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then begin your path to long term pain relief and mobility.",
-      "slug": "neck-pain-treatment-and-shoulder-pain-relief"
+      "slug": "neck-pain-treatment-and-shoulder-pain-relief" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Non Surgical Treatments for Pain Management",
       "body": "Non surgical pain management offers effective relief for joint, spine, and nerve related discomfort without the need for invasive procedures. At Mountain Spine & Orthopedics, we offer a range of minimally invasive solutions backed by complimentary MRI reviews, second opinions, and convenient car service to target pain at its source and restore quality of life.",
@@ -527,9 +608,8 @@ export const AllTreatments = [
       "pain_info": "These treatments reduce nerve irritation, improve circulation, and relieve musculoskeletal tension. Most patients experience significant improvements in pain and mobility with regular therapy.",
       "prevent": "By addressing biomechanical issues early, strengthening supporting muscles, and avoiding repetitive strain, non surgical care can prevent further deterioration and reduce long term orthopedic complications.",
       "schedule": "If you're looking for effective, non surgical pain relief, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then discover your personalized path to lasting relief and recovery.",
-      "slug": "non-surgical-treatments-for-pain-management"
+      "slug": "non-surgical-treatments-for-pain-management" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Oblique Lumbar Interbody Fusion",
       "body": "Oblique Lumbar Interbody Fusion (OLIF) is a minimally invasive spine surgery that treats degenerative disc disease, spondylolisthesis, and other lumbar spine conditions through a side approach to the lower back. At Mountain Spine & Orthopedics, we offer OLIF surgery supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve nerve compression, stabilize the spine, and restore mobility.",
@@ -541,9 +621,8 @@ export const AllTreatments = [
       "pain_info": "OLIF reduces nerve pressure and mechanical pain at the affected segment. Most patients report improved pain relief and function shortly after surgery.",
       "prevent": "Maintaining a healthy weight, strengthening core and spinal muscles, practicing proper lifting techniques, and avoiding smoking can support spinal health and protect the fusion site postoperatively.",
       "schedule": "If you suffer from chronic back pain or spinal instability, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and door to door transportation—then explore whether OLIF surgery is right for your spinal health and long term relief.",
-      "slug": "oblique-lumbar-interbody-fusion"
+      "slug": "oblique-lumbar-interbody-fusion" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Percutaneous Carpal Tunnel Release",
       "body": "Percutaneous Carpal Tunnel Release (PCTR) is a minimally invasive, outpatient procedure that offers fast relief for carpal tunnel syndrome with minimal downtime. At Mountain Spine & Orthopedics, we perform this advanced technique backed by complimentary MRI reviews, expert second opinions, and convenient car service to relieve nerve compression in the wrist, restore hand function, and reduce pain.",
@@ -555,9 +634,8 @@ export const AllTreatments = [
       "pain_info": "PCTR is associated with less postoperative pain, less scarring, and a quicker return to function compared to open surgery. Most patients experience improvement in nerve symptoms within days.",
       "prevent": "To prevent recurrence, patients are encouraged to avoid repetitive strain, use ergonomic tools and proper wrist positioning, take frequent breaks during manual tasks, and strengthen forearm and hand muscles through targeted exercises.",
       "schedule": "If carpal tunnel syndrome is affecting your daily life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation—then explore if Percutaneous Carpal Tunnel Release is right for your hand function and comfort.",
-      "slug": "percutaneous-carpal-tunnel-release"
+      "slug": "percutaneous-carpal-tunnel-release" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Percutaneous Discectomy",
       "body": "Percutaneous discectomy is a minimally invasive procedure used to treat herniated discs by removing disc material through a needle based system. At Mountain Spine & Orthopedics, we offer this outpatient technique supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve pressure, reduce pain, and promote rapid recovery without open surgery.",
@@ -569,9 +647,8 @@ export const AllTreatments = [
       "pain_info": "Most patients experience significant relief from radiating pain shortly after the procedure. There is minimal post procedural discomfort, and the risk of complications is low.",
       "prevent": "Maintaining a healthy weight, practicing proper lifting techniques, strengthening core muscles, and avoiding prolonged sitting can help reduce future disc stress and prevent reherniation.",
       "schedule": "If you're dealing with persistent nerve pain due to a herniated disc, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then find out if percutaneous discectomy is your best path to pain relief and mobility.",
-      "slug": "percutaneous-discectomy"
+      "slug": "percutaneous-discectomy" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Posterior Cervical Foraminotomy Surgery",
       "body": "Posterior cervical foraminotomy is a minimally invasive surgical procedure used to relieve nerve compression in the neck by enlarging the space where spinal nerves exit the cervical spine. At Mountain Spine & Orthopedics, we perform this precise outpatient surgery backed by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, restore function, and avoid fusion when possible.",
@@ -583,9 +660,8 @@ export const AllTreatments = [
       "pain_info": "Most patients experience significant relief from nerve pain, numbness, and arm weakness shortly after the procedure. Postoperative pain is typically mild and managed with over the counter or prescription medications.",
       "prevent": "Preventing recurrence involves maintaining good posture, strengthening neck and shoulder muscles, avoiding repetitive strain, and managing spinal arthritis or disc degeneration through regular exercise and lifestyle habits.",
       "schedule": "If you’re experiencing persistent arm pain or nerve symptoms due to cervical spine issues, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation—then discover if posterior cervical foraminotomy is right for your neck and nerve relief.",
-      "slug": "posterior-cervical-foraminotomy-surgery"
+      "slug": "posterior-cervical-foraminotomy-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Posterior Cervical Fusion Surgery",
       "body": "Posterior cervical fusion is a surgical procedure used to stabilize the neck and relieve spinal cord or nerve compression caused by conditions such as fractures, deformities, or degenerative disc disease. At Mountain Spine & Orthopedics, we perform this advanced surgery supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, improve neck stability, and restore quality of life.",
@@ -597,9 +673,8 @@ export const AllTreatments = [
       "pain_info": "While initial postoperative discomfort is expected, most patients report long term relief from pain and neurological symptoms after recovery. Pain is managed with medications and physical therapy.",
       "prevent": "To protect spinal health, patients are advised to practice good posture, avoid repetitive neck strain, follow physical therapy protocols, and manage underlying conditions like arthritis or osteoporosis that contribute to instability.",
       "schedule": "If you’re experiencing spinal instability, neurological symptoms, or chronic neck pain, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then explore if posterior cervical fusion is the right solution for long term spinal stability and pain relief.",
-      "slug": "posterior-cervical-fusion-surgery"
+      "slug": "posterior-cervical-fusion-surgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Posterior Cervical Fusion with Instrumentation Surgery",
       "body": "Posterior cervical fusion with instrumentation is a spine stabilizing surgical procedure that uses rods, screws, and bone grafts to fuse vertebrae in the cervical spine. At Mountain Spine & Orthopedics, we offer this advanced technique supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve compression, correct deformity, and restore neck stability.",
@@ -611,9 +686,8 @@ export const AllTreatments = [
       "pain_info": "Pain is managed with medications, and most patients report improvement in neurological symptoms shortly after surgery. Physical therapy begins soon after discharge to support healing and mobility.",
       "prevent": "Maintain strong neck and upper back muscles through physical therapy and regular activity, avoid repetitive strain or trauma to the cervical spine, follow postoperative care instructions, and attend all follow up appointments to ensure optimal healing and spinal alignment.",
       "schedule": "If you have been diagnosed with cervical instability, spinal cord compression, or multilevel degeneration, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation—then learn whether posterior cervical fusion with instrumentation is the right solution for your spine health and stability.",
-      "slug": "posteriorcervicalfusionwithinstrumentation"
+      "slug": "posteriorcervicalfusionwithinstrumentation" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Posterior Cervical Laminoplasty Surgery",
       "body": "Posterior cervical laminoplasty is a motion preserving surgical procedure that relieves spinal cord compression in the neck without the need for spinal fusion. At Mountain Spine & Orthopedics, we provide this specialized treatment supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore spinal space, reduce neurological symptoms, and maintain cervical mobility.",
@@ -625,9 +699,8 @@ export const AllTreatments = [
       "pain_info": "Postoperative discomfort is typically manageable and short lived. Most patients report rapid relief from neurological symptoms including numbness, weakness, and gait instability.",
       "prevent": "To help prevent cervical spinal cord compression, maintain good posture, stay active with neck strengthening exercises, avoid repetitive strain, and address early symptoms of stiffness or nerve dysfunction through conservative treatment and regular spinal health evaluations.",
       "schedule": "If you’re experiencing symptoms of cervical spinal cord compression or have been diagnosed with multilevel stenosis, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then find out if posterior cervical laminoplasty is right for your condition and lifestyle.",
-      "slug": "posteriorcervicallaminoplasty"
+      "slug": "posteriorcervicallaminoplasty" // Ensure slug is unique in your full dataset
     },
-    
     {
       "title": "Resurfacing Shoulder Replacement Treatment",
       "body": "Resurfacing shoulder replacement is a bone sparing procedure that treats arthritis and joint damage while preserving the natural shape of the shoulder. At Mountain Spine & Orthopedics, we offer this advanced outpatient surgery supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, restore motion, and support faster recovery.",
@@ -639,9 +712,8 @@ export const AllTreatments = [
       "pain_info": "Most patients report a quick reduction in pain and inflammation. Postoperative pain is usually well managed with medications, and mobility improves gradually with physical therapy.",
       "prevent": "Maintaining shoulder strength, avoiding repetitive overhead strain, and participating in prescribed rehabilitation exercises can prolong implant life and prevent additional joint damage.",
       "schedule": "If shoulder pain is affecting your quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation then learn if resurfacing shoulder replacement is the right approach for long term shoulder relief and function.",
-      "slug": "resurfacingshoulderreplacement"
+      "slug": "resurfacingshoulderreplacement" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Revision Spinal Surgery",
       "body": "Revision spinal surgery is performed to correct issues from a previous spine procedure that did not produce the expected relief or led to complications. At Mountain Spine & Orthopedics, we provide expert revision care backed by complimentary MRI reviews, second opinions, and convenient car service to relieve persistent pain, restore mobility, and improve long term spinal health.",
@@ -653,9 +725,60 @@ export const AllTreatments = [
       "pain_info": "Revision surgery aims to eliminate persistent pain by addressing the root cause left untreated in the original procedure. Many patients report improved symptoms and quality of life after a carefully planned revision surgery.",
       "prevent": "Careful surgical planning, proper rehabilitation, maintaining a healthy weight, core strengthening, and follow up care all reduce the risk of complications after revision surgery. Patients are also counseled on lifestyle adjustments to protect spinal health.",
       "schedule": "If you've had a spinal surgery that hasn't resolved your pain or symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then take the next step toward long term relief with a personalized revision spine surgery plan.",
-      "slug": "revisionspinalsurgery"
+      "slug": "revisionspinalsurgery" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Rotator Cuff Repair Surgery",
+      "body": "Rotator cuff repair is a highly effective orthopedic procedure used to restore shoulder strength and mobility after a tendon tear. At Mountain Spine & Orthopedics, we offer advanced minimally invasive rotator cuff surgery supported by complimentary MRI reviews, second opinions, and convenient car service to relieve shoulder pain, repair damage, and help you return to your active lifestyle.",
+      "detail": "The rotator cuff is a group of four muscles and tendons that stabilize the shoulder joint and allow for smooth arm movement. Overuse, injury, or age related degeneration can cause these tendons to partially or fully tear, leading to pain, weakness, and limited motion. Rotator cuff repair surgery involves reattaching the torn tendon to the head of the humerus or upper arm bone. This can be done through minimally invasive arthroscopic techniques using a small camera and specialized instruments, or through an open procedure if the tear is large or complex. At Mountain Spine & Orthopedics, we focus on preserving as much healthy tissue as possible while ensuring a strong, durable repair. Surgery is followed by a personalized rehabilitation program to restore strength and function.",
+      "what_sym": "Shoulder pain, especially at night or when lying on the affected side, weakness or difficulty lifting the arm overhead, limited range of motion in the shoulder, clicking or catching sensations during movement, and pain that persists despite rest or therapy.",
+      "risk_fac": "Partial or full thickness rotator cuff tears, degenerative tendon injuries, traumatic rotator cuff injuries from falls or sports, tendon impingement or fraying that does not respond to conservative care, and re tears or failed previous rotator cuff surgeries.",
+      "diagnose": "Mountain Spine & Orthopedics performs a comprehensive evaluation including a physical shoulder exam, strength testing, and advanced imaging like MRI or ultrasound to confirm the extent of the tear. Diagnostic injections may also help isolate the source of pain. Candidacy for surgery is based on tear size, patient activity level, and the response to non surgical treatments.",
+      "treatment": "Most procedures are performed arthroscopically through small incisions. The surgeon cleans out damaged tissue and reattaches the torn tendon to the bone using sutures and small anchors. In more severe cases, a mini open or open approach may be used for full visualization and repair. The surgery typically lasts one to two hours and is done on an outpatient basis. A sling is worn after surgery to protect the repair during the early healing phase.",
+      "pain_info": "Pain is managed with nerve blocks, anti inflammatory medications, and guided physical therapy. Most patients notice reduced pain within the first few weeks, especially at night and during arm movement.",
+      "prevent": "Postoperative rehabilitation includes education on proper shoulder mechanics and strengthening exercises. Patients are encouraged to avoid repetitive overhead lifting, warm up properly before activity, and maintain shoulder flexibility to reduce the risk of reinjury.",
+      "schedule": "If shoulder pain or weakness is limiting your daily activities, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation then find out if rotator cuff repair is the solution to restoring your shoulder function and quality of life.",
+      "slug": "rotatorcuffrepair" // Ensure slug is unique in your full dataset
+    },
+    {
+      "title": "Shoulder Arthroscopy",
+      "body": "Shoulder arthroscopy is a minimally invasive procedure used to diagnose and treat shoulder joint conditions such as rotator cuff injuries, labral tears, and impingement. At Mountain Spine and Orthopedics, we provide expert arthroscopic care supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, restore shoulder mobility, and promote quicker recovery with minimal disruption.",
+      "detail": "Shoulder arthroscopy involves inserting a small camera and surgical tools through tiny incisions around the shoulder to view and repair damage inside the joint. This advanced technique causes less trauma to surrounding tissues compared to traditional open surgery, resulting in reduced pain, faster healing, and improved outcomes. The procedure is used to treat a wide range of shoulder issues, including torn rotator cuffs, inflamed tissues, labral injuries, and shoulder instability. It is performed under general or regional anesthesia and usually lasts one to two hours. Most patients are able to return home the same day and begin their recovery journey with personalized therapy and care.",
+      "what_sym": "Persistent pain in the shoulder, stiffness, clicking sounds, reduced range of motion, weakness, or a sensation that the joint is unstable may signal the need for shoulder arthroscopy. These symptoms often become worse during daily activities or sleep and are commonly caused by joint or soft tissue damage that cannot be resolved through conservative care.",
+      "risk_fac": "This procedure is commonly used to treat rotator cuff tears, labral injuries such as SLAP or Bankart lesions, shoulder impingement, frozen shoulder, biceps tendon injuries, and recurring dislocations. It may also be used to remove loose cartilage, inflamed tissue, or bone spurs within the joint.",
+      "diagnose": "At Mountain Spine and Orthopedics, patients undergo a detailed consultation that includes physical evaluation and high quality imaging such as MRI or ultrasound. If noninvasive treatments have not resolved the issue and imaging confirms structural damage, arthroscopy may be recommended as the next step.",
+      "treatment": "Using a small camera inserted through a tiny incision, the surgeon examines the inside of the shoulder joint and performs any necessary repairs. Torn tendons may be stitched, damaged tissue removed, or loose bone fragments smoothed out. Once the repair is complete, the incisions are closed and the patient is placed in a sling or wrap for support.",
+      "pain_info": "Pain after the procedure is typically mild and manageable with rest, cold therapy, and medication. Most patients notice steady improvement in pain levels within the first few weeks as inflammation decreases and movement becomes easier.",
+      "prevent": "To help prevent future problems, patients are encouraged to follow proper body mechanics, maintain good posture, avoid repetitive overhead lifting, and continue prescribed exercises even after therapy ends. Ongoing care helps protect the joint and supports shoulder health.",
+      "schedule": "If you are dealing with shoulder pain that has not improved with rest or therapy, schedule a consultation with Mountain Spine and Orthopedics today. Take advantage of a complimentary MRI review, a trusted second opinion, and convenient transportation then discover if shoulder arthroscopy is the solution to restoring your comfort and shoulder strength.",
+      "slug": "shoulderarthroscopy" // Ensure slug is unique in your full dataset
+    },
+    {
+      "title": "Shoulder Replacement Surgery",
+      "body": "Shoulder replacement surgery is an advanced orthopedic procedure designed to relieve pain and restore joint function in patients with severe shoulder arthritis, fractures, or joint degeneration. At Mountain Spine & Orthopedics, we offer total and partial shoulder replacement options supported by complimentary MRI reviews, second opinions, and convenient car service to help patients regain comfort, mobility, and quality of life.",
+      "detail": "Shoulder replacement also known as shoulder arthroplasty involves removing damaged parts of the shoulder joint and replacing them with artificial components. The procedure can be performed as a total shoulder replacement where both the humeral head and glenoid are replaced or as a partial replacement where only the humeral head is addressed. In cases of complex rotator cuff damage a reverse shoulder replacement may be used to improve stability and shoulder mechanics. These procedures are commonly performed in patients with advanced arthritis, post traumatic degeneration, avascular necrosis, or failed prior shoulder surgeries. Modern implants and minimally invasive surgical techniques allow for faster recovery, improved motion, and pain relief.",
+      "what_sym": "Chronic shoulder pain that limits daily activities, stiffness or restricted range of motion, grinding or clicking during movement, inability to lift the arm or sleep on the affected side, pain unrelieved by physical therapy injections or medications.",
+      "risk_fac": "Osteoarthritis of the shoulder joint, rheumatoid arthritis or inflammatory arthritis, post traumatic arthritis following fractures, avascular necrosis of the humeral head, severe rotator cuff arthropathy, failed previous shoulder surgeries.",
+      "diagnose": "At Mountain Spine & Orthopedics, we begin with a thorough clinical exam, patient history, and functional assessment. Diagnostic imaging such as high resolution X rays, MRI, or CT scans is used to evaluate bone quality, joint space, and soft tissue integrity. Based on your diagnosis and goals we determine whether total, partial, or reverse replacement is most appropriate.",
+      "treatment": "Shoulder replacement is performed under general anesthesia. The surgeon makes a small incision to access the shoulder joint, removes the damaged bone or cartilage, and replaces it with prosthetic components. The surgery typically lasts one to two hours and most patients are discharged within one to two days. A sling may be worn during early healing followed by a structured physical therapy program to restore strength, flexibility, and joint control.",
+      "pain_info": "Shoulder replacement greatly reduces pain caused by arthritis and joint damage. Postoperative discomfort is common but well managed with medication and cold therapy. Most patients report a significant decrease in pain within the first few weeks.",
+      "prevent": "To preserve joint health patients are encouraged to avoid high impact activities, follow a maintenance physical therapy routine, and manage conditions like diabetes or osteoporosis that may affect bone healing. Early intervention and proper shoulder mechanics can extend the life of the implant.",
+      "schedule": "If you are experiencing persistent shoulder pain, limited motion, or arthritis that has not responded to non surgical care schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation then learn if shoulder replacement surgery is the right step toward restoring your comfort and mobility.",
+      "slug": "shoulderreplacementsurgery" // Ensure slug is unique in your full dataset
+    },
+    {
+      "title": "Spinal Fusion",
+      "body": "Spinal fusion is a surgical procedure used to stabilize the spine and eliminate pain caused by instability, degenerative disc disease, fractures, or deformity. At Mountain Spine & Orthopedics, we offer minimally invasive and traditional spinal fusion procedures supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve compression, restore spinal alignment, and improve function.",
+      "detail": "Spinal fusion involves permanently connecting two or more vertebrae using bone grafts and often surgical hardware such as screws, rods, or cages. By fusing the bones together, the procedure eliminates abnormal movement between the vertebrae, reduces mechanical pain, and stabilizes areas of the spine affected by degeneration, injury, or deformity. Fusion can be performed in the cervical neck, thoracic mid back, or lumbar lower back regions depending on the condition. Techniques vary based on location and severity and may include anterior front, posterior back, lateral side, or minimally invasive approaches. Bone grafts used in fusion may be taken from the patient, donor tissue, or synthetic materials designed to promote bone growth.",
+      "what_sym": "Chronic neck or back pain unresponsive to nonsurgical care, radiating leg or arm pain from nerve compression, spinal instability or vertebral slippage, weakness or numbness in the extremities, difficulty walking, standing, or maintaining posture, or deformity from scoliosis or kyphosis.",
+      "risk_fac": "Degenerative disc disease, spondylolisthesis, spinal stenosis, vertebral fractures, recurrent herniated discs, spinal tumors, severe scoliosis or kyphotic deformity, and failed back surgery.",
+      "diagnose": "At Mountain Spine & Orthopedics, your provider will perform a thorough physical and neurological exam, review your medical history, and use advanced imaging including high resolution MRI, CT scans, and dynamic flexion extension X rays. When instability, deformity, or unresponsive nerve compression is confirmed, spinal fusion may be recommended.",
+      "treatment": "Spinal fusion can be performed using several approaches depending on spinal level and condition. The procedure typically involves removing the damaged disc or bone, inserting a bone graft or cage to maintain proper spacing, placing screws, rods, or plates to hold the bones in position, and allowing the bones to fuse over time. Minimally invasive techniques may reduce blood loss, hospital stays, and recovery time. Surgery duration ranges from two to five hours, and most patients begin walking the same or next day.",
+      "pain_info": "Spinal fusion relieves pain by stabilizing the spine and eliminating motion at painful segments. Postoperative pain is managed with medication and usually decreases significantly as healing progresses. Many patients experience reduced pain and improved mobility.",
+      "prevent": "To maintain fusion success and prevent adjacent segment disease, patients should maintain a healthy weight, use proper lifting techniques, avoid smoking, and continue core strengthening exercises as prescribed in physical therapy.",
+      "schedule": "If you are dealing with spinal instability, chronic back or neck pain, or failed previous treatment, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then discover if spinal fusion is the right solution for restoring your spine health and quality of life.",
+      "slug": "spinalfusion" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Spinal Fusion Surgery",
       "body": "Spinal fusion surgery is a proven procedure for treating chronic back pain caused by spinal instability, degenerative disc disease, or vertebral fractures. At Mountain Spine & Orthopedics, we offer personalized spinal fusion care supported by complimentary MRI reviews, expert second opinions, and convenient car service to stabilize the spine, relieve nerve pressure, and restore quality of life.",
@@ -667,9 +790,8 @@ export const AllTreatments = [
       "pain_info": "The procedure relieves pain caused by unstable joints or compressed nerves. Post surgical pain is temporary and managed with medication, while long term relief often begins within weeks.",
       "prevent": "Post surgery, patients are guided through physical therapy to strengthen supporting muscles and improve posture. Avoiding high impact activities and maintaining a healthy weight also helps prevent issues in adjacent spinal levels.",
       "schedule": "If you’re dealing with chronic spine pain or instability, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then move forward with a treatment plan that may include spinal fusion surgery to restore stability and comfort.",
-      "slug": "spinalfusionsurgery"
+      "slug": "spinalfusionsurgery" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Stem Cell Therapy",
       "body": "Stem Cell Therapy is a cutting edge regenerative treatment that harnesses the body’s natural healing power to repair damaged joints, tissues, and cartilage. At Mountain Spine & Orthopedics, we offer this advanced, non surgical solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to promote healing, reduce inflammation, and restore mobility without invasive procedures.",
@@ -681,9 +803,8 @@ export const AllTreatments = [
       "pain_info": "Patients often notice a reduction in pain and inflammation within a few weeks. Unlike temporary solutions, stem cells work to repair the damaged tissue, offering long term improvement and functional restoration.",
       "prevent": "Post treatment rehab may include physical therapy, joint friendly exercise routines, and anti inflammatory nutritional support to maximize results and protect the treated area from reinjury.",
       "schedule": "If you’re looking for a non surgical solution to joint or spine pain, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then explore whether Stem Cell Therapy is the right option to restore your comfort and activity.",
-      "slug": "stemcelltherapy"
+      "slug": "stemcelltherapy" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Stem Cell Treatment",
       "body": "Stem Cell Treatment is a revolutionary regenerative therapy that accelerates healing, reduces inflammation, and may even reverse signs of aging. At Mountain Spine & Orthopedics, we offer this advanced solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore joint and tissue health naturally without surgery.",
@@ -695,9 +816,8 @@ export const AllTreatments = [
       "pain_info": "Most patients report a gradual but steady decrease in pain and stiffness over the following weeks as inflammation subsides and tissue regeneration begins. Long term relief often follows with continued functional improvement.",
       "prevent": "Ongoing rehabilitation and lifestyle modifications such as physical therapy, low impact activity, and anti inflammatory nutrition can help maintain the results of stem cell therapy and reduce the risk of further damage.",
       "schedule": "If you’re exploring natural, non surgical options for pain relief and recovery, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then learn whether Stem Cell Treatment can restore your health, mobility, and quality of life.",
-      "slug": "stemcelltreatment"
+      "slug": "stemcelltreatment" // Ensure slug is unique in your full dataset
     },
-
     {
       "title": "Surgical Treatments",
       "body": "Surgical treatments are advanced options for patients with spine or joint conditions that have not responded to conservative care. At Mountain Spine & Orthopedics, we specialize in minimally invasive and reconstructive procedures supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, correct structural issues, and restore long term mobility.",
@@ -709,9 +829,47 @@ export const AllTreatments = [
       "pain_info": "Surgical treatments are designed to directly resolve the source of chronic or severe pain. Most patients experience significant improvement in symptoms such as nerve pain, joint discomfort, and functional limitations shortly after recovery begins.",
       "prevent": "Post surgical rehabilitation, proper body mechanics, ongoing physical therapy, and healthy lifestyle practices help maintain surgical results and prevent further degeneration or injury.",
       "schedule": "If you’ve exhausted conservative treatments and are still living with pain or instability, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a second opinion, and door to door transportation then take the next step toward surgical relief and restored function.",
-      "slug": "surgicaltreatments"
+      "slug": "surgicaltreatments" // Ensure slug is unique in your full dataset
     },
-
+    {
+      "title": "Total Hip Replacement Surgery",
+      "body": "Total hip replacement is a highly successful surgical solution for patients suffering from hip joint damage due to arthritis, injury, or age related wear. At Mountain Spine & Orthopedics, we offer this advanced procedure supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve chronic pain, restore mobility, and help you return to a more active, comfortable life.",
+      "detail": "Total hip replacement, or total hip arthroplasty, is a procedure that involves replacing the damaged ball and socket components of the hip joint with smooth, durable artificial implants. The damaged femoral head ball is removed and replaced with a metal or ceramic ball, which is attached to a stem inserted into the femur. The acetabulum socket is reshaped and lined with a synthetic cup to reduce friction and restore joint movement. This surgery is recommended when conservative treatments such as physical therapy, medications, or joint injections no longer provide relief. It is one of the most effective orthopedic procedures for improving quality of life in patients with hip arthritis, fractures, or severe degeneration. Our surgeons use minimally invasive and muscle sparing techniques when possible to reduce trauma, limit scarring, and accelerate recovery. Some procedures may also incorporate robotic assisted navigation for improved implant positioning and function.",
+      "what_sym": "Chronic hip or groin pain during walking, sitting, or sleeping, stiffness or loss of range of motion in the hip, limping or difficulty putting weight on one leg, grinding or locking sensation in the joint, and pain that limits daily activities and does not improve with non surgical care.",
+      "risk_fac": "Osteoarthritis of the hip, rheumatoid arthritis, avascular necrosis, hip fractures that fail to heal properly, post traumatic arthritis, and hip dysplasia or congenital deformities.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis includes a comprehensive physical exam, mobility assessment, and advanced imaging such as high resolution X rays or MRI. We evaluate joint space narrowing, bone quality, and structural abnormalities. A personalized care plan is developed based on your activity level, severity of damage, and lifestyle goals.",
+      "treatment": "The procedure typically takes one to two hours. A small incision is made at the front, side, or back of the hip depending on the surgical approach. The damaged femoral head is removed and replaced with a prosthetic ball, and a new socket is implanted into the pelvis. The components are designed to mimic the natural movement of the hip while providing durable joint support. In many cases, patients begin walking with assistance on the same day as surgery. Hospital stays typically last one to two days, and outpatient options may be considered for eligible patients.",
+      "pain_info": "Pain is managed with a combination of regional anesthesia, oral medications, and non narcotic therapies. Most patients report a dramatic reduction in hip pain shortly after surgery, with less discomfort during recovery compared to the pain experienced before surgery.",
+      "prevent": "After surgery, patients are encouraged to maintain a healthy weight, avoid high impact activities, and stay active with joint friendly exercises. A structured rehabilitation plan and regular follow ups help ensure joint health and implant success.",
+      "schedule": "If hip pain is keeping you from living your life fully, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, a personalized second opinion, and door to door transportation then take the next step toward lasting relief and renewed mobility with total hip replacement surgery.",
+      "slug": "totalhipreplacement" // Ensure slug is unique in your full dataset
+    },
+    {
+      "title": "Total Knee Replacement Surgery",
+      "body": "Total knee replacement surgery is a highly effective solution for chronic knee pain and joint damage caused by arthritis, injury, or degeneration. At Mountain Spine & Orthopedics, we specialize in advanced knee replacement techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, restore mobility, and help you return to an active pain free life.",
+      "detail": "Total knee replacement, also called knee arthroplasty, involves removing damaged cartilage and bone from the knee joint and replacing them with precision fitted implants made of metal and high grade plastic. These components restore joint alignment, improve movement, and eliminate the source of pain. This procedure is typically recommended for patients with advanced arthritis or joint degeneration who have not responded to conservative treatments like medications, injections, or physical therapy. Our orthopedic surgeons use minimally invasive and sometimes robotic assisted techniques to reduce tissue trauma and accelerate recovery while providing a long lasting, stable joint replacement.",
+      "what_sym": "Symptoms that may lead to this procedure include chronic knee pain during activity or rest, swelling or stiffness, limited mobility, joint deformity, grinding sensations, and difficulty standing, walking, or climbing stairs. Pain that interferes with daily function or does not respond to conservative treatments is often a strong indicator.",
+      "risk_fac": "Patients with severe osteoarthritis, rheumatoid arthritis, post traumatic arthritis, or joint deformities are candidates. Prior knee injuries, failed knee surgeries, and structural joint damage due to overuse can also lead to the need for knee replacement.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis includes a comprehensive physical exam, review of your medical history, and imaging such as high resolution X rays and MRIs. This helps assess the extent of joint damage and determine if joint preservation or full replacement is appropriate.",
+      "treatment": "During surgery, the damaged joint surfaces of the femur, tibia, and sometimes patella are removed and replaced with artificial components. These implants are aligned to restore joint balance and stability. The procedure is typically done under general or spinal anesthesia and lasts about one to two hours. Most patients begin walking with assistance the same day and return home within one to two days. Robotic or computer guided tools may be used to improve precision and implant longevity.",
+      "pain_info": "Pain following surgery is usually well controlled with a combination of medications and nerve blocks. Many patients experience a dramatic reduction in joint pain within the first week. Postoperative discomfort continues to improve with rehabilitation and proper care.",
+      "prevent": "To protect your new knee joint, stay active with low impact exercises, maintain a healthy weight, and avoid high stress activities like running or jumping. Participating in prescribed physical therapy and regular follow up appointments will help ensure lasting joint performance.",
+      "schedule": "If knee pain is interfering with your daily life, schedule a consultation with Mountain Spine & Orthopedics today. We offer a complimentary MRI review, second opinion, and convenient transportation. Our team will help you explore whether total knee replacement is the right step toward restoring your mobility and quality of life.",
+      "slug": "totalkneereplacement" // Ensure slug is unique in your full dataset
+    },
+    {
+      "title": "Trigger Finger Release",
+      "body": "Trigger finger release is a minimally invasive procedure used to treat painful locking and stiffness in the fingers caused by tendon inflammation. At Mountain Spine & Orthopedics, we offer this outpatient solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore smooth finger movement, eliminate pain, and improve hand function.",
+      "detail": "Trigger finger, medically known as stenosing tenosynovitis, occurs when the flexor tendons in the finger become irritated and swollen, causing them to catch or lock during movement. This happens when the tendon sheath, which is the tunnel the tendon glides through, becomes too narrow due to inflammation or thickening. Trigger finger release surgery is a quick and highly effective treatment in which the surgeon opens or widens the tendon sheath, allowing the tendon to glide freely without catching. This outpatient procedure is typically performed under local anesthesia and has a high success rate in restoring natural hand movement.",
+      "what_sym": "Symptoms that may lead to trigger finger release include pain at the base of the finger or thumb, finger stiffness especially in the morning, a popping or clicking sound when moving the finger, finger locking in a bent position that may suddenly straighten with a snap, and swelling or a tender lump at the base of the finger.",
+      "risk_fac": "This procedure is used to treat moderate to severe trigger finger or thumb, trigger finger unresponsive to splints, medications, or steroid injections, multiple affected fingers, long standing inflammation or mechanical locking of the digit, and tendon sheath thickening due to repetitive use or inflammatory conditions such as rheumatoid arthritis or diabetes.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis is made through a physical examination, symptom review, and functional testing. In some cases, ultrasound imaging is used to assess tendon inflammation or rule out other causes of stiffness or pain. Surgery is typically considered when conservative treatments fail or the finger remains locked.",
+      "treatment": "The procedure involves a small incision in the palm or base of the affected finger. The surgeon releases the A1 pulley, which is a band of tissue causing the tendon restriction, allowing the tendon to move smoothly again. In some cases, a percutaneous needle based release may be performed with no visible incision. The surgery takes about fifteen to thirty minutes, and most patients return home the same day.",
+      "pain_info": "Postoperative pain is usually mild and resolves quickly. Pain from the trigger finger itself often improves immediately. Over the counter medication and light bandaging are typically sufficient for pain control.",
+      "prevent": "Avoiding repetitive gripping, improving hand ergonomics, stretching, and early treatment of inflammation can reduce the risk of trigger finger. Patients with diabetes or rheumatoid arthritis should monitor hand symptoms closely.",
+      "schedule": "If finger pain or locking is affecting your daily life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and convenient transportation then discover whether trigger finger release is the solution for restoring hand function and comfort.",
+      "slug": "triggerfingerrelease" // Ensure slug is unique in your full dataset
+    },
     {
       "title": "Understanding TLIF Surgery: Transforaminal Lumbar Interbody Fusion",
       "body": "Transforaminal Lumbar Interbody Fusion TLIF is an advanced spinal fusion procedure used to treat lower back pain caused by degenerative disc disease, spondylolisthesis, or spinal instability. At Mountain Spine & Orthopedics, we offer TLIF surgery backed by complimentary MRI reviews, second opinions, and convenient car service to stabilize the spine, relieve nerve pressure, and restore long term function.",
@@ -723,98 +881,6 @@ export const AllTreatments = [
       "pain_info": "By decompressing the nerves and stabilizing the spine, TLIF surgery often provides significant relief from nerve related leg pain and lower back discomfort. Pain is managed with medication and usually decreases as the spine heals.",
       "prevent": "Maintaining good posture, strengthening core and back muscles, avoiding repetitive bending or lifting, and participating in post surgical physical therapy can help prevent further spinal degeneration or adjacent level issues.",
       "schedule": "If you're living with persistent lower back pain or sciatica, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, second opinion, and door to door transportation then find out if TLIF surgery is the right step toward restoring your spine health and mobility.",
-      "slug": "tlifsurgery"
+      "slug": "tlifsurgery" // Ensure slug is unique in your full dataset
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {
-      "title": "Total Knee Replacement",
-      "body": "A total knee replacement involves replacing a damaged or worn-out knee joint with an artificial implant to relieve pain and improve mobility.",
-      "slug": "totalkneereplacement"
-    },
-    {
-      "title": "Total Hip Replacement",
-      "body": "Total hip replacement is a surgical procedure where the hip joint is replaced by a prosthetic implant to restore function and relieve arthritis pain.",
-      "slug": "totalhipreplacement"
-    },
-    {
-      "title": "Rotator Cuff Repair",
-      "body": "Rotator cuff repair is a procedure used to repair a torn tendon in the shoulder, often due to injury or degeneration.",
-      "slug": "rotatorcuffrepair"
-    },
-    {
-      "title": "Arthroscopic Knee Surgery",
-      "body": "Arthroscopic knee surgery is a minimally invasive procedure used to diagnose and treat problems in the knee joint using a small camera and instruments.",
-      "slug": "arthroscopickneesurgery"
-    },
-    {
-      "title": "Spinal Fusion",
-      "body": "Spinal fusion is a surgical technique used to join two or more vertebrae, eliminating motion between them to treat spinal instability or pain.",
-      "slug": "spinalfusion"
-    },
-    {
-      "title": "ACL Reconstruction",
-      "body": "ACL reconstruction is a surgical procedure that replaces a torn anterior cruciate ligament in the knee, often caused by sports injuries.",
-      "slug": "aclreconstruction"
-    },
-    {
-      "title": "Meniscus Repair",
-      "body": "Meniscus repair is a procedure to fix torn cartilage in the knee, which cushions and stabilizes the joint.",
-      "slug": "meniscusrepair"
-    },
-    {
-      "title": "Shoulder Replacement",
-      "body": "Shoulder replacement surgery replaces the damaged parts of the shoulder joint with artificial components to restore function and reduce pain.",
-      "slug": "shoulderreplacement"
-    },
-    {
-      "title": "Carpal Tunnel Release",
-      "body": "Carpal tunnel release is a surgery to relieve pressure on the median nerve in the wrist, treating numbness, tingling, and pain.",
-      "slug": "carpaltunnelrelease"
-    },
-    {
-      "title": "Fracture Fixation",
-      "body": "Fracture fixation involves the surgical repair of a broken bone using hardware like plates, screws, or rods to stabilize the bone during healing.",
-      "slug": "fracturefixation"
-    },
-    {
-      "title": "Trigger Finger Release",
-      "body": "Trigger finger release is a procedure to relieve the locking or catching of a finger caused by tendon inflammation.",
-      "slug": "triggerfingerrelease"
-    },
-    {
-      "title": "Lumbar Decompression",
-      "body": "Lumbar decompression is a surgical procedure to relieve pressure on spinal nerves in the lower back caused by spinal stenosis or disc herniation.",
-      "slug": "lumbardecompression"
-    },
-    {
-      "title": "Bunion Correction",
-      "body": "Bunion correction surgery realigns the bones of the big toe to correct the deformity and relieve pain.",
-      "slug": "bunioncorrection"
-    },
-    {
-      "title": "Shoulder Arthroscopy",
-      "body": "Shoulder arthroscopy is a minimally invasive procedure used to diagnose and treat shoulder problems such as tears, impingement, or instability.",
-      "slug": "shoulderarthroscopy"
-    },
-    {
-      "title": "Ankle Ligament Reconstruction",
-      "body": "Ankle ligament reconstruction is a surgery to repair or tighten damaged ligaments in the ankle, often following chronic instability or sprains.",
-      "slug": "ankleligamentreconstruction"
-    },
-]
+    ];

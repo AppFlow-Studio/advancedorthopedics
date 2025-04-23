@@ -4,7 +4,7 @@ import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
 import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
-export interface ConditionInfoProp {
+export interface TreatmentCardInfoProp {
     title : string
     body : string
     slug : string
@@ -14,7 +14,7 @@ function truncateString(str : string, maxLength = 125) {
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
   }
-export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : ConditionInfoProp}) {
+export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : TreatmentCardInfoProp}) {
   return (
     <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/treatments/${ConditionInfo.slug}`}>
         <div >
