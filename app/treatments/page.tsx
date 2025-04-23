@@ -174,7 +174,7 @@ export default function Treatments() {
           </div>
         </section>
 
-        {/* All Our Conditions */}
+        
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-[80px] space-y-[24px]'>
           <div className='space-y-[16px] flex flex-row justify-between' >
               <h1

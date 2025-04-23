@@ -39,24 +39,7 @@ export default function TreatmentDetails({
       // Shuffle the Doctors array and then take the first two doctors
       const randomDoctors = shuffleArray(Doctors).slice(0, 2);    
 
-        useEffect(() => {
-          // Only scroll if the ref is attached to an element
-          if (paginationRef.current) {
-            // Check if this is the first render
-            if (isInitialMount.current) {
-              // If it IS the first render, set the ref to false
-              // so this block won't run again, and DO NOTHING ELSE.
-              isInitialMount.current = false;
-            } else {
-              // If it's NOT the first render (meaning currentPage changed
-              // due to a click), THEN scroll into view.
-              paginationRef.current.scrollIntoView({
-                behavior: 'smooth', // or 'auto' for instant scroll
-                block: 'nearest',
-              });
-            }
-          }
-        }, [currentPage]);
+       
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
