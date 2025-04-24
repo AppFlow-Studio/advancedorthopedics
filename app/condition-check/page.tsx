@@ -255,17 +255,17 @@ export default function ConditionChecker() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
         <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={PatientFormsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={PatientFormsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
             <div className="w-[565px] h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
-        <div className=' px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-[20%] items-center justify-center px-[20px] py-[10px]'
+        <div className=' px-4 lg:px-[80px] z-[2]'>
+            <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -301,20 +301,19 @@ export default function ConditionChecker() {
                 </h1>
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-4 lg:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] xl:w-[55%]">
             <h1
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
             }}
-            className="text-[#022968]"
+            className="text-[#022968] text-6xl lg:text-7xl"
             >
                 Condition Check
             </h1>
         </div>
 
-        <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
+        <div className="z-[2] px-4 lg:px-[80px] mt-[24px] lg:w-[55% md:w-[70%] w-full pb-8">
             <p
             style={{
                 fontWeight: 400,
@@ -330,12 +329,12 @@ export default function ConditionChecker() {
         </section>
 
         {/* Condition Checker */}
-        <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-[80px]'>
-            <div className=' flex flex-row space-x-[20px] items-center justify-center max-w-[1440px]'>
+        <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-4 lg:px-[80px]'>
+            <div className=' flex flex-row md:space-x-[20px] items-center justify-center max-w-[1440px]'>
                 {
                     ConditionCheckSteps.map((step, index) => (
                         <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index}>
-                            <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0]' }`}>
+                            <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0] md:flex hidden' }`}>
                                 <h1
                                 style={{
                                     fontFamily : 'var(--font-reem-kufi)',
@@ -352,14 +351,14 @@ export default function ConditionChecker() {
                                 fontFamily: "var(--font-reem-kufi)",
                                 fontWeight: 500,
                             }}
-                            className="text-black text-xl"
+                            className={`text-black text-xl ${ConditionStep == index + 1 ? 'flex' : ' lg:flex hidden'}`}
                             >    
                                 {step.step}
                             </h1>
 
                             {
                                 index + 1 != 3 ? 
-                                <div  className=''>
+                                <div  className={`md:flex hidden`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="122" height="10" viewBox="0 0 122 8" fill="none">
                                         <path d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5V3.5ZM121.354 4.35355C121.549 4.15829 121.549 3.84171 121.354 3.64645L118.172 0.464466C117.976 0.269204 117.66 0.269204 117.464 0.464466C117.269 0.659728 117.269 0.976311 117.464 1.17157L120.293 4L117.464 6.82843C117.269 7.02369 117.269 7.34027 117.464 7.53553C117.66 7.7308 117.976 7.7308 118.172 7.53553L121.354 4.35355ZM1 4.5H121V3.5H1V4.5Z" fill="#838890"/>
                                     </svg>
@@ -633,8 +632,8 @@ export default function ConditionChecker() {
             </motion.div>
         </section>
 
-        <section className='w-full h-full flex flex-row space-x-[32px] relative overflow-hidden py-[50px] px-[80px]'>
-            <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-[40px] w-[50%]'>
+        <section className='w-full h-full xl:space-y-0 space-y-6 flex flex-col xl:flex-row space-x-[32px] relative overflow-hidden py-[50px] px-4 lg:px-[80px]'>
+            <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
@@ -652,7 +651,7 @@ export default function ConditionChecker() {
                     <br /> <br/>
                     The doctor will then do a physical examination to assess your muscle strength, sensation and reflexes so they can determine your particular condition. The location of symptoms will help the doctor narrow down the conditions you may have. After the physical examination, the doctor may perform additional tests to accurately confirm the diagnosis. These can include X-rays, CT scans or MRI scans.</h1>
             </div>
-            <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-[40px] w-[50%]'>
+            <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",

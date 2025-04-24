@@ -32,17 +32,17 @@ export default function DocotorDetails(
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
          {/* Landing */}
          <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
-            <Image src={Landing} className=" max-h-[945px] h-full absolute top-0 object-cover object-top self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+            <Image src={Landing} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-top self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-            <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
+            <div className="z-[1] flex flex-col w-full h-full text-left relative pt-30 md:pt-50">
                 <div className="w-[565px] h-full absolute left-0 top-0"
                 style={{
                 background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
                 }}
                 />
 
-            <div className=' px-[80px] z-[2]'>
-                <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-[20%] items-center justify-center px-[20px] py-[10px]'
+            <div className=' px-4 xl:px-[80px] z-[2]'>
+                <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                 style={{
                     background : 'rgba(255, 255, 255, 0.50)'
                 }}
@@ -78,7 +78,7 @@ export default function DocotorDetails(
                     </h1>
                 </div>
             </div>
-            <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
+            <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
                 <TextAnimate animation="blurInUp" by="character" once
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -91,7 +91,7 @@ export default function DocotorDetails(
                 </TextAnimate>
             </div>
 
-            <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
+            <div className="z-[2] px-4 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
                 <p
                 style={{
                     fontWeight: 400,
@@ -106,44 +106,46 @@ export default function DocotorDetails(
             </div>
         </section>
 
-        <section className='max-w-[1440px] w-full h-full flex flex-row gap-x-[60px] relative overflow-hidden px-[80px] py-[50px] '>
-            <div className=' w-[35%] flex flex-col space-y-[60px] h-full'>
-                <div className='w-full h-full max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'
+        <section className='max-w-[1440px] w-full h-full flex flex-col lg:flex-row gap-x-[60px] relative overflow-hidden px-4 xl:px-[80px] py-[50px] '>
+            <div className=' w-full lg:w-[35%] flex flex-col md:flex-row lg:space-x-0 space-x-6 lg:flex-col space-y-[60px] h-full'>
+                <div className='w-full h-full lg:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'
                 >
-                    <Image src={doctor_details.img} alt={doctor_details.name} className='w-full max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px] aspect-square' draggable={false} />
-                    <div className='flex flex-col space-y-[16px]'>
-                        <h1
-                        style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 500,
-                        }}
-                        className="text-black text-3xl text-left w-full"
-                        >{doctor_details.name}</h1>
-                        <h1
-                        style={{
-                        fontFamily: "var(--font-inter)",
-                        fontWeight: 400,
-                        }}
-                        className="text-[#54535C] w-[50%]"
-                        >
-                        {doctor_details.practice}
-                        </h1>
-
-                        <div className=' flex flex-row space-x-[16px]'>
-                            {
-                                socials.map((item,index) => (
-                                    <div className=' border border-[#EFF5FF] rounded-full px-[13px] py-[10px] items-center justify-center' key={index}>
-                                        <item.icon />
-                                    </div>
-                                ))
-                            }
+                    <div className='w-full h-full flex flex-col'>
+                        <Image src={doctor_details.img} alt={doctor_details.name} className='w-full lg:max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px] aspect-square' draggable={false} />
+                        <div className='flex flex-col space-y-[16px]'>
+                            <h1
+                            style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 500,
+                            }}
+                            className="text-black text-3xl text-left w-full lg:mt-0 mt-4"
+                            >{doctor_details.name}</h1>
+                            <h1
+                            style={{
+                            fontFamily: "var(--font-inter)",
+                            fontWeight: 400,
+                            }}
+                            className="text-[#54535C] w-[50%]"
+                            >
+                            {doctor_details.practice}
+                            </h1>
+    
+                            <div className=' flex flex-row space-x-[16px]'>
+                                {
+                                    socials.map((item,index) => (
+                                        <div className=' border border-[#EFF5FF] rounded-full px-[13px] py-[10px] items-center justify-center' key={index}>
+                                            <item.icon />
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                                
                         </div>
-                            
                     </div>
                 </div>
                 <DoctorContactForm backgroundcolor='#FAFAFA'/>
             </div>
-            <div className=' w-[70%] h-full flex flex-col space-y-[40px]'>
+            <div className=' w-full lg:w-[70%] h-full flex flex-col space-y-[40px] md:mt-0 mt-4'>
                 <div className=' flex flex-col space-y-[24px]'>
                     <h1
                     style={{

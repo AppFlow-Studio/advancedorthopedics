@@ -5,8 +5,8 @@ import HomeContactUs from '../public/HomeContactUs.jpeg'
 export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgroundcolor? : string}) {
   return (
     <section className={`bg-[${backgroundcolor}] w-full h-full py-[50px]`}>
-    <div className="max-w-[1440px] w-full px-[40px] mx-auto flex flex-row space-x-[60px]">
-      <div className=" w-[50%]  flex flex-col p-[24px]">
+    <div className="max-w-[1440px] w-full md:px-[40px] px-2 mx-auto flex xl:flex-row flex-col space-x-[60px]">
+      <div className=" xl:w-[50%] w-full  flex flex-col p-[24px]">
           <h1
           style={{
             fontFamily: "var(--font-reem-kufi)",
@@ -34,7 +34,7 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
           
       </div>
 
-      <div className=" w-[50%] flex flex-col bg-white p-[24px] rounded-[24px] items-center justify-center">
+      <div className=" xl:w-[50%] w-full flex flex-col bg-white p-[24px] rounded-[24px] items-center justify-center">
           <h1
           style={{
             fontFamily: "var(--font-reem-kufi)",

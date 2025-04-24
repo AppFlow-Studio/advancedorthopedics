@@ -54,17 +54,17 @@ export default function Blogs() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
         <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={BlogsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={BlogsLanding} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full max-w-[1440px] xl:w-[1440px] xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
             <div className="w-[565px] h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
-        <div className=' px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+        <div className='  px-4 xl:px-[80px] z-[2]'>
+            <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -100,20 +100,19 @@ export default function Blogs() {
                 </h1>
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className= "px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] lg:w-[63%] xl:w-[55%]">
             <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
             }}
-            className="text-[#022968] w-[80%]"
+            className="text-[#022968] md:w-[70%] lg:w-[80%] text-6xl lg:text-7xl"
             >
                 Spine Wellness Blog
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-[80px] mt-[24px] w-[45%]">
+        <div className="z-[2]  px-4 xl:px-[80px] mt-[24px]  w-[70%] lg:w-[45%] pb-8">
             <p
             style={{
                 fontFamily: "var(--font-inter)",
@@ -128,8 +127,8 @@ export default function Blogs() {
         </div>
         </section>
 
-        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]'>
-            <div className='grid grid-cols-3 gap-[24px]'>
+        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-4 xl:px-[40px]'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-[24px]'>
                 {
                     ServicesAndExpertise.map((item,index) => (
                     <motion.div className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] hover:text-white text-[#022968] "
@@ -167,7 +166,7 @@ export default function Blogs() {
                         </div>
 
                         <div >
-                        <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
+                        <Image src={item.img} alt={item.title} className="w-full lg:max-h-[240px] aspect-square h-full object-cover rounded-[24px] lg:h-[240px]"/>
                         </div>
                     </motion.div>
                     ))
@@ -175,8 +174,8 @@ export default function Blogs() {
             </div>
         </section>
 
-        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]'>
-             <div className='space-y-[16px] flex flex-row justify-between'>
+        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-4 xl:px-[40px]'>
+             <div className='space-y-[16px] flex flex-col lg:flex-row justify-between'>
                 <h1
                 style={{
                     fontFamily : 'var(--font-reem-kufi)',
@@ -188,7 +187,7 @@ export default function Blogs() {
                     Our latest Blogs
                 </h1>
 
-                <div className=" flex w-[25%] ">
+                <div className=" flex lg:w-[25%] md:w-[50%] w-full ">
                     <span className="inline-flex items-center px-4 h-12 text-lg bg-[#EFF5FF] rounded-l-[62px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.4013 20 14.6049 19.1536 16.3287 17.7429L20.2929 21.7071C20.6834 22.0976 21.3166 22.0976 21.7071 21.7071C22.0976 21.3166 22.0976 20.6834 21.7071 20.2929L17.7429 16.3287C19.1536 14.6049 20 12.4013 20 10C20 4.47715 15.5228 0 10 0ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#5B5F67"/>
@@ -198,7 +197,7 @@ export default function Blogs() {
                 </div> 
             </div>
 
-            <div className=' grid grid-cols-3 mt-[60px] gap-[32px] '>
+            <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px] md:gap-[32px] overflow-hidden'>
                 {
                     BlogPosts.map((item) => 
                     <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='white'/>
@@ -224,7 +223,7 @@ export default function Blogs() {
                 </h1>
               </div>
 
-             <div className=' flex flex-row items-center space-x-[2px]'>
+             <div className=' flex-row items-center space-x-[2px] md:flex hidden'>
                 {
                   [1,2,3,4,5,6,7,8,9,10].map((item) => (
                     <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
@@ -241,6 +240,43 @@ export default function Blogs() {
                   ))
                 }
               </div>
+                {/* Change this Later */}
+              <div className=' flex-row items-center space-x-[2px] lg:flex hidden  '>
+                {
+                  [1,2,3,10].map((item) => (
+                    <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
+                      <h1
+                        style={{
+                          fontFamily : 'var(--font-reem-kufi)',
+                          fontWeight : 500,
+                        }}
+                        className=' text-lg'
+                      >
+                        {item}
+                      </h1>
+                    </div>
+                  ))
+                }
+              </div>
+
+              <div className=' flex-row items-center space-x-[2px] flex sm:hidden'>
+                {
+                  [1,2,10].map((item) => (
+                    <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
+                      <h1
+                        style={{
+                          fontFamily : 'var(--font-reem-kufi)',
+                          fontWeight : 500,
+                        }}
+                        className=' text-lg'
+                      >
+                        {item}
+                      </h1>
+                    </div>
+                  ))
+                }
+              </div>
+           
            
               <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer '>
               <h1

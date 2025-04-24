@@ -52,14 +52,14 @@ export default function InsurancePolicy() {
        
         <Image src={InsuranceLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative py-[300px]">
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
             <div className="w-[565px] h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
             
-        <div className='px-[80px] z-[2]'>
+        <div className=' px-4 xl:px-[80px] z-[2]'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -96,8 +96,8 @@ export default function InsurancePolicy() {
                 </h1>
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-col space-y-[24px] items-center justify-start mt-[12px] w-[50%]">
-            <TextAnimate animation="blurInUp" by="character" once
+        <div className=" px-4 xl:px-[80px] z-[2] flex flex-col space-y-[24px] items-center justify-start mt-[12px] w-[85%] xl:w-[45%] flex-wrap">
+            <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -107,7 +107,7 @@ export default function InsurancePolicy() {
                 Mountain Spine & Orthopedics Insurance Policy            
             </TextAnimate>
         </div>
-        <div className='px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[40%]'>
+        <div className=' px-4 xl:px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[80%] lg:w-[40%] pb-8'>
             <h1
             style={{
                 fontFamily: "var(--font-inter)",
@@ -122,8 +122,8 @@ export default function InsurancePolicy() {
         </section>
 
         <section className=" bg-[#FAFCFF] w-full h-full py-[50px] ">
-            <div className="max-w-[1440px] w-full px-[40px] mx-auto flex flex-row space-x-[60px] ">
-            <div className=" w-[50%]  flex flex-col h-full">
+            <div className="max-w-[1440px] w-full px-4 xl:px-[40px] mx-auto flex flex-col lg:flex-row space-x-[60px] ">
+            <div className=" lg:w-[50%] w-full  flex flex-col h-full">
                 <h1
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -149,42 +149,51 @@ export default function InsurancePolicy() {
                 <Image src={InsurancePolicy2} className="w-full rounded-[24px] mt-[40px]" alt="Doctor teaching other doctors" />
             </div>
 
-            <div className=" w-[50%]  flex flex-col items-center justify-center">
+            <div className=" lg:w-[50%] w-full  flex flex-col items-center justify-center">
                 <PatientAdvocateForm />      
             </div>
             </div>      
         </section>
 
-        <section className='w-full h-full py-[50px] max-w-[1440px] px-[80px]'>
-                <div className=' flex flex-row rounded-[20px] bg-[#EFF5FF] p-[32px] space-x-[32px] items-center justify-center'>
+        <section className='w-full h-full py-[50px] max-w-[1440px]  px-4 xl:px-[80px]'>
+                <div className=' flex md:space-y-0 space-y-8 md:flex-row flex-col rounded-[20px] bg-[#EFF5FF] p-4 md:p-[32px] space-x-[32px] items-center justify-center'>
                     <h1
                     style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 500,
                     }}
-                    className="text-[#838890] text-lg w-[45%]"
+                    className="text-[#838890] text-lg md:w-[45%]"
                     >
                         It is important for patients to note that Mountain Spine & Orthopedics does not accept HMO (Health Maintenance Organization) or EPO (Exclusive Provider Organization) plans for laser spine surgery coverage. This decision is based on the facility’s commitment to providing patient-centric care without the restrictions often imposed by these types of insurance plans.
                     </h1>
                     
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2" height="150" viewBox="0 0 2 210" fill="none">
-                        <path d="M1 0V210" stroke="#AFB2B9"/>
-                    </svg>
+                    <div className='hidden md:flex flex-col items-center justify-center'>
+                        <div className='hidden md:flex w-full'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2" height="150" viewBox="0 0 2 210" fill="none">
+                                <path d="M1 0V210" stroke="#AFB2B9"/>
+                            </svg>
+                        </div>
+                        <div className='flex md:hidden w-full'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="313" height="2" viewBox="0 0 313 2" fill="none">
+                                <path d="M0 1L313 1" stroke="#AFB2B9"/>
+                            </svg>
+                        </div>
+                    </div>
 
                     <h1
                     style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 500,
                     }}
-                    className="text-[#838890] text-lg w-[45%]"
+                    className="text-[#838890] text-lg md:w-[45%]"
                     >
                         Furthermore, Mountain Spine & Orthopedics does not participate in Medicare & Medicaid programs in relation to spine surgery coverage. This decision is based on various administrative and policy considerations. Patients covered under Medicare & Medicaid are advised to consult with their plan administrators for alternative options for spine and orthopedic care.                    </h1>
                 </div>
         </section>
 
-           <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
-                    <div className=" grid grid-cols-3 gap-[32px]">
-                      <div className=" rounded-[24px] bg-[#FAFAFA] p-[40px] flex flex-col col-span-1 space-y-[40px]">       
+           <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-4 xl:px-[40px]">
+                    <div className=" grid grid-cols-1 lg:grid-cols-3 gap-[32px]">
+                      <div className=" rounded-[24px] w-full bg-[#FAFAFA] p-[40px] flex flex-col col-span-1 space-y-[40px]">       
                         <div className="mt-[12px]">
                           <h1
                           style={{
@@ -198,7 +207,7 @@ export default function InsurancePolicy() {
                         
                           
                         <div>
-                            <Image src={ConciergeServices} alt={''} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
+                            <Image src={ConciergeServices} alt={''} className="w-full lg:max-h-[240px] h-full object-cover aspect-video lg:aspect-square rounded-[24px] lg:h-[240px]"/>
                         </div>
         
                       </div>
@@ -212,13 +221,13 @@ export default function InsurancePolicy() {
                             color : 'black',
                             lineHeight : 1.5
                           }}
-                          className="px-6 text-xl"
+                          className="md:px-6 text-xl"
                           >
                             Our collaborative team of Florida spine surgeons and medical professionals provides cutting-edge research, technology, and treatments for pain management and minimally invasive surgery. We offer comprehensive “concierge” services that include both non-surgical, conservative methods and gentle, minimally invasive procedures performed through incisions smaller than a postage stamp. By integrating advanced technology with a patient-centered approach, we ensure the best possible outcomes for our patients.
                           </h1>
                         </div>
         
-                        <div className=" mt-[40px] w-[25%] "> 
+                        <div className=" mt-[40px] w-fit "> 
                              <div 
                             className=" max-h-[56px] h-full px-[16px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
                             >
@@ -246,7 +255,7 @@ export default function InsurancePolicy() {
                       </div>
                     </div>
         
-                    <div className=" grid grid-cols-3 gap-[24px] mt-[32px]">
+                    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] mt-[32px]">
                         {
                           ServicesAndExpertise.map((item,index) => (
                             <motion.div className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] hover:text-white text-[#022968] "
@@ -284,7 +293,7 @@ export default function InsurancePolicy() {
                               </div>
         
                              <div >
-                              <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
+                              <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-full aspect-square object-cover rounded-[24px] lg:h-[240px]"/>
                              </div>
                             </motion.div>
                           ))

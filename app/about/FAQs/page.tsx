@@ -110,16 +110,16 @@ export default function FAQs() {
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={FAQsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-10 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={FAQsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-10 self-end w-full max-w-[1440px] xl:w-[1440px]  xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative py-[302px]">
-            <div className="w-[565px] h-full absolute left-0 top-0"
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-80">
+            <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
             
-        <div className='px-[80px] z-[2]'>
+        <div className=' px-4 xl:px-[80px] z-[2]'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -156,13 +156,13 @@ export default function FAQs() {
                 </h1>
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[58%]">
+        <div className=" px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[58%] pb-20">
             <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] text-6xl"
+            className="text-[#022968] text-5xl md:text-6xl"
             >
                 Frequently Asked Spine Surgery Questions
             </TextAnimate>
@@ -170,13 +170,13 @@ export default function FAQs() {
         </div>
         </section>
 
-        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden space-y-[60px] px-[100px] py-[50px]">
+        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden space-y-[60px] px-8 xl:px-[100px] py-[50px]">
             <h1
             style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
             }}
-            className=' text-black text-6xl text-center w-[90%] self-center'
+            className=' text-black md:text-6xl text-5xl text-center md:w-[90%] self-center'
             >Your Questions Answered: Spine Surgery FAQs From Our Patients</h1>
 
             <div className="space-y-[20px] flex flex-col">
@@ -230,15 +230,15 @@ export default function FAQs() {
             </div>
         </section>
 
-        <section className=' mt-[80px] py-[50px] max-w-[1440px] px-[80px] w-full max-h-[680px] lg:h-[680px]'>
-            <div className=' h-full w-full rounded-[40px] bg-[#EDEEE9] p-[80px] relative border overflow-clip'>
-                <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' absolute -bottom-8 left-[40%] w-[75%] z-20'/>
+        <section className=' xl:mt-[80px] py-[50px] max-w-[1440px]  px-4 xl:px-[80px] w-full max-h-[680px] lg:h-[680px]'>
+            <div className=' h-full w-full rounded-[40px] bg-[#EDEEE9] p-8 xl:p-[80px] relative border overflow-clip'>
+                <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' md:flex hidden absolute -bottom-8 left-[40%] w-[75%] z-20'/>
                 <h1 
                  style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
                 }}
-                className=' text-[#5B5F67] w-[55%] text-2xl'
+                className=' text-[#5B5F67] md:w-[55%] w-full text-xl md:text-2xl'
                 >
                     At Mountain Spine & Orthopedics, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. We believe in equipping you with the knowledge needed to make an informed and confident decision about your spine care. View some of our commonly-asked questions.
                 </h1>

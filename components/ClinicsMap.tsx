@@ -181,10 +181,10 @@ const handleClinicChange = (name: string) => {
   return (
     <section className="bg-[#FAFCFF] w-full h-full py-[50px]">
       {/* This outer div needs to contain both map and overlay */}
-      <div className="max-w-[1440px] w-full px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
+      <div className="max-w-[1440px] w-full  px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
-        <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange}/>
+        {/* <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange}/> */}
 
         {/* The Google Map */}
         <GoogleMap

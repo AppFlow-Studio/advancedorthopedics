@@ -44,6 +44,7 @@ import SlidingDiv from "@/components/SlidingAnimation";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import ExpertCare from '@/public/ExpertCare.png'
 import aftercare from '@/public/aftercare.jpg'
+import { Marquee } from "@/components/magicui/marquee";
 const ServicesAndExpertise = [
   {
     img : Foot,
@@ -259,17 +260,17 @@ export default function Home() {
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={HomeLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left px-4 py-8 relative  pb-[160px]">
-          <div className="w-[565px] h-full absolute left-0 top-0"
+        <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-4 xl:py-8 relative  xl:pb-[160px]">
+          <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
           />
 
          <SlidingDiv position="left" className="z-[2]">
-           <div className="px-[80px] flex flex-row space-x-[20px] items-center justify-start mt-[128px] w-[55%]">
+           <div className="lg:px-[80px] px-8 flex flex-row space-x-[20px] items-center justify-start mt-[128px] lg:w-[55%]">
               <Avatars />
               <h1
               style={{
@@ -279,7 +280,7 @@ export default function Home() {
                 lineHeight: "24px",
                 letterSpacing: "0.02em",
               }}
-              className=" text-white"
+              className=" md:text-white text-[#022968]"
               >
                 100,000+ Happy Patient's
               </h1>
@@ -288,15 +289,14 @@ export default function Home() {
 
          <SlidingDiv position="left" className="z-[2]"
          >
-           <div className="px-[80px] my-[24px] w-[44%]">
+           <div className="lg:px-[80px] px-8 my-[24px] xl:w-[44%] lg:w-[50%]">
               <h1
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
-                fontSize: "72px",
                 lineHeight: "110%",
               }}
-              className="text-white"
+              className="text-white text-6xl xl:text-6xl"
               >
               Welcome to<br/> Mountain <br/> Spine & Orthopedics 
               </h1>
@@ -304,7 +304,7 @@ export default function Home() {
          </SlidingDiv>
 
          <SlidingDiv position="left" className="z-[2]">
-           <div className="px-[80px] mb-[24px] w-[50%]">
+           <div className="lg:px-[80px] px-8 mb-[24px] xl:w-[50%] md:w-[80%] md:text-left sm:text-center">
               <p
               style={{
                 fontWeight: 400,
@@ -319,10 +319,10 @@ export default function Home() {
          </SlidingDiv>
           
           <SlidingDiv position="left" className="z-[2]">
-            <div className="px-[80px] my-[24px] w-[55%] flex flex-row space-x-[16px]">
+            <div className="lg:px-[80px] px-8 my-[24px] xl:w-[55%] flex md:flex-row flex-col md:space-y-0 space-y-4 space-x-[16px]">
               <div className=""><BookAnAppoitmentButton /></div>
               <button 
-                  className="h-full max-h-[56px] px-[32px] py-[16px] rounded-[62px] relative flex items-center justify-between bg-[white] text-[#0094E0] font-[500] text-[14px] "
+                  className="h-full max-h-[56px] px-[32px] py-[16px] rounded-[62px] relative flex items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
                   >
                   Contact Us
                   <div className='pl-[10px]'>
@@ -334,16 +334,21 @@ export default function Home() {
             </div>
           </SlidingDiv>
 
-          <div className="z-[2] w-full flex flex-row items-center justify-evenly absolute bottom-0 left-0 right-0 bg-white pt-[32px] pb-[50px]"
+          <div className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute bottom-0 left-0 right-0 bg-white py-12 xl:py-0 xl:pt-[32px] xl:pb-[50px]"
           style={{
             background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
           }}
           >
-            {
-              [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" draggable={false}/>
-              ))
-            }
+
+
+            <Marquee pauseOnHover className="w-full" >
+              {
+                [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                  <Image key={index} src={item} alt="Logo" className=" lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]" draggable={false}/>
+                ))
+              }
+            </Marquee>
+
           </div>
 
         </div>
@@ -352,11 +357,11 @@ export default function Home() {
       {/*  */}
 
       {/* Services & Expertise */}
-      <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
-            <div className=" grid grid-cols-3 gap-[32px]">
+      <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-3 md:px-[40px]">
+            <div className=" xl:grid xl:grid-cols-3 flex flex-col gap-[32px]">
               <div className=" rounded-[24px] bg-[#FAFAFA] p-[40px] flex flex-col col-span-1">
 
-                <div className=" bg-white rounded-[32px] px-[14px] py-[7px] w-[85%] ">
+                <div className=" bg-white rounded-[32px] px-[14px] py-[7px] w-fit ">
                   <h1
                   style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -367,7 +372,7 @@ export default function Home() {
                     WebkitTextFillColor : 'transparent'
                   }}
                   className=" text-sm text-center"
-                  >The Future of Mountain Spine & Orthopedics
+                  >The Future of Spine & Orthopedic Care
                   </h1>
                 </div>
                 
@@ -377,8 +382,8 @@ export default function Home() {
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 500,
                     color : '#022968',
-                    fontSize : '35px'
                   }}
+                  className="text-5xl text-left"
                   >Services & Expertise</h1>
                 </div>
                 
@@ -409,7 +414,7 @@ export default function Home() {
                     fontSize : '24px',
                     lineHeight : 1.5
                   }}
-                  className="px-6"
+                  className="md:px-6"
                   >
                     We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis,
                     sports injuries, and joint pain. Using minimally invasive techniques
@@ -417,7 +422,7 @@ export default function Home() {
                   </h1>
                 </div>
 
-                <div className=" mt-[40px] w-[45%] "> 
+                <div className=" mt-[40px] md:w-[45%] "> 
                 <BookAnAppoitmentButton />
                 </div>
                 
@@ -429,10 +434,11 @@ export default function Home() {
             </div>
 
             <Reveal className="w-full" width="100%">
-              <div className=" grid grid-cols-4 gap-[24px] mt-[32px]">
+              <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
                   {
                     ServicesAndExpertise.map((item,index) => (
-                      <div className="flex flex-col p-4 rounded-[24px] space-y-[24px]" key={item.title}
+                      <div className="flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer" key={item.title}
+                      onClick={() => setSelectedService(item.title)}
                       style={{
                         background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
                       }}
@@ -487,7 +493,7 @@ export default function Home() {
       {/*  */}
 
       {/* Expert Orthopedic Conditions We Treat */}
-      <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px] items-center justify-center">
+      <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center">
           <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-[60px] px-[60px] space-y-[60px] relative flex-col">
 
            <div className=" flex flex-col space-y-[16px]">
@@ -509,25 +515,25 @@ export default function Home() {
                 color : '#5B5F67',
                 lineHeight : 1.3
               }}
-              className="text-xl text-center w-[60%] self-center"
+              className="text-xl text-center lg:w-[60%] self-center"
               >
               We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis, sports injuries, and joint pain. 
               </h1>
            </div>
 
 
-           <div className=" flex flex-row justify-between w-full relative">
+           <div className=" flex xl:flex-row flex-col justify-between w-full relative">
              {/* Treatment Categories */}
-             <div className=" py-24  z-20 max-w-[30%] w-[20%]">
+             <div className=" xl:py-24  z-20 xl:max-w-[30%] xl:w-[20%] w-full">
                 <h1
                 style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
                 color : '#022968',
                 }}
-                className=" text-2xl"
+                className=" text-2xl  xl:text-start text-center"
                 >
-                  See Our Treatment<br/> Category
+                  See Our Treatment Category
                 </h1>
 
                 <div className=" space-y-[20px] flex flex-col mt-[24px]">
@@ -542,15 +548,15 @@ export default function Home() {
              </div>
 
 
-             <div className="relative z-10"> {/* Wrapper with high z-index */}
+             <div className="relative z-10 lg:overflow-visible overflow-hidden  "> {/* Wrapper with high z-index */}
                 {/* Circles behind the image */}
-                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] -right-[46%] mx-auto z-0 max-h-[705px] lg:h-[705px]" />
-                <div className="absolute top-30 border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] lg:h-[480px] -right-[16%] mx-auto flex items-center justify-center z-0">
+                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] xl:-right-[46%] lg:right-[5%] lg:mx-auto z-0 max-h-[705px] xl:h-[705px] lg:h-[750px]" />
+                <div className="absolute top-30 border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] lg:h-[480px] xl:-right-[16%] lg:right-[18%] mx-auto flex items-center justify-center z-0">
                   <div className="bg-white h-[70%] w-[70%] rounded-full z-0" />
                 </div>
 
                 {/* Head */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-28 z-20 left-[44%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] xl:left-[44%] top-28 left-[47%] z-20 hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -573,7 +579,7 @@ export default function Home() {
 
                 {/* Right Shoulder Dot */}
                 <motion.div
-                className="rounded-[50px] absolute p-[10px] top-34 z-20 left-[60%] hover:cursor-pointer"
+                className="rounded-[50px] absolute p-[10px] top-34 z-20 xl:left-[60%] left-[55%] hover:cursor-pointer"
                 style={{
                   background: "rgba(255, 255, 255, 0.40)",
                   boxShadow: "0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)",
@@ -596,7 +602,7 @@ export default function Home() {
 
 
                 {/*Spine*/}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-54 z-20 right-[43%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-54 z-20 xl:right-[43%] right-[47%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -620,7 +626,7 @@ export default function Home() {
 
 
                 {/* Lower Back */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-72 z-20 left-[45%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-72 z-20 xl:left-[45%] left-[47%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -643,7 +649,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Left Knee */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-110 z-20 right-[53%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] xl:top-110 top-120 z-20 xl:right-[53%] right-[52%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -666,7 +672,7 @@ export default function Home() {
                 </motion.div>
 
                  {/* Right Foot */}
-                 <motion.div className="rounded-[50px] absolute p-[10px] top-150 z-20 left-[54%] hover:cursor-pointer"
+                 <motion.div className="rounded-[50px] absolute p-[10px] xl:top-150 top-160 z-20 left-[54%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -694,26 +700,26 @@ export default function Home() {
                   <Image 
                     src={HumanModel} 
                     alt="Human Anatomy Model"
-                    className="w-full max-h-[705px] h-full object-cover py-4" 
+                    className="w-full max-h-[750px] xl:max-h-[705px] h-full object-contain xl:object-cover py-4" 
                   />
                 </div>
               </div>
 
 
-             <div className=" flex flex-col space-y-[10px] w-[20%]  pt-50 z-20">
+             <div className=" flex flex-col space-y-[10px] xl:w-[20%] w-full  xl:pt-50 z-20">
                <TextAnimate  animation="blurInUp" by="character" once style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 500,
                   color : '#022968',
                   }}
-                  className=" text-2xl"> 
+                  className=" xl:text-2xl lg:text-3xl"> 
                    {selectedOrthoCondition.area_procedures.title}
                </TextAnimate>
                 <h1> 
                   {selectedOrthoCondition.area_procedures.desc}
                 </h1>
                 <Link 
-                className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex  bg-[#0094E0] text-white text-[14px] font-[500] w-full justify-center items-center hover:cursor-pointer"
+                className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex p-8 bg-[#0094E0] text-white text-[14px] font-[500] w-fit xl:w-full justify-center items-center hover:cursor-pointer"
                 href={selectedOrthoCondition.view_all_treatments.href}
                 >
                     <TextAnimate
@@ -737,9 +743,9 @@ export default function Home() {
       {/*  */}
 
       {/* Our Speciality */}
-      <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px] items-center justify-center space-y-[60px]">
+      <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
           <Reveal className="w-full" width="100%">
-            <div className=" flex flex-row space-x-[60px] w-full">
+            <div className=" flex xl:flex-row space-x-[60px] flex-col xl:space-y-0 space-y-8 w-full">
                   <h1
                    style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -758,20 +764,20 @@ export default function Home() {
                       fontWeight: 400,
                       color : '#5B5F67'
                      }}
-                     className="text-md "
+                     className="text-lg "
                     >
                     Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
                     </h1>
   
-                    <div className=" mt-[40px] w-[50%]"><BookAnAppoitmentButton /></div>
+                    <div className=" mt-[40px] xl:w-[50%] w-full md:w-fit"><BookAnAppoitmentButton /></div>
                   </div>
             </div>
           </Reveal>
 
-          <div className=" flex flex-row w-full gap-[32px]">
-              <div className=" w-[50%] rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full object-cover" alt="Doctor Diagnosing Patient " /></div>
+          <div className=" flex xl:flex-row flex-col w-full gap-[32px]">
+              <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt="Doctor Diagnosing Patient " /></div>
 
-              <div className=" w-[50%] flex flex-col space-y-[32px] ">
+              <div className=" xl:w-[50%] w-full flex flex-col space-y-[32px] ">
                 <Reveal className="w-full" width="100%">
                   <div className=" flex flex-col w-full space-y-[16px]">
                     <h1
@@ -799,7 +805,7 @@ export default function Home() {
                 </Reveal>
 
                 <Reveal className="w-full" width="100%" >
-                  <div className=" grid grid-cols-2 rounded-[20px] overflow-hidden w-full">
+                  <div className=" grid grid-cols-1 md:grid-cols-2 rounded-[20px] overflow-hidden w-full">
                       {
                         OurSpecialtyItems.map(( item, index ) => (
                           <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6`}>
@@ -835,7 +841,7 @@ export default function Home() {
 
       {/* Testimonials */}
       <section className=" bg-[#022968] w-full py-[50px]">
-        <div className=" w-full max-w-[1440px] flex flex-row mx-auto px-[40px] items-center justify-evenly">
+        <div className=" w-full max-w-[1440px] flex flex-col space-y-10  md:space-y-0  md:flex-row mx-auto px-[40px] items-center justify-evenly overflow-hidden">
             {
               Testimonials.map((item) => (
                 <div className=" flex flex-col space-y-[12px] p-[18px] max-h-[190px] lg:h-[190px] items-center justify-center" key={item.desc}>
@@ -844,7 +850,7 @@ export default function Home() {
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                   }}
-                  className=" text-white text-6xl"
+                  className=" text-white lg:text-6xl md:text-4xl text-6xl"
                   >
                     <NumberTicker 
                       value={item.value}
@@ -857,7 +863,7 @@ export default function Home() {
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                   }}
-                  className=" text-white text-lg"
+                  className=" text-white text-xl md:text-lg text-center lg:text-start"
                   >{item.desc}</h1>
                 </div>
               ))
@@ -872,8 +878,8 @@ export default function Home() {
 
       {/* Meet Our Experts */}
       <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
-        <div className=" flex flex-row">
-          <div className=" flex flex-col space-y-[24px] w-[50%]">
+        <div className=" flex md:flex-row flex-col">
+          <div className=" flex flex-col space-y-[24px] md:w-[50%] w-full">
             <h1
             style={{
               fontFamily: "var(--font-reem-kufi)",
@@ -886,13 +892,13 @@ export default function Home() {
               fontFamily: "var(--font-inter)",
               fontWeight: 400,
             }}
-            className="text-[#54535C] w-[50%]"
+            className="text-[#54535C] md:w-[50%] w-full"
             >
               Highly skilled and compassionate professionals ready to care for you
             </h1>
           </div>
 
-          <div className="w-[50%] flex items-center justify-end">
+          <div className="md:w-[50%] flex items-center md:justify-end w-full md:mt-0 mt-4">
             <Link
             href={'/about/meetourdoctors'}
             className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px]">
@@ -909,7 +915,7 @@ export default function Home() {
             </Link>
           </div>
         </div>    
-        <div className=" mt-[60px] grid grid-cols-3 gap-[32px]">
+        <div className=" mt-[60px] grid xl:grid-cols-3  grid-cols-1 md:grid-cols-2 gap-[32px]">
             {
               Doctors.slice(0,3).map((item) => (
                 <DoctorCard key={item.name} doctor={item}/>
@@ -920,9 +926,9 @@ export default function Home() {
       {/*  */}
 
       {/* Complimentary Perks */}
-      <section className="w-full max-w-[1440px] flex flex-row py-[50px] h-full px-[40px] space-x-[32px]">
+      <section className="w-full max-w-[1440px] flex xl:flex-row flex-col py-[50px] h-full px-2 md:px-[40px] space-x-[32px]">
         {/* Free MRI Card */}
-          <div className=" rounded-[24px] bg-[#FAFAFA] p-[24px] flex flex-col w-[50%]">
+          <div className=" rounded-[24px] bg-[#FAFAFA] p-[24px] flex flex-col xl:w-[50%] w-full">
               <div className="flex flex-col space-y-[24px]">
                 <h1
                 style={{
@@ -948,11 +954,11 @@ export default function Home() {
                  <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
                 </h1>
 
-                <div className="flex flex-row w-full space-x-[11px] justify-center items-center">
-                  <div className=" w-[45%] "> 
+                <div className="flex md:flex-row flex-col w-full space-x-[11px] md:space-y-0 space-y-4 justify-center items-center">
+                  <div className=" md:w-[45%] w-full "> 
                   <BookAnAppoitmentButton />
                   </div>
-                  <button className="bg-white border hover:cursor-pointer border-[#022968] px-[32px] py-[16px] space-x-[10px] max-h-[56px] flex flex-row items-center justify-center rounded-[62px] w-[45%] group">
+                  <button className="bg-white border hover:cursor-pointer border-[#022968] px-[32px] py-[16px] space-x-[10px] max-h-[56px] flex flex-row items-center justify-center rounded-[62px] w-full md:w-[45%] group">
                       <h1
                       style={{
                         fontFamily: "var(--font-inter)",
@@ -969,7 +975,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-[48px]">
-                  <Image src={HomeWhyAO} alt="Doctor Treating a Patient" className="w-full lg:h-[250px] max-h-[250px] object-cover object-top-left rounded-[12px]"/>
+                  <Image src={HomeWhyAO} alt="Doctor Treating a Patient" className="w-full xl:h-[250px] xl:max-h-[250px] object-cover object-center xl:object-top-left rounded-[12px]"/>
                 </div>
 
               </div>
@@ -982,7 +988,7 @@ export default function Home() {
 
           </div>
           
-          <Reveal className="w-[50%]" width="100%">
+          <Reveal className="xl:w-[50%] w-full mt-0 lg:mt-8" width="100%">
             <div className=" flex flex-col space-y-[32px] w-full">
                 <div className=" bg-[#EFF5FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%]">
                   <div className=" flex flex-col space-y-[8px] ">
@@ -1025,8 +1031,8 @@ export default function Home() {
   
                 </div>
   
-                <div className=" bg-[#E5F6FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%] items-center justify-center">
-                  <div className=" flex flex-col space-y-[8px] items-center justify-center mt-10">
+                <div className=" bg-[#E5F6FF] w-full rounded-[24px] p-4 md:p-[24px] space-y-[24px] h-[50%] items-center justify-center">
+                  <div className=" flex flex-col space-y-[8px] items-center justify-center md:mt-10">
                     <h1
                     style={{
                       fontFamily: "var(--font-reem-kufi)",
@@ -1034,7 +1040,7 @@ export default function Home() {
                       color : 'black',
                       lineHeight : 1.2
                     }}
-                    className="text-2xl "
+                    className="md:text-2xl text-4xl text-center"
                     >
                     Complimentary Amenities 
                     </h1>
@@ -1083,7 +1089,7 @@ export default function Home() {
       {/*  */}
 
       {/* From Pain to Progress */}
-      <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px] ">
+      <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] ">
         <div
         style={{
           background : 'linear-gradient(246deg, #FAFBFC 13.17%, #E0F5FF 52.92%, #E1ECFE 99.53%)'
@@ -1126,7 +1132,7 @@ export default function Home() {
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
               }}
-              className="text-lg text-[#5B5F67] mt-[20px] text-center w-[55%] self-center"
+              className="text-lg text-[#5B5F67] mt-[20px] text-center w-full md:w-[55%] self-center"
               >
                 Trust Mountain Spine & Orthopaedics for expert care, compassionate service, and results 
                 that make a difference. Your mobility and well-being are our top priority!
@@ -1134,12 +1140,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className=" w-full mt-[60px] ">
+          <div className=" w-full md:mt-[60px] mt-4 ">
           <Carousel className="w-full h-full " >
-              <CarouselContent className=" -ml-4 gap-x-4">
+              <CarouselContent className=" -ml-4 md:gap-x-4 ">
                 {
                 PainToProgress.map((item, index) => (
-                <CarouselItem className="basis-1/3 pl-6 relative" key={index}>
+                <CarouselItem className="xl:basis-1/3 md:basis-1/2 pl-6 relative" key={index}>
                   <div className=" bg-[#EFF5FF] flex flex-col p-4 rounded-[24px] space-y-[32px]" key={item.title}>
                      <div >
                       <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-[240px] object-cover rounded-[24px] lg:h-[240px]" draggable={false}/>

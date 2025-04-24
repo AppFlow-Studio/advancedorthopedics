@@ -26,10 +26,10 @@ export const socials = [
 
 export default function DoctorCard({doctor} : {doctor  : DoctorProp}) {
   return (
-    <Link className='w-full h-full max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer group'
+    <Link className='w-full h-full xl:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer group'
     href={`/about/meetourdoctors/${doctor.slug}`}
     >
-        <Image src={doctor.img} alt={doctor.name} className='w-full max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px]' draggable={false} />
+        <Image src={doctor.img} alt={doctor.name} className='w-full object-cover object-top xl:max-h-[400px] aspect-square rounded-[16px] bg-gray-500 xl:h-[400px]' draggable={false} />
         <div className='flex flex-col space-y-[16px]'>
             <h1
             style={{

@@ -35,17 +35,17 @@ export default function BlogDetails({
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
         <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-0 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-0 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-40 xl:pt-0 ">
             <div className="w-[565px] h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
-        <div className=' px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-[20%] items-center justify-center px-[20px] py-[10px]'
+        <div className=' px-4 xl:px-[80px] z-[2]'>
+            <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -82,19 +82,19 @@ export default function BlogDetails({
             </div>
         </div>
         {/* Max 6 words */}
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[65%] xl:w-[55%]">
             <h1
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] text-6xl leading-20"
+            className="text-[#022968] text-6xl "
             >
                 {blog_details.title}
             </h1>
         </div>
 
-        <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
+        <div className="   z-[2] px-4 xl:px-[80px] mt-[24px] w-[55%] pb-8 xl:flex hidden">
             <p
             style={{
                 fontWeight: 400,
@@ -103,15 +103,29 @@ export default function BlogDetails({
             }}
             className="text-[#111315]"
             >
-                {truncateString(blog_details.desc)}
+                {blog_details.desc}
             </p>
         </div>
+
+        <div className=' px-4 xl:px-[80px] mt-[24px] md:w-[55%] xl:hidden flex z-[2] pb-8'>
+            <button className="border w-fit border-white py-[16px] px-[32px] items-center justify-center bg-white rounded-[62px] ">
+            <p
+                style={{
+                    lineHeight: "148%",
+                }}
+                className="text-[#0094E0] text-sm font-bold"
+                >
+                    Check Your Condition
+                </p>
+            </button>
+        </div>
+
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row relative overflow-hidden px-[80px] py-[50px] space-x-[60px]'>
+        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-4 xl:px-[80px] py-[50px] space-x-[60px]'>
         
-            <div className=' w-[70%]  flex flex-col space-y-[60px] rounded-[24px] '>
+            <div className=' lg:w-[70%] w-full  flex flex-col space-y-[60px] rounded-[24px] '>
                  {/* Detail */}
                  <div className=' flex flex-col space-y-[40px] '>
                         <h1
@@ -192,7 +206,7 @@ export default function BlogDetails({
                     
             </div>
 
-            <div className='w-[30%] bg-white flex flex-col'>
+            <div className='lg:w-[30%] w-full bg-white flex flex-col'>
                 <div className=" flex w-[full] mt-[60px] ">
                     <span className="inline-flex items-center px-4 h-12 text-lg bg-[#EFF5FF] rounded-l-[62px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -212,11 +226,13 @@ export default function BlogDetails({
                     >
                         Recent Posts
                     </h1>
-                    {
-                        BlogPosts.slice(0,3).map((item) => (
-                            <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='#FAFAFA'/>
-                        ))
-                    }
+                    <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1  gap-4'>
+                        {
+                            BlogPosts.slice(0,3).map((item) => (
+                                <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='#FAFAFA'/>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
 

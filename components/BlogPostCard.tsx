@@ -22,7 +22,7 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
   const [ isHover, setIsHover ] = useState(false)
   return (
     <motion.div
-    className={`w-fit h-full bg-[${backgroundcolor}] rounded-[24px]`}
+    className={`w-full h-full bg-[${backgroundcolor}] rounded-[24px]`}
     whileHover={{
         background : 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)',
         scale: 1.01,
@@ -35,7 +35,7 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
             <div >
                 <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex">
                     <div className='flex flex-row  space-x-[8px] items-center justify-center'> 
-                        <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
+                        <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-full   " />
                         <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                         <div className="flex flex-col text-white"
                         style={{
@@ -75,11 +75,11 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
     
                 <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
                 
-                <div className=' flex flex-row w-full space-x-[16px] items-center'>
+                <div className=' flex flex-row flex-wrap w-full md:space-x-[16px] space-y-1 md:space-y-0 items-center'>
                     {
                         BlogInfo.tags.map((tag) => (
                             <div
-                            className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#EFF5FF] text-[#022968] text-[14px] font-semibold justify-center items-center"
+                            className=" self-end max-h-[56px] w-full h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#EFF5FF] text-[#022968] text-[14px] font-semibold justify-center items-center"
                             key={tag}
                             >
                                 <h1

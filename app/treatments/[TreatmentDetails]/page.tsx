@@ -10,6 +10,7 @@ import { Doctors } from '@/components/data/doctors'
 import DoctorCard from '@/components/DoctorCard'
 import Link from 'next/link'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import TreatmentsList from '@/components/TreatmentsList'
 export default function TreatmentDetails({
     params,
   }: {
@@ -53,15 +54,15 @@ export default function TreatmentDetails({
         />
         <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
+        <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="w-[565px] h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
-        <div className=' px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+        <div className='px-4 xl:px-[80px] z-[2]'>
+            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -116,20 +117,23 @@ export default function TreatmentDetails({
                 </h1>
             </div>
         </div>
+<<<<<<< HEAD
         <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[50%]">
+=======
+        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
+>>>>>>> 54e0cda (Working on Website Responsiveness)
             <TextAnimate animation="blurInUp" by="character" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
             }}
-            className="text-[#022968]"
+            className="text-[#022968] flex-wrap text-6xl lg:text-7xl"
             >
                 {treatment_details.title}
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
+        <div className="z-[2] px-4 xl:px-[80px] mt-[24px] w-full md:w-[55%] pb-8">
             <p
             style={{
                 fontWeight: 400,
@@ -144,8 +148,8 @@ export default function TreatmentDetails({
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row relative overflow-hidden px-[80px] py-[50px] space-x-[60px]'>
-            <div className='w-[30%] bg-white flex flex-col'>
+        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-4 xl:px-[80px] py-[50px] space-x-[60px]'>
+            <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
                 <ConsultationForm />
                 <div className=" flex w-[full] mt-[60px] ">
                     <span className="inline-flex items-center px-4 h-12 text-lg bg-[#EFF5FF] rounded-l-[62px]">
@@ -157,31 +161,33 @@ export default function TreatmentDetails({
                 </div> 
 
                 <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-                    {
-                        AllTreatments.map((item) => (
-                            <Link href={`/treatments/${item.slug}`} key={item.title}>
-                                <div className=' bg-[#FAFAFA] p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]' >
-                                    <h1
-                                    style={{
-                                    fontFamily: "var(--font-reem-kufi)",
-                                    fontWeight: 400,
-                                    }}  
-                                    className=' text-[#111315] text-lg '
-                                    >{item.title}</h1>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                                        <path d="M0.55723 12.3964C0.718604 12.2745 1.20035 11.9106 1.47806 11.6939C2.03427 11.2598 2.77336 10.6667 3.51025 10.0269C4.25087 9.38385 4.97216 8.70833 5.50241 8.10822C5.76829 7.80731 5.97032 7.54297 6.10182 7.32484C6.22549 7.11969 6.25121 6.99851 6.25121 6.99851C6.25121 6.99851 6.22549 6.88088 6.10182 6.67574C5.97032 6.45761 5.76829 6.19328 5.50241 5.89236C4.97217 5.29225 4.25087 4.61674 3.51024 3.9737C2.77334 3.3339 2.03424 2.74079 1.47802 2.30671C1.20031 2.08998 0.719248 1.72658 0.557872 1.6047C0.224349 1.35906 0.152413 0.889059 0.398046 0.555536C0.643678 0.222013 1.11318 0.150764 1.4467 0.396397L1.44924 0.398315C1.6185 0.526155 2.11751 0.903056 2.40086 1.12419C2.96965 1.56806 3.73055 2.17849 4.49365 2.84105C5.25303 3.50037 6.03173 4.22604 6.62649 4.89916C6.9231 5.23486 7.18982 5.57515 7.38645 5.90131C7.57066 6.20689 7.75195 6.59379 7.75194 7.0003C7.75194 7.40681 7.57066 7.7937 7.38644 8.09927C7.18982 8.42544 6.9231 8.76573 6.62648 9.10143C6.03173 9.77454 5.25304 10.5002 4.49367 11.1595C3.73058 11.8221 2.96968 12.4325 2.40091 12.8764C2.11735 13.0977 1.61832 13.4746 1.44941 13.6022L1.44723 13.6038C1.11371 13.8495 0.643732 13.7786 0.398097 13.4451C0.152471 13.1115 0.223736 12.642 0.55723 12.3964Z" fill="#5B5F67"/>
-                                    </svg>
-                                </div>
-                            </Link>
-                        ))
-                    }
+                    <TreatmentsList />
                 </div>
+
+                <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 400,
+                    }}
+                    className="text-[#111315] text-5xl"
+                    >
+                        Meet our Doctors
+                    </h1>
+                    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
+                        {
+                            randomDoctors.map((doctor) => (
+                                <DoctorCard doctor={doctor} key={doctor.name} />
+                            ))
+                        }
+                    </div>
+                </section>
 
             </div>
 
 
-            <div className=' w-[70%]  flex flex-col space-y-[60px] rounded-[24px] '>
-                <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-[40px] rounded-[24px]'>
+            <div className=' w-full lg:w-[70%] lg:order-2 order-1  flex flex-col space-y-[60px] lg:mt-0 mt-6 rounded-[24px] '>
+                <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
                     {/* Detail */}
                     <div className=' flex flex-col space-y-[16px] '>
                         <h1
@@ -373,7 +379,7 @@ export default function TreatmentDetails({
                     </div>
                 </section>
 
-                <section className='bg-white space-y-[40px] '>
+                <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden'>
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
@@ -383,7 +389,7 @@ export default function TreatmentDetails({
                     >
                         Meet our Doctors
                     </h1>
-                    <div className='grid grid-cols-2 gap-x-[32px] '>
+                    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
                         {
                             randomDoctors.map((doctor) => (
                                 <DoctorCard doctor={doctor} key={doctor.name} />

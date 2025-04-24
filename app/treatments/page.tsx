@@ -106,16 +106,16 @@ export default function Treatments() {
           }}
           className="w-full h-[120px] absolute top-0 z-[1]" // Removed border for clarity
           />
-          <Image src={Landing} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+          <Image src={Landing} className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full max-w-[1440px]" alt="Doctor Diagnosing a Old Patient"/>
 
-          <div className="z-[1] flex flex-col w-full h-full  text-left relative  pb-[160px]">
+          <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
             <div className="w-[565px] h-full absolute left-0 top-0"
             style={{
               background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
-          <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] w-[55%]">
+          <div className=" px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] w-[55%]">
               <TextAnimate animation="blurInUp" by="character" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -128,7 +128,7 @@ export default function Treatments() {
               </TextAnimate>
           </div>
 
-          <div className="z-[2] px-[80px] mt-[24px] w-[50%]">
+          <div className="z-[2]  px-4 xl:px-[80px] mt-[24px] w-[50%]">
               <p
               style={{
                 fontWeight: 400,
@@ -141,6 +141,7 @@ export default function Treatments() {
               </p>
           </div>
 
+<<<<<<< HEAD
           {/* Removed Condition Checker button - assuming it's not needed here */}
           {/* <div className='w-[45%] mt-[40px] px-[80px]'> ... </div> */}
           </div>
@@ -150,6 +151,29 @@ export default function Treatments() {
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-[80px] space-y-[24px]'>
          {/* ... (rest of your "Tell us Your Story" section code) ... */}
          <div className=' flex flex-col space-y-[16px] '>
+=======
+          <div className='lg:w-[45%] mt-[40px] px-4 xl: px-4 xl:px-[80px] z-[2] w-full md:w-[55%] pb-6'>
+              <button 
+                  className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+                  >
+                      <h1
+                      style={{
+                          fontFamily: "var(--font-reem-kufi)",
+                          fontWeight: 500,
+                          fontSize: "16px",
+                          lineHeight: "24px",
+                          letterSpacing: "0.02em"
+                      }}
+                      >Condition Checker</h1>
+              </button>
+          </div>
+          </div>
+        </section>
+
+        {/* Tell us Your Story */}
+        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px]  px-4 xl:px-[80px] space-y-[24px]'>
+          <div className=' flex flex-col space-y-[16px] '>
+>>>>>>> 54e0cda (Working on Website Responsiveness)
               <h1
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
@@ -198,10 +222,16 @@ export default function Treatments() {
           </div>
         </section>
 
+<<<<<<< HEAD
 
         {/* Treatments List Section */}
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-[80px] space-y-[24px]'>
           <div className='space-y-[16px] flex flex-col md:flex-row justify-between items-center' > {/* Adjusted layout for responsiveness */}
+=======
+        
+        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px]  px-4 xl:px-[80px] space-y-[24px]'>
+          <div className='space-y-[16px] flex flex-row justify-between' >
+>>>>>>> 54e0cda (Working on Website Responsiveness)
               <h1
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
@@ -224,9 +254,39 @@ export default function Treatments() {
 
           </div>
 
+<<<<<<< HEAD
           {/* Display Treatment Cards based on currentItems from pagination */}
           {currentItems.length > 0 ? (
              <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[60px] gap-[32px] '>
+=======
+          <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-[60px] gap-[32px] '>
+              {
+                currentItems.slice(0,9).map((item) => 
+                    <TreatmentCard ConditionInfo={item} key={item.title}/>
+                )
+              }
+          </div>
+
+          <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
+
+          <div className=' mt-[16px] flex flex-row items-center justify-between'>
+              <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer' onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+                  <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" fill="#5B5F67"/>
+                </svg>
+                <h1
+                style={{
+                  fontFamily : 'var(--font-inter)',
+                  fontWeight : 400
+                }}
+                className='text-[#5B5F67]'
+                >
+                  Previous
+                </h1>
+              </button>
+
+             {/*  <div className=' flex flex-row items-center space-x-[2px]'>
+>>>>>>> 54e0cda (Working on Website Responsiveness)
                 {
                     currentItems.map((item) =>
                         <TreatmentCard ConditionInfo={item} key={item.slug} /> // Use unique slug for key
