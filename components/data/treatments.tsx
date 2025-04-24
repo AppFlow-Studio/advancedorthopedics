@@ -871,7 +871,7 @@ export const AllTreatments = [
       "slug": "triggerfingerrelease" // Ensure slug is unique in your full dataset
     },
     {
-      "title": "Understanding TLIF Surgery: Transforaminal Lumbar Interbody Fusion",
+      "title": "Understanding TLIF Surgery",
       "body": "Transforaminal Lumbar Interbody Fusion TLIF is an advanced spinal fusion procedure used to treat lower back pain caused by degenerative disc disease, spondylolisthesis, or spinal instability. At Mountain Spine & Orthopedics, we offer TLIF surgery backed by complimentary MRI reviews, second opinions, and convenient car service to stabilize the spine, relieve nerve pressure, and restore long term function.",
       "detail": "TLIF is a minimally invasive spinal fusion technique where part of the damaged disc is removed through a posterior approach. A cage or spacer filled with bone graft is inserted into the disc space to restore disc height and promote fusion between the vertebrae. The area is then stabilized with screws and rods to ensure long term support. This procedure is commonly used when back pain, nerve compression, or instability has not improved with physical therapy, medications, or injections. TLIF allows for a more targeted, single sided approach compared to traditional fusion surgeries, reducing tissue disruption and recovery time.",
       "what_sym": "Chronic lower back pain, sciatica or radiating leg pain, numbness or tingling in the legs or feet, spinal instability or difficulty standing or walking, degenerative disc disease unresponsive to conservative treatment.",
