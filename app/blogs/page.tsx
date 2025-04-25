@@ -53,8 +53,8 @@ export default function Blogs() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
-        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={BlogsLanding} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full max-w-[1440px] xl:w-[1440px] xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <section className=" w-full h-full flex flex-col relative overflow-hidden" >
+        <Image src={BlogsLanding} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
             <div className="w-[565px] h-full absolute left-0 top-0"
@@ -101,7 +101,7 @@ export default function Blogs() {
             </div>
         </div>
         <div className= "px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] lg:w-[63%] xl:w-[55%]">
-            <TextAnimate animation="blurInUp" by="character" once
+            <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,

@@ -12,19 +12,20 @@ import { Doctors } from '@/components/data/doctors';
 import DoctorCard from '@/components/DoctorCard';
 import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
+import { Marquee } from '@/components/magicui/marquee';
 
 export default function FindADoctor() {
   return (
      <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-                  <TextAnimate animation="blurInUp" by="character" once
+              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 lg:px-[80px]'>
+                  <TextAnimate animation="blurInUp" by="word" once
                   style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
     
                   }}
-                  className='text-[#022968] text-6xl'
+                  className='text-[#022968] text-4xl md:text-6xl'
                   >
                     Find a Doctor
                   </TextAnimate>
@@ -46,11 +47,13 @@ export default function FindADoctor() {
                 background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)',
               }}
               >
-                {
-                  [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                    <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-                  ))
-                }
+                <Marquee pauseOnHover className='w-full' >
+                  {
+                    [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                      <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+                    ))
+                  }   
+               </Marquee>
             </div>
 
             <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
@@ -65,7 +68,7 @@ export default function FindADoctor() {
                     >Meet Our doctors</h1>
                     </div>
                 </div>    
-                <div className=" mt-[60px] grid grid-cols-3 gap-16">
+                <div className=" mt-[60px] grid-cols-1 md:grid-cols-2 grid lg:grid-cols-3 gap-16">
                     {
                         Doctors.map((item) => (
                         <DoctorCard key={item.name} doctor={item}/>

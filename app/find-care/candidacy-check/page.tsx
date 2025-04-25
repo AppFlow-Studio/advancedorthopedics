@@ -25,6 +25,7 @@ import DoctorCard from '@/components/DoctorCard';
 import FAQsSection from '@/components/FaqsSection';
 import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { Marquee } from '@/components/magicui/marquee'
 
 const formSchema = z.object({
 // Step 1 Questions
@@ -261,8 +262,8 @@ function CandidacyCheck() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
     <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-      <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-          <TextAnimate animation="blurInUp" by="character" once
+      <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 lg:px-[80px]'>
+          <TextAnimate animation="blurInUp" by="word" once
           style={{
             fontFamily : 'var(--font-reem-kufi)',
             fontWeight : 500,
@@ -285,7 +286,7 @@ function CandidacyCheck() {
       </div>
     </section>
      <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-[80px]'>
-            <div className='px-[80px] z-[2]'>
+            <div className='px-4 xl:px-[80px] z-[2] flex w-full'>
                     <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-6'
                     style={{
                         background : 'rgba(255, 255, 255, 0.50)'
@@ -326,7 +327,7 @@ function CandidacyCheck() {
                     {
                         FreeMriReviewSteps.map((step, index) => (
                             <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index}>
-                                <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0]' }`}>
+                                <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0] md:flex hidden' }`}>
                                     <h1
                                     style={{
                                         fontFamily : 'var(--font-reem-kufi)',
@@ -343,8 +344,8 @@ function CandidacyCheck() {
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 500,
                                 }}
-                                className="text-black text-xl"
-                                >    
+                                className={`text-black text-xl ${ConditionStep == index + 1 ? 'flex' : ' md:flex hidden'}`}>
+                       
                                     {step.step}
                                 </h1>
     
@@ -362,7 +363,7 @@ function CandidacyCheck() {
                     }
                 </div>
     
-                <div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] px-[200px]'>
+                <div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] w-full lg:px-[100px] xl:px-[200px]'>
                         <div className=' bg-[#022968] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
                             <h1
                             style={{
@@ -625,11 +626,13 @@ function CandidacyCheck() {
         background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)',
       }}
       >
-        {
-          [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-            <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-          ))
-        }
+        <Marquee pauseOnHover className='w-full' >
+            {
+            [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+            ))
+            }   
+        </Marquee>
     </div>
     <RatingsAndReviews />
 

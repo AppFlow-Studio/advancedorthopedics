@@ -50,7 +50,7 @@ export default function PainArea({
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
-        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
+        <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div 
         style={{
         background: 'white',
@@ -58,16 +58,16 @@ export default function PainArea({
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  max-h-[945px] text-left relative  pb-[160px]">
+        <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="w-[565px] h-full absolute left-0 top-0 "
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
-        <div className=' px-[80px] z-[2]'>
+        <div className=' px-4 xl:px-[80px] z-[2]'>
             <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -125,8 +125,8 @@ export default function PainArea({
 
             </div>
         </div>
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
-            <TextAnimate animation="blurInUp" by="character" once
+        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+            <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -138,7 +138,7 @@ export default function PainArea({
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-[80px] mt-[24px] w-[55%]">
+        <div className="z-[2] px-4 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
             <p
             style={{
                 fontFamily: "var(--font-inter)",
@@ -154,18 +154,18 @@ export default function PainArea({
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row relative overflow-hidden px-[80px] py-[50px] space-x-[60px]'>
-            <div className='w-[30%] bg-white flex flex-col space-y-[60px]'>
+        <section className=' max-w-[1440px]  w-full h-full flex flex-col lg:flex-row relative overflow-hidden px-4 xl:px-[80px] py-[50px] space-x-[60px]'>
+            <div className='lg:w-[30%] w-full bg-white flex flex-col space-y-[60px]'>
                 <DoctorContactForm backgroundcolor={'#FAFAFA'}/>
-                <div className=' space-y-[30px]'>
+                <div className=' space-y-[30px] lg:flex lg:flex-col hidden'>
                     <NeckAndShoulderDropDown CurrentCondition={condition_details.title}/>
                     <Image src={condition_details.side_img!} className="w-full rounded-[20px] max-h-[500px] aspect-1/2 object-center object-cover" alt='' />
                 </div>
             </div>
 
 
-            <div className=' w-[70%]  flex flex-col space-y-[60px] rounded-[24px] '>
-                <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-[40px] rounded-[24px]'>
+            <div className=' lg:w-[70%] w-full  flex flex-col space-y-[60px] rounded-[24px] '>
+                <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-6 md:p-[40px] rounded-[24px]'>
                     {/* Detail */}
                     <div className=' flex flex-col space-y-[16px] '>
                         <h1

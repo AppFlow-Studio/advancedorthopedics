@@ -17,7 +17,7 @@ export default function FAQsSection({header, faqItems} : { header : React.JSX.El
    
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden space-y-[60px] px-[100px] py-[50px]">
+        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden space-y-[60px] px-4 xl:px-[100px] py-[50px]">
             <h1
             style={{
                 fontFamily : 'var(--font-reem-kufi)',

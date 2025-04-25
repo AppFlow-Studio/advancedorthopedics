@@ -14,6 +14,7 @@ import FAQsSection from '@/components/FaqsSection';
 import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
 import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
+import { Marquee } from '@/components/magicui/marquee';
 
 const faqItems : {question : string, answer : React.JSX.Element}[] = [
     {
@@ -80,8 +81,8 @@ export default function SecondOpinion() {
   return (
      <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-                  <TextAnimate animation="blurInUp" by="character" once
+              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 lg:px-[80px]'>
+                  <TextAnimate animation="blurInUp" by="word" once
                   style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
@@ -109,11 +110,15 @@ export default function SecondOpinion() {
                 background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)',
               }}
               >
+
+                <Marquee pauseOnHover className='w-full' >
                 {
-                  [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                    [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
                     <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-                  ))
-                }
+                    ))
+                }   
+                </Marquee>
+
             </div>
             <RatingsAndReviews />
 
@@ -124,7 +129,7 @@ export default function SecondOpinion() {
 
             <section className='max-w-[1440px] w-full py-[30px] flex flex-row items-center justify-center'>
                 <div 
-                className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-[40%] justify-center items-center hover:cursor-pointer"
+                className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-fit lg:w-[40%] justify-center items-center hover:cursor-pointer"
                 >
                     <div className='pr-[10px]'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -142,6 +147,8 @@ export default function SecondOpinion() {
                     >Request for a Second Opinion</h1>
                 </div>
             </section>
+
+            
 
         </main>
   )

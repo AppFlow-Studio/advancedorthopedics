@@ -252,7 +252,7 @@ export default function Home() {
   return (
     <main className=" w-full flex flex-col items-center justify-center bg-white h-full" >
       {/* Hero Section */}
-      <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
+      <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div 
         style={{
         background: 'white',
@@ -260,7 +260,7 @@ export default function Home() {
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-4 xl:py-8 relative  xl:pb-[160px]">
           <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"

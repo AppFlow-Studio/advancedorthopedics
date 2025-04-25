@@ -63,7 +63,7 @@ export default function AreaOfSpeciality() {
   return (
     <main className="w-full flex flex-col items-center justify-center bg-white h-full">
       {/* Landing Section */}
-      <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden">
+      <section className="w-full h-full flex flex-col relative overflow-hidden">
         
          <div
           style={{ background: 'white', filter: 'blur(30px)' }}
@@ -72,7 +72,7 @@ export default function AreaOfSpeciality() {
         <Image
           src={Landing}
           alt="Doctor Diagnosing a Old Patient"
-          className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full max-w-[1440px]"
+          className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full"
         />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
          <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
@@ -83,14 +83,13 @@ export default function AreaOfSpeciality() {
           <div className=" px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-60  md:mt-[220px] w-full lg:w-[55%]">
             <TextAnimate
               animation="blurInUp"
-              by="character"
+              by="word"
               once
               style={{
                 fontFamily: 'var(--font-reem-kufi)',
                 fontWeight: 400,
-                fontSize: '72px',
               }}
-              className="text-[#022968]"
+              className="text-[#022968] text-5xl md:text-6xl lg:text-7xl "
             >
               Conditions
             </TextAnimate>
@@ -105,7 +104,7 @@ export default function AreaOfSpeciality() {
                Find out with our 2-minute Condition Checker.
             </p>
           </div>
-          <div className="lg:w-[45%] mt-[40px] px-4 xl:px-[80px] z-[2] w-full md:w-[55%] pb-6">
+          <div className=" mt-[40px] px-4 xl:px-[80px] z-[2] w-fit pb-6">
             <Link
               href="/condition-check"
               className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
@@ -201,7 +200,7 @@ export default function AreaOfSpeciality() {
         <div className="bg-[#DCDEE1] h-[1px] w-full" />
 
         {/* Pagination Controls */}
-        <div className="mt-[16px] flex justify-between items-center">
+        <div className="mt-[16px] flex flex-col sm:flex-row justify-between items-center">
           <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer' onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                 <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" fill="#5B5F67"/>

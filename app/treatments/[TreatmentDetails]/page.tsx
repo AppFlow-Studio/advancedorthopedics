@@ -44,7 +44,7 @@ export default function TreatmentDetails({
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
-        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
+        <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div 
         style={{
         background: 'white',
@@ -52,7 +52,7 @@ export default function TreatmentDetails({
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="w-[565px] h-full absolute left-0 top-0"
@@ -62,7 +62,7 @@ export default function TreatmentDetails({
             />
 
         <div className='px-4 xl:px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
+            <div className=' mt-[220px] text-xs md:text-md flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -117,17 +117,13 @@ export default function TreatmentDetails({
                 </h1>
             </div>
         </div>
-<<<<<<< HEAD
-        <div className="px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[50%]">
-=======
-        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
->>>>>>> 54e0cda (Working on Website Responsiveness)
-            <TextAnimate animation="blurInUp" by="character" once
+        <div className=" px-4 xl:px-[80px] z-[2] flex flex-row items-center justify-start mt-[12px] w-[50%]">
+            <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] flex-wrap text-6xl lg:text-7xl"
+            className="text-[#022968] flex-wrap text-3xl md:text-6xl lg:text-7xl"
             >
                 {treatment_details.title}
             </TextAnimate>
@@ -137,10 +133,9 @@ export default function TreatmentDetails({
             <p
             style={{
                 fontWeight: 400,
-                fontSize: "20px",
                 lineHeight: "148%",
             }}
-            className="text-[#111315]"
+            className="text-[#111315] text-lg md:text-xl"
             >
                 {treatment_details.body}
             </p>
@@ -148,7 +143,7 @@ export default function TreatmentDetails({
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-4 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-4 xl: px-4 xl: py-[50px] space-x-[60px]'>
             <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
                 <ConsultationForm />
                 <div className=" flex w-[full] mt-[60px] ">

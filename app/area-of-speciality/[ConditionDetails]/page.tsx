@@ -44,7 +44,7 @@ export default function ConditionDetails({
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
-        <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
+        <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div 
         style={{
         background: 'white',
@@ -52,7 +52,7 @@ export default function ConditionDetails({
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full max-w-[1440px] xl:w-[1440px] lg:pr-0 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full lg:pr-0 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="w-[565px] h-full absolute left-0 top-0"
@@ -99,7 +99,7 @@ export default function ConditionDetails({
             </div>
         </div>
         <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
-            <TextAnimate animation="blurInUp" by="character" once
+            <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,

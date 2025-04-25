@@ -25,6 +25,7 @@ import DoctorCard from '@/components/DoctorCard';
 import FAQsSection from '@/components/FaqsSection';
 import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { Marquee } from '@/components/magicui/marquee'
 
 const formSchema = z.object({
 // Step 1 Questions
@@ -206,8 +207,8 @@ function FreeMRIReview() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
     <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-      <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-          <TextAnimate animation="blurInUp" by="character" once
+      <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 lg:px-[80px]'>
+          <TextAnimate animation="blurInUp" by="word" once
           style={{
             fontFamily : 'var(--font-reem-kufi)',
             fontWeight : 500,
@@ -229,49 +230,50 @@ function FreeMRIReview() {
         </h1>
       </div>
     </section>
-     <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-[80px]'>
-            <div className='px-[80px] z-[2]'>
-                <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-6'
-                style={{
-                    background : 'rgba(255, 255, 255, 0.50)'
-                }}
-                    >
-                        <h1
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 400,
-                        }}
-                        className="text-black"
-                        >
-                            Find Care
-                        </h1>
 
-                        <h1
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 400,
-                        }}
-                        className="text-black"
+     <section className='w-full h-full flex flex-col items-center relative overflow-hidden bg-[#EFF5FF] py-[50px] px-4 xl:px-[80px]'>
+                <div className='px-4 xl:px-[80px] z-[2] flex w-full'>
+                    <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center self-start justify-center px-[20px] py-[10px] mb-6'
+                    style={{
+                        background : 'rgba(255, 255, 255, 0.50)'
+                    }}
                         >
-                            /
-                        </h1>
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-reem-kufi)",
+                                fontWeight: 400,
+                            }}
+                            className="text-black"
+                            >
+                                Find Care
+                            </h1>
 
-                        <h1
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 400,
-                        }}
-                        className="text-[#2358AC]"
-                        >
-                            Get a Free MRI Review 
-                        </h1>
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-reem-kufi)",
+                                fontWeight: 400,
+                            }}
+                            className="text-black"
+                            >
+                                /
+                            </h1>
+
+                            <h1
+                            style={{
+                                fontFamily: "var(--font-reem-kufi)",
+                                fontWeight: 400,
+                            }}
+                            className="text-[#2358AC]"
+                            >
+                                Get a Free MRI Review 
+                            </h1>
                     </div>
-            </div>
-                <div className=' flex flex-row space-x-[20px] items-center justify-center max-w-[1440px]'>
+                </div>
+                <div className=' flex flex-row space-x-[20px] items-center justify-center max-w-[1440px] '>
                     {
                         FreeMriReviewSteps.map((step, index) => (
                             <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index}>
-                                <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0]' }`}>
+                                <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0] md:flex hidden' }`}>
                                     <h1
                                     style={{
                                         fontFamily : 'var(--font-reem-kufi)',
@@ -288,14 +290,14 @@ function FreeMRIReview() {
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 500,
                                 }}
-                                className="text-black text-xl"
+                                className={`text-black text-xl ${ConditionStep == index + 1 ? 'flex' : ' md:flex hidden'}`}
                                 >    
                                     {step.step}
                                 </h1>
     
                                 {
                                     index + 1 != 2 ? 
-                                    <div  className=''>
+                                    <div  className='md:flex hidden'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="122" height="10" viewBox="0 0 122 8" fill="none">
                                             <path d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5V3.5ZM121.354 4.35355C121.549 4.15829 121.549 3.84171 121.354 3.64645L118.172 0.464466C117.976 0.269204 117.66 0.269204 117.464 0.464466C117.269 0.659728 117.269 0.976311 117.464 1.17157L120.293 4L117.464 6.82843C117.269 7.02369 117.269 7.34027 117.464 7.53553C117.66 7.7308 117.976 7.7308 118.172 7.53553L121.354 4.35355ZM1 4.5H121V3.5H1V4.5Z" fill="#838890"/>
                                         </svg>
@@ -307,7 +309,7 @@ function FreeMRIReview() {
                     }
                 </div>
     
-                <div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] px-[200px]'>
+                <div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] w-full lg:px-[200px]'>
                         <div className=' bg-[#022968] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
                             <h1
                             style={{
@@ -563,18 +565,21 @@ function FreeMRIReview() {
                             </button>
                         </div>
                 </div>
-            </section>
+     </section>
+
     <ContactUsSection />
     <div className="w-full flex flex-row items-center justify-evenly bg-white py-20 "
       style={{
         background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)',
       }}
       >
-        {
-          [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-            <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-          ))
-        }
+        <Marquee pauseOnHover className='w-full' >
+            {
+            [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+            ))
+            }   
+        </Marquee>
     </div>
     <RatingsAndReviews />
 

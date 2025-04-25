@@ -184,7 +184,7 @@ const handleClinicChange = (name: string) => {
       <div className="max-w-[1440px] w-full  px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
-        {/* <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange}/> */}
+        <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange}/>
 
         {/* The Google Map */}
         <GoogleMap
@@ -233,7 +233,7 @@ const DropdownIcon = () => (
 
 function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic : {id : number, name : string, lat : number, lng : number, address : string}, handleMarkerClick : (name : string) => void }) {
   return (
-    <div className="absolute top-5 left-14 z-10 bg-white p-6 rounded-lg shadow-lg w-full max-w-sm md:max-w-xl space-y-4">
+    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg w-[90%] md:max-w-xl space-y-4">
       <h2 
       style={{
         fontFamily: "var(--font-reem-kufi)",
@@ -278,12 +278,12 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
           <path d="M12.5 15.0294C12.5 17.1878 10.3603 18.704 9.42687 19.2628C9.16233 19.4211 8.83767 19.4211 8.57313 19.2628C7.63974 18.704 5.5 17.1878 5.5 15.0294C5.5 12.9118 7.19587 11.5 9 11.5C10.8667 11.5 12.5 12.9118 12.5 15.0294Z" stroke="#222222"/>
           <circle cx="9" cy="15" r="1" fill="#222222"/>
         </svg>
-        <h1 className='text-[#2358AC] flex flex-row space-x-[10px] items-center w-full justify-center'>   
+        <h1 className='text-[#2358AC] flex flex-row space-x-[10px] items-center w-full justify-center overflow-ellipsis'>   
         <p 
         style={{
           fontFamily : '(--var-inter)',
         }}
-        className=' text-center text-sm font-[500]'>{selectedClinic?.address}</p>
+        className=' text-center text-sm font-[500] overflow-ellipsis w-full'>{selectedClinic?.address}</p>
         </h1>
       </div>
 
