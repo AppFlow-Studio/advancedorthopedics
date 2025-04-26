@@ -11,6 +11,7 @@ import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
 import Image from 'next/image'
+import { Marquee } from '@/components/magicui/marquee'
 export default function LocationDetails(
     {
         params,
@@ -25,8 +26,8 @@ export default function LocationDetails(
   return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-                <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px]  pt-26 px-[100px]'>
-                    <TextAnimate animation="blurInUp" by="character" once
+                <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 xl:px-[80px]'>
+                    <TextAnimate animation="blurInUp" by="word" once
                     style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
@@ -45,7 +46,7 @@ export default function LocationDetails(
                     >
                     Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 locations and an Ambulatory Surgery Center. 
                     </h1>
-                    <div className=' mt-[20px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+                    <div className=' mt-[20px] md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                     style={{
                         background : 'rgba(255, 255, 255, 0.50)'
                     }}
@@ -109,11 +110,13 @@ export default function LocationDetails(
                 background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
             }}
             >
-                {
-                [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                    <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" draggable={false}/>
-                ))
-                }
+                <Marquee pauseOnHover className='w-full' >
+                    {
+                        [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                        <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+                        ))
+                    }   
+                </Marquee>
             </div>
 
 

@@ -17,7 +17,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
     libraries: libraries as Libraries,
   });
 
-  if(loadError) return <p>Encountered error while loading google maps</p>
+  //if(loadError) return <p>Encountered error while loading google maps</p>
 
   if(!scriptLoaded) return 
 

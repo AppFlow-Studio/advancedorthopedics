@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Logo from '../public/newlogo4.png'
 import { motion } from "framer-motion";
+import Link from 'next/link';
 const socials = [
     {icon :  () => (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none">
          <path fillRule="evenodd" clipRule="evenodd" d="M3.49629 5.29662C3.49629 2.35881 6.01766 0.0419922 9.04554 0.0419922L11.8486 0.0419922C12.0649 0.0419922 12.279 0.051865 12.4726 0.0918611C12.6713 0.132893 12.8902 0.213903 13.0746 0.387333C13.4378 0.728772 13.4584 1.2321 13.4584 1.59292V3.44477C13.4584 3.80559 13.4378 4.30892 13.0746 4.65036C12.8902 4.82379 12.6713 4.9048 12.4726 4.94583C12.279 4.98582 12.0649 4.9957 11.8486 4.9957L9.04554 4.9957C8.80991 4.9957 8.68569 5.16619 8.68569 5.29662V6.98644L10.6944 6.98644C10.9716 6.98644 11.2364 7.00014 11.4658 7.05124C11.6949 7.10227 11.9655 7.20737 12.1614 7.45161C12.3625 7.70227 12.4009 7.99347 12.3892 8.23393C12.3779 8.46814 12.3161 8.7209 12.2394 8.97346L11.8173 10.3624C11.7305 10.6481 11.6006 11.0051 11.2755 11.2357C10.9598 11.4596 10.5797 11.4772 10.2724 11.4772H8.68569V16.4077C8.68569 16.7686 8.66509 17.2719 8.30192 17.6133C8.11745 17.7867 7.89855 17.8678 7.69988 17.9088C7.50623 17.9488 7.29217 17.9587 7.07584 17.9587H5.10614C4.88981 17.9587 4.67575 17.9488 4.4821 17.9088C4.28343 17.8678 4.06453 17.7867 3.88006 17.6133C3.51689 17.2719 3.49629 16.7686 3.49629 16.4077L3.49629 11.4772H2.1516C1.93527 11.4772 1.7212 11.4673 1.52755 11.4273C1.32889 11.3863 1.10998 11.3053 0.925513 11.1318C0.562346 10.7904 0.541748 10.2871 0.541748 9.92625L0.541748 8.53736C0.541748 8.17654 0.562346 7.67322 0.925513 7.33178C1.10998 7.15835 1.32889 7.07734 1.52755 7.03631C1.7212 6.99631 1.93527 6.98644 2.1516 6.98644L3.49629 6.98644L3.49629 5.29662ZM9.04554 1.29199C6.63424 1.29199 4.74629 3.12069 4.74629 5.29662L4.74629 7.61144C4.74629 7.95661 4.46647 8.23644 4.12129 8.23644H2.1516C1.98334 8.23644 1.87582 8.24428 1.80652 8.25566C1.79808 8.31299 1.79175 8.40146 1.79175 8.53736L1.79175 9.92625C1.79175 10.0622 1.79808 10.1506 1.80652 10.208C1.87582 10.2193 1.98334 10.2272 2.1516 10.2272H4.12129C4.46647 10.2272 4.74629 10.507 4.74629 10.8522L4.74629 16.4077C4.74629 16.5436 4.75263 16.6321 4.76108 16.6894C4.83038 16.7008 4.93789 16.7087 5.10614 16.7087H7.07584C7.24409 16.7087 7.35161 16.7008 7.42091 16.6894C7.42936 16.6321 7.43569 16.5436 7.43569 16.4077L7.43569 10.8522C7.43569 10.507 7.71551 10.2272 8.06069 10.2272H10.2724C10.4136 10.2272 10.4949 10.2202 10.5435 10.2112C10.5617 10.1748 10.5872 10.1111 10.6213 9.99889L11.0434 8.61001C11.0912 8.45254 11.1179 8.33973 11.1309 8.2598C11.0357 8.24555 10.8963 8.23644 10.6944 8.23644H8.06069C7.71551 8.23644 7.43569 7.95661 7.43569 7.61144L7.43569 5.29662C7.43569 4.4043 8.19332 3.7457 9.04554 3.7457L11.8486 3.7457C12.0168 3.7457 12.1243 3.73786 12.1936 3.72648C12.2021 3.66914 12.2084 3.58067 12.2084 3.44477V1.59292C12.2084 1.45702 12.2021 1.36855 12.1936 1.31121C12.1243 1.29983 12.0168 1.29199 11.8486 1.29199L9.04554 1.29199Z" fill="#0094E0"/>
@@ -22,8 +23,8 @@ const socials = [
 export default function Footer() {
   return (
     <main className='bg-black w-full flex-col flex py-[60px]'>
-        <section className=' w-full max-w-[1440px] mx-auto px-[40px]  flex flex-row justify-between'>
-            <div className=' flex flex-col w-[40%]'>
+        <section className=' w-full max-w-[1440px] mx-auto px-[40px] lg:space-y-0 space-y-4 flex flex-col lg:items-start  items-center justify-center lg:flex-row lg:justify-between'>
+            <div className=' flex flex-col w-full lg:w-[40%]'>
                 <div className='flex flex-row  space-x-[8px] items-center'> 
                     <Image src={Logo} alt=" Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
                     <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
@@ -45,7 +46,7 @@ export default function Footer() {
                     color : 'white'
                 }}
                 className=' text-white mt-[20px]'>
-                    Our patients’ experiences speak volumes about our care. See their stories below.Real feedback from those who trust us with their health. Hear their thoughts here.
+                    Our patients’ experiences speak volumes about our care. See their stories below. Real feedback from those who trust us with their health. Hear their thoughts here.
                 </h1>
 
                 <div className='mt-[40px] flex flex-col'>
@@ -96,14 +97,11 @@ export default function Footer() {
                     </div>
 
                 </div>
-
                 <div>
-
-                </div>
-
+             </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[48px]">
+            <div className="grid grid-cols-2 gap-8 lg:gap-[48px] w-full lg:w-auto ">
             {/* Column 1: Overview */}
             <div className=''
             style={{
@@ -112,17 +110,17 @@ export default function Footer() {
                 color : 'white'
             }}
             >
-                <h3 className="uppercase tracking-wider mb-4 text-lg">Overview</h3>
-                <ul className="space-y-[16px] text-sm text-[#DCDEE1]">
-                <li>Contact Us</li>
-                <li>Doctors</li>
-                <li>Locations</li>
-                <li>Blog</li>
-                <li>Testimonials</li>
-                <li>Patient Forms</li>
-                <li>Cardiology Check</li>
-                <li>Treatment Check</li>
-                <li>MRI Review</li>
+                <h3 className=" uppercase tracking-wider mb-4 text-lg">Overview</h3>
+                <ul className=" space-y-[16px] flex flex-col text-sm text-[#DCDEE1]">
+                <Link href={'/find-care/book-an-appointment'}>Contact Us</Link >
+                <Link href={'/find-care/find-a-doctor'}>Doctors</Link >
+                <Link href={'/locations'}>Locations</Link >
+                <Link href={'/blogs'}>Blog</Link >
+                <Link href={'faqs'}>Testimonials</Link >
+                <Link href={'/patient-forms'}>Patient Forms</Link >
+                <Link href={'/find-care/candidacy-check'}>Condition Check</Link >
+                <Link href={'find-care/candidacy-check'}>Treatment Check</Link >
+                <Link href={'/find-care/free-mri-review'}>MRI Review</Link >
                 </ul>
             </div>
             {/* Column 2: Locations */}
@@ -135,24 +133,19 @@ export default function Footer() {
             >
                 <h3 className="uppercase tracking-wider mb-4 text-lg font-[600]">Locations</h3>
                 <h4 className="uppercase tracking-wider mb-2 text-sm font-[600]">FL Locations</h4>
-                <ul className="space-y-[12px] text-sm mb-4 text-[#DCDEE1]">
-                <li>Altamonte Springs</li>
-                <li>Davenport</li>
-                <li>Fort Myers</li>
-                <li>Fort Pierce</li>
-                <li>Hollywood</li>
-                <li>Miami</li>
-                <li>Orlando</li>
-                <li>Palm Beach Gardens</li>
-                </ul>
-                <h4 className="uppercase tracking-wider mb-2 text-sm font-[600]">PA Locations</h4>
-                <ul className="space-y-2 text-sm">
-                <li>Philadelphia</li>
-                <li>Allentown</li>
+                <ul className="space-y-[12px] flex flex-col text-sm mb-4 text-[#DCDEE1]">
+                <Link href={'/locations/1'}>Altamonte Springs</Link >
+                <Link href={'/locations/2'}>Davenport</Link >
+                <Link href={'/locations/3'}>Fort Myers</Link >
+                <Link href={'/locations/8'}>Boca Raton</Link >
+                <Link href={'/locations/4'}>Hollywood</Link >
+                <Link href={'/locations/7'}>Miami</Link >
+                <Link href={'/locations/5'}>Orlando</Link >
+                <Link href={'/locations/6'}>Palm Beach Gardens</Link >
                 </ul>
             </div>
             {/* Column 3: NY, NJ, Surgery Centers */}
-            <div
+            {/* <div
             style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 400,
@@ -188,7 +181,7 @@ export default function Footer() {
                     <li>AASC</li>
                 </ul>
                 </div>
-            </div>
+            </div> */}
             </div>
         </section>
         

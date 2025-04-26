@@ -263,7 +263,7 @@ export default function Home() {
         <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-4 xl:py-8 relative  xl:pb-[160px]">
-          <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
+          <div className="md:w-[565px] h-full absolute left-0 top-0 w-[85%]"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
@@ -280,7 +280,7 @@ export default function Home() {
                 lineHeight: "24px",
                 letterSpacing: "0.02em",
               }}
-              className=" md:text-white text-[#022968]"
+              className=" text-white"
               >
                 100,000+ Happy Patient's
               </h1>
@@ -494,7 +494,7 @@ export default function Home() {
 
       {/* Expert Orthopedic Conditions We Treat */}
       <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center">
-          <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-[60px] px-[60px] space-y-[60px] relative flex-col">
+          <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-[60px] px-2 md:px-[60px] space-y-[60px] relative flex-col">
 
            <div className=" flex flex-col space-y-[16px]">
               <h1
@@ -548,15 +548,18 @@ export default function Home() {
              </div>
 
 
-             <div className="relative z-10 lg:overflow-visible overflow-hidden  "> {/* Wrapper with high z-index */}
+             <div className="relative z-10 lg:overflow-visible overflow-hidden   "> {/* Wrapper with high z-index  xl:-right-[46%]  lg:right-[5%]*/}
                 {/* Circles behind the image */}
-                <div className="absolute top-5 border border-white rounded-full h-[90%] w-[730px] xl:-right-[46%] lg:right-[5%] lg:mx-auto z-0 max-h-[705px] xl:h-[705px] lg:h-[750px]" />
-                <div className="absolute top-30 border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] lg:h-[480px] xl:-right-[16%] lg:right-[18%] mx-auto flex items-center justify-center z-0">
+                <div className="absolute left-1/2 top-90 -translate-x-1/2 -translate-y-1/2 border border-white rounded-full h-[90%] sm:w-[730px] z-0 lg:max-h-[705px] xl:h-[705px] lg:h-[750px] pointer-events-none sm:flex hidden" /> {/* Added pointer-events-none */}
+
+                {/* Removed left-40 xl:-right-[16%] lg:right-[18%] mx-auto */}
+                {/* Added left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 and max-w-full */}
+                <div className="absolute left-1/2 top-90 -translate-x-1/2 -translate-y-1/2 border border-white rounded-full w-[500px] bg-[#F5F8FD] h-[60%] lg:h-[480px] items-center justify-center z-0  pointer-events-none sm:flex hidden"> {/* Added pointer-events-none */}
                   <div className="bg-white h-[70%] w-[70%] rounded-full z-0" />
                 </div>
 
-                {/* Head */}
-                <motion.div className="rounded-[50px] absolute p-[10px] xl:left-[44%] top-28 left-[47%] z-20 hover:cursor-pointer"
+                {/* Neck */}
+                <motion.div className="rounded-[50px] absolute p-[10px] xl:left-[44%] top-[18%] left-[46%] sm:left-[47%] z-20 hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -574,12 +577,12 @@ export default function Home() {
                 }}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[0])}
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Neck' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Neck' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
                 {/* Right Shoulder Dot */}
                 <motion.div
-                className="rounded-[50px] absolute p-[10px] top-34 z-20 xl:left-[60%] left-[55%] hover:cursor-pointer"
+                className="rounded-[50px] absolute p-[10px] top-[20%] sm:top-38 z-20 xl:left-[60%] left-[60%] md:left-[55%] hover:cursor-pointer"
                 style={{
                   background: "rgba(255, 255, 255, 0.40)",
                   boxShadow: "0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)",
@@ -597,12 +600,12 @@ export default function Home() {
                 }}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[1])}
               >
-                <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Shoulder' ? 'bg-[#5E96F0]' : 'bg-white'}` }/>
+                <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Shoulder' ? 'bg-[#5E96F0]' : 'bg-white'}` }/>
               </motion.div>
 
 
                 {/*Spine*/}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-54 z-20 xl:right-[43%] right-[47%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-[30%] z-20 xl:right-[43%] right-[45%] sm:right-[47%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -621,12 +624,12 @@ export default function Home() {
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[2])}
 
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Spine' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Spine' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
 
                 {/* Lower Back */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-72 z-20 xl:left-[45%] left-[47%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-[42%] z-20 xl:left-[45%] left-[46%] sm:left-[47%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -645,11 +648,11 @@ export default function Home() {
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[3])}
 
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Lower Back' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Lower Back' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
                 {/* Left Knee */}
-                <motion.div className="rounded-[50px] absolute p-[10px] xl:top-110 top-120 z-20 xl:right-[53%] right-[52%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] xl:top-110 top-[65%] sm:top-120 z-20 xl:right-[53%] right-[54%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -668,11 +671,11 @@ export default function Home() {
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[4])}
 
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Knee' ? 'bg-[#5E96F0]' : 'bg-white'}` }  />
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Knee' ? 'bg-[#5E96F0]' : 'bg-white'}` }  />
                 </motion.div>
 
                  {/* Right Foot */}
-                 <motion.div className="rounded-[50px] absolute p-[10px] xl:top-150 top-160 z-20 left-[54%] hover:cursor-pointer"
+                 <motion.div className="rounded-[50px] absolute p-[10px] xl:top-150 top-[85%] xs:top-132 sm:top-160 z-20 left-[55%] hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -691,7 +694,7 @@ export default function Home() {
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[5])}
 
                 >
-                  <div className={`h-7 w-7 rounded-full ${selectedOrthoCondition.area == 'Foot' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Foot' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
 
@@ -700,7 +703,7 @@ export default function Home() {
                   <Image 
                     src={HumanModel} 
                     alt="Human Anatomy Model"
-                    className="w-full max-h-[750px] xl:max-h-[705px] h-full object-contain xl:object-cover py-4" 
+                    className="w-full max-h-[750px] max-h-sm  xl:max-h-[705px] h-full object-contain xl:object-cover py-4" 
                   />
                 </div>
               </div>
