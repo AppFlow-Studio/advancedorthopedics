@@ -26,12 +26,65 @@ import arthritisside from '@/public/arthritisside.jpeg'
 import pinchednerve from '@/public/pinchednerve.jpeg'
 import pinchednerve2 from '@/public/pinchednerve2.jpeg'
 import pinchednerveside from '@/public/pinchednerveside.jpeg'
+import adjacentSegmentDisease from '@/public/AdjacentSegmentDisease1 .png'
+import adjacentSegmentDisease2 from '@/public/AdjacentSegmentDisease2.png'
+import adultDegenerativeScoliosis from '@/public/AdultDegenerativeScoliosis.png'
+import LowerBackPainimg from '@/public/LowerBackPainimg.png'
+import LowerBackPaintxt from '@/public/LowerBackPaintxt.png'
+import BackPaincard from '@/public/BackPaincard.jpg'
+import BackPaintxt from '@/public/BackPaintxt.jpeg'
+import BulgingDisc from '@/public/BulgingDisc.png'
+import BulgingDiscarti from '@/public/BulgingDiscarti.png'
+import CarpalTunnelSyndrome from '@/public/CarpalTunnelSyndrome.png'
+import CarpalTunnelSyndromearti from '@/public/CarpalTunnelSyndromearti.png'
+import CervicalDeformitiescard from '@/public/CervicalDeformitiescard.png'
+import CervicalDeformitiestxt from '@/public/CervicalDeformitiestxt.webp'
+import DiscTear from '@/public/DiscTear.jpeg'
+import DiscTeartxt from '@/public/DiscTeartxt.jpeg'
+import aiicard from '@/public/aiicard.jpeg'
+import aiitxt from '@/public/aiitxt.jpg'
+import HipDysplasia from '@/public/HipDysplsia.jpg'
+import HipDysplasiatxt from '@/public/HipDysplasiatxt.jpeg'
+import DegenerativeDiscDisease from '@/public/DegenerativeDiscDisease.png'
+import DegenerativeDiscDiseasec from '@/public/DegenerativeDiscDiseasec.png'
+import FacetJointDisease from '@/public/FacetJointDisease.png'
+import FacetJointDiseasearti from '@/public/FacetJointDiseasearti.png'
+import Arthritistxt from '@/public/arthritis.png'
+import Arthritiscard from '@/public/arthritis2.jpeg'
+import pinchednervea from '@/public/PinchedNerve.png'
+import pinchednevrearti from '@/public/PinchedNervearti.png'
+import cervicalHerniatedDisc from '@/public/CervicalHerniatedDisc.png'
+import cervicalHerniatedDiscarti from '@/public/CervicalHerniatedDiscarti.png'
+import cervicalSpinalStenosis from '@/public/CervicalSpinalStenosis.png'
+import cervicalSpinalStenosisatri from '@/public/CervicalSpinalStenosisarti.png'
+import sciaticacopy from '@/public/Sciaticacopy.png'
+import sciaticaarti from '@/public/Sciaticaarti.png'
+import LumbarHerniatedDiscCard from '@/public/LumbarHerniatedDisc.png'
+import LumbarHerniatedDiscTxt from '@/public/LumbarHerniatedDiscarti.png'
+import coccydyniaC from '@/public/Coccydynia.png'
+import coccydyniaarti from '@/public/Coccydyniaarti.png'
 
-// interface ConditionInfoProp {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export interface ConditionInfoProp {
 //   title : string
 //   body : string
 //   slug : string
 //   forum? : {}[]
+//   card_img?: StaticImageData
+//   inTxt_img?: StaticImageData
 //   side_img? : StaticImageData
 //   detail? : string
 //   what_sym? : string
@@ -41,11 +94,13 @@ import pinchednerveside from '@/public/pinchednerveside.jpeg'
 //   pain_info? : string
 //   prevent? : string
 //   schedule? : string
-// } <br>
+// }
 
 export const Conditions : ConditionInfoProp[] = [
   {
     "title": "Adjacent Segment Disease",
+    "card_img": adjacentSegmentDisease,
+    "inTxt_img": adjacentSegmentDisease2,
     "body": "Adjacent Segment Disease (ASD) occurs when spinal segments next to a surgically treated area endure extra stress, which accelerates degeneration and discomfort. Knowing the symptoms, risk factors, diagnostic methods, and treatment options offered at Advanced Orthopedics helps patients manage and prevent this condition effectively.",
     "detail": "Adjacent Segment Disease refers to the deterioration of spinal segments directly above or below a segment that has already undergone fusion or another procedure. The change in biomechanics after surgery places additional strain on the neighboring levels, making them more prone to wear and tear. At Advanced Orthopedics, our specialized team provides thorough evaluations that include complimentary MRI reviews and free second opinions to deliver precise diagnoses and individualized care.",
     "what_sym": "Common symptoms include persistent neck or back pain, stiffness, reduced range of motion, numbness or tingling, and muscle weakness. These issues can grow more intense over time and can limit daily activities, which highlights the need for early diagnosis and timely intervention.",
@@ -62,6 +117,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Adult Degenerative Scoliosis",
+    "card_img": adultDegenerativeScoliosis,
+    "inTxt_img": adultDegenerativeScoliosis,
     "body": "Adult Degenerative Scoliosis develops when age related wear on the spine creates a side to side curve that can cause pain and limit movement. Advanced Orthopedics offers specialized care that eases discomfort, restores function, and improves quality of life while providing complimentary services that make every visit smooth and stress free.",
     "detail": "This condition affects adults who are usually older than fifty when spinal discs and facet joints begin to break down. As the support structures weaken the spine can tilt and rotate, producing an abnormal curve, back pain, and trouble with daily activities. At Advanced Orthopedics our team uses precise diagnostics that include complimentary MRI reviews to measure curvature and uncover related issues. Patients receive clear explanations, free second opinions, and car service so they can focus on healing rather than logistics.",
     "what_sym": "Common signs include chronic lower back pain, uneven shoulders or hips, a noticeable spinal curve, stiffness or ache during routine tasks, and radiating pain numbness or weakness that travels into the legs.",
@@ -77,6 +134,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Back Pain",
+    "card_img": BackPaincard,
+    "inTxt_img": BackPaintxt,
     "body": "Back pain refers to discomfort or severe pain that can appear in the lower, middle, or upper back and often limits daily activity. Advanced Orthopedics creates complete treatment plans that blend modern techniques with compassionate, patient focused care to give lasting relief and restore mobility.",
     "detail": "Back pain can arise anywhere along the spine, from the neck to the lower back. Causes include muscle strain, ligament sprain, herniated discs, degenerative changes, or structural concerns such as spinal stenosis or scoliosis. Ongoing or intense pain disrupts daily routines and affects both physical and emotional health. The team at Advanced Orthopedics performs careful evaluations using advanced tools that include complimentary MRI readings, free second opinions, and convenient car service so each patient receives clear answers and support throughout care.",
     "what_sym": "Possible signs are steady aching, sharp or stabbing sensations, pain that radiates into legs or arms, muscle tightness or spasms, stiffness, and limited range of motion.",
@@ -91,6 +150,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Bulging Disc",
+    "card_img": BulgingDisc,
+    "inTxt_img": BulgingDiscarti,
     "body": "A bulging disc occurs when an intervertebral disc protrudes beyond its normal boundary and may compress nearby nerves causing pain numbness or weakness. At Advanced Orthopedics our specialists provide targeted treatments designed to relieve symptoms restore function and enhance quality of life through compassionate patient focused care.",
     "detail": "A bulging disc develops when a spinal disc which acts as a shock absorber between vertebrae extends beyond its typical outline. This can result from aging wear and tear repetitive strain or injury and most often affects the lower back or neck leading to discomfort or nerve compression. At Advanced Orthopedics our dedicated team uses state of the art diagnostic tools including complimentary MRI readings to assess each case accurately. We tailor care plans to individual needs and support every step with free second opinions and complementary car service to ensure comfort and convenience.",
     "what_sym": "Common symptoms include localized pain at the affected level radiating pain into the arms or legs tingling or numbness muscle weakness stiffness and reduced range of motion.",
@@ -106,6 +167,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Carpal Tunnel Syndrome",
+    "card_img": CarpalTunnelSyndrome,
+    "inTxt_img": CarpalTunnelSyndromearti,
     "body": "Carpal Tunnel Syndrome is a nerve compression disorder affecting the median nerve in the wrist often causing pain tingling and weakness in the hand. At Advanced Orthopedics our team offers precise diagnostics and evidence based treatments to relieve symptoms restore hand function and protect your quality of life with complimentary patient amenities",
     "detail": "Carpal Tunnel Syndrome develops when the carpal tunnel a narrow passage on the palm side of the wrist narrows or when tissues around the flexor tendons swell placing pressure on the median nerve. Repeated hand motions long periods of keyboard use variations in wrist anatomy or conditions such as diabetes and thyroid imbalance can contribute to CTS. Symptoms start gradually and worsen over time interfering with tasks like gripping objects or typing. At Advanced Orthopedics our experts perform detailed clinical assessments combined with complimentary MRI or ultrasound imaging to confirm diagnosis and pinpoint underlying factors. We deliver personalized patient focused care with free second opinions and car service to ensure comfort and confidence throughout your treatment journey",
     "what_sym": "Common signs include intermittent or constant numbness burning or tingling in the thumb index middle and ring fingers weakness that leads to dropping objects nighttime pain that disturbs sleep and reduced dexterity making fine motor tasks challenging",
@@ -120,6 +183,8 @@ export const Conditions : ConditionInfoProp[] = [
   
   {
     "title": "Cervical Deformities",
+    "card_img": CervicalDeformitiescard,
+    "inTxt_img": CervicalDeformitiestxt,
     "body": "Cervical deformities involve abnormal alignment of the neck portion of the spine such as excessive kyphosis loss of natural lordosis or complex scoliosis which can cause pain neurological deficits and noticeable posture changes. At Advanced Orthopedics our fellowship trained spine surgeons and multidisciplinary team provide state of the art evaluation and correction strategies that relieve symptoms protect spinal cord function and restore natural alignment while offering complimentary MRI reviews free second opinions and convenient car service",
     "detail": "The cervical spine consists of seven delicate vertebrae that support the head and protect the spinal cord. Degenerative disc disease prior trauma or surgery congenital abnormalities inflammatory arthritis tumors or progressive osteoporosis can disrupt this balance leading to deformities that tilt the head forward sideways or rotate out of plane. Such malalignment increases stress on discs joints and neural structures often causing chronic neck pain muscle fatigue balance issues and difficulty maintaining a level gaze. At Advanced Orthopedics we begin with a meticulous clinical assessment of posture range of motion and neurological function followed by standing X rays and complimentary high resolution MRI or CT scans to evaluate bone quality spinal canal space and overall spinal balance. This data allows us to craft a personalized plan that may include targeted rehabilitation or precise surgical intervention when conservative care is not sufficient",
     "what_sym": "Patients commonly experience persistent neck or upper back pain muscle tightness tension headaches radiating numbness or weakness in the arms gait or balance disturbances and visible changes in head or shoulder position that worsen with fatigue",
@@ -134,6 +199,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Disc Tear",
+    "card_img": DiscTear,
+    "inTxt_img": DiscTeartxt,
     "body": "A disc tear also called an annular fissure or annular tear occurs when the tough outer ring of an intervertebral disc develops a crack allowing chemical irritants to leak and inflame nearby nerves. At Advanced Orthopedics we deliver accurate diagnosis and evidence based care pairing complimentary MRI reviews and free second opinions with personalized treatment plans that relieve pain speed healing and restore spinal stability",
     "detail": "Each spinal disc is built like a jelly filled donut with a resilient outer annulus fibrosus encasing a gel like nucleus pulposus. Sudden twists heavy lifting or chronic overload can split the annulus producing a disc tear. Even without a visible bulge the exposed nucleus releases inflammatory proteins that trigger sharp localized pain and muscle guarding. Left untreated an annular tear can progress to a full herniation or accelerate disc degeneration. At Advanced Orthopedics evaluation begins with a detailed history of symptom onset often tied to a single lift or torsion and a focused physical examination that reproduces pain with forward flexion or axial loading. Complimentary high resolution MRI scans reveal high intensity zones within the annulus confirming the tear and identifying any early disc bulging or nerve irritation. This precise mapping guides a tailored rehabilitation and intervention strategy",
     "what_sym": "Symptoms include sudden stabbing pain in the neck or lower back after lifting or twisting lingering soreness that worsens with sitting or bending deep ache at night or in the morning occasional radiating discomfort into the buttocks or shoulder blades and episodes of muscle spasm that restrict movement",
@@ -148,6 +215,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Anti Inflammatory Injections",
+    "card_img": aiicard,
+    "inTxt_img": aiitxt,
     "body": "Anti inflammatory injections such as corticosteroid or biologic agents deliver potent medication directly to inflamed joints bursae or spinal regions rapidly reducing pain and swelling when oral therapies fall short. At Advanced Orthopedics our specialists use image guided precision complimentary MRI reviews and personalized follow up to ensure each injection provides maximum relief with minimal risk",
     "detail": "Inflammation is the body’s natural response to injury but when it lingers in joints tendons or around irritated spinal nerves it can cause relentless pain and tissue damage. Anti inflammatory injections introduce medication exactly where inflammation is strongest bathing irritated tissues in high concentrations of therapeutic agents while limiting whole body side effects. Common targets include arthritic knees and shoulders swollen bursae painful trigger points and spinal facets or epidural spaces affected by disc disease. At Advanced Orthopedics every injection begins with a detailed consultation and complimentary MRI or ultrasound review that confirms the inflamed structure and rules out other causes of pain. Using real time ultrasound or fluoroscopy guidance our physicians place medication with pinpoint accuracy maximizing benefit and reducing complications. We then design a rehabilitation plan combining physical therapy and ergonomic coaching to help patients capitalize on their pain free window and regain strength and flexibility",
     "what_sym": "Benefits include rapid pain relief diminished swelling increased range of motion and easier participation in rehabilitative exercise. Targeted delivery also minimizes the gastrointestinal or cardiovascular side effects sometimes linked to long term oral anti inflammatory treatments",
@@ -162,6 +231,8 @@ export const Conditions : ConditionInfoProp[] = [
 
   {
     "title": "Hip Dysplasia",
+    "card_img": HipDysplasiatxt,
+    "inTxt_img": HipDysplasia,
     "body": "Hip dysplasia is a structural condition in which the hip socket or acetabulum is too shallow to fully cover and support the femoral head leading to joint instability early cartilage wear and progressive arthritis. At Advanced Orthopedics our fellowship trained hip specialists combine state of the art imaging individualized treatment plans and patient focused amenities including complimentary MRI reviews free second opinions and convenient car service to preserve joint health and keep you moving pain free",
     "detail": "In a healthy hip a cup shaped acetabulum holds the femoral head securely distributing load evenly during walking or running. With dysplasia the socket is under developed or oriented abnormally forcing the femoral head to bear weight across a thin rim of cartilage. Over time excess stress causes labral tears cartilage breakdown and painful arthritis that may appear decades earlier than in normal hips. Though often diagnosed in infancy mild dysplasia can go unnoticed until adulthood when groin pain clicking or mechanical catching emerges during sports or prolonged sitting. At Advanced Orthopedics evaluation starts with a detailed history exploring childhood hip issues gait abnormalities and current activity limitations. A focused examination assesses range of motion impingement signs and limb length differences. Complimentary high resolution MRI or 3 D CT scans map socket depth version and labral integrity while standing AP pelvis X rays quantify key angles such as the lateral center edge angle. These measurements guide a personalized treatment strategy that balances joint preservation with long term function",
     "what_sym": "Many adults report deep groin or lateral hip pain that worsens with long periods of standing pivoting sports or rising from low chairs. A sensation of instability audible clicking or a catching feeling may indicate labral damage. As arthritis advances stiffness and reduced stride length accompany persistent discomfort during daily activities",
@@ -176,7 +247,9 @@ export const Conditions : ConditionInfoProp[] = [
     
 
     {
-      "title": "Degenerative Disc Disease",
+        "title": "Degenerative Disc Disease",
+        "card_img": DegenerativeDiscDiseasec,
+        "inTxt_img": DegenerativeDiscDisease,
         "body": "Degenerative Disc Disease, often called DDD, refers to the natural wear and tear of the spinal discs that cushion each vertebra. At Advanced Orthopedics our specialists provide comprehensive patient focused treatment that relieves back pain and improves quality of life through advanced care and complimentary services.",
         "detail": "Degenerative Disc Disease is not an illness but a condition that develops when intervertebral discs gradually lose hydration, become thinner, and allow minor instability in the spine. These changes may create pain, reduced mobility, and discomfort. Advanced Orthopedics excels at diagnosing and treating DDD with precise imaging, including complimentary MRI readings, and a personalized approach. Patients receive clear explanations, free second opinions, and convenient car service to make every visit comfortable.",
         "what_sym": "Common signs include chronic neck or back pain, pain that worsens when sitting bending lifting or twisting, discomfort that radiates into arms or legs, numbness or tingling, and stiffness or reduced flexibility.",
@@ -343,21 +416,34 @@ export const Conditions : ConditionInfoProp[] = [
     
     {
       "title": "Facet Joint Disease",
+      "card_img": FacetJointDisease,
+      "inTxt_img": FacetJointDiseasearti,
       "body": "Facet Joint Disease, sometimes called Facet Syndrome, involves inflammation and degeneration of the facet joints in the spine. Advanced Orthopedics delivers targeted treatment that eases pain, restores mobility, and supports an active lifestyle through exceptional patient care and helpful amenities.",
-    "detail": "Facet joints are the small stabilizing joints that link one vertebra to another and allow the spine to bend and twist. Over time these joints can wear down or become inflamed from aging, injury, or repetitive stress, which leads to chronic neck or back pain. Advanced Orthopedics evaluates each case with advanced imaging that includes a complimentary MRI review and provides clear diagnoses, free second opinions, and convenient car service so that patients feel supported from start to finish.",
-    "what_sym": "Typical symptoms include persistent neck or back pain, greater discomfort when standing twisting or bending, stiffness and limited motion, pain that travels to shoulders arms hips or legs, and muscle spasms near the affected area.",
-    "risk_fac": "Risks rise with growing age especially beyond fifty, a history of spinal injury, arthritis or disc degeneration, repetitive strain or heavy lifting, and excess body weight.",
-    "diagnose": "Our team begins with a complete medical history and physical exam and then confirms the affected joints with complimentary MRI imaging. This precise information guides a treatment plan that fits each patient’s needs.",
-    "treatment": "Care may include structured physical therapy and guided exercise, pain relief or anti inflammatory medication, facet joint injections, radiofrequency ablation for longer lasting relief, and when needed minimally invasive surgery. We always choose the most effective option that allows the quickest safe recovery.",
-    "pain_info": "Pain from Facet Joint Disease often grows worse with certain movements or long periods of standing. A structured pain management plan from Advanced Orthopedics can greatly reduce symptoms and improve daily comfort.",
-    "prevent": "You can slow joint wear by taking regular low impact exercise, keeping a healthy weight, sitting and moving with good posture, using ergonomic furniture and equipment, and avoiding smoking and repetitive heavy strain.",
-    "schedule": "Set up a consultation with Advanced Orthopedics today and take advantage of complimentary MRI review, a free second opinion, and door to door transportation that keeps your care convenient and comfortable.",
+      "detail": "Facet joints are the small stabilizing joints that link one vertebra to another and allow the spine to bend and twist. Over time these joints can wear down or become inflamed from aging, injury, or repetitive stress, which leads to chronic neck or back pain. Advanced Orthopedics evaluates each case with advanced imaging that includes a complimentary MRI review and provides clear diagnoses, free second opinions, and convenient car service so that patients feel supported from start to finish.",
+      "what_sym": "Typical symptoms include persistent neck or back pain, greater discomfort when standing twisting or bending, stiffness and limited motion, pain that travels to shoulders arms hips or legs, and muscle spasms near the affected area.",
+      "risk_fac": "Risks rise with growing age especially beyond fifty, a history of spinal injury, arthritis or disc degeneration, repetitive strain or heavy lifting, and excess body weight.",
+      "diagnose": "Our team begins with a complete medical history and physical exam and then confirms the affected joints with complimentary MRI imaging. This precise information guides a treatment plan that fits each patient’s needs.",
+      "treatment": "Care may include structured physical therapy and guided exercise, pain relief or anti inflammatory medication, facet joint injections, radiofrequency ablation for longer lasting relief, and when needed minimally invasive surgery. We always choose the most effective option that allows the quickest safe recovery.",
+      "pain_info": "Pain from Facet Joint Disease often grows worse with certain movements or long periods of standing. A structured pain management plan from Advanced Orthopedics can greatly reduce symptoms and improve daily comfort.",
+      "prevent": "You can slow joint wear by taking regular low impact exercise, keeping a healthy weight, sitting and moving with good posture, using ergonomic furniture and equipment, and avoiding smoking and repetitive heavy strain.",
+      "schedule": "Set up a consultation with Advanced Orthopedics today and take advantage of complimentary MRI review, a free second opinion, and door to door transportation that keeps your care convenient and comfortable.",
       "slug": "facetjointdisease"
     },
     {
       "title": "Arthritis",
+      "card_img": Arthritiscard,
+      "inTxt_img": Arthritistxt,
       "body": `Arthritis is a common joint condition that causes inflammation, stiffness, and pain, affecting millions of people across the U.S. It can severely limit mobility and interfere with daily activities like walking, climbing stairs, or even gripping objects. While arthritis is often associated with aging, it can affect people of all ages depending on the type and underlying cause.
-At Mountain Spine & Care, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
+      At Mountain Spine & Care, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
+      "detail": "Arthritis isn't a single disease, but rather an umbrella term covering over 100 types of joint pain and joint disease. The most common forms include Osteoarthritis (OA), resulting from the wear-and-tear breakdown of cartilage cushioning the joints, and Rheumatoid Arthritis (RA), an autoimmune disorder where the body's immune system mistakenly attacks the joint lining. Other types can stem from infections, underlying diseases like lupus, or uric acid crystal buildup (gout). Regardless of the type, arthritis can significantly impact mobility and overall well-being. Mountain Spine & Care is dedicated to identifying the specific type and cause of your arthritis to provide targeted, effective relief.",
+      "what_sym": "Common symptoms include persistent or intermittent joint pain, stiffness (often worse in the morning or after periods of inactivity), swelling or warmth around the joints, redness of the overlying skin, and a decreased range of motion. Fatigue and a general sense of feeling unwell can also accompany inflammatory types like Rheumatoid Arthritis.",
+      "risk_fac": "Risk factors vary depending on the type of arthritis but commonly include advancing age (especially for OA), a family history of arthritis, previous joint injuries or surgeries, obesity (which puts extra stress on joints like hips and knees), autoimmune conditions, and gender (some types, like RA and lupus, are more common in women).",
+      "diagnose": "At Mountain Spine & Care, diagnosis begins with a thorough review of your medical history and a detailed physical examination, assessing joint range of motion, tenderness, swelling, and stability. Diagnostic imaging, such as X-rays to visualize cartilage loss and bone spurs or MRIs for detailed views of soft tissues, is often employed; we offer a complimentary MRI review to aid this process. Blood tests or analysis of joint fluid may also be necessary to pinpoint specific types like RA or gout.",
+      "treatment": "Mountain Spine & Care creates personalized treatment plans that may involve a combination of approaches: pain-relieving and anti-inflammatory medications (including NSAIDs or specific drugs for RA like DMARDs), tailored physical therapy programs to improve strength and flexibility, lifestyle adjustments focusing on weight management and joint protection, corticosteroid or hyaluronic acid injections directly into the joint for temporary relief, and the use of assistive devices like braces or canes. For severe cases unresponsive to conservative care, advanced minimally invasive surgical options or joint replacement may be considered.",
+      "pain_info": "Arthritis pain can manifest differently – it might be a dull ache or a sharp pain, constant or activity-triggered, often accompanied by significant stiffness, especially upon waking. Mountain Spine & Care utilizes a comprehensive pain management strategy, combining medication, therapeutic injections, physical therapy, and lifestyle advice to effectively reduce discomfort, manage flare-ups, and significantly improve your ability to perform daily tasks.",
+      "prevent": "While preventing some types of arthritis (like those caused by genetics or autoimmune factors) isn't fully possible, managing risk factors and slowing progression is key. Maintaining a healthy weight reduces stress on weight-bearing joints, regular low-impact exercise (like swimming or cycling) keeps joints flexible and supporting muscles strong, protecting joints from injury during sports or work is crucial, and eating a balanced, anti-inflammatory diet may also offer benefits.",
+      "schedule": "If joint pain and stiffness are impacting your life, schedule a consultation at Mountain Spine & Care today. Our specialists can provide an accurate diagnosis, leveraging our complimentary MRI review service, discuss the wide range of effective treatment options available, and develop a personalized care plan designed to manage your arthritis and restore your mobility and comfort.",
+    
       side_img : arthritisside,
       forum : [
         {
@@ -530,6 +616,8 @@ At Mountain Spine & Care, we offer comprehensive arthritis treatment plans tailo
     },
     {
       "title": "Lower Back Pain",
+      "card_img": LowerBackPainimg,
+      "inTxt_img": LowerBackPaintxt,
       "body": "Lower back pain is one of the most common musculoskeletal complaints ranging from a dull ache to sharp disabling discomfort that limits work sports and daily activities. At Advanced Orthopedics we provide comprehensive evaluation and personalized treatment supported by complimentary MRI reviews free second opinions and convenient car service to identify the root cause of lower back pain and restore pain free movement",
       "detail": "The lumbar spine bears more load and endures greater motion than any other spinal region making it vulnerable to degenerative disc disease facet arthropathy muscle strain ligament sprain herniated discs spinal stenosis and spondylolisthesis. Poor posture repetitive lifting prolonged sitting and age related tissue wear can inflame joints irritate nerves and trigger protective muscle spasms. Persistent pain may radiate into the buttocks or legs and without proper management can progress to chronic disability. At Advanced Orthopedics a thorough history explores occupational demands recreational activities prior injuries and red flag symptoms such as bowel or bladder changes. A focused physical exam evaluates posture flexibility strength neurological function and pain provocation patterns. Complimentary high resolution MRI scans pinpoint disc pathology nerve compression or arthritic changes while upright X rays assess alignment and dynamic instability. These insights form the foundation of a targeted treatment plan tailored to each patient’s lifestyle and goals",
       "what_sym": "Patients may feel a constant dull ache or episodic sharp pain in the lumbar region stiffness upon waking muscle tightness after prolonged sitting or standing radiating pain or tingling down the leg sciatica and limited ability to bend lift or twist. Pain often intensifies with heavy lifting sudden movements or poor ergonomic positions",
@@ -688,6 +776,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
     {
       "title": "Pinched Nerve",
+      "card_img": pinchednervea,
+      "inTxt_img": pinchednevrearti,
       "body": "A pinched nerve, also called nerve compression or radiculopathy, occurs when surrounding tissues such as discs, bones, or swollen soft tissue press against a spinal or peripheral nerve producing pain, numbness, or weakness along the nerve’s path. Mountain Spine & Orthopedics offers precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve compression, restore sensation, and get you moving comfortably again.",
       "detail": "Nerves travel through narrow anatomical corridors surrounded by discs, ligaments, muscles, and bones. Herniated discs, degenerative bone spurs, thickened ligaments, or acute swelling after injury can narrow these passageways and irritate or compress the nerve. In the spine, cervical nerve compression may trigger arm pain or tingling while lumbar compression often produces sciatica that radiates down the leg. Peripheral entrapments such as carpal tunnel syndrome arise when nerves are squeezed in limb tunnels. Persistent pressure disrupts nerve signaling leading to pain, altered sensation, and muscle weakness if untreated. At Mountain Spine & Orthopedics evaluation begins with a thorough history detailing symptom onset, aggravating positions, occupational demands, and red flag signs like progressive weakness or bladder changes. A focused neurologic examination maps sensory deficits, reflex alterations, and motor strength. Complimentary high resolution MRI pinpoints structural causes whether disc herniation, stenosis, or soft tissue swelling while electromyography distinguishes nerve root compression from peripheral neuropathy. These data guide an individualized treatment strategy that addresses both inflammation and mechanical pressure.",
       "what_sym": "Patients describe sharp, burning, or electric like pain radiating along the nerve pathway accompanied by numbness, tingling, or pins and needles in the limb or region served by the nerve. Muscle weakness, diminished grip strength, or foot drop can develop when compression persists and symptoms often worsen with specific neck or back positions or repetitive limb motions.",
@@ -868,50 +958,10 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       side_img : pinchednerveside,
       "slug": "pinchednerve"
     },
-    
-    {
-      "title": "Herniated Disc",
-      "body": "A herniated disc is a vertebral disc that has broken down to the point where the inner material, called the nucleus, has seeped through the wall of the vertebral disc and ca...",
-      "slug": "herniateddisc"
-    },
-    
-    {
-      "title": "Rheumatoid Arthritis",
-      "body": "An autoimmune condition that causes inflammation in the joints, often leading to pain, swelling, and joint deformity.",
-      "slug": "rheumatoidarthritis"
-    },
-    {
-      "title": "Torn Meniscus",
-      "body": "A common knee injury involving torn cartilage that cushions and stabilizes the joint, often caused by twisting motions.",
-      "slug": "tornmeniscus"
-    },
-    {
-      "title": "Rotator Cuff Tear",
-      "body": "A tear in one or more of the tendons of the shoulder’s rotator cuff, leading to weakness and pain in arm movement.",
-      "slug": "rotatorcufftear"
-    },
-    {
-      "title": "ACL Injury",
-      "body": "A tear or sprain of the anterior cruciate ligament (ACL) in the knee, often caused by sudden stops or changes in direction.",
-      "slug": "aclinjury"
-    },
-    {
-      "title": "Tennis Elbow",
-      "body": "A painful condition caused by overuse of the elbow, leading to inflammation of the tendons on the outside of the elbow.",
-      "slug": "tenniselbow"
-    },
-    {
-      "title": "Plantar Fasciitis",
-      "body": "Inflammation of the tissue on the bottom of the foot, causing heel pain especially in the morning or after rest.",
-      "slug": "plantarfasciitis"
-    },
-    {
-      "title": "Bursitis",
-      "body": "Inflammation of the small fluid-filled sacs (bursae) that cushion the bones, tendons, and muscles near joints.",
-      "slug": "bursitis"
-    },
     {
       title : 'Cervical Herniated Disc',
+      "card_img": cervicalHerniatedDisc,
+      "inTxt_img": cervicalHerniatedDiscarti,
       "body": "A cervical herniated disc occurs when the soft gel like core of a neck level intervertebral disc ruptures through its outer layer and presses on nearby nerves or the spinal cord. Advanced Orthopedics provides leading edge diagnostics and multidisciplinary care to relieve pain protect nerve function and restore neck mobility with free second opinions complimentary MRI reviews and car service for every patient",
       "detail": "The cervical spine supports the head and allows extensive motion making its discs vulnerable to injury and degeneration. When the annulus fibrosus tears the nucleus pulposus can protrude creating inflammatory and mechanical pressure on the C5 to C8 nerve roots or the spinal cord. This can lead to neck pain radiating arm symptoms numbness weakness and in severe cases problems with balance and dexterity. At Advanced Orthopedics we begin with a detailed history to identify potential triggers such as trauma overhead work or progressive degeneration and perform a focused neurological exam mapping sensory changes reflex asymmetries and muscle strength. Complimentary high resolution MRI scans then pinpoint the herniation level size and any spinal cord compression guiding a customized treatment plan",
       "what_sym": "Symptoms include sharp or burning neck pain that worsens with coughing or head movement radiating pain or electric like shocks down the shoulder or arm hand or finger numbness reduced grip strength and when the cord is involved difficulty with fine motor tasks or unsteady gait",
@@ -1128,6 +1178,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
     {
       "title": "Cervical Spinal Stenosis",
+      "card_img": cervicalSpinalStenosis,
+      "inTxt_img": cervicalSpinalStenosisatri,
       "body": "Cervical Spinal Stenosis is a condition in which the spinal canal in the neck narrows compressing the spinal cord or exiting nerve roots. At Advanced Orthopedics our fellowship trained spine specialists combine precise diagnostics with leading edge therapies to relieve pain protect neurologic function and restore confident neck mobility supported by complimentary MRI reviews free second opinions and convenient car service",
       "detail": "The cervical spine houses the delicate spinal cord while permitting flexible head movement. Degenerative changes such as disc bulging thickened ligaments bone spurs or facet joint enlargement can progressively constrict the canal producing cervical spinal stenosis. As space diminishes patients may experience radiating arm pain numbness weakness or in advanced cases myelopathy with gait imbalance and hand clumsiness. Advanced Orthopedics performs a comprehensive evaluation beginning with a detailed history and neurologic examination mapping sensory loss reflex changes and coordination deficits. Complimentary high resolution MRI and when needed CT myelography pinpoint the exact levels and structures causing compression. This meticulous assessment guides a personalized treatment plan that preserves cord health and addresses pain at its source",
       "what_sym": "Patients often report neck stiffness or aching burning or electric like pain radiating into shoulders and arms hand numbness fine motor difficulty such as buttoning shirts leg weakness or heaviness balance problems and in severe cases bladder or bowel urgency",
@@ -1308,8 +1360,18 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "slug": "cervicalspinalstenosis"
     },
     {
-      "title": "Lumbar Herniated Disc",
-       body : "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
+        "title": "Lumbar Herniated Disc",
+        "card_img": LumbarHerniatedDiscCard, 
+        "inTxt_img": LumbarHerniatedDiscTxt,
+        "body": "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
+        "detail": "Each spinal disc has a tough outer layer called the annulus fibrosus and a soft, gel-like center known as the nucleus pulposus. Herniation happens when a tear in the annulus allows the nucleus to push outward. This displacement can occur gradually due to degenerative changes or suddenly from excessive strain or trauma. When the herniated material compresses or irritates spinal nerves exiting the spinal canal in the lower back, it triggers the characteristic radiating symptoms down the leg (sciatica). Mountain Spine & Care specializes in accurately diagnosing the level and severity of the herniation to guide effective treatment.",
+        "what_sym": "Symptoms often include sharp, shooting pain originating in the lower back and traveling down the buttock and back of one leg (sciatica), though sometimes back pain itself might be minimal. Numbness, tingling ('pins and needles'), or muscle weakness in the affected leg or foot are common. Pain may worsen with activities like sitting for long periods, bending forward, coughing, or sneezing.",
+        "risk_fac": "Key risk factors include age, as discs naturally degenerate over time making them more prone to herniation (most common between ages 30-50), improper lifting techniques or repetitive twisting motions, physically demanding occupations, excess body weight putting added strain on the spine, a sedentary lifestyle leading to weaker core support muscles, smoking which can impair disc nutrition, and a potential genetic predisposition to disc degeneration.",
+        "diagnose": "Diagnosis at Mountain Spine & Care involves a comprehensive evaluation, starting with a detailed medical history focusing on the pattern and triggers of your pain. A physical examination includes neurological testing (checking reflexes, muscle strength, sensation) and specific maneuvers like the straight leg raise test to identify nerve irritation. While symptoms often suggest a herniated disc, imaging studies, particularly an MRI, are crucial to confirm the diagnosis, visualize the disc pressing on the nerve, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy.",
+        "treatment": "Mountain Spine & Care prioritizes conservative treatment initially for most lumbar herniated discs. This often includes modified rest, targeted physical therapy focusing on core stabilization and specific exercises (like McKenzie method), pain and anti-inflammatory medications (NSAIDs, muscle relaxants), and epidural steroid injections to reduce nerve inflammation and radiating pain. If significant pain or neurological symptoms persist despite several weeks of conservative care, minimally invasive surgical options like microdiscectomy (removing the herniated portion of the disc) may be recommended to decompress the affected nerve.",
+        "pain_info": "The pain from a lumbar herniated disc is often neuropathic, meaning it stems from nerve compression, resulting in sharp, burning, or electric shock-like sensations down the leg (sciatica). This leg pain is frequently more severe than the localized back pain. Mountain Spine & Care focuses on alleviating this nerve pain through targeted treatments like epidural injections and physical therapy designed to reduce nerve irritation and improve function.",
+        "prevent": "While not all herniated discs are preventable, you can reduce your risk by consistently using proper lifting techniques (lifting with your legs, not your back), maintaining a healthy weight, practicing good posture, strengthening your core and back muscles through regular exercise, avoiding prolonged periods of sitting by taking frequent breaks to stand and stretch, and quitting smoking.",
+        "schedule": "If you're experiencing persistent lower back pain radiating into your leg, contact Mountain Spine & Care for an expert evaluation. Utilize our complimentary MRI review for an accurate diagnosis, and let our specialists develop a personalized treatment plan, emphasizing conservative care first, to relieve your pain and help you return to your daily activities.",
        side_img : lumbarherniateddiscside,
        forum : [
         {
@@ -1470,7 +1532,9 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Sciatica",
+        "title": "Sciatica", 
+        "card_img": sciaticacopy,
+        "inTxt_img": sciaticaarti,
         "body": "Sciatica refers to pain caused by irritation or compression of the sciatic nerve, which runs from the lower back through the hips and down each leg. Mountain Spine & Orthopedics provides precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve sciatic nerve pressure, reduce inflammation, and restore comfortable pain free motion.",
         "detail": "The sciatic nerve is the body’s largest nerve, originating from spinal nerve roots in the lower back and traveling through the pelvis buttocks and down each leg. Herniated discs bone spurs spinal stenosis or inflammation can compress these roots, triggering radiating pain numbness or weakness that follows the nerve’s path. Sciatica is a symptom of an underlying issue that must be correctly identified for effective treatment. At Mountain Spine & Orthopedics evaluation begins with a detailed history identifying pain onset activity triggers and previous spine or hip conditions. A focused physical exam assesses posture gait reflexes and straight leg raise response. Complimentary high resolution MRI pinpoints the structural cause—often a herniated disc or foraminal narrowing—while electromyography distinguishes true sciatica from peripheral nerve or muscular disorders. These findings guide an individualized care plan to relieve nerve root pressure and address biomechanical contributors.",
         "what_sym": "Sharp burning or electric like pain radiating from the lower back into the buttock thigh and down one leg; numbness or tingling along the same path; muscle weakness in the affected leg or foot; increased discomfort when sitting coughing or standing for long periods; and difficulty walking due to pain or instability.",
@@ -1653,6 +1717,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Coccydynia",
+      "card_img": coccydyniaC,
+      "inTxt_img": coccydyniaarti,
       "body": "Coccydynia or tailbone pain can make every sit stand or step an ordeal. Advanced Orthopedics uses precise diagnosis and evidence based therapies to ease discomfort improve mobility and restore pain free sitting while providing complimentary MRI reviews free second opinions and door to door car service",
       "detail": "The coccyx or tailbone anchors pelvic floor muscles and supports weight during sitting. Falls onto hard surfaces repetitive microtrauma from cycling or rowing childbirth prolonged sitting on hard chairs and degenerative joint changes can inflame or dislocate the coccyx producing coccydynia. Pain may last weeks to months and often radiates into the low back or hips interfering with work driving and even restful sleep. At Advanced Orthopedics our specialists gather a thorough history to pinpoint injury events and aggravating activities and conduct a focused physical examination that palpates coccygeal segments and screens for pelvic floor tension. Complimentary high resolution MRI or dynamic X rays clarify alignment rule out fractures or tumors and evaluate surrounding soft tissues enabling a customized care plan that targets the true source of pain",
       "what_sym": "Classic signs include sharp or aching pain directly over the tailbone pain that spikes when rising from sitting or leaning backward tenderness to touch pain during bowel movements or intercourse and in chronic cases radiating soreness into the sacrum or hips",
@@ -1967,7 +2033,9 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Failed Back or Failed Neck Surgery Syndrome ",
+      "title": "Failed Back or Failed Neck Surgery Syndrome",
+
+      
       "body": "Failed Back or Failed Neck Surgery Syndrome describes persistent or recurrent pain and functional limitations following spinal procedures that were expected to relieve symptoms. At Advanced Orthopedics our multidisciplinary team specializes in uncovering the root causes of ongoing pain delivering precision diagnostics revision strategies and comprehensive rehabilitation supported by complimentary MRI reviews free second opinions and convenient car service to help patients reclaim quality of life",
       "detail": "Spine surgery is often performed to decompress nerves stabilize unstable segments or correct deformity. While most patients improve a subset continues to experience pain due to unresolved nerve compression inadequate fusion adjacent segment degeneration hardware complications or new sources of inflammation and scarring. This constellation of persistent symptoms is termed Failed Back Surgery Syndrome when pain originates in the lumbar region and Failed Neck Surgery Syndrome when cervical procedures are involved. Complex anatomy pre existing conditions and postoperative biomechanics all influence outcomes making precise re evaluation essential before considering additional interventions. At Advanced Orthopedics evaluation begins with a meticulous review of surgical records imaging and symptom chronology combined with a thorough neurologic and musculoskeletal examination. Complimentary high resolution MRI or CT often with contrast visualizes scar tissue hardware position and fusion integrity alongside dynamic flexion extension radiographs that reveal hidden instability and guide a personalized treatment roadmap",
       "what_sym": "Patients frequently report persistent or worsening axial pain radicular burning or electric like sensations in the limbs numbness weakness limited range of motion difficulty standing or sitting for prolonged periods and sleep disruption emotional distress fatigue and decreased activity tolerance often accompany chronic postoperative pain",
@@ -2287,7 +2355,48 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "schedule": "If outer hip pain is limiting your comfort or mobility schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review free second opinion and door to door transportation then move forward with a plan to resolve trochanteric bursitis and restore your active lifestyle",
       "slug": "trochantericbursitis"
     },
-
+    
+    {
+      "title": "Herniated Disc",
+      "body": "A herniated disc is a vertebral disc that has broken down to the point where the inner material, called the nucleus, has seeped through the wall of the vertebral disc and ca...",
+      "slug": "herniateddisc"
+    },
+    
+    {
+      "title": "Rheumatoid Arthritis",
+      "body": "An autoimmune condition that causes inflammation in the joints, often leading to pain, swelling, and joint deformity.",
+      "slug": "rheumatoidarthritis"
+    },
+    {
+      "title": "Torn Meniscus",
+      "body": "A common knee injury involving torn cartilage that cushions and stabilizes the joint, often caused by twisting motions.",
+      "slug": "tornmeniscus"
+    },
+    {
+      "title": "Rotator Cuff Tear",
+      "body": "A tear in one or more of the tendons of the shoulder’s rotator cuff, leading to weakness and pain in arm movement.",
+      "slug": "rotatorcufftear"
+    },
+    {
+      "title": "ACL Injury",
+      "body": "A tear or sprain of the anterior cruciate ligament (ACL) in the knee, often caused by sudden stops or changes in direction.",
+      "slug": "aclinjury"
+    },
+    {
+      "title": "Tennis Elbow",
+      "body": "A painful condition caused by overuse of the elbow, leading to inflammation of the tendons on the outside of the elbow.",
+      "slug": "tenniselbow"
+    },
+    {
+      "title": "Plantar Fasciitis",
+      "body": "Inflammation of the tissue on the bottom of the foot, causing heel pain especially in the morning or after rest.",
+      "slug": "plantarfasciitis"
+    },
+    {
+      "title": "Bursitis",
+      "body": "Inflammation of the small fluid-filled sacs (bursae) that cushion the bones, tendons, and muscles near joints.",
+      "slug": "bursitis"
+    },
 
 
   ]

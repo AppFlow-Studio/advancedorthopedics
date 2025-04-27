@@ -13,6 +13,8 @@ import { DoctorContactForm } from '@/components/DoctorContactForm'
 import Link from 'next/link'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import ConditionList from '@/components/ConditionsList'
+import Logo from '@/public/newlogo4.png'
+
 export default function ConditionDetails({
     params,
   }: {
@@ -208,7 +210,7 @@ export default function ConditionDetails({
                     </div>
                     
                     {/* Video */}
-                    <div className='rounded-[20px] w-full max-h-[425px] lg:h-[425px] bg-gray-500' />
+                    <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
                     <h1
                          style={{
                             fontFamily : 'var(--font-inter)',

@@ -9,6 +9,8 @@ export interface ConditionInfoProp {
     body : string
     slug : string
     forum? : {}[]
+    card_img?: StaticImageData
+    inTxt_img?: StaticImageData
     side_img? : StaticImageData
     detail? : string
     what_sym? : string
@@ -28,9 +30,11 @@ export default function ConditionCard({ ConditionInfo } : { ConditionInfo : Cond
   return (
     <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/area-of-speciality/${ConditionInfo.slug}`}>
         <div >
-            <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex">
-                <div className='flex flex-row  space-x-[8px] items-center justify-center'> 
-                    <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[45px] lg:h-[45px] w-auto  " />
+            <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden">
+                <div className='flex flex-row  space-x-[8px] items-center justify-center w-full h-full'> 
+                 <Image src={ConditionInfo?.card_img ? ConditionInfo?.card_img : Logo} alt={ConditionInfo.title} className="w-full h-full object-cover object-center   " />
+                
+                    {/* <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[45px] lg:h-[45px] w-auto  " />
                     <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                     <div className="flex flex-col text-white"
                     style={{
@@ -40,7 +44,7 @@ export default function ConditionCard({ ConditionInfo } : { ConditionInfo : Cond
                     >
                         <h1 className="text-xl font-[600] text-[#022968]">MOUNTAIN</h1>
                         <h2 className="font-[600] text-xs text-[#0094E0]">SPINE & ORTHOPEDICS</h2>    
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
