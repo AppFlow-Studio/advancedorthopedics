@@ -1,3 +1,23 @@
+
+
+  //   title : string
+  //   body : string
+  //   slug : string
+  //   forum? : {}[]
+  //   card_img?: StaticImageData
+  //   inTxt_img?: StaticImageData
+  //   side_img? : StaticImageData
+  //   detail? : string
+  //   what_sym? : string
+  //   risk_fac? : string
+  //   diagnose? : string
+  //   treatment? : string
+  //   pain_info? : string
+  //   prevent? : string
+  //   schedule? : string
+
+
+
 export const AllTreatments = [
     {
       "title": "ACDF Surgery",
