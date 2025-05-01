@@ -79,6 +79,7 @@ export type CarouselProps = {
   index?: number;
   onIndexChange?: (newIndex: number) => void;
   disableDrag?: boolean;
+  minusOffset? : number
 };
 
 function Carousel({
@@ -88,6 +89,7 @@ function Carousel({
   index: externalIndex,
   onIndexChange,
   disableDrag = false,
+  minusOffset = 1
 }: CarouselProps) {
   const [internalIndex, setInternalIndex] = useState<number>(initialIndex);
   const isControlled = externalIndex !== undefined;
@@ -230,12 +232,16 @@ export type CarouselContentProps = {
   children: ReactNode;
   className?: string;
   transition?: Transition;
+  minusOffset? : number,
+  dragOffset?: number;
 };
 
 function CarouselContent({
   children,
   className,
   transition,
+  minusOffset = 1,
+  dragOffset = 100,
 }: CarouselContentProps) {
   const { index, setIndex, setItemsCount, disableDrag } = useCarousel();
   const [visibleItemsCount, setVisibleItemsCount] = useState(1);
@@ -277,13 +283,13 @@ function CarouselContent({
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -10 && index < itemsLength - 2) {
+    if (x <= -10 && index < itemsLength - minusOffset) {
       setIndex(index + 1);
     } else if (x >= 10 && index > 0) {
       setIndex(index - 1);
     }
   };
-
+  
   return (
     <motion.div
       drag={disableDrag ? false : 'x'}
@@ -300,7 +306,7 @@ function CarouselContent({
         x: disableDrag ? undefined : dragX,
       }}
       animate={{
-        translateX: `-${index * (103 / visibleItemsCount)}%`,
+        translateX: `-${ index * (dragOffset / visibleItemsCount ) }%`,
       }}
       onDragEnd={disableDrag ? undefined : onDragEnd}
       transition={
@@ -313,7 +319,7 @@ function CarouselContent({
       }
       className={cn(
         'flex items-center',
-        !disableDrag && 'cursor-grab active:cursor-grabbing',
+        !disableDrag && 'cursor-grab active:cursor-grabbing ',
         className
       )}
       ref={containerRef}

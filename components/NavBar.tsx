@@ -390,7 +390,7 @@ export default function NavBar() {
               </button>
 
               <button 
-                  className={` ${isSidebarOpen ? 'hidden' : ''} group  max-h-[40px] sm:flex hidden h-full px-[20px] rounded-[62px] relative items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
+                  className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  max-h-[40px]  h-full px-[20px] rounded-[62px] relative items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
                   >
                   <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
                   <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
