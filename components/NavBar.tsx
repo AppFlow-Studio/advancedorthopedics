@@ -390,8 +390,7 @@ export default function NavBar() {
               </button>
 
               <button 
-                  className={` ${isSidebarOpen ? 'hidden' : ''} max-h-[40px] sm:flex hidden h-full px-[20px] rounded-[62px] relative items-center justify-between bg-[#022968] text-white text-[14px] font-semibold`}
-                  
+                  className={` ${isSidebarOpen ? 'hidden' : ''} max-h-[40px] sm:flex hidden h-full px-[20px] rounded-[62px] relative items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
                   >
                   Contact Us
                   <div className='pl-[10px]'>
