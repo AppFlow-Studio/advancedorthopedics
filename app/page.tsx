@@ -322,7 +322,7 @@ export default function Home() {
             <div className="lg:px-[80px] px-8 my-[24px] xl:w-[55%] flex md:flex-row flex-col md:space-y-0 space-y-4 space-x-[16px]">
               <div className=""><BookAnAppoitmentButton /></div>
               <button 
-                  className="h-full max-h-[56px] group  px-[32px] py-[16px] rounded-[62px] relative flex items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
+                  className="h-full max-h-[56px] group hover:cursor-pointer  px-[32px] py-[16px] rounded-[62px] relative flex items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
                   >
                   <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
                   <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
@@ -548,7 +548,7 @@ export default function Home() {
              </div>
 
 
-             <div className="relative z-10 lg:overflow-visible overflow-hidden   "> {/* Wrapper with high z-index  xl:-right-[46%]  lg:right-[5%]*/}
+             <div className="relative z-10 lg:overflow-visible overflow-hidden h-fit  "> {/* Wrapper with high z-index  xl:-right-[46%]  lg:right-[5%]*/}
                 {/* Circles behind the image */}
                 <div className="absolute left-1/2 top-90 -translate-x-1/2 -translate-y-1/2 border border-white rounded-full h-[90%] sm:w-[730px] z-0 lg:max-h-[705px] xl:h-[705px] lg:h-[750px] pointer-events-none sm:flex hidden" /> {/* Added pointer-events-none */}
 
@@ -726,7 +726,7 @@ export default function Home() {
                 href={selectedOrthoCondition.view_all_treatments.href}
                 >
                     <TextAnimate
-                    animation="blurInUp" by="character" once 
+                    animation="blurInUp" by="word" once 
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
