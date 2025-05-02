@@ -233,7 +233,7 @@ const DropdownIcon = () => (
 
 function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic : {id : number, name : string, lat : number, lng : number, address : string}, handleMarkerClick : (name : string) => void }) {
   return (
-    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg w-[90%]  md:max-w-xl space-y-4">
+    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg sm:w-[90%] w-[95%]  md:max-w-xl space-y-4">
       <h2 
       style={{
         fontFamily: "var(--font-reem-kufi)",

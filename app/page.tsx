@@ -263,15 +263,15 @@ export default function Home() {
         <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-4 xl:py-8 relative  xl:pb-[160px]">
-          <div className="md:w-[565px] h-full absolute left-0 top-0 w-[85%]"
+          <div className="md:w-[565px] h-full absolute left-0 top-0 w-full sm:w-[85%]"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
           />
 
          <SlidingDiv position="left" className="z-[2]">
-           <div className="lg:px-[80px] px-8 flex flex-row space-x-[20px] items-center justify-start mt-[128px] lg:w-[55%]">
-              <Avatars />
+           <div className="lg:px-[80px]  px-8 flex sm:flex-row flex-col space-x-4 md:space-x-[20px] sm:items-center justify-start sm:space-y-0 space-y-2 mt-[128px] lg:w-[55%]">
+              <div><Avatars /></div>
               <h1
               style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -391,7 +391,7 @@ export default function Home() {
                   {
                     ServicesAndExpertise.map(( item ) => (
                       <div
-                      key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-[62px] hover:border hover:border-[#2358AC] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
+                      key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl hover:border hover:border-[#2358AC] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
                         <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/>
                         <h1 className={`${selectedService == item.title ? 'text-[#2358AC]' : 'text-[#5B5F67]'} `}>{item.title}</h1>
                       </div>
@@ -411,10 +411,9 @@ export default function Home() {
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 500,
                     color : 'black',
-                    fontSize : '24px',
                     lineHeight : 1.5
                   }}
-                  className="md:px-6"
+                  className="md:px-6 sm:text-2xl text-lg"
                   >
                     We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis,
                     sports injuries, and joint pain. Using minimally invasive techniques
@@ -504,7 +503,7 @@ export default function Home() {
                 color : '#022968',
                 lineHeight : 1.3
               }}
-              className="text-6xl text-center"
+              className="text-5xl sm:text-6xl text-center"
               >
                 Expert Orthopedic<br/> Conditions We Treat
               </h1>
@@ -559,7 +558,7 @@ export default function Home() {
                 </div>
 
                 {/* Neck */}
-                <motion.div className="rounded-[50px] absolute p-[10px] xl:left-[44%] top-[18%] left-[46%] sm:left-[47%] z-20 hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-[18%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -605,7 +604,7 @@ export default function Home() {
 
 
                 {/*Spine*/}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-[30%] z-20 xl:right-[43%] right-[45%] sm:right-[47%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px] top-[30%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
@@ -629,7 +628,7 @@ export default function Home() {
 
 
                 {/* Lower Back */}
-                <motion.div className="rounded-[50px] absolute p-[10px] top-[42%] z-20 xl:left-[45%] left-[46%] sm:left-[47%] hover:cursor-pointer"
+                <motion.div className="rounded-[50px] absolute p-[10px]  top-[42%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer"
                 style={{
                   background  : 'rgba(255, 255, 255, 0.40)',
                   boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
