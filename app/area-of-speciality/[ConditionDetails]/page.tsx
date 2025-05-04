@@ -139,7 +139,7 @@ export default function ConditionDetails({
                     <Input placeholder="Search Name or Keyword" className="h-12 text-lg rounded-l-none border-0 bg-[#EFF5FF] rounded-r-[62px] " onFocus={() => {}}/>
                 </div> 
 
-                <ConditionList />
+                <ConditionList currentCondition={condition_details.title} />
 
                 <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
                     <h1

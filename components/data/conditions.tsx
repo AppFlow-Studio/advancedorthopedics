@@ -126,12 +126,6 @@ import pfarti from '@/public/pfarti.jpg'
 import barti from '@/public/barti.webp'
 import bcard from '@/public/bcard.jpeg'
 
-
-
-
-
-
-
 // export interface ConditionInfoProp {
 //   title : string
 //   body : string
@@ -166,9 +160,6 @@ export const Conditions : ConditionInfoProp[] = [
     "schedule": "If you have had spine surgery and now experience new or worsening symptoms, schedule a consultation with Advanced Orthopedics today. Take advantage of our complimentary MRI review, free second opinion, and patient focused amenities for compassionate and convenient care.",
     "slug": "adjacentsegmentdisease"
   },
-  
- 
-
   {
     "title": "Adult Degenerative Scoliosis",
     "card_img": adultDegenerativeScoliosis,

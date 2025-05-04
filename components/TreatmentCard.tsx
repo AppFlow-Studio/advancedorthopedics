@@ -4,6 +4,8 @@ import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
 import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
+import { TreatmentsCardProp } from './data/treatments'
+import { StaticImageData } from 'next/image'
 export interface TreatmentCardInfoProp {
     title : string
     body : string
@@ -14,24 +16,16 @@ function truncateString(str : string, maxLength = 125) {
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
   }
-export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : TreatmentCardInfoProp}) {
+export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : TreatmentsCardProp}) {
+    // Check if ConditionInfo.card_img is a valid image source (string or static import object)
+    const imageSource = (ConditionInfo.card_img && typeof ConditionInfo.card_img !== 'string' && ConditionInfo.card_img !== null) || (typeof ConditionInfo.card_img === 'string' && ConditionInfo.card_img.length > 0 && !ConditionInfo.card_img.includes('Placeholder'))
+    ? ConditionInfo.card_img // Use the provided image if it seems valid
+    : Logo; // Otherwise, use the default Logo
   return (
     <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/treatments/${ConditionInfo.slug}`}>
         <div >
-            <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex">
-                <div className='flex flex-row  space-x-[8px] items-center justify-center'> 
-                    <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
-                    <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
-                    <div className="flex flex-col text-white"
-                    style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        letterSpacing: "0.02em",
-                    }}
-                    >
-                        <h1 className="text-xl font-[600] text-[#022968]">MOUNTAIN</h1>
-                        <h2 className="font-[600] text-xs text-[#0094E0]"> SPINE & ORTHOPEDICS</h2>    
-                    </div>
-                </div>
+            <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden">
+                    <Image src={imageSource} draggable={false} alt="Mountain Spine & Orthopedics Logo" className="h-full w-full aspect-video  " />
             </div>
         </div>
 

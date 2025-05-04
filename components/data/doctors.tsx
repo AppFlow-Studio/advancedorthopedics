@@ -3,6 +3,8 @@ import Monica from '../../public/Monica.png'
 import David from '../../public/David.png'
 import Douglas from '../../public/DouglasSlaughter.png'
 import Christopher from '../../public/ChristopherMcarthy.png'
+import toporthokatzman from '../../public/toporthokatzman.webp'
+import toporthoslaughter from '../../public/toporthoslaughter.webp'
 import { StaticImageData } from 'next/image'
 export interface DoctorProp {
     img : StaticImageData,
@@ -23,6 +25,7 @@ export const Doctors : DoctorProp[] = [
     name  : 'Dr.Scott Katzman',
     practice : 'Orthopediatric Surgeon',
     socials : '',
+    cert : toporthokatzman,
     desc : 'Dr. Scott Katzman is a nationally acclaimed orthopedic spine surgeon, recognized for his groundbreaking work in minimally invasive spinal and laser surgery. With over 25 years of experience, he is one of the most sought-after spinal specialists in the country.',
     aboutme:"Dr. Scott Katzman is an internationally recognized board-certified orthopedic and spine surgeon specializing in minimally invasive surgical procedures. Since 1996, he has led the field in spinal disc replacement, laser spine surgery, and outpatient spine procedures that minimize recovery time and maximize patient outcomes. Practicing in both New Jersey, New York, and Florida, Dr. Katzman also educates fellow surgeons worldwide and serves as a trusted clinical instructor for major medical companies.",
     bio : (
@@ -133,6 +136,7 @@ export const Doctors : DoctorProp[] = [
       name  : 'Dr. Douglas Slaughter',
       practice : 'Orthopediatric Surgeon',
       socials : '',
+      cert : toporthoslaughter,
       desc : 'Dr. Douglas Slaughter is an award-winning, board-certified orthopedic spine surgeon with over 21 years of experience in minimally invasive and reconstructive spine surgery. Now part of the NJSO expert team, Dr. Slaughter is known for providing patients with advanced care and faster recoveries',
       aboutme : 'With a career spanning more than two decades, Dr. Douglas Slaughter brings unmatched expertise in orthopedic spine surgery to NJSO. His background in mechanical engineering, service in the U.S. Army Reserves, and medical training across top institutions have shaped him into a leader in minimally invasive and reconstructive surgical techniques. Dr. Slaughter is committed to providing every patient with highly personalized, low-impact care to restore mobility and relieve pain — often avoiding the need for traditional open surgery. Recognized as a 2023 Top Orthopedic Spine Surgeon, he continues to innovate and educate, helping raise the standard of care for spinal conditions nationwide.',
       bio : (<h1>

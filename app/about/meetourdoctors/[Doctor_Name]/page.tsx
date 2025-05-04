@@ -107,7 +107,7 @@ export default function DocotorDetails(
         </section>
 
         <section className='max-w-[1440px] w-full h-full flex flex-col lg:flex-row gap-x-[60px] relative overflow-hidden px-4 xl:px-[80px] py-[50px] '>
-            <div className=' w-full lg:w-[35%] flex flex-col md:flex-row lg:space-x-0 space-x-6 lg:flex-col space-y-[60px] h-full'>
+            <div className=' w-full lg:w-[35%] flex flex-col md:flex-row lg:space-x-0 space-x-6 lg:flex-col h-full'>
                 <div className='w-full h-full lg:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'
                 >
                     <div className='w-full h-full flex flex-col'>
@@ -143,7 +143,13 @@ export default function DocotorDetails(
                         </div>
                     </div>
                 </div>
-                <DoctorContactForm backgroundcolor='#FAFAFA'/>
+                <div className='my-10'><DoctorContactForm backgroundcolor='#FAFAFA'/></div>
+                {
+                    doctor_details.cert &&
+                    <div className='w-full h-full object-cover rounded-2xl overflow-hidden'>
+                        <Image  src={doctor_details.cert} className='w-full h-full' alt='Doctort Certification'/>
+                    </div>
+                }
             </div>
             <div className=' w-full lg:w-[70%] h-full flex flex-col space-y-[40px] md:mt-0 mt-4'>
                 <div className=' flex flex-col space-y-[24px]'>

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
-import { AllTreatments } from '@/components/data/treatments'
+import { AllTreatments, TreatmentsCardProp } from '@/components/data/treatments'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -11,6 +11,7 @@ import DoctorCard from '@/components/DoctorCard'
 import Link from 'next/link'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import TreatmentsList from '@/components/TreatmentsList'
+import { TreatmentCardInfoProp } from '@/components/TreatmentCard'
 export default function TreatmentDetails({
     params,
   }: {
@@ -19,7 +20,7 @@ export default function TreatmentDetails({
 // Unwrap the promise using React.use (the experimental hook)
   const resolvedParams = React.use(params)
   const conditionSlug = resolvedParams.TreatmentDetails
-  const treatment_details = AllTreatments.find( x => x.slug === conditionSlug)
+  const treatment_details : TreatmentsCardProp | undefined = AllTreatments.find( x => x.slug === conditionSlug)
   if (!treatment_details) {
     return (
       <main className="w-full h-screen flex items-center justify-center">
@@ -156,7 +157,7 @@ export default function TreatmentDetails({
                 </div> 
 
                 <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-                    <TreatmentsList />
+                    <TreatmentsList currentTreatment={treatment_details.title} />
                 </div>
 
                 <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
@@ -214,7 +215,7 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-4xl'
                         >
-                        What Are the Symptoms of {treatment_details.title}?
+                        What is {treatment_details.title}?
                         </h1>
                         <h1
                          style={{
@@ -223,25 +224,14 @@ export default function TreatmentDetails({
                           }}
                           className='text-[#5B5F67] text-lg'
                         >
-                            {treatment_details.body}
+                            {treatment_details.detail}
                         </h1>
                     </div>
                     
                     {/* Video */}
-                    <div className='rounded-[20px] w-full max-h-[425px] lg:h-[425px] bg-gray-500' />
-                    <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] text-xl'
-                        >
-                            {treatment_details.body}
-                     </h1>
+                    <Image src={treatment_details.inTxt_img} alt={treatment_details.title} className="w-full h-full object-fill object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" />
                     
-                    
-                    {/* Are There Specific Risk Factors  */}
-                    <div className=' flex flex-col space-y-[16px] '>
+                     <div className=' flex flex-col space-y-[16px] '>
                     <h1
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
@@ -249,7 +239,7 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-4xl'
                         >
-                        Are There Specific Risk Factors for {treatment_details.title}?
+                        What does {treatment_details.title} look like?
                         </h1>
                         <h1
                          style={{
@@ -258,7 +248,30 @@ export default function TreatmentDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {treatment_details.body}
+                            {treatment_details.procedure_info}
+                        </h1>
+                    </div>
+    
+                    
+                    {/* Conditions it Treats */}
+                    <div className=' flex flex-col space-y-[16px] '>
+                    <h1
+                        style={{
+                            fontFamily : 'var(--font-reem-kufi)',
+                            fontWeight : 500,
+                          }}
+                        className='text-[#111315] text-4xl'
+                        >
+                        What Conditions does {treatment_details.title} Help Ease?
+                        </h1>
+                        <h1
+                         style={{
+                            fontFamily : 'var(--font-inter)',
+                            fontWeight : 400,
+                          }}
+                          className='text-[#5B5F67] text-xl'
+                        >
+                            {treatment_details.conditions_treated}
                         </h1>
                     </div>
     
@@ -271,7 +284,7 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-4xl'
                         >
-                        Diagnosing {treatment_details.title}?
+                        Why Choose Mountain Spine & Orthopedics for {treatment_details.title}?
                         </h1>
                         <h1
                          style={{
@@ -280,7 +293,7 @@ export default function TreatmentDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {treatment_details.body}
+                            {treatment_details.why_choose_us}
                         </h1>
                     </div>
                     
@@ -293,7 +306,7 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-4xl'
                         >
-                        Treatment for {treatment_details.title}?
+                        What does post {treatment_details.title} recovery look like?
                         </h1>
                         <h1
                          style={{
@@ -302,54 +315,10 @@ export default function TreatmentDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {treatment_details.body}
+                            {treatment_details.recovery_info}
                         </h1>
                     </div>
     
-                    {/* Does ... Cause Pain? */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h1
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] text-4xl'
-                        >
-                        Does {treatment_details.title} Cause Pain?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] text-xl'
-                        >
-                            {treatment_details.body}
-                        </h1>
-                    </div>
-                    
-                    {/* What Can Patients Do to Prevent It? */}
-    
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h1
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] text-4xl'
-                        >
-                        What Can Patients Do to Prevent It?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] text-xl'
-                        >
-                            {treatment_details.body}
-                        </h1>
-                    </div>
     
                     {/* Schedule a Consultation Today */}
                     <div className=' flex flex-col space-y-[16px] '>
@@ -369,7 +338,7 @@ export default function TreatmentDetails({
                           }}
                           className='text-[#5B5F67] text-xl'
                         >
-                            {treatment_details.body}
+                            {treatment_details.schedule}
                         </h1>
                     </div>
                 </section>
