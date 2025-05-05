@@ -53,7 +53,7 @@ export default function TreatmentDetails({
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="w-[565px] h-full absolute left-0 top-0"
@@ -144,7 +144,7 @@ export default function TreatmentDetails({
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-4 xl: px-4 xl: py-[50px] space-x-[60px]'>
+        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden py-[50px] space-x-[60px]'>
             <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
                 <ConsultationForm />
                 <div className=" flex w-[full] mt-[60px] ">
