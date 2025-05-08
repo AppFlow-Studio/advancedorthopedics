@@ -1,5 +1,13 @@
 // Define marker data (replace with your actual clinic data)
-export const clinics = [
+
+export interface ClinicsProps {
+  id: number;
+  name: string;
+  lat: number;
+  lng: number;
+  address: string;
+}
+export const clinics : ClinicsProps[]= [
     { id: 1, name: 'Altamonte Springs Spine Surgeon', lat: 28.670213, lng: -81.374701, address : '499 E Central Pkwy #130 Altamonte Springs, FL 32701' },
     { id: 2, name: 'Davenport Spine Surgeons ', lat: 28.167513, lng: -81.638889, address : '2400 N. Blvd W. Davenport, FL, 33837'},
     { id: 3, name: 'Advanced Ambulatory Surgery Center', lat: 28.674217, lng: -81.374192, address : '652 Palm Springs Dr Altamonte Springs, FL 32701' },

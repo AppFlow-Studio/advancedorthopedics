@@ -14,6 +14,14 @@ import ClinicsMap from '@/components/ClinicsMap'
 import ContactUsSection from '@/components/ContactUsSection'
 import ConciergeServices from '@/public/ConceirgeServices.png'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import insurance1 from '@/public/insurance(1).png'
+import insurance2 from '@/public/insurance(2).png'
+import insurance3 from '@/public/insurance(3).png'
+import insurance4 from '@/public/insurance(4).png'
+import insurance5 from '@/public/insurance(5).png'
+import insurance6 from '@/public/insurance(6).png'
+import insurance7 from '@/public/insurance(7).png'
+import insurance8 from '@/public/insurance(8).png'
 const ServicesAndExpertise = [
     {
         title : 'Renowed Spine Suregons',
@@ -44,6 +52,42 @@ const ServicesAndExpertise = [
     }
 ]
 
+const insuranceCarriers = [
+    {
+        image : insurance8,
+        name : 'Blue Cross Blue Shield'
+    },
+    {
+        image : insurance1,
+        name : 'United Healthcare'
+    },
+    {
+        image : insurance2,
+        name : 'Cigna Healthcare'  
+    },
+    {
+        image : insurance3,
+        name : 'Aetna'
+    },
+    {
+        image : insurance5,
+        name : 'Meritan Healthcare'
+    },
+    {
+        image : insurance4,
+        name : 'Multiplan'
+    },
+    {
+        image : insurance6,
+        name : 'Bright Health Group'
+    },
+    {
+        image : insurance7,
+        name : 'PPO'
+    },
+    
+        
+]
 export default function InsurancePolicy() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -155,19 +199,39 @@ export default function InsurancePolicy() {
             </div>      
         </section>
 
+        <section className='w-full h-full py-10 max-w-[1440px]  px-4 xl:px-[80px] space-y-2 flex flex-col '>
+                <h1 className='text-[#022968] text-4xl md:text-5xl lg:text-7xl font-bold text-start w-full'
+                style={{
+                  fontFamily : 'var(--font-reem-kufi)',
+                  fontWeight : 500,
+                }}
+                >
+                 Covered Insurance Carriers 
+                </h1>
+
+                <div className='w-full flex flex-row flex-wrap gap-4 items-center justify-evenly'>
+                    {
+                        insuranceCarriers.map((item, index) => (
+                            <div key={index} className={`md:w-1/4 w-1/3 flex flex-col items-center justify-center group `}>
+                                <Image src={item.image} alt={item.name} className='w-full rounded-[24px] group-hover:scale-[1.2] transition-all duration-300 ease-in-out' />
+                            </div>
+                        ))
+                    }
+                </div>
+        </section>
         <section className='w-full h-full py-[50px] max-w-[1440px]  px-4 xl:px-[80px]'>
-                <div className=' flex md:space-y-0 space-y-8 md:flex-row flex-col rounded-[20px] bg-[#EFF5FF] p-4 md:p-[32px] space-x-[32px] items-center justify-center'>
+                <div className=' flex md:space-y-0 space-y-8 md:flex-row flex-col rounded-[20px] bg-[#EFF5FF] p-4 md:p-[32px] md:space-x-[32px] items-center justify-center'>
                     <h1
                     style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 500,
                     }}
-                    className="text-[#838890] text-lg md:w-[45%]"
+                    className="text-[#838890] text-lg md:w-[45%] lg:text-start text-center w-full"
                     >
                         It is important for patients to note that Mountain Spine & Orthopedics does not accept HMO (Health Maintenance Organization) or EPO (Exclusive Provider Organization) plans for laser spine surgery coverage. This decision is based on the facility’s commitment to providing patient-centric care without the restrictions often imposed by these types of insurance plans.
                     </h1>
                     
-                    <div className='hidden md:flex flex-col items-center justify-center'>
+                    <div className='flex flex-col items-center justify-center'>
                         <div className='hidden md:flex w-full'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="2" height="150" viewBox="0 0 2 210" fill="none">
                                 <path d="M1 0V210" stroke="#AFB2B9"/>
@@ -185,7 +249,7 @@ export default function InsurancePolicy() {
                         fontFamily: "var(--font-inter)",
                         fontWeight: 500,
                     }}
-                    className="text-[#838890] text-lg md:w-[45%]"
+                    className="text-[#838890] text-lg md:w-[45%] lg:text-start text-center w-full"
                     >
                         Furthermore, Mountain Spine & Orthopedics does not participate in Medicare & Medicaid programs in relation to spine surgery coverage. This decision is based on various administrative and policy considerations. Patients covered under Medicare & Medicaid are advised to consult with their plan administrators for alternative options for spine and orthopedic care.                    </h1>
                 </div>

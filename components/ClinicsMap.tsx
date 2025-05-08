@@ -28,7 +28,9 @@ const defaultMapOptions = {
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-export default function ClinicsMap({ startingClinic } :  {startingClinic? : {id : number, name : string, lat : number, lng : number, address : string}}) {
+export default function ClinicsMap({ startingClinic } :  {
+  startingClinic? : {id : number, name : string, lat : number, lng : number, address : string}, 
+}) {
 
   const location = useGeolocation();
    // Optional: State to hold map instance
@@ -36,6 +38,12 @@ export default function ClinicsMap({ startingClinic } :  {startingClinic? : {id 
    const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
    const [ mapCenter, setMapCenter ] = useState(startingClinic ? {lat: startingClinic.lat , lng: startingClinic.lng} : { lat: 28.670213, lng: -81.374701 })
    const isInitialMount = useRef(true); // <-- Add this ref, initially true
+   useEffect(() => {
+    if( startingClinic ){
+      setSeletecedClinic(startingClinic)
+      setMapCenter({lat: startingClinic.lat , lng: startingClinic.lng})
+    }
+   }, [startingClinic])
    
    const onLoad = useCallback(function callback(mapInstance) {
      // You can save the map instance if you need to interact with it

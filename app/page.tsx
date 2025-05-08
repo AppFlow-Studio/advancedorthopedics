@@ -197,7 +197,28 @@ const OrthoConditionsWeTreat = [
       desc: 'Our expert spine specialists provide comprehensive neck care, treating conditions such as cervical disc herniation, spinal stenosis, and degenerative disc disease. We focus on relieving pain, restoring function, and using the least invasive techniques for optimal recovery.'
     },
     view_all_treatments: { text: 'View all Neck Treatments', href: '/' },
-    treatment_categories: ['Cervical Disc Replacement', 'Anterior Cervical Discectomy and Fusion', 'Cervical Laminectomy', 'Cervical Foraminotomy', 'Neck Pain Management', 'Cervical Epidural Injections']
+    treatment_categories: [
+      {
+        name: 'Cervical Disc Replacement',
+        slug: 'cervical-disc-replacement'
+      },
+      {
+        name: 'Anterior Cervical Discectomy and Fusion',
+        slug: 'acdf-surgery'
+      },
+      {
+        name: 'Cervical Laminectomy',
+        slug: 'posteriorcervicallaminoplasty'
+      },
+      {
+        name: 'Cervical Foraminotomy',
+        slug: 'posterior-cervical-foraminotomy-surgery'
+      },
+      {
+        name: 'Neck Pain Management',
+        slug: 'neck-pain-treatment-and-shoulder-pain-relief'
+      },
+    ]
   },
   {
     area: 'Shoulder',
@@ -206,7 +227,37 @@ const OrthoConditionsWeTreat = [
       desc: 'At Mountain Spine & Orthopedics, our expert shoulder surgeons specialize in advanced shoulder procedures to treat a wide range of conditions, including rotator cuff tears, shoulder instability, and chronic shoulder pain. Using cutting-edge surgical techniques and minimally invasive approaches, we focus on relieving pain, restoring shoulder mobility, and delivering faster recovery times with optimal results.'
     },
     view_all_treatments: { text: 'View all Shoulder Treatments', href: '/' },
-    treatment_categories: ['Rotator Cuff Repair', 'Shoulder Arthroscopy', 'Shoulder Labral Repair', 'Subacromial Decompression', 'Shoulder Arthroplasty', 'Shoulder Instability', 'SLAP Repair']
+    treatment_categories: [
+      {
+        name: 'Rotator Cuff Repair',
+        slug: 'rotatorcuffrepair'
+      },
+      {
+        name: 'Shoulder Arthroscopy', 
+        slug: 'shoulderarthroscopy'
+      },
+      {
+        name: 'Resurfacing Shoulder Replacement',
+        slug: 'resurfacingshoulderreplacement'
+      },
+      {
+        name: 'Shoulder Instability',
+        slug: 'shoulder-instability'
+      },
+      {
+        name : 'Fracture Fixation Surgery',
+        slug : 'fracturefixation'
+      }
+    ]
+  },
+  {
+    area: 'Hand',
+    area_procedures: {
+      title: 'Hand Procedures',
+      desc: 'Our hand specialists provide expert care for conditions ranging from carpal tunnel syndrome to arthritis and trigger finger. Using advanced microsurgical techniques and minimally invasive approaches, we focus on restoring hand function, reducing pain, and improving quality of life through precise surgical intervention and comprehensive treatment plans.'
+    },
+    view_all_treatments: { text: 'View all Hand Treatments', href: '/' },
+    treatment_categories: ['Arthritis Treatment', 'Carpal Tunnel Treatment', 'Trigger Finger Release Surgery']
   },
   {
     area: 'Spine',
@@ -215,7 +266,7 @@ const OrthoConditionsWeTreat = [
       desc: 'Our spine specialists treat a wide range of conditions including degenerative disc disease, spinal deformities, and nerve compression using both minimally invasive procedures and comprehensive non-surgical care to alleviate pain, improve stability, and enhance overall spinal health.'
     },
     view_all_treatments: { text: 'View all Spine Treatments', href: '/' },
-    treatment_categories: ['Anterior Cervical Discectomy & Fusion', 'Facet Joint Radiofrequency Ablation', 'Spinal Cord Stimulator Implant', 'Cervical Disc Arthroplasty', 'Spinal Cord Stimulation']
+    treatment_categories: ['Anterior Cervical Discectomy & Fusion', 'Facet Joint Radiofrequency Ablation', 'Spinal Cord Stimulator Implant', 'Artifical Disc Arthroplasty', 'Spinal Cord Stimulation']
   },
   {
     area: 'Lower Back',
@@ -538,9 +589,9 @@ export default function Home() {
                 <div className=" space-y-[20px] flex flex-col mt-[24px]">
                   {
                     selectedOrthoCondition.treatment_categories.map((item) => (
-                      <button key={item} className=" px-[28px] py-[14px] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01]">
-                        <p className=" font-[500] text-black text-lg">{item}</p>
-                      </button>
+                      <Link key={item.slug} href={`/treatments/${item.slug}`} className=" px-[28px] py-[14px] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01] text-center">
+                        <p className=" font-[500] text-black text-lg">{item.name}</p>
+                      </Link>
                     ))
                   }
                 </div>
@@ -602,6 +653,28 @@ export default function Home() {
                 <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Shoulder' ? 'bg-[#5E96F0]' : 'bg-white'}` }/>
               </motion.div>
 
+              {/* Hand */}
+              <motion.div className="rounded-[50px] absolute p-[10px] top-[50%] z-20  transform -translate-x-1/3 xl:-translate-x-1/2 -translate-y-1/2 xl:left-14 lg:left-1/3 md:left-[calc(1/3.6*100%)] sm:left-[calc(1/3.5*100%)] left-[calc(1/6*100%)]  hover:cursor-pointer"
+                style={{
+                  background  : 'rgba(255, 255, 255, 0.40)',
+                  boxShadow  : '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+                  backdropFilter : 'blur(2.950000047683716px)',
+                }}
+                animate={
+                  selectedOrthoCondition.area == 'Hand' 
+                    ? { scale: [1, 1.2, 1] } // Active pulsating animation
+                    : { scale: 1 } // Idle state
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: selectedOrthoCondition.area == 'Hand' ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[2])}
+
+                >
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Hand' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+               </motion.div>
 
                 {/*Spine*/}
                 <motion.div className="rounded-[50px] absolute p-[10px] top-[30%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer"
@@ -620,7 +693,7 @@ export default function Home() {
                   repeat: selectedOrthoCondition.area == 'Spine' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
-                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[2])}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[3])}
 
                 >
                   <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Spine' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
@@ -644,7 +717,7 @@ export default function Home() {
                   repeat: selectedOrthoCondition.area == 'Lower Back' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
-                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[3])}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[4])}
 
                 >
                   <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Lower Back' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
@@ -667,7 +740,7 @@ export default function Home() {
                   repeat: selectedOrthoCondition.area == 'Knee' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
-                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[4])}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[5])}
 
                 >
                   <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Knee' ? 'bg-[#5E96F0]' : 'bg-white'}` }  />
@@ -690,7 +763,7 @@ export default function Home() {
                   repeat: selectedOrthoCondition.area == 'Foot' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
-                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[5])}
+                onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[6])}
 
                 >
                   <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Foot' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
