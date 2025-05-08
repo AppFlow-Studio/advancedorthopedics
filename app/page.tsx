@@ -257,7 +257,20 @@ const OrthoConditionsWeTreat = [
       desc: 'Our hand specialists provide expert care for conditions ranging from carpal tunnel syndrome to arthritis and trigger finger. Using advanced microsurgical techniques and minimally invasive approaches, we focus on restoring hand function, reducing pain, and improving quality of life through precise surgical intervention and comprehensive treatment plans.'
     },
     view_all_treatments: { text: 'View all Hand Treatments', href: '/' },
-    treatment_categories: ['Arthritis Treatment', 'Carpal Tunnel Treatment', 'Trigger Finger Release Surgery']
+    treatment_categories: [
+      {
+        name: 'Arthritis Treatment',
+        slug: 'anti-inflammatory-injections'
+      },
+      {
+        name: 'Carpal Tunnel Treatment', 
+        slug: 'carpaltunnelrelease'
+      },
+      {
+        name: 'Trigger Finger Release Surgery',
+        slug: 'triggerfingerrelease'
+      }
+    ]
   },
   {
     area: 'Spine',
@@ -266,7 +279,29 @@ const OrthoConditionsWeTreat = [
       desc: 'Our spine specialists treat a wide range of conditions including degenerative disc disease, spinal deformities, and nerve compression using both minimally invasive procedures and comprehensive non-surgical care to alleviate pain, improve stability, and enhance overall spinal health.'
     },
     view_all_treatments: { text: 'View all Spine Treatments', href: '/' },
-    treatment_categories: ['Anterior Cervical Discectomy & Fusion', 'Facet Joint Radiofrequency Ablation', 'Spinal Cord Stimulator Implant', 'Artifical Disc Arthroplasty', 'Spinal Cord Stimulation']
+    treatment_categories: [
+      {
+        name: 'Anterior Cervical Discectomy & Fusion',
+        slug: 'acdf-surgery'
+      },
+      {
+        name: 'Facet Joint Rhizotomy Ablation',
+        slug: 'facet-ablation-rhizotomy-treatment'  
+      },
+      {
+        name: 'Anterior Cervical Corpectomy & Fusion',
+        slug: 'anterior-cervical-corpectomy-and-fusion'
+      },
+      {
+        name: 'Artifical Disc Arthroplasty',
+        slug: 'artificial-disc-replacement-surgery'
+      },
+      {
+        name: 'Axial Fusion Surgery',
+        slug: 'axial-fusion-surgery'
+      },
+      
+    ]
   },
   {
     area: 'Lower Back',
@@ -275,7 +310,28 @@ const OrthoConditionsWeTreat = [
       desc: 'Our lower back specialists address conditions such as herniated discs, spinal stenosis, and sciatica through a combination of advanced surgical techniques and conservative therapies, aiming to relieve pain, restore mobility, and enhance spinal function.'
     },
     view_all_treatments: { text: 'View all Lower Back Treatments', href: '/' },
-    treatment_categories: ['Lumbar Microdiscectomy', 'Lumbar Laminectomy', 'Posterior Lumbar Interbody Fusion', 'Kyphoplasty', 'Lumbar Artificial Disc Replacement' ]
+    treatment_categories: [
+      {
+        name: 'Lumbar Microdiscectomy',
+        slug: 'lumbar-microdiscectomy-surgery'
+      },
+      {
+        name: 'Lumbar Laminectomy',
+        slug: 'lumbar-laminectomy-surgery'
+      },
+      {
+        name: 'Lumbar Interbody Fusion',
+        slug: 'lumbar-fusion-surgery'
+      },
+      {
+        name: 'Anterior Lumbar Interbody Fusion',
+        slug: 'anterior-lumbar-interbody-fusion'
+      },
+      {
+        name: 'Lumbar Artificial Disc Replacement',
+        slug: 'artificial-disc-replacement-surgery'
+      }
+    ]
   },
   {
     area: 'Knee',
@@ -284,7 +340,24 @@ const OrthoConditionsWeTreat = [
       desc: 'From sports injuries to chronic arthritis, our knee surgeons provide advanced care including ACL repair, meniscus surgery, and total knee replacement. Our goal is to restore movement, relieve pain, and help patients return to daily activities faster.'
     },
     view_all_treatments: { text: 'View all Knee Treatments', href: '/' },
-    treatment_categories: ['ACL Reconstruction', 'Meniscus Repair', 'Total Knee Replacement', 'Knee Arthroscopy', 'Cartilage Restoration', 'Patellar Stabilization']
+    treatment_categories: [
+      {
+        name: 'ACL Reconstruction',
+        slug: 'acl-reconstruction-surgery'
+      },
+      {
+        name: 'Meniscus Repair', 
+        slug: 'arthroscopickneesurgery'
+      },
+      {
+        name: 'Total Knee Replacement',
+        slug: 'totalkneereplacement'
+      },
+      {
+        name: 'Knee Arthroscopy',
+        slug: 'arthroscopickneesurgery'
+      },
+    ]
   },
   {
     area: 'Foot',
@@ -293,7 +366,20 @@ const OrthoConditionsWeTreat = [
       desc: 'Our foot and ankle specialists treat a wide range of conditions, including bunions, plantar fasciitis, and fractures. We use cutting-edge techniques to ensure the best outcomes and minimal downtime for our patients.'
     },
     view_all_treatments: { text: 'View all Foot Treatments', href: '/' },
-    treatment_categories: ['Bunion Correction', 'Plantar Fasciitis Surgery', 'Ankle Ligament Reconstruction', 'Achilles Tendon Repair', 'Foot Fracture Fixation', 'Hammer Toe Correction']
+    treatment_categories: [
+      {
+        name: 'Bunion Correction',
+        slug: 'bunioncorrectionsurgery'
+      },
+      {
+        name: 'Ankle Ligament Reconstruction', 
+        slug: 'ankle-ligament-reconstruction-surgery'
+      },
+      {
+        name: 'Foot Fracture Fixation',
+        slug: 'fracturefixation'
+      },
+    ]
   },
 ];
 
@@ -588,8 +674,8 @@ export default function Home() {
 
                 <div className=" space-y-[20px] flex flex-col mt-[24px]">
                   {
-                    selectedOrthoCondition.treatment_categories.map((item) => (
-                      <Link key={item.slug} href={`/treatments/${item.slug}`} className=" px-[28px] py-[14px] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01] text-center">
+                    selectedOrthoCondition.treatment_categories.map((item, index) => (
+                      <Link key={index} href={`/treatments/${item.slug}`} className=" px-[28px] py-[14px] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01] text-center">
                         <p className=" font-[500] text-black text-lg">{item.name}</p>
                       </Link>
                     ))
@@ -795,7 +881,7 @@ export default function Home() {
                 </h1>
                 <Link 
                 className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex p-8 bg-[#0094E0] text-white text-[14px] font-[500] w-fit xl:w-full justify-center items-center hover:cursor-pointer"
-                href={selectedOrthoCondition.view_all_treatments.href}
+                href={'/treatments'}
                 >
                     <TextAnimate
                     animation="blurInUp" by="word" once 
