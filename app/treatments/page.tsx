@@ -114,7 +114,7 @@ export default function Treatments() {
             }}
             />
 
-          <div className=" px-4 xl:px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start w-[55%]">
+          <div className=" px-6 xl:px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start w-[55%]">
               <TextAnimate animation="blurInUp" by="word" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -127,7 +127,7 @@ export default function Treatments() {
               </TextAnimate>
           </div>
 
-          <div className="z-[2]  px-4  xl:px-[80px] mt-[24px] w-[50%] pb-8">
+          <div className="z-[2]  px-6  xl:px-[80px] mt-[24px] w-[50%] pb-8">
               <p
               style={{
                 fontWeight: 400,
@@ -143,7 +143,7 @@ export default function Treatments() {
         </section>
 
         {/* Tell us Your Story Section (no changes) */}
-        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-4 xl:px-[80px] space-y-[24px]'>
+        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
          {/* ... (rest of your "Tell us Your Story" section code) ... */}
          <div className=' flex flex-col space-y-[16px] '>
               <h1
@@ -196,7 +196,7 @@ export default function Treatments() {
 
 
         {/* Treatments List Section */}
-        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-4 xl:px-[80px] space-y-[24px]'>
+        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
           <div className='space-y-[16px] flex flex-col md:flex-row justify-between items-center' > {/* Adjusted layout for responsiveness */}
               <h1
               style={{

@@ -67,7 +67,7 @@ export default function PainArea({
             }}
             />
 
-        <div className=' px-4 xl:px-[80px] z-[2]'>
+        <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -125,7 +125,7 @@ export default function PainArea({
 
             </div>
         </div>
-        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
             <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -138,7 +138,7 @@ export default function PainArea({
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-4 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
+        <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
             <p
             style={{
                 fontFamily: "var(--font-inter)",
@@ -154,7 +154,7 @@ export default function PainArea({
         </div>
         </section>
 
-        <section className=' max-w-[1440px]  w-full h-full flex flex-col lg:flex-row relative overflow-hidden px-4 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <section className=' max-w-[1440px]  w-full h-full flex flex-col lg:flex-row relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
             <div className='lg:w-[30%] w-full bg-white flex flex-col space-y-[60px]'>
                 <DoctorContactForm backgroundcolor={'#FAFAFA'}/>
                 <div className=' space-y-[30px] lg:flex lg:flex-col hidden'>

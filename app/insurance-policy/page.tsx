@@ -103,7 +103,7 @@ export default function InsurancePolicy() {
             }}
             />
             
-        <div className=' px-4 xl:px-[80px] z-[2]'>
+        <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -140,7 +140,7 @@ export default function InsurancePolicy() {
                 </h1>
             </div>
         </div>
-        <div className=" px-4 xl:px-[80px] z-[2] flex flex-col space-y-[24px] items-center justify-start mt-[12px] w-[85%] xl:w-[45%] flex-wrap">
+        <div className=" px-6 xl:px-[80px] z-[2] flex flex-col space-y-[24px] items-center justify-start mt-[12px] w-[85%] xl:w-[45%] flex-wrap">
             <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -151,7 +151,7 @@ export default function InsurancePolicy() {
                 Mountain Spine & Orthopedics Insurance Policy            
             </TextAnimate>
         </div>
-        <div className=' px-4 xl:px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[80%] lg:w-[40%] pb-8'>
+        <div className=' px-6 xl:px-[80px] z-[2] flex flex-col items-center justify-start mt-[24px] w-[80%] lg:w-[40%] pb-8'>
             <h1
             style={{
                 fontFamily: "var(--font-inter)",
@@ -166,7 +166,7 @@ export default function InsurancePolicy() {
         </section>
 
         <section className=" bg-[#FAFCFF] w-full h-full py-[50px] ">
-            <div className="max-w-[1440px] w-full px-4 xl:px-[40px] mx-auto flex flex-col lg:flex-row space-x-[60px] ">
+            <div className="max-w-[1440px] w-full px-6 xl:px-[40px] mx-auto flex flex-col lg:flex-row space-x-[60px] ">
             <div className=" lg:w-[50%] w-full  flex flex-col h-full">
                 <h1
                 style={{
@@ -199,7 +199,7 @@ export default function InsurancePolicy() {
             </div>      
         </section>
 
-        <section className='w-full h-full py-10 max-w-[1440px]  px-4 xl:px-[80px] space-y-2 flex flex-col '>
+        <section className='w-full h-full  mt-14 max-w-[1440px]  px-6 xl:px-[80px] space-y-2 flex flex-col '>
                 <h1 className='text-[#022968] text-4xl md:text-5xl lg:text-7xl font-bold text-start w-full'
                 style={{
                   fontFamily : 'var(--font-reem-kufi)',
@@ -208,18 +208,17 @@ export default function InsurancePolicy() {
                 >
                  Covered Insurance Carriers 
                 </h1>
-
                 <div className='w-full flex flex-row flex-wrap gap-4 items-center justify-evenly'>
                     {
                         insuranceCarriers.map((item, index) => (
-                            <div key={index} className={`md:w-1/4 w-1/3 flex flex-col items-center justify-center group `}>
+                            <div key={index} className={`md:w-1/4 w-1/3 flex flex-col items-center justify-center group aspect-square  `}>
                                 <Image src={item.image} alt={item.name} className='w-full rounded-[24px] group-hover:scale-[1.2] transition-all duration-300 ease-in-out' />
                             </div>
                         ))
                     }
                 </div>
         </section>
-        <section className='w-full h-full py-[50px] max-w-[1440px]  px-4 xl:px-[80px]'>
+        <section className='w-full h-full py-[50px] max-w-[1440px]  px-6 xl:px-[80px]'>
                 <div className=' flex md:space-y-0 space-y-8 md:flex-row flex-col rounded-[20px] bg-[#EFF5FF] p-4 md:p-[32px] md:space-x-[32px] items-center justify-center'>
                     <h1
                     style={{
@@ -255,7 +254,7 @@ export default function InsurancePolicy() {
                 </div>
         </section>
 
-           <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-4 xl:px-[40px]">
+           <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px]">
                     <div className=" grid grid-cols-1 lg:grid-cols-3 gap-[32px]">
                       <div className=" rounded-[24px] w-full bg-[#FAFAFA] p-[40px] flex flex-col col-span-1 space-y-[40px]">       
                         <div className="mt-[12px]">
@@ -340,7 +339,7 @@ export default function InsurancePolicy() {
                                   >0{index + 1}</h1>
                                 </div>
         
-                               <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-4"><item.icon /></div>
+                               <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-6"><item.icon /></div>
                                 
                               </div>
         

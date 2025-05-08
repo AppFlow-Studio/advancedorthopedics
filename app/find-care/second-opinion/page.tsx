@@ -81,7 +81,7 @@ export default function SecondOpinion() {
   return (
      <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 lg:px-[80px]'>
+              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
                   <TextAnimate animation="blurInUp" by="word" once
                   style={{
                     fontFamily : 'var(--font-reem-kufi)',

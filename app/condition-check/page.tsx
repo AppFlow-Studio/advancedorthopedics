@@ -264,7 +264,7 @@ export default function ConditionChecker() {
             }}
             />
 
-        <div className=' px-4 lg:px-[80px] z-[2]'>
+        <div className=' px-6 lg:px-[80px] z-[2]'>
             <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -301,7 +301,7 @@ export default function ConditionChecker() {
                 </h1>
             </div>
         </div>
-        <div className="px-4 lg:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] xl:w-[55%]">
+        <div className="px-6 lg:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] xl:w-[55%]">
             <h1
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -313,7 +313,7 @@ export default function ConditionChecker() {
             </h1>
         </div>
 
-        <div className="z-[2] px-4 lg:px-[80px] mt-[24px] lg:w-[55% md:w-[70%] w-full pb-8">
+        <div className="z-[2] px-6 lg:px-[80px] mt-[24px] lg:w-[55% md:w-[70%] w-full pb-8">
             <p
             style={{
                 fontWeight: 400,
@@ -329,7 +329,7 @@ export default function ConditionChecker() {
         </section>
 
         {/* Condition Checker */}
-        <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-4 lg:px-[80px]'>
+        <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-6 lg:px-[80px]'>
             <div className=' flex flex-row md:space-x-[20px] items-center justify-center max-w-[1440px]'>
                 {
                     ConditionCheckSteps.map((step, index) => (
@@ -632,7 +632,7 @@ export default function ConditionChecker() {
             </motion.div>
         </section>
 
-        <section className='w-full h-full xl:space-y-0 space-y-6 flex flex-col xl:flex-row space-x-[32px] relative overflow-hidden py-[50px] px-4 lg:px-[80px]'>
+        <section className='w-full h-full xl:space-y-0 space-y-6 flex flex-col xl:flex-row space-x-[32px] relative overflow-hidden py-[50px] px-6 lg:px-[80px]'>
             <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
                     <h1
                     style={{

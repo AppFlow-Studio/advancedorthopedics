@@ -41,7 +41,7 @@ export default function DocotorDetails(
                 }}
                 />
 
-            <div className=' px-4 xl:px-[80px] z-[2]'>
+            <div className=' px-6 xl:px-[80px] z-[2]'>
                 <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                 style={{
                     background : 'rgba(255, 255, 255, 0.50)'
@@ -78,7 +78,7 @@ export default function DocotorDetails(
                     </h1>
                 </div>
             </div>
-            <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
+            <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
                 <TextAnimate animation="blurInUp" by="character" once
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -91,7 +91,7 @@ export default function DocotorDetails(
                 </TextAnimate>
             </div>
 
-            <div className="z-[2] px-4 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
+            <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
                 <p
                 style={{
                     fontWeight: 400,
@@ -106,7 +106,7 @@ export default function DocotorDetails(
             </div>
         </section>
 
-        <section className='max-w-[1440px] w-full h-full flex flex-col lg:flex-row gap-x-[60px] relative overflow-hidden px-4 xl:px-[80px] py-[50px] '>
+        <section className='max-w-[1440px] w-full h-full flex flex-col lg:flex-row gap-x-[60px] relative overflow-hidden px-6 xl:px-[80px] py-[50px] '>
             <div className=' w-full lg:w-[35%] flex flex-col md:flex-row lg:space-x-0 space-x-6 lg:flex-col h-full'>
                 <div className='w-full h-full lg:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'
                 >

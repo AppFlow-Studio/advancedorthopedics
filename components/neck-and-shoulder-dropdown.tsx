@@ -34,7 +34,7 @@ export function NeckAndShoulderDropDown({CurrentCondition} : { CurrentCondition 
     <div className="w-full max-w-md">
       <button
         onClick={toggleDropdown}
-        className="flex w-full items-center justify-between rounded-md bg-[#022968] px-4 py-3 text-white hover:cursor-pointer"
+        className="flex w-full items-center justify-between rounded-md bg-[#022968] px-6 py-3 text-white hover:cursor-pointer"
       >
         <span 
         style={{

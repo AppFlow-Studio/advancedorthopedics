@@ -24,7 +24,7 @@ export default function AboutUs() {
         }}
         />
 
-      <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[300px] md:w-[70%] xl:w-[55%]">
+      <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[300px] md:w-[70%] xl:w-[55%]">
           <TextAnimate animation="blurInUp" by="character" once
           style={{
             fontFamily: "var(--font-reem-kufi)",
@@ -36,7 +36,7 @@ export default function AboutUs() {
           </TextAnimate>
       </div>
 
-      <div className="z-[2] px-4 xl:px-[80px] mt-[24px] md:w-[70%] xl:w-[50%] pb-8">
+      <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[70%] xl:w-[50%] pb-8">
           <p
           style={{
             fontFamily: "var(--font-inter)",
@@ -53,7 +53,7 @@ export default function AboutUs() {
     </section>
 
     {/* Leading Experts */}
-    <section className=' w-full max-w-[1440px] flex flex-col py-[50px] h-full px-4 xl:px-[40px]'>
+    <section className=' w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px]'>
         <div className=' space-x-[12px] flex flex-row items-center justify-center'>
             <StarRating rating={5} size={25}  />
             <h1 

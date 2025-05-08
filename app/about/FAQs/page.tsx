@@ -119,7 +119,7 @@ export default function FAQs() {
             }}
             />
             
-        <div className=' px-4 xl:px-[80px] z-[2]'>
+        <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -156,7 +156,7 @@ export default function FAQs() {
                 </h1>
             </div>
         </div>
-        <div className=" px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[58%] pb-20">
+        <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[58%] pb-20">
             <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -230,7 +230,7 @@ export default function FAQs() {
             </div>
         </section>
 
-        <section className=' xl:mt-[80px] py-[50px] max-w-[1440px]  px-4 xl:px-[80px] w-full max-h-[680px] lg:h-[680px]'>
+        <section className=' xl:mt-[80px] py-[50px] max-w-[1440px]  px-6 xl:px-[80px] w-full max-h-[680px] lg:h-[680px]'>
             <div className=' h-full w-full rounded-[40px] bg-[#EDEEE9] p-8 xl:p-[80px] relative border overflow-clip'>
                 <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' md:flex hidden absolute -bottom-8 left-[40%] w-[75%] z-20'/>
                 <h1 

@@ -157,7 +157,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
               key={item.slug}
               onMouseDown={(e) => { e.preventDefault(); select(item); }}
               onMouseEnter={() => setActive(idx)}
-              className={`px-4 py-2 cursor-pointer text-sm text-gray-700 ${
+              className={`px-6 py-2 cursor-pointer text-sm text-gray-700 ${
                 idx === active ? 'bg-blue-100' : 'hover:bg-gray-100'
               }`}
             >
@@ -167,7 +167,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
         </ul>
       )}
       {show && query.trim() && filtered.length === 0 && (
-         <div className="absolute z-20 mt-1 w-full px-4 py-3 bg-white border border-gray-200 rounded-md shadow-lg text-sm text-gray-500">
+         <div className="absolute z-20 mt-1 w-full px-6 py-3 bg-white border border-gray-200 rounded-md shadow-lg text-sm text-gray-500">
             No conditions found matching "{query}".
         </div>
       )}

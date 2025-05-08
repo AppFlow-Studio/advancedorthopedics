@@ -80,7 +80,7 @@ export default function AreaOfSpeciality() {
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
           />
-          <div className=" px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-60  md:mt-[220px] w-full lg:w-[55%]">
+          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-60  md:mt-[220px] w-full lg:w-[55%]">
             <TextAnimate
               animation="blurInUp"
               by="word"
@@ -94,7 +94,7 @@ export default function AreaOfSpeciality() {
               Conditions
             </TextAnimate>
           </div>
-          <div className="z-[2] px-4 xl:px-[80px] mt-[24px]  lg:w-[50%]">
+          <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[50%]">
             <p
               style={{ fontWeight: 400, lineHeight: '148%' }}
               className="text-[#111315] text-xl"
@@ -104,7 +104,7 @@ export default function AreaOfSpeciality() {
                Find out with our 2-minute Condition Checker.
             </p>
           </div>
-          <div className=" mt-[40px] px-4 xl:px-[80px] z-[2] w-fit pb-6">
+          <div className=" mt-[40px] px-6 xl:px-[80px] z-[2] w-fit pb-6">
             <Link
               href="/condition-check"
               className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
@@ -124,7 +124,7 @@ export default function AreaOfSpeciality() {
       </section>
 
       {/* Tell us Your Story Section */}
-      <section className="max-w-[1440px] w-full flex flex-col py-[50px] px-4 xl:px-[80px] space-y-[24px]">
+      <section className="max-w-[1440px] w-full flex flex-col py-[50px] px-6 xl:px-[80px] space-y-[24px]">
          {/* ... (rest of your 'Tell us Your Story' JSX - no changes needed here) ... */}
          <div className="flex flex-col space-y-[16px]">
           <h1

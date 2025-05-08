@@ -63,7 +63,7 @@ export default function ConditionDetails({
             }}
             />
 
-        <div className=' px-4 xl:px-[80px] z-[2]'>
+        <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -100,7 +100,7 @@ export default function ConditionDetails({
                 </h1>
             </div>
         </div>
-        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
+        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
             <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -112,7 +112,7 @@ export default function ConditionDetails({
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-4 xl:px-[80px] mt-[24px]  lg:w-[55%] pb-8">
+        <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[55%] pb-8">
             <p
             style={{
                 fontWeight: 400,
@@ -127,11 +127,11 @@ export default function ConditionDetails({
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-4 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
             <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
                 <DoctorContactForm backgroundcolor={'#FAFAFA'}/>
                 <div className=" flex w-[full] mt-[60px] ">
-                    <span className="inline-flex items-center px-4 h-12 text-lg bg-[#EFF5FF] rounded-l-[62px]">
+                    <span className="inline-flex items-center px-6 h-12 text-lg bg-[#EFF5FF] rounded-l-[62px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.4013 20 14.6049 19.1536 16.3287 17.7429L20.2929 21.7071C20.6834 22.0976 21.3166 22.0976 21.7071 21.7071C22.0976 21.3166 22.0976 20.6834 21.7071 20.2929L17.7429 16.3287C19.1536 14.6049 20 12.4013 20 10C20 4.47715 15.5228 0 10 0ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#5B5F67"/>
                     </svg>
@@ -378,7 +378,6 @@ export default function ConditionDetails({
 
                 </div>
             </div>
-
         </section>
     </main>
   )

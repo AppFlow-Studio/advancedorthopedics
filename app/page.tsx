@@ -399,7 +399,7 @@ export default function Home() {
         />
         <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-4 xl:py-8 relative  xl:pb-[160px]">
+        <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-6 xl:py-8 relative  xl:pb-[160px]">
           <div className="md:w-[565px] h-full absolute left-0 top-0 w-full sm:w-[85%]"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
@@ -591,7 +591,7 @@ export default function Home() {
                             >0{index + 1}</h1>
                           </div>
   
-                         <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-4"> <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/> </div>
+                         <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-6"> <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/> </div>
                           
                         </div>
   
@@ -675,7 +675,7 @@ export default function Home() {
                 <div className=" space-y-[20px] flex flex-col mt-[24px]">
                   {
                     selectedOrthoCondition.treatment_categories.map((item, index) => (
-                      <Link key={index} href={`/treatments/${item.slug}`} className=" px-[28px] py-[14px] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01] text-center">
+                      <Link key={index} href={`/treatments/${item.slug}`} className=" px-[28px] py-[14px] hover:bg-[#e8f0ff] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01] text-center">
                         <p className=" font-[500] text-black text-lg">{item.name}</p>
                       </Link>
                     ))

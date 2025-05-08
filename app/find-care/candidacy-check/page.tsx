@@ -262,7 +262,7 @@ function CandidacyCheck() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
     <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-      <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-4 lg:px-[80px]'>
+      <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
           <TextAnimate animation="blurInUp" by="word" once
           style={{
             fontFamily : 'var(--font-reem-kufi)',
@@ -286,7 +286,7 @@ function CandidacyCheck() {
       </div>
     </section>
      <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-[80px]'>
-            <div className='px-4 xl:px-[80px] z-[2] flex w-full'>
+            <div className='px-6 xl:px-[80px] z-[2] flex w-full'>
                     <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-6'
                     style={{
                         background : 'rgba(255, 255, 255, 0.50)'

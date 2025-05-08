@@ -350,7 +350,7 @@ export default function NavBar() {
   return (
    <>
       <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-6 max-h-[128px] lg:h-[60px]  '>
-          <nav className="flex justify-between items-center w-full max-w-[1440px] px-4 md:px-[40px] py-2 z-[1]">
+          <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
               <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '> 
                   <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
                   <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
@@ -559,7 +559,7 @@ ListItem.displayName = "ListItem"
 //         // Use React Fragment <> </> to return multiple elements (header + sidebar + overlay)
 //         <>
 //             <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-4 sm:mt-6 max-h-[128px] lg:h-[80px]'> {/* Adjusted margin/height slightly */}
-//                 <nav className="flex justify-between items-center w-full max-w-[1440px] px-4 sm:px-[40px] py-2 z-[1]"> {/* Responsive padding */}
+//                 <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 sm:px-[40px] py-2 z-[1]"> {/* Responsive padding */}
 //                     {/* Logo */}
 //                     <Link href={'/'} className='flex flex-row items-center justify-center space-x-2 sm:space-x-[8px]' onClick={closeSidebar}>
 //                         <Image src={Logo} alt="Mountain Spine & Care Logo" className="h-[50px] sm:h-[60px] lg:h-[70px] w-auto" /> {/* Responsive height */}

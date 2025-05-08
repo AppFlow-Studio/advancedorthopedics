@@ -18,7 +18,7 @@ export default function PatientForms() {
             }}
             />
 
-        <div className=' px-4 xl:px-[80px] z-[2]'>
+        <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
@@ -55,7 +55,7 @@ export default function PatientForms() {
                 </h1>
             </div>
         </div>
-        <div className="px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
             <TextAnimate  animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -68,7 +68,7 @@ export default function PatientForms() {
             </TextAnimate>
         </div>
 
-        <div className="z-[2] px-4 xl:px-[80px] mt-[24px] md:w-[55%] xl:w-[45%] pb-8">
+        <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[55%] xl:w-[45%] pb-8">
             <p
             style={{
                 fontWeight: 400,

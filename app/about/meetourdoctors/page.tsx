@@ -19,7 +19,7 @@ export default function MeetOurDoctors() {
             }}
             />
 
-          <div className= "px-4 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] md:w-[60%] lg:w-[45%] xl:w-[56%]">
+          <div className= "px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] md:w-[60%] lg:w-[45%] xl:w-[56%]">
               <TextAnimate animation="blurInUp" by="character" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
@@ -32,7 +32,7 @@ export default function MeetOurDoctors() {
               </TextAnimate>
           </div>
 
-          <div className="z-[2] px-4 xl:px-[80px] mt-[24px] md:w-[50%]">
+          <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[50%]">
               <p
               style={{
                 fontWeight: 400,
@@ -45,7 +45,7 @@ export default function MeetOurDoctors() {
               </p>
           </div>
 
-          <div className=' mt-[40px]  px-4 xl:px-[80px] pb-8'>
+          <div className=' mt-[40px]  px-6 xl:px-[80px] pb-8'>
               <button 
                   className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
                   >
