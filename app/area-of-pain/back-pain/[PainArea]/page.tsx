@@ -57,17 +57,17 @@ export default function PainArea({
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top sm:pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
-            <div className="w-[565px] h-full absolute left-0 top-0"
+            <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
         <div className=' px-6 xl:px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+            <div className=' mt-[220px] flex flex-row sm:space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -77,7 +77,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#111315]"
+                className="sm:text-md text-xs text-[#111315]"
                 >
                     Area of Speciality 
                 </h1>
@@ -87,7 +87,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#111315]"
+                className="sm:text-md text-xs text-[#111315]"
                 >
                     /
                 </h1>
@@ -97,7 +97,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#2358AC]"
+                className="sm:text-md text-xs text-[#2358AC]"
                 >
                     Back Pain
                 </h1>
@@ -107,7 +107,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#111315]"
+                className="sm:text-md text-xs text-[#111315]"
                 >
                     /
                 </h1>
@@ -117,21 +117,20 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#5093FF]"
+                className="sm:text-md text-xs text-[#5093FF]"
                 >
                     {condition_details.title}
                 </h1>
 
             </div>
         </div>
-        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
             <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
             }}
-            className="text-[#022968]"
+            className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
                 {condition_details.title}
             </TextAnimate>
@@ -143,9 +142,8 @@ export default function PainArea({
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
                 fontSize: "20px",
-                lineHeight: "148%",
             }}
-            className="text-[#111315]"
+            className="text-[#111315] sm:text-md text-sm"
             >
                 {condition_details.body}
             </p>

@@ -57,7 +57,7 @@ export default function ConditionDetails({
         <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full lg:pr-0 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
-            <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
+            <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}

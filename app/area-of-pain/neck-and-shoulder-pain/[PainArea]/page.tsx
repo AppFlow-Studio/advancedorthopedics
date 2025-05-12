@@ -78,7 +78,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#111315]"
+                className="sm:text-md text-xs text-[#111315]"
                 >
                     Area of Pain 
                 </h1>
@@ -88,7 +88,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#111315]"
+                className="sm:text-md text-xs text-[#111315]"
                 >
                     /
                 </h1>
@@ -98,7 +98,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#2358AC]"
+                className="sm:text-md text-xs text-[#2358AC]"
                 >
                     Neck & Shoulder Pain
                 </h1>
@@ -108,7 +108,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#111315]"
+                className="sm:text-md text-xs text-[#111315]"
                 >
                     /
                 </h1>
@@ -118,21 +118,20 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#5093FF]"
+                className="sm:text-md text-xs text-[#5093FF]"
                 >
                     {condition_details.title}
                 </h1>
 
             </div>
         </div>
-        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
             <TextAnimate animation="blurInUp" by="word" once
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
             }}
-            className="text-[#022968]"
+            className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
                 {condition_details.title}
             </TextAnimate>
@@ -146,7 +145,7 @@ export default function PainArea({
                 fontSize: "20px",
                 lineHeight: "148%",
             }}
-            className="text-[#111315]"
+            className="text-[#111315]  sm:text-md text-sm"
             >
                 {condition_details.body}
             </p>
