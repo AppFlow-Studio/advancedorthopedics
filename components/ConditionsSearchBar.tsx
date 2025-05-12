@@ -26,7 +26,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
       const q = query.toLowerCase()
       // Ensure 'title' property exists on 'Condition' type
       setFiltered(
-        conditions.filter(c => c.title.toLowerCase().startsWith(q))
+        conditions.filter(c => c.title.toLowerCase().includes(q))
       )
     } else {
       setFiltered([])

@@ -25,7 +25,7 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
       const q = query.toLowerCase()
       // Ensure 'title' property exists on 'Condition' type
       setFiltered(
-        blogs.filter(b => b.title.toLowerCase().startsWith(q))
+        blogs.filter(b => b.title.toLowerCase().includes(q))
       )
     } else {
       setFiltered([])
