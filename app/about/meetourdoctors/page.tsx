@@ -5,6 +5,7 @@ import { Doctors } from "@/components/data/doctors";
 import DoctorCard from '@/components/DoctorCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews';
 import { TextAnimate } from '@/components/magicui/text-animate';
+import Link from 'next/link';
 export default function MeetOurDoctors() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -13,14 +14,14 @@ export default function MeetOurDoctors() {
           <Image src={Landing} className="xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
           <div className="z-[1] flex flex-col w-full h-full text-left relative pt-50">
-            <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
+            <div className="md:w-[565px] h-full absolute left-0 top-0 w-[95%]"
             style={{
               background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
             />
 
           <div className= "px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] md:w-[60%] lg:w-[45%] xl:w-[56%]">
-              <TextAnimate animation="blurInUp" by="character" once
+              <TextAnimate animation="blurInUp" by="word" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
@@ -46,8 +47,8 @@ export default function MeetOurDoctors() {
           </div>
 
           <div className=' mt-[40px]  px-6 xl:px-[80px] pb-8'>
-              <button 
-                  className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
+              <Link href={'/condition-check'} 
+                  className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] w-fit text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
                   >
                       <h1
                       style={{
@@ -58,7 +59,7 @@ export default function MeetOurDoctors() {
                           letterSpacing: "0.02em"
                       }}
                       >Condition Checker</h1>
-              </button>
+              </Link>
           </div>
           </div>
         </section>
