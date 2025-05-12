@@ -35,7 +35,7 @@ export default function BlogDetails({
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
         <section className=" w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={ConditionDetialsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-0 self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" h-full absolute top-0 object-cover object-top pt-0 self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative md:pt-20 lg:pt-40 ">
             <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
@@ -45,7 +45,7 @@ export default function BlogDetails({
             />
 
         <div className=' px-6 xl:px-[80px] z-[2]'>
-            <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+            <div className=' mt-60  md:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
@@ -88,7 +88,7 @@ export default function BlogDetails({
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] text-6xl "
+            className="text-[#022968] text-4xl md:text-5xl lg:text-6xl "
             >
                 {blog_details.title}
             </h1>

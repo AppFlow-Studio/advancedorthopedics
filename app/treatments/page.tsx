@@ -114,7 +114,7 @@ export default function Treatments() {
             }}
             />
 
-          <div className=" px-6 xl:px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start w-[55%]">
+          <div className=" px-6  xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start w-[55%]">
               <TextAnimate animation="blurInUp" by="word" once
               style={{
                 fontFamily: "var(--font-reem-kufi)",
