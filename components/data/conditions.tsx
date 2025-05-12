@@ -209,7 +209,21 @@ export const Conditions : ConditionInfoProp[] = [
     "slug": "bulgingdisc"
   },
 
-
+  {
+    "title": "Torn Meniscus",
+    "card_img": tmcard,
+    "inTxt_img": tmarti,
+    "body": "A torn meniscus is a tear of the C shaped cartilage pads that cushion and stabilize the knee joint, often resulting in pain, swelling, and mechanical symptoms that limit mobility. At Mountain Spine & Orthopedics, we provide expert evaluation with high resolution MRI, personalized treatment plans, and supportive services including complimentary MRI reviews, free second opinions, and door to door transportation to help you recover knee function and return to the activities you love.",
+    "detail": "The menisci are two C shaped fibrocartilage structures that distribute load, absorb shock, and provide stability to the knee. Tears occur from acute twisting injuries, direct impact, or gradual degeneration. Tear patterns include vertical longitudinal, horizontal cleavage, flap, radial, and complex tears, each requiring a tailored approach. Degenerative tears are more common in patients over 40 due to age related wear. At Mountain Spine & Orthopedics, evaluation begins with a detailed history of your injury mechanism, symptom onset, and activity level. A focused physical exam assesses joint line tenderness, range of motion, and mechanical signs such as clicking or locking. We use high resolution MRI to visualize tear location, size, and associated cartilage damage. In select cases, diagnostic arthroscopy may be recommended to confirm the diagnosis and address other intra-articular pathology.",
+    "what_sym": "Symptoms of a torn meniscus include localized pain along the knee joint line, swelling or effusion, stiffness, difficulty fully straightening or bending the knee, locking or catching sensations, a feeling of instability or giving way, and discomfort with twisting or squatting movements.",
+    "risk_fac": "Risk factors for meniscal tears include sports that involve pivoting and sudden changes in direction such as basketball and soccer, age related degeneration, previous knee injuries, muscle weakness around the knee, obesity, and improper training or exercise techniques.",
+    "diagnose": "Diagnosis involves a thorough clinical examination with tests like the McMurray’s and Apley grind to reproduce mechanical symptoms. Imaging with MRI offers detailed visualization of tear type, location, and severity. When MRI is contraindicated or additional clarity is needed, diagnostic arthroscopy can be performed to inspect the meniscus directly and evaluate joint surface health.",
+    "treatment": "Conservative management often succeeds for small tears and includes rest, ice, compression, elevation, physical therapy to strengthen quadriceps and hamstrings, anti inflammatory medications, and activity modification. For tears causing persistent mechanical symptoms or failing nonsurgical care, arthroscopic meniscal repair or partial meniscectomy is recommended. At Mountain Spine & Orthopedics, we use state of the art minimally invasive arthroscopy techniques to preserve as much healthy cartilage as possible, optimize recovery, and minimize long term joint degeneration.",
+    "pain_info": "Pain from a torn meniscus arises from both mechanical impingement of torn fragments and inflammation of the synovial lining. Swelling results from fluid accumulation within the joint and release of inflammatory mediators. Patients often describe sharp pain with weight bearing, twisting, or deep knee bending.",
+    "prevent": "To reduce the risk of meniscal tears, maintain strong and flexible muscles around the knee through regular strengthening and stretching exercises, practice proper warm up before activities, use safe techniques when pivoting or landing, wear supportive footwear, and maintain a healthy weight to lessen joint stress.",
+    "schedule": "If you are experiencing knee pain, swelling, locking, or instability, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review, free second opinion, and door to door transportation as you take the first step toward accurate diagnosis and effective treatment of your meniscal tear.",
+    "slug": "tornmeniscus"
+  },
   {
     "title": "Carpal Tunnel Syndrome",
     "card_img": CarpalTunnelSyndrome,
@@ -225,7 +239,376 @@ export const Conditions : ConditionInfoProp[] = [
     "schedule": "Contact  today to book your personalized consultation. Benefit from complimentary MRI or ultrasound reviews free second opinions and car service for smooth convenient care as you recover hand function and get lasting relief from Carpal Tunnel Syndrome",
     "slug": "carpaltunnelsyndrome"
   },
-  
+  {
+    "title": "Lumbar Herniated Disc",
+    "card_img": LumbarHerniatedDiscCard, 
+    "inTxt_img": LumbarHerniatedDiscTxt,
+    "body": "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
+    "detail": "Each spinal disc has a tough outer layer called the annulus fibrosus and a soft, gel-like center known as the nucleus pulposus. Herniation happens when a tear in the annulus allows the nucleus to push outward. This displacement can occur gradually due to degenerative changes or suddenly from excessive strain or trauma. When the herniated material compresses or irritates spinal nerves exiting the spinal canal in the lower back, it triggers the characteristic radiating symptoms down the leg (sciatica). Mountain Spine & Care specializes in accurately diagnosing the level and severity of the herniation to guide effective treatment.",
+    "what_sym": "Symptoms often include sharp, shooting pain originating in the lower back and traveling down the buttock and back of one leg (sciatica), though sometimes back pain itself might be minimal. Numbness, tingling ('pins and needles'), or muscle weakness in the affected leg or foot are common. Pain may worsen with activities like sitting for long periods, bending forward, coughing, or sneezing.",
+    "risk_fac": "Key risk factors include age, as discs naturally degenerate over time making them more prone to herniation (most common between ages 30-50), improper lifting techniques or repetitive twisting motions, physically demanding occupations, excess body weight putting added strain on the spine, a sedentary lifestyle leading to weaker core support muscles, smoking which can impair disc nutrition, and a potential genetic predisposition to disc degeneration.",
+    "diagnose": "Diagnosis at Mountain Spine & Care involves a comprehensive evaluation, starting with a detailed medical history focusing on the pattern and triggers of your pain. A physical examination includes neurological testing (checking reflexes, muscle strength, sensation) and specific maneuvers like the straight leg raise test to identify nerve irritation. While symptoms often suggest a herniated disc, imaging studies, particularly an MRI, are crucial to confirm the diagnosis, visualize the disc pressing on the nerve, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy.",
+    "treatment": "Mountain Spine & Care prioritizes conservative treatment initially for most lumbar herniated discs. This often includes modified rest, targeted physical therapy focusing on core stabilization and specific exercises (like McKenzie method), pain and anti-inflammatory medications (NSAIDs, muscle relaxants), and epidural steroid injections to reduce nerve inflammation and radiating pain. If significant pain or neurological symptoms persist despite several weeks of conservative care, minimally invasive surgical options like microdiscectomy (removing the herniated portion of the disc) may be recommended to decompress the affected nerve.",
+    "pain_info": "The pain from a lumbar herniated disc is often neuropathic, meaning it stems from nerve compression, resulting in sharp, burning, or electric shock-like sensations down the leg (sciatica). This leg pain is frequently more severe than the localized back pain. Mountain Spine & Care focuses on alleviating this nerve pain through targeted treatments like epidural injections and physical therapy designed to reduce nerve irritation and improve function.",
+    "prevent": "While not all herniated discs are preventable, you can reduce your risk by consistently using proper lifting techniques (lifting with your legs, not your back), maintaining a healthy weight, practicing good posture, strengthening your core and back muscles through regular exercise, avoiding prolonged periods of sitting by taking frequent breaks to stand and stretch, and quitting smoking.",
+    "schedule": "If you're experiencing persistent lower back pain radiating into your leg, contact Mountain Spine & Care for an expert evaluation. Utilize our complimentary MRI review for an accurate diagnosis, and let our specialists develop a personalized treatment plan, emphasizing conservative care first, to relieve your pain and help you return to your daily activities.",
+   side_img : lumbarherniateddiscside,
+   forum : [
+    {
+      post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          How Do I Know If I Have a Lumbar Herniated Disc?
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+            Signs of a lumbar herniated disc often start gradually but may worsen over time if not treated. The most common symptom is a sharp or burning pain that radiates from the lower back into the leg, often following the path of the sciatic nerve. Many patients describe the pain as electric or stabbing, and it may worsen when sitting for long periods, bending forward, or coughing. Some patients also experience tingling, numbness, or muscle weakness in the leg or foot on the affected side. In severe cases, the condition can affect walking or standing for extended periods, reducing your quality of life.
+          </h1>
+          <GradientOverlayImage
+              imageData={lumbarherniateddisc} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+          />
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+            If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Mountain Spine & Care offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
+          </h1>
+
+          <OutlinedButton text="Do I have this Condition?" />
+
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          What Lumbar Herniated Disc Treatment is Right for Me?
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+            The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.<br/><br/>
+            At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+          </h1>
+          <OutlinedButton text="Find a Treatment" />
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          Pain Management for a Lumbar Herniated Disc
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+            The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.
+            At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+          </h1>
+          <GradientOverlayImage
+              imageData={lumbarherniateddisc2} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+          />
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          Best Treatment to Prevent Pain From a Lumbar Herniated Disc
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+           If you’re experiencing symptoms of a lumbar herniated disc, there are several treatment options available depending on the severity of your condition. If your pain is mild and manageable, starting with home care and guided physical therapy can often lead to improvement. Applying heat or ice, taking anti-inflammatory medications such as ibuprofen or naproxen, and making lifestyle adjustments like avoiding long periods of sitting or poor lifting techniques can help reduce strain on the lower back. Exercise programs that strengthen the core and improve flexibility are also an essential part of recovery.<br/><br/>
+            When conservative care is not enough, surgical treatment may be necessary to relieve pressure on the affected nerves. Discectomy is a common procedure where the portion of the disc pressing on the nerve is removed to relieve pain. In some cases, a laminectomy may be performed to widen the spinal canal and ease nerve compression. For patients with severe disc damage, spinal fusion may be considered to stabilize the spine and prevent further injury.<br/><br/>
+            Every patient is different, which is why the team at Mountain Spine & Care develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
+          </h1>
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          Schedule a Consultation Today
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+           Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Mountain Spine & Care, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
+           Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Mountain Spine & Care on your side, a pain-free future is within reach.
+          </h1>
+        </div>
+      </div>
+      )
+    }
+   ],
+  "slug": "lumbarherniateddisc"
+},
+{
+  "title": "Rotator Cuff Tear",
+  "card_img": rctcard,
+  "inTxt_img": rctarti,
+  "body": "A rotator cuff tear occurs when one or more of the tendons that stabilize the shoulder joint become partially or fully torn, often causing persistent shoulder pain, weakness, and limited range of motion. Rotator cuff injuries affect up to 30 percent of people over age 60 and can significantly impact daily activities and quality of life. At Mountain Spine & Orthopedics, we provide comprehensive evaluation and treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to accurately diagnose tears and restore shoulder function.",
+  "detail": "The rotator cuff is composed of four muscles and their tendons—supraspinatus, infraspinatus, teres minor, and subscapularis—that surround the shoulder joint, providing dynamic stability and enabling overhead motion. Tears develop due to acute trauma such as a fall on an outstretched arm, chronic degeneration from repetitive overhead activity, or age-related tendon thinning. Partial-thickness tears affect only a portion of the tendon thickness, while full-thickness tears create a complete discontinuity. At Mountain Spine & Orthopedics, our assessment begins with a detailed history of injury mechanism, activity levels, and symptom progression. We perform a focused physical examination—including tests such as the painful arc, the drop arm test, and resisted strength maneuvers—and use high-resolution MRI or diagnostic musculoskeletal ultrasound to determine tear size, tendon retraction, and muscle quality. In select cases, diagnostic arthroscopy may be utilized to visualize tendon integrity directly and address any additional joint pathology.",
+  "what_sym": "Patients with a rotator cuff tear typically experience gradual or sudden onset of shoulder pain that worsens with overhead activities, lifting, or reaching behind the back. Night pain that disrupts sleep, weakness when lifting the arm, difficulty combing hair or putting on a coat, and a clicking or popping sensation are common. In large tears, the shoulder may feel unstable or ‘give way’ during certain movements.",
+  "risk_fac": "Risk factors include advancing age, repetitive overhead sports or occupations such as swimming, tennis, painting, and carpentry, a history of shoulder impingement or arthritis, smoking, and systemic factors like diabetes that impair tendon health. Genetic predisposition and poor posture can also contribute to chronic tendon degeneration.",
+  "diagnose": "Diagnosis relies on a combination of clinical examination and imaging. We perform specific orthopedic tests—including the empty can test and lift-off maneuvers—to localize the tear and assess functional deficit. MRI remains the gold standard for visualizing tendon tears, muscle atrophy, and fatty infiltration, while ultrasound offers a dynamic, cost-effective alternative. Plain X rays help rule out bony spurs and arthritis. Electromyography may be indicated for chronic tears to evaluate muscle function and nerve involvement.",
+  "treatment": "Initial management for small or partial tears often includes activity modification, nonsteroidal anti-inflammatory medications, physical therapy focused on rotator cuff strengthening and scapular stabilization exercises, and image-guided corticosteroid injections for pain relief. For patients with persistent symptoms, larger tears, or functional deficits, minimally invasive arthroscopic rotator cuff repair is performed using suture anchors and tendon mobilization techniques to reattach the torn tendon to bone. Postoperative rehabilitation follows a phased protocol to protect the repair, gradually restore range of motion, and strengthen the shoulder girdle to ensure long-term success.",
+  "pain_info": "Pain in a rotator cuff tear arises from tendon inflammation, mechanical impingement under the acromion, and inflammatory mediators that sensitize nerve endings. Patients often report deep, aching discomfort that intensifies with arm elevation and activities such as lifting or throwing. Nighttime pain is common due to pressure on the shoulder when lying on the affected side.",
+  "prevent": "To reduce the risk of rotator cuff injury, maintain shoulder flexibility and strength through regular stretching and rotator cuff–targeted exercises, practice proper warm-up and cool-down routines before sports or repetitive overhead work, use ergonomic tools and techniques to minimize shoulder strain, and address early symptoms promptly with rest and professional evaluation.",
+  "schedule": "If you are experiencing shoulder pain, weakness, or limited mobility, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options to receive a precise diagnosis and a personalized treatment plan designed to restore your shoulder health and return you to the activities you enjoy.",
+  "slug": "rotatorcufftear"
+},
+{
+  "title": "Pinched Nerve",
+  "card_img": pinchednervea,
+  "inTxt_img": pinchednevrearti,
+  "body": "A pinched nerve, also called nerve compression or radiculopathy, occurs when surrounding tissues such as discs, bones, or swollen soft tissue press against a spinal or peripheral nerve producing pain, numbness, or weakness along the nerve’s path. Mountain Spine & Orthopedics offers precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve compression, restore sensation, and get you moving comfortably again.",
+  "detail": "Nerves travel through narrow anatomical corridors surrounded by discs, ligaments, muscles, and bones. Herniated discs, degenerative bone spurs, thickened ligaments, or acute swelling after injury can narrow these passageways and irritate or compress the nerve. In the spine, cervical nerve compression may trigger arm pain or tingling while lumbar compression often produces sciatica that radiates down the leg. Peripheral entrapments such as carpal tunnel syndrome arise when nerves are squeezed in limb tunnels. Persistent pressure disrupts nerve signaling leading to pain, altered sensation, and muscle weakness if untreated. At Mountain Spine & Orthopedics evaluation begins with a thorough history detailing symptom onset, aggravating positions, occupational demands, and red flag signs like progressive weakness or bladder changes. A focused neurologic examination maps sensory deficits, reflex alterations, and motor strength. Complimentary high resolution MRI pinpoints structural causes whether disc herniation, stenosis, or soft tissue swelling while electromyography distinguishes nerve root compression from peripheral neuropathy. These data guide an individualized treatment strategy that addresses both inflammation and mechanical pressure.",
+  "what_sym": "Patients describe sharp, burning, or electric like pain radiating along the nerve pathway accompanied by numbness, tingling, or pins and needles in the limb or region served by the nerve. Muscle weakness, diminished grip strength, or foot drop can develop when compression persists and symptoms often worsen with specific neck or back positions or repetitive limb motions.",
+  "risk_fac": "Age related disc degeneration, repetitive heavy lifting, prolonged poor posture, obesity that increases spinal load, inflammatory conditions causing tissue swelling, prior injuries, and occupations or sports with repetitive motions all heighten the likelihood of nerve compression.",
+  "diagnose": "Alongside MRI and nerve conduction studies, Mountain Spine & Orthopedics may employ selective diagnostic nerve root or peripheral nerve blocks to confirm the exact compression site. These complimentary assessments ensure treatment targets the true pain generator and avoids unnecessary procedures.",
+  "treatment": "Initial care emphasizes activity modification, ergonomic adjustments, anti inflammatory or neuropathic medication, and a structured physiotherapy program that strengthens supporting muscles and improves posture. Image guided epidural steroid injections or peripheral nerve injections deliver medication directly to the compressed nerve reducing inflammation and pain. When structural narrowing remains severe or neurologic deficits progress our surgeons perform minimally invasive decompression techniques such as microdiscectomy, foraminotomy, or carpal tunnel release to free the nerve while preserving healthy tissue. Post procedure rehabilitation focuses on restoring strength, flexibility, and safe movement patterns to prevent recurrence.",
+  "pain_info": "Pain from a pinched nerve often spikes with certain movements or sustained positions and may ease with gentle stretching or positional changes. Mountain Spine & Orthopedics combines targeted injections, therapeutic exercise, and ergonomic coaching to break the pain inflammation cycle and foster nerve healing.",
+  "prevent": "Maintaining strong core and limb muscles, practicing proper lifting mechanics, optimizing workstation ergonomics, taking regular breaks from repetitive motion, controlling body weight, and addressing early degenerative changes help prevent nerve compression and recurrent flare ups.",
+  "schedule": "If radiating pain, numbness, or weakness is affecting your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, comprehensive second opinion, and door to door transportation then move forward with a personalized plan to relieve your pinched nerve and regain comfortable confident motion.",
+  forum : [
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+          <h1 
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-2xl">
+            What Is a Pinched Nerve?
+          </h1>
+          <div  className=" flex flex-col space-y-[40px]">
+            <h1
+             style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+            >
+              A pinched nerve occurs when soft tissue or bone compresses a nearby nerve root, interrupting its ability to transmit signals correctly. This can result in pain that radiates from the spine to the extremities, depending on the location of the compression. When the cervical spine is affected, symptoms often extend into the arms or hands. If the lumbar spine is involved, the pain can travel into the buttocks, legs, or feet.<br/><br/>
+              Common causes of nerve compression include herniated discs, bone spurs, spinal stenosis, and poor posture. Over time, continued pressure can lead to worsening symptoms and even permanent nerve damage if not treated properly.
+            </h1>
+            <GradientOverlayImage
+              imageData={pinchednerve} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+            />
+            <h1 
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+            >
+              Many patients report that pinched nerve pain worsens with movement or after long periods of sitting. Some also experience burning sensations or weakness in the arms or legs. Early diagnosis and treatment are essential to preventing long-term nerve damage and restoring full function.
+            </h1>
+
+            <OutlinedButton text="Do I have this Condition?"/>
+          </div>
+        </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+          <h1 
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-2xl">
+           Symptoms of a Pinched Nerve
+          </h1>
+          <div  className=" flex flex-col space-y-[40px]">
+            <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+            >
+              Symptoms of a pinched nerve depend on where the nerve is compressed, but common warning signs include:<br/>
+              <li>A sharp or burning pain radiating into the arms or legs</li><br/>
+              <li>Numbness or tingling in the affected limb</li><br/>
+              <li>Muscle weakness or feeling that the limb is "asleep"</li><br/>
+              <li>Pain that worsens with certain movements, like turning the head or standing up</li><br/>
+              <li>Discomfort that improves slightly when leaning forward or resting</li><br/>
+            </h1>
+            
+            <h1 
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+            >
+              Pinched nerve symptoms can come and go or be constant, depending on the cause. If left untreated, nerve compression may lead to permanent nerve damage, chronic pain, or muscle atrophy. Recognizing these early warning signs is the first step toward finding lasting relief.
+            </h1>
+            <OutlinedButton text="Find a Treatment"/>
+            <GradientOverlayImage
+              imageData={pinchednerve2} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+          <h1 
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-2xl">
+            Types of Pinched Nerve Conditions
+          </h1>
+          <div  className=" flex flex-col space-y-[40px]">
+            <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+            >
+            Several spinal conditions can lead to pinched nerves. Herniated discs are one of the most common causes. When the soft inner material of the disc bulges out, it can press against nearby nerves and cause pain, tingling, or numbness. Spinal stenosis, which involves narrowing of the spinal canal, is another major cause especially in older adults.<br/><br/>
+            Bone spurs, often related to arthritis or spinal degeneration, can also contribute to nerve compression by invading space meant for nerves. In some cases, muscle tightness or repetitive strain from poor posture may also lead to a pinched nerve. Understanding what’s causing your symptoms is key to receiving the right care.
+            </h1>
+          </div>
+        </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          Learn About Pinched Nerve Treatments
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+            A pinched nerve doesn’t have to control your life. With early intervention and the right treatment strategy, most patients experience relief without surgery. Non-surgical options may include physical therapy, anti-inflammatory medication, activity modification, ergonomic adjustments, and corticosteroid injections. When conservative care fails to relieve pressure on the nerve, minimally invasive surgical solutions such as microdiscectomy or foraminotomy may be considered.<br/><br/>
+            At Mountain Spine & Care, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
+          </h1>
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          Schedule a Consultation Today
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+            If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Mountain Spine & Care, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
+            Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Lasting relief could be just one visit away.
+          </h1>
+        </div>
+      </div>
+      )
+    }
+  ],
+  side_img : pinchednerveside,
+  "slug": "pinchednerve"
+},
   {
     "title": "Cervical Deformities",
     "card_img": CervicalDeformitiescard,
@@ -820,190 +1203,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "slug": "lowerbackpain",
     },
     {
-      "title": "Pinched Nerve",
-      "card_img": pinchednervea,
-      "inTxt_img": pinchednevrearti,
-      "body": "A pinched nerve, also called nerve compression or radiculopathy, occurs when surrounding tissues such as discs, bones, or swollen soft tissue press against a spinal or peripheral nerve producing pain, numbness, or weakness along the nerve’s path. Mountain Spine & Orthopedics offers precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve compression, restore sensation, and get you moving comfortably again.",
-      "detail": "Nerves travel through narrow anatomical corridors surrounded by discs, ligaments, muscles, and bones. Herniated discs, degenerative bone spurs, thickened ligaments, or acute swelling after injury can narrow these passageways and irritate or compress the nerve. In the spine, cervical nerve compression may trigger arm pain or tingling while lumbar compression often produces sciatica that radiates down the leg. Peripheral entrapments such as carpal tunnel syndrome arise when nerves are squeezed in limb tunnels. Persistent pressure disrupts nerve signaling leading to pain, altered sensation, and muscle weakness if untreated. At Mountain Spine & Orthopedics evaluation begins with a thorough history detailing symptom onset, aggravating positions, occupational demands, and red flag signs like progressive weakness or bladder changes. A focused neurologic examination maps sensory deficits, reflex alterations, and motor strength. Complimentary high resolution MRI pinpoints structural causes whether disc herniation, stenosis, or soft tissue swelling while electromyography distinguishes nerve root compression from peripheral neuropathy. These data guide an individualized treatment strategy that addresses both inflammation and mechanical pressure.",
-      "what_sym": "Patients describe sharp, burning, or electric like pain radiating along the nerve pathway accompanied by numbness, tingling, or pins and needles in the limb or region served by the nerve. Muscle weakness, diminished grip strength, or foot drop can develop when compression persists and symptoms often worsen with specific neck or back positions or repetitive limb motions.",
-      "risk_fac": "Age related disc degeneration, repetitive heavy lifting, prolonged poor posture, obesity that increases spinal load, inflammatory conditions causing tissue swelling, prior injuries, and occupations or sports with repetitive motions all heighten the likelihood of nerve compression.",
-      "diagnose": "Alongside MRI and nerve conduction studies, Mountain Spine & Orthopedics may employ selective diagnostic nerve root or peripheral nerve blocks to confirm the exact compression site. These complimentary assessments ensure treatment targets the true pain generator and avoids unnecessary procedures.",
-      "treatment": "Initial care emphasizes activity modification, ergonomic adjustments, anti inflammatory or neuropathic medication, and a structured physiotherapy program that strengthens supporting muscles and improves posture. Image guided epidural steroid injections or peripheral nerve injections deliver medication directly to the compressed nerve reducing inflammation and pain. When structural narrowing remains severe or neurologic deficits progress our surgeons perform minimally invasive decompression techniques such as microdiscectomy, foraminotomy, or carpal tunnel release to free the nerve while preserving healthy tissue. Post procedure rehabilitation focuses on restoring strength, flexibility, and safe movement patterns to prevent recurrence.",
-      "pain_info": "Pain from a pinched nerve often spikes with certain movements or sustained positions and may ease with gentle stretching or positional changes. Mountain Spine & Orthopedics combines targeted injections, therapeutic exercise, and ergonomic coaching to break the pain inflammation cycle and foster nerve healing.",
-      "prevent": "Maintaining strong core and limb muscles, practicing proper lifting mechanics, optimizing workstation ergonomics, taking regular breaks from repetitive motion, controlling body weight, and addressing early degenerative changes help prevent nerve compression and recurrent flare ups.",
-      "schedule": "If radiating pain, numbness, or weakness is affecting your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, comprehensive second opinion, and door to door transportation then move forward with a personalized plan to relieve your pinched nerve and regain comfortable confident motion.",
-      forum : [
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                What Is a Pinched Nerve?
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                  A pinched nerve occurs when soft tissue or bone compresses a nearby nerve root, interrupting its ability to transmit signals correctly. This can result in pain that radiates from the spine to the extremities, depending on the location of the compression. When the cervical spine is affected, symptoms often extend into the arms or hands. If the lumbar spine is involved, the pain can travel into the buttocks, legs, or feet.<br/><br/>
-                  Common causes of nerve compression include herniated discs, bone spurs, spinal stenosis, and poor posture. Over time, continued pressure can lead to worsening symptoms and even permanent nerve damage if not treated properly.
-                </h1>
-                <GradientOverlayImage
-                  imageData={pinchednerve} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-                <h1 
-               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-                >
-                  Many patients report that pinched nerve pain worsens with movement or after long periods of sitting. Some also experience burning sensations or weakness in the arms or legs. Early diagnosis and treatment are essential to preventing long-term nerve damage and restoring full function.
-                </h1>
-
-                <OutlinedButton text="Do I have this Condition?"/>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-               Symptoms of a Pinched Nerve
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                  Symptoms of a pinched nerve depend on where the nerve is compressed, but common warning signs include:<br/>
-                  <li>A sharp or burning pain radiating into the arms or legs</li><br/>
-                  <li>Numbness or tingling in the affected limb</li><br/>
-                  <li>Muscle weakness or feeling that the limb is "asleep"</li><br/>
-                  <li>Pain that worsens with certain movements, like turning the head or standing up</li><br/>
-                  <li>Discomfort that improves slightly when leaning forward or resting</li><br/>
-                </h1>
-                
-                <h1 
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-                >
-                  Pinched nerve symptoms can come and go or be constant, depending on the cause. If left untreated, nerve compression may lead to permanent nerve damage, chronic pain, or muscle atrophy. Recognizing these early warning signs is the first step toward finding lasting relief.
-                </h1>
-                <OutlinedButton text="Find a Treatment"/>
-                <GradientOverlayImage
-                  imageData={pinchednerve2} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                Types of Pinched Nerve Conditions
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                Several spinal conditions can lead to pinched nerves. Herniated discs are one of the most common causes. When the soft inner material of the disc bulges out, it can press against nearby nerves and cause pain, tingling, or numbness. Spinal stenosis, which involves narrowing of the spinal canal, is another major cause especially in older adults.<br/><br/>
-                Bone spurs, often related to arthritis or spinal degeneration, can also contribute to nerve compression by invading space meant for nerves. In some cases, muscle tightness or repetitive strain from poor posture may also lead to a pinched nerve. Understanding what’s causing your symptoms is key to receiving the right care.
-                </h1>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1 
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-            }}
-            className="text-[#111315] text-2xl">
-              Learn About Pinched Nerve Treatments
-            </h1>
-            <div  className=" flex flex-col space-y-[40px]">
-              <h1
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-              >
-                A pinched nerve doesn’t have to control your life. With early intervention and the right treatment strategy, most patients experience relief without surgery. Non-surgical options may include physical therapy, anti-inflammatory medication, activity modification, ergonomic adjustments, and corticosteroid injections. When conservative care fails to relieve pressure on the nerve, minimally invasive surgical solutions such as microdiscectomy or foraminotomy may be considered.<br/><br/>
-                At Mountain Spine & Care, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
-              </h1>
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1 
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-            }}
-            className="text-[#111315] text-2xl">
-              Schedule a Consultation Today
-            </h1>
-            <div  className=" flex flex-col space-y-[40px]">
-              <h1
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-              >
-                If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Mountain Spine & Care, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
-                Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Lasting relief could be just one visit away.
-              </h1>
-            </div>
-          </div>
-          )
-        }
-      ],
-      side_img : pinchednerveside,
-      "slug": "pinchednerve"
-    },
-    {
       title : 'Cervical Herniated Disc',
       "card_img": cervicalHerniatedDisc,
       "inTxt_img": cervicalHerniatedDiscarti,
@@ -1402,177 +1601,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
        
       ],
       "slug": "cervicalspinalstenosis"
-    },
-    {
-        "title": "Lumbar Herniated Disc",
-        "card_img": LumbarHerniatedDiscCard, 
-        "inTxt_img": LumbarHerniatedDiscTxt,
-        "body": "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
-        "detail": "Each spinal disc has a tough outer layer called the annulus fibrosus and a soft, gel-like center known as the nucleus pulposus. Herniation happens when a tear in the annulus allows the nucleus to push outward. This displacement can occur gradually due to degenerative changes or suddenly from excessive strain or trauma. When the herniated material compresses or irritates spinal nerves exiting the spinal canal in the lower back, it triggers the characteristic radiating symptoms down the leg (sciatica). Mountain Spine & Care specializes in accurately diagnosing the level and severity of the herniation to guide effective treatment.",
-        "what_sym": "Symptoms often include sharp, shooting pain originating in the lower back and traveling down the buttock and back of one leg (sciatica), though sometimes back pain itself might be minimal. Numbness, tingling ('pins and needles'), or muscle weakness in the affected leg or foot are common. Pain may worsen with activities like sitting for long periods, bending forward, coughing, or sneezing.",
-        "risk_fac": "Key risk factors include age, as discs naturally degenerate over time making them more prone to herniation (most common between ages 30-50), improper lifting techniques or repetitive twisting motions, physically demanding occupations, excess body weight putting added strain on the spine, a sedentary lifestyle leading to weaker core support muscles, smoking which can impair disc nutrition, and a potential genetic predisposition to disc degeneration.",
-        "diagnose": "Diagnosis at Mountain Spine & Care involves a comprehensive evaluation, starting with a detailed medical history focusing on the pattern and triggers of your pain. A physical examination includes neurological testing (checking reflexes, muscle strength, sensation) and specific maneuvers like the straight leg raise test to identify nerve irritation. While symptoms often suggest a herniated disc, imaging studies, particularly an MRI, are crucial to confirm the diagnosis, visualize the disc pressing on the nerve, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy.",
-        "treatment": "Mountain Spine & Care prioritizes conservative treatment initially for most lumbar herniated discs. This often includes modified rest, targeted physical therapy focusing on core stabilization and specific exercises (like McKenzie method), pain and anti-inflammatory medications (NSAIDs, muscle relaxants), and epidural steroid injections to reduce nerve inflammation and radiating pain. If significant pain or neurological symptoms persist despite several weeks of conservative care, minimally invasive surgical options like microdiscectomy (removing the herniated portion of the disc) may be recommended to decompress the affected nerve.",
-        "pain_info": "The pain from a lumbar herniated disc is often neuropathic, meaning it stems from nerve compression, resulting in sharp, burning, or electric shock-like sensations down the leg (sciatica). This leg pain is frequently more severe than the localized back pain. Mountain Spine & Care focuses on alleviating this nerve pain through targeted treatments like epidural injections and physical therapy designed to reduce nerve irritation and improve function.",
-        "prevent": "While not all herniated discs are preventable, you can reduce your risk by consistently using proper lifting techniques (lifting with your legs, not your back), maintaining a healthy weight, practicing good posture, strengthening your core and back muscles through regular exercise, avoiding prolonged periods of sitting by taking frequent breaks to stand and stretch, and quitting smoking.",
-        "schedule": "If you're experiencing persistent lower back pain radiating into your leg, contact Mountain Spine & Care for an expert evaluation. Utilize our complimentary MRI review for an accurate diagnosis, and let our specialists develop a personalized treatment plan, emphasizing conservative care first, to relieve your pain and help you return to your daily activities.",
-       side_img : lumbarherniateddiscside,
-       forum : [
-        {
-          post : (
-          <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              How Do I Know If I Have a Lumbar Herniated Disc?
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-                Signs of a lumbar herniated disc often start gradually but may worsen over time if not treated. The most common symptom is a sharp or burning pain that radiates from the lower back into the leg, often following the path of the sciatic nerve. Many patients describe the pain as electric or stabbing, and it may worsen when sitting for long periods, bending forward, or coughing. Some patients also experience tingling, numbness, or muscle weakness in the leg or foot on the affected side. In severe cases, the condition can affect walking or standing for extended periods, reducing your quality of life.
-              </h1>
-              <GradientOverlayImage
-                  imageData={lumbarherniateddisc} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-              />
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-                If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Mountain Spine & Care offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
-              </h1>
-
-              <OutlinedButton text="Do I have this Condition?" />
-
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              What Lumbar Herniated Disc Treatment is Right for Me?
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-                The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.<br/><br/>
-                At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
-              </h1>
-              <OutlinedButton text="Find a Treatment" />
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-          <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              Pain Management for a Lumbar Herniated Disc
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-                The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.
-                At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
-              </h1>
-              <GradientOverlayImage
-                  imageData={lumbarherniateddisc2} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-              />
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              Best Treatment to Prevent Pain From a Lumbar Herniated Disc
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-               If you’re experiencing symptoms of a lumbar herniated disc, there are several treatment options available depending on the severity of your condition. If your pain is mild and manageable, starting with home care and guided physical therapy can often lead to improvement. Applying heat or ice, taking anti-inflammatory medications such as ibuprofen or naproxen, and making lifestyle adjustments like avoiding long periods of sitting or poor lifting techniques can help reduce strain on the lower back. Exercise programs that strengthen the core and improve flexibility are also an essential part of recovery.<br/><br/>
-                When conservative care is not enough, surgical treatment may be necessary to relieve pressure on the affected nerves. Discectomy is a common procedure where the portion of the disc pressing on the nerve is removed to relieve pain. In some cases, a laminectomy may be performed to widen the spinal canal and ease nerve compression. For patients with severe disc damage, spinal fusion may be considered to stabilize the spine and prevent further injury.<br/><br/>
-                Every patient is different, which is why the team at Mountain Spine & Care develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
-              </h1>
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              Schedule a Consultation Today
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-               Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Mountain Spine & Care, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
-               Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Mountain Spine & Care on your side, a pain-free future is within reach.
-              </h1>
-            </div>
-          </div>
-          )
-        }
-       ],
-      "slug": "lumbarherniateddisc"
     },
 
     {
@@ -2783,37 +2811,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "slug": "rheumatoidarthritis"
     },
 
-    {
-      "title": "Torn Meniscus",
-      "card_img": tmcard,
-      "inTxt_img": tmarti,
-      "body": "A torn meniscus is a tear of the C shaped cartilage pads that cushion and stabilize the knee joint, often resulting in pain, swelling, and mechanical symptoms that limit mobility. At Mountain Spine & Orthopedics, we provide expert evaluation with high resolution MRI, personalized treatment plans, and supportive services including complimentary MRI reviews, free second opinions, and door to door transportation to help you recover knee function and return to the activities you love.",
-      "detail": "The menisci are two C shaped fibrocartilage structures that distribute load, absorb shock, and provide stability to the knee. Tears occur from acute twisting injuries, direct impact, or gradual degeneration. Tear patterns include vertical longitudinal, horizontal cleavage, flap, radial, and complex tears, each requiring a tailored approach. Degenerative tears are more common in patients over 40 due to age related wear. At Mountain Spine & Orthopedics, evaluation begins with a detailed history of your injury mechanism, symptom onset, and activity level. A focused physical exam assesses joint line tenderness, range of motion, and mechanical signs such as clicking or locking. We use high resolution MRI to visualize tear location, size, and associated cartilage damage. In select cases, diagnostic arthroscopy may be recommended to confirm the diagnosis and address other intra-articular pathology.",
-      "what_sym": "Symptoms of a torn meniscus include localized pain along the knee joint line, swelling or effusion, stiffness, difficulty fully straightening or bending the knee, locking or catching sensations, a feeling of instability or giving way, and discomfort with twisting or squatting movements.",
-      "risk_fac": "Risk factors for meniscal tears include sports that involve pivoting and sudden changes in direction such as basketball and soccer, age related degeneration, previous knee injuries, muscle weakness around the knee, obesity, and improper training or exercise techniques.",
-      "diagnose": "Diagnosis involves a thorough clinical examination with tests like the McMurray’s and Apley grind to reproduce mechanical symptoms. Imaging with MRI offers detailed visualization of tear type, location, and severity. When MRI is contraindicated or additional clarity is needed, diagnostic arthroscopy can be performed to inspect the meniscus directly and evaluate joint surface health.",
-      "treatment": "Conservative management often succeeds for small tears and includes rest, ice, compression, elevation, physical therapy to strengthen quadriceps and hamstrings, anti inflammatory medications, and activity modification. For tears causing persistent mechanical symptoms or failing nonsurgical care, arthroscopic meniscal repair or partial meniscectomy is recommended. At Mountain Spine & Orthopedics, we use state of the art minimally invasive arthroscopy techniques to preserve as much healthy cartilage as possible, optimize recovery, and minimize long term joint degeneration.",
-      "pain_info": "Pain from a torn meniscus arises from both mechanical impingement of torn fragments and inflammation of the synovial lining. Swelling results from fluid accumulation within the joint and release of inflammatory mediators. Patients often describe sharp pain with weight bearing, twisting, or deep knee bending.",
-      "prevent": "To reduce the risk of meniscal tears, maintain strong and flexible muscles around the knee through regular strengthening and stretching exercises, practice proper warm up before activities, use safe techniques when pivoting or landing, wear supportive footwear, and maintain a healthy weight to lessen joint stress.",
-      "schedule": "If you are experiencing knee pain, swelling, locking, or instability, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review, free second opinion, and door to door transportation as you take the first step toward accurate diagnosis and effective treatment of your meniscal tear.",
-      "slug": "tornmeniscus"
-    },
-
-    {
-      "title": "Rotator Cuff Tear",
-      "card_img": rctcard,
-      "inTxt_img": rctarti,
-      "body": "A rotator cuff tear occurs when one or more of the tendons that stabilize the shoulder joint become partially or fully torn, often causing persistent shoulder pain, weakness, and limited range of motion. Rotator cuff injuries affect up to 30 percent of people over age 60 and can significantly impact daily activities and quality of life. At Mountain Spine & Orthopedics, we provide comprehensive evaluation and treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to accurately diagnose tears and restore shoulder function.",
-      "detail": "The rotator cuff is composed of four muscles and their tendons—supraspinatus, infraspinatus, teres minor, and subscapularis—that surround the shoulder joint, providing dynamic stability and enabling overhead motion. Tears develop due to acute trauma such as a fall on an outstretched arm, chronic degeneration from repetitive overhead activity, or age-related tendon thinning. Partial-thickness tears affect only a portion of the tendon thickness, while full-thickness tears create a complete discontinuity. At Mountain Spine & Orthopedics, our assessment begins with a detailed history of injury mechanism, activity levels, and symptom progression. We perform a focused physical examination—including tests such as the painful arc, the drop arm test, and resisted strength maneuvers—and use high-resolution MRI or diagnostic musculoskeletal ultrasound to determine tear size, tendon retraction, and muscle quality. In select cases, diagnostic arthroscopy may be utilized to visualize tendon integrity directly and address any additional joint pathology.",
-      "what_sym": "Patients with a rotator cuff tear typically experience gradual or sudden onset of shoulder pain that worsens with overhead activities, lifting, or reaching behind the back. Night pain that disrupts sleep, weakness when lifting the arm, difficulty combing hair or putting on a coat, and a clicking or popping sensation are common. In large tears, the shoulder may feel unstable or ‘give way’ during certain movements.",
-      "risk_fac": "Risk factors include advancing age, repetitive overhead sports or occupations such as swimming, tennis, painting, and carpentry, a history of shoulder impingement or arthritis, smoking, and systemic factors like diabetes that impair tendon health. Genetic predisposition and poor posture can also contribute to chronic tendon degeneration.",
-      "diagnose": "Diagnosis relies on a combination of clinical examination and imaging. We perform specific orthopedic tests—including the empty can test and lift-off maneuvers—to localize the tear and assess functional deficit. MRI remains the gold standard for visualizing tendon tears, muscle atrophy, and fatty infiltration, while ultrasound offers a dynamic, cost-effective alternative. Plain X rays help rule out bony spurs and arthritis. Electromyography may be indicated for chronic tears to evaluate muscle function and nerve involvement.",
-      "treatment": "Initial management for small or partial tears often includes activity modification, nonsteroidal anti-inflammatory medications, physical therapy focused on rotator cuff strengthening and scapular stabilization exercises, and image-guided corticosteroid injections for pain relief. For patients with persistent symptoms, larger tears, or functional deficits, minimally invasive arthroscopic rotator cuff repair is performed using suture anchors and tendon mobilization techniques to reattach the torn tendon to bone. Postoperative rehabilitation follows a phased protocol to protect the repair, gradually restore range of motion, and strengthen the shoulder girdle to ensure long-term success.",
-      "pain_info": "Pain in a rotator cuff tear arises from tendon inflammation, mechanical impingement under the acromion, and inflammatory mediators that sensitize nerve endings. Patients often report deep, aching discomfort that intensifies with arm elevation and activities such as lifting or throwing. Nighttime pain is common due to pressure on the shoulder when lying on the affected side.",
-      "prevent": "To reduce the risk of rotator cuff injury, maintain shoulder flexibility and strength through regular stretching and rotator cuff–targeted exercises, practice proper warm-up and cool-down routines before sports or repetitive overhead work, use ergonomic tools and techniques to minimize shoulder strain, and address early symptoms promptly with rest and professional evaluation.",
-      "schedule": "If you are experiencing shoulder pain, weakness, or limited mobility, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options to receive a precise diagnosis and a personalized treatment plan designed to restore your shoulder health and return you to the activities you enjoy.",
-      "slug": "rotatorcufftear"
-    },
 
     {
       "title": "ACL Injury",

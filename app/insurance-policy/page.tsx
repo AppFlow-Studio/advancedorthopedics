@@ -217,6 +217,16 @@ export default function InsurancePolicy() {
                         ))
                     }
                 </div>
+                <div className='w-full z-20'>
+                    <h1 
+                    style={{
+                        fontWeight : 500
+                    }}
+                    className='font-[var(--inter)] text-[#838890] text-center text-sm'
+                    >
+                    Please be aware that our practice does not participate in Medicare or Medicaid HMO plans.
+                    </h1>
+                </div>
         </section>
         <section className='w-full h-full py-[50px] max-w-[1440px]  px-6 xl:px-[80px]'>
                 <div className=' flex md:space-y-0 space-y-8 md:flex-row flex-col rounded-[20px] bg-[#EFF5FF] p-4 md:p-[32px] md:space-x-[32px] items-center justify-center'>
@@ -362,6 +372,7 @@ export default function InsurancePolicy() {
                           ))
                         }
                     </div>
+                   
               </section>
 
             <ClinicsMap />
