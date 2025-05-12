@@ -2091,23 +2091,330 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "schedule": "If spine surgery has failed to provide lasting relief schedule a consultation with  our specialists will conduct a complimentary MRI review deliver a thorough second opinion and arrange car service guiding you toward a clear plan to confront Failed Back or Failed Neck Surgery Syndrome and regain control of your life",
       "slug": "failedbackorfailenecksurgerysyndrome"
     },
-
     {
-      "title": "Foraminal Stenosis",
-      "card_img": foraminalS,
-      "inTxt_img": foraminalSarti,
-      "body": "Foraminal stenosis is a spinal condition in which the passageways that allow nerve roots to exit the spine become narrowed compressing nerves and causing radiating pain numbness or weakness. At  our specialists provide precise diagnostics and comprehensive treatments supported by complimentary MRI reviews free second opinions and convenient car service to alleviate symptoms protect nerve function and restore mobility",
-      "detail": "Nerve roots branch off the spinal cord and travel through small openings called intervertebral foramina before reaching the arms or legs. Degenerative disc collapse thickened ligaments bone spurs facet joint enlargement or bulging discs can constrict these bony tunnels leading to foraminal stenosis. Cervical narrowing may send pain or tingling down the arms while lumbar narrowing often causes sciatica that shoots into the buttocks thighs or calves. Prolonged standing or extension usually worsens discomfort whereas gentle flexion or sitting may bring relief. At  evaluation begins with a thorough discussion of symptom patterns activity limitations and prior treatments followed by a focused neurologic examination mapping sensory changes reflex integrity and motor strength. Complimentary high resolution MRI confirms foraminal narrowing disc pathology and nerve root compression while upright X rays or CT scans reveal alignment issues and bony overgrowth. These findings guide a personalized care plan that balances conservative therapies with targeted interventions",
-      "what_sym": "Patients typically describe shooting or burning pain radiating along the path of the affected nerve associated numbness or tingling muscle weakness and in advanced cases loss of fine motor control or difficulty walking long distances",
-      "risk_fac": "Degenerative changes accelerated by aging repetitive heavy lifting prior spinal injury congenital narrow foramina disc degeneration excess body weight and inflammatory arthritis all heighten the likelihood of foraminal narrowing",
-      "diagnose": "Diagnosis includes a detailed history physical examination and complimentary MRI to confirm foraminal narrowing and nerve compression.  may also use nerve conduction studies to differentiate root compression from peripheral neuropathy and selective diagnostic nerve root blocks to pinpoint the exact pain source before treatment",
-      "treatment": "First line care focuses on activity modification anti inflammatory or neuropathic medication and physiotherapy that strengthens core and paraspinal muscles while improving posture. Image guided epidural steroid or transforaminal injections deliver medication directly to the compressed nerve reducing inflammation and pain. When structural narrowing remains severe or neurologic deficits progress surgeons perform minimally invasive foraminotomy or microdiscectomy to widen the tunnel and decompress the nerve while preserving spinal stability. In cases with segmental instability limited fusion techniques may be added.  tailors each plan to maximize relief and minimize downtime",
-      "pain_info": "Radiating pain can fluctuate with posture and activity often intensifying during spine extension or prolonged standing. By decompressing the nerve chemically or surgically and retraining supportive musculature our integrated approach breaks the pain cycle and restores confidence in movement",
-      "prevent": "Preventive measures include maintaining healthy body weight engaging in low impact exercise to strengthen core and spinal muscles practicing proper lifting techniques avoiding tobacco and addressing early disc degeneration to slow foraminal narrowing and protect nerve health",
-      "schedule": "If arm or leg pain is limiting your life schedule a consultation with . Benefit from a complimentary MRI review free second opinion and convenient transportation so you can move forward with a personalized plan to conquer foraminal stenosis and reclaim active living",
-      "slug": "foraminalstenosis"
+    "title": "Foraminal Stenosis",
+      "card_img": foraminalS, // Placeholder for card image variable
+      "inTxt_img": foraminalSarti, // Placeholder for in-text image variable
+      "body": "Foraminal stenosis, a narrowing of the spinal canal openings where nerves exit, can cause radiating pain, numbness, or weakness. Mountain Spine Orthopedics offers advanced diagnostics and personalized treatments, including minimally invasive options, to relieve nerve compression and restore function, backed by complimentary MRI reviews and free second opinions.",
+      "detail": "The intervertebral foramina are small passageways on either side of your spine through which spinal nerves exit the spinal canal to travel to the rest of your body. Foraminal stenosis occurs when these openings become narrowed, often due to degenerative changes like bone spurs (osteophytes), herniated discs, thickened ligaments, or spondylolisthesis (slipped vertebra). This narrowing can compress or 'pinch' the exiting nerve root, leading to symptoms along the nerve's pathway. At Mountain Spine Orthopedics, our spine specialists utilize a detailed history, neurological examination, and advanced imaging like complimentary MRI reviews to precisely identify the location and cause of the stenosis. This allows for a tailored treatment plan targeting the specific compressed nerve.",
+      "what_sym": "Symptoms depend on the location (cervical, thoracic, lumbar) and severity of the nerve compression. Common signs include radiating pain (sciatica in the leg, radiculopathy in the arm), numbness, tingling ('pins and needles'), muscle weakness, cramping, or burning sensations in the affected limb or region. Pain may worsen with certain activities or positions, like walking or standing for long periods.",
+      "risk_fac": "Age is the primary risk factor, as degenerative changes accumulate over time. Other factors include genetics (predisposition to disc degeneration or arthritis), previous spinal injury or surgery, occupations involving heavy lifting or repetitive spinal stress, obesity, and conditions like osteoarthritis or rheumatoid arthritis.",
+      "diagnose": "Diagnosis involves a thorough clinical evaluation assessing symptoms, reflexes, muscle strength, and sensation. Imaging is crucial; complimentary MRI reviews provide detailed views of nerves and soft tissues, while CT scans excel at showing bone structure (like bone spurs). X-rays can show alignment issues or arthritis. Electromyography (EMG) and nerve conduction studies may be used to assess nerve function.",
+      "treatment": "Initial treatment is typically conservative: anti-inflammatory medications, physical therapy to improve flexibility, strength, and posture, activity modification, and sometimes epidural steroid injections to reduce inflammation around the nerve. If symptoms persist or worsen, or if there's significant weakness, minimally invasive surgical options like foraminotomy (enlarging the foramen) or laminectomy/laminotomy may be recommended by our expert surgeons at Mountain Spine Orthopedics to decompress the nerve.",
+      "pain_info": "Pain from foraminal stenosis often follows a specific nerve path (dermatome). Lumbar stenosis typically causes leg pain (sciatica), while cervical stenosis causes arm pain. The character of pain can range from a dull ache to sharp, shooting sensations. Our team focuses on identifying the exact nerve involved to deliver targeted relief, from physical therapy guidance to precise, image-guided injections or minimally invasive surgery.",
+      "prevent": "While age-related degeneration is hard to prevent entirely, maintaining a healthy weight, practicing good posture, using proper lifting techniques, regular exercise (especially core strengthening), and avoiding smoking can help maintain spinal health and potentially slow the progression of degenerative changes that lead to stenosis.",
+      "schedule": "Don't live with radiating nerve pain, numbness, or weakness. Contact Mountain Spine Orthopedics today to schedule your consultation. Benefit from our complimentary MRI review, expert free second opinion, and personalized care plan designed to relieve nerve compression and improve your quality of life. Convenient patient services may be available.", // Added mention of patient services
+      "side_img": foraminalS, // Placeholder for side image variable
+      forum : [
+        {
+          "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-4xl"
+              >
+                Understanding Foraminal Stenosis
+              </h1>
+              <div className="flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Foraminal stenosis is a specific type of spinal stenosis where the openings between your spinal bones (vertebrae), called the neural foramina, become narrow. These openings are crucial because they provide the pathway for your spinal nerves to exit the spinal cord and travel to other parts of your body, like your arms and legs.<br /><br />
+                  When a foramen narrows, it can squeeze or 'pinch' the nerve passing through it. This nerve compression is what leads to the characteristic symptoms of foraminal stenosis, such as pain, numbness, tingling, or weakness that radiates away from the spine along the path of the affected nerve. The location of symptoms depends on which nerve is compressed – neck (cervical) stenosis affects the arms, while lower back (lumbar) stenosis affects the legs (often called sciatica).
+                </h1>
+                <GradientOverlayImage
+                  imageData={foraminalSarti} // Placeholder for diagram image
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Common causes include age-related wear and tear like bone spurs (bony growths), bulging or herniated discs pushing into the space, thickening of spinal ligaments, or a vertebra slipping out of place (spondylolisthesis). If you're experiencing radiating symptoms, understanding the cause is the first step toward effective treatment.
+                </h1>
+                {/* Placeholder for a potential diagnostic checker button */}
+                {/* <OutlinedButton text="Do I have this Condition?" /> */}
+              </div>
+            </div>
+          ),
+        },
+        {
+          "post": (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-2xl" // Adjusted size for secondary heading
+              >
+                How Is Foraminal Stenosis Diagnosed?
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Diagnosing foraminal stenosis accurately requires a combination of understanding your symptoms and using advanced imaging. Our specialists at Mountain Spine Orthopedics begin with a detailed discussion about your pain pattern, numbness, weakness, and what activities make your symptoms better or worse. A thorough neurological exam follows, testing your reflexes, muscle strength, and sensation to pinpoint which nerve might be affected.<br /><br />
+                  Imaging plays a vital role. While X-rays can show bone alignment and arthritis, an MRI (Magnetic Resonance Imaging) is usually the preferred test. It provides clear pictures of soft tissues, including nerves and discs, showing exactly where and how severely the nerve is being compressed within the foramen. We offer complimentary MRI reviews to help assess your condition. In some cases, a CT (Computed Tomography) scan might be used for better bone detail, or nerve conduction studies (EMG/NCS) might assess nerve function directly.
+                </h1>
+                <OutlinedButton text="Explore Treatment Options" />
+              </div>
+            </div>
+          )
+        },
+        {
+          "post": (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-4xl">
+                Managing Pain from Foraminal Stenosis
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  The goal of managing foraminal stenosis pain is to reduce nerve compression and inflammation. Conservative, non-surgical approaches are typically tried first:<br />
+                  <li><b>Activity Modification:</b> Avoiding activities that worsen symptoms.</li>
+                  <li><b>Medications:</b> Over-the-counter or prescription nonsteroidal anti-inflammatory drugs (NSAIDs) like ibuprofen or naproxen can reduce pain and swelling.</li>
+                  <li><b>Physical Therapy:</b> Specific exercises can help improve flexibility, strengthen supporting muscles (core, back), and improve posture, potentially creating more space for the nerve.</li>
+                  <li><b>Epidural Steroid Injections:</b> Corticosteroid medication injected near the compressed nerve can provide significant, though often temporary, relief from inflammation and pain.</li><br /><br />
+                  If these methods don't provide adequate relief, or if there is progressive weakness, surgical options might be considered. Our focus is on effective pain relief tailored to your specific situation.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          "post": (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-4xl">
+                What Causes Foraminal Stenosis?
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Foraminal stenosis is most often caused by the natural aging process and degenerative changes in the spine. As we age, various structures can encroach upon the neural foramina:<br />
+                  <li><b>Bone Spurs (Osteophytes):</b> The body may grow extra bone around joints affected by arthritis, narrowing the foraminal space.</li>
+                  <li><b>Herniated or Bulging Discs:</b> The soft discs between vertebrae can bulge or rupture, pushing disc material into the foramen and compressing the nerve.</li>
+                  <li><b>Thickened Ligaments:</b> Ligaments within the spinal canal can thicken and stiffen over time, reducing the available space.</li>
+                  <li><b>Spondylolisthesis:</b> One vertebra slips forward relative to the one below it, potentially narrowing the foramen at that level.</li>
+                  <li><b>Facet Joint Arthritis:</b> Enlargement of the small joints connecting vertebrae (facet joints) due to arthritis can also contribute to foraminal narrowing.</li><br /><br />
+                  Less common causes include spinal injuries, tumors, or cysts. Understanding the specific cause is key to choosing the right treatment.
+                </h1>
+                <GradientOverlayImage
+                  imageData={foraminalS} // Placeholder for another diagram/image
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              </div>
+            </div>
+          )
+        },
+        {
+          "post": (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-4xl">
+                Risk Factors for Developing Foraminal Stenosis
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  While anyone can develop foraminal stenosis, certain factors increase your risk:<br />
+                  <li><b>Age:</b> It's most common in individuals over 50 due to cumulative wear and tear.</li>
+                  <li><b>Degenerative Conditions:</b> Osteoarthritis, degenerative disc disease are major contributors.</li>
+                  <li><b>Spinal Deformities:</b> Conditions like scoliosis can alter spinal mechanics and increase stress.</li>
+                  <li><b>Previous Spinal Injury:</b> Trauma can accelerate degenerative changes or directly narrow the foramina.</li>
+                  <li><b>Genetics:</b> Some individuals may have a hereditary predisposition to spinal degeneration.</li>
+                  <li><b>Lifestyle Factors:</b> Obesity puts extra stress on the spine, and smoking can impair disc health. Repetitive strain from certain jobs or activities may also play a role.</li><br /><br />
+                  Being aware of these factors can help in early recognition and management.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          "post": (
+            <div className=" flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-4xl">
+                Treatment Options for Foraminal Stenosis
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Treatment for foraminal stenosis aims to relieve nerve pressure and reduce symptoms. The approach depends on symptom severity and cause:<br />
+                  <b>Conservative Treatments:</b>
+                  <li>Physical therapy, NSAIDs, activity modification.</li>
+                  <li>Epidural steroid injections for inflammation.</li>
+                  <b>Surgical Treatments (when conservative care fails or symptoms are severe):</b>
+                  <li><b>Foraminotomy:</b> A minimally invasive procedure where bone or tissue compressing the nerve within the foramen is removed, enlarging the opening.</li>
+                  <li><b>Laminotomy/Laminectomy:</b> Removal of a small portion (laminotomy) or the entire lamina (laminectomy) - part of the vertebral bone - to create more space, often combined with foraminotomy.</li>
+                  <li><b>Spinal Fusion:</b> May be necessary in cases of instability (like spondylolisthesis) often performed alongside decompression procedures.</li>
+                </h1>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  At Mountain Spine Orthopedics, our surgeons specialize in minimally invasive techniques whenever possible. These approaches often involve smaller incisions, less muscle disruption, reduced blood loss, and potentially faster recovery times compared to traditional open surgery. We tailor the treatment plan to provide the most effective relief for your specific condition.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] text-4xl">
+                Frequently Asked Questions About Foraminal Stenosis
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 500
+                  }}
+                  className="text-[#111315] text-xl"
+                >
+                  Is foraminal stenosis serious?
+                </h1>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  While often manageable with conservative care, severe or progressive foraminal stenosis can lead to chronic pain, significant weakness, numbness, and loss of function if left untreated. In rare cases involving the lower spine, severe compression can affect bowel or bladder control (cauda equina syndrome), which is a medical emergency. Early diagnosis and treatment are important.
+                </h1>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 500,
+                  }}
+                  className="text-[#111315] text-xl">
+                  Can foraminal stenosis heal on its own?
+                </h1>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  The underlying structural narrowing (like bone spurs or thickened ligaments) typically does not resolve on its own. However, symptoms can sometimes improve or fluctuate with conservative treatments that reduce inflammation (like injections) or improve biomechanics (like physical therapy), effectively managing the condition without surgery.
+                </h1>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 500,
+                  }}
+                  className="text-[#111315] text-xl">
+                  What activities should be avoided with foraminal stenosis?
+                </h1>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Activities that worsen your specific symptoms should generally be avoided or modified. This often includes high-impact activities (like running on hard surfaces), heavy lifting with improper form, prolonged sitting or standing without breaks, and activities involving excessive twisting or extension of the affected spinal region. A physical therapist can provide personalized guidance.
+                </h1>
+              </div>
+            </div>
+          )
+        },
+        {
+          "post": (
+            <div className=" flex flex-col space-y-[16px] ">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-[#111315] text-4xl">
+                Schedule Your Foraminal Stenosis Consultation
+              </h1>
+              <div className=" flex flex-col space-y-[40px]">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400,
+                  }}
+                  className="text-[#5B5F67] text-xl"
+                >
+                  Radiating nerve pain, numbness, or weakness shouldn't limit your life. The expert team at Mountain Spine Orthopedics offers comprehensive evaluation and cutting-edge treatments for foraminal stenosis, from conservative care to advanced minimally invasive surgery.<br /><br />
+                  Take the first step towards relief. Contact us to schedule your consultation, benefit from a complimentary MRI review, and receive a free second opinion from our spine specialists. Call us today or use our online form to request an appointment.
+                </h1>
+                {/* Add contact info or button here */}
+                {/* Example: <OutlinedButton text="Request Appointment" /> */}
+              </div>
+            </div>
+          )
+        }
+      ],
+      "slug": "foraminal-stenosis"
     },
-
     {
       "title": "Hip Impingement (Femoroacetabular Impingement)",
       "card_img": hipcard,

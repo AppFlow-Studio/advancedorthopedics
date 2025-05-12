@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/hover-card"
 import { clinics } from './data/clinics';
 import { SidebarNavItem } from './SidebarNavItem';
+
 function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen : string, pathname : string, sublinks : {title : string, href : string, subLinks: {title : string, href : string}[] }[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -215,6 +216,10 @@ const NavBarLinks = [
           {
             title : 'Lumbar Herniated Disc',
             href : '/area-of-pain/back-pain/lumbarherniateddisc'
+          },
+          {
+            title : 'Foraminal Stenosis',
+            href : '/area-of-pain/back-pain/foraminal-stenosis'
           },
           {
             title : 'Sciatica',
