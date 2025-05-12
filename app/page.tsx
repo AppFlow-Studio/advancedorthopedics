@@ -400,7 +400,7 @@ export default function Home() {
         <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-6 xl:py-8 relative  xl:pb-[160px]">
-          <div className="md:w-[565px] h-full absolute left-0 top-0 w-full sm:w-[85%]"
+          <div className="lg:w-[60%] h-full absolute left-0 top-0 md:w-[85%] w-full"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
@@ -433,7 +433,7 @@ export default function Home() {
                 fontWeight: 500,
                 lineHeight: "110%",
               }}
-              className="text-white text-6xl xl:text-6xl"
+              className="text-white text-5xl sm:text-6xl xl:text-6xl"
               >
               Welcome to<br/> Mountain <br/> Spine & Orthopedics 
               </h1>
