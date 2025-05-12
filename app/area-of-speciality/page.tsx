@@ -169,7 +169,7 @@ export default function AreaOfSpeciality() {
           >
             All Our Conditions
           </h1>
-          <div className="md:w-[25%] w-full md:mt-0 mt-4">
+          <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4">
             {/* *** Corrected ConditionsSearchBar usage *** */}
             <ConditionsSearchBar
               conditions={Conditions}        // Pass the full list for searching

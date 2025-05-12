@@ -10,7 +10,7 @@ import ConditionCard from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import { AllTreatments } from '@/components/data/treatments' // Your master list of treatments
 import TreatmentCard, { TreatmentCardInfoProp } from '@/components/TreatmentCard' // Ensure TreatmentCardInfoProp is exported or defined
-import TreatmentsSearchBar from '@/components/ui/treatmentsSearchBar'
+import TreatmentsSearchBar from '@/components/ui/TreatmentsSearchBar'
 import { TextAnimate } from '@/components/magicui/text-animate'
 
 export default function Treatments() {

@@ -200,7 +200,7 @@ export default function Blogs() {
                     Our latest Blogs
                 </h1>
 
-                <div className="md:w-[25%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={BlogPosts}/></div>
+                <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={BlogPosts}/></div>
             </div>
 
             <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
