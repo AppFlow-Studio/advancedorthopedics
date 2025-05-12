@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import InsuranceLanding from '@/public/InsuranceLanding.png'
 import { ConsultationForm } from '@/components/ContactForm'
@@ -18,6 +18,7 @@ import BlogPostCard, { BlogPostProp } from '@/components/BlogPostCard'
 import { Input } from '@/components/ui/input'
 import { BlogPosts } from '@/components/data/blogs'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import BlogSearchBar from '@/components/BlogSearchBar'
 const ServicesAndExpertise = [
     {
         title : 'Treatment finder',
@@ -50,6 +51,18 @@ const ServicesAndExpertise = [
 
 
 export default function Blogs() {
+  const [data, setData] = useState(BlogPosts)
+    // --- Handler function for when a condition is selected in the search bar ---
+    const handleConditionSelect = (blog: BlogPostProp) => {
+      console.log("Parent: BlogPostProp selected - ", blog.title);
+      setData([blog]); // Update state to show only the selected BlogPostProp
+    };
+  
+    // --- Handler function for when the search bar is cleared ---
+    const handleSearchClear = () => {
+      console.log("Parent: Search cleared - Resetting data to full list");
+      setData(BlogPosts); // Reset state to the original full list of BlogPostProps
+    };
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -57,7 +70,7 @@ export default function Blogs() {
         <Image src={BlogsLanding} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-            <div className="w-[565px] h-full absolute left-0 top-0"
+            <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
@@ -187,17 +200,10 @@ export default function Blogs() {
                     Our latest Blogs
                 </h1>
 
-                <div className=" flex lg:w-[25%] md:w-[50%] w-full ">
-                    <span className="inline-flex items-center px-6 h-12 text-lg bg-[#EFF5FF] rounded-l-[62px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.4013 20 14.6049 19.1536 16.3287 17.7429L20.2929 21.7071C20.6834 22.0976 21.3166 22.0976 21.7071 21.7071C22.0976 21.3166 22.0976 20.6834 21.7071 20.2929L17.7429 16.3287C19.1536 14.6049 20 12.4013 20 10C20 4.47715 15.5228 0 10 0ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#5B5F67"/>
-                    </svg>
-                    </span>
-                    <Input placeholder="Search Name or Keyword" className="h-12 text-lg rounded-l-none border-0 bg-[#EFF5FF] rounded-r-[62px] " onFocus={() => {}}/>
-                </div> 
+                <div className="md:w-[25%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={BlogPosts}/></div>
             </div>
 
-            <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px] md:gap-[32px] overflow-hidden'>
+            <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
                 {
                     BlogPosts.map((item) => 
                     <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='white'/>
@@ -208,7 +214,7 @@ export default function Blogs() {
             <div className=' bg-[#DCDEE1] h-[1px] w-full mt-[40px]'/>
 
           <div className=' mt-[20px] flex flex-row items-center justify-between'>
-              <div className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer'>
+              {/* <div className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                   <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" fill="#5B5F67"/>
                 </svg>
@@ -221,9 +227,9 @@ export default function Blogs() {
                 >
                   Previous
                 </h1>
-              </div>
+              </div> */}
 
-             <div className=' flex-row items-center space-x-[2px] md:flex hidden'>
+             {/* <div className=' flex-row items-center space-x-[2px] md:flex hidden'>
                 {
                   [1,2,3,4,5,6,7,8,9,10].map((item) => (
                     <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
@@ -239,9 +245,9 @@ export default function Blogs() {
                     </div>
                   ))
                 }
-              </div>
+              </div> */}
                 {/* Change this Later */}
-              <div className=' flex-row items-center space-x-[2px] lg:flex hidden  '>
+              {/* <div className=' flex-row items-center space-x-[2px] lg:flex hidden  '>
                 {
                   [1,2,3,10].map((item) => (
                     <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
@@ -257,9 +263,9 @@ export default function Blogs() {
                     </div>
                   ))
                 }
-              </div>
+              </div> */}
 
-              <div className=' flex-row items-center space-x-[2px] flex sm:hidden'>
+              {/* <div className=' flex-row items-center space-x-[2px] flex sm:hidden'>
                 {
                   [1,2,10].map((item) => (
                     <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
@@ -275,10 +281,10 @@ export default function Blogs() {
                     </div>
                   ))
                 }
-              </div>
+              </div> */}
            
            
-              <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer '>
+              {/* <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer '>
               <h1
                 style={{
                   fontFamily : 'var(--font-inter)',
@@ -291,7 +297,7 @@ export default function Blogs() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                   <path d="M12.7071 11.7071C12.3166 12.0976 11.6834 12.0976 11.2929 11.7071C10.9024 11.3166 10.9024 10.6834 11.2929 10.2929L14.5858 7L1 7C0.447716 7 0 6.55228 0 6C0 5.44771 0.447716 5 1 5L14.5858 5L11.2929 1.7071C10.9024 1.31657 10.9024 0.683409 11.2929 0.292888C11.6835 -0.0976335 12.3166 -0.0976287 12.7072 0.292899L17.7018 5.2876C17.7202 5.30578 17.738 5.32468 17.755 5.34424C17.8225 5.42185 17.8761 5.50741 17.9158 5.59762C17.9696 5.71989 17.9996 5.85497 18 5.99702L18 6C18 6.00309 18 6.00617 18 6.00925C17.9988 6.13503 17.9745 6.25525 17.931 6.36586C17.8822 6.49017 17.8076 6.60669 17.7071 6.70715L12.7071 11.7071Z" fill="#111315"/>
                 </svg>
-              </button>
+              </button> */}
 
           </div>
          

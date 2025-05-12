@@ -75,7 +75,7 @@ export default function AreaOfSpeciality() {
           className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full"
         />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-         <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
+         <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}

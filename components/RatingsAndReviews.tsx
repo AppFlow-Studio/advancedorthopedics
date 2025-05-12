@@ -6,31 +6,50 @@ import Rating2 from '../public/Rating2.png'
 import Image from 'next/image'
 import StarRating from './StarRating'
 const Reviews = [
-    {
-      img : Rating1,
-      rating : 4.5,
-      name : 'Jane Doe',
-      body : '"I’ve been using this medical website for a few months now, and it’s been incredibly helpful! The doctors are knowledgeable, and the site is easy to navigate. Highly recommend it!"'
-    },
-    {
-      img : Rating2,
-      rating : 4.5,
-      name : 'Emily Clark',
-      body : `"This medical platform made booking appointments so easy! The staff is professional, and the information provided is trustworthy. I'm so glad I found it."`
-    },
-    {
-      img : Rating1,
-      rating : 4.5,
-      name : 'Jane Doe',
-      body : '"I’ve been using this medical website for a few months now, and it’s been incredibly helpful! The doctors are knowledgeable, and the site is easy to navigate. Highly recommend it!"'
-    },
-    {
-      img : Rating2,
-      rating : 4.5,
-      name : 'Emily Clark',
-      body : `"This medical platform made booking appointments so easy! The staff is professional, and the information provided is trustworthy. I'm so glad I found it."`
-    }
-  ]
+  {
+    // Placeholder for an image variable if needed
+    img : 'https://originui.com/avatar-80-03.jpg',
+    rating: 5,
+    name: 'Robert P.',
+    body: '"After years of debilitating back pain, I finally sought help at Mountain Spine Orthopedics. Dr. Katzman took the time to actually listen and explain my options clearly. The minimally invasive procedure he performed gave me my life back. The entire team was professional and supportive throughout."'
+  },
+  {
+    // Placeholder for an image variable if needed
+    img : 'https://originui.com/avatar-80-04.jpg',
+    rating: 5,
+    name: 'Maria G.',
+    body: `"I was hesitant about surgery for my spinal stenosis, but the staff at Mountain Spine Orthopedics put me at ease. From the front desk to the medical assistants, everyone was incredibly kind and efficient. My recovery was smoother than I ever expected. Highly recommend!"`
+  },
+  {
+    // Placeholder for an image variable if needed
+    img : 'https://originui.com/avatar-80-08.jpg',
+    rating: 5,
+    name: 'David L.',
+    body: `"Getting a second opinion from Dr. Katzman was the best decision I made. He reviewed my MRI, explained things in a way I could understand, and offered a non-surgical approach that actually worked for my herniated disc. Truly grateful for his expertise and honest assessment."`
+  },
+  {
+    // Placeholder for an image variable if needed
+    img : 'https://originui.com/avatar-80-02.jpg',
+    rating: 5,
+    name: 'Sarah Chen',
+    body: `"The level of care at Mountain Spine Orthopedics is outstanding. Scheduling was easy, the office is modern and clean, and Dr. Katzman's team is top-notch. They genuinely care about their patients' well-being and getting them back to their activities."`
+  },
+  {
+    // Placeholder for an image variable if needed
+    img : 'https://originui.com/avatar-80-01.jpg',
+    rating: 5,
+    name: 'Michael B.',
+    body: `"Dealing with chronic neck pain was exhausting. The team at Mountain Spine Orthopedics provided a comprehensive treatment plan, not just a quick fix. I felt involved in my care every step of the way. Feeling so much better now!"`
+  },
+  {
+    // Placeholder for an image variable if needed
+    img : 'https://originui.com/avatar-80-05.jpg',
+    rating: 5,
+    name: 'Linda S.',
+    body: `"Dr. Katzman is a fantastic surgeon with a great bedside manner. He addressed all my concerns before my procedure and the results exceeded my expectations. The follow-up care from his team at Mountain Spine Orthopedics has also been excellent. Five stars aren't enough!"`
+  }
+]
+
 
 export default function RatingsAndReviews() {
   const [ ReviewsIndex, setReviewsIndex ] = useState(0)
@@ -81,7 +100,7 @@ export default function RatingsAndReviews() {
                 <CarouselItem className={`xl:basis-1/2 ${index == 0 ? 'md:pl-4' : ''} ${index == Reviews.length - 1 ? 'md:mr-4' : ''} relative`} key={index}>
                   <div className="w-full max-h-[454px] xl:h-[454px] relative flex items-end ">
                     <div className=" rounded-tr-[20px] rounded-tl-[20px] rounded-br-[80px] rounded-[80px] overflow-hidden max-h-[120px] max-w-[120px] lg:h-[120px] lg:w-[120px]  bg-[#F8FAF9] border-10 border-white ml-4 sm:ml-[50px] absolute -top-1">
-                      <Image src={item.img} alt="Review Profile Pic" className="w-full h-full object-cover "/>
+                      <Image src={item.img} alt="Review Profile Pic" layout="fill" className="w-[90%] h-[90%] object-cover "/>
                     </div>
                     <div className="w-full h-full rounded-[24px] bg-[#F8FAF9] md:max-h-[419px] xl:h-[419px] flex flex-col p-2 md:p-[32px]">
                         <div className="self-end">
@@ -93,7 +112,7 @@ export default function RatingsAndReviews() {
                             fontFamily: "var(--font-inter)",
                             fontWeight: 500,
                           }}
-                          className="md:text-3xl text-xl text-[#5B5F67] lg:pt-0  md:pt-10"
+                          className="md:text-2xl text-xl text-[#5B5F67] lg:pt-0  md:pt-10"
                           >{item.body}</h1>
 
                           <h1

@@ -75,7 +75,7 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
     
                 <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
                 
-                <div className=' flex flex-row flex-wrap w-full md:space-x-[16px] space-y-1 md:space-y-0 items-center'>
+                <div className=' flex flex-row flex-wrap w-full  space-y-1  items-center'>
                     {
                         BlogInfo.tags.map((tag) => (
                             <div
