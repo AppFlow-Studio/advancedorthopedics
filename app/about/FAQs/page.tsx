@@ -25,11 +25,7 @@ export default function FAQs() {
                 painful alternative.
             </p>
             <p>
-                Mountain Spine & Orthopedics has developed a special minimally invasive technique that lessens recovery time and the
-                pain associated with surgery by using tiny incisions and preserving the muscles and tissue surrounding your
-                spine. The results are longer lasting and more effective than traditional surgery. For more on minimally 
-                invasive methodology, check out our blog on what "minimally invasive" really means and how it can
-                help you find long-term pain relief.
+            Mountain Spine & Orthopedics has developed a specialized minimally invasive technique that reduces recovery time and pain following surgery by using tiny incisions and preserving the muscles and tissue surrounding your spine. The results are longer lasting and more effective than traditional surgery. Recovery is significantly faster, often allowing patients to return to work within just a few days.
             </p>
             </>
         ),
@@ -45,7 +41,7 @@ export default function FAQs() {
         ),
         },
         {
-        question: "What do past patients have to say about their olss experience?",
+        question: "What do past patients have to say about their Mountain Spine & Orthopedics experience?",
         answer: (
             <p>
             Our patients consistently report high satisfaction rates with their Mountain Spine & Orthopedics experience. Many highlight the
