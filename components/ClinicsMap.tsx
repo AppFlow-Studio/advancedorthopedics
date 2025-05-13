@@ -179,7 +179,6 @@ const handleClinicChange = (name: string) => {
     if( !startingClinic ) {setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))}
   }, [])
   useEffect(() => {
-    console.log(isInitialMount, selectedClinc)
     if( isInitialMount.current && selectedClinc && !startingClinic  ){
       const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
       setMapCenter(defaultMapCenter)
@@ -333,6 +332,5 @@ function findNearestClinicNameGoogle(clinics, userLocation, google) {
     }
   }
 
-  console.log(`Nearest clinic: ${nearestClinic?.name}, Distance: ${(minDistance / 1000).toFixed(2)} km`); // Optional logging
   return nearestClinic ? nearestClinic : null;
 }

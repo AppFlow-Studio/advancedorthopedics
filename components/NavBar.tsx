@@ -82,7 +82,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
             {
               sublinks.map((link) => {
                 return (    
-                    <NavigationMenuLink key={link.title}  href={link.href} className='w-full'>
+                    <NavigationMenuLink key={link.title}  href={link.title == 'Florida' ? '#' : link.href} className='w-full'>
                           {
                           link.subLinks.length == 0 ? 
                           <h1 
@@ -307,7 +307,7 @@ const NavBarLinks = [
     subLinks : [
       {
         title : "Florida",
-        href : '/locations',
+        href : '/#',
         subLinks : clinics.map((clinic) => {
           return {
             title : clinic.name,

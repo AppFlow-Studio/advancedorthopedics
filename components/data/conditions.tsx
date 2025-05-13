@@ -146,21 +146,6 @@ import bcard from '@/public/bcard.jpeg'
 
 export const Conditions : ConditionInfoProp[] = [
   {
-    "title": "Adjacent Segment Disease",
-    "card_img": adjacentSegmentDisease,
-    "inTxt_img": adjacentSegmentDisease2,
-    "body": "Adjacent Segment Disease (ASD) occurs when spinal segments next to a surgically treated area endure extra stress, which accelerates degeneration and discomfort. Knowing the symptoms, risk factors, diagnostic methods, and treatment options offered at  helps patients manage and prevent this condition effectively.",
-    "detail": "Adjacent Segment Disease refers to the deterioration of spinal segments directly above or below a segment that has already undergone fusion or another procedure. The change in biomechanics after surgery places additional strain on the neighboring levels, making them more prone to wear and tear. At , our specialized team provides thorough evaluations that include complimentary MRI reviews and free second opinions to deliver precise diagnoses and individualized care.",
-    "what_sym": "Common symptoms include persistent neck or back pain, stiffness, reduced range of motion, numbness or tingling, and muscle weakness. These issues can grow more intense over time and can limit daily activities, which highlights the need for early diagnosis and timely intervention.",
-    "risk_fac": "Risk factors for ASD include age related degeneration, obesity, poor posture, repetitive strain, osteoporosis, smoking, and a history of prior spinal surgeries. Recognizing these factors helps with proactive monitoring and management.",
-    "diagnose": "Diagnosis at  begins with a detailed medical history and a comprehensive physical examination, followed by advanced imaging such as MRI or X ray. A complimentary MRI review allows our experts to check spinal integrity and identify any adjacent segment degeneration with accuracy.",
-    "treatment": "Treatment depends on symptom severity and the underlying cause. Conservative options such as physical therapy, anti inflammatory medication, targeted injections, and lifestyle changes often provide relief. If symptoms persist, the care team may recommend minimally invasive surgery.  always offers a free second opinion so that patients can move forward with confidence.",
-    "pain_info": "Pain is a hallmark symptom of ASD because of increased mechanical stress, irritation of nerves, or inflammation at the affected levels. Discomfort usually centers near the previously operated region and can spread along the impacted nerve pathways.",
-    "prevent": "Helpful prevention steps include maintaining a healthy weight, doing low impact exercises to strengthen core and spinal muscles, practicing good posture, avoiding smoking, and managing chronic conditions such as diabetes and osteoporosis.  supports patients with comprehensive rehabilitation programs and convenience amenities, including complimentary car service, to encourage follow through.",
-    "schedule": "If you have had spine surgery and now experience new or worsening symptoms, schedule a consultation with  today. Take advantage of our complimentary MRI review, free second opinion, and patient focused amenities for compassionate and convenient care.",
-    "slug": "adjacentsegmentdisease"
-  },
-  {
     "title": "Adult Degenerative Scoliosis",
     "card_img": adultDegenerativeScoliosis,
     "inTxt_img": adultDegenerativeScoliosis,
@@ -175,69 +160,20 @@ export const Conditions : ConditionInfoProp[] = [
     "schedule": "Book a consultation with  today to explore relief from Adult Degenerative Scoliosis. Enjoy complimentary MRI reviews, a free second opinion, and door to door transportation that supports your journey to better spinal health.",
     "slug": "adultdegenerativescoliosis"
   },
-
-
   {
-    "title": "Back Pain",
-    "card_img": BackPaincard,
-    "inTxt_img": BackPaintxt,
-    "body": "Back pain refers to discomfort or severe pain that can appear in the lower, middle, or upper back and often limits daily activity.  creates complete treatment plans that blend modern techniques with compassionate, patient focused care to give lasting relief and restore mobility.",
-    "detail": "Back pain can arise anywhere along the spine, from the neck to the lower back. Causes include muscle strain, ligament sprain, herniated discs, degenerative changes, or structural concerns such as spinal stenosis or scoliosis. Ongoing or intense pain disrupts daily routines and affects both physical and emotional health. The team at  performs careful evaluations using advanced tools that include complimentary MRI readings, free second opinions, and convenient car service so each patient receives clear answers and support throughout care.",
-    "what_sym": "Possible signs are steady aching, sharp or stabbing sensations, pain that radiates into legs or arms, muscle tightness or spasms, stiffness, and limited range of motion.",
-    "risk_fac": "Factors that raise the chance of back pain include growing age, a sedentary lifestyle, poor posture, extra body weight, heavy lifting, repetitive motion, previous back injury, and family tendency toward spinal problems or degeneration.",
-    "diagnose": "Diagnosis starts with a complete medical history and a thorough physical exam, followed by complimentary MRI scans or other imaging so our specialists can locate the exact source of pain and select the best treatment.",
-    "treatment": "Personalized plans may contain physical therapy, targeted exercise, pain relief medicine, spinal injections, lifestyle changes, and when needed minimally invasive surgery. The objective is to ease pain, restore function, and improve quality of life as safely and quickly as possible.",
-    "pain_info": "Back pain may vary from mild occasional soreness to severe continuous discomfort. Identifying individual triggers and following a structured plan from  can greatly reduce symptoms and support daily comfort.",
-    "prevent": "Prevention steps include regular physical activity, keeping a healthy weight, using correct lifting techniques, choosing ergonomic furniture, maintaining good posture, and practicing routine stretching and strengthening exercises.",
-    "schedule": "Arrange a consultation with  today. Benefit from complimentary MRI review, a free second opinion, and convenient transportation that makes your path to relief smooth and comfortable.",
-    "slug": "backpain"
-  },
-
-  {
-    "title": "Bulging Disc",
-    "card_img": BulgingDisc,
-    "inTxt_img": BulgingDiscarti,
-    "body": "A bulging disc occurs when an intervertebral disc protrudes beyond its normal boundary and may compress nearby nerves causing pain numbness or weakness. At  our specialists provide targeted treatments designed to relieve symptoms restore function and enhance quality of life through compassionate patient focused care.",
-    "detail": "A bulging disc develops when a spinal disc which acts as a shock absorber between vertebrae extends beyond its typical outline. This can result from aging wear and tear repetitive strain or injury and most often affects the lower back or neck leading to discomfort or nerve compression. At  our dedicated team uses state of the art diagnostic tools including complimentary MRI readings to assess each case accurately. We tailor care plans to individual needs and support every step with free second opinions and complementary car service to ensure comfort and convenience.",
-    "what_sym": "Common symptoms include localized pain at the affected level radiating pain into the arms or legs tingling or numbness muscle weakness stiffness and reduced range of motion.",
-    "risk_fac": "Risk factors include advancing age repetitive heavy lifting or strain sedentary lifestyle poor posture excess body weight smoking and genetic predisposition.",
-    "diagnose": "Diagnosis begins with a thorough physical examination and detailed patient history followed by advanced imaging such as complimentary MRI scans. Accurate identification of the bulging disc and its severity is essential for creating an effective treatment plan.",
-    "treatment": "Personalized treatment strategies may include physical therapy and guided exercises pain management medications spinal injections lifestyle modifications and minimally invasive surgical procedures when needed. Our goal is to relieve pain restore function and help you resume everyday activities quickly.",
-    "pain_info": "Pain from a bulging disc can range from mild discomfort to severe debilitating sensations often worsening with certain movements or positions. Expert pain management at  greatly improves comfort and supports better daily functioning.",
-    "prevent": "Preventive measures include regular exercise maintaining a healthy weight practicing proper lifting techniques ensuring good posture and engaging in consistent stretching and strengthening exercises.",
-    "schedule": "Contact  today to schedule your personalized consultation. Benefit from complimentary MRI reviews free second opinions and complementary transportation services for a smooth and effective path to relief.",
-    "slug": "bulgingdisc"
-  },
-
-  {
-    "title": "Torn Meniscus",
-    "card_img": tmcard,
-    "inTxt_img": tmarti,
-    "body": "A torn meniscus is a tear of the C shaped cartilage pads that cushion and stabilize the knee joint, often resulting in pain, swelling, and mechanical symptoms that limit mobility. At Mountain Spine & Orthopedics, we provide expert evaluation with high resolution MRI, personalized treatment plans, and supportive services including complimentary MRI reviews, free second opinions, and door to door transportation to help you recover knee function and return to the activities you love.",
-    "detail": "The menisci are two C shaped fibrocartilage structures that distribute load, absorb shock, and provide stability to the knee. Tears occur from acute twisting injuries, direct impact, or gradual degeneration. Tear patterns include vertical longitudinal, horizontal cleavage, flap, radial, and complex tears, each requiring a tailored approach. Degenerative tears are more common in patients over 40 due to age related wear. At Mountain Spine & Orthopedics, evaluation begins with a detailed history of your injury mechanism, symptom onset, and activity level. A focused physical exam assesses joint line tenderness, range of motion, and mechanical signs such as clicking or locking. We use high resolution MRI to visualize tear location, size, and associated cartilage damage. In select cases, diagnostic arthroscopy may be recommended to confirm the diagnosis and address other intra-articular pathology.",
-    "what_sym": "Symptoms of a torn meniscus include localized pain along the knee joint line, swelling or effusion, stiffness, difficulty fully straightening or bending the knee, locking or catching sensations, a feeling of instability or giving way, and discomfort with twisting or squatting movements.",
-    "risk_fac": "Risk factors for meniscal tears include sports that involve pivoting and sudden changes in direction such as basketball and soccer, age related degeneration, previous knee injuries, muscle weakness around the knee, obesity, and improper training or exercise techniques.",
-    "diagnose": "Diagnosis involves a thorough clinical examination with tests like the McMurray’s and Apley grind to reproduce mechanical symptoms. Imaging with MRI offers detailed visualization of tear type, location, and severity. When MRI is contraindicated or additional clarity is needed, diagnostic arthroscopy can be performed to inspect the meniscus directly and evaluate joint surface health.",
-    "treatment": "Conservative management often succeeds for small tears and includes rest, ice, compression, elevation, physical therapy to strengthen quadriceps and hamstrings, anti inflammatory medications, and activity modification. For tears causing persistent mechanical symptoms or failing nonsurgical care, arthroscopic meniscal repair or partial meniscectomy is recommended. At Mountain Spine & Orthopedics, we use state of the art minimally invasive arthroscopy techniques to preserve as much healthy cartilage as possible, optimize recovery, and minimize long term joint degeneration.",
-    "pain_info": "Pain from a torn meniscus arises from both mechanical impingement of torn fragments and inflammation of the synovial lining. Swelling results from fluid accumulation within the joint and release of inflammatory mediators. Patients often describe sharp pain with weight bearing, twisting, or deep knee bending.",
-    "prevent": "To reduce the risk of meniscal tears, maintain strong and flexible muscles around the knee through regular strengthening and stretching exercises, practice proper warm up before activities, use safe techniques when pivoting or landing, wear supportive footwear, and maintain a healthy weight to lessen joint stress.",
-    "schedule": "If you are experiencing knee pain, swelling, locking, or instability, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review, free second opinion, and door to door transportation as you take the first step toward accurate diagnosis and effective treatment of your meniscal tear.",
-    "slug": "tornmeniscus"
-  },
-  {
-    "title": "Carpal Tunnel Syndrome",
-    "card_img": CarpalTunnelSyndrome,
-    "inTxt_img": CarpalTunnelSyndromearti,
-    "body": "Carpal Tunnel Syndrome is a nerve compression disorder affecting the median nerve in the wrist often causing pain tingling and weakness in the hand. At  our team offers precise diagnostics and evidence based treatments to relieve symptoms restore hand function and protect your quality of life with complimentary patient amenities",
-    "detail": "Carpal Tunnel Syndrome develops when the carpal tunnel a narrow passage on the palm side of the wrist narrows or when tissues around the flexor tendons swell placing pressure on the median nerve. Repeated hand motions long periods of keyboard use variations in wrist anatomy or conditions such as diabetes and thyroid imbalance can contribute to CTS. Symptoms start gradually and worsen over time interfering with tasks like gripping objects or typing. At  our experts perform detailed clinical assessments combined with complimentary MRI or ultrasound imaging to confirm diagnosis and pinpoint underlying factors. We deliver personalized patient focused care with free second opinions and car service to ensure comfort and confidence throughout your treatment journey",
-    "what_sym": "Common signs include intermittent or constant numbness burning or tingling in the thumb index middle and ring fingers weakness that leads to dropping objects nighttime pain that disturbs sleep and reduced dexterity making fine motor tasks challenging",
-    "risk_fac": "Key factors include repetitive wrist motions prolonged computer or tool use previous wrist fractures or sprains inflammatory conditions such as rheumatoid arthritis pregnancy related fluid retention diabetes thyroid disorders obesity and a genetic tendency to a narrower carpal tunnel",
-    "diagnose": "Diagnosis starts with a detailed medical history and physical exam including provocative tests such as Tinels and Phalens maneuvers.  then uses nerve conduction studies electromyography and complimentary high resolution imaging to measure median nerve compression accurately and rule out other causes",
-    "treatment": "Our step by step treatment plan begins with conservative measures such as activity modification ergonomic changes wrist splinting especially at night anti inflammatory medication and targeted hand therapy. If symptoms persist we offer ultrasound guided corticosteroid injections for fast relief. Severe or resistant cases may benefit from endoscopic or open carpal tunnel release using microsurgical techniques that shorten recovery and preserve function",
-    "pain_info": "Pain from CTS can range from mild discomfort to sharp shooting sensations that travel up the forearm and often worsen with sustained wrist flexion or extension or by performing tasks without break.  provides comprehensive pain management combining therapeutic exercise splinting medication and targeted injections when needed to ease nerve irritation",
-    "prevent": "Preventive steps include keeping wrists in neutral positions during repetitive activities taking regular stretch breaks using ergonomic keyboards and tools managing health conditions effectively and doing strengthening exercises for forearm and hand muscles to reduce tendon inflammation",
-    "schedule": "Contact  today to book your personalized consultation. Benefit from complimentary MRI or ultrasound reviews free second opinions and car service for smooth convenient care as you recover hand function and get lasting relief from Carpal Tunnel Syndrome",
-    "slug": "carpaltunnelsyndrome"
+    "title": "Adjacent Segment Disease",
+    "card_img": adjacentSegmentDisease,
+    "inTxt_img": adjacentSegmentDisease2,
+    "body": "Adjacent Segment Disease (ASD) occurs when spinal segments next to a surgically treated area endure extra stress, which accelerates degeneration and discomfort. Knowing the symptoms, risk factors, diagnostic methods, and treatment options offered at  helps patients manage and prevent this condition effectively.",
+    "detail": "Adjacent Segment Disease refers to the deterioration of spinal segments directly above or below a segment that has already undergone fusion or another procedure. The change in biomechanics after surgery places additional strain on the neighboring levels, making them more prone to wear and tear. At , our specialized team provides thorough evaluations that include complimentary MRI reviews and free second opinions to deliver precise diagnoses and individualized care.",
+    "what_sym": "Common symptoms include persistent neck or back pain, stiffness, reduced range of motion, numbness or tingling, and muscle weakness. These issues can grow more intense over time and can limit daily activities, which highlights the need for early diagnosis and timely intervention.",
+    "risk_fac": "Risk factors for ASD include age related degeneration, obesity, poor posture, repetitive strain, osteoporosis, smoking, and a history of prior spinal surgeries. Recognizing these factors helps with proactive monitoring and management.",
+    "diagnose": "Diagnosis at  begins with a detailed medical history and a comprehensive physical examination, followed by advanced imaging such as MRI or X ray. A complimentary MRI review allows our experts to check spinal integrity and identify any adjacent segment degeneration with accuracy.",
+    "treatment": "Treatment depends on symptom severity and the underlying cause. Conservative options such as physical therapy, anti inflammatory medication, targeted injections, and lifestyle changes often provide relief. If symptoms persist, the care team may recommend minimally invasive surgery.  always offers a free second opinion so that patients can move forward with confidence.",
+    "pain_info": "Pain is a hallmark symptom of ASD because of increased mechanical stress, irritation of nerves, or inflammation at the affected levels. Discomfort usually centers near the previously operated region and can spread along the impacted nerve pathways.",
+    "prevent": "Helpful prevention steps include maintaining a healthy weight, doing low impact exercises to strengthen core and spinal muscles, practicing good posture, avoiding smoking, and managing chronic conditions such as diabetes and osteoporosis.  supports patients with comprehensive rehabilitation programs and convenience amenities, including complimentary car service, to encourage follow through.",
+    "schedule": "If you have had spine surgery and now experience new or worsening symptoms, schedule a consultation with  today. Take advantage of our complimentary MRI review, free second opinion, and patient focused amenities for compassionate and convenient care.",
+    "slug": "adjacentsegmentdisease"
   },
   {
     "title": "Lumbar Herniated Disc",
@@ -410,6 +346,635 @@ export const Conditions : ConditionInfoProp[] = [
    ],
   "slug": "lumbarherniateddisc"
 },
+
+{
+  "title": "Degenerative Disc Disease",
+  "card_img": DegenerativeDiscDiseasec,
+  "inTxt_img": DegenerativeDiscDisease,
+  "body": "Degenerative Disc Disease, often called DDD, refers to the natural wear and tear of the spinal discs that cushion each vertebra. At  our specialists provide comprehensive patient focused treatment that relieves back pain and improves quality of life through advanced care and complimentary services.",
+  "detail": "Degenerative Disc Disease is not an illness but a condition that develops when intervertebral discs gradually lose hydration, become thinner, and allow minor instability in the spine. These changes may create pain, reduced mobility, and discomfort.  excels at diagnosing and treating DDD with precise imaging, including complimentary MRI readings, and a personalized approach. Patients receive clear explanations, free second opinions, and convenient car service to make every visit comfortable.",
+  "what_sym": "Common signs include chronic neck or back pain, pain that worsens when sitting bending lifting or twisting, discomfort that radiates into arms or legs, numbness or tingling, and stiffness or reduced flexibility.",
+  "risk_fac": "Factors that can speed degeneration are advancing age, smoking, excess body weight, frequent heavy lifting or repetitive spinal strain, and a family tendency toward disc problems.",
+  "diagnose": "Evaluation begins with a detailed medical history and a physical examination.  then confirms the affected areas with advanced imaging such as complimentary MRI scans, creating a precise plan of care.",
+  "treatment": "Plans are tailored to each individual and may include physical therapy with guided exercise, pain management medication, minimally invasive spinal injections, or when needed modern surgical procedures. The goal is to choose the least invasive and most effective option so recovery is faster and downtime is shorter.",
+  "pain_info": "Pain from DDD can vary from mild discomfort to debilitating episodes. Identifying personal triggers and following professional guidance can help manage and reduce symptoms.",
+  "prevent": "Although aging cannot be stopped completely, you can slow disc degeneration by exercising and stretching regularly, keeping a healthy weight, practicing good posture, avoiding tobacco, and using ergonomic furniture that lowers spinal strain.",
+  "schedule": "Book a consultation with  today to address ongoing back or neck pain. Take advantage of our complimentary MRI review, free second opinion, and convenient transportation service for a smooth and supportive care experience.",
+forum : [
+  {
+    post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          What is Degenerative Disc Disease?
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+          Degenerative Disc Disease is a spinal condition caused by age-related breakdown of the discs that cushion the vertebrae. These discs act like shock absorbers, allowing your spine to flex, bend, and twist. Over time, discs can lose water content, flatten, and develop small tears, reducing their ability to support your spine and absorb impact. Unlike acute injuries, DDD develops slowly over time and is especially common in individuals over 40. However, it can also affect younger individuals with physically demanding lifestyles or spinal injuries.
+          </h1>
+          <GradientOverlayImage
+            imageData={degendisc} // Passing static image data
+            height="500px"
+            gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+          />
+        <h1 
+         style={{
+          fontFamily: "var(--font-inter)",
+          fontWeight: 400,
+        }}
+        className="text-[#5B5F67] text-xl"
+          >
+            To diagnose DDD, our specialists begin with a full medical history and physical exam, followed by advanced imaging such as X-rays or MRI scans to evaluate disc height, disc shape, and any signs of degeneration. We also assess nerve function and spinal alignment to understand the full extent of the damage. Diagnosis may involve ruling out other conditions, such as herniated discs or spinal stenosis, that share similar symptoms.
+          </h1>
+
+          <OutlinedButton text="Do I have this Condition?"/>
+        </div>
+      </div>
+    )
+  },
+  {
+    post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          Symptoms of Degenerative Disc Disease
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+          Symptoms vary depending on the location and severity of the disc degeneration. Common signs include chronic lower back or neck pain that worsens with bending, twisting, or prolonged sitting. Some patients find relief when walking or changing positions. Others may experience muscle weakness or numbness in the arms or legs if nerve compression occurs. Many people also report stiffness or reduced flexibility in the spine. The pain may be intermittent, flaring up during activity and easing with rest.
+          </h1>
+          <OutlinedButton text="Find a Treatment"/>
+
+          <GradientOverlayImage
+            imageData={degendisc2} // Passing static image data
+            height="500px"
+            gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+          />
+
+        </div>
+      </div>
+    )
+  },
+  {
+    post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          Risk Factors for Degenerative Disc Disease
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+          You may be at higher risk for DDD if you are over the age of 40, smoke, or lead a sedentary lifestyle. A history of spinal injuries or trauma can increase your risk, especially if paired with poor posture or spinal misalignment. Genetic factors also contribute, and individuals with a family history of spine-related conditions are more likely to develop DDD. Identifying these risk factors early can help slow the progression of the disease and guide preventative care.
+          </h1>
+        </div>
+      </div>
+    )
+  },
+  {
+    post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          Treatment Options for Degenerative Disc Disease
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+          At Mountain Spine & Care, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
+          </h1>
+        </div>
+      </div>
+    )
+  },
+  {
+    post : (
+      <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-2xl">
+          Schedule a Consultation Today
+        </h1>
+        <div  className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+          If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Mountain Spine & Care, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
+          </h1>
+        </div>
+      </div>
+    )
+  }
+],
+side_img : degendiscside,
+"slug": "degenerativediscdisease"
+},
+{
+  "title": "Cervical Spinal Stenosis",
+  "card_img": cervicalSpinalStenosis,
+  "inTxt_img": cervicalSpinalStenosisatri,
+  "body": "Cervical Spinal Stenosis is a condition in which the spinal canal in the neck narrows compressing the spinal cord or exiting nerve roots. At  our fellowship trained spine specialists combine precise diagnostics with leading edge therapies to relieve pain protect neurologic function and restore confident neck mobility supported by complimentary MRI reviews free second opinions and convenient car service",
+  "detail": "The cervical spine houses the delicate spinal cord while permitting flexible head movement. Degenerative changes such as disc bulging thickened ligaments bone spurs or facet joint enlargement can progressively constrict the canal producing cervical spinal stenosis. As space diminishes patients may experience radiating arm pain numbness weakness or in advanced cases myelopathy with gait imbalance and hand clumsiness.  performs a comprehensive evaluation beginning with a detailed history and neurologic examination mapping sensory loss reflex changes and coordination deficits. Complimentary high resolution MRI and when needed CT myelography pinpoint the exact levels and structures causing compression. This meticulous assessment guides a personalized treatment plan that preserves cord health and addresses pain at its source",
+  "what_sym": "Patients often report neck stiffness or aching burning or electric like pain radiating into shoulders and arms hand numbness fine motor difficulty such as buttoning shirts leg weakness or heaviness balance problems and in severe cases bladder or bowel urgency",
+  "risk_fac": "Risks increase with advancing age and include longstanding osteoarthritis degenerative disc disease ossification of the posterior longitudinal ligament previous neck trauma or surgery congenital narrow canal rheumatoid arthritis and lifestyle factors like smoking and heavy manual labor",
+  "diagnose": "Our diagnostic process integrates detailed physical and neurological examinations with upright X rays to assess alignment flexion extension films to reveal instability and nerve conduction studies when arm symptoms predominate. These complimentary diagnostics ensure dynamic and static contributors to stenosis are identified before therapy begins",
+  "treatment": "Initial management focuses on activity modification posture optimization anti inflammatory or neuropathic medications and targeted physiotherapy that strengthens deep cervical stabilizers. Image guided epidural steroid injections can provide powerful but temporary relief of radicular pain. When myelopathy progresses or pain remains refractory our surgeons offer motion preserving laminoplasty posterior decompression and fusion or anterior cervical corpectomy and discectomy and fusion ACDF tailored to canal dimensions and patient goals with minimal tissue disruption and rapid rehabilitation",
+  "pain_info": "Pain may fluctuate with neck posture and activity but neurologic symptoms can progress silently.  blends precise decompression techniques with postoperative rehabilitation to curb pain restore nerve function and prevent irreversible cord changes",
+  "prevent": "Maintaining strong neck and core muscles practicing ergonomic workstation habits treating arthritis early avoiding tobacco and staying physically active help preserve canal diameter and spinal stability reducing the likelihood of symptomatic stenosis",
+  "schedule": "If neck pain arm tingling or balance issues are affecting your life schedule a consultation with  today. We will review your complimentary MRI provide a free second opinion and arrange car service so you can access world class care focused on restoring spinal health and protecting your future mobility",
+  side_img : cervicalspinalstenosisside,
+  forum : [
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+          <h1 
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+             How Do I Know If I Have Spinal Stenosis?
+          </h1>
+
+          <div className=" flex flex-col space-y-[40px]">
+            <h1
+             style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+            >
+            Cervical spinal stenosis can cause a variety of symptoms depending on the severity and levels affected. Common signs include shock-like pain in the neck or arms, tingling sensations, arm weakness, numbness in the hands or fingers, loss of coordination, balance issues, difficulty walking, and in severe cases, loss of bladder control. These symptoms may suggest compression of the spinal cord or nerve roots and should never be ignored.
+            </h1>
+
+            <GradientOverlayImage
+              imageData={cervicalspinalstenosis1} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+            />
+
+            <h1
+             style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+            >
+              If you’re experiencing any of these symptoms, it’s essential to get evaluated early. We offer a quick and easy spinal condition assessment tool to help gather information and determine if you may be a candidate for treatment. Don’t delay your recovery the earlier we intervene, the better your outcome.
+            </h1>
+
+            <OutlinedButton text="Do I have this Condition?"/>
+          </div>
+        </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-4xl">
+          What is the Right Treatment for Me?
+        </h1>
+
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+            At Mountain Spine & Care, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
+            For patients with one or two affected levels, a decompression and artificial disc replacement is often ideal. This modern approach allows for motion preservation and avoids the long-term stiffness associated with spinal fusion. While multi-level fusion is sometimes used, it can leave patients with a permanently stiff neck, especially when four levels are involved. In contrast, laminoplasty provides the best option for multiple levels of compression without sacrificing mobility.
+          </h1>
+
+          <OutlinedButton text="Find a Treatment"/>
+
+          <GradientOverlayImage
+              imageData={cervicalspinalstenosis2} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+            />
+
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-4xl">
+          More About Cervical Laminoplasty
+        </h1>
+
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+            Cervical laminoplasty is a motion-preserving surgery done through the back of the neck. During the procedure, the muscles are temporarily moved aside and small cuts are made in the lamina the bone protecting the spinal cord. These bones are then lifted and repositioned to create more space for the spinal cord, relieving pressure and reducing symptoms.<br /><br/>
+            The key benefit of this procedure is that it retains the neck’s natural movement. Unlike fusion, which locks segments together, laminoplasty allows the bones to remain flexible. However, it’s important to note that while laminoplasty is excellent for relieving nerve-related symptoms like arm and leg pain or headaches, it is not intended to address central neck pain. For axial neck pain, artificial disc replacement may be the better solution.
+          </h1>
+
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-4xl">
+          Post-Op Recovery           
+        </h1>
+
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+            Most patients recover quickly after cervical laminoplasty. Many go home the next day, and in some cases, it may be performed on an outpatient basis. Pain typically improves by the third day after surgery. Since neck movement is preserved, stiffness is minimized, and mobility is encouraged early on, which further speeds up recovery.
+          </h1>
+
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 500,
+        }}
+        className="text-[#111315] text-4xl">
+         Schedule a Consultation Today          
+        </h1>
+
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+           style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+          }}
+          className="text-[#5B5F67] text-xl"
+          >
+            If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Mountain Spine & Care, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
+            Take the first step toward recovery. Call us at (855) 853-6542 or fill out our online form to schedule your consultation today.
+          </h1>
+
+        </div>
+      </div>
+      )
+    },
+   
+  ],
+  "slug": "cervicalspinalstenosis"
+},
+
+{
+  "title": "Spondylolisthesis",
+  "card_img": sdtcard,
+  "inTxt_img": sdtarti,
+  "body": "Spondylolisthesis is a spinal condition in which one vertebra slips forward over the one below it often causing back pain nerve compression and reduced mobility. At Mountain Spine & Orthopedics we offer expert diagnosis and individualized treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore confident movement",
+  "detail": "Spondylolisthesis can result from congenital defects spinal degeneration trauma or stress fractures. It most commonly affects the lower lumbar spine and may compress spinal nerves leading to back pain sciatica or difficulty walking. There are several types degenerative isthmic traumatic and dysplastic each with unique causes and treatment approaches. Severity is classified by the degree of slippage. At Mountain Spine & Orthopedics evaluation begins with a full history of symptoms activity levels and previous injuries. A physical exam assesses posture flexibility and neurologic function. Complimentary imaging including standing X rays MRI and CT helps determine the type and grade of slippage evaluate nerve involvement and rule out spinal instability or associated conditions",
+  "what_sym": "Lower back pain tight hamstrings pain radiating into the buttocks or legs sciatica numbness or tingling weakness in the legs and trouble walking or standing for long periods in severe cases bladder or bowel dysfunction may occur",
+  "risk_fac": "Repetitive spinal stress for example gymnastics or football spinal arthritis genetics congenital spinal anomalies previous spine trauma and aging all contribute to the risk of developing spondylolisthesis",
+  "diagnose": "Complimentary standing flexion extension X rays confirm vertebral slippage and instability MRI and CT imaging assess nerve compression and bony detail. Grading the severity of the slip guides treatment decisions and helps monitor progression",
+  "treatment": "Nonsurgical care may include physical therapy to strengthen core and stabilize the spine anti inflammatory medications and image guided injections to reduce nerve inflammation. Bracing may help in some cases. If conservative care fails or slippage progresses surgical options like decompression and spinal fusion are considered. At Mountain Spine & Orthopedics we use minimally invasive techniques to reduce recovery time while achieving long term spinal stability",
+  "pain_info": "Pain often stems from mechanical instability and nerve compression and may increase with standing walking or extension. Our integrated treatment approach targets both the pain and its source to provide long lasting relief",
+  "prevent": "Core strengthening proper body mechanics limiting repetitive lumbar hyperextension and addressing early symptoms can help prevent progression or recurrence",
+  "schedule": "If you are experiencing lower back pain leg symptoms or instability schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review free second opinion and door to door transportation then take the first step toward resolving spondylolisthesis and regaining spine stability and comfort",
+  "slug": "spondylolisthesis"
+},
+{
+  title : 'Cervical Herniated Disc',
+  "card_img": cervicalHerniatedDisc,
+  "inTxt_img": cervicalHerniatedDiscarti,
+  "body": "A cervical herniated disc occurs when the soft gel like core of a neck level intervertebral disc ruptures through its outer layer and presses on nearby nerves or the spinal cord.  provides leading edge diagnostics and multidisciplinary care to relieve pain protect nerve function and restore neck mobility with free second opinions complimentary MRI reviews and car service for every patient",
+  "detail": "The cervical spine supports the head and allows extensive motion making its discs vulnerable to injury and degeneration. When the annulus fibrosus tears the nucleus pulposus can protrude creating inflammatory and mechanical pressure on the C5 to C8 nerve roots or the spinal cord. This can lead to neck pain radiating arm symptoms numbness weakness and in severe cases problems with balance and dexterity. At  we begin with a detailed history to identify potential triggers such as trauma overhead work or progressive degeneration and perform a focused neurological exam mapping sensory changes reflex asymmetries and muscle strength. Complimentary high resolution MRI scans then pinpoint the herniation level size and any spinal cord compression guiding a customized treatment plan",
+  "what_sym": "Symptoms include sharp or burning neck pain that worsens with coughing or head movement radiating pain or electric like shocks down the shoulder or arm hand or finger numbness reduced grip strength and when the cord is involved difficulty with fine motor tasks or unsteady gait",
+  "risk_fac": "Risk factors encompass age related disc dehydration poor posture during prolonged screen use repeated heavy lifting sudden whiplash injuries smoking obesity and a family history of degenerative disc disease",
+  "diagnose": "Diagnosis involves a comprehensive physical exam and neurological assessment combined with complimentary MRI confirmation nerve conduction studies to quantify root irritation and dynamic imaging to rule out instability. These tests ensure all contributing factors are identified before treatment",
+  "treatment": "Initial care focuses on activity modification targeted physical therapy to offload the affected segment and anti inflammatory medication. Cervical traction and image guided epidural steroid injections can offer fast relief when conservative measures are not enough. For persistent neurological deficits our spine surgeons perform minimally invasive anterior cervical discectomy and fusion or artificial disc replacement to decompress neural structures restore alignment and support rapid recovery with lasting stability",
+  "pain_info": "Pain intensity often peaks in the first few weeks after herniation especially with neck movement or sustained positions. A combination of precise diagnostic injections and rehabilitative exercises to strengthen deep neck flexor muscles helps reduce inflammation improve posture and accelerate symptom resolution",
+  "prevent": "Preventive steps include setting up ergonomic workstations with monitors at eye level practicing proper lifting mechanics regular core and cervical strengthening routines staying hydrated and avoiding tobacco to lower the risk of future disc injury",
+  "schedule": "If neck or arm pain is limiting your life schedule a consultation with  today. We will review your complimentary MRI provide a free second opinion and arrange car service so you can focus on returning to pain free motion and reliable nerve function",
+  slug : 'cervicalherniateddisc',
+  side_img : cervicalherniaside,
+  forum: [
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          What Is a Herniated Cervical Disc?
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+            A herniated cervical disc occurs when one of the discs in the neck region (cervical spine) becomes damaged. These discs are gel-like cushions that sit between the vertebrae and act as shock absorbers. Over time or due to injury, the outer wall of the disc can tear, allowing the inner nucleus to leak out and press against surrounding spinal nerves. This can lead to symptoms such as neck pain, numbness, tingling, or weakness in the shoulders, arms, or hands. Treatment options range from conservative therapies like rest and physical therapy to more advanced solutions, including cervical spine surgery.
+          </h1>
+
+          <div className="rounded-[24px] overflow-hidden"><iframe width="100%" height="500" src="https://www.youtube.com/embed/gUG_zbKqlaU?si=k_-WQStF8cvjCaMj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowFullScreen></iframe></div>
+          
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+            If you’re experiencing neck pain, numbness, or weakness in your upper limbs, you may be dealing with a herniated disc in your cervical spine. Our symptom checker tool is a quick and easy way to help determine if you’re showing signs of disc herniation and whether a treatment consultation is recommended.
+          </h1>
+
+          <OutlinedButton text="Do I have this Condition?" />
+
+        </div>
+
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+          <h1
+            style={{
+              fontFamily: "var(--font-reem-kufi)",
+              fontWeight: 500,
+            }}
+            className="text-[#111315] text-4xl">
+            How Are Herniated Discs Diagnosed?
+          </h1>
+          <div className=" flex flex-col space-y-[40px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+            >
+             Diagnosing a herniated disc begins with a medical history review and physical examination. Your doctor may recommend imaging tests such as X-rays, MRI scans, or CT scans to confirm whether a disc is bulging or ruptured. While X-rays can help rule out other causes of pain, MRI and CT scans offer the most accurate visualization of soft tissue and nerve compression. If a herniated disc is confirmed, treatment usually starts conservatively with rest, ice, and medication. If symptoms persist, surgical intervention may be recommended.
+            </h1>
+            <OutlinedButton text="Find a Treatment" />
+          </div>
+        </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+          <h1
+            style={{
+              fontFamily: "var(--font-reem-kufi)",
+              fontWeight: 500,
+            }}
+            className="text-[#111315] text-4xl">
+            Pain Management for a Cervical Herniated Disc
+          </h1>
+          <div className=" flex flex-col space-y-[40px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#5B5F67] text-xl"
+            >
+             In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Mountain Spine & Care will help determine the best approach based on your condition.
+            </h1>
+          </div>
+        </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          What Causes a Herniated Disc in the Neck?
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+           Cervical disc herniation can occur suddenly due to trauma or gradually as part of the aging process. The most common cause is wear and tear, which leads to disc degeneration. Over time, the discs lose elasticity and hydration, making them more prone to rupture. Other contributing factors include poor posture, obesity, repetitive strain, and spinal injury. In people over the age of 30, disc degeneration becomes more common, but even younger patients can suffer from herniated discs if their lifestyle puts excess stress on the spine.
+          </h1>
+
+          <GradientOverlayImage
+              imageData={cervicalhernia} // Passing static image data
+              height="500px"
+              gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+            />
+
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          Risk Factors for a Cervical Herniated Disc
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+           Several factors can increase your risk of developing a cervical herniated disc. These include being overweight, smoking, living a sedentary lifestyle, or engaging in activities that involve repetitive neck strain or heavy lifting. Trauma to the spine or poor posture while sitting or sleeping can also contribute. Herniated discs may present with a wide range of symptoms pain, numbness, tingling, and weakness in the arms or legs so it’s important to get evaluated by a medical professional if you suspect you may have this condition.
+          </h1>
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          Treatment Options for Herniated Discs
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+           Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Mountain Spine & Care, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
+          </h1>
+        </div>
+      </div>
+      )
+    },
+    {
+      post : (
+        <div className=" flex flex-col space-y-[16px] ">
+        <h1
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+          }}
+          className="text-[#111315] text-4xl">
+          Schedule a Consultation Today
+        </h1>
+        <div className=" flex flex-col space-y-[40px]">
+          <h1
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="text-[#5B5F67] text-xl"
+          >
+           Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Mountain Spine & Care, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
+           Call us today at (855) 853-6542 or fill out our online form to schedule a consultation. You may have more options than you think and recovery may be closer than you realize.
+          </h1>
+        </div>
+      </div>
+      )
+    }
+  ]
+},
+{
+  "title": "Spinal Compression Fractures",
+  "card_img": scfcard,
+  "inTxt_img": scfarti,
+  "body": "Spinal compression fractures are small cracks or collapses in the vertebrae often caused by osteoporosis trauma or spinal tumors. These fractures can result in sudden back pain posture changes and mobility loss. At Mountain Spine & Orthopedics we provide expert evaluation and treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore function",
+  "detail": "Compression fractures occur when one or more vertebrae weaken and collapse under normal pressure or minor trauma. Osteoporosis is the leading cause especially in older adults but high impact injuries and spinal tumors can also compromise vertebral strength. These fractures can lead to chronic back pain decreased height spinal deformity kyphosis and reduced lung function in severe cases. At Mountain Spine & Orthopedics we begin with a detailed history of symptoms and risk factors such as osteoporosis cancer or trauma. A focused physical exam checks for spinal tenderness alignment and mobility. Complimentary imaging typically X rays MRI or CT is used to identify the location and severity of the fracture and to rule out serious underlying causes. These findings help guide a tailored treatment plan",
+  "what_sym": "Symptoms include sudden severe back pain that worsens with movement and improves with rest localized tenderness over the spine loss of height visible stooping or forward curvature of the upper back and in some cases numbness or tingling if nerve structures are involved",
+  "risk_fac": "Osteoporosis is the most significant risk factor particularly in postmenopausal women and older adults. Other risks include long term steroid use history of cancer especially metastatic previous spinal fractures smoking poor nutrition and low body weight",
+  "diagnose": "Mountain Spine & Orthopedics uses complimentary high resolution imaging to detect fractures and assess vertebral alignment and bone quality. Bone density testing such as DEXA scan may also be performed to evaluate osteoporosis and guide long term management",
+  "treatment": "Most fractures heal with conservative care including bracing pain management calcium and vitamin D supplementation and physical therapy. In cases of persistent pain or instability minimally invasive procedures like vertebroplasty or kyphoplasty can stabilize the fracture and restore vertebral height. For patients with osteoporosis we coordinate long term bone health management using medications such as bisphosphonates or anabolic agents",
+  "pain_info": "Pain is typically localized and worsens with standing or walking. Our approach aims to stabilize the spine reduce inflammation and strengthen supporting musculature helping patients return to daily activities with confidence",
+  "prevent": "Maintaining strong bones through weight bearing exercise calcium and vitamin D intake osteoporosis screening fall prevention strategies and prompt treatment of any bone weakening conditions are key to avoiding compression fractures",
+  "schedule": "If you’re experiencing sudden back pain or height loss schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review expert second opinion and convenient transportation then move forward with a personalized plan to address spinal compression fractures and rebuild stability and strength",
+  "slug": "spinalcompressionfractures"
+},
+{
+  "title": "Kyphosis",
+  "card_img": kyphosiscard,
+  "inTxt_img": kyphosisarti,
+  "body": "Kyphosis refers to an exaggerated forward curvature of the thoracic spine that can create a rounded back appearance chronic pain muscle fatigue and in severe cases breathing or digestive issues.  combines high resolution imaging evidence based therapies and patient centered amenities including complimentary MRI reviews free second opinions and convenient car service to correct spinal alignment relieve discomfort and restore confident posture",
+  "detail": "A normal thoracic spine curves gently forward balancing the neck and lower back. Degenerative disc collapse osteoporotic compression fractures Scheuermanns disease congenital vertebral anomalies or postural habits can accentuate this curve producing kyphosis. As the apex rounds supporting muscles stretch and weaken ligaments tighten and vertebral bodies may wedge anteriorly leading to pain stiffness and cosmetic concerns. Severe deformity can reduce thoracic cavity space compromising lung capacity and digestive organ function. At  evaluation begins with a comprehensive history capturing age of onset progression speed pain pattern neurologic symptoms and impact on daily functions. A focused exam measures the kyphotic angle with a flexible ruler assesses spinal flexibility and screens for neurologic deficits. Complimentary standing long cassette X rays quantify the Cobb angle sagittal balance and pelvic parameters while high resolution MRI or CT evaluates disc integrity spinal cord space and vertebral structure. These metrics guide a tailored plan that balances non operative correction with surgical precision when needed",
+  "what_sym": "Many patients note mid back ache that worsens after prolonged sitting or standing shoulder or neck fatigue from compensatory postures reduced height tight hamstrings and in rigid or severe curves shortness of breath heartburn from compressed abdominal organs or difficulty lying flat",
+  "risk_fac": "Risk increases with advancing age and osteoporosis adolescent growth spurts associated with Scheuermanns disease chronic poor posture previous spinal trauma vertebral infections or tumors and genetic disorders affecting connective tissue integrity",
+  "diagnose": "Diagnosis includes standing long cassette X rays to measure the Cobb angle and assess sagittal balance and pelvic parameters along with high resolution MRI or CT scans to evaluate disc integrity and spinal cord space.  may also conduct pulmonary function tests for high angle curves and bone density scans to identify osteoporotic fragility. Complimentary evaluations ensure all contributing factors are addressed in the final strategy",
+  "treatment": "Flexible postural kyphosis often improves with physiotherapy that strengthens scapular retractors and core muscles ergonomic coaching and structured stretching. Rigid Scheuermanns curves in younger patients may benefit from custom thoracolumbosacral bracing to halt progression. For adults with painful or progressive deformity spine surgeons use minimally invasive osteotomies segmental instrumentation and fusion to restore sagittal balance while protecting the spinal cord and lung function. Postoperative rehabilitation emphasizes gradual extension exercises bone health optimization and lifestyle modifications to maintain alignment gains",
+  "pain_info": "Pain from kyphosis often stems from muscle fatigue facet overload and intervertebral disc stress.  uses targeted injections muscle balancing therapy and when needed surgical realignment to deliver durable pain relief and functional improvement",
+  "prevent": "Preventive measures include maintaining strong back extensor and core muscles practicing ergonomic posture during work and technology use ensuring adequate calcium and vitamin D intake treating osteoporosis early and monitoring adolescent spinal curves to prevent progression and complications",
+  "schedule": "If rounding of the back persistent mid spine pain or breathing changes concern you schedule a consultation with  today. Enjoy a complimentary MRI review thorough second opinion and convenient car service then move forward with a customized plan to correct kyphosis reduce pain and stand tall with confidence",
+  "slug": "kyphosis"
+},
+{
+  "title": "Osteoarthritis",
+  "card_img": oste,
+  "inTxt_img": ostearti,
+  "body": "Osteoarthritis is a progressive joint condition characterized by the breakdown of articular cartilage, bone spur formation, and low grade inflammation that together cause pain, stiffness, and reduced mobility. Mountain Spine & Orthopedics delivers comprehensive evaluation and evidence based treatment supported by complimentary MRI reviews, free second opinions, and convenient car service to slow disease progression, relieve symptoms, and help you remain active at every stage of life.",
+  "detail": "Cartilage acts as a smooth shock absorbing surface that allows bones to glide effortlessly inside a joint. With age, repetitive stress, injury, or mechanical misalignment, cartilage thins and fissures, exposing underlying bone. The body responds by forming osteophytes, thickening the joint capsule, and triggering inflammation inside the synovial lining. These changes limit motion, provoke aching or sharp pain, and can produce swelling or audible grinding. Knees, hips, hands, and the spine are most frequently affected, but any synovial joint can develop osteoarthritic changes over time. At Mountain Spine & Orthopedics, assessment begins with a detailed history covering symptom duration, daily activity limitations, and prior injuries, combined with a focused examination that inspects alignment, range of motion, joint stability, and swelling. Complimentary high resolution MRI or weight bearing X rays visualize cartilage thickness, bone spurs, subchondral cysts, and joint space narrowing. These findings guide a personalized treatment roadmap that addresses both mechanical stressors and inflammatory pain.",
+  "what_sym": "Patients often notice deep aching pain that intensifies after activity and eases with rest, morning stiffness lasting under thirty minutes, crepitus or grinding during movement, intermittent swelling, and in advanced stages, joint deformity or instability that hampers everyday tasks such as climbing stairs or opening jars.",
+  "risk_fac": "Advancing age, female sex after menopause, obesity that overloads weight bearing joints, previous joint trauma or surgery, repetitive occupational or athletic stress, genetic predisposition to cartilage weakness, and limb malalignment all accelerate cartilage wear and osteophyte growth.",
+  "diagnose": "Mountain Spine & Orthopedics may perform ultrasound to detect synovial inflammation or guided aspiration to analyze joint fluid when crystal arthritis is suspected. Complimentary laboratory panels rule out inflammatory arthritides, ensuring precise diagnosis and appropriate therapy.",
+  "treatment": "Initial management centers on patient education, weight optimization, low impact aerobic and strengthening exercises, and activity modifications that reduce peak joint loads. Evidence based nutraceuticals, topical or oral anti inflammatory medication, and image guided corticosteroid or hyaluronic acid injections target pain and swelling. For persistent symptoms or structural deformity, our surgeons offer arthroscopic cartilage restoration, realignment osteotomy, or joint replacement using minimally invasive techniques that speed recovery and preserve healthy tissue. Every plan includes coordinated physical therapy to maintain muscle strength and joint flexibility, maximizing treatment benefit.",
+  "pain_info": "Osteoarthritic pain typically surfaces during or after activity and may linger as a dull ache at night. Mountain Spine & Orthopedics blends targeted injections, regenerative biologics, bracing, and muscle balancing exercise to break the cycle of inflammation and mechanical stress, producing durable pain relief.",
+  "prevent": "Maintaining a healthy body weight, engaging in balanced strength and flexibility training, correcting biomechanical malalignment, addressing acute joint injuries promptly, and avoiding tobacco and excessive alcohol help slow cartilage degradation and preserve joint function.",
+  "schedule": "If joint pain or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation—then move forward with a personalized plan to manage osteoarthritis and safeguard your mobility for the years ahead.",
+  "slug": "osteoarthritis"
+},
 {
   "title": "Rotator Cuff Tear",
   "card_img": rctcard,
@@ -425,6 +990,129 @@ export const Conditions : ConditionInfoProp[] = [
   "schedule": "If you are experiencing shoulder pain, weakness, or limited mobility, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options to receive a precise diagnosis and a personalized treatment plan designed to restore your shoulder health and return you to the activities you enjoy.",
   "slug": "rotatorcufftear"
 },
+{
+  "title": "ACL Injury",
+  "card_img": aclcard,
+  "inTxt_img": aclarti,
+  "body": "An ACL injury occurs when the anterior cruciate ligament—the primary stabilizer of knee rotation and forward tibial translation—is overstretched or torn, commonly due to sudden pivoting, abrupt deceleration, or direct impact. Patients often report a popping sound at the moment of injury, followed by rapid swelling and a sensation of instability. At Mountain Spine & Orthopedics, we specialize in prompt, accurate diagnosis and personalized treatment plans supported by complimentary MRI reviews, free second opinions, and door-to-door transportation. Our multidisciplinary approach ensures patients receive advanced care to restore knee stability, alleviate pain, and return to daily activities and sports with confidence.",
+  "detail": "The anterior cruciate ligament is one of four major ligaments within the knee joint, responsible for maintaining rotational stability and preventing excessive forward translation of the tibia relative to the femur. Injuries range from microtears and partial disruptions to complete ruptures classified as grade I, II, or III based on fiber damage. The most common mechanism involves sudden deceleration, pivoting, or landing from a jump with a valgus knee position, placing immense stress on the ligament fibers. At Mountain Spine & Orthopedics, evaluation begins with a thorough history of the injury mechanism, symptom onset, and activity level. A focused physical examination includes Lachman, anterior drawer, and pivot shift tests to assess ligament integrity and knee laxity. High-resolution MRI confirms the diagnosis by visualizing the extent of ligament tears, associated bone bruises, and concomitant meniscal or chondral injuries. In select cases, diagnostic arthroscopy provides direct visualization to guide surgical planning and address other intra-articular pathology.",
+  "what_sym": "Common symptoms of an ACL injury include an audible 'pop' at the time of injury, rapid knee swelling due to hemarthrosis, severe pain initially that may subside, a sensation of giving way or instability, difficulty bearing weight or walking, limited range of motion, and persistent discomfort with twisting or deceleration movements.",
+  "risk_fac": "Risk factors for ACL injuries include participation in high-risk sports such as soccer, basketball, football, and skiing; sudden changes in direction, pivoting, or landing mechanics that place the knee in valgus; muscle imbalances between the quadriceps and hamstrings; poor neuromuscular control; anatomical factors such as a wider pelvis in female athletes; previous knee injuries; and environmental factors such as uneven playing surfaces and inadequate footwear.",
+  "diagnose": "Diagnosis of an ACL injury relies on clinical examination and imaging studies. We perform Lachman, anterior drawer, and pivot shift tests to evaluate ligament laxity and knee stability. MRI remains the gold standard imaging modality, accurately depicting the extent of ACL fiber disruption, bone marrow edema patterns, and associated meniscal or cartilage injuries. In rare circumstances where MRI is contraindicated or inconclusive, diagnostic arthroscopy may be performed to confirm the diagnosis and assess other intra-articular findings.",
+  "treatment": "Treatment options for ACL injuries depend on tear severity, patient age, activity level, and concomitant injuries. Non-surgical management—including bracing, activity modification, and a structured rehabilitation program focusing on strength, stability, and proprioception—may suffice for partial tears or low-demand patients. For complete tears or athletes seeking return to pivoting sports, ACL reconstruction surgery is often indicated. At Mountain Spine & Orthopedics, we employ minimally invasive arthroscopic ACL reconstruction techniques using autograft or allograft tissue, combined with accelerated rehabilitation protocols to optimize graft healing, restore function, and facilitate safe return to sports.",
+  "pain_info": "Pain in ACL injuries arises from acute ligament fiber disruption, hemarthrosis, and subsequent inflammation of intra-articular structures. Patients often experience sharp pain initially, followed by stiffness and discomfort that intensifies during weight-bearing, twisting, or rapid directional changes. Our treatment approach addresses both mechanical instability and inflammatory pain through a combination of surgical intervention, targeted rehabilitation, and pain management techniques.",
+  "prevent": "To reduce the risk of ACL injuries, athletes and active individuals should engage in neuromuscular training programs focusing on proper landing mechanics, strength and balance exercises for the quadriceps, hamstrings, hips, and core; plyometric drills emphasizing safe deceleration; flexibility training to maintain joint mobility; and use of appropriate footwear and protective bracing during high-risk activities.",
+  "schedule": "If you suspect an ACL injury due to knee pain, swelling, or instability, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options as we develop a comprehensive evaluation and personalized treatment plan to restore your knee stability, function, and confidence.",
+  "slug": "aclinjury"
+},
+{
+  "title": "Labral Tears",
+  "card_img": labralTears,
+  "inTxt_img": labralTearsarti,
+  "body": "A labral tear is a rupture of the fibrous cartilage ring that deepens and stabilizes either the shoulder glenoid or hip acetabular socket. These tears can produce pain clicking and instability that limit athletic performance and daily tasks. At  we pair cutting edge imaging with tailored non operative and arthroscopic solutions supported by complimentary MRI reviews free second opinions and convenient car service to repair the labrum restore smooth motion and protect long term joint health",
+  "detail": "The labrum acts like a suction cup gasket enlarging the socket cushioning the joint and anchoring ligaments. Traumatic dislocation repetitive overhead or pivoting sports congenital dysplasia or degenerative wear can split this tissue. In the shoulder a superior labrum anterior posterior lesion may follow a fall onto an outstretched hand or a powerful throw. In the hip femoroacetabular impingement or dysplasia often underlies acetabular labral tears. Frayed edges or detached segments allow joint fluid to leak reducing stability and generating catching sensations that accelerate cartilage wear and early arthritis. At  assessment begins with a detailed account of injury mechanism sport demands and positional pain coupled with provocative exams such as the OBrien or FADIR tests. Complimentary high resolution MRI arthrography highlights contrast extravasation through labral defects while 3 D CT or ultrasound assesses bony morphology and dynamic motion. These findings inform an individualized plan aimed at preserving native tissue whenever possible",
+  "what_sym": "Patients commonly experience sharp or aching pain deep in the joint clicking or catching during rotation sense of giving way or instability loss of range of motion and decreased power during overhead throws or hip flexion activities. Pain often intensifies after prolonged sitting in hip cases or repeated elevation in shoulder cases",
+  "risk_fac": "High risk groups include athletes engaged in baseball pitching volleyball spikes hockey soccer ballet or golf individuals with femoroacetabular impingement or hip dysplasia workers performing repetitive overhead lifting patients with connective tissue laxity disorders and those with prior joint dislocations or trauma",
+  "diagnose": "Beyond MRI arthrography  may administer diagnostic intra articular anesthetic injections to confirm the labrum as the primary pain source. Dynamic ultrasound captures real time impingement while CT quantifies cam or pincer lesions in hip cases. These complimentary studies ensure surgical indications are precise and evidence based",
+  "treatment": "Initial care emphasizes activity modification targeted physiotherapy to rebalance surrounding muscles anti inflammatory or biologic injections and posture or technique refinement to reduce impingement. Persistent pain mechanical symptoms or instability prompt arthroscopic repair where anchors reattach the labrum to bone restore the suction seal and address underlying cam pincer or bony Bankart lesions. Postoperative rehabilitation advances through protected motion progressive strengthening and sport specific drills guided by milestones that safeguard the repair while expediting return to play.  tailors protocols to each patient sport position and season goals",
+  "pain_info": "Labral tear pain often presents as deep pinpoint discomfort exacerbated by rotation or sustained load. By correcting mechanical conflict and nurturing tissue healing through phased rehabilitation our integrated approach markedly diminishes pain and restores confidence in joint stability",
+  "prevent": "Maintaining balanced shoulder rotator cuff and scapular stabilizer strength optimizing hip and core flexibility refining overhead or pivot mechanics gradual sport specific conditioning and early management of impingement morphology reduce labral stress and prevent future tears",
+  "schedule": "If clicking catching or joint pain is limiting your performance schedule a consultation with  today Receive a complimentary MRI review comprehensive second opinion and convenient transportation then move forward with a personalized strategy to heal labral tears and return to peak activity",
+  "slug": "labraltears"
+},
+{
+  "title": "Torn Meniscus",
+  "card_img": tmcard,
+  "inTxt_img": tmarti,
+  "body": "A torn meniscus is a tear of the C shaped cartilage pads that cushion and stabilize the knee joint, often resulting in pain, swelling, and mechanical symptoms that limit mobility. At Mountain Spine & Orthopedics, we provide expert evaluation with high resolution MRI, personalized treatment plans, and supportive services including complimentary MRI reviews, free second opinions, and door to door transportation to help you recover knee function and return to the activities you love.",
+  "detail": "The menisci are two C shaped fibrocartilage structures that distribute load, absorb shock, and provide stability to the knee. Tears occur from acute twisting injuries, direct impact, or gradual degeneration. Tear patterns include vertical longitudinal, horizontal cleavage, flap, radial, and complex tears, each requiring a tailored approach. Degenerative tears are more common in patients over 40 due to age related wear. At Mountain Spine & Orthopedics, evaluation begins with a detailed history of your injury mechanism, symptom onset, and activity level. A focused physical exam assesses joint line tenderness, range of motion, and mechanical signs such as clicking or locking. We use high resolution MRI to visualize tear location, size, and associated cartilage damage. In select cases, diagnostic arthroscopy may be recommended to confirm the diagnosis and address other intra-articular pathology.",
+  "what_sym": "Symptoms of a torn meniscus include localized pain along the knee joint line, swelling or effusion, stiffness, difficulty fully straightening or bending the knee, locking or catching sensations, a feeling of instability or giving way, and discomfort with twisting or squatting movements.",
+  "risk_fac": "Risk factors for meniscal tears include sports that involve pivoting and sudden changes in direction such as basketball and soccer, age related degeneration, previous knee injuries, muscle weakness around the knee, obesity, and improper training or exercise techniques.",
+  "diagnose": "Diagnosis involves a thorough clinical examination with tests like the McMurray’s and Apley grind to reproduce mechanical symptoms. Imaging with MRI offers detailed visualization of tear type, location, and severity. When MRI is contraindicated or additional clarity is needed, diagnostic arthroscopy can be performed to inspect the meniscus directly and evaluate joint surface health.",
+  "treatment": "Conservative management often succeeds for small tears and includes rest, ice, compression, elevation, physical therapy to strengthen quadriceps and hamstrings, anti inflammatory medications, and activity modification. For tears causing persistent mechanical symptoms or failing nonsurgical care, arthroscopic meniscal repair or partial meniscectomy is recommended. At Mountain Spine & Orthopedics, we use state of the art minimally invasive arthroscopy techniques to preserve as much healthy cartilage as possible, optimize recovery, and minimize long term joint degeneration.",
+  "pain_info": "Pain from a torn meniscus arises from both mechanical impingement of torn fragments and inflammation of the synovial lining. Swelling results from fluid accumulation within the joint and release of inflammatory mediators. Patients often describe sharp pain with weight bearing, twisting, or deep knee bending.",
+  "prevent": "To reduce the risk of meniscal tears, maintain strong and flexible muscles around the knee through regular strengthening and stretching exercises, practice proper warm up before activities, use safe techniques when pivoting or landing, wear supportive footwear, and maintain a healthy weight to lessen joint stress.",
+  "schedule": "If you are experiencing knee pain, swelling, locking, or instability, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review, free second opinion, and door to door transportation as you take the first step toward accurate diagnosis and effective treatment of your meniscal tear.",
+  "slug": "tornmeniscus"
+},
+
+{
+  "title": "Sacroiliac Joint Dysfunction",
+  "card_img": sjdcard,
+  "inTxt_img": sjdarti,                                                                                                                                                                                                                                                                                                                                                                                                                 
+  "body": "Sacroiliac SI Joint Dysfunction arises when the small but critical joints connecting the spine to the pelvis become inflamed or move abnormally producing lower back buttock or groin pain that can mimic sciatica. Mountain Spine & Orthopedics delivers precision diagnostics and evidence based therapies supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the SI joint relieve pain and restore effortless movement",
+  "detail": "The sacroiliac joints transfer load between the upper body and legs. Trauma pregnancy related ligament laxity leg length discrepancy inflammatory arthritis or previous lumbar fusion can disrupt their finely balanced motion triggering inflammation and pain with sitting standing or walking. Misdiagnosis is common because SI pain often radiates into the thigh or groin and overlaps with lumbar disc symptoms. Accurate identification is essential to avoid unnecessary spine surgery and to guide targeted treatment that restores normal joint mechanics. At Mountain Spine & Orthopedics evaluation begins with a detailed history of pain triggers such as prolonged standing transitional movements or sleep disturbances. A focused examination uses provocative maneuvers Gaenslen FABER and thigh thrust tests to reproduce SI pain while ruling out lumbar nerve compression. Complimentary high resolution MRI or CT excludes disc or hip pathology and visualizes joint inflammation or degeneration. Diagnostic fluoroscopy guided SI joint anesthetic injections offered at no additional cost confirm the joint as the primary pain generator ensuring that subsequent therapy is precisely directed",
+  "what_sym": "Deep aching pain localized to one side of the lower back or buttock radiating into the groin thigh or occasionally the calf pain that intensifies when rising from a seated position climbing stairs or rolling over in bed and a sensation of instability or giving way in the pelvis during walking or standing on one leg",
+  "risk_fac": "Pregnancy and postpartum ligamentous laxity prior lumbar fusion that alters pelvic load leg length discrepancy inflammatory conditions such as ankylosing spondylitis traumatic falls on the buttocks repetitive heavy lifting and obesity that increases pelvic stress all heighten SI joint dysfunction risk",
+  "diagnose": "Diagnosis includes physical tests imaging and dual diagnostic intra articular injections spaced days apart to ensure robust confirmation. A pain reduction of at least 75 percent after anesthetic injection substantiates the SI joint as the pain source guiding therapeutic planning",
+  "treatment": "Conservative management starts with activity modification pelvic and core stabilization physiotherapy anti inflammatory medication and pelvic belts that limit excessive motion. Image guided corticosteroid or biologic injections reduce joint inflammation and provide substantial relief. For chronic refractory pain our surgeons offer minimally invasive SI joint fusion using triangular titanium implants or 3 D printed porous implants that promote rapid bone integration while preserving surrounding soft tissue. Post procedure rehabilitation emphasizes gradual weight bearing progression core strengthening and gait correction to maintain long term stability",
+  "pain_info": "SI joint pain typically sharpens during transitional movements standing from sitting rolling in bed or climbing stairs and eases with short bouts of walking or lying flat. By stabilizing joint motion and calming inflammation our integrated approach delivers lasting pain relief and renewed confidence in daily activities",
+  "prevent": "Maintaining balanced core and hip strength correcting leg length discrepancies with orthotics practicing proper lifting mechanics avoiding prolonged asymmetrical postures managing body weight and addressing inflammatory conditions early all protect SI joint integrity",
+  "schedule": "If lower back or buttock pain is hindering your life schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review comprehensive second opinion and door to door transportation then move forward with a personalized plan to conquer Sacroiliac Joint Dysfunction and regain stable pain free mobility",
+  "slug": "sacroiliacjointdysfunction"
+},
+
+{
+  "title": "Trochanteric Bursitis",
+  "card_img": tbcard,
+  "inTxt_img": tbarti,
+  "body": "Trochanteric bursitis is a painful condition caused by inflammation of the bursa over the outer hip leading to discomfort with walking climbing stairs or lying on the affected side. At Mountain Spine & Orthopedics we provide expert care supported by complimentary MRI reviews free second opinions and convenient car service to reduce inflammation relieve pain and restore hip function",
+  "detail": "The trochanteric bursa is a fluid filled sac that cushions the outer part of the hip where tendons glide over bone. Repetitive stress direct trauma hip arthritis leg length discrepancies or improper biomechanics can irritate this bursa resulting in inflammation and pain. Although common in runners and older adults anyone can develop this condition. At Mountain Spine & Orthopedics diagnosis begins with a full clinical history and physical exam focused on pinpoint tenderness over the outer hip range of motion and gait analysis. Complimentary MRI or ultrasound imaging may be used to confirm inflammation rule out tendon tears and assess surrounding structures",
+  "what_sym": "Sharp or aching pain on the outer hip or thigh pain when lying on the affected side discomfort when climbing stairs or rising from a chair and tenderness to the touch. The pain may radiate down the leg but does not usually go below the knee",
+  "risk_fac": "Overuse or repetitive hip movement hip arthritis prior hip injury or surgery poor posture or gait obesity leg length differences and tight iliotibial bands all contribute to the development of this condition",
+  "diagnose": "In addition to a physical exam Mountain Spine & Orthopedics may perform complimentary imaging to confirm bursal inflammation and rule out other causes like tendonitis or hip joint arthritis. Lab work may be used if infection or systemic inflammation is suspected",
+  "treatment": "Initial care includes rest ice physical therapy to correct biomechanics and stretch the IT band and anti inflammatory medications. Image guided corticosteroid injections can provide rapid relief in persistent cases. If symptoms do not resolve with conservative care surgical bursectomy or IT band release may be considered. Every treatment plan is tailored to the patient’s pain level goals and activity needs",
+  "pain_info": "Pain from trochanteric bursitis is typically sharp with movement and aching at rest often worsening when lying on the affected side. Our treatments reduce inflammation and restore pain free movement",
+  "prevent": "Maintaining strong hip and core muscles using proper form during exercise addressing leg length discrepancies managing weight and stretching tight structures like the IT band help reduce the risk of recurrence",
+  "schedule": "If outer hip pain is limiting your comfort or mobility schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review free second opinion and door to door transportation then move forward with a plan to resolve trochanteric bursitis and restore your active lifestyle",
+  "slug": "trochantericbursitis"
+},
+{
+  "title": "Carpal Tunnel Syndrome",
+  "card_img": CarpalTunnelSyndrome,
+  "inTxt_img": CarpalTunnelSyndromearti,
+  "body": "Carpal Tunnel Syndrome is a nerve compression disorder affecting the median nerve in the wrist often causing pain tingling and weakness in the hand. At  our team offers precise diagnostics and evidence based treatments to relieve symptoms restore hand function and protect your quality of life with complimentary patient amenities",
+  "detail": "Carpal Tunnel Syndrome develops when the carpal tunnel a narrow passage on the palm side of the wrist narrows or when tissues around the flexor tendons swell placing pressure on the median nerve. Repeated hand motions long periods of keyboard use variations in wrist anatomy or conditions such as diabetes and thyroid imbalance can contribute to CTS. Symptoms start gradually and worsen over time interfering with tasks like gripping objects or typing. At  our experts perform detailed clinical assessments combined with complimentary MRI or ultrasound imaging to confirm diagnosis and pinpoint underlying factors. We deliver personalized patient focused care with free second opinions and car service to ensure comfort and confidence throughout your treatment journey",
+  "what_sym": "Common signs include intermittent or constant numbness burning or tingling in the thumb index middle and ring fingers weakness that leads to dropping objects nighttime pain that disturbs sleep and reduced dexterity making fine motor tasks challenging",
+  "risk_fac": "Key factors include repetitive wrist motions prolonged computer or tool use previous wrist fractures or sprains inflammatory conditions such as rheumatoid arthritis pregnancy related fluid retention diabetes thyroid disorders obesity and a genetic tendency to a narrower carpal tunnel",
+  "diagnose": "Diagnosis starts with a detailed medical history and physical exam including provocative tests such as Tinels and Phalens maneuvers.  then uses nerve conduction studies electromyography and complimentary high resolution imaging to measure median nerve compression accurately and rule out other causes",
+  "treatment": "Our step by step treatment plan begins with conservative measures such as activity modification ergonomic changes wrist splinting especially at night anti inflammatory medication and targeted hand therapy. If symptoms persist we offer ultrasound guided corticosteroid injections for fast relief. Severe or resistant cases may benefit from endoscopic or open carpal tunnel release using microsurgical techniques that shorten recovery and preserve function",
+  "pain_info": "Pain from CTS can range from mild discomfort to sharp shooting sensations that travel up the forearm and often worsen with sustained wrist flexion or extension or by performing tasks without break.  provides comprehensive pain management combining therapeutic exercise splinting medication and targeted injections when needed to ease nerve irritation",
+  "prevent": "Preventive steps include keeping wrists in neutral positions during repetitive activities taking regular stretch breaks using ergonomic keyboards and tools managing health conditions effectively and doing strengthening exercises for forearm and hand muscles to reduce tendon inflammation",
+  "schedule": "Contact  today to book your personalized consultation. Benefit from complimentary MRI or ultrasound reviews free second opinions and car service for smooth convenient care as you recover hand function and get lasting relief from Carpal Tunnel Syndrome",
+  "slug": "carpaltunnelsyndrome"
+},
+  {
+    "title": "Back Pain",
+    "card_img": BackPaincard,
+    "inTxt_img": BackPaintxt,
+    "body": "Back pain refers to discomfort or severe pain that can appear in the lower, middle, or upper back and often limits daily activity.  creates complete treatment plans that blend modern techniques with compassionate, patient focused care to give lasting relief and restore mobility.",
+    "detail": "Back pain can arise anywhere along the spine, from the neck to the lower back. Causes include muscle strain, ligament sprain, herniated discs, degenerative changes, or structural concerns such as spinal stenosis or scoliosis. Ongoing or intense pain disrupts daily routines and affects both physical and emotional health. The team at  performs careful evaluations using advanced tools that include complimentary MRI readings, free second opinions, and convenient car service so each patient receives clear answers and support throughout care.",
+    "what_sym": "Possible signs are steady aching, sharp or stabbing sensations, pain that radiates into legs or arms, muscle tightness or spasms, stiffness, and limited range of motion.",
+    "risk_fac": "Factors that raise the chance of back pain include growing age, a sedentary lifestyle, poor posture, extra body weight, heavy lifting, repetitive motion, previous back injury, and family tendency toward spinal problems or degeneration.",
+    "diagnose": "Diagnosis starts with a complete medical history and a thorough physical exam, followed by complimentary MRI scans or other imaging so our specialists can locate the exact source of pain and select the best treatment.",
+    "treatment": "Personalized plans may contain physical therapy, targeted exercise, pain relief medicine, spinal injections, lifestyle changes, and when needed minimally invasive surgery. The objective is to ease pain, restore function, and improve quality of life as safely and quickly as possible.",
+    "pain_info": "Back pain may vary from mild occasional soreness to severe continuous discomfort. Identifying individual triggers and following a structured plan from  can greatly reduce symptoms and support daily comfort.",
+    "prevent": "Prevention steps include regular physical activity, keeping a healthy weight, using correct lifting techniques, choosing ergonomic furniture, maintaining good posture, and practicing routine stretching and strengthening exercises.",
+    "schedule": "Arrange a consultation with  today. Benefit from complimentary MRI review, a free second opinion, and convenient transportation that makes your path to relief smooth and comfortable.",
+    "slug": "backpain"
+  },
+
+  {
+    "title": "Bulging Disc",
+    "card_img": BulgingDisc,
+    "inTxt_img": BulgingDiscarti,
+    "body": "A bulging disc occurs when an intervertebral disc protrudes beyond its normal boundary and may compress nearby nerves causing pain numbness or weakness. At  our specialists provide targeted treatments designed to relieve symptoms restore function and enhance quality of life through compassionate patient focused care.",
+    "detail": "A bulging disc develops when a spinal disc which acts as a shock absorber between vertebrae extends beyond its typical outline. This can result from aging wear and tear repetitive strain or injury and most often affects the lower back or neck leading to discomfort or nerve compression. At  our dedicated team uses state of the art diagnostic tools including complimentary MRI readings to assess each case accurately. We tailor care plans to individual needs and support every step with free second opinions and complementary car service to ensure comfort and convenience.",
+    "what_sym": "Common symptoms include localized pain at the affected level radiating pain into the arms or legs tingling or numbness muscle weakness stiffness and reduced range of motion.",
+    "risk_fac": "Risk factors include advancing age repetitive heavy lifting or strain sedentary lifestyle poor posture excess body weight smoking and genetic predisposition.",
+    "diagnose": "Diagnosis begins with a thorough physical examination and detailed patient history followed by advanced imaging such as complimentary MRI scans. Accurate identification of the bulging disc and its severity is essential for creating an effective treatment plan.",
+    "treatment": "Personalized treatment strategies may include physical therapy and guided exercises pain management medications spinal injections lifestyle modifications and minimally invasive surgical procedures when needed. Our goal is to relieve pain restore function and help you resume everyday activities quickly.",
+    "pain_info": "Pain from a bulging disc can range from mild discomfort to severe debilitating sensations often worsening with certain movements or positions. Expert pain management at  greatly improves comfort and supports better daily functioning.",
+    "prevent": "Preventive measures include regular exercise maintaining a healthy weight practicing proper lifting techniques ensuring good posture and engaging in consistent stretching and strengthening exercises.",
+    "schedule": "Contact  today to schedule your personalized consultation. Benefit from complimentary MRI reviews free second opinions and complementary transportation services for a smooth and effective path to relief.",
+    "slug": "bulgingdisc"
+  },
 {
   "title": "Pinched Nerve",
   "card_img": pinchednervea,
@@ -673,174 +1361,6 @@ export const Conditions : ConditionInfoProp[] = [
     "slug": "hipdysplasia"
   },
     
-
-    {
-        "title": "Degenerative Disc Disease",
-        "card_img": DegenerativeDiscDiseasec,
-        "inTxt_img": DegenerativeDiscDisease,
-        "body": "Degenerative Disc Disease, often called DDD, refers to the natural wear and tear of the spinal discs that cushion each vertebra. At  our specialists provide comprehensive patient focused treatment that relieves back pain and improves quality of life through advanced care and complimentary services.",
-        "detail": "Degenerative Disc Disease is not an illness but a condition that develops when intervertebral discs gradually lose hydration, become thinner, and allow minor instability in the spine. These changes may create pain, reduced mobility, and discomfort.  excels at diagnosing and treating DDD with precise imaging, including complimentary MRI readings, and a personalized approach. Patients receive clear explanations, free second opinions, and convenient car service to make every visit comfortable.",
-        "what_sym": "Common signs include chronic neck or back pain, pain that worsens when sitting bending lifting or twisting, discomfort that radiates into arms or legs, numbness or tingling, and stiffness or reduced flexibility.",
-        "risk_fac": "Factors that can speed degeneration are advancing age, smoking, excess body weight, frequent heavy lifting or repetitive spinal strain, and a family tendency toward disc problems.",
-        "diagnose": "Evaluation begins with a detailed medical history and a physical examination.  then confirms the affected areas with advanced imaging such as complimentary MRI scans, creating a precise plan of care.",
-        "treatment": "Plans are tailored to each individual and may include physical therapy with guided exercise, pain management medication, minimally invasive spinal injections, or when needed modern surgical procedures. The goal is to choose the least invasive and most effective option so recovery is faster and downtime is shorter.",
-        "pain_info": "Pain from DDD can vary from mild discomfort to debilitating episodes. Identifying personal triggers and following professional guidance can help manage and reduce symptoms.",
-        "prevent": "Although aging cannot be stopped completely, you can slow disc degeneration by exercising and stretching regularly, keeping a healthy weight, practicing good posture, avoiding tobacco, and using ergonomic furniture that lowers spinal strain.",
-        "schedule": "Book a consultation with  today to address ongoing back or neck pain. Take advantage of our complimentary MRI review, free second opinion, and convenient transportation service for a smooth and supportive care experience.",
-      forum : [
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                What is Degenerative Disc Disease?
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                Degenerative Disc Disease is a spinal condition caused by age-related breakdown of the discs that cushion the vertebrae. These discs act like shock absorbers, allowing your spine to flex, bend, and twist. Over time, discs can lose water content, flatten, and develop small tears, reducing their ability to support your spine and absorb impact. Unlike acute injuries, DDD develops slowly over time and is especially common in individuals over 40. However, it can also affect younger individuals with physically demanding lifestyles or spinal injuries.
-                </h1>
-                <GradientOverlayImage
-                  imageData={degendisc} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-              <h1 
-               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-                >
-                  To diagnose DDD, our specialists begin with a full medical history and physical exam, followed by advanced imaging such as X-rays or MRI scans to evaluate disc height, disc shape, and any signs of degeneration. We also assess nerve function and spinal alignment to understand the full extent of the damage. Diagnosis may involve ruling out other conditions, such as herniated discs or spinal stenosis, that share similar symptoms.
-                </h1>
-
-                <OutlinedButton text="Do I have this Condition?"/>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                Symptoms of Degenerative Disc Disease
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                Symptoms vary depending on the location and severity of the disc degeneration. Common signs include chronic lower back or neck pain that worsens with bending, twisting, or prolonged sitting. Some patients find relief when walking or changing positions. Others may experience muscle weakness or numbness in the arms or legs if nerve compression occurs. Many people also report stiffness or reduced flexibility in the spine. The pain may be intermittent, flaring up during activity and easing with rest.
-                </h1>
-                <OutlinedButton text="Find a Treatment"/>
-
-                <GradientOverlayImage
-                  imageData={degendisc2} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                Risk Factors for Degenerative Disc Disease
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                You may be at higher risk for DDD if you are over the age of 40, smoke, or lead a sedentary lifestyle. A history of spinal injuries or trauma can increase your risk, especially if paired with poor posture or spinal misalignment. Genetic factors also contribute, and individuals with a family history of spine-related conditions are more likely to develop DDD. Identifying these risk factors early can help slow the progression of the disease and guide preventative care.
-                </h1>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                Treatment Options for Degenerative Disc Disease
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                At Mountain Spine & Care, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
-                </h1>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-2xl">
-                Schedule a Consultation Today
-              </h1>
-              <div  className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Mountain Spine & Care, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
-                </h1>
-              </div>
-            </div>
-          )
-        }
-      ],
-      side_img : degendiscside,
-      "slug": "degenerativediscdisease"
-    },
     
     {
       "title": "Facet Joint Disease",
@@ -1202,407 +1722,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       ],
       "slug": "lowerbackpain",
     },
-    {
-      title : 'Cervical Herniated Disc',
-      "card_img": cervicalHerniatedDisc,
-      "inTxt_img": cervicalHerniatedDiscarti,
-      "body": "A cervical herniated disc occurs when the soft gel like core of a neck level intervertebral disc ruptures through its outer layer and presses on nearby nerves or the spinal cord.  provides leading edge diagnostics and multidisciplinary care to relieve pain protect nerve function and restore neck mobility with free second opinions complimentary MRI reviews and car service for every patient",
-      "detail": "The cervical spine supports the head and allows extensive motion making its discs vulnerable to injury and degeneration. When the annulus fibrosus tears the nucleus pulposus can protrude creating inflammatory and mechanical pressure on the C5 to C8 nerve roots or the spinal cord. This can lead to neck pain radiating arm symptoms numbness weakness and in severe cases problems with balance and dexterity. At  we begin with a detailed history to identify potential triggers such as trauma overhead work or progressive degeneration and perform a focused neurological exam mapping sensory changes reflex asymmetries and muscle strength. Complimentary high resolution MRI scans then pinpoint the herniation level size and any spinal cord compression guiding a customized treatment plan",
-      "what_sym": "Symptoms include sharp or burning neck pain that worsens with coughing or head movement radiating pain or electric like shocks down the shoulder or arm hand or finger numbness reduced grip strength and when the cord is involved difficulty with fine motor tasks or unsteady gait",
-      "risk_fac": "Risk factors encompass age related disc dehydration poor posture during prolonged screen use repeated heavy lifting sudden whiplash injuries smoking obesity and a family history of degenerative disc disease",
-      "diagnose": "Diagnosis involves a comprehensive physical exam and neurological assessment combined with complimentary MRI confirmation nerve conduction studies to quantify root irritation and dynamic imaging to rule out instability. These tests ensure all contributing factors are identified before treatment",
-      "treatment": "Initial care focuses on activity modification targeted physical therapy to offload the affected segment and anti inflammatory medication. Cervical traction and image guided epidural steroid injections can offer fast relief when conservative measures are not enough. For persistent neurological deficits our spine surgeons perform minimally invasive anterior cervical discectomy and fusion or artificial disc replacement to decompress neural structures restore alignment and support rapid recovery with lasting stability",
-      "pain_info": "Pain intensity often peaks in the first few weeks after herniation especially with neck movement or sustained positions. A combination of precise diagnostic injections and rehabilitative exercises to strengthen deep neck flexor muscles helps reduce inflammation improve posture and accelerate symptom resolution",
-      "prevent": "Preventive steps include setting up ergonomic workstations with monitors at eye level practicing proper lifting mechanics regular core and cervical strengthening routines staying hydrated and avoiding tobacco to lower the risk of future disc injury",
-      "schedule": "If neck or arm pain is limiting your life schedule a consultation with  today. We will review your complimentary MRI provide a free second opinion and arrange car service so you can focus on returning to pain free motion and reliable nerve function",
-      slug : 'cervicalherniateddisc',
-      side_img : cervicalherniaside,
-      forum: [
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              What Is a Herniated Cervical Disc?
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-                A herniated cervical disc occurs when one of the discs in the neck region (cervical spine) becomes damaged. These discs are gel-like cushions that sit between the vertebrae and act as shock absorbers. Over time or due to injury, the outer wall of the disc can tear, allowing the inner nucleus to leak out and press against surrounding spinal nerves. This can lead to symptoms such as neck pain, numbness, tingling, or weakness in the shoulders, arms, or hands. Treatment options range from conservative therapies like rest and physical therapy to more advanced solutions, including cervical spine surgery.
-              </h1>
-  
-              <div className="rounded-[24px] overflow-hidden"><iframe width="100%" height="500" src="https://www.youtube.com/embed/gUG_zbKqlaU?si=k_-WQStF8cvjCaMj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowFullScreen></iframe></div>
-              
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-                If you’re experiencing neck pain, numbness, or weakness in your upper limbs, you may be dealing with a herniated disc in your cervical spine. Our symptom checker tool is a quick and easy way to help determine if you’re showing signs of disc herniation and whether a treatment consultation is recommended.
-              </h1>
-
-              <OutlinedButton text="Do I have this Condition?" />
-
-            </div>
-  
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1
-                style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                }}
-                className="text-[#111315] text-4xl">
-                How Are Herniated Discs Diagnosed?
-              </h1>
-              <div className=" flex flex-col space-y-[40px]">
-                <h1
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 400,
-                  }}
-                  className="text-[#5B5F67] text-xl"
-                >
-                 Diagnosing a herniated disc begins with a medical history review and physical examination. Your doctor may recommend imaging tests such as X-rays, MRI scans, or CT scans to confirm whether a disc is bulging or ruptured. While X-rays can help rule out other causes of pain, MRI and CT scans offer the most accurate visualization of soft tissue and nerve compression. If a herniated disc is confirmed, treatment usually starts conservatively with rest, ice, and medication. If symptoms persist, surgical intervention may be recommended.
-                </h1>
-                <OutlinedButton text="Find a Treatment" />
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1
-                style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                }}
-                className="text-[#111315] text-4xl">
-                Pain Management for a Cervical Herniated Disc
-              </h1>
-              <div className=" flex flex-col space-y-[40px]">
-                <h1
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 400,
-                  }}
-                  className="text-[#5B5F67] text-xl"
-                >
-                 In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Mountain Spine & Care will help determine the best approach based on your condition.
-                </h1>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              What Causes a Herniated Disc in the Neck?
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-               Cervical disc herniation can occur suddenly due to trauma or gradually as part of the aging process. The most common cause is wear and tear, which leads to disc degeneration. Over time, the discs lose elasticity and hydration, making them more prone to rupture. Other contributing factors include poor posture, obesity, repetitive strain, and spinal injury. In people over the age of 30, disc degeneration becomes more common, but even younger patients can suffer from herniated discs if their lifestyle puts excess stress on the spine.
-              </h1>
-
-              <GradientOverlayImage
-                  imageData={cervicalhernia} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              Risk Factors for a Cervical Herniated Disc
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-               Several factors can increase your risk of developing a cervical herniated disc. These include being overweight, smoking, living a sedentary lifestyle, or engaging in activities that involve repetitive neck strain or heavy lifting. Trauma to the spine or poor posture while sitting or sleeping can also contribute. Herniated discs may present with a wide range of symptoms pain, numbness, tingling, and weakness in the arms or legs so it’s important to get evaluated by a medical professional if you suspect you may have this condition.
-              </h1>
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              Treatment Options for Herniated Discs
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-               Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Mountain Spine & Care, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
-              </h1>
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-              Schedule a Consultation Today
-            </h1>
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-              >
-               Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Mountain Spine & Care, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
-               Call us today at (855) 853-6542 or fill out our online form to schedule a consultation. You may have more options than you think and recovery may be closer than you realize.
-              </h1>
-            </div>
-          </div>
-          )
-        }
-      ]
-    },
-    {
-      "title": "Cervical Spinal Stenosis",
-      "card_img": cervicalSpinalStenosis,
-      "inTxt_img": cervicalSpinalStenosisatri,
-      "body": "Cervical Spinal Stenosis is a condition in which the spinal canal in the neck narrows compressing the spinal cord or exiting nerve roots. At  our fellowship trained spine specialists combine precise diagnostics with leading edge therapies to relieve pain protect neurologic function and restore confident neck mobility supported by complimentary MRI reviews free second opinions and convenient car service",
-      "detail": "The cervical spine houses the delicate spinal cord while permitting flexible head movement. Degenerative changes such as disc bulging thickened ligaments bone spurs or facet joint enlargement can progressively constrict the canal producing cervical spinal stenosis. As space diminishes patients may experience radiating arm pain numbness weakness or in advanced cases myelopathy with gait imbalance and hand clumsiness.  performs a comprehensive evaluation beginning with a detailed history and neurologic examination mapping sensory loss reflex changes and coordination deficits. Complimentary high resolution MRI and when needed CT myelography pinpoint the exact levels and structures causing compression. This meticulous assessment guides a personalized treatment plan that preserves cord health and addresses pain at its source",
-      "what_sym": "Patients often report neck stiffness or aching burning or electric like pain radiating into shoulders and arms hand numbness fine motor difficulty such as buttoning shirts leg weakness or heaviness balance problems and in severe cases bladder or bowel urgency",
-      "risk_fac": "Risks increase with advancing age and include longstanding osteoarthritis degenerative disc disease ossification of the posterior longitudinal ligament previous neck trauma or surgery congenital narrow canal rheumatoid arthritis and lifestyle factors like smoking and heavy manual labor",
-      "diagnose": "Our diagnostic process integrates detailed physical and neurological examinations with upright X rays to assess alignment flexion extension films to reveal instability and nerve conduction studies when arm symptoms predominate. These complimentary diagnostics ensure dynamic and static contributors to stenosis are identified before therapy begins",
-      "treatment": "Initial management focuses on activity modification posture optimization anti inflammatory or neuropathic medications and targeted physiotherapy that strengthens deep cervical stabilizers. Image guided epidural steroid injections can provide powerful but temporary relief of radicular pain. When myelopathy progresses or pain remains refractory our surgeons offer motion preserving laminoplasty posterior decompression and fusion or anterior cervical corpectomy and discectomy and fusion ACDF tailored to canal dimensions and patient goals with minimal tissue disruption and rapid rehabilitation",
-      "pain_info": "Pain may fluctuate with neck posture and activity but neurologic symptoms can progress silently.  blends precise decompression techniques with postoperative rehabilitation to curb pain restore nerve function and prevent irreversible cord changes",
-      "prevent": "Maintaining strong neck and core muscles practicing ergonomic workstation habits treating arthritis early avoiding tobacco and staying physically active help preserve canal diameter and spinal stability reducing the likelihood of symptomatic stenosis",
-      "schedule": "If neck pain arm tingling or balance issues are affecting your life schedule a consultation with  today. We will review your complimentary MRI provide a free second opinion and arrange car service so you can access world class care focused on restoring spinal health and protecting your future mobility",
-      side_img : cervicalspinalstenosisside,
-      forum : [
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-              <h1 
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-[#111315] text-4xl">
-                 How Do I Know If I Have Spinal Stenosis?
-              </h1>
-
-              <div className=" flex flex-col space-y-[40px]">
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                Cervical spinal stenosis can cause a variety of symptoms depending on the severity and levels affected. Common signs include shock-like pain in the neck or arms, tingling sensations, arm weakness, numbness in the hands or fingers, loss of coordination, balance issues, difficulty walking, and in severe cases, loss of bladder control. These symptoms may suggest compression of the spinal cord or nerve roots and should never be ignored.
-                </h1>
-
-                <GradientOverlayImage
-                  imageData={cervicalspinalstenosis1} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-
-                <h1
-                 style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                }}
-                className="text-[#5B5F67] text-xl"
-                >
-                  If you’re experiencing any of these symptoms, it’s essential to get evaluated early. We offer a quick and easy spinal condition assessment tool to help gather information and determine if you may be a candidate for treatment. Don’t delay your recovery the earlier we intervene, the better your outcome.
-                </h1>
-
-                <OutlinedButton text="Do I have this Condition?"/>
-              </div>
-            </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1 
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-            }}
-            className="text-[#111315] text-4xl">
-              What is the Right Treatment for Me?
-            </h1>
-
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-              >
-                At Mountain Spine & Care, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
-                For patients with one or two affected levels, a decompression and artificial disc replacement is often ideal. This modern approach allows for motion preservation and avoids the long-term stiffness associated with spinal fusion. While multi-level fusion is sometimes used, it can leave patients with a permanently stiff neck, especially when four levels are involved. In contrast, laminoplasty provides the best option for multiple levels of compression without sacrificing mobility.
-              </h1>
-
-              <OutlinedButton text="Find a Treatment"/>
-
-              <GradientOverlayImage
-                  imageData={cervicalspinalstenosis2} // Passing static image data
-                  height="500px"
-                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
-
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1 
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-            }}
-            className="text-[#111315] text-4xl">
-              More About Cervical Laminoplasty
-            </h1>
-
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-              >
-                Cervical laminoplasty is a motion-preserving surgery done through the back of the neck. During the procedure, the muscles are temporarily moved aside and small cuts are made in the lamina the bone protecting the spinal cord. These bones are then lifted and repositioned to create more space for the spinal cord, relieving pressure and reducing symptoms.<br /><br/>
-                The key benefit of this procedure is that it retains the neck’s natural movement. Unlike fusion, which locks segments together, laminoplasty allows the bones to remain flexible. However, it’s important to note that while laminoplasty is excellent for relieving nerve-related symptoms like arm and leg pain or headaches, it is not intended to address central neck pain. For axial neck pain, artificial disc replacement may be the better solution.
-              </h1>
-
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1 
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-            }}
-            className="text-[#111315] text-4xl">
-              Post-Op Recovery           
-            </h1>
-
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-              >
-                Most patients recover quickly after cervical laminoplasty. Many go home the next day, and in some cases, it may be performed on an outpatient basis. Pain typically improves by the third day after surgery. Since neck movement is preserved, stiffness is minimized, and mobility is encouraged early on, which further speeds up recovery.
-              </h1>
-
-            </div>
-          </div>
-          )
-        },
-        {
-          post : (
-            <div className=" flex flex-col space-y-[16px] ">
-            <h1 
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-            }}
-            className="text-[#111315] text-4xl">
-             Schedule a Consultation Today          
-            </h1>
-
-            <div className=" flex flex-col space-y-[40px]">
-              <h1
-               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#5B5F67] text-xl"
-              >
-                If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Mountain Spine & Care, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
-                Take the first step toward recovery. Call us at (855) 853-6542 or fill out our online form to schedule your consultation today.
-              </h1>
-
-            </div>
-          </div>
-          )
-        },
-       
-      ],
-      "slug": "cervicalspinalstenosis"
-    },
-
     {
         "title": "Sciatica", 
         "card_img": sciaticacopy,
@@ -2460,38 +2579,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Kyphosis",
-      "card_img": kyphosiscard,
-      "inTxt_img": kyphosisarti,
-      "body": "Kyphosis refers to an exaggerated forward curvature of the thoracic spine that can create a rounded back appearance chronic pain muscle fatigue and in severe cases breathing or digestive issues.  combines high resolution imaging evidence based therapies and patient centered amenities including complimentary MRI reviews free second opinions and convenient car service to correct spinal alignment relieve discomfort and restore confident posture",
-      "detail": "A normal thoracic spine curves gently forward balancing the neck and lower back. Degenerative disc collapse osteoporotic compression fractures Scheuermanns disease congenital vertebral anomalies or postural habits can accentuate this curve producing kyphosis. As the apex rounds supporting muscles stretch and weaken ligaments tighten and vertebral bodies may wedge anteriorly leading to pain stiffness and cosmetic concerns. Severe deformity can reduce thoracic cavity space compromising lung capacity and digestive organ function. At  evaluation begins with a comprehensive history capturing age of onset progression speed pain pattern neurologic symptoms and impact on daily functions. A focused exam measures the kyphotic angle with a flexible ruler assesses spinal flexibility and screens for neurologic deficits. Complimentary standing long cassette X rays quantify the Cobb angle sagittal balance and pelvic parameters while high resolution MRI or CT evaluates disc integrity spinal cord space and vertebral structure. These metrics guide a tailored plan that balances non operative correction with surgical precision when needed",
-      "what_sym": "Many patients note mid back ache that worsens after prolonged sitting or standing shoulder or neck fatigue from compensatory postures reduced height tight hamstrings and in rigid or severe curves shortness of breath heartburn from compressed abdominal organs or difficulty lying flat",
-      "risk_fac": "Risk increases with advancing age and osteoporosis adolescent growth spurts associated with Scheuermanns disease chronic poor posture previous spinal trauma vertebral infections or tumors and genetic disorders affecting connective tissue integrity",
-      "diagnose": "Diagnosis includes standing long cassette X rays to measure the Cobb angle and assess sagittal balance and pelvic parameters along with high resolution MRI or CT scans to evaluate disc integrity and spinal cord space.  may also conduct pulmonary function tests for high angle curves and bone density scans to identify osteoporotic fragility. Complimentary evaluations ensure all contributing factors are addressed in the final strategy",
-      "treatment": "Flexible postural kyphosis often improves with physiotherapy that strengthens scapular retractors and core muscles ergonomic coaching and structured stretching. Rigid Scheuermanns curves in younger patients may benefit from custom thoracolumbosacral bracing to halt progression. For adults with painful or progressive deformity spine surgeons use minimally invasive osteotomies segmental instrumentation and fusion to restore sagittal balance while protecting the spinal cord and lung function. Postoperative rehabilitation emphasizes gradual extension exercises bone health optimization and lifestyle modifications to maintain alignment gains",
-      "pain_info": "Pain from kyphosis often stems from muscle fatigue facet overload and intervertebral disc stress.  uses targeted injections muscle balancing therapy and when needed surgical realignment to deliver durable pain relief and functional improvement",
-      "prevent": "Preventive measures include maintaining strong back extensor and core muscles practicing ergonomic posture during work and technology use ensuring adequate calcium and vitamin D intake treating osteoporosis early and monitoring adolescent spinal curves to prevent progression and complications",
-      "schedule": "If rounding of the back persistent mid spine pain or breathing changes concern you schedule a consultation with  today. Enjoy a complimentary MRI review thorough second opinion and convenient car service then move forward with a customized plan to correct kyphosis reduce pain and stand tall with confidence",
-      "slug": "kyphosis"
-    },
-
-    {
-      "title": "Labral Tears",
-      "card_img": labralTears,
-      "inTxt_img": labralTearsarti,
-      "body": "A labral tear is a rupture of the fibrous cartilage ring that deepens and stabilizes either the shoulder glenoid or hip acetabular socket. These tears can produce pain clicking and instability that limit athletic performance and daily tasks. At  we pair cutting edge imaging with tailored non operative and arthroscopic solutions supported by complimentary MRI reviews free second opinions and convenient car service to repair the labrum restore smooth motion and protect long term joint health",
-      "detail": "The labrum acts like a suction cup gasket enlarging the socket cushioning the joint and anchoring ligaments. Traumatic dislocation repetitive overhead or pivoting sports congenital dysplasia or degenerative wear can split this tissue. In the shoulder a superior labrum anterior posterior lesion may follow a fall onto an outstretched hand or a powerful throw. In the hip femoroacetabular impingement or dysplasia often underlies acetabular labral tears. Frayed edges or detached segments allow joint fluid to leak reducing stability and generating catching sensations that accelerate cartilage wear and early arthritis. At  assessment begins with a detailed account of injury mechanism sport demands and positional pain coupled with provocative exams such as the OBrien or FADIR tests. Complimentary high resolution MRI arthrography highlights contrast extravasation through labral defects while 3 D CT or ultrasound assesses bony morphology and dynamic motion. These findings inform an individualized plan aimed at preserving native tissue whenever possible",
-      "what_sym": "Patients commonly experience sharp or aching pain deep in the joint clicking or catching during rotation sense of giving way or instability loss of range of motion and decreased power during overhead throws or hip flexion activities. Pain often intensifies after prolonged sitting in hip cases or repeated elevation in shoulder cases",
-      "risk_fac": "High risk groups include athletes engaged in baseball pitching volleyball spikes hockey soccer ballet or golf individuals with femoroacetabular impingement or hip dysplasia workers performing repetitive overhead lifting patients with connective tissue laxity disorders and those with prior joint dislocations or trauma",
-      "diagnose": "Beyond MRI arthrography  may administer diagnostic intra articular anesthetic injections to confirm the labrum as the primary pain source. Dynamic ultrasound captures real time impingement while CT quantifies cam or pincer lesions in hip cases. These complimentary studies ensure surgical indications are precise and evidence based",
-      "treatment": "Initial care emphasizes activity modification targeted physiotherapy to rebalance surrounding muscles anti inflammatory or biologic injections and posture or technique refinement to reduce impingement. Persistent pain mechanical symptoms or instability prompt arthroscopic repair where anchors reattach the labrum to bone restore the suction seal and address underlying cam pincer or bony Bankart lesions. Postoperative rehabilitation advances through protected motion progressive strengthening and sport specific drills guided by milestones that safeguard the repair while expediting return to play.  tailors protocols to each patient sport position and season goals",
-      "pain_info": "Labral tear pain often presents as deep pinpoint discomfort exacerbated by rotation or sustained load. By correcting mechanical conflict and nurturing tissue healing through phased rehabilitation our integrated approach markedly diminishes pain and restores confidence in joint stability",
-      "prevent": "Maintaining balanced shoulder rotator cuff and scapular stabilizer strength optimizing hip and core flexibility refining overhead or pivot mechanics gradual sport specific conditioning and early management of impingement morphology reduce labral stress and prevent future tears",
-      "schedule": "If clicking catching or joint pain is limiting your performance schedule a consultation with  today Receive a complimentary MRI review comprehensive second opinion and convenient transportation then move forward with a personalized strategy to heal labral tears and return to peak activity",
-      "slug": "labraltears"
-    },
-
-    {
       "title": "Loose Bodies",
       "card_img": looseBarti,
       "inTxt_img": looseB,
@@ -2555,21 +2642,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "slug": "degenerativediscdiseasesurgery"
     },
 
-    {
-      "title": "Osteoarthritis",
-      "card_img": oste,
-      "inTxt_img": ostearti,
-      "body": "Osteoarthritis is a progressive joint condition characterized by the breakdown of articular cartilage, bone spur formation, and low grade inflammation that together cause pain, stiffness, and reduced mobility. Mountain Spine & Orthopedics delivers comprehensive evaluation and evidence based treatment supported by complimentary MRI reviews, free second opinions, and convenient car service to slow disease progression, relieve symptoms, and help you remain active at every stage of life.",
-      "detail": "Cartilage acts as a smooth shock absorbing surface that allows bones to glide effortlessly inside a joint. With age, repetitive stress, injury, or mechanical misalignment, cartilage thins and fissures, exposing underlying bone. The body responds by forming osteophytes, thickening the joint capsule, and triggering inflammation inside the synovial lining. These changes limit motion, provoke aching or sharp pain, and can produce swelling or audible grinding. Knees, hips, hands, and the spine are most frequently affected, but any synovial joint can develop osteoarthritic changes over time. At Mountain Spine & Orthopedics, assessment begins with a detailed history covering symptom duration, daily activity limitations, and prior injuries, combined with a focused examination that inspects alignment, range of motion, joint stability, and swelling. Complimentary high resolution MRI or weight bearing X rays visualize cartilage thickness, bone spurs, subchondral cysts, and joint space narrowing. These findings guide a personalized treatment roadmap that addresses both mechanical stressors and inflammatory pain.",
-      "what_sym": "Patients often notice deep aching pain that intensifies after activity and eases with rest, morning stiffness lasting under thirty minutes, crepitus or grinding during movement, intermittent swelling, and in advanced stages, joint deformity or instability that hampers everyday tasks such as climbing stairs or opening jars.",
-      "risk_fac": "Advancing age, female sex after menopause, obesity that overloads weight bearing joints, previous joint trauma or surgery, repetitive occupational or athletic stress, genetic predisposition to cartilage weakness, and limb malalignment all accelerate cartilage wear and osteophyte growth.",
-      "diagnose": "Mountain Spine & Orthopedics may perform ultrasound to detect synovial inflammation or guided aspiration to analyze joint fluid when crystal arthritis is suspected. Complimentary laboratory panels rule out inflammatory arthritides, ensuring precise diagnosis and appropriate therapy.",
-      "treatment": "Initial management centers on patient education, weight optimization, low impact aerobic and strengthening exercises, and activity modifications that reduce peak joint loads. Evidence based nutraceuticals, topical or oral anti inflammatory medication, and image guided corticosteroid or hyaluronic acid injections target pain and swelling. For persistent symptoms or structural deformity, our surgeons offer arthroscopic cartilage restoration, realignment osteotomy, or joint replacement using minimally invasive techniques that speed recovery and preserve healthy tissue. Every plan includes coordinated physical therapy to maintain muscle strength and joint flexibility, maximizing treatment benefit.",
-      "pain_info": "Osteoarthritic pain typically surfaces during or after activity and may linger as a dull ache at night. Mountain Spine & Orthopedics blends targeted injections, regenerative biologics, bracing, and muscle balancing exercise to break the cycle of inflammation and mechanical stress, producing durable pain relief.",
-      "prevent": "Maintaining a healthy body weight, engaging in balanced strength and flexibility training, correcting biomechanical malalignment, addressing acute joint injuries promptly, and avoiding tobacco and excessive alcohol help slow cartilage degradation and preserve joint function.",
-      "schedule": "If joint pain or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and door to door transportation—then move forward with a personalized plan to manage osteoarthritis and safeguard your mobility for the years ahead.",
-      "slug": "osteoarthritis"
-    },
 
     {
       "title": "Pseudarthrosis",
@@ -2585,22 +2657,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "prevent": "Optimizing vitamin D and nutrition strict smoking cessation managing diabetes selecting stable fixation constructs ensuring meticulous surgical technique and adhering to post operative weight bearing protocols all mitigate non union risk. Mountain Spine & Orthopedics provides comprehensive peri operative risk factor modification to maximize first time union success",
       "schedule": "If lingering pain or instability persists after a fracture or spinal fusion schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary CT or MRI review expert second opinion and door to door transportation then move forward with a personalized plan to conquer pseudarthrosis and regain solid pain free function",
       "slug": "pseudarthrosis"
-    },
-
-    {
-      "title": "Sacroiliac Joint Dysfunction",
-      "card_img": sjdcard,
-      "inTxt_img": sjdarti,                                                                                                                                                                                                                                                                                                                                                                                                                 
-      "body": "Sacroiliac SI Joint Dysfunction arises when the small but critical joints connecting the spine to the pelvis become inflamed or move abnormally producing lower back buttock or groin pain that can mimic sciatica. Mountain Spine & Orthopedics delivers precision diagnostics and evidence based therapies supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the SI joint relieve pain and restore effortless movement",
-      "detail": "The sacroiliac joints transfer load between the upper body and legs. Trauma pregnancy related ligament laxity leg length discrepancy inflammatory arthritis or previous lumbar fusion can disrupt their finely balanced motion triggering inflammation and pain with sitting standing or walking. Misdiagnosis is common because SI pain often radiates into the thigh or groin and overlaps with lumbar disc symptoms. Accurate identification is essential to avoid unnecessary spine surgery and to guide targeted treatment that restores normal joint mechanics. At Mountain Spine & Orthopedics evaluation begins with a detailed history of pain triggers such as prolonged standing transitional movements or sleep disturbances. A focused examination uses provocative maneuvers Gaenslen FABER and thigh thrust tests to reproduce SI pain while ruling out lumbar nerve compression. Complimentary high resolution MRI or CT excludes disc or hip pathology and visualizes joint inflammation or degeneration. Diagnostic fluoroscopy guided SI joint anesthetic injections offered at no additional cost confirm the joint as the primary pain generator ensuring that subsequent therapy is precisely directed",
-      "what_sym": "Deep aching pain localized to one side of the lower back or buttock radiating into the groin thigh or occasionally the calf pain that intensifies when rising from a seated position climbing stairs or rolling over in bed and a sensation of instability or giving way in the pelvis during walking or standing on one leg",
-      "risk_fac": "Pregnancy and postpartum ligamentous laxity prior lumbar fusion that alters pelvic load leg length discrepancy inflammatory conditions such as ankylosing spondylitis traumatic falls on the buttocks repetitive heavy lifting and obesity that increases pelvic stress all heighten SI joint dysfunction risk",
-      "diagnose": "Diagnosis includes physical tests imaging and dual diagnostic intra articular injections spaced days apart to ensure robust confirmation. A pain reduction of at least 75 percent after anesthetic injection substantiates the SI joint as the pain source guiding therapeutic planning",
-      "treatment": "Conservative management starts with activity modification pelvic and core stabilization physiotherapy anti inflammatory medication and pelvic belts that limit excessive motion. Image guided corticosteroid or biologic injections reduce joint inflammation and provide substantial relief. For chronic refractory pain our surgeons offer minimally invasive SI joint fusion using triangular titanium implants or 3 D printed porous implants that promote rapid bone integration while preserving surrounding soft tissue. Post procedure rehabilitation emphasizes gradual weight bearing progression core strengthening and gait correction to maintain long term stability",
-      "pain_info": "SI joint pain typically sharpens during transitional movements standing from sitting rolling in bed or climbing stairs and eases with short bouts of walking or lying flat. By stabilizing joint motion and calming inflammation our integrated approach delivers lasting pain relief and renewed confidence in daily activities",
-      "prevent": "Maintaining balanced core and hip strength correcting leg length discrepancies with orthotics practicing proper lifting mechanics avoiding prolonged asymmetrical postures managing body weight and addressing inflammatory conditions early all protect SI joint integrity",
-      "schedule": "If lower back or buttock pain is hindering your life schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review comprehensive second opinion and door to door transportation then move forward with a personalized plan to conquer Sacroiliac Joint Dysfunction and regain stable pain free mobility",
-      "slug": "sacroiliacjointdysfunction"
     },
 
     {
@@ -2668,22 +2724,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Spinal Compression Fractures",
-      "card_img": scfcard,
-      "inTxt_img": scfarti,
-      "body": "Spinal compression fractures are small cracks or collapses in the vertebrae often caused by osteoporosis trauma or spinal tumors. These fractures can result in sudden back pain posture changes and mobility loss. At Mountain Spine & Orthopedics we provide expert evaluation and treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore function",
-      "detail": "Compression fractures occur when one or more vertebrae weaken and collapse under normal pressure or minor trauma. Osteoporosis is the leading cause especially in older adults but high impact injuries and spinal tumors can also compromise vertebral strength. These fractures can lead to chronic back pain decreased height spinal deformity kyphosis and reduced lung function in severe cases. At Mountain Spine & Orthopedics we begin with a detailed history of symptoms and risk factors such as osteoporosis cancer or trauma. A focused physical exam checks for spinal tenderness alignment and mobility. Complimentary imaging typically X rays MRI or CT is used to identify the location and severity of the fracture and to rule out serious underlying causes. These findings help guide a tailored treatment plan",
-      "what_sym": "Symptoms include sudden severe back pain that worsens with movement and improves with rest localized tenderness over the spine loss of height visible stooping or forward curvature of the upper back and in some cases numbness or tingling if nerve structures are involved",
-      "risk_fac": "Osteoporosis is the most significant risk factor particularly in postmenopausal women and older adults. Other risks include long term steroid use history of cancer especially metastatic previous spinal fractures smoking poor nutrition and low body weight",
-      "diagnose": "Mountain Spine & Orthopedics uses complimentary high resolution imaging to detect fractures and assess vertebral alignment and bone quality. Bone density testing such as DEXA scan may also be performed to evaluate osteoporosis and guide long term management",
-      "treatment": "Most fractures heal with conservative care including bracing pain management calcium and vitamin D supplementation and physical therapy. In cases of persistent pain or instability minimally invasive procedures like vertebroplasty or kyphoplasty can stabilize the fracture and restore vertebral height. For patients with osteoporosis we coordinate long term bone health management using medications such as bisphosphonates or anabolic agents",
-      "pain_info": "Pain is typically localized and worsens with standing or walking. Our approach aims to stabilize the spine reduce inflammation and strengthen supporting musculature helping patients return to daily activities with confidence",
-      "prevent": "Maintaining strong bones through weight bearing exercise calcium and vitamin D intake osteoporosis screening fall prevention strategies and prompt treatment of any bone weakening conditions are key to avoiding compression fractures",
-      "schedule": "If you’re experiencing sudden back pain or height loss schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review expert second opinion and convenient transportation then move forward with a personalized plan to address spinal compression fractures and rebuild stability and strength",
-      "slug": "spinalcompressionfractures"
-    },
-
-    {
       "title": "Spinal Stenosis",
       "card_img": sscard,
       "inTxt_img": ssarti,
@@ -2716,22 +2756,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Spondylolisthesis",
-      "card_img": sdtcard,
-      "inTxt_img": sdtarti,
-      "body": "Spondylolisthesis is a spinal condition in which one vertebra slips forward over the one below it often causing back pain nerve compression and reduced mobility. At Mountain Spine & Orthopedics we offer expert diagnosis and individualized treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore confident movement",
-      "detail": "Spondylolisthesis can result from congenital defects spinal degeneration trauma or stress fractures. It most commonly affects the lower lumbar spine and may compress spinal nerves leading to back pain sciatica or difficulty walking. There are several types degenerative isthmic traumatic and dysplastic each with unique causes and treatment approaches. Severity is classified by the degree of slippage. At Mountain Spine & Orthopedics evaluation begins with a full history of symptoms activity levels and previous injuries. A physical exam assesses posture flexibility and neurologic function. Complimentary imaging including standing X rays MRI and CT helps determine the type and grade of slippage evaluate nerve involvement and rule out spinal instability or associated conditions",
-      "what_sym": "Lower back pain tight hamstrings pain radiating into the buttocks or legs sciatica numbness or tingling weakness in the legs and trouble walking or standing for long periods in severe cases bladder or bowel dysfunction may occur",
-      "risk_fac": "Repetitive spinal stress for example gymnastics or football spinal arthritis genetics congenital spinal anomalies previous spine trauma and aging all contribute to the risk of developing spondylolisthesis",
-      "diagnose": "Complimentary standing flexion extension X rays confirm vertebral slippage and instability MRI and CT imaging assess nerve compression and bony detail. Grading the severity of the slip guides treatment decisions and helps monitor progression",
-      "treatment": "Nonsurgical care may include physical therapy to strengthen core and stabilize the spine anti inflammatory medications and image guided injections to reduce nerve inflammation. Bracing may help in some cases. If conservative care fails or slippage progresses surgical options like decompression and spinal fusion are considered. At Mountain Spine & Orthopedics we use minimally invasive techniques to reduce recovery time while achieving long term spinal stability",
-      "pain_info": "Pain often stems from mechanical instability and nerve compression and may increase with standing walking or extension. Our integrated treatment approach targets both the pain and its source to provide long lasting relief",
-      "prevent": "Core strengthening proper body mechanics limiting repetitive lumbar hyperextension and addressing early symptoms can help prevent progression or recurrence",
-      "schedule": "If you are experiencing lower back pain leg symptoms or instability schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review free second opinion and door to door transportation then take the first step toward resolving spondylolisthesis and regaining spine stability and comfort",
-      "slug": "spondylolisthesis"
-    },
-
-    {
       "title": "Synovitis",
       "card_img": syncard,
       "inTxt_img": synarti,
@@ -2761,22 +2785,6 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "prevent": "Maintaining good posture avoiding repetitive strain managing blood sugar levels staying physically active and treating underlying medical conditions can help reduce the risk of numbness and tingling",
       "schedule": "If tingling or numbness is affecting your mobility or quality of life schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review expert second opinion and convenient car service then take the first step toward resolving your symptoms and restoring healthy nerve function",
       "slug": "tinglingornumbnessinextremities"
-    },
-
-    {
-      "title": "Trochanteric Bursitis",
-      "card_img": tbcard,
-      "inTxt_img": tbarti,
-      "body": "Trochanteric bursitis is a painful condition caused by inflammation of the bursa over the outer hip leading to discomfort with walking climbing stairs or lying on the affected side. At Mountain Spine & Orthopedics we provide expert care supported by complimentary MRI reviews free second opinions and convenient car service to reduce inflammation relieve pain and restore hip function",
-      "detail": "The trochanteric bursa is a fluid filled sac that cushions the outer part of the hip where tendons glide over bone. Repetitive stress direct trauma hip arthritis leg length discrepancies or improper biomechanics can irritate this bursa resulting in inflammation and pain. Although common in runners and older adults anyone can develop this condition. At Mountain Spine & Orthopedics diagnosis begins with a full clinical history and physical exam focused on pinpoint tenderness over the outer hip range of motion and gait analysis. Complimentary MRI or ultrasound imaging may be used to confirm inflammation rule out tendon tears and assess surrounding structures",
-      "what_sym": "Sharp or aching pain on the outer hip or thigh pain when lying on the affected side discomfort when climbing stairs or rising from a chair and tenderness to the touch. The pain may radiate down the leg but does not usually go below the knee",
-      "risk_fac": "Overuse or repetitive hip movement hip arthritis prior hip injury or surgery poor posture or gait obesity leg length differences and tight iliotibial bands all contribute to the development of this condition",
-      "diagnose": "In addition to a physical exam Mountain Spine & Orthopedics may perform complimentary imaging to confirm bursal inflammation and rule out other causes like tendonitis or hip joint arthritis. Lab work may be used if infection or systemic inflammation is suspected",
-      "treatment": "Initial care includes rest ice physical therapy to correct biomechanics and stretch the IT band and anti inflammatory medications. Image guided corticosteroid injections can provide rapid relief in persistent cases. If symptoms do not resolve with conservative care surgical bursectomy or IT band release may be considered. Every treatment plan is tailored to the patient’s pain level goals and activity needs",
-      "pain_info": "Pain from trochanteric bursitis is typically sharp with movement and aching at rest often worsening when lying on the affected side. Our treatments reduce inflammation and restore pain free movement",
-      "prevent": "Maintaining strong hip and core muscles using proper form during exercise addressing leg length discrepancies managing weight and stretching tight structures like the IT band help reduce the risk of recurrence",
-      "schedule": "If outer hip pain is limiting your comfort or mobility schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review free second opinion and door to door transportation then move forward with a plan to resolve trochanteric bursitis and restore your active lifestyle",
-      "slug": "trochantericbursitis"
     },
     
     {
@@ -2812,21 +2820,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
 
-    {
-      "title": "ACL Injury",
-      "card_img": aclcard,
-      "inTxt_img": aclarti,
-      "body": "An ACL injury occurs when the anterior cruciate ligament—the primary stabilizer of knee rotation and forward tibial translation—is overstretched or torn, commonly due to sudden pivoting, abrupt deceleration, or direct impact. Patients often report a popping sound at the moment of injury, followed by rapid swelling and a sensation of instability. At Mountain Spine & Orthopedics, we specialize in prompt, accurate diagnosis and personalized treatment plans supported by complimentary MRI reviews, free second opinions, and door-to-door transportation. Our multidisciplinary approach ensures patients receive advanced care to restore knee stability, alleviate pain, and return to daily activities and sports with confidence.",
-      "detail": "The anterior cruciate ligament is one of four major ligaments within the knee joint, responsible for maintaining rotational stability and preventing excessive forward translation of the tibia relative to the femur. Injuries range from microtears and partial disruptions to complete ruptures classified as grade I, II, or III based on fiber damage. The most common mechanism involves sudden deceleration, pivoting, or landing from a jump with a valgus knee position, placing immense stress on the ligament fibers. At Mountain Spine & Orthopedics, evaluation begins with a thorough history of the injury mechanism, symptom onset, and activity level. A focused physical examination includes Lachman, anterior drawer, and pivot shift tests to assess ligament integrity and knee laxity. High-resolution MRI confirms the diagnosis by visualizing the extent of ligament tears, associated bone bruises, and concomitant meniscal or chondral injuries. In select cases, diagnostic arthroscopy provides direct visualization to guide surgical planning and address other intra-articular pathology.",
-      "what_sym": "Common symptoms of an ACL injury include an audible 'pop' at the time of injury, rapid knee swelling due to hemarthrosis, severe pain initially that may subside, a sensation of giving way or instability, difficulty bearing weight or walking, limited range of motion, and persistent discomfort with twisting or deceleration movements.",
-      "risk_fac": "Risk factors for ACL injuries include participation in high-risk sports such as soccer, basketball, football, and skiing; sudden changes in direction, pivoting, or landing mechanics that place the knee in valgus; muscle imbalances between the quadriceps and hamstrings; poor neuromuscular control; anatomical factors such as a wider pelvis in female athletes; previous knee injuries; and environmental factors such as uneven playing surfaces and inadequate footwear.",
-      "diagnose": "Diagnosis of an ACL injury relies on clinical examination and imaging studies. We perform Lachman, anterior drawer, and pivot shift tests to evaluate ligament laxity and knee stability. MRI remains the gold standard imaging modality, accurately depicting the extent of ACL fiber disruption, bone marrow edema patterns, and associated meniscal or cartilage injuries. In rare circumstances where MRI is contraindicated or inconclusive, diagnostic arthroscopy may be performed to confirm the diagnosis and assess other intra-articular findings.",
-      "treatment": "Treatment options for ACL injuries depend on tear severity, patient age, activity level, and concomitant injuries. Non-surgical management—including bracing, activity modification, and a structured rehabilitation program focusing on strength, stability, and proprioception—may suffice for partial tears or low-demand patients. For complete tears or athletes seeking return to pivoting sports, ACL reconstruction surgery is often indicated. At Mountain Spine & Orthopedics, we employ minimally invasive arthroscopic ACL reconstruction techniques using autograft or allograft tissue, combined with accelerated rehabilitation protocols to optimize graft healing, restore function, and facilitate safe return to sports.",
-      "pain_info": "Pain in ACL injuries arises from acute ligament fiber disruption, hemarthrosis, and subsequent inflammation of intra-articular structures. Patients often experience sharp pain initially, followed by stiffness and discomfort that intensifies during weight-bearing, twisting, or rapid directional changes. Our treatment approach addresses both mechanical instability and inflammatory pain through a combination of surgical intervention, targeted rehabilitation, and pain management techniques.",
-      "prevent": "To reduce the risk of ACL injuries, athletes and active individuals should engage in neuromuscular training programs focusing on proper landing mechanics, strength and balance exercises for the quadriceps, hamstrings, hips, and core; plyometric drills emphasizing safe deceleration; flexibility training to maintain joint mobility; and use of appropriate footwear and protective bracing during high-risk activities.",
-      "schedule": "If you suspect an ACL injury due to knee pain, swelling, or instability, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options as we develop a comprehensive evaluation and personalized treatment plan to restore your knee stability, function, and confidence.",
-      "slug": "aclinjury"
-    },
+
 
     {
       "title": "Tennis Elbow",
