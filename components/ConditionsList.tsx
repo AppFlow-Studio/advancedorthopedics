@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Conditions } from './data/conditions';
+import { ConditionInfoProp } from './ConditionCard';
+import ConditionsSearchBar from './ConditionsSearchBar';
 // Your data - replace with your actual list items
 
 
@@ -8,6 +10,8 @@ import { Conditions } from './data/conditions';
 const INITIAL_VISIBLE_COUNT = 4; // Adjust as needed
 
 function ConditionList({currentCondition} : { currentCondition: string }) {
+  const [ data, setData ] = useState(Conditions)
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [ VisibilityCount, setVisibilityCount] = useState(INITIAL_VISIBLE_COUNT);
   const handleShowMore = () => {
@@ -18,10 +22,24 @@ function ConditionList({currentCondition} : { currentCondition: string }) {
     }
   };
 
+  // --- Handler function for when a condition is selected in the search bar ---
+  const handleConditionSelect = (condition: ConditionInfoProp) => {
+    console.log("Parent: Condition selected - ", condition.title);
+    setData([condition]); // Update state to show only the selected condition
+  };
+
+  // --- Handler function for when the search bar is cleared ---
+  const handleSearchClear = () => {
+    console.log("Parent: Search cleared - Resetting data to full list");
+    setData(Conditions); // Reset state to the original full list of conditions
+  };
+
+
   return (
-    <div className="w-full max-w-lg mx-auto"> {/* Optional: Container styling */}
+    <div className="w-full max-w-lg mx-auto space-y-10"> {/* Optional: Container styling */}
+      <ConditionsSearchBar conditions={Conditions} onSelect={handleConditionSelect} onClear={handleSearchClear} />
        <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-        {Conditions.map((condition, index) => {
+        {data.map((condition, index) => {
           // Determine if this item is beyond the initial visible count
           const isInitiallyHidden = index >= VisibilityCount;
 

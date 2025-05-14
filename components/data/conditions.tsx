@@ -6,6 +6,7 @@ import OutlinedButton from '@/components/OutlinedButton'
 import cervicalspinalstenosis1 from '@/public/cervicalspinal.jpeg'
 import cervicalspinalstenosis2 from '@/public/cervicalspinal2.png'
 import cervicalspinalstenosisside from '@/public/cervicalspinalside.png'
+import cervicalspinal3 from '@/public/cervicalspinal3.jpeg'
 import sciatica from '@/public/sciatica.png'
 import sciaticaside from '@/public/sciaticaside.png'
 import coccydynia from '@/public/coccydynia.jpeg'
@@ -522,7 +523,14 @@ side_img : degendiscside,
   "detail": "The cervical spine houses the delicate spinal cord while permitting flexible head movement. Degenerative changes such as disc bulging thickened ligaments bone spurs or facet joint enlargement can progressively constrict the canal producing cervical spinal stenosis. As space diminishes patients may experience radiating arm pain numbness weakness or in advanced cases myelopathy with gait imbalance and hand clumsiness.  performs a comprehensive evaluation beginning with a detailed history and neurologic examination mapping sensory loss reflex changes and coordination deficits. Complimentary high resolution MRI and when needed CT myelography pinpoint the exact levels and structures causing compression. This meticulous assessment guides a personalized treatment plan that preserves cord health and addresses pain at its source",
   "what_sym": "Patients often report neck stiffness or aching burning or electric like pain radiating into shoulders and arms hand numbness fine motor difficulty such as buttoning shirts leg weakness or heaviness balance problems and in severe cases bladder or bowel urgency",
   "risk_fac": "Risks increase with advancing age and include longstanding osteoarthritis degenerative disc disease ossification of the posterior longitudinal ligament previous neck trauma or surgery congenital narrow canal rheumatoid arthritis and lifestyle factors like smoking and heavy manual labor",
-  "diagnose": "Our diagnostic process integrates detailed physical and neurological examinations with upright X rays to assess alignment flexion extension films to reveal instability and nerve conduction studies when arm symptoms predominate. These complimentary diagnostics ensure dynamic and static contributors to stenosis are identified before therapy begins",
+  "diagnose": (
+    <div className=" flex flex-col space-y-[16px] ">
+      <h1>
+      Our diagnostic process integrates detailed physical and neurological examinations with upright X rays to assess alignment flexion extension films to reveal instability and nerve conduction studies when arm symptoms predominate. These complimentary diagnostics ensure dynamic and static contributors to stenosis are identified before therapy begins     
+      </h1>
+      <Image src={cervicalspinal3} alt="cervicalspinalstenosisside" className="w-full h-full object-cover aspect-video rounded-2xl"/>
+    </div>
+  ),
   "treatment": "Initial management focuses on activity modification posture optimization anti inflammatory or neuropathic medications and targeted physiotherapy that strengthens deep cervical stabilizers. Image guided epidural steroid injections can provide powerful but temporary relief of radicular pain. When myelopathy progresses or pain remains refractory our surgeons offer motion preserving laminoplasty posterior decompression and fusion or anterior cervical corpectomy and discectomy and fusion ACDF tailored to canal dimensions and patient goals with minimal tissue disruption and rapid rehabilitation",
   "pain_info": "Pain may fluctuate with neck posture and activity but neurologic symptoms can progress silently.  blends precise decompression techniques with postoperative rehabilitation to curb pain restore nerve function and prevent irreversible cord changes",
   "prevent": "Maintaining strong neck and core muscles practicing ergonomic workstation habits treating arthritis early avoiding tobacco and staying physically active help preserve canal diameter and spinal stability reducing the likelihood of symptomatic stenosis",

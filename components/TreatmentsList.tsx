@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { AllTreatments } from './data/treatments';
+import { AllTreatments, TreatmentsCardProp } from './data/treatments';
+import { TreatmentCardInfoProp } from './TreatmentCard';
+import TreatmentsSearchBar from './ui/TreatmentsSearchBar';
 // Your data - replace with your actual list items
 
 
@@ -8,6 +10,7 @@ import { AllTreatments } from './data/treatments';
 const INITIAL_VISIBLE_COUNT = 4; // Adjust as needed
 
 function TreatmentsList({currentTreatment} : { currentTreatment: string }) {
+  const [ data, setData ] = useState(AllTreatments)
   const [isExpanded, setIsExpanded] = useState(false);
   const [ VisibilityCount, setVisibilityCount] = useState(INITIAL_VISIBLE_COUNT);
   const handleShowMore = () => {
@@ -17,11 +20,26 @@ function TreatmentsList({currentTreatment} : { currentTreatment: string }) {
       setIsExpanded(false);
     }
   };
+    // Function called when a treatment is selected in the search bar dropdown
+    const handleSelectTreatment = (selectedTreatment: TreatmentsCardProp) => {
+      setData([selectedTreatment]); // Show only the selected treatment
+    };
+  
+    // Function called when the search bar is cleared (X button or empty input)
+    const handleClearSearch = () => {
+      setData(AllTreatments); // Reset to show all treatments
+    };
+
 
   return (
-    <div className="w-full max-w-lg mx-auto"> {/* Optional: Container styling */}
+    <div className="w-full max-w-lg mx-auto space-y-10"> {/* Optional: Container styling */}
+        <TreatmentsSearchBar
+              treatments={data}           // Pass the full list for searching
+              onSelect={handleSelectTreatment} // Handler for selecting an item
+              onClear={handleClearSearch}      // Handler for clearing the search
+        />
        <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-        {AllTreatments.map((treatment, index) => {
+        {data.map((treatment, index) => {
           // Determine if this item is beyond the initial visible count
           const isInitiallyHidden = index >= VisibilityCount;
 
