@@ -41,8 +41,6 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
     setIsOpen(false);
   };
 
-  // Use Navigation Menu Shadcn
-  console.log(pathname)
   return (
      <NavigationMenuItem className='relative'>
         <NavigationMenuTrigger

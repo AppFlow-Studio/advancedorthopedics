@@ -85,7 +85,7 @@ import dddarti from '@/public/dddarti.png'
 import oste from '@/public/oste.png'
 import ostearti from '@/public/ostearti.jpg'
 import Pseud from '@/public/Pseud.png'
-import Pseudarti from '@/public/Pseudarti.jpg'
+import Pseudarti from '@/public/Pseudarti.webp'
 import sjdcard from '@/public/sjdcard.jpg'
 import sjdarti from '@/public/sjdarti.jpg'
 import sacard from '@/public/sacard.jpg'
@@ -126,6 +126,11 @@ import pfcard from '@/public/pfcard.webp'
 import pfarti from '@/public/pfarti.jpg'
 import barti from '@/public/barti.webp'
 import bcard from '@/public/bcard.jpeg'
+import cervhernia3 from '@/public/cervhernia3.png'
+import rotatorcuff3 from '@/public/rotatorcufftear3.png'
+import ddd3 from '@/public/ddd3.png'
+import spondy3 from '@/public/spondy3.png'
+
 
 // export interface ConditionInfoProp {
 //   title : string
@@ -356,7 +361,12 @@ export const Conditions : ConditionInfoProp[] = [
   "detail": "Degenerative Disc Disease is not an illness but a condition that develops when intervertebral discs gradually lose hydration, become thinner, and allow minor instability in the spine. These changes may create pain, reduced mobility, and discomfort.  excels at diagnosing and treating DDD with precise imaging, including complimentary MRI readings, and a personalized approach. Patients receive clear explanations, free second opinions, and convenient car service to make every visit comfortable.",
   "what_sym": "Common signs include chronic neck or back pain, pain that worsens when sitting bending lifting or twisting, discomfort that radiates into arms or legs, numbness or tingling, and stiffness or reduced flexibility.",
   "risk_fac": "Factors that can speed degeneration are advancing age, smoking, excess body weight, frequent heavy lifting or repetitive spinal strain, and a family tendency toward disc problems.",
-  "diagnose": "Evaluation begins with a detailed medical history and a physical examination.  then confirms the affected areas with advanced imaging such as complimentary MRI scans, creating a precise plan of care.",
+  "diagnose": (
+    <div className=" flex flex-col space-y-[16px] items-center justify-center">
+      <p>Evaluation begins with a detailed medical history and a physical examination.  then confirms the affected areas with advanced imaging such as complimentary MRI scans, creating a precise plan of care.</p>
+      <Image src={ddd3} alt="degenerative disc disease" className="w-full h-full object-fill aspect-video rounded-2xl overflow-hidden"/>
+    </div>
+  ),
   "treatment": "Plans are tailored to each individual and may include physical therapy with guided exercise, pain management medication, minimally invasive spinal injections, or when needed modern surgical procedures. The goal is to choose the least invasive and most effective option so recovery is faster and downtime is shorter.",
   "pain_info": "Pain from DDD can vary from mild discomfort to debilitating episodes. Identifying personal triggers and following professional guidance can help manage and reduce symptoms.",
   "prevent": "Although aging cannot be stopped completely, you can slow disc degeneration by exercising and stretching regularly, keeping a healthy weight, practicing good posture, avoiding tobacco, and using ergonomic furniture that lowers spinal strain.",
@@ -713,7 +723,12 @@ side_img : degendiscside,
   "detail": "Spondylolisthesis can result from congenital defects spinal degeneration trauma or stress fractures. It most commonly affects the lower lumbar spine and may compress spinal nerves leading to back pain sciatica or difficulty walking. There are several types degenerative isthmic traumatic and dysplastic each with unique causes and treatment approaches. Severity is classified by the degree of slippage. At Mountain Spine & Orthopedics evaluation begins with a full history of symptoms activity levels and previous injuries. A physical exam assesses posture flexibility and neurologic function. Complimentary imaging including standing X rays MRI and CT helps determine the type and grade of slippage evaluate nerve involvement and rule out spinal instability or associated conditions",
   "what_sym": "Lower back pain tight hamstrings pain radiating into the buttocks or legs sciatica numbness or tingling weakness in the legs and trouble walking or standing for long periods in severe cases bladder or bowel dysfunction may occur",
   "risk_fac": "Repetitive spinal stress for example gymnastics or football spinal arthritis genetics congenital spinal anomalies previous spine trauma and aging all contribute to the risk of developing spondylolisthesis",
-  "diagnose": "Complimentary standing flexion extension X rays confirm vertebral slippage and instability MRI and CT imaging assess nerve compression and bony detail. Grading the severity of the slip guides treatment decisions and helps monitor progression",
+  "diagnose": (
+    <div className="flex flex-col space-y-[16px]">
+      <p>Complimentary standing flexion extension X rays confirm vertebral slippage and instability MRI and CT imaging assess nerve compression and bony detail. Grading the severity of the slip guides treatment decisions and helps monitor progression</p>
+      <Image src={spondy3} alt="spondy3" className="w-full h-full object-fill aspect-video rounded-2xl"/>
+    </div>
+  ),
   "treatment": "Nonsurgical care may include physical therapy to strengthen core and stabilize the spine anti inflammatory medications and image guided injections to reduce nerve inflammation. Bracing may help in some cases. If conservative care fails or slippage progresses surgical options like decompression and spinal fusion are considered. At Mountain Spine & Orthopedics we use minimally invasive techniques to reduce recovery time while achieving long term spinal stability",
   "pain_info": "Pain often stems from mechanical instability and nerve compression and may increase with standing walking or extension. Our integrated treatment approach targets both the pain and its source to provide long lasting relief",
   "prevent": "Core strengthening proper body mechanics limiting repetitive lumbar hyperextension and addressing early symptoms can help prevent progression or recurrence",
@@ -728,7 +743,12 @@ side_img : degendiscside,
   "detail": "The cervical spine supports the head and allows extensive motion making its discs vulnerable to injury and degeneration. When the annulus fibrosus tears the nucleus pulposus can protrude creating inflammatory and mechanical pressure on the C5 to C8 nerve roots or the spinal cord. This can lead to neck pain radiating arm symptoms numbness weakness and in severe cases problems with balance and dexterity. At  we begin with a detailed history to identify potential triggers such as trauma overhead work or progressive degeneration and perform a focused neurological exam mapping sensory changes reflex asymmetries and muscle strength. Complimentary high resolution MRI scans then pinpoint the herniation level size and any spinal cord compression guiding a customized treatment plan",
   "what_sym": "Symptoms include sharp or burning neck pain that worsens with coughing or head movement radiating pain or electric like shocks down the shoulder or arm hand or finger numbness reduced grip strength and when the cord is involved difficulty with fine motor tasks or unsteady gait",
   "risk_fac": "Risk factors encompass age related disc dehydration poor posture during prolonged screen use repeated heavy lifting sudden whiplash injuries smoking obesity and a family history of degenerative disc disease",
-  "diagnose": "Diagnosis involves a comprehensive physical exam and neurological assessment combined with complimentary MRI confirmation nerve conduction studies to quantify root irritation and dynamic imaging to rule out instability. These tests ensure all contributing factors are identified before treatment",
+  "diagnose": (
+    <div className="flex flex-col space-y-[16px]">
+      <p>Diagnosis involves a comprehensive physical exam and neurological assessment combined with complimentary MRI confirmation nerve conduction studies to quantify root irritation and dynamic imaging to rule out instability. These tests ensure all contributing factors are identified before treatment</p>
+      <Image src={cervhernia3} alt="cervicalspinalstenosisside" className="w-full h-full object-cover aspect-video rounded-2xl"/>
+    </div>
+  ),
   "treatment": "Initial care focuses on activity modification targeted physical therapy to offload the affected segment and anti inflammatory medication. Cervical traction and image guided epidural steroid injections can offer fast relief when conservative measures are not enough. For persistent neurological deficits our spine surgeons perform minimally invasive anterior cervical discectomy and fusion or artificial disc replacement to decompress neural structures restore alignment and support rapid recovery with lasting stability",
   "pain_info": "Pain intensity often peaks in the first few weeks after herniation especially with neck movement or sustained positions. A combination of precise diagnostic injections and rehabilitative exercises to strengthen deep neck flexor muscles helps reduce inflammation improve posture and accelerate symptom resolution",
   "prevent": "Preventive steps include setting up ergonomic workstations with monitors at eye level practicing proper lifting mechanics regular core and cervical strengthening routines staying hydrated and avoiding tobacco to lower the risk of future disc injury",
@@ -991,7 +1011,12 @@ side_img : degendiscside,
   "detail": "The rotator cuff is composed of four muscles and their tendons—supraspinatus, infraspinatus, teres minor, and subscapularis—that surround the shoulder joint, providing dynamic stability and enabling overhead motion. Tears develop due to acute trauma such as a fall on an outstretched arm, chronic degeneration from repetitive overhead activity, or age-related tendon thinning. Partial-thickness tears affect only a portion of the tendon thickness, while full-thickness tears create a complete discontinuity. At Mountain Spine & Orthopedics, our assessment begins with a detailed history of injury mechanism, activity levels, and symptom progression. We perform a focused physical examination—including tests such as the painful arc, the drop arm test, and resisted strength maneuvers—and use high-resolution MRI or diagnostic musculoskeletal ultrasound to determine tear size, tendon retraction, and muscle quality. In select cases, diagnostic arthroscopy may be utilized to visualize tendon integrity directly and address any additional joint pathology.",
   "what_sym": "Patients with a rotator cuff tear typically experience gradual or sudden onset of shoulder pain that worsens with overhead activities, lifting, or reaching behind the back. Night pain that disrupts sleep, weakness when lifting the arm, difficulty combing hair or putting on a coat, and a clicking or popping sensation are common. In large tears, the shoulder may feel unstable or ‘give way’ during certain movements.",
   "risk_fac": "Risk factors include advancing age, repetitive overhead sports or occupations such as swimming, tennis, painting, and carpentry, a history of shoulder impingement or arthritis, smoking, and systemic factors like diabetes that impair tendon health. Genetic predisposition and poor posture can also contribute to chronic tendon degeneration.",
-  "diagnose": "Diagnosis relies on a combination of clinical examination and imaging. We perform specific orthopedic tests—including the empty can test and lift-off maneuvers—to localize the tear and assess functional deficit. MRI remains the gold standard for visualizing tendon tears, muscle atrophy, and fatty infiltration, while ultrasound offers a dynamic, cost-effective alternative. Plain X rays help rule out bony spurs and arthritis. Electromyography may be indicated for chronic tears to evaluate muscle function and nerve involvement.",
+  "diagnose": (
+    <div className=" flex flex-col space-y-[16px] items-center justify-center">
+      <p>Diagnosis relies on a combination of clinical examination and imaging. We perform specific orthopedic tests—including the empty can test and lift-off maneuvers—to localize the tear and assess functional deficit. MRI remains the gold standard for visualizing tendon tears, muscle atrophy, and fatty infiltration, while ultrasound offers a dynamic, cost-effective alternative. Plain X rays help rule out bony spurs and arthritis. Electromyography may be indicated for chronic tears to evaluate muscle function and nerve involvement.</p>
+      <Image src={rotatorcuff3} alt="rotator cuff tear" className="w-full h-full object-fill aspect-video rounded-xl overflow-hidden"/>
+    </div>
+  ),
   "treatment": "Initial management for small or partial tears often includes activity modification, nonsteroidal anti-inflammatory medications, physical therapy focused on rotator cuff strengthening and scapular stabilization exercises, and image-guided corticosteroid injections for pain relief. For patients with persistent symptoms, larger tears, or functional deficits, minimally invasive arthroscopic rotator cuff repair is performed using suture anchors and tendon mobilization techniques to reattach the torn tendon to bone. Postoperative rehabilitation follows a phased protocol to protect the repair, gradually restore range of motion, and strengthen the shoulder girdle to ensure long-term success.",
   "pain_info": "Pain in a rotator cuff tear arises from tendon inflammation, mechanical impingement under the acromion, and inflammatory mediators that sensitize nerve endings. Patients often report deep, aching discomfort that intensifies with arm elevation and activities such as lifting or throwing. Nighttime pain is common due to pressure on the shoulder when lying on the affected side.",
   "prevent": "To reduce the risk of rotator cuff injury, maintain shoulder flexibility and strength through regular stretching and rotator cuff–targeted exercises, practice proper warm-up and cool-down routines before sports or repetitive overhead work, use ergonomic tools and techniques to minimize shoulder strain, and address early symptoms promptly with rest and professional evaluation.",
@@ -2653,8 +2678,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Pseudarthrosis",
-      "card_img": Pseud,
-      "inTxt_img": Pseudarti,
+      "card_img": Pseudarti,
+      "inTxt_img": Pseud,
       "body": "Pseudarthrosis commonly called a non union occurs when a fractured bone or surgical fusion site fails to heal into solid bone leaving a painful false joint that moves abnormally. At Mountain Spine & Orthopedics our subspecialty team combines high resolution imaging biologic therapies and revision surgical expertise supported by complimentary CT or MRI reviews free second opinions and door to door car service to achieve solid union relieve pain and restore dependable function",
       "detail": "Bone normally heals through stages of inflammation callus formation and remodeling. When blood supply is insufficient mechanical stability is inadequate or systemic factors such as smoking diabetes or osteoporosis interfere the healing cascade stalls and fibrous tissue replaces bone. In the spine pseudarthrosis after fusion permits persistent motion that perpetuates pain and hardware fatigue. In long bones a non union can produce deformity limb length discrepancy and chronic disability. Diagnosis hinges on persistent pain abnormal motion at the fracture or fusion site and imaging that shows absent bridging bone months after surgery or injury. At Mountain Spine & Orthopedics evaluation begins with a detailed review of the original injury or surgery fixation method and biologic risk factors. A focused examination checks for tenderness instability and hardware prominence. Complimentary thin slice CT scanning or high resolution MRI assesses bone bridging implant integrity and occult infection while laboratory tests screen for metabolic or infectious contributors. These data inform a personalized strategy that addresses both mechanical and biological barriers to union",
       "what_sym": "Patients often experience persistent deep pain at the fracture or fusion site grinding or clicking with movement visible deformity or abnormal motion swelling and in spinal cases continued radicular symptoms or inability to wean from brace support months after surgery",

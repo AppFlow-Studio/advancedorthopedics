@@ -8,7 +8,7 @@ import ContactUsSection from '@/components/ContactUsSection'
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { m } from 'framer-motion'
+import { m, steps } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from '@/components/ui/textarea'
@@ -29,18 +29,16 @@ import { Marquee } from '@/components/magicui/marquee'
 
 const formSchema = z.object({
 // Step 1 Questions
-  recent_diagnosis : z.string().nonempty({
-    message : "Select a Option"
-  }),
-  last_test_date : z.string().nonempty({ message : "Choose an area "}),
-  other: z.string().nonempty({ message : " "}),
-// Step 3 Questions
- first_name : z.string().min(2),
- last_name : z.string().min(2),
- email : z.string().email(),
+recent_diagnosis : z.string(),
+last_test_date : z.string(),
+other: z.string(),
+// Step 2 Questions
+ first_name : z.string().min(2, "First name must be at least 2 characters"),
+ last_name : z.string().min(2, "Last name must be at least 2 characters"),
+ email : z.string().email("Invalid email address"),
  phone : z.string().min(10, "Phone number must be at least 10 digits"),
- state : z.string(),
- insurance_type : z.string(),
+ state : z.string().min(2, "State must selected"),
+ insurance_type : z.string().min(2, "Insurance type must be selected"),
  comments : z.string(),
  email_optout : z.string()
 })
@@ -167,9 +165,9 @@ const FreeMriReviewSteps = [
             },
             {
                 question : "Insurance Type",
-                control : "insurance Type",
+                control : "insurance_type",
                 options : [
-                    "HMO", "Medicare","PIP","Worker's Comp","Tricare Prime","LOP","Medicaid","PPO","Self-pay"
+                   "Blue Cross Blue Shield","Aetna","Cigna Healthcare","United Healthcare","Meritan Health","Bright Health Group","Multiplan","Self-pay"
                 ]
             },
             {
@@ -204,6 +202,13 @@ function FreeMRIReview() {
         email_optout : "false"
       },
     })
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        console.log('Called')
+        // Do something with the form values.
+        // ✅ This will be type-safe and validated.
+        console.log(values)
+        
+      }
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
     <section className=' bg-[#6FC2ED] w-full flex flex-row'>
@@ -363,7 +368,7 @@ function FreeMRIReview() {
     
                             <Form {...ConditionForm}>
     
-                                <form className=' flex flex-col space-y-[24px] '>
+                                <form className=' flex flex-col space-y-[24px] ' >
                                     {
                                         FreeMriReviewSteps[ConditionStep - 1].questions.map(( question ) => (
                                            <FormField 
@@ -496,6 +501,7 @@ function FreeMRIReview() {
                                                             <Input placeholder={question.question} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                                                         }
                                                     </FormControl>
+                                                    <FormMessage/>
                                                 </FormItem>
                                             )}
                                             />
@@ -530,7 +536,24 @@ function FreeMRIReview() {
                                : <></>
                             }
                             <button
-                             onClick={() => setConditionStep(Math.min(3,ConditionStep + 1))}
+                            onClick={
+                            () => {
+                                // const parse = formSchema.safeParse(ConditionForm.getValues());
+                                // const error = parse.error?.issues.find(
+                                //     (i) => i.path[0] == "recent_diagnosis" || i.path[0] == "last_test_date" || i.path[0] == "other"
+                                // );
+                                // if(!error){
+                                //     setConditionStep(Math.min(2,ConditionStep + 1))
+                                // }
+                                if( ConditionStep != 2 ){
+                                setConditionStep(Math.min(2,ConditionStep + 1))
+                                }
+                                else{
+                                    ConditionForm.handleSubmit(onSubmit)()
+                                    ConditionForm.reset()
+                                }
+                                
+                            } }
                             className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
                             >
                                 {

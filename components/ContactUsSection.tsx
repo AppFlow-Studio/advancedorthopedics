@@ -31,7 +31,6 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
           </h1>
 
           <Image src={HomeContactUs} className="w-full rounded-[24px] mt-[40px]" alt="Doctor teaching other doctors flex-1 flex" />
-          
       </div>
 
       <div className=" xl:w-[50%] w-full flex flex-col bg-white p-[24px] rounded-[24px] items-center justify-center">
@@ -52,7 +51,7 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
             fontWeight: 500,
             color : '#5B5F67',
           }}
-          className="text-lg mt-[24px] text-center w-[60%]"
+          className="text-lg mt-[24px] text-center xl:w-[60%] w-full"
           >
             Have questions or need support? 
             Reach out to us anytime - we're here to help.

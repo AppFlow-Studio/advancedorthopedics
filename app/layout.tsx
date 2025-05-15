@@ -29,6 +29,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mountain Spine And Orthopedics",
   description: "Mountain Spine and Orthopedics - Florida's premier destination for minimally invasive spine and orthopedic procedures. Our expert doctors provide world-class care using advanced techniques for optimal patient outcomes.",
+  icons: {
+    icon: '/newlogo4.png',
+  },
 };
 
 export default function RootLayout({

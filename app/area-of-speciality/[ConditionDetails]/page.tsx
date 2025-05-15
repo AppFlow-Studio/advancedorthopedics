@@ -186,7 +186,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-3xl'
+                        className='text-[#111315] text-4xl'
                         >
                         What Are the Symptoms of {condition_details.title}?
                         </h1>
@@ -195,7 +195,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-lg'
+                          className='text-[#5B5F67] text-xl'
                         >
                             {condition_details?.what_sym}
                         </h1>
@@ -221,7 +221,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-3xl'
+                        className='text-[#111315] text-4xl'
                         >
                         Are There Specific Risk Factors for {condition_details.title}?
                         </h1>

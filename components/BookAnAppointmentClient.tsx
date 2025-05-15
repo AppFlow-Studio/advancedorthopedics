@@ -18,6 +18,6 @@ export default function BookAnAppointmentClient() {
         }}
         className='group-hover:translate-x-1 transition-all duration-300 ease-in-out'
         >Book an Appointment</p>
-        </div>
+    </div>
   )
 }
