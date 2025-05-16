@@ -82,8 +82,8 @@ export default function BookAnAppoitmentButton() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
-    await sendContactEmail(values)
-    setAppointmentConfirm(true)
+    const data = await sendContactEmail(values)
+    if(data){ setAppointmentConfirm(true) }
   }
   return (
       <Dialog open={open} onOpenChange={() => setOpen(!open)} >

@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: 'originui.com',
         port: '', // Leave empty for default ports (80 for http, 443 for https)
         pathname: '/**', 
+      },
+      {
+        protocol: 'https',
+        hostname: 'mountainspineortho.b-cdn.net',
+        pathname: '/**',
       }
     ],
   }
