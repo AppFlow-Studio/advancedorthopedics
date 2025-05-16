@@ -1,6 +1,5 @@
 'use client'
 import Image from "next/image";
-import HomeLanding from "../public/home-landing.jpeg"
 import { Avatars } from "@/components/ui/avatar";
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton";
 import AAOS from '../public/aaos.png';
@@ -10,6 +9,7 @@ import NASS from '../public/NASS.png';
 import Serpent from '../public/Serpent.png';
 import SMIS from '../public/SMIS.png';
 import Foot from '../public/Foot.png'
+import HomeWhyAO from '@/public/HomeWhyAO-min.jpeg'
 import Neck from '../public/neck.png'
 import LowerBack from '../public/Lowerback.png'
 import Joints from '../public/Joints.png'
@@ -18,7 +18,6 @@ import FootAnat from '../public/FootAnat.png'
 import LowerbackAnat from '../public/LowerbackAnat.png'
 import NeckAnat from '../public/NeckAnat.png'
 import HumanModel from '../public/HumanModel.png'
-import HomeWhyAO from '../public/HomeWhyAO.jpeg'
 import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from "@/components/ui/carousel";
 import StarRating from "@/components/StarRating";
 import { useState } from "react";
@@ -49,25 +48,25 @@ const ServicesAndExpertise = [
   {
     img : Foot,
     title : 'Foot & Ankle',
-    anatomy : FootAnat,
+    anatomy : 'https://mountainspineortho.b-cdn.net/public/FootAnat.png',
     desc : 'Precision interventions fix lower extremity biomechanics.'
   },
   {
     img : Neck,
     title : 'Neck & Spine',
-    anatomy : NeckAnat,
+    anatomy : 'https://mountainspineortho.b-cdn.net/public/NeckAnat.png',
     desc : 'Cutting-edge cervical treatments relieve compression and restore alignment.'
   },
   {
     img : LowerBack,
     title : 'Lower Back',
-    anatomy : LowerbackAnat,
+    anatomy : 'https://mountainspineortho.b-cdn.net/public/LowerbackAnat.png',
     desc : 'Minimally invasive lumbar interventions reduce pain and improve function.'
   },
   {
     img : Joints,
     title : 'Joints',
-    anatomy : JointsAnat,
+    anatomy : 'https://mountainspineortho.b-cdn.net/public/JointsAnat.png',
     desc : 'Arthroscopic and regenerative methods help get your joints moving again.'
   }
 ]
@@ -398,7 +397,7 @@ export default function Home() {
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={HomeLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} layout='fill' className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-6 xl:py-8 relative  xl:pb-[160px]">
           <div className="lg:w-[60%] h-full absolute left-0 top-0 md:w-[85%] w-full"
@@ -618,8 +617,8 @@ export default function Home() {
                             </h1>
                         </div>
   
-                       <div >
-                        <Image src={item.anatomy} alt={item.title} className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px]"/>
+                       <div className="w-full max-h-[240px] h-full relative" >
+                        <Image src={item.anatomy} alt={item.title} height={240} width={240} layout="responsive" className="w-full max-h-[240px] h-full object-cover aspect-square rounded-[24px] lg:h-[240px]"/>
                        </div>
                       </div>
                     ))
@@ -860,8 +859,11 @@ export default function Home() {
                 {/* Foreground image */}
                 <div className="relative z-10">
                   <Image 
-                    src={HumanModel} 
+                    src={'https://mountainspineortho.b-cdn.net/public/HumanModel.png'} 
                     alt="Human Anatomy Model"
+                    height={705}
+                    layout="responsive"
+                    width={1440}
                     className="w-full max-h-[750px] max-h-sm  xl:max-h-[705px] h-full object-contain xl:object-cover py-4" 
                   />
                 </div>
@@ -936,8 +938,8 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className=" flex xl:flex-row flex-col w-full gap-[32px]">
-              <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt="Doctor Diagnosing Patient " /></div>
+          <div className=" flex xl:flex-row flex-col w-full gap-[32px] xl:items-stretch">
+          <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt="Doctor Diagnosing Patient " /></div>
 
               <div className=" xl:w-[50%] w-full flex flex-col space-y-[32px] ">
                 <Reveal className="w-full" width="100%">
@@ -963,7 +965,7 @@ export default function Home() {
                       >
                        At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
                       </h1>
-                  </div>
+            </div>
                 </Reveal>
 
                 <Reveal className="w-full" width="100%" >
@@ -1136,7 +1138,7 @@ export default function Home() {
                 </div>
 
                 <div className="">
-                  <Image src={HomeWhyAO} alt="Doctor Treating a Patient" className="w-full xl:h-[250px] xl:max-h-[250px] object-cover object-center xl:object-top-left rounded-[12px]"/>
+                  <Image src={'https://mountainspineortho.b-cdn.net/public/HomeWhyAO-min.jpeg'} layout="responsive" height={1000} width={1440} alt="Doctor Treating a Patient" className="w-full xl:h-[250px] xl:max-h-[250px] object-cover object-center xl:object-top-left rounded-[12px]"/>
                 </div>
 
               </div>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import InsuranceLanding from '@/public/InsuranceLanding.png'
 import { ConsultationForm } from '@/components/ContactForm'
@@ -19,6 +19,7 @@ import { Input } from '@/components/ui/input'
 import { BlogPosts } from '@/components/data/blogs'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import BlogSearchBar from '@/components/BlogSearchBar'
+import { GetBlogs } from './api/get-blogs'
 const ServicesAndExpertise = [
     {
         title : 'Treatment finder',
@@ -52,6 +53,7 @@ const ServicesAndExpertise = [
 
 export default function Blogs() {
   const [data, setData] = useState(BlogPosts)
+  const [ blogs, setBlogs ] = useState<{id : number, blog_info : BlogPostProp}[]>([])
     // --- Handler function for when a condition is selected in the search bar ---
     const handleConditionSelect = (blog: BlogPostProp) => {
       console.log("Parent: BlogPostProp selected - ", blog.title);
@@ -63,6 +65,14 @@ export default function Blogs() {
       console.log("Parent: Search cleared - Resetting data to full list");
       setData(BlogPosts); // Reset state to the original full list of BlogPostProps
     };
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            const blogs = await GetBlogs();
+            setBlogs(blogs);
+        }
+        fetchBlogs();
+    }, []);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -200,16 +210,24 @@ export default function Blogs() {
                     Our latest Blogs
                 </h1>
 
-                <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={BlogPosts}/></div>
+                <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={blogs}/></div>
             </div>
-
+            
             <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
                 {
-                    BlogPosts.map((item) => 
-                    <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='white'/>
-                    )
+                  blogs.map((item) => (
+                    <BlogPostCard BlogInfo={item.blog_info} key={item.id} backgroundcolor='white' id={item.id.toString()}/>
+                  ))
                 }
             </div>
+
+            {/* <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
+                {
+                    BlogPosts.map((item) => 
+                    <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='white' id={item.id}/>
+                    )
+                }
+            </div> */}
 
             <div className=' bg-[#DCDEE1] h-[1px] w-full mt-[40px]'/>
 

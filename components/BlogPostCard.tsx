@@ -11,14 +11,29 @@ export interface BlogPostProp {
     img  : string
     tags : string[]
     id : string
-    blog_info : {header : string, body : string, video : "", sub_stories : {header : string, body : string, video : ""}[]}[]
+    blog_info : {
+        header : string, 
+        body : string, 
+        video : string | undefined, 
+        sub_stories : {
+            header : string,
+            body : string, 
+            video : string | undefined,
+            img : string | undefined,
+        }[]}[]
+}
+
+export interface supabaseBlogPostProp {
+    created_at : string
+    id : string
+    blog_info : BlogPostProp
 }
 
 function truncateString(str : string, maxLength = 172) {
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
   }
-export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : { BlogInfo : BlogPostProp, backgroundcolor : string }) {
+export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id } : { BlogInfo : BlogPostProp, backgroundcolor : string, id : string}) {
   const [ isHover, setIsHover ] = useState(false)
   return (
     <motion.div
@@ -31,24 +46,10 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white" } : {
     onMouseLeave={() => setIsHover(false)}
 
     >
-        <Link className="flex flex-col p-4 space-y-[32px]" href={`/blogs/${BlogInfo.id}`}>
-            <div >
-                <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex">
-                    <div className='flex flex-row  space-x-[8px] items-center justify-center'> 
-                        <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-full   " />
-                        <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
-                        <div className="flex flex-col text-white"
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            letterSpacing: "0.02em",
-                        }}
-                        >
-                            <h1 className="text-xl font-[600] text-[#022968]"> MOUNTAIN</h1>
-                            <h2 className="font-[600] text-xs text-[#0094E0]"> SPINE & ORTHOPEDICS</h2>    
-                        </div>
-                    </div>
+        <Link className="flex flex-col p-4 space-y-[32px]" href={`/blogs/${id}`}>
+                <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden">
+                    <Image src={BlogInfo.img} width={240} height={240} layout='responsive' alt="Mountain Spine & Orthopedics Logo" />
                 </div>
-            </div>
     
             <div className=" flex flex-col space-y-[16px]">
                 <div className='flex flex-col space-y-[8px]'>

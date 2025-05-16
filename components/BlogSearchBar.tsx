@@ -5,16 +5,16 @@ import React, { useState, useRef, useEffect, KeyboardEvent } from 'react'
 import { Search, X } from 'lucide-react'
 
 // *** IMPORTANT: Verify this path and type name ('Condition') ***
-import {BlogPostProp} from '@/components/BlogPostCard'
+import {BlogPostProp, supabaseBlogPostProp} from '@/components/BlogPostCard'
 interface Props {
-    blogs: BlogPostProp[]
-    onSelect: (blog: BlogPostProp) => void
+    blogs: supabaseBlogPostProp[]
+    onSelect: (blog: supabaseBlogPostProp) => void
     onClear: () => void // This prop MUST be provided by the parent
   }
 
 export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
   const [query, setQuery] = useState('')
-  const [filtered, setFiltered] = useState<BlogPostProp[]>([])
+  const [filtered, setFiltered] = useState<supabaseBlogPostProp[]>([])
   const [show, setShow] = useState(false)
   const [active, setActive] = useState(-1)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -25,7 +25,7 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
       const q = query.toLowerCase()
       // Ensure 'title' property exists on 'Condition' type
       setFiltered(
-        blogs.filter(b => b.title.toLowerCase().includes(q))
+        blogs.filter(b => b.blog_info.title.toLowerCase().includes(q))
       )
     } else {
       setFiltered([])
@@ -96,8 +96,8 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
   }
 
   // Handler for selecting an item
-  function select(item: BlogPostProp) {
-    setQuery(item.title);
+  function select(item: supabaseBlogPostProp) {
+    setQuery(item.blog_info.title);
     setShow(false);
     setFiltered([]);
     setActive(-1);
@@ -160,7 +160,7 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
                 idx === active ? 'bg-blue-100' : 'hover:bg-gray-100'
               }`}
             >
-              {item.title}
+              {item.blog_info.title}
             </li>
           ))}
         </ul>

@@ -131,7 +131,7 @@ const FreeMriReviewSteps = [
             },
             {
                 question : "How old are you?",
-                control: "recent_diagnosis",
+                control: "age",
                 options : [
                     "21-35",
                     "36-50",
@@ -264,13 +264,17 @@ function CandidacyCheck() {
         state : "",
         insurance_type : "",
         comments : "",
-        email_optout : "false"
+        email_optout : "false",
+        
       },
     })
     async function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values)
         const data = await sendCandidacyEmail(values)
-        if(data){ setAppointmentConfirm(true) }
+        if(data){ 
+            setAppointmentConfirm(true)
+            ConditionForm.reset()
+        }
       }
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -603,8 +607,8 @@ function CandidacyCheck() {
                                     setConditionStep(Math.min(3,ConditionStep + 1))
                                 }
                                 else{
-                                    ConditionForm.handleSubmit(onSubmit)()
-                                    ConditionForm.reset()
+                                    ConditionForm.handleSubmit(onSubmit,(e) => console.log(e))()
+                                    
                                 }
                             }}
                             className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"

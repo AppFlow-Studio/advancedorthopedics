@@ -166,36 +166,36 @@ export default function InsurancePolicy() {
         </section>
 
         <section className=" bg-[#FAFCFF] w-full h-full py-[50px] ">
-            <div className="max-w-[1440px] w-full px-6 xl:px-[40px] mx-auto flex flex-col lg:flex-row space-x-[60px] ">
-            <div className=" lg:w-[50%] w-full  flex flex-col h-full">
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color : '#022968',
-                }}
-                className="text-3xl"
-                >
-                    We Accept Flexible & Comprehensive Insurance Providers
-                </h1>
+            <div className="max-w-[1440px] w-full h-full px-6 xl:px-[40px] mx-auto flex flex-col lg:flex-row space-x-[60px] ">
+                <div className=" lg:w-[50%] w-full  flex flex-col h-full">
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                        color : '#022968',
+                    }}
+                    className="text-3xl"
+                    >
+                        We Accept Flexible & Comprehensive Insurance Providers
+                    </h1>
 
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color : '#5B5F67',
-                }}
-                className="text-lg mt-[24px]"
-                >
-                    Not all insurance providers are equal which is why we only work with carriers that offer flexibility, comprehensive coverage, and cost effective options. Speak with a patient advocate to learn more.                
-                </h1>
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                        color : '#5B5F67',
+                    }}
+                    className="text-lg mt-[24px]"
+                    >
+                        Not all insurance providers are equal which is why we only work with carriers that offer flexibility, comprehensive coverage, and cost effective options. Speak with a patient advocate to learn more.                
+                    </h1>
 
-                <Image src={InsurancePolicy2} className="w-full rounded-[24px] mt-[40px]" alt="Doctor teaching other doctors" />
-            </div>
+                    <Image src={InsurancePolicy2} className="w-full rounded-[24px] mt-[40px] h-full aspect-auto" alt="Doctor teaching other doctors" />
+                </div>
 
-            <div className=" lg:w-[50%] w-full  flex flex-col items-center justify-center">
-                <PatientAdvocateForm />      
-            </div>
+                <div className=" lg:w-[50%] w-full flex flex-col items-center justify-center">
+                    <PatientAdvocateForm />      
+                </div>
             </div>      
         </section>
 

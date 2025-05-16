@@ -12,7 +12,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
         {
           "header": "Embarking on Your Healing Journey: The Importance of Postoperative Stretching",
           "body": "Undergoing back or spine surgery marks a significant step towards recovery. While rest is crucial, incorporating gentle stretching is vital for regaining mobility and ensuring a successful rehabilitation. Orthopaedic & Laser Spine Surgery highlights the benefits of safe stretching in improving circulation and reducing stiffness.",
-          "video": "sdadsa",
+          "video": "",
           "sub_stories": [
             {
               "header": "Why Stretching is Your Recovery Ally",

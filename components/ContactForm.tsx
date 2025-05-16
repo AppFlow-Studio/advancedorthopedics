@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail } from "./email/sendcontactemail"
-import { CalendarIcon, ChevronDown, Clock, User, Mail, Phone } from "lucide-react"
+import { User, Mail, Phone } from "lucide-react"
 import { DialogContent, DialogTitle } from "./ui/dialog"
 import { Dialog } from "./ui/dialog"
 import { useState } from "react"
@@ -23,7 +23,7 @@ const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  reason: z.string().min(2),
+  reason: z.string().min(2,"Please provide more detail about your consultation needs"),
   bestTime : z.string().min(1, "Please provide more detail about your consultation needs")
 })
 
@@ -42,17 +42,15 @@ export function ConsultationForm() {
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log('Called')
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
-    await sendContactEmail(values)
-    setAppointmentConfirm(true)
+    const data = await sendContactEmail(values)
+    if (data) { 
+      setAppointmentConfirm(true) 
+      form.reset()
+    }
   }
 
   return (
      <div className="w-full overflow-hidden backdrop-blur-[15px] bg-white bg-opacity-50" 
-     
      >
         <Form {...form} 
         
@@ -229,7 +227,7 @@ export function ConsultationForm() {
                         </div>
                     </div>
                 </DialogContent>
-            </Dialog>
+        </Dialog>
      </div>
   )
 }
