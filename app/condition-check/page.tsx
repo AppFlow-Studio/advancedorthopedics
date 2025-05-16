@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
+import { sendConditionCheckEmail } from '@/components/email/sendcontactemail'
 const formSchema = z.object({
 // Step 1 Questions
   pain_area : z.string().array().nonempty({
@@ -147,7 +148,7 @@ const ConditionCheckSteps = [
             control : "pain_source",
             options : [
                 "Lifting something heavy",
-                "Vechile crash",
+                "Vehicle crash",
                 "Slip or fall",
                 "Traumatic injury",
                 "Leaning forward",
@@ -207,8 +208,8 @@ const ConditionCheckSteps = [
             question : "Insurance Type",
             control : "insurance Type",
             options : [
-                "HMO", "Medicare","PIP","Worker's Comp","Tricare Prime","LOP","Medicaid","PPO","Self-pay"
-            ]
+                "Blue Cross Blue Shield","Aetna","Cigna Healthcare","United Healthcare","Meritan Health","Bright Health Group","Multiplan","Self-pay"
+             ]
         },
         {
             question : "Comments",
@@ -251,6 +252,13 @@ export default function ConditionChecker() {
         
       },
     })
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        console.log(values)
+        const data = await sendConditionCheckEmail(values)
+        if(data){ 
+            ConditionForm.reset()
+        }
+      }
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
@@ -258,7 +266,7 @@ export default function ConditionChecker() {
         <Image src={PatientFormsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-            <div className="w-[565px] h-full absolute left-0 top-0"
+            <div className="md:w-[80%] w-full h-full absolute left-0 top-0"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
@@ -561,6 +569,7 @@ export default function ConditionChecker() {
                                                         <Input placeholder={question.question} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                                                     }
                                                 </FormControl>
+                                                <FormMessage />
                                             </FormItem>
                                         )}
                                         />
@@ -595,7 +604,14 @@ export default function ConditionChecker() {
                            : <></>
                         }
                         <button
-                         onClick={() => setConditionStep(Math.min(3,ConditionStep + 1))}
+                         onClick={() => {
+                            if(ConditionStep != 3){
+                                setConditionStep(Math.min(3,ConditionStep + 1))
+                            }
+                            else{
+                                ConditionForm.handleSubmit(onSubmit,(e) => console.log(e))()
+                            }
+                        }}
                         className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
                         >
                             {

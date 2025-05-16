@@ -4,6 +4,7 @@ import { Resend } from 'resend';
 import { EmailTemplate } from './emailtemplate';
 import { MRIEmailTemplate } from './mrireviewtemplate';
 import { TreatmentCandidacyEmailTemplate } from './candidemailtemplate';
+import { ConditionCheckEmailTemplate } from './conditioncheckemailtemplate';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendContactEmail(formData : {name : string, email : string, phone : string, reason : string, bestTime : string}) {
@@ -74,6 +75,40 @@ export async function sendCandidacyEmail(formData : {first_name : string, last_n
                 
             }),
         });
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Failed to send email');
+    }
+}
+
+export const sendConditionCheckEmail = async (formData : {first_name : string, last_name : string, email : string, phone : string, state : string, insurance_type : string, comments : string, email_optout : string, pain_area : string[], pain_strongest : string, pain_length : string, pain_desc : string, pain_always : string, pain_symptoms : string[], pain_worst : string, pain_feel_better : string, pain_source : string, pain_test : string}) => {
+    try {
+        const data = await resend.emails.send({
+            from: 'Mountain Spine & Orthopedic Center <onboarding@resend.dev>',
+            to: ['appflowcreations@gmail.com'],
+            subject: 'New Condition Check Form Submission',
+            react: await ConditionCheckEmailTemplate({
+                first_name: formData.first_name,
+                last_name: formData.last_name,
+                email: formData.email,
+                phone: formData.phone,
+                state: formData.state,
+                insurance_type: formData.insurance_type,
+                comments: formData.comments,
+                email_optout: formData.email_optout,
+                pain_area: formData.pain_area,
+                pain_strongest: formData.pain_strongest,
+                pain_length: formData.pain_length,
+                pain_desc: formData.pain_desc,
+                pain_always: formData.pain_always,
+                pain_symptoms: formData.pain_symptoms,
+                pain_worst: formData.pain_worst,
+                pain_feel_better: formData.pain_feel_better,
+                pain_source: formData.pain_source,
+                pain_test: formData.pain_test,
+            })
+        })
         return data;
     } catch (error) {
         console.error(error);
