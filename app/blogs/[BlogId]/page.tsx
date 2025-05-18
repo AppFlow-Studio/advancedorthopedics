@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, cache } from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
@@ -13,10 +13,17 @@ import ClinicsMap from '@/components/ClinicsMap'
 import ContactUsSection from '@/components/ContactUsSection'
 import { GetBlogInfo } from '../api/get-blog-info'
 import { Badge } from '@/components/ui/badge'
+
+const getBlogDetails = cache(async (BlogId: string) => {
+  const blogDetails = await GetBlogInfo(BlogId);
+  return blogDetails;
+});
+
 function truncateString(str : string, maxLength = 172) {
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
   }
+
 export default function BlogDetails({
     params,
   }: {
@@ -162,7 +169,7 @@ export default function BlogDetails({
         </div>
         </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <main className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
         
             <div className=' lg:w-[70%] w-full  flex flex-col space-y-[60px] rounded-[24px] '>
                  {/* Detail */}
@@ -297,7 +304,7 @@ export default function BlogDetails({
                 </div>
             </div>
 
-        </section>
+        </main>
 
         <ContactUsSection />
     </main>

@@ -15,21 +15,21 @@ const Reviews = [
   },
   {
     // Placeholder for an image variable if needed
-    img : 'https://originui.com/avatar-80-04.jpg',
+    img : 'https://mountainspineortho.b-cdn.net/Mreview.png',
     rating: 5,
     name: 'Maria G.',
     body: `"I was hesitant about surgery for my spinal stenosis, but the staff at Mountain Spine Orthopedics put me at ease. From the front desk to the medical assistants, everyone was incredibly kind and efficient. My recovery was smoother than I ever expected. Highly recommend!"`
   },
   {
     // Placeholder for an image variable if needed
-    img : 'https://originui.com/avatar-80-08.jpg',
+    img : 'https://mountainspineortho.b-cdn.net/DReview.jpg',
     rating: 5,
     name: 'David L.',
     body: `"Getting a second opinion from Dr. Katzman was the best decision I made. He reviewed my MRI, explained things in a way I could understand, and offered a non-surgical approach that actually worked for my herniated disc. Truly grateful for his expertise and honest assessment."`
   },
   {
     // Placeholder for an image variable if needed
-    img : 'https://originui.com/avatar-80-02.jpg',
+    img : 'https://mountainspineortho.b-cdn.net/Sreview.png',
     rating: 5,
     name: 'Sarah Chen',
     body: `"The level of care at Mountain Spine Orthopedics is outstanding. Scheduling was easy, the office is modern and clean, and Dr. Katzman's team is top-notch. They genuinely care about their patients' well-being and getting them back to their activities."`

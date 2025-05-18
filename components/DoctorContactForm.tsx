@@ -17,7 +17,8 @@ import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
-import { sendContactEmail } from "./email/sendcontactemail"
+import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
+import { motion } from 'framer-motion'
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -67,12 +68,13 @@ export function DoctorContactForm({backgroundcolor = 'white'}) {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log('Called')
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
     await sendContactEmail(values)
-    setAppointmentConfirm(true)
+    const data = await sendUserEmail({name : values.name, email : values.email, phone : values.phone})
+    if (data) { 
+      setOpenContactForm(false)
+      setAppointmentConfirm(true) 
+      form.reset()
+    }
   }
 
   return (
@@ -347,27 +349,59 @@ export function DoctorContactForm({backgroundcolor = 'white'}) {
                     </DialogTitle>
                     <div className="bg-white flex flex-col space-y-[20px] items-center justify-center">
                         <div className=" relative h-[100px] self-center flex w-full">
-                        <div className="z-1 relative justify-center items-center flex w-full">
+
+                        <motion.div className="z-1 relative justify-center items-center flex w-full"
+                        animate={{
+                            scale: [1, 1.2, 1]
+                        }}
+                        transition={{
+                            duration:5,
+                            repeat: Infinity,
+                        }}
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108" fill="none">
                             <circle opacity="0.1" cx="54" cy="54" r="54" fill="#4CC2FF"/>
                             </svg>
-                            <div className=" absolute top-1.5 z-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86" fill="none">
-                                <circle opacity="0.2" cx="43" cy="43" r="43" fill="#4CC2FF"/>
-                            </svg>
-                            </div>
-                            <div className=" absolute top-4.5 z-3 ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-                                <circle cx="32" cy="32" r="32" fill="#4CC2FF"/>
-                            </svg>
-                            </div>
-
-                            <div className="absolute top-9.5 z-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M12.1194 0.95737C11.4704 0.416553 10.5277 0.416554 9.87875 0.957371L7.72754 2.75005L4.49907 2.75005C3.53258 2.75005 2.74908 3.53355 2.74907 4.50005L2.74907 7.72851L0.956394 9.87973C0.415578 10.5287 0.415577 11.4714 0.956394 12.1204L2.74907 14.2716L2.74908 17.5001C2.74908 18.4666 3.53258 19.2501 4.49908 19.2501L7.72754 19.25L9.87875 21.0427C10.5277 21.5835 11.4704 21.5835 12.1194 21.0427L14.2706 19.25H17.4991C18.4656 19.25 19.2491 18.4665 19.2491 17.5L19.2491 14.2716L21.0417 12.1204C21.5826 11.4714 21.5826 10.5287 21.0418 9.87973L19.2491 7.72851L19.2491 4.50005C19.2491 3.53355 18.4656 2.75005 17.4991 2.75005L14.2706 2.75005L12.1194 0.95737ZM14.4611 9.38694C14.9509 9.13182 15.1412 8.52792 14.8861 8.03809C14.6309 7.54826 14.027 7.35799 13.5372 7.61311C12.1092 8.35684 10.9442 9.7806 10.1744 10.9032C10.1078 11.0004 10.0434 11.0964 9.98137 11.1907C9.84153 11.4033 9.71366 11.6073 9.59878 11.7971C9.51302 11.7245 9.42957 11.6575 9.35034 11.5963C9.32499 11.5767 9.30008 11.5577 9.27566 11.5393C9.06035 11.3772 8.86673 11.2494 8.72532 11.1612C8.65433 11.1169 8.59572 11.0821 8.55316 11.0575C8.53187 11.0451 8.51453 11.0353 8.50161 11.0281L8.48557 11.0191L8.48012 11.0161L8.47806 11.015L8.47644 11.0141C7.99113 10.7505 7.38401 10.9303 7.1204 11.4156C6.85685 11.9008 7.03677 12.5079 7.52183 12.7716L7.52391 12.7728L7.55058 12.788C7.576 12.8028 7.61582 12.8263 7.6667 12.8581C7.76905 12.9219 7.91292 13.0168 8.07261 13.1371C8.40619 13.3882 8.74611 13.7036 8.9523 14.0319C9.14601 14.3403 9.4921 14.519 9.85574 14.4984C10.2193 14.4778 10.543 14.2609 10.7007 13.9328L10.7032 13.9276L10.7159 13.9018C10.7276 13.878 10.746 13.8413 10.7707 13.7932C10.8202 13.6969 10.8947 13.5553 10.992 13.3804C11.187 13.0294 11.4706 12.5494 11.8239 12.0343C12.5541 10.9694 13.489 9.89321 14.4611 9.38694Z" fill="#E5F6FF"/>
-                            </svg>
-                            </div>
-                        </div>
+                            <motion.div className=" absolute top-1.5 z-2"
+                            animate={{
+                                scale: [1, 1.2, 1]
+                            }}
+                            transition={{
+                                duration:5,
+                                repeat: Infinity,
+                            }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86" fill="none">
+                                    <circle opacity="0.2" cx="43" cy="43" r="43" fill="#4CC2FF"/>
+                                </svg>
+                            </motion.div>
+                            <motion.div className=" absolute top-4.5 z-3 "
+                            animate={{
+                                scale: [1, 1.2, 1]
+                            }}
+                            transition={{
+                                duration:5,
+                                repeat: Infinity,
+                            }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="32" fill="#4CC2FF"/>
+                                </svg>
+                            </motion.div>
+                            <motion.div className="absolute top-9.5 z-4"
+                            animate={{
+                                scale: [1, 1.2, 1]
+                            }}
+                            transition={{
+                                duration:5,
+                                repeat: Infinity,
+                            }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M12.1194 0.95737C11.4704 0.416553 10.5277 0.416554 9.87875 0.957371L7.72754 2.75005L4.49907 2.75005C3.53258 2.75005 2.74908 3.53355 2.74907 4.50005L2.74907 7.72851L0.956394 9.87973C0.415578 10.5287 0.415577 11.4714 0.956394 12.1204L2.74907 14.2716L2.74908 17.5001C2.74908 18.4666 3.53258 19.2501 4.49908 19.2501L7.72754 19.25L9.87875 21.0427C10.5277 21.5835 11.4704 21.5835 12.1194 21.0427L14.2706 19.25H17.4991C18.4656 19.25 19.2491 18.4665 19.2491 17.5L19.2491 14.2716L21.0417 12.1204C21.5826 11.4714 21.5826 10.5287 21.0418 9.87973L19.2491 7.72851L19.2491 4.50005C19.2491 3.53355 18.4656 2.75005 17.4991 2.75005L14.2706 2.75005L12.1194 0.95737ZM14.4611 9.38694C14.9509 9.13182 15.1412 8.52792 14.8861 8.03809C14.6309 7.54826 14.027 7.35799 13.5372 7.61311C12.1092 8.35684 10.9442 9.7806 10.1744 10.9032C10.1078 11.0004 10.0434 11.0964 9.98137 11.1907C9.84153 11.4033 9.71366 11.6073 9.59878 11.7971C9.51302 11.7245 9.42957 11.6575 9.35034 11.5963C9.32499 11.5767 9.30008 11.5577 9.27566 11.5393C9.06035 11.3772 8.86673 11.2494 8.72532 11.1612C8.65433 11.1169 8.59572 11.0821 8.55316 11.0575C8.53187 11.0451 8.51453 11.0353 8.50161 11.0281L8.48557 11.0191L8.48012 11.0161L8.47806 11.015L8.47644 11.0141C7.99113 10.7505 7.38401 10.9303 7.1204 11.4156C6.85685 11.9008 7.03677 12.5079 7.52183 12.7716L7.52391 12.7728L7.55058 12.788C7.576 12.8028 7.61582 12.8263 7.6667 12.8581C7.76905 12.9219 7.91292 13.0168 8.07261 13.1371C8.40619 13.3882 8.74611 13.7036 8.9523 14.0319C9.14601 14.3403 9.4921 14.519 9.85574 14.4984C10.2193 14.4778 10.543 14.2609 10.7007 13.9328L10.7032 13.9276L10.7159 13.9018C10.7276 13.878 10.746 13.8413 10.7707 13.7932C10.8202 13.6969 10.8947 13.5553 10.992 13.3804C11.187 13.0294 11.4706 12.5494 11.8239 12.0343C12.5541 10.9694 13.489 9.89321 14.4611 9.38694Z" fill="#E5F6FF"/>
+                                </svg>
+                            </motion.div>
+                        </motion.div>
 
                         </div>
 
@@ -388,17 +422,14 @@ export function DoctorContactForm({backgroundcolor = 'white'}) {
                         }}
                         className='text-[#838890] text-md text-center'
                         >
-                            You're one step closer to a pain-free life!
-                            Your appointment request has been confirmed.
-                            Please check your email for details. Our team will contact you shortly.
+                            You're one step closer to a pain-free life!<br/>
+                            Please check your email for details. Our team will contact you shortly.<br/>
                             Thank you for choosing Mountain Spine & Orthopedic Center!
                         </h1>
                         </div>
                         <div 
                         onClick={() => {
-                        setOpenContactForm(false)
                         setAppointmentConfirm(false)
-                        form.reset()
                         }}
                         className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
                         >

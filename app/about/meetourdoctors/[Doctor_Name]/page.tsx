@@ -31,8 +31,8 @@ export default function DocotorDetails(
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
          {/* Landing */}
-         <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
-            <Image src={Landing} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-top self-end w-full max-w-[1440px] xl:w-[1440px] pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+         <section className=" w-full h-full flex flex-col relative overflow-hidden" >
+            <Image src={Landing} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
             <div className="z-[1] flex flex-col w-full h-full text-left relative pt-30 md:pt-50">
                 <div className="w-[565px] h-full absolute left-0 top-0"

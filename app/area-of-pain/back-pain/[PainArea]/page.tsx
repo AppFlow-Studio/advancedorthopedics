@@ -35,17 +35,17 @@ export default function PainArea({
       </main>
     )
   }
-    function shuffleArray(array) {
-          const newArray = [...array]; // Clone the array
-          for (let i = newArray.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
-          [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
-          }
-          return newArray;
-      }
-      
-      // Shuffle the Doctors array and then take the first two doctors
-      const randomDoctors = shuffleArray(Doctors).slice(0, 2); 
+function shuffleArray(array) {
+    const newArray = [...array]; // Clone the array
+    for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
+    }
+    return newArray;
+}
+
+// Shuffle the Doctors array and then take the first two doctors
+const randomDoctors = shuffleArray(Doctors).slice(0, 2); 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}

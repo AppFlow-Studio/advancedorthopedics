@@ -17,7 +17,7 @@ import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
-import { sendContactEmail } from "./email/sendcontactemail"
+import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -77,6 +77,7 @@ export default function BookAnAppointmentPopup() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
+    await sendUserEmail(values)
     await sendContactEmail(values)
     setAppointmentConfirm(true)
   }

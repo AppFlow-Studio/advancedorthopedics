@@ -44,6 +44,8 @@ import { TextAnimate } from "@/components/magicui/text-animate";
 import ExpertCare from '@/public/ExpertCare.png'
 import aftercare from '@/public/aftercare.jpg'
 import { Marquee } from "@/components/magicui/marquee";
+
+
 const ServicesAndExpertise = [
   {
     img : Foot,
@@ -180,7 +182,7 @@ const PainToProgress = [
   {
     img : ExpertCare,
     title : 'Expert Care',
-    body : 'Our skilled team per forms procedures with precision and compassion.'
+    body : 'Our skilled team performs procedures with precision and compassion.'
   },
   {
     img: aftercare,
@@ -1298,7 +1300,7 @@ export default function Home() {
 
           <div className=" w-full md:mt-[60px] mt-4 ">
           <Carousel className="w-full h-full " >
-              <CarouselContent className=" -ml-4 md:gap-x-4 ">
+              <CarouselContent className=" -ml-4 md:gap-x-4 " minusOffset={2}>
                 {
                 PainToProgress.map((item, index) => (
                 <CarouselItem className="xl:basis-1/3 md:basis-1/2 pl-6 relative" key={index}>
@@ -1328,7 +1330,7 @@ export default function Home() {
                             {item.body}
                           </h1>
 
-                          <h1
+                          {/* <h1
                            style={{
                             fontFamily: "var(--font-reem-kufi)",
                             fontWeight: 500,
@@ -1340,7 +1342,7 @@ export default function Home() {
                           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 6 9" fill="none">
                             <path fillRule="evenodd" clipRule="evenodd" d="M0.646479 0.146445C0.841742 -0.0488162 1.15832 -0.0488149 1.35359 0.146448L5.35355 4.14645C5.54882 4.34171 5.54882 4.65829 5.35355 4.85355L1.35355 8.85355C1.15829 9.04882 0.841709 9.04882 0.646447 8.85355C0.451184 8.65829 0.451184 8.34171 0.646447 8.14645L4.29289 4.5L0.646477 0.853552C0.451215 0.658289 0.451217 0.341707 0.646479 0.146445Z" fill="#022968"/>
                           </svg>
-                          </h1>
+                          </h1> */}
                       </div>
                     </div>
                 </CarouselItem>

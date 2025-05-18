@@ -11,6 +11,9 @@ export interface BlogPostProp {
     img  : string
     tags : string[]
     id : string
+    keywords : string[]
+    author : string
+    date : string
     blog_info : {
         header : string, 
         body : string, 
@@ -25,6 +28,7 @@ export interface BlogPostProp {
 
 export interface supabaseBlogPostProp {
     created_at : string
+    modified_at : string
     id : string
     blog_info : BlogPostProp
 }
