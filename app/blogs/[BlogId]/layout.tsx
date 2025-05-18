@@ -1,8 +1,9 @@
 import { GetBlogInfo } from '../api/get-blog-info'
 import type { Metadata, ResolvingMetadata } from "next";
 
-export async function generateMetadata({ params }: { params: { BlogId: string } }, parent: ResolvingMetadata) {
-    const blogDetails = await GetBlogInfo(params.BlogId);
+export async function generateMetadata({ params }: { params: Promise<{ BlogId: string }> }, parent: ResolvingMetadata) {
+    const resolvedParams = await params
+    const blogDetails = await GetBlogInfo(resolvedParams.BlogId);
     
     return {
       title: blogDetails?.blog_info.title,
