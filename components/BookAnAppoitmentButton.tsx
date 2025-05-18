@@ -111,7 +111,7 @@ export default function BookAnAppoitmentButton() {
             className='group-hover:translate-x-1 transition-all duration-300 ease-in-out'
             >Book an Appointment</p>
             </DialogTitle>
-            <DialogContent>
+            <DialogContent className=' md:h-fit overflow-y-scroll h-[60%]'>
               {/* Might need to add location selector here and replace appointment date and time with Best */}
               <Form {...form} >
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">

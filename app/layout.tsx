@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { MapProvider } from "@/providers/map-provider";
 import { GeolocationProvider } from "@/providers/geolocationcontext";
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -86,6 +87,9 @@ export const metadata: Metadata = {
     googleBot: "index, follow"
   },
   applicationName: "Mountain Spine & Orthopedics",
+  verification: {
+    google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY"
+  }
 };
 
 export default function RootLayout({
@@ -98,6 +102,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none`}
         >
+          <GoogleTagManager gtmId="G-VND71HX8WE" />
           <MapProvider>
             <GeolocationProvider>
               <NavBar />
@@ -105,6 +110,7 @@ export default function RootLayout({
               <Footer />
             </GeolocationProvider>
           </MapProvider>
+          {/* <GoogleAnalytics gaId="G-VND71HX8WE" /> */}
         </body>
     </html>
   );
