@@ -17,7 +17,7 @@ import RatingsAndReviews from '@/components/RatingsAndReviews'
 import AAOS from '@/public/AAOS.png';
 import ACP from '@/public/ACP.png';
 import AOA from '@/public/AOA.png';
-import NASS from '@/public/NASS.jpg';
+import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
 import { Doctors } from '@/components/data/doctors';

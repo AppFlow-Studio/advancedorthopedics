@@ -2,7 +2,7 @@ import React from 'react'
 import ContactUsSection from '@/components/ContactUsSection'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import Image from 'next/image'
-import AAOS from '@/public/aaos.png';
+import AAOS from '@/public/AAOS.png';
 import ACP from '@/public/ACP.png';
 import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
