@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
-import AAOS from '@/public/aaos.png';
+import AAOS from '@/public/AAOS.png';
 import ACP from '@/public/ACP.png';
 import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';

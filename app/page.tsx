@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Avatars } from "@/components/ui/avatar";
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton";
-import AAOS from '../public/aaos.png';
+import AAOS from '../public/AAOS.png';
 import ACP from '../public/ACP.png';
 import AOA from '../public/AOA.png';
 import NASS from '../public/NASS.png';
@@ -13,11 +13,6 @@ import HomeWhyAO from '@/public/HomeWhyAO-min.jpeg'
 import Neck from '../public/neck.png'
 import LowerBack from '../public/Lowerback.png'
 import Joints from '../public/Joints.png'
-import JointsAnat from '../public/JointsAnat.png'
-import FootAnat from '../public/FootAnat.png'
-import LowerbackAnat from '../public/LowerbackAnat.png'
-import NeckAnat from '../public/NeckAnat.png'
-import HumanModel from '../public/HumanModel.png'
 import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from "@/components/ui/carousel";
 import StarRating from "@/components/StarRating";
 import { useState } from "react";

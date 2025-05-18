@@ -4,7 +4,7 @@ import ContactUsSection from '@/components/ContactUsSection'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import React, { useState } from 'react'
-import AAOS from '@/public/aaos.png';
+import AAOS from '@/public/AAOS.png';
 import ACP from '@/public/ACP.png';
 import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
