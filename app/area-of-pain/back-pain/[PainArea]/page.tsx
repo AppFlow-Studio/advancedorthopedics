@@ -141,9 +141,8 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
             style={{
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
-                fontSize: "20px",
             }}
-            className="text-[#111315] sm:text-md text-sm"
+            className="text-white text-shadow-sm sm:text-lg text-sm"
             >
                 {condition_details.body}
             </p>
@@ -170,7 +169,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-5xl'
+                        className='text-[#111315] sm:text-5xl text-3xl'
                         >
                         Details
                         </h1>
@@ -179,7 +178,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.detail}
                         </h1>

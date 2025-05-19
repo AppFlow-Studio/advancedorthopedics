@@ -119,22 +119,19 @@ export default function Treatments() {
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
               }}
-              className="text-[#022968]"
+              className="text-[#022968] text-3xl md:text-6xl lg:text-7xl"
               >
                 Treatments
               </TextAnimate>
           </div>
 
-          <div className="z-[2]  px-6  xl:px-[80px] mt-[24px] w-[50%] pb-8">
+          <div className="z-[2]  px-6  xl:px-[80px] mt-[24px] sm:w-[50%] pb-8">
               <p
               style={{
                 fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "148%",
               }}
-              className="text-[#111315]"
+              className="text-white text-shadow-sm text-md sm:text-lg md:text-xl"
               >
                   Explore our comprehensive range of treatments or use the search below to find specific options.
               </p>
@@ -151,7 +148,7 @@ export default function Treatments() {
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
               }}
-              className='text-[#111315] text-5xl'
+              className='text-[#111315] sm:text-5xl text-3xl'
               >
                 We are Here to Listen, Tell us your Story
               </h1>
@@ -161,7 +158,7 @@ export default function Treatments() {
                 fontFamily : 'var(--font-inter)',
                 fontWeight : 500,
               }}
-              className='text-[#5B5F67] text-xl w-[75%]'
+              className='text-[#5B5F67] sm:text-xl text-md sm:w-[75%] '
               >
                 Do you have a spinal condition that’s causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you’ll never be able to get your pain under control or that it might continue to worsen as you age?
               </h1>
@@ -174,7 +171,7 @@ export default function Treatments() {
                 fontWeight : 500,
 
               }}
-              className='text-[#111315] text-2xl'
+              className='text-[#111315] sm:text-2xl text-xl '
               >
                 WELL, YOU’RE NOT ALONE.
               </h1>
@@ -185,7 +182,7 @@ export default function Treatments() {
                 fontWeight : 500,
 
               }}
-              className='text-[#5B5F67] text-xl w-[75%]'
+              className='text-[#5B5F67] sm:text-xl text-sm sm:w-[75%] w-full'
               >
                 Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
                 <br/><br/>

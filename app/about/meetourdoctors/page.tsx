@@ -25,9 +25,8 @@ export default function MeetOurDoctors() {
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
-                fontSize : '72px'
               }}
-              className="text-[#022968]"
+              className="text-[#022968] lg:text-7xl md:text-5xl text-4xl"
               >
                 Meet all our doctors
               </TextAnimate>
@@ -37,10 +36,8 @@ export default function MeetOurDoctors() {
               <p
               style={{
                 fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "148%",
               }}
-              className="text-[#111315]"
+              className="text-white text-shadow-sm text-xl lg:text-2xl"
               >
                   Not sure which spine condition you might have?<br className=' xl:flex hidden'/>{' '}Find out with our 2-minute Condition Checker.            
               </p>

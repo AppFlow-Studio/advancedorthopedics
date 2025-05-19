@@ -109,7 +109,7 @@ export default function FAQs() {
         <Image src={FAQsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-10 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-80">
-            <div className="md:w-[565px] h-full absolute left-0 top-0 w-[35%]"
+            <div className="md:w-[565px] h-full absolute left-0 top-0 w-full"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
@@ -158,7 +158,7 @@ export default function FAQs() {
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] text-5xl md:text-6xl"
+            className="text-[#022968] text-3xl sm:text-5xl md:text-6xl"
             >
                 Frequently Asked Spine Surgery Questions
             </TextAnimate>
@@ -172,7 +172,7 @@ export default function FAQs() {
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
             }}
-            className=' text-black md:text-6xl text-5xl text-center md:w-[90%] self-center'
+            className=' text-black md:text-6xl text-3xl sm:text-5xl text-center md:w-[90%] self-center'
             >Your Questions Answered: Spine Surgery FAQs From Our Patients</h1>
 
             <div className="space-y-[20px] flex flex-col">

@@ -83,9 +83,9 @@ export default function DocotorDetails(
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
-                    fontSize : '72px'
+       
                 }}
-                className="text-[#022968]"
+                className="text-[#022968] lg:text-7xl md:text-5xl text-4xl"
                 >
                     {doctor_details.name}
                 </TextAnimate>
@@ -95,10 +95,8 @@ export default function DocotorDetails(
                 <p
                 style={{
                     fontWeight: 400,
-                    fontSize: "20px",
-                    lineHeight: "148%",
                 }}
-                className="text-[#111315]"
+                className="text-white text-shadow-sm text-md lg:text-2xl"
                 >
                     {doctor_details.desc}
                 </p>

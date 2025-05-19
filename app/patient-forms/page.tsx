@@ -74,7 +74,7 @@ export default function PatientForms() {
                 fontSize: "20px",
                 lineHeight: "148%",
             }}
-            className="text-[#111315] text-xl lg:text-2xl"
+            className="text-white text-shadow-sm text-xl lg:text-2xl"
             >
             If you have been told to use one of our online forms prior to a visit or treatment, please look below. If you have any questions, or do not see the specific form you are looking for, please don’t hesitate to call or email us.
             </p>

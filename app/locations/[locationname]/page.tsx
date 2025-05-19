@@ -33,7 +33,7 @@ export default function LocationDetails(
                     fontWeight : 500,
 
                     }}
-                    className='text-[#022968] text-6xl'
+                    className='text-[#022968] text-3xl sm:text-4xl md:text-6xl'
                     >
                     {location.name}
                     </TextAnimate>
@@ -42,7 +42,7 @@ export default function LocationDetails(
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
                     }}
-                    className='text-white text-xl'
+                    className='text-white text-md md:text-xl'
                     >
                     Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 locations and an Ambulatory Surgery Center. 
                     </h1>

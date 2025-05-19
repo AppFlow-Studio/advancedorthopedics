@@ -61,7 +61,7 @@ export default function PainArea({
         <Image src={ConditionDetialsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
-            <div className="w-[565px] h-full absolute left-0 top-0 "
+            <div className="lg:w-[60%] w-full h-full absolute left-0 top-0 "
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
@@ -78,7 +78,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md sm:flex hidden text-xs text-[#111315]"
                 >
                     Area of Pain 
                 </h1>
@@ -88,7 +88,7 @@ export default function PainArea({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md text-xs sm:flex hidden text-[#111315]"
                 >
                     /
                 </h1>
@@ -142,10 +142,8 @@ export default function PainArea({
             style={{
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "148%",
             }}
-            className="text-[#111315]  sm:text-md text-sm"
+            className="text-white text-shadow-sm sm:text-lg text-sm"
             >
                 {condition_details.body}
             </p>
@@ -172,7 +170,7 @@ export default function PainArea({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-5xl'
+                        className='text-[#111315] sm:text-5xl text-3xl'
                         >
                         Details
                         </h1>
@@ -181,7 +179,7 @@ export default function PainArea({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details.body}
                         </h1>

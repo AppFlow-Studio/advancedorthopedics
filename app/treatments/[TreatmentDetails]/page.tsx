@@ -102,7 +102,7 @@ export default function TreatmentDetails({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#022968]"
+                className="text-[#022968] sm:flex hidden"
                 >
                     /
                 </h1>
@@ -112,7 +112,7 @@ export default function TreatmentDetails({
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="text-[#2358AC]"
+                className="text-[#2358AC] sm:flex hidden"
                 >
                     {treatment_details.title}
                 </h1>
@@ -134,9 +134,8 @@ export default function TreatmentDetails({
             <p
             style={{
                 fontWeight: 400,
-                lineHeight: "148%",
             }}
-            className="text-[#111315] text-lg md:text-xl"
+            className="text-white text-shadow-sm sm:text-xl text-md"
             >
                 {treatment_details.body}
             </p>
@@ -158,7 +157,7 @@ export default function TreatmentDetails({
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
                     }}
-                    className="text-[#111315] text-5xl"
+                    className="text-[#111315] sm:text-5xl text-3xl"
                     >
                         Meet our Doctors
                     </h1>
@@ -183,7 +182,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-5xl'
+                        className='text-[#111315] sm:text-5xl text-3xl'
                         >
                         Details
                         </h1>
@@ -192,7 +191,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-md'
                         >
                             {treatment_details.body}
                         </h1>
@@ -205,7 +204,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What is {treatment_details.title}?
                         </h1>
@@ -214,7 +213,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-lg'
+                          className='text-[#5B5F67] text-sm sm:text-lg'
                         >
                             {treatment_details.detail}
                         </h1>
@@ -229,7 +228,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What does {treatment_details.title} look like?
                         </h1>
@@ -238,7 +237,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-md'
                         >
                             {treatment_details.procedure_info}
                         </h1>
@@ -252,7 +251,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What Conditions does {treatment_details.title} Help Ease?
                         </h1>
@@ -261,7 +260,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-md'
                         >
                             {treatment_details.conditions_treated}
                         </h1>
@@ -274,7 +273,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         Why Choose Mountain Spine & Orthopedics for {treatment_details.title}?
                         </h1>
@@ -283,7 +282,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-md'
                         >
                             {treatment_details.why_choose_us}
                         </h1>
@@ -296,7 +295,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What does post {treatment_details.title} recovery look like?
                         </h1>
@@ -305,7 +304,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-md'
                         >
                             {treatment_details.recovery_info}
                         </h1>
@@ -319,7 +318,7 @@ export default function TreatmentDetails({
                                 fontFamily : 'var(--font-reem-kufi)',
                                 fontWeight : 500,
                             }}
-                            className='text-[#111315] text-4xl'
+                            className='text-[#111315] text-2xl sm:text-4xl'
                             >
                             Schedule a Consultation Today
                         </h1>
@@ -328,7 +327,7 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-md'
                         >
                             {treatment_details.schedule}
                         </h1>
@@ -341,7 +340,7 @@ export default function TreatmentDetails({
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
                     }}
-                    className="text-[#111315] text-5xl"
+                    className="text-[#111315] sm:text-5xl text-3xl"
                     >
                         Meet our Doctors
                     </h1>

@@ -10,7 +10,7 @@ import Head from "next/head";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff"
+  themeColor: "#5FBBEC"
 };
 const inter = Inter({
   subsets: ['latin'],

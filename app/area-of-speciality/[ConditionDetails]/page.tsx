@@ -116,10 +116,8 @@ export default function ConditionDetails({
             <p
             style={{
                 fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "148%",
             }}
-            className="text-[#111315]"
+            className="text-white text-shadow-sm sm:text-lg text-sm"
             >
                 {condition_details.body}
             </p>
@@ -164,7 +162,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-5xl'
+                        className='text-[#111315] sm:text-5xl text-2xl'
                         >
                         Details
                         </h1>
@@ -173,7 +171,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.detail}
                         </h1>
@@ -186,7 +184,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         What Are the Symptoms of {condition_details.title}?
                         </h1>
@@ -195,7 +193,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.what_sym}
                         </h1>
@@ -208,7 +206,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details.body}
                      </h1>
@@ -221,7 +219,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Are There Specific Risk Factors for {condition_details.title}?
                         </h1>
@@ -230,7 +228,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.risk_fac}
                         </h1>
@@ -243,7 +241,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Diagnosing {condition_details.title}?
                         </h1>
@@ -252,7 +250,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.diagnose}
                         </h1>
@@ -265,7 +263,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Treatment for {condition_details.title}?
                         </h1>
@@ -274,7 +272,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.treatment}
                         </h1>
@@ -287,7 +285,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Does {condition_details.title} Cause Pain?
                         </h1>
@@ -296,7 +294,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.pain_info}
                         </h1>
@@ -310,7 +308,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] text-4xl'
+                        className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         What Can Patients Do to Prevent It?
                         </h1>
@@ -319,7 +317,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.prevent}
                         </h1>
@@ -332,7 +330,7 @@ export default function ConditionDetails({
                                 fontFamily : 'var(--font-reem-kufi)',
                                 fontWeight : 500,
                             }}
-                            className='text-[#111315] text-4xl'
+                            className='text-[#111315] sm:text-4xl text-2xl'
                             >
                             Schedule a Consultation Today
                         </h1>

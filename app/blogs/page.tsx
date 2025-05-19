@@ -76,7 +76,7 @@ export default function Blogs() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
-        <section className=" w-full h-full flex flex-col relative overflow-hidden" >
+        <section className=" w-full h-full flex flex-col relative overflow-hidden order-first" >
         <Image src={BlogsLanding} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
@@ -129,20 +129,19 @@ export default function Blogs() {
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] md:w-[70%] lg:w-[80%] text-6xl lg:text-7xl"
+            className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl lg:text-7xl"
             >
                 Spine Wellness Blog
             </TextAnimate>
         </div>
 
-        <div className="z-[2]  px-6 xl:px-[80px] mt-[24px]  w-[70%] lg:w-[45%] pb-8">
+        <div className="z-[2]  px-6 xl:px-[80px] mt-[24px] w-full sm:w-[70%] lg:w-[45%] pb-8">
             <p
             style={{
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
-                fontSize: "20px",
             }}
-            className="text-[#111315]"
+            className="text-white text-shadow-sm text-lg sm:text-2xl"
             >
                 Get the latest news, updates and insights into spinal surgery and minimally invasive treatments
             </p>
@@ -150,7 +149,7 @@ export default function Blogs() {
         </div>
         </section>
 
-        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px]'>
+        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px] md:order-2 order-last'>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-[24px]'>
                 {
                     ServicesAndExpertise.map((item,index) => (
@@ -197,7 +196,7 @@ export default function Blogs() {
             </div>
         </section>
 
-        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px]'>
+        <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px] md:order-2  '>
              <div className='space-y-[16px] flex flex-col lg:flex-row justify-between'>
                 <h1
                 style={{
@@ -323,7 +322,7 @@ export default function Blogs() {
         </section>
 
 
-        <ContactUsSection />
+        <div className='order-last'><ContactUsSection /></div>
     </main>
   )
 }

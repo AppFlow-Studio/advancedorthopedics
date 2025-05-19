@@ -129,13 +129,13 @@ export default function AreaOfSpeciality() {
          <div className="flex flex-col space-y-[16px]">
           <h1
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-            className="text-[#111315] text-5xl"
+            className="text-[#111315] sm:text-5xl text-3xl"
           >
             We are Here to Listen, Tell us your Story
           </h1>
           <h1
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
-            className="text-[#5B5F67] text-xl lg:w-[75%]"
+            className="text-[#5B5F67] sm:text-xl text-md lg:w-[75%]"
           >
             Do you have a spinal condition that’s causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you’ll never be able to get your pain under control or that it might continue to worsen as you age?
           </h1>
@@ -143,13 +143,13 @@ export default function AreaOfSpeciality() {
         <div className="flex flex-col space-y-[16px]">
           <h1
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-            className="text-[#111315] text-2xl "
+            className="text-[#111315] sm:text-2xl text-xl "
           >
             WELL, YOU’RE NOT ALONE.
           </h1>
           <h1
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
-            className="text-[#5B5F67] text-xl lg:w-[75%]"
+            className="text-[#5B5F67] sm:text-xl text-md lg:w-[75%]"
           >
             Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year.
             <br />

@@ -157,7 +157,7 @@ export default function InsurancePolicy() {
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
             }}
-            className="text-white text-xl lg:text-2xl"
+            className="text-white text-xl lg:text-2xl text-shadow-sm"
             >
                We accept a wide variety of spine surgery insurance coverage to help as many patients as possible throughout Florida.          
             </h1>
