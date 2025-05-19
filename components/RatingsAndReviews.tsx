@@ -1,10 +1,12 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
 import Rating1 from '../public/Rating1.png'
 import Rating2 from '../public/Rating2.png'
 import Image from 'next/image'
 import StarRating from './StarRating'
+import { useWindowSize } from "@uidotdev/usehooks";
+
 const Reviews = [
   {
     // Placeholder for an image variable if needed
@@ -53,7 +55,16 @@ const Reviews = [
 
 export default function RatingsAndReviews() {
   const [ ReviewsIndex, setReviewsIndex ] = useState(0)
-    
+  const [ singleCard, setSingleCard ] = useState(false)
+  const size = useWindowSize();
+
+  useEffect(() => {
+    if (size?.width && size.width < 1285) {
+      setSingleCard(true)
+    }
+  }, [size])
+  //console.log(size)
+  //console.log(singleCard)
   return (
     <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] ">
             <div>
@@ -93,11 +104,11 @@ export default function RatingsAndReviews() {
             </div>
 
             <Carousel className="w-full h-full mt-[60px]" index={ReviewsIndex} onIndexChange={setReviewsIndex}>
-              <CarouselContent className="gap-x-2 xl:gap-x-4 sm:mr-8" minusOffset={2} dragOffset={100 + ReviewsIndex + 0.5}>
+              <CarouselContent className="xl:gap-x-4 xl:mr-8" minusOffset={!singleCard ? 2 : 1} dragOffset={!singleCard ? 100 + ReviewsIndex + 0.5 : 100}>
 
                 {
                 Reviews.map((item, index) => (
-                <CarouselItem className={`xl:basis-1/2 ${index == 0 ? 'md:pl-4' : ''} ${index == Reviews.length - 1 ? 'md:mr-4' : ''} relative`} key={index}>
+                <CarouselItem className={`xl:basis-1/2 ${index == 0 ? 'xl:pl-4' : ''} ${index == Reviews.length - 1 ? 'xl:mr-4' : ''} relative `} key={index}>
                   <div className="w-full max-h-[454px] xl:h-[454px] relative flex items-end ">
                     <div className=" rounded-tr-[20px] rounded-tl-[20px] rounded-br-[80px] rounded-[80px] overflow-hidden max-h-[120px] max-w-[120px] lg:h-[120px] lg:w-[120px]  bg-[#F8FAF9] border-10 border-white ml-4 sm:ml-[50px] absolute -top-1">
                       <Image src={item.img} alt="Review Profile Pic" layout="fill" className="w-[90%] h-[90%] object-cover "/>

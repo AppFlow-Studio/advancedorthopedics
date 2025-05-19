@@ -82,7 +82,7 @@ export default function Footer() {
                             fontWeight : 400,
                             color : '#DCDEE1'
                         }}
-                        >info@orthopedicandlaser​spinesurgery.com</h1>
+                        >info@mountainspineorthopedics.com</h1>
                     </div>
 
                     <div className=' mt-[40px] flex flex-row space-x-[16px]'>
@@ -194,16 +194,16 @@ export default function Footer() {
             />
        </div>
 
-        <div className='w-full max-w-[1440px] mx-auto h-[1px] mt-[40px] justify-between items-center px-[40px] flex flex-row '>
+        <div className='w-full max-w-[1440px] mx-auto mt-[40px] justify-between md:items-center px-[40px] flex md:flex-row flex-col md:space-y-0 space-y-[10px] '>
         <h1
         style={{
             fontFamily : 'var(--font-inter)',
             fontWeight : 400,
             color : '#DCDEE1'
         }}
-        >Copyright © 2025 Orthopaedic and Laser Spine Surgery.</h1>
+        >Copyright © 2025 Mountain Spine & Orthopedics.</h1>
 
-        <div className='flex flex-row space-x-[40px]'>
+        <div className='flex md:flex-row flex-col md:space-x-[40px] space-y-[10px]'>
             <h1
             style={{
                 fontFamily : 'var(--font-reem-kufi)',
