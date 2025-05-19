@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { MapProvider } from "@/providers/map-provider";
 import { GeolocationProvider } from "@/providers/geolocationcontext";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
-
+import Head from "next/head";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -101,7 +101,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <GoogleTagManager gtmId="G-VND71HX8WE" />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG!} />
+        
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
         >
