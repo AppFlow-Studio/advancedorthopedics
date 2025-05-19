@@ -88,7 +88,7 @@ export default function SecondOpinion() {
                     fontWeight : 500,
     
                   }}
-                  className='text-[#022968] text-6xl'
+                  className='text-[#022968] text-3xl md:text-6xl'
                   >
                     Get a Second Opinion
                   </TextAnimate>
@@ -98,7 +98,7 @@ export default function SecondOpinion() {
                     fontWeight : 500,
     
                   }}
-                  className='text-white text-xl'
+                  className='text-white text-lg md:text-xl'
                   >
                     Our Virtual Second Opinion service offers easy access for remote patients to top specialists.            
                 </h1>

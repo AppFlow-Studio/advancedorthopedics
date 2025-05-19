@@ -22,7 +22,7 @@ export default function BookAnAppointment() {
                 fontWeight : 500,
 
               }}
-              className='text-[#022968] text-4xl md:text-6xl'
+              className='text-[#022968] text-3xl md:text-6xl'
               >
                 Ready to book an Appointment ?
               </TextAnimate>
@@ -32,7 +32,7 @@ export default function BookAnAppointment() {
                 fontWeight : 500,
 
               }}
-              className='text-white text-xl mt-2'
+              className='text-white md:text-xl text-lg mt-2'
               >
                 Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
               </h1>

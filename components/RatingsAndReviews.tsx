@@ -110,7 +110,7 @@ export default function RatingsAndReviews() {
                 Reviews.map((item, index) => (
                 <CarouselItem className={`xl:basis-1/2 ${index == 0 ? 'xl:pl-4' : ''} ${index == Reviews.length - 1 ? 'xl:mr-4' : ''} relative `} key={index}>
                   <div className="w-full max-h-[454px] xl:h-[454px] relative flex items-end ">
-                    <div className=" rounded-tr-[20px] rounded-tl-[20px] rounded-br-[80px] rounded-[80px] overflow-hidden max-h-[120px] max-w-[120px] lg:h-[120px] lg:w-[120px]  bg-[#F8FAF9] border-10 border-white ml-4 sm:ml-[50px] absolute -top-1">
+                    <div className=" rounded-tr-[20px] rounded-tl-[20px] rounded-br-[80px] rounded-[80px] overflow-hidden max-h-[120px] max-w-[120px] w-20 h-20 lg:h-[120px] lg:w-[120px]  bg-[#F8FAF9] border-10 border-white ml-4 sm:ml-[50px] absolute -top-1">
                       <Image src={item.img} alt="Review Profile Pic" layout="fill" className="w-[90%] h-[90%] object-cover "/>
                     </div>
                     <div className="w-full h-full rounded-[24px] bg-[#F8FAF9] md:max-h-[419px] xl:h-[419px] flex flex-col p-2 md:p-[32px]">

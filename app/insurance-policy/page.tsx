@@ -94,10 +94,10 @@ export default function InsurancePolicy() {
         {/* Landing */}
         <section className="w-full h-full flex flex-col relative overflow-hidden" >
        
-        <Image src={InsuranceLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={InsuranceLanding} className=" h-full absolute top-0 object-cover object-center self-end w-full" alt="Doctor Diagnosing a Old Patient"/>
 
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-            <div className="w-[565px] h-full absolute left-0 top-0"
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-32 md:pt-60">
+            <div className="lg:w-[60%] h-full absolute left-0 top-0 md:w-[85%] w-full"
             style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
@@ -146,7 +146,7 @@ export default function InsurancePolicy() {
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] text-6xl"
+            className="text-[#022968] text-4xl sm:text-6xl xl:text-6xl"
             >
                 Mountain Spine & Orthopedics Insurance Policy            
             </TextAnimate>
@@ -157,7 +157,7 @@ export default function InsurancePolicy() {
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
             }}
-            className="text-[#111315] text-xl"
+            className="text-white text-xl lg:text-2xl"
             >
                We accept a wide variety of spine surgery insurance coverage to help as many patients as possible throughout Florida.          
             </h1>
@@ -265,8 +265,8 @@ export default function InsurancePolicy() {
         </section>
 
            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px]">
-                    <div className=" grid grid-cols-1 lg:grid-cols-3 gap-[32px]">
-                      <div className=" rounded-[24px] w-full bg-[#FAFAFA] p-[40px] flex flex-col col-span-1 space-y-[40px]">       
+                    <div className=" grid grid-cols-1 lg:grid-cols-3 lg:gap-[32px] lg:gap-y-0 gap-y-[24px] ">
+                      <div className=" rounded-[24px] w-full bg-[#FAFAFA] p-[40px] flex-col  col-span-1 space-y-[40px] ">       
                         <div className="mt-[12px]">
                           <h1
                           style={{
@@ -276,9 +276,7 @@ export default function InsurancePolicy() {
                           }}
                           className='text-4xl'
                           >Concierge Services</h1>
-                        </div>
-                        
-                          
+                        </div>                   
                         <div>
                             <Image src={ConciergeServices} alt={''} className="w-full lg:max-h-[240px] h-full object-cover aspect-video lg:aspect-square rounded-[24px] lg:h-[240px]"/>
                         </div>
@@ -294,7 +292,7 @@ export default function InsurancePolicy() {
                             color : 'black',
                             lineHeight : 1.5
                           }}
-                          className="md:px-6 text-xl"
+                          className="md:px-6 md:text-xl text-md"
                           >
                             Our collaborative team of Florida spine surgeons and medical professionals provides cutting-edge research, technology, and treatments for pain management and minimally invasive surgery. We offer comprehensive “concierge” services that include both non-surgical, conservative methods and gentle, minimally invasive procedures performed through incisions smaller than a postage stamp. By integrating advanced technology with a patient-centered approach, we ensure the best possible outcomes for our patients.
                           </h1>

@@ -352,10 +352,10 @@ export default function NavBar() {
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
    <>
-      <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] backdrop-blur-2xl '>
+      <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] backdrop-blur-3xl '>
           <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
               <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '> 
-                  <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
+                  <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] lg:w-auto w-10 h-10  " />
                   <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                   <div className="flex flex-col text-white"
                   style={{
@@ -365,7 +365,7 @@ export default function NavBar() {
                       letterSpacing: "0.02em",
                   }}
                   >
-                      <h1 className="text-lg font-[600]">MOUNTAIN</h1>
+                      <h1 className="md:text-lg text-mdfont-[600]">MOUNTAIN</h1>
                       <h2 className="font-[600] text-xs"> SPINE & ORTHOPEDIC</h2>    
                   </div>
               </Link>
@@ -383,7 +383,7 @@ export default function NavBar() {
               </NavigationMenu>
                 
               <button
-                  className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 ml-6 mr-auto bg-white rounded-xl backdrop-blur-3xl ${isSidebarOpen ? 'hidden' : ''}`}   //ml-auto pushes it right if space allows
+                  className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 ml-6  bg-white rounded-xl backdrop-blur-3xl ${isSidebarOpen ? 'hidden' : ''}`}   //ml-auto pushes it right if space allows
                   onClick={toggleSidebar}
                   aria-label="Toggle menu"
                   aria-expanded={isSidebarOpen}

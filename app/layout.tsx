@@ -35,6 +35,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mountain Spine And Orthopedics",
   description: "Mountain Spine and Orthopedics - Florida's premier destination for minimally invasive spine and orthopedic procedures. Our expert doctors provide world-class care using advanced techniques for optimal patient outcomes.",
+  verification: {
+    google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY"
+  },
   keywords: [
     "spine",
     "flordia spine surgeon",
@@ -76,6 +79,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/newlogo4.png',
+    apple: '/newlogo4.png',
+
   },
   metadataBase: new URL("https://mountainspineorthopedics.com"),
   robots: {
@@ -87,10 +92,6 @@ export const metadata: Metadata = {
     googleBot: "index, follow"
   },
   applicationName: "Mountain Spine & Orthopedics",
-  verification: {
-    google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY"
-  },
-  themeColor: "#0094E0"
 };
 
 export default function RootLayout({

@@ -42,12 +42,7 @@ import { Marquee } from "@/components/magicui/marquee";
 
 
 const ServicesAndExpertise = [
-  {
-    img : Foot,
-    title : 'Foot & Ankle',
-    anatomy : 'https://mountainspineortho.b-cdn.net/public/FootAnat.png',
-    desc : 'Precision interventions fix lower extremity biomechanics.'
-  },
+
   {
     img : Neck,
     title : 'Neck & Spine',
@@ -65,7 +60,13 @@ const ServicesAndExpertise = [
     title : 'Joints',
     anatomy : 'https://mountainspineortho.b-cdn.net/public/JointsAnat.png',
     desc : 'Arthroscopic and regenerative methods help get your joints moving again.'
-  }
+  },
+  {
+    img : Foot,
+    title : 'Foot & Ankle',
+    anatomy : 'https://mountainspineortho.b-cdn.net/public/FootAnat.png',
+    desc : 'Precision interventions fix lower extremity biomechanics.'
+  },
 ]
 
 const OurSpecialtyItems = [
@@ -381,7 +382,7 @@ const OrthoConditionsWeTreat = [
 ];
 
 export default function Home() {
-  const [ selectedService , setSelectedService ] = useState('Foot & Ankle')
+  const [ selectedService , setSelectedService ] = useState('Neck & Spine')
   const [ selectedOrthoCondition, setSelectedOrthoCondition ] = useState(OrthoConditionsWeTreat[0])
   return (
     <main className=" w-full flex flex-col items-center justify-center bg-white h-full" >
@@ -410,11 +411,10 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
-                fontSize: "24px",
                 lineHeight: "24px",
                 letterSpacing: "0.02em",
               }}
-              className=" text-white"
+              className=" text-white text-xl lg:text-2xl"
               >
                 100,000+ Happy Patient's
               </h1>
@@ -428,7 +428,6 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
-                lineHeight: "110%",
               }}
               className="text-white text-5xl sm:text-6xl xl:text-6xl"
               >
@@ -442,10 +441,8 @@ export default function Home() {
               <p
               style={{
                 fontWeight: 400,
-                fontSize: "24px",
-                lineHeight: "148%",
               }}
-              className="text-white"
+              className="text-white text-xl lg:text-2xl"
               >
               Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
               </p>
@@ -453,7 +450,7 @@ export default function Home() {
          </SlidingDiv>
           
           <SlidingDiv position="left" className="z-[2]">
-            <div className="lg:px-[80px] px-8 my-[24px] xl:w-[55%] flex md:flex-row flex-col md:space-y-0 space-y-4 space-x-[16px]">
+            <div className="lg:px-[80px] px-8 my-[24px] xl:w-[55%] flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
               <div className=""><BookAnAppoitmentButton /></div>
               <button 
                   className="h-full max-h-[56px] group hover:cursor-pointer  px-[32px] py-[16px] rounded-[62px] relative flex items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
@@ -627,7 +624,7 @@ export default function Home() {
 
       {/* Expert Orthopedic Conditions We Treat */}
       <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center">
-          <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-[60px] px-2 md:px-[60px] space-y-[60px] relative flex-col">
+          <div className=" bg-[#EBF2FA] rounded-[40px] flex items-center justify-center w-full py-10 md:py-[60px] px-2 md:px-[60px] space-y-[60px] relative flex-col">
 
            <div className=" flex flex-col space-y-[16px]">
               <h1
@@ -1114,7 +1111,7 @@ export default function Home() {
                  <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
                 </h1>
 
-                <div className="flex md:flex-row flex-col w-full space-x-[11px] md:space-y-0 space-y-4 justify-center items-center">
+                <div className="flex md:flex-row flex-col w-full md:space-x-[11px] md:space-y-0 space-y-4 justify-center items-center">
                   <div className=" md:w-[45%] w-full "> 
                   <BookAnAppoitmentButton />
                   </div>

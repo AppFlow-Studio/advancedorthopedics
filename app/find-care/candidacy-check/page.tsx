@@ -287,7 +287,7 @@ function CandidacyCheck() {
             fontWeight : 500,
 
           }}
-          className='text-[#022968] text-6xl'
+          className='text-[#022968] text-3xl md:text-6xl'
           >
             Candidacy Check
           </TextAnimate>
@@ -297,14 +297,14 @@ function CandidacyCheck() {
             fontWeight : 500,
 
           }}
-          className='text-white text-xl'
+          className='text-white text-lg md:text-xl'
           >
             This tool is designed to quickly and easily provide you with information on specific treatments for which you may be a candidate.
         </h1>
       </div>
     </section>
-     <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-[80px]'>
-            <div className='px-6 xl:px-[80px] z-[2] flex w-full'>
+     <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-6 xl:px-[80px]'>
+            <div className='z-[2] flex w-full'>
                     <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-6'
                     style={{
                         background : 'rgba(255, 255, 255, 0.50)'
@@ -369,7 +369,7 @@ function CandidacyCheck() {
     
                                 {
                                     index + 1 != 3 ? 
-                                    <div  className=''>
+                                    <div  className='md:flex hidden'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="122" height="10" viewBox="0 0 122 8" fill="none">
                                             <path d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5V3.5ZM121.354 4.35355C121.549 4.15829 121.549 3.84171 121.354 3.64645L118.172 0.464466C117.976 0.269204 117.66 0.269204 117.464 0.464466C117.269 0.659728 117.269 0.976311 117.464 1.17157L120.293 4L117.464 6.82843C117.269 7.02369 117.269 7.34027 117.464 7.53553C117.66 7.7308 117.976 7.7308 118.172 7.53553L121.354 4.35355ZM1 4.5H121V3.5H1V4.5Z" fill="#838890"/>
                                         </svg>

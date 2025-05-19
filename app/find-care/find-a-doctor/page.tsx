@@ -25,7 +25,7 @@ export default function FindADoctor() {
                     fontWeight : 500,
     
                   }}
-                  className='text-[#022968] text-4xl md:text-6xl'
+                  className='text-[#022968] text-3xl md:text-6xl'
                   >
                     Find a Doctor
                   </TextAnimate>
@@ -35,7 +35,7 @@ export default function FindADoctor() {
                     fontWeight : 500,
     
                   }}
-                  className='text-white text-xl'
+                  className='text-white text-lg md:text-xl'
                   >
                     Connect With a Top Spine Surgeon or Orthopedic Specialist                  
                 </h1>

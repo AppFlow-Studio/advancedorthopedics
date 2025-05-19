@@ -72,7 +72,7 @@ export default function AreaOfSpeciality() {
         <Image
           src={Landing}
           alt="Doctor Diagnosing a Old Patient"
-          className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full"
+          className=" h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full"
         />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
          <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
@@ -80,7 +80,7 @@ export default function AreaOfSpeciality() {
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
           />
-          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-60  md:mt-[220px] w-full lg:w-[55%]">
+          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start lg:mt-60  md:mt-[220px] w-full lg:w-[55%]">
             <TextAnimate
               animation="blurInUp"
               by="word"
@@ -89,7 +89,7 @@ export default function AreaOfSpeciality() {
                 fontFamily: 'var(--font-reem-kufi)',
                 fontWeight: 400,
               }}
-              className="text-[#022968] text-5xl md:text-6xl lg:text-7xl "
+              className="text-[#022968]  text-4xl sm:text-6xl xl:text-6xl "
             >
               Conditions
             </TextAnimate>
@@ -97,7 +97,7 @@ export default function AreaOfSpeciality() {
           <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[50%]">
             <p
               style={{ fontWeight: 400, lineHeight: '148%' }}
-              className="text-[#111315] text-xl"
+              className="text-shadow-sm text-white text-xl lg:text-2xl"
             >
               Not sure which spine condition you might have? 
               <br className='md:flex hidden'/>{' '}

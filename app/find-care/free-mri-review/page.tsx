@@ -232,7 +232,7 @@ function FreeMRIReview() {
             fontWeight : 500,
 
           }}
-          className='text-[#022968] text-6xl'
+          className='text-[#022968] text-3xl md:text-6xl'
           >
             Get a Free MRI Review
           </TextAnimate>
@@ -242,7 +242,7 @@ function FreeMRIReview() {
             fontWeight : 500,
 
           }}
-          className='text-white text-xl'
+          className='text-white text-lg md:text-xl'
           >
             This tool enables you to easily and securely send us those results, where they will be reviewed by a certified orthopedic specialist.
         </h1>

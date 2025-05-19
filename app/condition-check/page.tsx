@@ -266,7 +266,7 @@ export default function ConditionChecker() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
         <section className="w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={PatientFormsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={PatientFormsLanding} className="h-full absolute top-0 object-cover object-center self-end w-full " alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
             <div className="md:w-[80%] w-full h-full absolute left-0 top-0"
@@ -318,7 +318,7 @@ export default function ConditionChecker() {
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 400,
             }}
-            className="text-[#022968] text-6xl lg:text-7xl"
+            className="text-[#022968] text-5xl sm:text-6xl xl:text-6xl"
             >
                 Condition Check
             </h1>
@@ -328,10 +328,8 @@ export default function ConditionChecker() {
             <p
             style={{
                 fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "148%",
             }}
-            className="text-[#111315]"
+            className="text-white sm:text-xl lg:text-2xl text-shadow-sm"
             >
                 Welcome to an exciting new way to obtain a preliminary diagnosis online based on your symptoms, previous tests, and history. This tool’s confidential results are often used by pain sufferers to assist them in seeking effective treatment, or as a confirmation of the existence of a specific orthopedic condition they may be concerned about.
             </p>
@@ -658,14 +656,14 @@ export default function ConditionChecker() {
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
-                    className='text-[#022968] text-5xl'
-                    >Check<br/> Back Pain & Neck Pain</h1>
+                    className='text-[#022968] text-4xl md:text-5xl'
+                    >Check<br className='md:flex hidden' /> Back Pain & Neck Pain</h1>
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
-                    className='text-[#5B5F67] text-xl'
+                    className='text-[#5B5F67] text-lg md:text-xl'
                     >When you first visit a doctor, he will ask questions about the symptoms you’re experiencing. This is known as medical history. It allows the doctor to get more information about your symptoms. For instance, when they first developed, what makes them worse and what treatments you’ve tried.
                     <br /> <br/>
                     The doctor will then do a physical examination to assess your muscle strength, sensation and reflexes so they can determine your particular condition. The location of symptoms will help the doctor narrow down the conditions you may have. After the physical examination, the doctor may perform additional tests to accurately confirm the diagnosis. These can include X-rays, CT scans or MRI scans.</h1>
@@ -676,14 +674,14 @@ export default function ConditionChecker() {
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
-                    className='text-[#022968] text-5xl'
-                    >Mountain Spine & Care<br/> Condition Check Tool</h1>
+                    className='text-[#022968] text-4xl md:text-5xl'
+                    >Mountain Spine & Care<br className='md:flex hidden'/> Condition Check Tool</h1>
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
-                    className='text-[#5B5F67] text-xl'>
+                    className='text-[#5B5F67] text-lg md:text-xl'>
                         Mountain Spine & Care offers a free condition check tool to help you understand the source of <span className='text-[#022968] underline'>your back pain.</span> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
                         <br /><br/>
                         To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Care spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn’t conclusive and you need to<span className='text-[#022968] underline'> be further evaluated by an Mountain Spine & Care specialist</span> at one of our clinics.
