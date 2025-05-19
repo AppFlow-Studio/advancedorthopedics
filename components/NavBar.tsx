@@ -352,7 +352,7 @@ export default function NavBar() {
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
    <>
-      <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-6 max-h-[128px] lg:h-[60px]  '>
+      <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] backdrop-blur-2xl '>
           <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
               <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '> 
                   <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
@@ -393,7 +393,7 @@ export default function NavBar() {
               </button>
 
               <button 
-                  className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  max-h-[40px]  h-full px-[20px] rounded-[62px] relative items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
+                  className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  h-[40px] px-[20px] rounded-[62px] relative z-50 items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
                   >
                   <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
                   <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
