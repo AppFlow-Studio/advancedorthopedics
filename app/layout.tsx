@@ -102,7 +102,6 @@ export default function RootLayout({
   return (
     <html lang="en">
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG!} />
-        
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
         >
@@ -113,8 +112,8 @@ export default function RootLayout({
               <Footer />
             </GeolocationProvider>
           </MapProvider>
-          {/* <GoogleAnalytics gaId="G-VND71HX8WE" /> */}
         </body>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG!} />
     </html>
   );
 }
