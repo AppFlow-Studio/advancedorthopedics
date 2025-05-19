@@ -89,7 +89,8 @@ export const metadata: Metadata = {
   applicationName: "Mountain Spine & Orthopedics",
   verification: {
     google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY"
-  }
+  },
+  themeColor: "#0094E0"
 };
 
 export default function RootLayout({
