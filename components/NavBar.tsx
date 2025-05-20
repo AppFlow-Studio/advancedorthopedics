@@ -282,6 +282,11 @@ const NavBarLinks = [
     title : 'ABOUT',
     subLinks : [
       {
+        title : 'About Mountain Spine',
+        href : '/about',
+        subLinks : []
+      },
+      {
         title : 'Meet our Doctors',
         href : '/about/meetourdoctors',
         subLinks : []
@@ -392,7 +397,7 @@ export default function NavBar() {
                   <HamburgerIcon open={isSidebarOpen} />
               </button>
 
-              <button 
+              <a href="tel:8339314888"
                   className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  h-[40px] px-[20px] rounded-[62px] relative z-50 items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
                   >
                   <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
@@ -401,7 +406,7 @@ export default function NavBar() {
                           <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF"/>
                       </svg>
                   </div>
-              </button>
+              </a>
               
               
   
@@ -451,7 +456,7 @@ export default function NavBar() {
                       })
                     }
                    {/* Optional: Add Contact Us button in sidebar */}
-                    <button
+                    <a href="tel:8339314888"
                         className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#022968] text-white text-[14px] font-semibold"
                         onClick={() => {
                             // Add navigation or action for contact button
@@ -464,7 +469,7 @@ export default function NavBar() {
                                 <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF"/>
                             </svg>
                         </div>
-                    </button>
+                    </a>
                </nav>
            </aside>
    </>

@@ -37,6 +37,7 @@ export default function ClinicsMap({ startingClinic } :  {
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
    const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
+  
    const [ mapCenter, setMapCenter ] = useState(startingClinic ? {lat: startingClinic.lat , lng: startingClinic.lng} : { lat: 28.670213, lng: -81.374701 })
    const isInitialMount = useRef(true); // <-- Add this ref, initially true
    useEffect(() => {
@@ -114,7 +115,7 @@ export default function ClinicsMap({ startingClinic } :  {
           font-family="${fontFamily}"
           font-weight="${fontWeight}"
           text-anchor="start">
-          ${clinicName}
+          ${clinicName == 'Mountain Spine & Orthopedics Fort Pierce' ? 'Mountain Spine and Orthopedics Fort Pierce' : clinicName}
         </text>
       </svg>
     `;
@@ -171,6 +172,7 @@ export default function ClinicsMap({ startingClinic } :  {
 };
 const handleClinicChange = (name: string) => {
   const clinic = clinics.find(c => c.name === name);
+  
   if (clinic) {
     setSeletecedClinic(clinic);
     setMapCenter({ lat: clinic.lat, lng: clinic.lng });
@@ -241,7 +243,7 @@ const DropdownIcon = () => (
 
 function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic : {id : number, name : string, lat : number, lng : number, address : string, link : string}, handleMarkerClick : (name : string) => void }) {
   return (
-    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg sm:w-[90%] w-full -top-10 left-0 md:max-w-xl space-y-4">
+    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
       <h2 
       style={{
         fontFamily: "var(--font-reem-kufi)",

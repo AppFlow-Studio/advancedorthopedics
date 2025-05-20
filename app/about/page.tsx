@@ -1,5 +1,4 @@
 import React from 'react'
-import AboutUsLanding from '@/public/AboutUsLanding.jpeg'
 import Image from 'next/image'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import ClinicsMap from '@/components/ClinicsMap'
@@ -13,12 +12,12 @@ export default function AboutUs() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
     {/* Landing */}
-    <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden" >
+    <section className=" w-full h-full flex flex-col relative overflow-hidden" >
     
-      <Image src={AboutUsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-center pt-0 self-end w-full max-w-[1440px] xl:w-[1440px]  md:pl-10 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+      <Image src={'https://mountainspineortho.b-cdn.net/public/AboutUsLanding.jpeg'} fill className=" h-full absolute top-0 object-cover object-center pt-0 self-end w-full  md:pl-10 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
       <div className="z-[1] flex flex-col w-full h-full text-left relative pt-10">
-        <div className="lg:w-[565px] h-full absolute left-0 top-0 w-[35%]"
+        <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
         style={{
           background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
         }}
@@ -30,13 +29,13 @@ export default function AboutUs() {
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 400,
           }}
-          className="text-[#022968] text-6xl"
+          className="text-[#022968] text-3xl md:text-6xl"
           >
             About Mountain Spine & Orthopedics
           </TextAnimate>
       </div>
 
-      <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[70%] xl:w-[50%] pb-8">
+      <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] xl:w-[50%] pb-8">
           <p
           style={{
             fontFamily: "var(--font-inter)",
@@ -44,7 +43,7 @@ export default function AboutUs() {
             fontSize: "20px",
             lineHeight: "148%",
           }}
-          className="text-[#111315]"
+          className="text-white text-shadow-sm text-md sm:text-lg md:text-xl"
           >
               Advanced Orthopaedics is dedicated to delivering minimally invasive laser spine surgeries to eliminate the pain, discomfort, and dysfunction of numerous conditions of the neck and back.            
           </p>
@@ -73,7 +72,7 @@ export default function AboutUs() {
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
             }}
-            className='text-[#00031A] md:text-6xl text-center text-5xl '
+            className='text-[#00031A] md:text-6xl text-center text-3xl sm:text-5xl '
             >
             Leading Experts in Minimally Invasive Spine Surgery & Pain Management
             </h1>
@@ -85,7 +84,7 @@ export default function AboutUs() {
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
             }}
-            className='text-[#5B5F67] text-xl text-center'
+            className='text-[#5B5F67] text-lg sm:text-xl text-center'
             >
             Our award-winning team of FL spine surgeons and medical staff offer the latest in research, technology, and treatments for pain management and minimally invasive surgery.<span className='text-black font-[600]'> Our comprehensive “concierge” services range from non-surgical, conservative methods to gentle, minimally invasive surgeries performed through incisions that are smaller than a postage stamp.</span>
             <br/><br/>

@@ -2,7 +2,6 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react' // Added useState
 import Image from 'next/image'
-import Landing from '../../public/AreaOfSpecLanding.jpeg'
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 // Remove the basic Input import if no longer needed elsewhere
 // import { Input } from '@/components/ui/input'
@@ -105,7 +104,7 @@ export default function Treatments() {
           }}
           className="w-full h-[120px] absolute top-0 z-[1]" // Removed border for clarity
           />
-          <Image src={Landing} className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full" alt="Doctor Diagnosing a Old Patient"/>
+          <Image src={'https://mountainspineortho.b-cdn.net/public/AreaOfSpecLanding.jpeg'} fill className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full" alt="Doctor Diagnosing a Old Patient"/>
 
           <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60 lg:pt-120">
             <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"

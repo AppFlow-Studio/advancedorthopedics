@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Landing from '@/public/MeetOurDoctorsLanding.jpeg'
 import { Doctors } from "@/components/data/doctors";
 import DoctorCard from '@/components/DoctorCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews';
@@ -11,7 +10,7 @@ export default function MeetOurDoctors() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
         <section className="w-full h-full flex flex-col relative overflow-hidden" >
-          <Image src={Landing} className="xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
+          <Image src={'https://mountainspineortho.b-cdn.net/public/MeetOurDoctorsLanding.jpeg'} fill className="h-full absolute top-0 object-cover  object-center md:object-top self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
 
           <div className="z-[1] flex flex-col w-full h-full text-left relative pt-50">
             <div className="md:w-[565px] h-full absolute left-0 top-0 w-[95%]"

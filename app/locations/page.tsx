@@ -17,7 +17,7 @@ export default function LocationsScreen() {
   const [selectedLocation, setSelectedLocation] = useState<ClinicsProps | undefined>(undefined);
   return (
       <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-            <section className=' bg-[#6FC2ED] w-full flex flex-row'>
+            <section className=' bg-[#6FC2ED] w-full flex flex-row' id="Locations">
               <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
                   <TextAnimate animation="blurInUp" by="character" once
                   style={{
@@ -60,7 +60,16 @@ export default function LocationsScreen() {
                {
                 clinics.map((item, index) => (
                   <div key={index} className='w-full flex flex-row items-center bg-[#6FC2ED] justify-center p-4 rounded-3xl group hover:cursor-pointer'
-                  onClick={() => setSelectedLocation(item)}
+                  onClick={() => {
+                    setSelectedLocation(item)
+                    const goToSection = () => {
+                      const section = document.getElementById('Locations');
+                      if (section) {
+                        section.scrollIntoView({ block : 'start', behavior: 'smooth' });
+                      }
+                    }
+                    goToSection()
+                  }}
                   >
                     <div className=' rounded-2xl p-2 w-full flex flex-row items-center justify-evenly   bg-[rgba(247,247,247,0.20)] overflow-ellipsis group-hover:bg-[rgba(247,247,247,0.70)] transition-all duration-300 ease-in-out'
                     >

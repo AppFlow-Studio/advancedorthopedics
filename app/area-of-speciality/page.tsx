@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Components & Data - Adjust paths as needed
-import Landing from '../../public/AreaOfSpecLanding.jpeg' // Assuming path is correct
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton' // Assuming component exists
 import ConditionCard, { ConditionInfoProp } from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
@@ -70,8 +69,9 @@ export default function AreaOfSpeciality() {
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
         <Image
-          src={Landing}
+          src={'https://mountainspineortho.b-cdn.net/public/AreaOfSpecLanding.jpeg'}
           alt="Doctor Diagnosing a Old Patient"
+          fill
           className=" h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full"
         />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">

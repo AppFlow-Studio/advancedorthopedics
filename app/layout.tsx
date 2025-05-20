@@ -62,17 +62,13 @@ export const metadata: Metadata = {
     url: "https://mountainspineorthopedics.com",
     type: "website",
     title: "Mountain Spine & Orthopedics",
-    locale: "en_US",
     description:
       "Mountain Spine & Orthopedics - Your trusted partner in spine care.",
     images: [
       {
-        url: "https://mountainspineorthopedics.com/images/home/thumbnail.png",
-        width: 1200,
-        height: 630,
-        alt: "Mountain Spine & Orthopedics"
+        url: "https://mountainspineortho.b-cdn.net/Screenshot%202025-05-20%20at%2011.40.13%E2%80%AFAM.png",
       }
-    ]
+    ],
   },
   alternates: {
     canonical: "https://mountainspineorthopedics.com"
@@ -86,9 +82,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    "max-image-preview": "large",
-    "max-snippet": -1,
-    "max-video-preview": -1,
     googleBot: "index, follow"
   },
   applicationName: "Mountain Spine & Orthopedics",
