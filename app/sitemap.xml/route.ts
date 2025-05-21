@@ -16,7 +16,22 @@ const NeckPainAreas = Conditions.filter(( condition ) =>
     || condition.slug == "arthritis" || condition.slug == "pinchednerve"
 );
 
-const FindCare = ["book-an-appointment", "find-a-doctor", "second-opinion", "free-mri-review", "candidacy-check", "insurance-policy", "patient-forms"];
+const FindCare = [
+    "book-an-appointment",
+    "find-a-doctor",
+    "second-opinion",
+    "free-mri-review",
+    "candidacy-check",
+];
+
+function slugify(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/&/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-');
+}
 
 export async function GET() {
     const blogs = await GetBlogs();
@@ -46,22 +61,16 @@ export async function GET() {
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>${baseUrl}/area-of-pain/leg-pain/legpaintreatmentoptions</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
     ${FindCare.map(findCare => `
     <url>
-        <loc>${baseUrl}/${findCare}</loc>
+        <loc>${baseUrl}/find-care/${findCare}</loc>
         <lastmod>2025-05-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>`).join('')}
     ${clinics.map(clinic => `
     <url>
-        <loc>${baseUrl}/clinics/${clinic.id}</loc>
+        <loc>${baseUrl}/locations/${slugify(clinic.name)}</loc>
         <lastmod>2025-05-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
