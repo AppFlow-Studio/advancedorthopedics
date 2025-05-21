@@ -24,6 +24,15 @@ const FindCare = [
     "candidacy-check",
 ];
 
+function slugify(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/&/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-');
+}
+
 export async function GET() {
     const blogs = await GetBlogs();
     const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
@@ -61,7 +70,7 @@ export async function GET() {
     </url>`).join('')}
     ${clinics.map(clinic => `
     <url>
-        <loc>${baseUrl}/clinics/${clinic.id}</loc>
+        <loc>${baseUrl}/locations/${slugify(clinic.name)}</loc>
         <lastmod>2025-05-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
