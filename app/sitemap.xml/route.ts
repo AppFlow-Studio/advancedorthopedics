@@ -16,7 +16,13 @@ const NeckPainAreas = Conditions.filter(( condition ) =>
     || condition.slug == "arthritis" || condition.slug == "pinchednerve"
 );
 
-const FindCare = ["book-an-appointment", "find-a-doctor", "second-opinion", "free-mri-review", "candidacy-check", "insurance-policy", "patient-forms"];
+const FindCare = [
+    "book-an-appointment",
+    "find-a-doctor",
+    "second-opinion",
+    "free-mri-review",
+    "candidacy-check",
+];
 
 export async function GET() {
     const blogs = await GetBlogs();
@@ -46,15 +52,9 @@ export async function GET() {
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>${baseUrl}/area-of-pain/leg-pain/legpaintreatmentoptions</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
     ${FindCare.map(findCare => `
     <url>
-        <loc>${baseUrl}/${findCare}</loc>
+        <loc>${baseUrl}/find-care/${findCare}</loc>
         <lastmod>2025-05-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
