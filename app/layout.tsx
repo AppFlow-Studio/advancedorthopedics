@@ -74,9 +74,8 @@ export const metadata: Metadata = {
     canonical: "https://mountainspineorthopedics.com"
   },
   icons: {
-    icon: '/newlogo4.png',
-    apple: '/newlogo4.png',
-
+    icon: 'https://mountainspineortho.b-cdn.net/newlogo4.png',
+    apple: 'https://mountainspineortho.b-cdn.net/newlogo4.png',
   },
   metadataBase: new URL("https://mountainspineorthopedics.com"),
   robots: {

@@ -70,7 +70,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         We will do our best to reach you during your preferred contact time of <strong>{bestTime}</strong>, using the contact details you provided.
       </p>
       <p style={{color : 'black'}}>
-        If you have any immediate questions, please don't hesitate to contact us at <a href="tel:+1-555-ORTHO-CARE" style={{ color: '#0094E0' }}>(555) ORTHO-CARE</a> or reply to this email. {/* Updated link color to secondary color #0094E0 */}
+        If you have any immediate questions, please don't hesitate to contact us at <a href="tel:8339314888" style={{ color: '#0094E0' }}>(833) 931-4888</a> or reply to this email. {/* Updated link color to secondary color #0094E0 */}
       </p>
       <p style={{ marginTop: '30px', color : 'black' }}>
         Sincerely,
@@ -81,12 +81,12 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 
     {/* Footer Section */}
     <div style={{ backgroundColor: '#f4f4f4', color: '#777', padding: '15px', textAlign: 'center', fontSize: '12px' }}>
-      <p style={{ margin: '0' }}>Mountain Spine & Orthopedic Center</p>
+      {/* <p style={{ margin: '0' }}>Mountain Spine & Orthopedic Center</p>
       <p style={{ margin: '0' }}>123 Healthway Drive, Mountain City, MC 54321</p>
       <p style={{ margin: '0' }}>
-        {/* Updated link color to secondary color #0094E0 */}
+
         <a href="https://www.mountainspineortho.example.com" style={{ color: '#0094E0' }}>www.mountainspineortho.example.com</a>
-      </p>
+      </p> */}
     </div>
   </div>
 );

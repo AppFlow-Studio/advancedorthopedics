@@ -371,7 +371,7 @@ export default function NavBar() {
                   }}
                   >
                       <h1 className="md:text-lg text-mdfont-[600]">MOUNTAIN</h1>
-                      <h2 className="font-[600] text-xs"> SPINE & ORTHOPEDIC</h2>    
+                      <h2 className="font-[600] text-xs"> SPINE & ORTHOPEDICS</h2>    
                   </div>
               </Link>
   

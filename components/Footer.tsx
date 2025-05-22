@@ -69,7 +69,7 @@ export default function Footer() {
                             fontWeight : 400,
                             color : '#DCDEE1'
                         }}
-                       > (855)-853-6542</h1>
+                       ><a href="tel:8339314888" className='hover:text-[#0094E0] hover:underline'>(833) 931-4888</a></h1>
                     </div>
 
                     <div className=' flex flex-row mt-[12px] space-x-[12px] items-center '>
@@ -137,6 +137,7 @@ export default function Footer() {
                 <Link href={'/locations/1'}>Altamonte Springs</Link >
                 <Link href={'/locations/2'}>Davenport</Link >
                 <Link href={'/locations/3'}>Fort Myers</Link >
+                <Link href={'/locations/9'}>Fort Pierce</Link >
                 <Link href={'/locations/8'}>Boca Raton</Link >
                 <Link href={'/locations/4'}>Hollywood</Link >
                 <Link href={'/locations/7'}>Miami</Link >

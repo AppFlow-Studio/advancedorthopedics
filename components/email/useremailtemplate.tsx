@@ -87,7 +87,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({name, ema
 
           <p style={{ color: '#374151', marginBottom: '24px' }}> {/* text-gray-700 mb-6 */}
             If you need immediate assistance, please call our main office at{" "}
-            <span style={{ color: '#0094E0', fontWeight: '500' }}>(555) 123-4567</span>. {/* text-[#0094E0] font-medium */}
+            <span style={{ color: '#0094E0', fontWeight: '500' }}><a href="tel:8339314888">(833) 931-4888</a></span>. {/* text-[#0094E0] font-medium */}
           </p>
 
           <hr style={{ borderColor: '#e5e7eb', marginTop: '24px', marginBottom: '24px' }} /> {/* border-gray-200 my-6 */}
