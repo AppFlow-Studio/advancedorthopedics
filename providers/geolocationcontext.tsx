@@ -3,14 +3,32 @@
 
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-const GeolocationContext = createContext();
+type LocationType = {
+  latitude: number | null;
+  longitude: number | null; 
+  error: string | null;
+};
 
-const GeolocationProvider = ({ children }) => {
-  const [location, setLocation] = useState({
-    latitude: null,
-    longitude: null,
-    error: null,
-  });
+type GeolocationContextType = {
+  location: LocationType | undefined;
+  onSetLocation: (params: {latitude: number, longitude: number, error: string}) => void;
+};
+
+const GeolocationContext = createContext<GeolocationContextType>({
+  location: undefined,
+  onSetLocation: () => {},
+});
+
+const GeolocationProvider = ({ children }: { children: React.ReactNode }) => {
+  const [location, setLocation] = useState<LocationType>();
+
+  const onSetLocation = ({latitude, longitude, error} : {latitude : number, longitude : number, error : string | null}) => {
+    setLocation({
+      latitude: latitude,
+      longitude: longitude,
+      error: error,
+    });
+  }
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -47,7 +65,7 @@ const GeolocationProvider = ({ children }) => {
   }, []);
 
   return (
-    <GeolocationContext.Provider value={location}>
+    <GeolocationContext.Provider value={{ location, onSetLocation }}>
       {children}
     </GeolocationContext.Provider>
   );

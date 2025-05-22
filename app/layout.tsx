@@ -7,7 +7,7 @@ import { MapProvider } from "@/providers/map-provider";
 import { GeolocationProvider } from "@/providers/geolocationcontext";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Head from "next/head";
-
+import { DelayedLocationPopup } from "@/components/delayedlocationpopup";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -100,37 +100,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Mountain Spine And Orthopedics",
-              url: "https://mountainspineorthopedics.com",
-              logo: "https://mountainspineorthopedics.com/newlogo4.png",
-              sameAs: [
-                "https://www.facebook.com/YOURPAGE",
-                "https://www.instagram.com/YOURPAGE",
-              ],
-            }),
-          }}
-        />
-      </Head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none`}
-      >
-        <MapProvider>
-          <GeolocationProvider>
-            <NavBar />
-            {children}
-            <Footer />
-          </GeolocationProvider>
-        </MapProvider>
+    <html lang="en">  
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
+        >
+          <MapProvider>
+            <GeolocationProvider>
+              <NavBar />
+              {children}
+              <Footer />
+            </GeolocationProvider>
+          </MapProvider>
+        </body>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
-      </body>
     </html>
   );
 }

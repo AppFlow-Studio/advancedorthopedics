@@ -519,7 +519,7 @@ export default function Home() {
                   >Services & Expertise</h1>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-[10px] mt-[40px]">
+                <div className="sm:grid hidden grid-cols-2 gap-[10px] mt-[40px]">
                   {
                     ServicesAndExpertise.map(( item ) => (
                       <div
@@ -536,7 +536,7 @@ export default function Home() {
 
               </div>
 
-              <div className=" rounded-[24px] bg-[#FAFAFA] p-10 flex flex-col col-span-2">
+              <div className=" rounded-[24px] bg-[#FAFAFA] p-10 flex-col col-span-2 sm:flex hidden">
                 <div className="">
                   <h1
                   style={{
@@ -568,10 +568,10 @@ export default function Home() {
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
                   {
                     ServicesAndExpertise.map((item,index) => (
-                      <div className="flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer" key={item.title}
+                      <div className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${selectedService == item.title ? `sm:bg-[linear-gradient(177deg,#022968_-13.59%,#0094E0_109.86%)]  ${index % 2 == 1? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} ` : `sm:bg-[#FAFAFA] ${index % 2 == 1? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'}`}  `} key={item.title}
                       onClick={() => setSelectedService(item.title)}
                       style={{
-                        background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
+                        //background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
                       }}
                       >
                         <div className=" flex flex-row items-center justify-between">
@@ -580,13 +580,12 @@ export default function Home() {
                             style={{
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 500,
-                              color : selectedService == item.title  ? 'white' : '#022968'
                             }}
-                            className="text-lg self-center"
+                            className={`text-lg self-center ${selectedService == item.title  ? 'sm:text-white text-[#022968]' : 'text-[#022968]'}`}
                             >0{index + 1}</h1>
                           </div>
   
-                         <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-6"> <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/> </div>
+                         <div className={`sm:bg-[#EFF5FF] ${index % 2 == 1? 'bg-[#E5F6FF]' : 'bg-[#EFF5FF]'}   rounded-full border border-[#EFF5FF] py-3 px-6`}> <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/> </div>
                           
                         </div>
   
@@ -595,31 +594,57 @@ export default function Home() {
                              style={{
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 500,
-                              color : selectedService == item.title  ? 'white' : '#022968',
                             }}
-                            className="text-3xl"
+                            className={`text-3xl ${selectedService == item.title  ? 'sm:text-white text-[#022968]' : 'text-[#022968]'}`}
                             >{item.title}</h1>
   
                             <h1
                             style={{
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 500,
-                              color : selectedService == item.title  ? '#EFF5FF' : '#5B5F67',
                             }}
-                            className="text-lg"
+                            className={`text-lg ${selectedService == item.title  ? 'sm:text-white text-[#022968]' : 'text-[#022967]'}`}
                             >
                               {item.desc}
                             </h1>
                         </div>
   
                        <div className="w-full max-h-[240px] h-full relative" >
-                        <Image src={item.anatomy} alt={item.title} height={240} width={240} layout="responsive" className="w-full max-h-[240px] h-full object-cover aspect-square rounded-[24px] lg:h-[240px]"/>
+                        <Image src={item.anatomy} alt={item.title} height={240} width={240} layout="responsive" className="w-full sm:flex hidden max-h-[240px] h-full object-cover aspect-square rounded-[24px] lg:h-[240px]"/>
                        </div>
                       </div>
                     ))
                   }
               </div>
             </Reveal>
+
+            <div className=" rounded-[24px] bg-[#FAFAFA] p-10 sm:hidden flex-col col-span-2 flex mt-8">
+                <div className="">
+                <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                  color : 'black',
+                  lineHeight : 1.5
+                }}
+                className="md:px-6 sm:text-2xl text-lg"
+                >
+                  We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis,
+                  sports injuries, and joint pain. Using minimally invasive techniques
+                  and evidence-based treatments, our specialists provide personalised solutions for faster recovery and lasting mobility.
+                </h1>
+              </div>
+
+              <div className=" mt-[40px] md:w-[45%] "> 
+              <BookAnAppoitmentButton />
+              </div>
+              
+              <div>
+
+              </div>
+
+            </div>
+
       </section>
       {/*  */}
 

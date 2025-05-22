@@ -33,7 +33,7 @@ export default function ClinicsMap({ startingClinic } :  {
   startingClinic? : {id : number, name : string, lat : number, lng : number, address : string}, 
 }) {
 
-  const location = useGeolocation();
+  const {location} = useGeolocation();
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
    const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
@@ -46,7 +46,6 @@ export default function ClinicsMap({ startingClinic } :  {
       setMapCenter({lat: startingClinic.lat , lng: startingClinic.lng})
     }
    }, [startingClinic])
-   
    const onLoad = useCallback(function callback(mapInstance) {
      // You can save the map instance if you need to interact with it
      setMap(mapInstance);
@@ -180,7 +179,7 @@ const handleClinicChange = (name: string) => {
 };
   useEffect(() => {
     if( !startingClinic ) {setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))}
-  }, [])
+  }, [location,startingClinic])
   useEffect(() => {
     if( isInitialMount.current && selectedClinc && !startingClinic  ){
       const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
