@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: { ConditionDetails:
         tags: ["Back Pain", "Orthopedics", "Spine Orthopedics", "Neck Pain", "Leg Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain", "Toe Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"],
         images: [
           {
-            url: 'https://mountainspineortho.b-cdn.net/public/AboutUsLanding.jpeg',
+            url: condition.card_img,
             width: 1024,
             height: 576,
             alt: condition.title,
