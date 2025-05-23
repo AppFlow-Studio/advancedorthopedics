@@ -118,7 +118,7 @@ export default function Footer() {
                 <Link href={'/blogs'}>Blog</Link >
                 <Link href={'faqs'}>Testimonials</Link >
                 <Link href={'/patient-forms'}>Patient Forms</Link >
-                <Link href={'/find-care/candidacy-check'}>Condition Check</Link >
+                <Link href={'/condition-check'}>Condition Check</Link >
                 <Link href={'find-care/candidacy-check'}>Treatment Check</Link >
                 <Link href={'/find-care/free-mri-review'}>MRI Review</Link >
                 </ul>
