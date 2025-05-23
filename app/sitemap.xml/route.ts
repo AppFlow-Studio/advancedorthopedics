@@ -56,7 +56,7 @@ export async function GET() {
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>${baseUrl}/area-of-pain/neck-and-shoulder-pain/neckandshouldertreatmentoptions</loc>
+        <loc>${baseUrl}/area-of-pain/neck-and-shoulder-pain/neckandshouldertreatments</loc>
         <lastmod>2025-05-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>

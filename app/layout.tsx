@@ -1,27 +1,31 @@
-import type { Metadata , Viewport} from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Reem_Kufi, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { MapProvider } from "@/providers/map-provider";
 import { GeolocationProvider } from "@/providers/geolocationcontext";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Head from "next/head";
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#5FBBEC"
+  themeColor: "#61BCEC",
+  colorScheme: "light dark",
 };
+
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 const ReemKufi = Reem_Kufi({
   variable: "--font-reem-kufi",
   weight: ["500"],
   subsets: ["latin"],
 });
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,56 +38,60 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mountain Spine And Orthopedics",
-  description: "Mountain Spine and Orthopedics - Florida's premier destination for minimally invasive spine and orthopedic procedures. Our expert doctors provide world-class care using advanced techniques for optimal patient outcomes.",
+  description:
+    "Florida’s trusted experts in spine and orthopedic care. Discover minimally invasive procedures, advanced pain management, and top-rated specialists.",
+  applicationName: "Mountain Spine & Orthopedics",
   verification: {
-    google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY"
+    google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY",
   },
   keywords: [
-    "spine",
-    "flordia spine surgeon",
-    "flordia spine care",
-    "flordia spine treatment",
-    "flordia spine pain",
-    "flordia spine injury",
-    "flordia spine condition",
-    "flordia spine surgery",
-    "orthopedics",
-    "spine care",
-    "spine surgery",
-    "spine treatment",
-    "spine pain",
-    "spine injury",
-    "spine condition",
-    "spine treatment",
-    "spine pain",
-    "spine injury",
+    "Florida orthopedic specialist",
+    "spine surgery Florida",
+    "minimally invasive spine care",
+    "joint pain doctor Florida",
+    "neck and back pain treatment",
+    "sports injury doctor Florida",
+    "orthopedic clinic Florida",
+    "board certified orthopedic surgeons",
+    "scoliosis treatment Florida",
+    "Mountain Spine and Orthopedics"
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: "index, follow",
+  },
   openGraph: {
     url: "https://mountainspineorthopedics.com",
     type: "website",
     title: "Mountain Spine & Orthopedics",
-    description:
-      "Mountain Spine & Orthopedics - Your trusted partner in spine care.",
+    description: "Florida’s trusted experts in spine and orthopedic care.",
     images: [
       {
         url: "https://mountainspineortho.b-cdn.net/Screenshot%202025-05-20%20at%2011.40.13%E2%80%AFAM.png",
-      }
+        width: 1200,
+        height: 630,
+        alt: "Mountain Spine & Orthopedics Clinic",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mountain Spine & Orthopedics",
+    description: "Trusted Florida spine & orthopedic specialists.",
+    site: "@MountainSpineOrtho", // Replace if you have a Twitter/X handle
+    images: [
+      "https://mountainspineortho.b-cdn.net/Screenshot%202025-05-20%20at%2011.40.13%E2%80%AFAM.png",
     ],
   },
   alternates: {
-    canonical: "https://mountainspineorthopedics.com"
+    canonical: "https://mountainspineorthopedics.com",
   },
   icons: {
-    icon: 'https://mountainspineortho.b-cdn.net/newlogo4.png',
-    apple: 'https://mountainspineortho.b-cdn.net/newlogo4.png',
+    icon: "/logoSearch.png",
+    apple: "/logoSearch.png",
   },
   metadataBase: new URL("https://mountainspineorthopedics.com"),
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: "index, follow"
-  },
-  applicationName: "Mountain Spine & Orthopedics",
 };
 
 export default function RootLayout({
@@ -93,19 +101,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
-        >
-          <MapProvider>
-            <GeolocationProvider>
-              <NavBar />
-              {children}
-              <Footer />
-            </GeolocationProvider>
-          </MapProvider>
-        </body>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Mountain Spine And Orthopedics",
+              url: "https://mountainspineorthopedics.com",
+              logo: "https://mountainspineorthopedics.com/newlogo4.png",
+              sameAs: [
+                "https://www.facebook.com/YOURPAGE",
+                "https://www.instagram.com/YOURPAGE",
+              ],
+            }),
+          }}
+        />
+      </Head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none`}
+      >
+        <MapProvider>
+          <GeolocationProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </GeolocationProvider>
+        </MapProvider>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
+      </body>
     </html>
   );
 }
