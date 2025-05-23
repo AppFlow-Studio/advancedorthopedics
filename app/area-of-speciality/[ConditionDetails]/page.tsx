@@ -200,7 +200,7 @@ export default function ConditionDetails({
                     </div>
                     
                     {/* Video */}
-                    <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
+                    <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
                     <h1
                          style={{
                             fontFamily : 'var(--font-inter)',
@@ -339,7 +339,7 @@ export default function ConditionDetails({
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
                           }}
-                          className='text-[#5B5F67] text-xl'
+                          className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.schedule}
                         </h1>

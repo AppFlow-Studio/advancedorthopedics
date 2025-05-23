@@ -25,7 +25,7 @@ export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : Trea
     <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/treatments/${ConditionInfo.slug}`}>
         <div >
             <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden">
-                    <Image src={imageSource} draggable={false} alt="Mountain Spine & Orthopedics Logo" className="h-full w-full aspect-video  " />
+                    <Image src={imageSource} draggable={false} alt="Mountain Spine & Orthopedics Logo" width={240} height={240} layout="cover" className="h-full w-full aspect-video object-cover object-center" />
             </div>
         </div>
 
