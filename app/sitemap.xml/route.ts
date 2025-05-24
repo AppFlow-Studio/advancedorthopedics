@@ -43,6 +43,13 @@ export async function GET() {
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
+     <url>
+        <loc>${baseUrl}/about/FAQs</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+     
     <url>
         <loc>${baseUrl}/condition-check</loc>
         <lastmod>${new Date().toISOString()}</lastmod>

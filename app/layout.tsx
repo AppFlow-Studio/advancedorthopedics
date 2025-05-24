@@ -109,6 +109,7 @@ export default function RootLayout({
               <NavBar />
               {children}
               <Footer />
+              <DelayedLocationPopup delayInSeconds={2.5} />
             </GeolocationProvider>
           </MapProvider>
         </body>
