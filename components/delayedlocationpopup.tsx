@@ -39,6 +39,7 @@ export function DelayedLocationPopup({
       longitude: position.coords.longitude,
       error: null,
     })
+    setShowPopup(false)
     // You could store the coordinates in localStorage or context for use elsewhere
     // localStorage.setItem("user_latitude", position.coords.latitude.toString())
     // localStorage.setItem("user_longitude", position.coords.longitude.toString())
@@ -48,7 +49,9 @@ export function DelayedLocationPopup({
     console.log("Location access denied")
     // You could set a flag in localStorage to remember the user's preference
     localStorage.setItem("location_permission_denied", "true")
+    setShowPopup(false)
   }
+  console.log('Show Popup',showPopup)
 
   if (!showPopup) return null
 

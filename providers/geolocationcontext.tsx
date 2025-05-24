@@ -11,7 +11,7 @@ type LocationType = {
 
 type GeolocationContextType = {
   location: LocationType | undefined;
-  onSetLocation: (params: {latitude: number, longitude: number, error: string}) => void;
+  onSetLocation: (params: {latitude: number | null, longitude: number | null, error: string | null}) => void;
 };
 
 const GeolocationContext = createContext<GeolocationContextType>({
@@ -30,39 +30,39 @@ const GeolocationProvider = ({ children }: { children: React.ReactNode }) => {
     });
   }
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      const watchId = navigator.geolocation.watchPosition(
-        (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            error: null,
-          });
-        },
-        (error) => {
-          setLocation({
-            latitude: null,
-            longitude: null,
-            error: error.message,
-          });
-        },
-        {
-          enableHighAccuracy: false,
-          timeout: 20000,
-          maximumAge: 1000,
-        }
-      );
+  // useEffect(() => {
+  //   if (navigator.geolocation) {
+  //     const watchId = navigator.geolocation.watchPosition(
+  //       (position) => {
+  //         setLocation({
+  //           latitude: position.coords.latitude,
+  //           longitude: position.coords.longitude,
+  //           error: null,
+  //         });
+  //       },
+  //       (error) => {
+  //         setLocation({
+  //           latitude: null,
+  //           longitude: null,
+  //           error: error.message,
+  //         });
+  //       },
+  //       {
+  //         enableHighAccuracy: false,
+  //         timeout: 20000,
+  //         maximumAge: 1000,
+  //       }
+  //     );
 
-      return () => navigator.geolocation.clearWatch(watchId);
-    } else {
-      setLocation({
-        latitude: null,
-        longitude: null,
-        error: 'Geolocation is not supported by this browser.',
-      });
-    }
-  }, []);
+  //     return () => navigator.geolocation.clearWatch(watchId);
+  //   } else {
+  //     setLocation({
+  //       latitude: null,
+  //       longitude: null,
+  //       error: 'Geolocation is not supported by this browser.',
+  //     });
+  //   }
+  // }, []);
 
   return (
     <GeolocationContext.Provider value={{ location, onSetLocation }}>

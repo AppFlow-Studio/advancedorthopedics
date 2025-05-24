@@ -34,6 +34,7 @@ export default function ClinicsMap({ startingClinic } :  {
 }) {
 
   const {location} = useGeolocation();
+  console.log(location)
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
    const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
@@ -180,6 +181,16 @@ const handleClinicChange = (name: string) => {
   useEffect(() => {
     if( !startingClinic ) {setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))}
   }, [location,startingClinic])
+
+  useEffect(() => {
+    if( location ) {
+      const nearestClinic = findNearestClinicNameGoogle(clinics, location, window.google)
+      setSeletecedClinic(nearestClinic)
+      const defaultMapCenter = { lat : nearestClinic?.lat, lng : nearestClinic?.lng} 
+      setMapCenter(defaultMapCenter)
+    }
+  }, [location])
+  console.log('Selected Clinic',selectedClinc)
   useEffect(() => {
     if( isInitialMount.current && selectedClinc && !startingClinic  ){
       const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
@@ -241,14 +252,61 @@ const DropdownIcon = () => (
 
 
 function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic : {id : number, name : string, lat : number, lng : number, address : string, link : string}, handleMarkerClick : (name : string) => void }) {
+  const {location, onSetLocation} = useGeolocation();
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  //const [open, setOpen] = useState(false);
+  const AllowLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+              onSetLocation({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                error: null,
+              });
+            },
+            (error) => {
+              onSetLocation({
+                latitude: null,
+                longitude: null,
+                error: error.message,
+              });
+            },
+            {
+              enableHighAccuracy: false,
+              timeout: 20000,
+              maximumAge: 1000,
+            }
+          );
+    
+        } else {
+          onSetLocation({
+            latitude: null,
+            longitude: null,
+            error: 'Geolocation is not supported by this browser.',
+          });
+        }
+  }
   return (
     <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
-      <h2 
-      style={{
-        fontFamily: "var(--font-reem-kufi)",
-        fontWeight: 400,
-      }}
-      className="text-2xl font-semibold text-[#5B5F67]">Find your Clinic</h2>
+      <div >
+        <h2 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 400,
+        }}
+        className="text-2xl font-semibold text-[#5B5F67]">
+          Find your Clinic
+        </h2>
+        {
+          !location && (
+            <p className="text-lg text-[#2358AC] underline" onClick={AllowLocation}>
+              Find your nearest clinic
+            </p>
+          )
+        }
+      </div>
       
       <div  className=' flex flex-row space-x-[20px] w-full overflow-hidden'>
           <Select
@@ -300,8 +358,12 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
   );
 }
 
+
+
 function findNearestClinicNameGoogle(clinics, userLocation, google) {
   // Check if geometry library is loaded
+  console.log('User Location',userLocation)
+  if( !userLocation ) {return clinics[0]}
   if (!google || !google.maps || !google.maps.geometry || !google.maps.geometry.spherical) {
     console.error("Google Maps API or geometry library not loaded.");
     return null;
@@ -333,6 +395,6 @@ function findNearestClinicNameGoogle(clinics, userLocation, google) {
       nearestClinic = clinic;
     }
   }
-
+  console.log('Nearest Clinic',nearestClinic)
   return nearestClinic ? nearestClinic : null;
 }
