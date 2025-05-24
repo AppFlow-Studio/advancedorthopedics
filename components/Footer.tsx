@@ -112,15 +112,14 @@ export default function Footer() {
             >
                 <h3 className=" uppercase tracking-wider mb-4 text-lg">Overview</h3>
                 <ul className=" space-y-[16px] flex flex-col text-sm text-[#DCDEE1]">
-                <Link href={'/find-care/book-an-appointment'}>Contact Us</Link >
-                <Link href={'/find-care/find-a-doctor'}>Doctors</Link >
-                <Link href={'/locations'}>Locations</Link >
-                <Link href={'/blogs'}>Blog</Link >
-                <Link href={'faqs'}>Testimonials</Link >
-                <Link href={'/patient-forms'}>Patient Forms</Link >
-                <Link href={'/condition-check'}>Condition Check</Link >
-                <Link href={'find-care/candidacy-check'}>Treatment Check</Link >
-                <Link href={'/find-care/free-mri-review'}>MRI Review</Link >
+                    <Link href={'/find-care/book-an-appointment'}>Contact Us</Link >
+                    <Link href={'/find-care/find-a-doctor'}>Doctors</Link >
+                    <Link href={'/locations'}>Locations</Link >
+                    <Link href={'/blogs'}>Blog</Link >
+                    <Link href={'/patient-forms'}>Patient Forms</Link >
+                    <Link href={'/condition-check'}>Condition Check</Link >
+                    <Link href={'find-care/candidacy-check'}>Treatment Check</Link >
+                    <Link href={'/find-care/free-mri-review'}>MRI Review</Link >
                 </ul>
             </div>
             {/* Column 2: Locations */}
