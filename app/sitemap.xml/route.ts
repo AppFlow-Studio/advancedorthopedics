@@ -75,13 +75,6 @@ export async function GET() {
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>`).join('')}
-    ${clinics.map(clinic => `
-    <url>
-        <loc>${baseUrl}/locations/${slugify(clinic.name)}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
     ${Doctors.map(doctor => `
     <url>
         <loc>${baseUrl}/about/meetourdoctors/${doctor.slug}</loc>
