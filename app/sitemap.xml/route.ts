@@ -49,7 +49,15 @@ export async function GET() {
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
-     
+    
+    ${Array.from({length: 8}, (_, i) => `
+    <url>
+        <loc>${baseUrl}/locations/${i + 1}</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>`).join('')}
+    
     <url>
         <loc>${baseUrl}/condition-check</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
@@ -71,13 +79,6 @@ export async function GET() {
     ${FindCare.map(findCare => `
     <url>
         <loc>${baseUrl}/find-care/${findCare}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${clinics.map(clinic => `
-    <url>
-        <loc>${baseUrl}/locations/${slugify(clinic.name)}</loc>
         <lastmod>2025-05-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
