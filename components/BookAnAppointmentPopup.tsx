@@ -60,6 +60,7 @@ const TIME_SLOTS = [
 export default function BookAnAppointmentPopup() {
   const [ openContactForm, setOpenContactForm ] = useState(false)
   const [ openAppointmentConfirm, setAppointmentConfirm ] = useState(false)
+  const [ loading, setLoading ] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -73,13 +74,20 @@ export default function BookAnAppointmentPopup() {
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log('Called')
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
-    await sendUserEmail(values)
-    await sendContactEmail(values)
-    setAppointmentConfirm(true)
+    try {
+      setLoading(true)
+      console.log('Called')
+      // Do something with the form values.
+      // ✅ This will be type-safe and validated.
+      console.log(values)
+      await sendUserEmail(values)
+      await sendContactEmail(values)
+      setAppointmentConfirm(true)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setLoading(false)
+    }
   }
   return (
        <div className="w-full self-center flex items-center justify-center flex-col" onClick={() => setOpenContactForm(true)}>
@@ -221,8 +229,20 @@ export default function BookAnAppointmentPopup() {
                 )}
                 />
     
-                <button type="submit" className="w-full self-center flex items-center justify-center">
-                  <BookAnAppointmentClient />
+                <button 
+                  type="submit" 
+                  disabled={loading}
+                  className="w-full self-center flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => setLoading(true)} 
+                >
+                  {loading ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Loading...</span>
+                    </div>
+                  ) : (
+                    <BookAnAppointmentClient />
+                  )}
                 </button>
 
                 <div>

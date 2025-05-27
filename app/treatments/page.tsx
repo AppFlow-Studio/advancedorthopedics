@@ -7,24 +7,81 @@ import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 // import { Input } from '@/components/ui/input'
 import ConditionCard from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
-import { AllTreatments } from '@/components/data/treatments' // Your master list of treatments
-import TreatmentCard, { TreatmentCardInfoProp } from '@/components/TreatmentCard' // Ensure TreatmentCardInfoProp is exported or defined
+import { AllTreatments, TreatmentsCardProp } from '@/components/data/treatments' // Your master list of treatments
+import TreatmentCard from '@/components/TreatmentCard'
 import TreatmentsSearchBar from '@/components/ui/TreatmentsSearchBar'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { BicepsFlexed, Bone, Footprints, Hand, User, TorusIcon, TextCursorInputIcon } from "lucide-react";
+import { MultiSelect } from '@/components/ui/multi-select'
+import { useSearchParams } from 'next/navigation'
 
 export default function Treatments() {
   // State for pagination
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(9); // Items per page
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const dataParam = searchParams.get('data');
+    if (dataParam) {
+        const filter = JSON.parse(decodeURIComponent(dataParam));
+        console.log('filter', filter);
+        setSelectedFilters([filter.key]);
+    }
+}, [searchParams]);
 
+const treatmentAreaParam = () => {
+  const dataParam = searchParams.get('data');
+    if (dataParam) {
+        const filter = JSON.parse(decodeURIComponent(dataParam));
+        return [filter.key];
+    }
+    return []
+}
   // State for data:
   // 'allData' holds the original, full list of treatments.
-  const [allData, setAllData] = React.useState<TreatmentCardInfoProp[]>(AllTreatments);
+  const [allData, setAllData] = React.useState<TreatmentsCardProp[]>(AllTreatments);
   // 'filteredData' holds the list after applying search filter. This is what pagination works on.
-  const [filteredData, setFilteredData] = React.useState<TreatmentCardInfoProp[]>(AllTreatments);
+  const [filteredData, setFilteredData] = React.useState<TreatmentsCardProp[]>(AllTreatments);
 
   const isInitialMount = useRef(true);
   const paginationRef = useRef<HTMLDivElement>(null); // Typed the ref
+
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  const filterCategories = [
+    { value: "Neck", label: "Neck", icon : User },
+    { value: "Shoulder", label: "Shoulder", icon : BicepsFlexed },
+    { value: "Spine", label: "Spine", icon : Bone },
+    { value: "Lower Spine", label: "Lower Spine", icon : TorusIcon },
+    { value: "Knee", label: "Knee", icon : TextCursorInputIcon },
+    { value: "Foot", label: "Foot", icon : Footprints },
+    { value: "Hand", label: "Hand", icon : Hand },
+  ];
+
+  // Filter treatments based on selected categories
+  const filterTreatments = (treatments: TreatmentsCardProp[]) => {
+    if (selectedFilters.length === 0) return treatments;
+    return treatments.filter(treatment => 
+      selectedFilters.includes(treatment.tag)
+    );
+  };
+
+  // Update filtered data when filters change
+  useEffect(() => {
+    const filtered = filterTreatments(allData);
+    setFilteredData(filtered);
+    setCurrentPage(1); // Reset to first page when filters change
+  }, [selectedFilters, allData]);
+
+  const handleFilterChange = (value: string) => {
+    setSelectedFilters(prev => {
+      if (prev.includes(value)) {
+        return prev.filter(filter => filter !== value);
+      }
+      return [...prev, value];
+    });
+  };
 
   // Calculate items for the current page based on filteredData
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -36,7 +93,7 @@ export default function Treatments() {
 
   // --- Search Bar Handlers ---
   // Function called when a treatment is selected in the search bar dropdown
-  const handleSelectTreatment = (selectedTreatment: TreatmentCardInfoProp) => {
+  const handleSelectTreatment = (selectedTreatment: TreatmentsCardProp) => {
     setFilteredData([selectedTreatment]); // Show only the selected treatment
     setCurrentPage(1); // Reset to the first page
   };
@@ -93,6 +150,7 @@ export default function Treatments() {
   }, [currentPage]);
 
   // --- Main Render ---
+  console.log('selectedFilters', selectedFilters);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing Section (no changes) */}
@@ -149,7 +207,7 @@ export default function Treatments() {
               }}
               className='text-[#111315] sm:text-5xl text-3xl'
               >
-                We are Here to Listen, Tell us your Story
+                We are Here to Listen, Tell us your Story
               </h1>
 
               <h1
@@ -159,7 +217,7 @@ export default function Treatments() {
               }}
               className='text-[#5B5F67] sm:text-xl text-md sm:w-[75%] '
               >
-                Do you have a spinal condition that’s causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you’ll never be able to get your pain under control or that it might continue to worsen as you age?
+                Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
               </h1>
           </div>
 
@@ -172,7 +230,7 @@ export default function Treatments() {
               }}
               className='text-[#111315] sm:text-2xl text-xl '
               >
-                WELL, YOU’RE NOT ALONE.
+                WELL, YOU'RE NOT ALONE.
               </h1>
 
               <h1
@@ -183,7 +241,7 @@ export default function Treatments() {
               }}
               className='text-[#5B5F67] sm:text-xl text-sm sm:w-[75%] w-full'
               >
-                Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
+                Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
                 <br/><br/>
                 At NJ Spine and Orthopedic, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
               </h1>
@@ -193,45 +251,79 @@ export default function Treatments() {
 
         {/* Treatments List Section */}
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
-          <div className='space-y-[16px] flex flex-col md:flex-row justify-between items-center' > {/* Adjusted layout for responsiveness */}
-              <h1
+          <div className='space-y-[16px] flex flex-col md:flex-row justify-between items-center'>
+            <h1
               style={{
-                fontFamily : 'var(--font-reem-kufi)',
-                fontWeight : 500,
+                fontFamily: 'var(--font-reem-kufi)',
+                fontWeight: 500,
               }}
-              className='text-[#111315] text-4xl md:text-5xl mb-4 md:mb-0' // Adjusted size/margin
-              >
-                All Our Treatments
-              </h1>
+              className='text-[#111315] text-4xl md:text-5xl mb-4 md:mb-0'
+            >
+              All Our Treatments
+            </h1>
 
-             {/* ==== SEARCH BAR INTEGRATION ==== */}
-             <div className="w-full md:w-1/2 lg:w-1/3"> {/* Control search bar width */}
+            <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col md:flex-row gap-x-4">
+              {/* Search Bar */}
+              <div className="w-full md:w-1/2">
                 <TreatmentsSearchBar
-                    treatments={allData}           // Pass the full list for searching
-                    onSelect={handleSelectTreatment} // Handler for selecting an item
-                    onClear={handleClearSearch}      // Handler for clearing the search
+                  treatments={allData}
+                  onSelect={handleSelectTreatment}
+                  onClear={handleClearSearch}
                 />
-             </div>
-             {/* =============================== */}
+              </div>
 
+              {/* Filter Dropdown */}
+              {/* <div className="w-full md:w-1/2">
+                <Select
+                  value={selectedFilters.join(',')}
+                  onValueChange={(value) => {
+                    if (value === '') {
+                      setSelectedFilters([]);
+                    } else {
+                      handleFilterChange(value);
+                    }
+                  }}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Filter by category"  />
+                  </SelectTrigger>
+                  <SelectContent >
+                    {filterCategories.map((category) => (
+                      <SelectItem key={category.value} value={category.value}>
+                        <div className="flex items-center gap-2">
+                          <span>{category.label}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div> */}
+              <div className='w-full md:w-1/2'>
+                <MultiSelect
+                  options={filterCategories}
+                  onValueChange={setSelectedFilters}
+                  defaultValue={treatmentAreaParam()}
+                  placeholder="Select Category"
+                  variant="inverted"
+                  animation={2}
+                  maxCount={3}
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Display Treatment Cards based on currentItems from pagination */}
+          {/* Display Treatment Cards */}
           {currentItems.length > 0 ? (
-             <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[60px] gap-[32px] '>
-                {
-                    currentItems.map((item) =>
-                        <TreatmentCard ConditionInfo={item} key={item.slug} /> // Use unique slug for key
-                    )
-                }
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[60px] gap-[32px]'>
+              {currentItems.map((item) => (
+                <TreatmentCard ConditionInfo={item} key={item.slug} />
+              ))}
             </div>
           ) : (
-            // Message when no treatments match the filter
             <div className='text-center text-gray-600 mt-10 text-lg'>
-                No treatments found matching your search criteria.
+              No treatments found matching your search criteria.
             </div>
           )}
-
 
           {/* Pagination Controls - Render only if needed */}
           {filteredData.length > itemsPerPage && ( // Show pagination only if more items than fit on one page

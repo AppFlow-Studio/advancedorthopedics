@@ -7,6 +7,7 @@ import Link from 'next/link'
 export interface ConditionInfoProp {
     title : string
     body : string
+    tag : string
     slug : string
     forum? : {}[]
     card_img?: StaticImageData | string

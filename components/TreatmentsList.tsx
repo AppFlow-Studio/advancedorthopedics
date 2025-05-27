@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { AllTreatments, TreatmentsCardProp } from './data/treatments';
-import { TreatmentCardInfoProp } from './TreatmentCard';
 import TreatmentsSearchBar from './ui/TreatmentsSearchBar';
 // Your data - replace with your actual list items
 

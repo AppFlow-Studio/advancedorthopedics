@@ -23,98 +23,7 @@ import arthritis2 from '@/public/arthritis2.jpeg'
 import pinchednerve from '@/public/pinchednerve.jpeg'
 import pinchednerve2 from '@/public/pinchednerve2.jpeg'
 import pinchednerveside from '@/public/pinchednerveside.jpeg'
-import adjacentSegmentDisease from '@/public/adjsegdisease1.jpg'
-import adjacentSegmentDisease2 from '@/public/AdjacentSegmentDisease2.png'
-import adultDegenerativeScoliosis from '@/public/AdultDegenerativeScoliosis.png'
-import LowerBackPainimg from '@/public/LowerBackPainimg.png'
-import LowerBackPaintxt from '@/public/LowerBackPaintxt.png'
-import BackPaincard from '@/public/BackPaincard.jpg'
-import BulgingDisc from '@/public/BulgingDisc.png'
-import BulgingDiscarti from '@/public/BulgingDiscarti.png'
-import CarpalTunnelSyndrome from '@/public/CarpalTunnelSyndrome.png'
-import CarpalTunnelSyndromearti from '@/public/CarpalTunnelSyndromearti.png'
-import CervicalDeformitiescard from '@/public/CervicalDeformitiescard.png'
-import CervicalDeformitiestxt from '@/public/CervicalDeformitiestxt.webp'
-import DiscTear from '@/public/DiscTear.jpeg'
-import DiscTeartxt from '@/public/DiscTeartxt.jpeg'
-import aiicard from '@/public/aiicard.jpeg'
-import aiitxt from '@/public/aiitxt.jpg'
 
-import DegenerativeDiscDisease from '@/public/DegenerativeDiscDisease.png'
-import DegenerativeDiscDiseasec from '@/public/DegenerativeDiscDiseasec.png'
-import FacetJointDisease from '@/public/FacetJointDisease.png'
-import FacetJointDiseasearti from '@/public/FacetJointDiseasearti.png'
-import pinchednervea from '@/public/PinchedNerve.png'
-import pinchednevrearti from '@/public/PinchedNervearti.png'
-import cervicalHerniatedDisc from '@/public/CervicalHerniatedDisc.png'
-import cervicalSpinalStenosis from '@/public/CervicalSpinalStenosis.png'
-import cervicalSpinalStenosisatri from '@/public/CervicalSpinalStenosisarti.png'
-import sciaticacopy from '@/public/Sciaticacopy.png'
-import sciaticaarti from '@/public/Sciaticaarti.png'
-import LumbarHerniatedDiscCard from '@/public/LumbarHerniatedDisc.png'
-import LumbarHerniatedDiscTxt from '@/public/LumbarHerniatedDiscarti.png'
-import coccydyniaC from '@/public/Coccydynia.png'
-import coccydyniaarti from '@/public/Coccydyniaarti.png'
-import failedBAN from '@/public/FailedBAN.png'
-import failedBANarti from '@/public/failedBANarti.png'
-import foraminalS from '@/public/ForaminalS.png'
-import foraminalSarti from '@/public/ForaminalSarti.png'
-import hipcard from '@/public/Hipcard.jpg'
-import hiparti from '@/public/Hiparti.png'
-import kyphosiscard from '@/public/Kyphosiscard.jpeg'
-import kyphosisarti from '@/public/Kyphosisarti.png'
-import labralTears from '@/public/labraltear.jpg'
-import labralTearsarti from '@/public/LabralTeararti.png'
-import looseB from '@/public/looseBody.png'
-import looseBarti from '@/public/looseBodiescard.jpeg'
-import agingcard from '@/public/agingM.jpg'
-import agingarti from '@/public/agearti.png'
-import neckcard from '@/public/neckcard.png'
-import neckarti from '@/public/neckarti.webp'
-import dddScard from '@/public/dddScard.png'
-import dddarti from '@/public/dddarti.png'
-import oste from '@/public/oste.png'
-import ostearti from '@/public/ostearti.jpg'
-import Pseud from '@/public/Pseud.png'
-import Pseudarti from '@/public/Pseudarti.webp'
-import sjdcard from '@/public/sjdcard.jpg'
-import sacard from '@/public/sacard.jpg'
-import saarti from '@/public/saartib.jpg'
-import stcard from '@/public/stcard.jpg'
-import starti from '@/public/starti.png'
-import shscard from '@/public/shscard.jpg'
-import shsarti from '@/public/shsarti.jpg'
-import sbscard from '@/public/sbscard.jpg'
-import sbsarti from '@/public/sbsarti.webp'
-import scfcard from '@/public/scfcard.png'
-import scfarti from '@/public/scfarti.jpg'
-import sscard from '@/public/sscard.jpg'
-import ssarti from '@/public/ssarti.jpg'
-import sdcard from '@/public/sdcard.png'
-import sdarti from '@/public/sdarti.jpg'
-import sdtcard from '@/public/adtcard.png'
-import syncard from '@/public/syncard.png'
-import synarti from '@/public/synarti.jpg'
-import tnecard from '@/public/tnecard.jpg'
-import tnearti from '@/public/tnearti.jpg'
-import tbarti from '@/public/tbarti.webp'
-import hdarti from '@/public/hdarti.jpeg'
-import hdcard from '@/public/hdcard.webp'
-import racard from '@/public/racard.jpeg'
-import raarti from '@/public/raarti.jpeg'
-import tmcard from '@/public/tmcard.png'
-import tmarti from '@/public/tmarti.webp'
-import rctcard from '@/public/rctcard.jpg'
-import rctarti from '@/public/rtcarti.jpg'
-import aclarti from '@/public/aclcard.png'
-import tecard from '@/public/tecard.jpg'
-import tearti from '@/public/tearti.jpg'
-import pfcard from '@/public/pfcard.webp'
-import pfarti from '@/public/pfarti.jpg'
-import barti from '@/public/barti.webp'
-import bcard from '@/public/bcard.jpeg'
-import rotatorcuff3 from '@/public/rotatorcufftear3.png'
-import ddd3 from '@/public/ddd3.png'
 import spondy3 from '@/public/spondy3.png'
 
 
@@ -139,6 +48,7 @@ import spondy3 from '@/public/spondy3.png'
 export const Conditions : ConditionInfoProp[] = [
   {
     "title": "Adult Degenerative Scoliosis",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/AdultDegenerativeScoliosis.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/AdultDegenerativeScoliosisArti.png',
     "body": "Adult Degenerative Scoliosis develops when age related wear on the spine creates a side to side curve that can cause pain and limit movement.  offers specialized care that eases discomfort, restores function, and improves quality of life while providing complimentary services that make every visit smooth and stress free.",
@@ -154,6 +64,7 @@ export const Conditions : ConditionInfoProp[] = [
   },
   {
     "title": "Adjacent Segment Disease",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/adjsegdisease1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/AdjacentSegmentDisease2.png',
     "body": "Adjacent Segment Disease (ASD) occurs when spinal segments next to a surgically treated area endure extra stress, which accelerates degeneration and discomfort. Knowing the symptoms, risk factors, diagnostic methods, and treatment options offered at  helps patients manage and prevent this condition effectively.",
@@ -169,6 +80,7 @@ export const Conditions : ConditionInfoProp[] = [
   },
   {
     "title": "Lumbar Herniated Disc",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDisc.png', 
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDiscarti.png',
     "body": "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
@@ -341,6 +253,7 @@ export const Conditions : ConditionInfoProp[] = [
 
 {
   "title": "Degenerative Disc Disease",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/DegenerativeDiscDiseasec.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/DegenerativeDiscDisease.png',
   "body": "Degenerative Disc Disease, often called DDD, refers to the natural wear and tear of the spinal discs that cushion each vertebra. At  our specialists provide comprehensive patient focused treatment that relieves back pain and improves quality of life through advanced care and complimentary services.",
@@ -513,6 +426,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Cervical Spinal Stenosis",
+  "tag": "Neck",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/CervicalSpinalStenosis.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/cervicalspinal2.png',
   "body": "Cervical Spinal Stenosis is a condition in which the spinal canal in the neck narrows compressing the spinal cord or exiting nerve roots. At  our fellowship trained spine specialists combine precise diagnostics with leading edge therapies to relieve pain protect neurologic function and restore confident neck mobility supported by complimentary MRI reviews free second opinions and convenient car service",
@@ -703,6 +617,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
 {
   "title": "Spondylolisthesis",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/adtcard.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sdtarti.jpg',
   "body": "Spondylolisthesis is a spinal condition in which one vertebra slips forward over the one below it often causing back pain nerve compression and reduced mobility. At Mountain Spine & Orthopedics we offer expert diagnosis and individualized treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore confident movement",
@@ -723,6 +638,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   title : 'Cervical Herniated Disc',
+  "tag": "Neck",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/CervicalHerniatedDisc.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/CervicalHerniatedDiscarti.png',
   "body": "A cervical herniated disc occurs when the soft gel like core of a neck level intervertebral disc ruptures through its outer layer and presses on nearby nerves or the spinal cord.  provides leading edge diagnostics and multidisciplinary care to relieve pain protect nerve function and restore neck mobility with free second opinions complimentary MRI reviews and car service for every patient",
@@ -946,6 +862,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Spinal Compression Fractures",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/scfcard.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/scfarti.jpg',
   "body": "Spinal compression fractures are small cracks or collapses in the vertebrae often caused by osteoporosis trauma or spinal tumors. These fractures can result in sudden back pain posture changes and mobility loss. At Mountain Spine & Orthopedics we provide expert evaluation and treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore function",
@@ -961,6 +878,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Kyphosis",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/Kyphosiscard.jpeg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Kyphosisarti.png',
   "body": "Kyphosis refers to an exaggerated forward curvature of the thoracic spine that can create a rounded back appearance chronic pain muscle fatigue and in severe cases breathing or digestive issues.  combines high resolution imaging evidence based therapies and patient centered amenities including complimentary MRI reviews free second opinions and convenient car service to correct spinal alignment relieve discomfort and restore confident posture",
@@ -975,7 +893,8 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
   "slug": "kyphosis"
 },
 {
-  "title": "Osteoarthritis",
+  "title": "Osteoarthritis",  
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/oste.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ostearti.jpg',
   "body": "Osteoarthritis is a progressive joint condition characterized by the breakdown of articular cartilage, bone spur formation, and low grade inflammation that together cause pain, stiffness, and reduced mobility. Mountain Spine & Orthopedics delivers comprehensive evaluation and evidence based treatment supported by complimentary MRI reviews, free second opinions, and convenient car service to slow disease progression, relieve symptoms, and help you remain active at every stage of life.",
@@ -991,6 +910,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Rotator Cuff Tear",
+  "tag": "Shoulder",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/rctcard.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/rtcarti.jpg',
   "body": "A rotator cuff tear occurs when one or more of the tendons that stabilize the shoulder joint become partially or fully torn, often causing persistent shoulder pain, weakness, and limited range of motion. Rotator cuff injuries affect up to 30 percent of people over age 60 and can significantly impact daily activities and quality of life. At Mountain Spine & Orthopedics, we provide comprehensive evaluation and treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to accurately diagnose tears and restore shoulder function.",
@@ -1011,6 +931,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "ACL Injury",
+  "tag": "Knee",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/aclcard.webp',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/aclcard.png',
   "body": "An ACL injury occurs when the anterior cruciate ligament—the primary stabilizer of knee rotation and forward tibial translation—is overstretched or torn, commonly due to sudden pivoting, abrupt deceleration, or direct impact. Patients often report a popping sound at the moment of injury, followed by rapid swelling and a sensation of instability. At Mountain Spine & Orthopedics, we specialize in prompt, accurate diagnosis and personalized treatment plans supported by complimentary MRI reviews, free second opinions, and door-to-door transportation. Our multidisciplinary approach ensures patients receive advanced care to restore knee stability, alleviate pain, and return to daily activities and sports with confidence.",
@@ -1025,7 +946,8 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
   "slug": "aclinjury"
 },
 {
-  "title": "Labral Tears",
+  "title": "Labral Tears",  
+  "tag": "Shoulder",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/labraltear.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LabralTeararti.png',
   "body": "A labral tear is a rupture of the fibrous cartilage ring that deepens and stabilizes either the shoulder glenoid or hip acetabular socket. These tears can produce pain clicking and instability that limit athletic performance and daily tasks. At  we pair cutting edge imaging with tailored non operative and arthroscopic solutions supported by complimentary MRI reviews free second opinions and convenient car service to repair the labrum restore smooth motion and protect long term joint health",
@@ -1041,6 +963,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Torn Meniscus",
+  "tag": "Knee",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/tmcard.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tmarti.webp',
   "body": "A torn meniscus is a tear of the C shaped cartilage pads that cushion and stabilize the knee joint, often resulting in pain, swelling, and mechanical symptoms that limit mobility. At Mountain Spine & Orthopedics, we provide expert evaluation with high resolution MRI, personalized treatment plans, and supportive services including complimentary MRI reviews, free second opinions, and door to door transportation to help you recover knee function and return to the activities you love.",
@@ -1057,6 +980,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
 {
   "title": "Sacroiliac Joint Dysfunction",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/sjdcard.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sjdarti.jpg',                                                                                                                                                                                                                                                                                                                                                                                                                 
   "body": "Sacroiliac SI Joint Dysfunction arises when the small but critical joints connecting the spine to the pelvis become inflamed or move abnormally producing lower back buttock or groin pain that can mimic sciatica. Mountain Spine & Orthopedics delivers precision diagnostics and evidence based therapies supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the SI joint relieve pain and restore effortless movement",
@@ -1073,6 +997,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
 {
   "title": "Trochanteric Bursitis",
+  "tag": "Lower Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/tbcard.avif',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tbarti.webp',
   "body": "Trochanteric bursitis is a painful condition caused by inflammation of the bursa over the outer hip leading to discomfort with walking climbing stairs or lying on the affected side. At Mountain Spine & Orthopedics we provide expert care supported by complimentary MRI reviews free second opinions and convenient car service to reduce inflammation relieve pain and restore hip function",
@@ -1088,6 +1013,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Carpal Tunnel Syndrome",
+  "tag": "Hand",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/CarpalTunnelSyndrome.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/CarpalTunnelSyndromearti.png',
   "body": "Carpal Tunnel Syndrome is a nerve compression disorder affecting the median nerve in the wrist often causing pain tingling and weakness in the hand. At  our team offers precise diagnostics and evidence based treatments to relieve symptoms restore hand function and protect your quality of life with complimentary patient amenities",
@@ -1103,6 +1029,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
   {
     "title": "Back Pain",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/BackPaincard.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/BackPaintxt.jpeg',
     "body": "Back pain refers to discomfort or severe pain that can appear in the lower, middle, or upper back and often limits daily activity.  creates complete treatment plans that blend modern techniques with compassionate, patient focused care to give lasting relief and restore mobility.",
@@ -1119,6 +1046,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Bulging Disc",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/BulgingDisc.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/BulgingDiscarti.png',
     "body": "A bulging disc occurs when an intervertebral disc protrudes beyond its normal boundary and may compress nearby nerves causing pain numbness or weakness. At  our specialists provide targeted treatments designed to relieve symptoms restore function and enhance quality of life through compassionate patient focused care.",
@@ -1134,6 +1062,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
   },
 {
   "title": "Pinched Nerve",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/PinchedNerve.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/PinchedNervearti.png',
   "body": "A pinched nerve, also called nerve compression or radiculopathy, occurs when surrounding tissues such as discs, bones, or swollen soft tissue press against a spinal or peripheral nerve producing pain, numbness, or weakness along the nerve’s path. Mountain Spine & Orthopedics offers precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve compression, restore sensation, and get you moving comfortably again.",
@@ -1318,6 +1247,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
   {
     "title": "Cervical Deformities",
+    "tag": "Neck",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/CervicalDeformitiescard.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/CervicalDeformitiestxt.webp',
     "body": "Cervical deformities involve abnormal alignment of the neck portion of the spine such as excessive kyphosis loss of natural lordosis or complex scoliosis which can cause pain neurological deficits and noticeable posture changes. At  our fellowship trained spine surgeons and multidisciplinary team provide state of the art evaluation and correction strategies that relieve symptoms protect spinal cord function and restore natural alignment while offering complimentary MRI reviews free second opinions and convenient car service",
@@ -1334,6 +1264,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Disc Tear",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/DiscTear.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/DiscTeartxt.jpeg',
     "body": "A disc tear also called an annular fissure or annular tear occurs when the tough outer ring of an intervertebral disc develops a crack allowing chemical irritants to leak and inflame nearby nerves. At  we deliver accurate diagnosis and evidence based care pairing complimentary MRI reviews and free second opinions with personalized treatment plans that relieve pain speed healing and restore spinal stability",
@@ -1350,6 +1281,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Anti Inflammatory Injections",
+    "tag": "Spine", 
     "card_img": 'https://mountainspineortho.b-cdn.net/public/aiicard.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/aiitxt.jpg',
     "body": "Anti inflammatory injections such as corticosteroid or biologic agents deliver potent medication directly to inflamed joints bursae or spinal regions rapidly reducing pain and swelling when oral therapies fall short. At  our specialists use image guided precision complimentary MRI reviews and personalized follow up to ensure each injection provides maximum relief with minimal risk",
@@ -1366,6 +1298,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Hip Dysplasia",
+    "tag": "Lower Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/HipDysplasiatxt.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/HipDysplsia.jpg',
     "body": "Hip dysplasia is a structural condition in which the hip socket or acetabulum is too shallow to fully cover and support the femoral head leading to joint instability early cartilage wear and progressive arthritis. At  our fellowship trained hip specialists combine state of the art imaging individualized treatment plans and patient focused amenities including complimentary MRI reviews free second opinions and convenient car service to preserve joint health and keep you moving pain free",
@@ -1383,6 +1316,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
     
     {
       "title": "Facet Joint Disease",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/FacetJointDisease.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/FacetJointDiseasearti.png',
       "body": "Facet Joint Disease, sometimes called Facet Syndrome, involves inflammation and degeneration of the facet joints in the spine.  delivers targeted treatment that eases pain, restores mobility, and supports an active lifestyle through exceptional patient care and helpful amenities.",
@@ -1398,6 +1332,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
     },
     {
       "title": "Arthritis",
+      "tag": "Hand",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/arthritis2.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/arthritis.png',
       "body": `Arthritis is a common joint condition that causes inflammation, stiffness, and pain, affecting millions of people across the U.S. It can severely limit mobility and interfere with daily activities like walking, climbing stairs, or even gripping objects. While arthritis is often associated with aging, it can affect people of all ages depending on the type and underlying cause.
@@ -1584,6 +1519,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
     {
       "title": "Lower Back Pain",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/LowerBackPainimg.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LowerBackPaintxt.png',
       "body": "Lower back pain is one of the most common musculoskeletal complaints ranging from a dull ache to sharp disabling discomfort that limits work sports and daily activities. At  we provide comprehensive evaluation and personalized treatment supported by complimentary MRI reviews free second opinions and convenient car service to identify the root cause of lower back pain and restore pain free movement",
@@ -1745,6 +1681,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
         "title": "Sciatica", 
+        "tag": "Lower Spine",
         "card_img": 'https://mountainspineortho.b-cdn.net/public/Sciaticacopy.png',
         "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Sciaticaarti.png',
         "body": "Sciatica refers to pain caused by irritation or compression of the sciatic nerve, which runs from the lower back through the hips and down each leg. Mountain Spine & Orthopedics provides precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve sciatic nerve pressure, reduce inflammation, and restore comfortable pain free motion.",
@@ -1929,6 +1866,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Coccydynia",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/Coccydynia.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Coccydyniaarti.png',
       "body": "Coccydynia or tailbone pain can make every sit stand or step an ordeal.  uses precise diagnosis and evidence based therapies to ease discomfort improve mobility and restore pain free sitting while providing complimentary MRI reviews free second opinions and door to door car service",
@@ -2245,7 +2183,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Failed Back or Failed Neck Surgery Syndrome",
+      "title": "Failed Back or Failed Neck Surgery Syndrome", 
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/FailedBAN.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/failedBANarti.png',
       "body": "Failed Back or Failed Neck Surgery Syndrome describes persistent or recurrent pain and functional limitations following spinal procedures that were expected to relieve symptoms. At  our multidisciplinary team specializes in uncovering the root causes of ongoing pain delivering precision diagnostics revision strategies and comprehensive rehabilitation supported by complimentary MRI reviews free second opinions and convenient car service to help patients reclaim quality of life",
@@ -2261,7 +2200,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-    "title": "Foraminal Stenosis",
+    "title": "Foraminal Stenosis",  
+    "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png', // Placeholder for card image variable
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ForaminalSarti.png', 
       "body": "Foraminal stenosis, a narrowing of the spinal canal openings where nerves exit, can cause radiating pain, numbness, or weakness. Mountain Spine Orthopedics offers advanced diagnostics and personalized treatments, including minimally invasive options, to relieve nerve compression and restore function, backed by complimentary MRI reviews and free second opinions.",
@@ -2587,6 +2527,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Hip Impingement (Femoroacetabular Impingement)",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/Hipcard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Hiparti.png',
       "body": "Hip impingement also known as femoroacetabular impingement or FAI occurs when abnormal contact between the femoral head neck junction and the rim of the hip socket leads to cartilage and labral damage causing groin pain stiffness and reduced athletic performance. At  we provide high resolution imaging personalized treatment options and patient centered amenities including complimentary MRI reviews free second opinions and convenient car service to help you return to pain free motion",
@@ -2603,6 +2544,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Loose Bodies",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/looseBodiescard.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/looseBody.png',
       "body": "Loose bodies are small fragments of cartilage bone or synovial tissue that break free within a joint and float in the synovial fluid causing painful catching locking and swelling. At  our team uses high resolution imaging arthroscopic expertise and patient centered care with complimentary MRI reviews free second opinions and car service to locate and remove loose bodies relieve symptoms and protect long term joint health",
@@ -2619,6 +2561,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Aging Management",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/agingM.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/agearti.png',
       "body": "Aging management focuses on proactive measures that preserve bone density, joint integrity, and muscle strength as we grow older, reducing the risk of fractures, chronic pain, and loss of independence.  offers personalized aging management programs supported by complimentary MRI reviews, free second opinions, and convenient car service to help you stay active, strong, and pain free throughout every decade",
@@ -2635,6 +2578,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Neck Pain",
+      "tag": "Neck",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/neckcard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/neckarti.webp',
       "body": "Neck pain ranges from a dull nagging ache to sharp disabling discomfort that can radiate into the arms and head disrupting work sleep and everyday activities.  offers comprehensive evaluation and individualized treatment supported by complimentary MRI reviews free second opinions and convenient car service to identify the precise cause of neck pain and restore comfortable motion",
@@ -2651,6 +2595,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     
     {
       "title": "Degenerative Disc Disease Surgery",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/dddScard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/dddarti.png',
       "body": "When conservative care no longer controls pain from Degenerative Disc Disease DDD surgical intervention can restore stability relieve nerve pressure and reclaim active living. Mountain Spine & Orthopedics offers state of the art surgical solutions including lumbar or cervical fusion motion preserving disc replacement and minimally invasive decompression backed by complimentary MRI reviews free second opinions and convenient car service to guide you confidently from decision to recovery",
@@ -2668,6 +2613,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Pseudarthrosis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/Pseudarti.webp',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Pseud.png',
       "body": "Pseudarthrosis commonly called a non union occurs when a fractured bone or surgical fusion site fails to heal into solid bone leaving a painful false joint that moves abnormally. At Mountain Spine & Orthopedics our subspecialty team combines high resolution imaging biologic therapies and revision surgical expertise supported by complimentary CT or MRI reviews free second opinions and door to door car service to achieve solid union relieve pain and restore dependable function",
@@ -2684,6 +2630,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Shoulder Arthritis",
+      "tag": "Shoulder",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sacard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/saartib.jpg',
       "body": "Shoulder arthritis is a degenerative joint condition that leads to cartilage loss, joint stiffness, and pain with motion, often impacting daily activities like lifting, dressing, or reaching overhead. At Mountain Spine & Orthopedics we offer expert evaluation and treatment supported by complimentary MRI reviews, free second opinions, and convenient car service to reduce shoulder pain, restore range of motion, and improve quality of life",
@@ -2700,6 +2647,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Shoulder Tendonitis",
+      "tag": "Shoulder",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/stcard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/starti.png',
       "body": "Shoulder tendonitis is a common overuse injury involving inflammation of the rotator cuff or biceps tendon, causing pain with motion, tenderness, and limited function. At Mountain Spine & Orthopedics we specialize in accurate diagnosis and targeted treatments supported by complimentary MRI reviews, free second opinions, and convenient car service to calm inflammation, restore motion, and get you back to pain free activity",
@@ -2716,6 +2664,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Snapping Hip Syndrome",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/shscard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/shsarti.jpg',
       "body": "Snapping Hip Syndrome is a condition where a tendon or muscle moves over a bony structure in the hip creating a snapping or popping sensation sometimes accompanied by pain or tightness. At Mountain Spine & Orthopedics we offer accurate diagnosis and personalized treatment supported by complimentary MRI reviews free second opinions and convenient car service to restore hip comfort function and mobility",
@@ -2732,6 +2681,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Spinal Bone Spurs",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sbscard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sbsarti.webp',
       "body": "Spinal bone spurs also known as osteophytes are bony growths that develop along the edges of vertebrae often in response to arthritis or disc degeneration. At Mountain Spine & Orthopedics we provide expert diagnosis and advanced treatment options supported by complimentary MRI reviews free second opinions and convenient car service to relieve nerve compression reduce pain and restore spinal mobility",
@@ -2748,6 +2698,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Spinal Stenosis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sscard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ssarti.jpg',
       "body": "Spinal stenosis is the narrowing of spaces within the spine which can compress spinal nerves and cause pain numbness or weakness. Mountain Spine & Orthopedics provides expert diagnosis and treatment supported by complimentary MRI reviews free second opinions and convenient car service to relieve nerve pressure restore comfort and help you move freely again",
@@ -2764,6 +2715,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Spine Deformities",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sdcard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sdarti.jpg',
       "body": "Spine deformities including scoliosis kyphosis and lordosis involve abnormal curvatures or misalignment of the spine that can lead to pain postural changes and reduced mobility. At Mountain Spine & Orthopedics we specialize in diagnosing and treating spinal deformities with customized care plans supported by complimentary MRI reviews free second opinions and convenient car service to improve alignment reduce discomfort and restore balance and function",
@@ -2780,6 +2732,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Synovitis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/syncard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/synarti.jpg',
       "body": "Synovitis is the inflammation of the synovial membrane that lines joints, leading to pain, swelling, and restricted movement. At Mountain Spine & Orthopedics we provide expert evaluation and advanced care supported by complimentary MRI reviews free second opinions and convenient car service to reduce joint inflammation improve mobility and prevent long term joint damage",
@@ -2796,6 +2749,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Tingling or Numbness in Extremities",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/tnecard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tnearti.jpg',
       "body": "Tingling or numbness in the arms hands legs or feet can signal nerve compression circulation issues or underlying neurological conditions. At Mountain Spine & Orthopedics we offer comprehensive diagnostics and advanced treatment supported by complimentary MRI reviews free second opinions and convenient car service to pinpoint the cause and restore healthy nerve function and sensation",
@@ -2812,6 +2766,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     
     {
       "title": "Herniated Disc",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/hdarti.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/hdcard.webp',
       "body": "A herniated disc occurs when the soft inner core of an intervertebral disc protrudes through its tougher outer layer, often pressing on nearby nerves and causing pain, numbness, or weakness. At Mountain Spine & Orthopedics, we provide advanced imaging, expert interpretation, and personalized care plans supported by complimentary MRI reviews, free second opinions, and door to door transportation to diagnose and treat herniated discs effectively.",
@@ -2828,6 +2783,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     
     {
       "title": "Rheumatoid Arthritis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/racard.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/raarti.jpeg',
       "body": "Rheumatoid arthritis is a chronic autoimmune disorder in which the body’s immune system mistakenly attacks the synovial lining of joints, leading to inflammation, pain, and progressive joint damage. It affects approximately 1% of the global population and can cause significant disability if untreated. At Mountain Spine & Orthopedics, we deliver comprehensive care—from early diagnosis to long-term management—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation to ensure every patient receives personalized treatment and unmatched convenience.",
@@ -2844,6 +2800,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Tennis Elbow",
+      "tag": "Hand",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/tecard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tearti.jpg',
       "body": "Tennis elbow, also known as lateral epicondylitis, is an overuse injury causing degeneration of the extensor carpi radialis brevis tendon at its attachment on the lateral epicondyle of the elbow. Patients typically experience sharp or aching pain on the outside of the elbow that worsens with gripping or wrist extension. At Mountain Spine & Orthopedics, we offer precise diagnosis and individualized treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to relieve pain, promote tendon healing, and restore full function.",
@@ -2860,6 +2817,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Plantar Fasciitis",
+      "tag": "Foot",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/pfcard.webp',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/pfarti.jpg',
       "body": "Plantar fasciitis is a common cause of heel pain, resulting from inflammation and microtearing of the thick band of tissue (plantar fascia) that runs along the bottom of the foot. Patients often experience a sharp, stabbing pain with the first steps in the morning or after long periods of rest. At Mountain Spine & Orthopedics, we combine precise diagnostic imaging, expert interpretation, and individualized care—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to help you relieve pain, restore foot function, and get you back on your feet comfortably.",
@@ -2876,6 +2834,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Bursitis",
+      "tag": "Knee",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/bcard.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/barti.webp',
       "body": "Bursitis is the inflammation of a bursa—a small, fluid-filled sac that cushions and reduces friction between bones, tendons, and muscles—commonly occurring in joints such as the shoulder, elbow, hip, or knee. Patients experience localized pain, swelling, and tenderness that worsen with movement or pressure. At Mountain Spine & Orthopedics, we combine expert clinical evaluation, advanced imaging, and personalized treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to relieve pain, reduce inflammation, and restore full joint function.",

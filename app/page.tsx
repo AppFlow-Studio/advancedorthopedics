@@ -39,6 +39,7 @@ import { TextAnimate } from "@/components/magicui/text-animate";
 import ExpertCare from '@/public/ExpertCare.png'
 import aftercare from '@/public/aftercare.jpg'
 import { Marquee } from "@/components/magicui/marquee";
+import { useRouter } from "next/navigation";
 
 
 const ServicesAndExpertise = [
@@ -302,12 +303,12 @@ const OrthoConditionsWeTreat = [
     ]
   },
   {
-    area: 'Lower Back',
+    area: 'Lower Spine',
     area_procedures: {
       title: 'Lower Spine Procedure',
       desc: 'Our lower back specialists address conditions such as herniated discs, spinal stenosis, and sciatica through a combination of advanced surgical techniques and conservative therapies, aiming to relieve pain, restore mobility, and enhance spinal function.'
     },
-    view_all_treatments: { text: 'View all Lower Back Treatments', href: '/' },
+    view_all_treatments: { text: 'View all Lower Spine Treatments', href: '/' },
     treatment_categories: [
       {
         name: 'Lumbar Microdiscectomy',
@@ -384,6 +385,12 @@ const OrthoConditionsWeTreat = [
 export default function Home() {
   const [ selectedService , setSelectedService ] = useState('Neck & Spine')
   const [ selectedOrthoCondition, setSelectedOrthoCondition ] = useState(OrthoConditionsWeTreat[0])
+  const router = useRouter()
+
+  const SendTreatmentFilterData = (treatmentfilter : string) => {
+    router.push(`/treatments?data=${encodeURIComponent(JSON.stringify({ key: treatmentfilter }))}`);
+  };
+
   return (
     <main className=" w-full flex flex-col items-center justify-center bg-white h-full" >
       {/* Hero Section */}
@@ -814,19 +821,19 @@ export default function Home() {
                   backdropFilter : 'blur(2.950000047683716px)',
                 }}
                 animate={
-                  selectedOrthoCondition.area == 'Lower Back' 
+                  selectedOrthoCondition.area == 'Lower Spine' 
                     ? { scale: [1, 1.2, 1] } // Active pulsating animation
                     : { scale: 1 } // Idle state
                 }
                 transition={{
                   duration: 1.5,
-                  repeat: selectedOrthoCondition.area == 'Lower Back' ? Infinity : 0,
+                  repeat: selectedOrthoCondition.area == 'Lower Spine' ? Infinity : 0,
                   ease: "easeInOut",
                 }}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[4])}
 
                 >
-                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Lower Back' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
+                  <div className={`h-5 w-5 sm:h-7 sm:w-7 rounded-full ${selectedOrthoCondition.area == 'Lower Spine' ? 'bg-[#5E96F0]' : 'bg-white'}` } />
                 </motion.div>
 
                 {/* Left Knee */}
@@ -904,7 +911,7 @@ export default function Home() {
                 </h1>
                 <Link 
                 className=" mt-[12px] max-h-[56px] h-full  rounded-[62px] space-x-[10px] relative flex p-8 bg-[#0094E0] text-white text-[14px] font-[500] w-fit xl:w-full justify-center items-center hover:cursor-pointer"
-                href={'/treatments'}
+                href={`/treatments?data=${encodeURIComponent(JSON.stringify({ key: selectedOrthoCondition.area }))}`}
                 >
                     <TextAnimate
                     animation="blurInUp" by="word" once 

@@ -12,7 +12,6 @@ import DoctorCard from '@/components/DoctorCard';
 import Link from 'next/link';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
-import { TreatmentCardInfoProp } from '@/components/TreatmentCard';
 
 
 export default function TreatmentDetails({

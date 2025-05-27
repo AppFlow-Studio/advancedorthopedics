@@ -4,6 +4,14 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ChevronDown, Filter } from 'lucide-react'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 // Components & Data - Adjust paths as needed
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton' // Assuming component exists
@@ -17,10 +25,47 @@ import { TextAnimate } from '@/components/magicui/text-animate' // Assuming comp
 export default function AreaOfSpeciality() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9);
-  // Initialize state with the full list of conditions
-  // Use the imported 'Condition' type for better type safety
   const [data, setData] = useState<ConditionInfoProp[]>(Conditions);
-  const paginationRef = useRef<HTMLDivElement>(null); // Type the ref
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const paginationRef = useRef<HTMLDivElement>(null);
+
+  const filterCategories = [
+    { value: "neck", label: "Neck" },
+    { value: "spine", label: "Spine" },
+    { value: "knee", label: "Knee" },
+    { value: "foot", label: "Foot" }
+  ];
+
+  // Filter conditions based on selected categories
+  const filterConditions = (categories: string[]) => {
+    if (categories.length === 0) {
+      setData(Conditions);
+      return;
+    }
+    const filtered = Conditions.filter(condition => 
+      categories.some(category => 
+        condition.category?.toLowerCase() === category.toLowerCase()
+      )
+    );
+    setData(filtered);
+    setCurrentPage(1);
+  };
+
+  // Handle filter change
+  const handleFilterChange = (value: string) => {
+    let newFilters: string[];
+    if (value === "all") {
+      newFilters = [];
+    } else {
+      if (selectedFilters.includes(value)) {
+        newFilters = selectedFilters.filter(filter => filter !== value);
+      } else {
+        newFilters = [...selectedFilters, value];
+      }
+    }
+    setSelectedFilters(newFilters);
+    filterConditions(newFilters);
+  };
 
   // Calculate items for the current page based on 'data' state
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -137,7 +182,7 @@ export default function AreaOfSpeciality() {
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
             className="text-[#5B5F67] sm:text-xl text-md lg:w-[75%]"
           >
-            Do you have a spinal condition that’s causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you’ll never be able to get your pain under control or that it might continue to worsen as you age?
+            Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
           </h1>
         </div>
         <div className="flex flex-col space-y-[16px]">
@@ -145,7 +190,7 @@ export default function AreaOfSpeciality() {
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] sm:text-2xl text-xl "
           >
-            WELL, YOU’RE NOT ALONE.
+            WELL, YOU'RE NOT ALONE.
           </h1>
           <h1
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
@@ -161,21 +206,64 @@ export default function AreaOfSpeciality() {
 
       {/* All Our Conditions Section */}
       <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px]">
-        {/* Section Header with Search Bar */}
-        <div className="flex md:flex-row flex-col justify-between  md:items-center" ref={paginationRef}>
+        {/* Section Header with Search Bar and Filter */}
+        <div className="flex md:flex-row flex-col justify-between md:items-center" ref={paginationRef}>
           <h1
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] text-5xl md:w-full w-[90%]"
           >
             All Our Conditions
           </h1>
-          <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4">
-            {/* *** Corrected ConditionsSearchBar usage *** */}
-            <ConditionsSearchBar
-              conditions={Conditions}        // Pass the full list for searching
-              onSelect={handleConditionSelect} // Pass the select handler function
-              onClear={handleSearchClear}      // Pass the clear handler function
-            />
+          <div className="flex md:flex-row flex-col gap-4 md:w-[50%] w-full md:mt-0 mt-4">
+            <div className="md:w-[60%] w-full">
+              <ConditionsSearchBar
+                conditions={Conditions}
+                onSelect={handleConditionSelect}
+                onClear={handleSearchClear}
+              />
+            </div>
+            <div className="md:w-[40%] w-full">
+              <Select
+                value={selectedFilters.length > 0 ? selectedFilters.join(',') : "all"}
+                onValueChange={handleFilterChange}
+              >
+                <SelectTrigger className="w-full h-[48px] bg-[#EFF5FF] border-[#DCDEE1]">
+                  <div className="flex items-center gap-2">
+                    <Filter className="w-4 h-4 text-[#022968]" />
+                    <SelectValue placeholder="Filter by Category">
+                      {selectedFilters.length > 0 
+                        ? `${selectedFilters.length} selected`
+                        : "Filter by Category"}
+                    </SelectValue>
+                  </div>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {filterCategories.map((category) => (
+                    <SelectItem 
+                      key={category.value} 
+                      value={category.value}
+                      className="flex items-center gap-2"
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className={`w-4 h-4 border rounded-sm flex items-center justify-center ${
+                          selectedFilters.includes(category.value) 
+                            ? 'bg-[#022968] border-[#022968]' 
+                            : 'border-[#DCDEE1]'
+                        }`}>
+                          {selectedFilters.includes(category.value) && (
+                            <svg className="w-3 h-3 text-white" viewBox="0 0 14 14" fill="none">
+                              <path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )}
+                        </div>
+                        {category.label}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
 

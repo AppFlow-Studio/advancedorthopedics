@@ -130,6 +130,7 @@ export interface TreatmentsCardProp {
     title : string
     body : string
     slug : string
+    tag : string
     card_img?: StaticImageData | string
     inTxt_img?: StaticImageData | string
     detail? : string
@@ -145,6 +146,7 @@ export interface TreatmentsCardProp {
 export const AllTreatments : TreatmentsCardProp[] = [
   {
     "title": "Revision Spinal Surgery",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/revisionspinal1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/revisionspinal2.jpg', 
     "body": "Revision spinal surgery is performed to correct issues from a previous spine procedure that did not produce the expected relief or led to complications. At Mountain Spine & Orthopedics, we provide expert revision care backed by complimentary MRI reviews, second opinions, and convenient car service to relieve persistent pain, restore mobility, and improve long term spinal health.",
@@ -159,6 +161,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Multilevel Degenerative Disc Disease Surgery",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/multilevelddd1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/multilevelddd2.jpg',
     "body": "Multilevel disc replacement is an advanced motion preserving surgical solution for patients with degenerative disc disease affecting more than one level of the spine. At Mountain Spine & Orthopedics, we offer customized disc replacement procedures supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, maintain spinal mobility, and improve long term spine health.",
@@ -173,6 +176,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Anterior Lumbar Corpectomy and Fusion",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/anteriorlumbarc.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/anteriorlumbarc.png',
     "body": "Anterior Lumbar Corpectomy and Fusion (ALCF) is a specialized spine surgery used to remove a damaged lumbar vertebral body and adjacent discs to relieve spinal cord or nerve compression. At Mountain Spine and Orthopedic, we provide expert ALCF care—supported by complimentary MRI reviews, free second opinions, and convenient car service—to restore spinal stability, relieve pain, and improve long-term mobility and neurological function.",
@@ -187,6 +191,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Anterior Lumbar Interbody Fusion",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbarfusion.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbarfusion2.avif',
     "body": "Anterior Lumbar Interbody Fusion (ALIF) is a minimally invasive spine surgery designed to treat lower back pain caused by disc degeneration, spondylolisthesis, or spinal instability. At Mountain Spine and Orthopedic, we offer specialized ALIF care—supported by complimentary MRI reviews, free second opinions, and convenient car service—to restore spinal alignment, relieve nerve pressure, and improve long-term spine health and mobility.",
@@ -201,6 +206,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Hybrid Lumbar Spine Surgery",
+    "tag": "Lower Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/hybridlumbar1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/hybridlumbar2.jpg',
     "body": "Hybrid lumbar spine surgery combines spinal fusion with artificial disc replacement to treat multilevel lumbar disc disease while preserving motion when possible. At Mountain Spine & Orthopedics, we deliver this customized solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, stabilize the spine, and support long term function.",
@@ -215,6 +221,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Lumbar Fusion Surgery",
+    "tag": "Lower Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbarfusion1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbarfusion2.avif',
     "body": "Lumbar spinal fusion is a reliable and effective surgical treatment for chronic lower back pain caused by spinal instability, spondylolisthesis, or degenerative disc disease. At Mountain Spine & Orthopedics, we offer minimally invasive lumbar fusion options supported by complimentary MRI reviews, expert second opinions, and convenient car service to stabilize the spine, relieve nerve pressure, and improve long term mobility.",
@@ -229,6 +236,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Spinal Fusion Surgery",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/SpinalFusion1.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/spinalfusion2.jpg',
     "body": "Spinal fusion surgery permanently joins two or more vertebrae to eliminate painful motion and provide stability. At Mountain Spine & Orthopedics, we offer advanced fusion techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve chronic pain, correct deformity, and restore spinal health.",
@@ -243,6 +251,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Understanding TLIF Surgery",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/tlif1.webp',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tlif2.webp',
     "body": "Transforaminal Lumbar Interbody Fusion TLIF is an advanced spinal fusion procedure used to treat lower back pain caused by degenerative disc disease, spondylolisthesis, or spinal instability. At Mountain Spine & Orthopedics, we offer TLIF surgery backed by complimentary MRI reviews, second opinions, and convenient car service to stabilize the spine, relieve nerve pressure, and restore long term function.",
@@ -257,6 +266,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Posterior Cervical Fusion with Instrumentation Surgery",
+    "tag": "Neck",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/postcervfusioninst1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/postcervfusioninst2.png',
     "body": "Posterior cervical fusion with instrumentation is a spine stabilizing surgical procedure that uses rods, screws, and bone grafts to fuse vertebrae in the cervical spine. At Mountain Spine & Orthopedics, we offer this advanced technique supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve compression, correct deformity, and restore neck stability.",
@@ -271,6 +281,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Posterior Cervical Fusion Surgery",
+    "tag": "Neck",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/postcervfusion1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/postcervfusion2.png',
     "body": "Posterior cervical fusion is a surgical procedure used to stabilize the neck and relieve spinal cord or nerve compression caused by conditions such as fractures, deformities, or degenerative disc disease. At Mountain Spine & Orthopedics, we perform this advanced surgery supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, improve neck stability, and restore quality of life.",
@@ -285,6 +296,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   },
   {
     "title": "Anterior Cervical Corpectomy and Fusion",
+    "tag": "Neck",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/anteriorcerv.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/anteriorcerv2.png',
     "body": "Anterior Cervical Corpectomy and Fusion (ACCF) is a surgical procedure used to treat spinal cord compression caused by bone spurs, herniated discs, or spinal instability in the cervical spine. At Mountain Spine and Orthopedic, we offer expert surgical solutions—supported by complimentary MRI reviews, free second opinions, and convenient car service—to restore spinal stability, relieve pressure on nerves, and improve overall neck and neurological function.",
@@ -300,6 +312,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   
     {
       "title": "ACDF Surgery",
+      "tag": "Neck",
       "card_img":  'https://mountainspineortho.b-cdn.net/public/acdfsurgery.png', // Placeholder - Replace with actual image path/variable
       "inTxt_img" : 'https://mountainspineortho.b-cdn.net/public/acdf2.png',
       "body": "Anterior Cervical Discectomy and Fusion (ACDF) is a surgical procedure used to treat cervical spine conditions like herniated discs, spinal stenosis, or degenerative disc disease. At Mountain Spine and Orthopedic, we offer expert surgical care—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve neck and nerve pain, restore stability, and improve spinal function.",
@@ -314,6 +327,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Lumbar Disc Replacement Surgery",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbardiscreplacment2.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbardiscreplacement1.jpg',
       "body": "Lumbar disc replacement is a motion preserving alternative to spinal fusion for treating chronic low back pain caused by degenerative disc disease. At Mountain Spine & Orthopedics, we offer this innovative, minimally invasive procedure supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve pressure, reduce pain, and restore spinal function.",
@@ -328,7 +342,8 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Artificial Disc Replacement Surgery",
-      "card_img": 'https://mountainspineortho.b-cdn.net/public/artificaldisc1.png',
+      "tag": "Lower Spine",
+        "card_img": 'https://mountainspineortho.b-cdn.net/public/artificaldisc1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/artificaldisk2.jpeg',
       "body": "Artificial Disc Replacement is a motion-preserving surgical solution for degenerative disc disease and spinal disc damage. At Mountain Spine and Orthopedic, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve pressure, restore mobility, and help patients return to an active lifestyle.",
       "detail": "Artificial Disc Replacement (ADR), also known as Total Disc Arthroplasty, is a spine surgical procedure designed to replace a damaged or degenerated intervertebral disc with a prosthetic implant while preserving motion at that spinal level. This is in contrast to spinal fusion, which eliminates motion by joining two vertebrae together. ADR is typically performed through an anterior approach (front of the neck for cervical spine, front of the abdomen for lumbar spine) to access the disc space directly. The damaged disc is completely removed, and an artificial disc made of materials like metal and medical-grade polymer is inserted into the space. The goal of ADR is to relieve pressure on the spinal cord or nerve roots caused by disc herniation or degeneration while maintaining the natural flexibility and range of motion of the spine segment. It is considered for select patients with single-level or sometimes two-level symptomatic disc disease who have not responded to non-surgical treatments and meet specific anatomical criteria, such as having healthy facet joints and good bone quality.",
@@ -352,6 +367,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Cervical Disc Arthroplasty",
+      "tag": "Neck",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/cervarto1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/cervdisk2.jpg',
       "body": "Cervical disc arthroplasty is a motion-preserving surgical treatment for damaged or degenerative cervical discs. At Mountain Spine & Orthopedics, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve compression, reduce neck pain, and maintain spinal flexibility.",
@@ -366,6 +382,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Motion Preservation Spine Surgery",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/motionpreserve1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/motionpreserve2.png',
       "body": "Motion preservation spine surgery is an advanced treatment approach designed to relieve pain while maintaining natural spinal movement. At Mountain Spine & Orthopedics, we offer leading edge motion preserving procedures supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, avoid spinal fusion, and restore long term function.",
@@ -380,6 +397,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Total Hip Replacement Surgery",
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/totalhip1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/totalhip2.jpeg',
       "body": "Total hip replacement is a highly successful surgical solution for patients suffering from hip joint damage due to arthritis, injury, or age related wear. At Mountain Spine & Orthopedics, we offer this advanced procedure supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve chronic pain, restore mobility, and help you return to a more active, comfortable life.",
@@ -394,6 +412,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Total Knee Replacement Surgery",
+      "tag" : "Knee",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/totalknee1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/totalknee2.webp',
       "body": "Total knee replacement surgery is a highly effective solution for chronic knee pain and joint damage caused by arthritis, injury, or degeneration. At Mountain Spine & Orthopedics, we specialize in advanced knee replacement techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, restore mobility, and help you return to an active pain free life.",
@@ -408,6 +427,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Posterior Cervical Laminoplasty Surgery",
+      "tag" : "Neck",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/postcervlam1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/postcervlam2.jpg',
       "body": "Posterior cervical laminoplasty is a motion preserving surgical procedure that relieves spinal cord compression in the neck without the need for spinal fusion. At Mountain Spine & Orthopedics, we provide this specialized treatment supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore spinal space, reduce neurological symptoms, and maintain cervical mobility.",
@@ -422,6 +442,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Posterior Cervical Foraminotomy Surgery",
+      "tag" : "Neck",
       "card_img":'https://mountainspineortho.b-cdn.net/public/cervform1.png',
       "inTxt_img":'https://mountainspineortho.b-cdn.net/public/cervform2.png',
       "body": "Posterior cervical foraminotomy is a minimally invasive surgical procedure used to relieve nerve compression in the neck by enlarging the space where spinal nerves exit the cervical spine. At Mountain Spine & Orthopedics, we perform this precise outpatient surgery backed by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, restore function, and avoid fusion when possible.",
@@ -436,6 +457,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Lumbar Laminectomy Surgery",
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbarlamine1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbarlamine2.png',
       "body": "Lumbar laminectomy is a common and highly effective procedure to relieve pressure on spinal nerves caused by spinal stenosis, herniated discs, or bone spurs. At Mountain Spine & Orthopedics, we perform this minimally invasive surgery backed by complimentary MRI reviews, expert second opinions, and convenient car service to reduce pain, improve mobility, and restore quality of life.",
@@ -450,6 +472,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Lumbar Decompression Surgery",
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbardecomp1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbardecomp2.png',
       "body": "Lumbar decompression surgery is a highly effective procedure for relieving lower back and leg pain caused by spinal nerve compression. At Mountain Spine & Orthopedics, we specialize in minimally invasive decompression techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to reduce pressure on nerves, restore mobility, and improve quality of life.",
@@ -464,6 +487,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Lumbar Microendoscopic Discectomy Surgery",
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbarmicroendo1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbarmicroendo2.jpg',
       "body": "Lumbar microendoscopic discectomy is a highly advanced, minimally invasive spine surgery used to treat herniated discs and nerve compression in the lower back. At Mountain Spine & Orthopedics, we offer this cutting edge outpatient procedure supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, restore function, and minimize recovery time.",
@@ -478,6 +502,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Lumbar Microdiscectomy Surgery",
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/lumbarmicrodisc1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/lumbarmicrodisc2.jpg',
       "body": "Lumbar microdiscectomy is a minimally invasive spine surgery designed to remove part of a herniated disc that is pressing on spinal nerves. At Mountain Spine & Orthopedics, we offer this outpatient solution backed by complimentary MRI reviews, second opinions, and convenient car service to relieve leg pain (sciatica), improve function, and support a faster recovery.",
@@ -492,6 +517,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Degenerative Disc Disease Surgery",
+      "tag" : "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/ddd1.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ddd2.webp',
       "body": "Surgery for degenerative disc disease (DDD) is an advanced option for patients who suffer from chronic back pain, nerve compression, or spinal instability that hasn’t improved with conservative treatment. At Mountain Spine & Orthopedics, we offer minimally invasive surgical solutions supported by complimentary MRI reviews, free second opinions, and convenient car service to restore spinal health, relieve pain, and improve mobility.",
@@ -506,6 +532,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Percutaneous Discectomy",
+      "tag" : "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/postcervlam2.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/postcervlam1.jpg',
       "body": "Percutaneous discectomy is a minimally invasive procedure used to treat herniated discs by removing disc material through a needle based system. At Mountain Spine & Orthopedics, we offer this outpatient technique supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve pressure, reduce pain, and promote rapid recovery without open surgery.",
@@ -520,6 +547,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Resurfacing Shoulder Replacement Treatment",
+      "tag" : "Shoulder",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/shoulderresurfacing1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/shoulderresurface2.jpg',
       "body": "Resurfacing shoulder replacement is a bone sparing procedure that treats arthritis and joint damage while preserving the natural shape of the shoulder. At Mountain Spine & Orthopedics, we offer this advanced outpatient surgery supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, restore motion, and support faster recovery.",
@@ -533,7 +561,8 @@ export const AllTreatments : TreatmentsCardProp[] = [
       "slug": "resurfacingshoulderreplacement"
     },
     {
-      "title": "Hip Arthroscopy Treatment",
+      "title": "Hip Arthroscopy Treatment", 
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/hipreplacement1.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/hipreplacement2.jpg',
       "body": "Hip arthroscopy is a minimally invasive surgical procedure used to examine and treat a wide range of hip joint issues, including labral tears, impingement, cartilage damage, and bursitis. At Mountain Spine & Orthopedics, we provide expert arthroscopic care backed by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, restore hip function, and support an active lifestyle.",
@@ -548,6 +577,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Arthroscopic Knee Surgery",
+      "tag" : "Knee",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/artknee1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/artknee2.png',
       "body": "Arthroscopic knee surgery is a minimally invasive procedure used to examine and treat a wide range of knee joint problems, from meniscus tears to cartilage damage. At Mountain Spine & Orthopedics, we provide expert arthroscopic knee care supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, restore joint function, and get you back on your feet with minimal downtime.",
@@ -561,7 +591,8 @@ export const AllTreatments : TreatmentsCardProp[] = [
       "slug": "arthroscopickneesurgery"
     },
     {
-      "title": "Rotator Cuff Repair Surgery",
+      "title": "Rotator Cuff Repair Surgery", 
+      "tag" : "Shoulder",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/rotatorcuffrepair2.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/rotatorcuffrepair1.jpg',
       "body": "Rotator cuff repair is a highly effective orthopedic procedure used to restore shoulder strength and mobility after a tendon tear. At Mountain Spine & Orthopedics, we offer advanced minimally invasive rotator cuff surgery supported by complimentary MRI reviews, second opinions, and convenient car service to relieve shoulder pain, repair damage, and help you return to your active lifestyle.",
@@ -576,6 +607,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Meniscus Repair Surgery",
+      "tag" : "Knee",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/meniscusrepair1.avif',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/meniscusrepair2.jpg',
       "body": "Meniscus repair is a surgical procedure that treats tears in the knee’s cartilage to restore stability, reduce pain, and prevent joint damage. At Mountain Spine & Orthopedics, we offer advanced arthroscopic meniscus repair supported by complimentary MRI reviews, second opinions, and convenient car service to help patients return to pain free motion and preserve knee health.",
@@ -590,6 +622,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Disc Replacement vs Fusion: What You Need to Know",
+      "tag" : "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/dddvf1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/dddvf2.png',
       "body": "When it comes to treating degenerative disc disease, two common surgical options are spinal fusion and artificial disc replacement. At Mountain Spine & Orthopedics, we help you understand your options supported by complimentary MRI reviews, second opinions, and convenient car service so you can make the right decision for lasting relief, mobility, and spinal health.",
@@ -604,6 +637,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Ankle Ligament Reconstruction Surgery",
+      "tag" : "Foot",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/anklesurgery.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/anklesurgery2.png',
       "body": "Ankle ligament reconstruction is a surgical procedure designed to restore stability and function in patients with chronic ankle instability caused by torn or stretched ligaments. At Mountain Spine and Orthopedics, we offer this advanced treatment supported by complimentary MRI reviews, second opinions, and convenient car service to help patients regain mobility, prevent recurrent sprains, and return to an active lifestyle.",
@@ -618,6 +652,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Axial Fusion Surgery",
+      "tag" : "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/axialfusion1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/axialfusion2.png',
       "body": "Axial fusion is a minimally invasive surgical technique used to stabilize the lower spine by fusing the L5-S1 vertebrae through a small incision near the tailbone. At Mountain Spine and Orthopedic, we offer this cutting-edge procedure—backed by complimentary MRI reviews, free second opinions, and convenient car service—to reduce back pain, restore stability, and promote long-term spinal health.",
@@ -632,6 +667,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Hybrid Cervical Spine Surgery",
+      "tag" : "Neck",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/hybridcervical.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/hybridcervical2.png',
       "body": "Hybrid cervical spine surgery is a personalized combination of spinal fusion and artificial disc replacement used to treat multilevel cervical disc disease. At Mountain Spine & Orthopedics, we offer this advanced surgical solution backed by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, protect spinal alignment, and preserve motion where possible.",
@@ -646,6 +682,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Back Pain Treatment",
+      "tag" : "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/backtherapy2.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/backtherapy.png',
       "body": "Back pain is one of the most common musculoskeletal issues, affecting people of all ages and activity levels. At Mountain Spine and Orthopedic, we offer comprehensive, individualized treatment plans—backed by complimentary MRI reviews, free second opinions, and convenient car service—to relieve back pain, restore mobility, and prevent long-term complications.",
@@ -660,6 +697,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Botox for Migraines Treatment",
+      "tag" : "Neck",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/botox1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/botox2.png',
       "body": "Botox injections are a proven treatment for chronic migraines, helping reduce headache frequency and severity by targeting the nerves and muscles involved in pain signaling. At Mountain Spine and Orthopedic, we offer expertly administered Botox therapy—supported by complimentary evaluations, free second opinions, and convenient car service—to provide lasting migraine relief and improve quality of life.",
@@ -674,6 +712,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Bunion Correction Surgery",
+      "tag" : "Foot",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/bunion1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/bunion2.png',
       "body": "Bunion correction surgery is an effective solution for painful bony bumps at the base of the big toe that cause foot deformity and discomfort. At Mountain Spine & Orthopedics, we offer advanced minimally invasive and open bunion repair techniques supported by complimentary MRI or X ray reviews, expert second opinions, and convenient car service to realign the toe, relieve pain, and restore proper foot function.",
@@ -688,6 +727,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Cancer Pain Treatment",
+      "tag" : "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/cancer1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/cancer2.png',
       "body": "Cancer pain can significantly affect quality of life, whether caused by tumors, treatment side effects, or nerve damage. At Mountain Spine and Orthopedic, we offer advanced cancer pain management solutions—supported by complimentary evaluations, free second opinions, and convenient car service—to improve comfort, function, and peace of mind during all stages of care.",
@@ -702,6 +742,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Carpal Tunnel Release Surgery",
+      "tag" : "Hand",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/carpall1.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/carpraltun2.png',
       "body": "Carpal Tunnel Release is a minimally invasive surgical procedure designed to relieve pressure on the median nerve in the wrist, helping to resolve symptoms of carpal tunnel syndrome such as numbness, tingling, and hand weakness. At Mountain Spine & Orthopedics, we offer both traditional and percutaneous release techniques supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore hand function and eliminate nerve compression.",
@@ -716,6 +757,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Cervical Disc Replacement",
+      "tag" : "Neck",
       "card_img": cervdisk1,
       "inTxt_img": cervdisk2,
       "body": "Cervical disc replacement is a motion-preserving surgical treatment for damaged or degenerative cervical discs. At Mountain Spine & Orthopedics, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve compression, reduce neck pain, and maintain spinal flexibility.",
@@ -730,6 +772,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Coccygectomy (Tailbone Removal Surgery)",
+      "tag" : "Lower Spine",
       "card_img": coccytreatment2,
       "inTxt_img": coccytreatment1,
       "body": "Coccygectomy is a surgical procedure to remove the coccyx, or tailbone, typically performed when chronic coccydynia (tailbone pain) does not improve with conservative treatments. At Mountain Spine & Orthopedics, we provide expert surgical care—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve tailbone pain and restore sitting comfort and quality of life.",
@@ -744,6 +787,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Anti-Inflammatory Injections for Joint and Spine Pain",
+      "tag" : "Spine",
       "card_img": antiinflam1,
       "inTxt_img": antiinflam2,
       "body": "Anti-inflammatory injections are a highly effective treatment for reducing joint or spine-related pain and inflammation caused by arthritis, bursitis, tendonitis, and nerve compression. At Mountain Spine and Orthopedic, we provide image-guided injections—supported by complimentary MRI reviews, free second opinions, and convenient car service—to offer fast relief, restore mobility, and delay or avoid surgery.",
@@ -758,6 +802,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Aging Management",
+      "tag" : "Spine",
       "card_img": age1,
       "inTxt_img": age2,
       "body": "Aging management focuses on proactive measures that preserve bone density, joint integrity, and muscle strength as we grow older, reducing the risk of fractures, chronic pain, and loss of independence. Mountain Spine and Orthopedic offers personalized aging management programs supported by complimentary MRI reviews, free second opinions, and convenient car service to help you stay active, strong, and pain free throughout every decade.",
@@ -772,6 +817,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Coccyx Nerve Ablation",
+      "tag" : "Lower Spine",
       "card_img": coccyxnerve1,
       "inTxt_img": coccyxnerve2,
       "body": "Coccyx nerve ablation, specifically Impar Ganglion Ablation, is a minimally invasive pain management procedure that targets chronic tailbone pain (coccydynia). At Mountain Spine & Orthopedics, we offer this outpatient solution backed by complimentary MRI reviews, free second opinions, and convenient car service to interrupt pain signals at their source and improve daily comfort without the need for invasive surgery.",
@@ -786,6 +832,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Cortisone Injections for Back Pain",
+      "tag" : "Lower Spine",
       "card_img":  coritsoneinject2,
       "inTxt_img": cortisoneinject1,
       "body": "Cortisone injections are a powerful, targeted treatment used to reduce inflammation and relieve back pain caused by conditions such as herniated discs, arthritis, spinal stenosis, and sciatica. At Mountain Spine & Orthopedics, we offer precise, image guided cortisone injections backed by complimentary MRI reviews, free second opinions, and convenient car service to help you return to pain free movement and function.",
@@ -800,6 +847,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Degenerative Disc Disease Surgery Details",
+      "tag" : "Spine",
       "card_img": ddd3,
       "inTxt_img": ddd4,
       "body": "When conservative care no longer controls pain from Degenerative Disc Disease DDD surgical intervention can restore stability relieve nerve pressure and reclaim active living. Mountain Spine & Orthopedics offers state of the art surgical solutions including lumbar or cervical fusion motion preserving disc replacement and minimally invasive decompression backed by complimentary MRI reviews free second opinions and convenient car service to guide you confidently from decision to recovery",
@@ -814,6 +862,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Endoscopic Discectomy Surgery",
+      "tag" : "Spine",
       "card_img": endodisc1,
       "inTxt_img": endodisc2,
       "body": "Endoscopic discectomy is a minimally invasive spine surgery that removes herniated disc material through a small incision using a tiny camera and specialized instruments. At Mountain Spine & Orthopedics, we provide this innovative outpatient solution supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve pressure and restore function with minimal recovery time.",
@@ -828,6 +877,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Endoscopic Foraminotomy Surgery",
+      "tag" : "Spine",
       "card_img": endoform1,
       "inTxt_img": endoform2,
       "body": "Endoscopic foraminotomy is a minimally invasive procedure designed to relieve nerve compression caused by narrowed foraminal canals in the spine. At Mountain Spine & Orthopedics, we offer this advanced outpatient treatment backed by complimentary MRI reviews, second opinions, and convenient car service to restore space for nerves, reduce pain, and improve mobility with minimal recovery time.",
@@ -842,6 +892,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "ACL Reconstruction Surgery",
+      "tag" : "Knee",
       "card_img": acl2,
       "inTxt_img": acl1,
       "body": "ACL reconstruction is a surgical procedure that repairs a torn anterior cruciate ligament, a key stabilizer in the knee. At Mountain Spine & Orthopedics, we provide expert ACL repair supported by complimentary MRI reviews, second opinions, and convenient car service to restore knee stability, support safe return to sports, and prevent joint damage.",
@@ -856,6 +907,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Epidural Steroid Injection",
+      "tag" : "Spine",
       "card_img": epidural1,
       "inTxt_img": epidural2,
       "body": "Epidural steroid injections are a powerful, minimally invasive treatment for back and leg pain caused by nerve inflammation from conditions like herniated discs, spinal stenosis, and sciatica. At Mountain Spine & Orthopedics, we offer image guided injections supported by complimentary MRI reviews, second opinions, and convenient car service to help relieve pain, reduce inflammation, and restore mobility.",
@@ -870,6 +922,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Extreme Lateral Interbody Fusion Surgery",
+      "tag" : "Spine",
       "card_img": xlif1,
       "inTxt_img": xlif2,
       "body": "Extreme Lateral Interbody Fusion (XLIF) is a minimally invasive spine surgery used to treat lumbar degenerative disc disease, scoliosis, and instability. At Mountain Spine & Orthopedics, we provide this cutting edge procedure supported by complimentary MRI reviews, second opinions, and convenient car service to relieve nerve compression, restore spinal alignment, and reduce chronic back or leg pain.",
@@ -884,6 +937,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Facet Ablation (Rhizotomy) Treatment",
+      "tag" : "Spine",
       "card_img": facet1,
       "inTxt_img": facet2,
       "body": "Facet ablation, also known as medial branch rhizotomy, is a minimally invasive treatment used to relieve chronic neck or back pain caused by facet joint arthritis. At Mountain Spine & Orthopedics, we offer precision guided rhizotomy supported by complimentary MRI reviews, second opinions, and convenient car service to interrupt pain signals, reduce inflammation, and improve mobility.",
@@ -898,6 +952,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Facet Block, Facet Ablation (Rhizotomy), and Facet Fusion Treatment Information",
+      "tag" : "spine",
       "card_img": facetfacet1,
       "inTxt_img": facetfacet2,
       "body": "Facet blocks, facet ablation (rhizotomy), and facet fusion are treatment options for chronic neck and back pain caused by facet joint arthritis. At Mountain Spine & Orthopedics, we offer personalized, minimally invasive procedures supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, reduce inflammation, and improve spinal stability and function.",
@@ -912,6 +967,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Fracture Fixation Surgery",
+      "tag" : "Spine",
       "card_img": internalfix1,
       "inTxt_img": internalfix2,
       "body": "Fracture fixation is a surgical procedure that stabilizes broken bones using metal plates, screws, rods, or pins to support proper alignment and healing. At Mountain Spine & Orthopedics, we specialize in advanced fracture care supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore strength, mobility, and function after injury.",
@@ -927,6 +983,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
  
     {
       "title": "Impar Block Treatment",
+      "tag" : "Lower Spine",
       "card_img":imaparblocktreatment1,
       "inTxt_img": imaparblocktreatment2,
       "body": "An Impar block is a targeted injection that relieves chronic tailbone (coccyx) pain by numbing the nerve ganglion at the base of the spine. At Mountain Spine & Orthopedics, we provide this minimally invasive outpatient procedure supported by complimentary MRI reviews, expert second opinions, and convenient car service to break the cycle of pain and restore daily comfort.",
@@ -941,6 +998,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Neck Pain Treatment & Shoulder Pain Relief",
+      "tag" : "Neck",
       "card_img": neckpainandshoulder1,
       "inTxt_img": neckpainandshoulder2,
       "body": "Neck and shoulder pain can significantly impact your mobility, posture, and quality of life. At Mountain Spine & Orthopedics, we provide comprehensive, minimally invasive treatment options supported by complimentary MRI reviews, second opinions, and convenient car service to reduce pain, restore function, and help you move freely again.",
@@ -955,6 +1013,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Non Surgical Treatments for Pain Management",
+      "tag" : "Spine",
       "card_img": nonsurgpain1,
       "inTxt_img": nonsurgpain2,
       "body": "Non surgical pain management offers effective relief for joint, spine, and nerve related discomfort without the need for invasive procedures. At Mountain Spine & Orthopedics, we offer a range of minimally invasive solutions backed by complimentary MRI reviews, second opinions, and convenient car service to target pain at its source and restore quality of life.",
@@ -969,6 +1028,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Oblique Lumbar Interbody Fusion",
+      "tag" : "Lower Spine",
       "card_img": obliquelumbar2,
       "inTxt_img": obliquelumbar1,
       "body": "Oblique Lumbar Interbody Fusion (OLIF) is a minimally invasive spine surgery that treats degenerative disc disease, spondylolisthesis, and other lumbar spine conditions through a side approach to the lower back. At Mountain Spine & Orthopedics, we offer OLIF surgery supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve nerve compression, stabilize the spine, and restore mobility.",
@@ -983,6 +1043,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Percutaneous Carpal Tunnel Release",
+      "tag" : "Hand",
       "card_img": perccarp1,
       "inTxt_img": perccarp2,
       "body": "Percutaneous Carpal Tunnel Release (PCTR) is a minimally invasive, outpatient procedure that offers fast relief for carpal tunnel syndrome with minimal downtime. At Mountain Spine & Orthopedics, we perform this advanced technique backed by complimentary MRI reviews, expert second opinions, and convenient car service to relieve nerve compression in the wrist, restore hand function, and reduce pain.",
@@ -998,6 +1059,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   
     {
       "title": "Shoulder Arthroscopy",
+      "tag" : "Shoulder",
       "card_img": shoulderart1,
       "inTxt_img": shoulderart2,
       "body": "Shoulder arthroscopy is a minimally invasive procedure used to diagnose and treat shoulder joint conditions such as rotator cuff injuries, labral tears, and impingement. At Mountain Spine and Orthopedics, we provide expert arthroscopic care supported by complimentary MRI reviews, second opinions, and convenient car service to relieve pain, restore shoulder mobility, and promote quicker recovery with minimal disruption.",
@@ -1012,6 +1074,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
     "title": "Stem Cell Treatment",
+    "tag" : "Spine",
     "card_img": stemcell1,
     "inTxt_img": stemcell2,
     "body": "Stem Cell Treatment is a revolutionary regenerative therapy that accelerates healing, reduces inflammation, and may even reverse signs of aging. At Mountain Spine & Orthopedics, we offer this advanced solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore joint and tissue health naturally without surgery.",
@@ -1026,6 +1089,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Surgical Treatments",
+      "tag" : "Spine",
       "card_img": orthosurg1,
       "inTxt_img": orthosurg2,
       "body": "Surgical treatments are advanced options for patients with spine or joint conditions that have not responded to conservative care. At Mountain Spine & Orthopedics, we specialize in minimally invasive and reconstructive procedures supported by complimentary MRI reviews, expert second opinions, and convenient car service to relieve pain, correct structural issues, and restore long term mobility.",
@@ -1040,6 +1104,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
     },
     {
       "title": "Trigger Finger Release",
+      "tag" : "Hand",
       "card_img": triggerfinger1,
       "inTxt_img": triggerfinger2,
       "body": "Trigger finger release is a minimally invasive procedure used to treat painful locking and stiffness in the fingers caused by tendon inflammation. At Mountain Spine & Orthopedics, we offer this outpatient solution supported by complimentary MRI reviews, expert second opinions, and convenient car service to restore smooth finger movement, eliminate pain, and improve hand function.",
