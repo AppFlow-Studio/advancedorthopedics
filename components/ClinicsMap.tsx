@@ -34,6 +34,7 @@ export default function ClinicsMap({ startingClinic } :  {
 }) {
 
   const {location} = useGeolocation();
+  console.log(location)
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
    const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
@@ -180,6 +181,16 @@ const handleClinicChange = (name: string) => {
   useEffect(() => {
     if( !startingClinic ) {setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))}
   }, [location,startingClinic])
+
+  useEffect(() => {
+    if( location ) {
+      const nearestClinic = findNearestClinicNameGoogle(clinics, location, window.google)
+      setSeletecedClinic(nearestClinic)
+      const defaultMapCenter = { lat : nearestClinic?.lat, lng : nearestClinic?.lng} 
+      setMapCenter(defaultMapCenter)
+    }
+  }, [location])
+  console.log('Selected Clinic',selectedClinc)
   useEffect(() => {
     if( isInitialMount.current && selectedClinc && !startingClinic  ){
       const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
@@ -241,14 +252,61 @@ const DropdownIcon = () => (
 
 
 function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic : {id : number, name : string, lat : number, lng : number, address : string, link : string}, handleMarkerClick : (name : string) => void }) {
+  const {location, onSetLocation} = useGeolocation();
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  //const [open, setOpen] = useState(false);
+  const AllowLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+              onSetLocation({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                error: null,
+              });
+            },
+            (error) => {
+              onSetLocation({
+                latitude: null,
+                longitude: null,
+                error: error.message,
+              });
+            },
+            {
+              enableHighAccuracy: false,
+              timeout: 20000,
+              maximumAge: 1000,
+            }
+          );
+    
+        } else {
+          onSetLocation({
+            latitude: null,
+            longitude: null,
+            error: 'Geolocation is not supported by this browser.',
+          });
+        }
+  }
   return (
     <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
-      <h2 
-      style={{
-        fontFamily: "var(--font-reem-kufi)",
-        fontWeight: 400,
-      }}
-      className="text-2xl font-semibold text-[#5B5F67]">Find your Clinic</h2>
+      <div >
+        <h2 
+        style={{
+          fontFamily: "var(--font-reem-kufi)",
+          fontWeight: 400,
+        }}
+        className="text-2xl font-semibold text-[#5B5F67]">
+          Find your Clinic
+        </h2>
+        {
+          !location && (
+            <p className="text-lg text-[#2358AC] underline" onClick={AllowLocation}>
+              Find your nearest clinic
+            </p>
+          )
+        }
+      </div>
       
       <div  className=' flex flex-row space-x-[20px] w-full overflow-hidden'>
           <Select
@@ -280,7 +338,7 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
           </Select>
       </div>
 
-      <Link href={selectedClinic?.link ? selectedClinic?.link : ''} className='shadow-2xl p-1 rounded-md w-full items-center justify-center border flex'>
+      <Link href={selectedClinic?.link || '/locations'} className='shadow-2xl p-1 rounded-md w-full items-center justify-center border flex'>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M18.5 21.5L12.5 6.5M21.5 4.5L2.5 8.5" stroke="#7E869E" stroke-opacity="0.25"/>
           <path d="M2.5 5.7C2.5 4.57989 2.5 4.01984 2.71799 3.59202C2.90973 3.21569 3.21569 2.90973 3.59202 2.71799C4.01984 2.5 4.5799 2.5 5.7 2.5H18.3C19.4201 2.5 19.9802 2.5 20.408 2.71799C20.7843 2.90973 21.0903 3.21569 21.282 3.59202C21.5 4.01984 21.5 4.5799 21.5 5.7V18.3C21.5 19.4201 21.5 19.9802 21.282 20.408C21.0903 20.7843 20.7843 21.0903 20.408 21.282C19.9802 21.5 19.4201 21.5 18.3 21.5H5.7C4.57989 21.5 4.01984 21.5 3.59202 21.282C3.21569 21.0903 2.90973 20.7843 2.71799 20.408C2.5 19.9802 2.5 19.4201 2.5 18.3V5.7Z" stroke="#222222" stroke-linecap="round"/>
@@ -300,8 +358,12 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
   );
 }
 
+
+
 function findNearestClinicNameGoogle(clinics, userLocation, google) {
   // Check if geometry library is loaded
+  console.log('User Location',userLocation)
+  if( !userLocation ) {return clinics[0]}
   if (!google || !google.maps || !google.maps.geometry || !google.maps.geometry.spherical) {
     console.error("Google Maps API or geometry library not loaded.");
     return null;
@@ -333,6 +395,6 @@ function findNearestClinicNameGoogle(clinics, userLocation, google) {
       nearestClinic = clinic;
     }
   }
-
+  console.log('Nearest Clinic',nearestClinic)
   return nearestClinic ? nearestClinic : null;
 }

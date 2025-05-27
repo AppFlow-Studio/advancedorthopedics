@@ -46,7 +46,7 @@ export default function Footer() {
                     color : 'white'
                 }}
                 className=' text-white mt-[20px]'>
-                    Our patients’ experiences speak volumes about our care. See their stories below. Real feedback from those who trust us with their health. Hear their thoughts here.
+                    Our patients' experiences speak volumes about our care. See their stories below. Real feedback from those who trust us with their health. Hear their thoughts here.
                 </h1>
 
                 <div className='mt-[40px] flex flex-col'>
@@ -118,7 +118,7 @@ export default function Footer() {
                     <Link href={'/blogs'}>Blog</Link >
                     <Link href={'/patient-forms'}>Patient Forms</Link >
                     <Link href={'/condition-check'}>Condition Check</Link >
-                    <Link href={'find-care/candidacy-check'}>Treatment Check</Link >
+                    <Link href={'/find-care/candidacy-check'}>Treatment Check</Link >
                     <Link href={'/find-care/free-mri-review'}>MRI Review</Link >
                 </ul>
             </div>
@@ -133,15 +133,15 @@ export default function Footer() {
                 <h3 className="uppercase tracking-wider mb-4 text-lg font-[600]">Locations</h3>
                 <h4 className="uppercase tracking-wider mb-2 text-sm font-[600]">FL Locations</h4>
                 <ul className="space-y-[12px] flex flex-col text-sm mb-4 text-[#DCDEE1]">
-                <Link href={'/locations/1'}>Altamonte Springs</Link >
-                <Link href={'/locations/2'}>Davenport</Link >
-                <Link href={'/locations/3'}>Fort Myers</Link >
-                <Link href={'/locations/9'}>Fort Pierce</Link >
-                <Link href={'/locations/8'}>Boca Raton</Link >
-                <Link href={'/locations/4'}>Hollywood</Link >
-                <Link href={'/locations/7'}>Miami</Link >
-                <Link href={'/locations/5'}>Orlando</Link >
-                <Link href={'/locations/6'}>Palm Beach Gardens</Link >
+                <Link href={'/locations/altamonte-springs'}>Altamonte Springs</Link >
+                <Link href={'/locations/davenport'}>Davenport</Link >
+                <Link href={'/locations/fort-myers'}>Fort Myers</Link >
+                <Link href={'/locations/fort-pierce'}>Fort Pierce</Link >
+                <Link href={'/locations/boca-raton'}>Boca Raton</Link >
+                <Link href={'/locations/hollywood'}>Hollywood</Link >
+                <Link href={'/locations/miami'}>Miami</Link >
+                <Link href={'/locations/orlando'}>Orlando</Link >
+                <Link href={'/locations/palm-beach-gardens'}>Palm Beach Gardens</Link >
                 </ul>
             </div>
             {/* Column 3: NY, NJ, Surgery Centers */}

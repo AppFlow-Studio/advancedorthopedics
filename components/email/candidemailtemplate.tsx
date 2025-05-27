@@ -168,11 +168,11 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
 
       {/* Footer Section */}
       <div style={{ backgroundColor: '#f4f4f4', color: '#777', padding: '15px', textAlign: 'center', fontSize: '12px' }}>
-        {/* <p style={{ margin: '0' }}>Mountain Spine & Orthopedics</p>
+        <p style={{ margin: '0' }}>Mountain Spine & Orthopedics</p>
         <p style={{ margin: '0' }}>123 Healthway Drive, Mountain City, MC 54321</p>
         <p style={{ margin: '0' }}>
-          <a href="https://www.mountainspineortho.example.com" style={{ color: '#0094E0' }}>www.mountainspineortho.example.com</a>
-        </p> */}
+          <a href="https://mountainspineorthopedics.com" style={{ color: '#0094E0' }}>www.mountainspineorthopedics.com</a>
+        </p>
       </div>
     </div>
   );

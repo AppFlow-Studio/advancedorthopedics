@@ -24,6 +24,15 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/blogs/4',
+        destination: '/blogs/4-safe-stretching-techniques-for-postoperative-recovery',
+        permanent: true,
+      }
+    ];
   }
 };
 

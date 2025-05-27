@@ -26,6 +26,7 @@ export function LocationPermissionDialog({ onLocationGranted, onLocationDenied }
     setLoading(true)
     setError(null)
 
+    
     if (!navigator.geolocation) {
       setError("Geolocation is not supported by your browser")
       setLoading(false)

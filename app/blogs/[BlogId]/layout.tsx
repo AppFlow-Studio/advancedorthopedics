@@ -16,6 +16,10 @@ export async function generateMetadata(
   }
 
   const info = blog.blog_info;
+  const slugifiedTitle = info.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
   return {
     title: `${info.title} | Mountain Spine & Orthopedics`,
@@ -25,7 +29,7 @@ export async function generateMetadata(
       title: `${info.title} | Mountain Spine & Orthopedics`,
       description: info.desc,
       type: "article",
-      url: `https://mountainspineorthopedics.com/blogs/${blog.id}`,
+      url: `https://mountainspineorthopedics.com/blogs/${slugifiedTitle}`,
       publishedTime: blog.created_at,
       modifiedTime: blog.modified_at,
       authors: ["https://mountainspineorthopedics.com/about"],
@@ -47,7 +51,7 @@ export async function generateMetadata(
       images: [info.img],
     },
     alternates: {
-      canonical: `https://mountainspineorthopedics.com/blogs/${blog.id}`
+      canonical: `https://mountainspineorthopedics.com/blogs/${slugifiedTitle}`
     }
   };
 }
