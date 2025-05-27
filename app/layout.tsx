@@ -88,8 +88,8 @@ export const metadata: Metadata = {
     canonical: "https://mountainspineorthopedics.com",
   },
   icons: {
-    icon: "/logoSearch.png",
-    apple: "/logoSearch.png",
+    icon: "https://mountainspineortho.b-cdn.net/logoSearch.png",
+    apple: "https://mountainspineortho.b-cdn.net/logoSearch.png",
   },
   metadataBase: new URL("https://mountainspineorthopedics.com"),
 };

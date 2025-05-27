@@ -174,7 +174,7 @@ export async function GET() {
     .filter(blog => blog?.id && blog?.blog_info?.title && blog.id !== 'undefined' && blog.id !== 'faqs')
     .map(blog => `
       <url>
-        <loc>${baseUrl}/blogs/${blog.id}</loc>
+        <loc>${baseUrl}/blogs/${blog.slug}</loc>
         <lastmod>${blog.modified_at || new Date().toISOString()}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

@@ -314,7 +314,7 @@ const NavBarLinks = [
         subLinks : clinics.map((clinic) => {
           return {
             title : clinic.name,
-            href : `/locations/${clinic.id}`
+            href : `/locations/${clinic.slug}`
           }
         })
       }
@@ -426,23 +426,25 @@ export default function NavBar() {
            {/* Sidebar Container */}
            <aside
                id="mobile-sidebar" // ID for aria-controls
-               className={`fixed top-0 right-0 h-full w-full md:w-[65%] bg-white shadow-xl p-6 transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${
+               className={`fixed top-0 right-0 h-full w-full md:w-[65%] bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${
                    isSidebarOpen ? 'translate-x-0' : 'translate-x-full' // Slide in/out from right
                }`}
                aria-hidden={!isSidebarOpen} // Hide from screen readers when closed
            >
-                <button
-                  className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 mt-20 ml-auto bg-white rounded-xl backdrop-blur-3xl`}   //ml-auto pushes it right if space allows
-                  onClick={toggleSidebar}
-                  aria-label="Toggle menu"
-                  aria-expanded={isSidebarOpen}
-                  aria-controls="mobile-sidebar"  //Should match sidebar id
-              >
-                  <HamburgerIcon open={isSidebarOpen} />
-              </button>
+                <div className="p-6">
+                    <button
+                      className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 mt-20 ml-auto bg-white rounded-xl backdrop-blur-3xl`}   //ml-auto pushes it right if space allows
+                      onClick={toggleSidebar}
+                      aria-label="Toggle menu"
+                      aria-expanded={isSidebarOpen}
+                      aria-controls="mobile-sidebar"  //Should match sidebar id
+                  >
+                      <HamburgerIcon open={isSidebarOpen} />
+                  </button>
+                </div>
 
                {/* Sidebar Navigation Links */}
-               <nav className="mt-16 flex flex-col space-y-4">
+               <nav className="mt-16 flex flex-col space-y-4 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]">
                     {NavBarLinks.map((link, index) => {
                         return (
                           <SidebarNavItem

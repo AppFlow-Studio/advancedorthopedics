@@ -31,6 +31,7 @@ export interface supabaseBlogPostProp {
     modified_at : string
     id : string
     blog_info : BlogPostProp
+    slug : string
 }
 
 function truncateString(str : string, maxLength = 172) {
@@ -51,7 +52,7 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id }
 
     >
         {id && (
-            <Link className="flex flex-col p-4 space-y-[32px]" href={`/blogs/${id}`}>
+            <Link className="flex flex-col p-4 space-y-[32px]" href={`/blogs/${BlogInfo.title.replace(/\s+/g, '-').toLowerCase()}`}>
                 <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden">
                     <Image src={BlogInfo.img} width={240} height={240} layout='responsive' alt="Mountain Spine & Orthopedics Logo" />
                 </div>
