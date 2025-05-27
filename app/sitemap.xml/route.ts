@@ -70,6 +70,45 @@ export async function GET() {
       <lastmod>${new Date().toISOString()}</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
+     </url>`).join('')}
+     
+     <url>
+        <loc>${baseUrl}/about</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+     <url>
+        <loc>${baseUrl}/about/FAQs</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+     
+    <url>
+        <loc>${baseUrl}/condition-check</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>${baseUrl}/area-of-pain/back-pain/backpaintreatmentoptions</loc>
+        <lastmod>2025-05-17</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>${baseUrl}/area-of-pain/neck-and-shoulder-pain/neckandshouldertreatments</loc>
+        <lastmod>2025-05-17</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    ${FindCare.map(findCare => `
+    <url>
+        <loc>${baseUrl}/find-care/${findCare}</loc>
+        <lastmod>2025-05-17</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
     </url>`).join('')}
   <url>
     <loc>${baseUrl}/condition-check</loc>
