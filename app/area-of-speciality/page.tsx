@@ -231,14 +231,14 @@ export default function AreaOfSpeciality() {
       {/* All Our Conditions Section */}
       <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px] scroll-mt-16" id="conditions-section">
         {/* Section Header with Search Bar and Filter */}
-        <div className="flex md:flex-row flex-col justify-between md:items-center" ref={paginationRef} >
+        <div className="flex lg:flex-row flex-col justify-between md:items-start items-center lg:space-y-0 space-y-4 px-4" ref={paginationRef} >
           <h1
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] text-5xl"
           >
             All Our Conditions
           </h1>
-          <div className="fw-full md:w-1/2 lg:w-2/3 flex flex-col md:flex-row gap-x-4">
+          <div className="w-full lg:w-1/2  flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
             <div className="w-full md:w-1/2">
               <ConditionsSearchBar
                 conditions={Conditions}

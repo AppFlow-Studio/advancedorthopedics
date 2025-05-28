@@ -254,19 +254,19 @@ const treatmentAreaParam = () => {
 
 
         {/* Treatments List Section */}
-        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8' id="treatments-section">
-          <div className='space-y-[16px] flex flex-col md:flex-row justify-between items-center'>
+        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8 ' id="treatments-section">
+          <div className='flex flex-col lg:flex-row justify-between lg:items-center lg:space-y-0 space-y-4'>
             <h1
               style={{
                 fontFamily: 'var(--font-reem-kufi)',
                 fontWeight: 500,
               }}
-              className='text-[#111315] text-4xl md:text-5xl mb-4 md:mb-0'
+              className='text-[#111315] text-4xl md:text-5xl mb-4 lg:mb-0'
             >
               All Our Treatments
             </h1>
 
-            <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col md:flex-row gap-x-4">
+            <div className="w-full  lg:w-2/3 flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
               {/* Search Bar */}
               <div className="w-full md:w-1/2">
                 <TreatmentsSearchBar
