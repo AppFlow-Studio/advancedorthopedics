@@ -201,7 +201,7 @@ const NavBarLinks = [
     subLinks : [
       {
         title : 'Back Pain',
-        href : '/area-of-speciality',
+        href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
         subLinks : [
           {
             title : 'Lower Back Pain',
@@ -235,7 +235,7 @@ const NavBarLinks = [
       },
       {
         title : 'Neck & Shoulder Pain',
-        href : '/area-of-speciality',
+        href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
         subLinks : [
           {
             title : 'Cervical Spinal Stenosis',
@@ -261,6 +261,12 @@ const NavBarLinks = [
             title : 'Neck and Shoulder Treatments',
             href : '/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments'
           }
+        ]
+      },
+      {
+        title : 'Foot & Ankle',
+        href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
+        subLinks : [
         ]
       },
       {

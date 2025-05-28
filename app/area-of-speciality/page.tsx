@@ -4,14 +4,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, Filter } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { ChevronDown, Filter, User, BicepsFlexed, Bone, Footprints, Hand, TorusIcon, TextCursorInputIcon } from 'lucide-react'
+import { MultiSelect } from '@/components/ui/multi-select'
 
 // Components & Data - Adjust paths as needed
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton' // Assuming component exists
@@ -21,6 +15,7 @@ import ConditionsSearchBar from '@/components/ConditionsSearchBar'
 import { Conditions } from '@/components/data/conditions' // Import the data array
 import { AnimatedList } from '@/components/magicui/animated-list' // Assuming component exists
 import { TextAnimate } from '@/components/magicui/text-animate' // Assuming component exists
+import { useSearchParams } from 'next/navigation'
 
 export default function AreaOfSpeciality() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,12 +23,47 @@ export default function AreaOfSpeciality() {
   const [data, setData] = useState<ConditionInfoProp[]>(Conditions);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const paginationRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+
+  // Get URL parameters and apply initial filters
+  const getSelectedFilters = () => {
+    const dataParam = searchParams.get('data');
+    if (dataParam) {
+      return JSON.parse(decodeURIComponent(dataParam)).tags;
+    }
+    return [];
+  }
+  
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const dataParam = searchParams.get('data');
+    if (dataParam) {
+      try {
+        const parsedData = JSON.parse(decodeURIComponent(dataParam));
+        if (parsedData.tags && Array.isArray(parsedData.tags)) {
+          setSelectedFilters(parsedData.tags);
+          filterConditions(parsedData.tags);
+          const section = document.getElementById('conditions-section');
+          if (section) {
+            section.scrollIntoView({ block : 'start', behavior: 'smooth' });
+          }
+        }
+      } catch (error) {
+        console.error('Error parsing URL parameters:', error);
+      }
+    }
+  }, [searchParams]);
+
+
 
   const filterCategories = [
-    { value: "neck", label: "Neck" },
-    { value: "spine", label: "Spine" },
-    { value: "knee", label: "Knee" },
-    { value: "foot", label: "Foot" }
+    { value: "Neck", label: "Neck", icon : User },
+    { value: "Shoulder", label: "Shoulder", icon : BicepsFlexed },
+    { value: "Spine", label: "Spine", icon : Bone },
+    { value: "Lower Spine", label: "Lower Spine", icon : TorusIcon },
+    { value: "Knee", label: "Knee", icon : TextCursorInputIcon },
+    { value: "Foot", label: "Foot", icon : Footprints },
+    { value: "Hand", label: "Hand", icon : Hand },
   ];
 
   // Filter conditions based on selected categories
@@ -44,7 +74,7 @@ export default function AreaOfSpeciality() {
     }
     const filtered = Conditions.filter(condition => 
       categories.some(category => 
-        condition.category?.toLowerCase() === category.toLowerCase()
+        condition.tag?.toLowerCase() === category.toLowerCase()
       )
     );
     setData(filtered);
@@ -52,20 +82,14 @@ export default function AreaOfSpeciality() {
   };
 
   // Handle filter change
-  const handleFilterChange = (value: string) => {
-    let newFilters: string[];
-    if (value === "all") {
-      newFilters = [];
-    } else {
-      if (selectedFilters.includes(value)) {
-        newFilters = selectedFilters.filter(filter => filter !== value);
-      } else {
-        newFilters = [...selectedFilters, value];
-      }
-    }
-    setSelectedFilters(newFilters);
-    filterConditions(newFilters);
+  const handleFilterChange = (values: string[]) => {
+    setSelectedFilters(values);
   };
+
+  // Update filtered data when filters change
+  useEffect(() => {
+    filterConditions(selectedFilters);
+  }, [selectedFilters]);
 
   // Calculate items for the current page based on 'data' state
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -91,7 +115,7 @@ export default function AreaOfSpeciality() {
   }, [currentPage]);
 
   // --- Handler function for when a condition is selected in the search bar ---
-  const handleConditionSelect = (condition: Condition) => {
+  const handleConditionSelect = (condition: ConditionInfoProp) => {
     console.log("Parent: Condition selected - ", condition.title);
     setData([condition]); // Update state to show only the selected condition
     setCurrentPage(1);    // Reset to page 1
@@ -205,64 +229,32 @@ export default function AreaOfSpeciality() {
       </section>
 
       {/* All Our Conditions Section */}
-      <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px]">
+      <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px] scroll-mt-16" id="conditions-section">
         {/* Section Header with Search Bar and Filter */}
-        <div className="flex md:flex-row flex-col justify-between md:items-center" ref={paginationRef}>
+        <div className="flex md:flex-row flex-col justify-between md:items-center" ref={paginationRef} >
           <h1
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-            className="text-[#111315] text-5xl md:w-full w-[90%]"
+            className="text-[#111315] text-5xl"
           >
             All Our Conditions
           </h1>
-          <div className="flex md:flex-row flex-col gap-4 md:w-[50%] w-full md:mt-0 mt-4">
-            <div className="md:w-[60%] w-full">
+          <div className="fw-full md:w-1/2 lg:w-2/3 flex flex-col md:flex-row gap-x-4">
+            <div className="w-full md:w-1/2">
               <ConditionsSearchBar
                 conditions={Conditions}
                 onSelect={handleConditionSelect}
                 onClear={handleSearchClear}
               />
             </div>
-            <div className="md:w-[40%] w-full">
-              <Select
-                value={selectedFilters.length > 0 ? selectedFilters.join(',') : "all"}
+            <div className="w-full md:w-1/2">
+              <MultiSelect
+                value={selectedFilters}
                 onValueChange={handleFilterChange}
-              >
-                <SelectTrigger className="w-full h-[48px] bg-[#EFF5FF] border-[#DCDEE1]">
-                  <div className="flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-[#022968]" />
-                    <SelectValue placeholder="Filter by Category">
-                      {selectedFilters.length > 0 
-                        ? `${selectedFilters.length} selected`
-                        : "Filter by Category"}
-                    </SelectValue>
-                  </div>
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
-                  {filterCategories.map((category) => (
-                    <SelectItem 
-                      key={category.value} 
-                      value={category.value}
-                      className="flex items-center gap-2"
-                    >
-                      <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 border rounded-sm flex items-center justify-center ${
-                          selectedFilters.includes(category.value) 
-                            ? 'bg-[#022968] border-[#022968]' 
-                            : 'border-[#DCDEE1]'
-                        }`}>
-                          {selectedFilters.includes(category.value) && (
-                            <svg className="w-3 h-3 text-white" viewBox="0 0 14 14" fill="none">
-                              <path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                          )}
-                        </div>
-                        {category.label}
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+                defaultValue={getSelectedFilters()}
+                options={filterCategories}
+                placeholder="Filter by Category"
+                className="w-full h-[48px] bg-[#EFF5FF] border-[#DCDEE1]"
+              />
             </div>
           </div>
         </div>

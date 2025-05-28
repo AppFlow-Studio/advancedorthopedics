@@ -43,30 +43,33 @@ import { useRouter } from "next/navigation";
 
 
 const ServicesAndExpertise = [
-
   {
     img : Neck,
     title : 'Neck & Spine',
     anatomy : 'https://mountainspineortho.b-cdn.net/public/NeckAnat.png',
-    desc : 'Cutting-edge cervical treatments relieve compression and restore alignment.'
+    desc : 'Cutting-edge cervical treatments relieve compression and restore alignment.',
+    link : ['Neck', 'Spine']
   },
   {
     img : LowerBack,
     title : 'Lower Back',
     anatomy : 'https://mountainspineortho.b-cdn.net/public/LowerbackAnat.png',
-    desc : 'Minimally invasive lumbar interventions reduce pain and improve function.'
+    desc : 'Minimally invasive lumbar interventions reduce pain and improve function.',
+    link : ['Lower Spine']
   },
   {
     img : Joints,
     title : 'Joints',
     anatomy : 'https://mountainspineortho.b-cdn.net/public/JointsAnat.png',
-    desc : 'Arthroscopic and regenerative methods help get your joints moving again.'
+    desc : 'Arthroscopic and regenerative methods help get your joints moving again.',
+    link : ['Knee', 'Shoulder', 'Hand']
   },
   {
     img : Foot,
     title : 'Foot & Ankle',
     anatomy : 'https://mountainspineortho.b-cdn.net/public/FootAnat.png',
-    desc : 'Precision interventions fix lower extremity biomechanics.'
+    desc : 'Precision interventions fix lower extremity biomechanics and restore optimal foot and ankle function.',
+    link : ['Foot']
   },
 ]
 
@@ -382,6 +385,7 @@ const OrthoConditionsWeTreat = [
   },
 ];
 
+
 export default function Home() {
   const [ selectedService , setSelectedService ] = useState('Neck & Spine')
   const [ selectedOrthoCondition, setSelectedOrthoCondition ] = useState(OrthoConditionsWeTreat[0])
@@ -529,11 +533,12 @@ export default function Home() {
                 <div className="sm:grid hidden grid-cols-2 gap-[10px] mt-[40px]">
                   {
                     ServicesAndExpertise.map(( item ) => (
-                      <div
-                      key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl hover:border hover:border-[#2358AC] items-center justify-center hover:cursor-pointer ${selectedService == item.title ? 'border border-[#2358AC]' : ''}`} onClick={() => setSelectedService(item.title)}>
+                      <Link
+                      href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
+                      key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl items-center justify-center hover:cursor-pointer `} onClick={() => setSelectedService(item.title)}>
                         <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] "/>
-                        <h1 className={`${selectedService == item.title ? 'text-[#2358AC]' : 'text-[#5B5F67]'} `}>{item.title}</h1>
-                      </div>
+                        <h1 className={`text-[#5B5F67]`}>{item.title}</h1>
+                      </Link>
                     ))
                   }
                 </div>
@@ -575,7 +580,7 @@ export default function Home() {
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
                   {
                     ServicesAndExpertise.map((item,index) => (
-                      <div className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${selectedService == item.title ? `sm:bg-[linear-gradient(177deg,#022968_-13.59%,#0094E0_109.86%)]  ${index % 2 == 1? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} ` : `sm:bg-[#FAFAFA] ${index % 2 == 1? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'}`}  `} key={item.title}
+                      <Link href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${ `sm:bg-[#FAFAFA] ${index % 2 == 1? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} `}  `} key={item.title}
                       onClick={() => setSelectedService(item.title)}
                       style={{
                         //background : selectedService == item.title ? 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)' : '#FAFAFA'
@@ -588,7 +593,7 @@ export default function Home() {
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 500,
                             }}
-                            className={`text-lg self-center ${selectedService == item.title  ? 'sm:text-white text-[#022968]' : 'text-[#022968]'}`}
+                            className={`text-lg self-center text-[#022968]`}
                             >0{index + 1}</h1>
                           </div>
   
@@ -602,7 +607,7 @@ export default function Home() {
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 500,
                             }}
-                            className={`text-3xl ${selectedService == item.title  ? 'sm:text-white text-[#022968]' : 'text-[#022968]'}`}
+                            className={`text-3xl  'text-[#022968]`}
                             >{item.title}</h1>
   
                             <h1
@@ -610,7 +615,7 @@ export default function Home() {
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 500,
                             }}
-                            className={`text-lg ${selectedService == item.title  ? 'sm:text-white text-[#022968]' : 'text-[#022967]'}`}
+                            className={`text-lg  text-[#022967]`}
                             >
                               {item.desc}
                             </h1>
@@ -619,7 +624,7 @@ export default function Home() {
                        <div className="w-full max-h-[240px] h-full relative" >
                         <Image src={item.anatomy} alt={item.title} height={240} width={240} layout="responsive" className="w-full sm:flex hidden max-h-[240px] h-full object-cover aspect-square rounded-[24px] lg:h-[240px]"/>
                        </div>
-                      </div>
+                      </Link>
                     ))
                   }
               </div>
@@ -990,7 +995,7 @@ export default function Home() {
                       }}
                       className=" text-lg"
                       >
-                       At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here’s why we stand out:
+                       At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here's why we stand out:
                       </h1>
             </div>
                 </Reveal>

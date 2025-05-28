@@ -27,6 +27,10 @@ export default function Treatments() {
         const filter = JSON.parse(decodeURIComponent(dataParam));
         console.log('filter', filter);
         setSelectedFilters([filter.key]);
+        const section = document.getElementById('treatments-section');
+        if (section) {
+          section.scrollIntoView({ block : 'start', behavior: 'smooth' });
+        }
     }
 }, [searchParams]);
 
@@ -250,7 +254,7 @@ const treatmentAreaParam = () => {
 
 
         {/* Treatments List Section */}
-        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
+        <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8' id="treatments-section">
           <div className='space-y-[16px] flex flex-col md:flex-row justify-between items-center'>
             <h1
               style={{

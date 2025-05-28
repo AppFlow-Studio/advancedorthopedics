@@ -34,7 +34,6 @@ export default function ClinicsMap({ startingClinic } :  {
 }) {
 
   const {location} = useGeolocation();
-  console.log(location)
    // Optional: State to hold map instance
    const [map, setMap] = useState(null);
    const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
@@ -190,7 +189,6 @@ const handleClinicChange = (name: string) => {
       setMapCenter(defaultMapCenter)
     }
   }, [location])
-  console.log('Selected Clinic',selectedClinc)
   useEffect(() => {
     if( isInitialMount.current && selectedClinc && !startingClinic  ){
       const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
@@ -362,7 +360,6 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
 
 function findNearestClinicNameGoogle(clinics, userLocation, google) {
   // Check if geometry library is loaded
-  console.log('User Location',userLocation)
   if( !userLocation ) {return clinics[0]}
   if (!google || !google.maps || !google.maps.geometry || !google.maps.geometry.spherical) {
     console.error("Google Maps API or geometry library not loaded.");
