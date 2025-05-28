@@ -62,7 +62,7 @@ export default function AreaOfSpeciality() {
     { value: "Spine", label: "Spine", icon : Bone },
     { value: "Lower Spine", label: "Lower Spine", icon : TorusIcon },
     { value: "Knee", label: "Knee", icon : TextCursorInputIcon },
-    { value: "Foot", label: "Foot", icon : Footprints },
+    { value: "Foot", label: "Foot & Ankle", icon : Footprints },
     { value: "Hand", label: "Hand", icon : Hand },
   ];
 

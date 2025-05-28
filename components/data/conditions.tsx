@@ -2851,8 +2851,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     {
       "title": "Bunions (Hallux Valgus)",
       "tag": "Foot",
-      "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
-      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
+      "card_img": "https://mountainspineortho.b-cdn.net/public/Bunions%20(1).jpg",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/bunions2.png",
       "body": "Bunions are a common foot deformity characterized by a bony bump at the base of the big toe. This condition, medically known as Hallux Valgus, can cause pain, inflammation, and difficulty wearing shoes. Understanding the causes, recognizing symptoms early, and exploring available treatments are crucial for managing bunions effectively and maintaining foot health.",
       "detail": "A bunion develops when the first metatarsal bone (the bone in your foot just behind the big toe) shifts outward, and the big toe (hallux) angles inward toward the other toes. This misalignment forces the metatarsophalangeal (MTP) joint to protrude, creating the noticeable bump. Over time, this can lead to arthritis in the joint, bursitis (inflammation of the fluid-filled sac cushioning the joint), and further foot problems. Factors contributing to bunion formation include genetics, foot structure (like flat feet or low arches), inflammatory conditions such as rheumatoid arthritis, and prolonged wearing of ill-fitting, narrow, or high-heeled shoes.",
       "what_sym": "Key symptoms of bunions include a visible bony prominence on the side of the big toe, pain and tenderness around the MTP joint, redness and inflammation, a burning sensation, and possible numbness or tingling. The skin over the bunion may become callused. As the bunion progresses, it can lead to restricted movement of the big toe and pain that worsens with pressure from shoes or standing for long periods. Corns and calluses may also develop on adjacent toes due to pressure and misalignment.",
@@ -2867,8 +2867,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     {
       "title": "Achilles Tendonitis",
       "tag": "Foot",
-      "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
-      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
+      "card_img": "https://mountainspineortho.b-cdn.net/public/tendo.png",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/tendo2.jpeg",
       "body": "Achilles Tendonitis is a common overuse injury affecting the Achilles tendon, the large tendon connecting your calf muscles to your heel bone. It causes pain and stiffness along the back of the heel. Understanding the condition, its causes, and effective treatments is essential for recovery and preventing chronic issues.",
       "detail": "Achilles Tendonitis occurs when the Achilles tendon becomes inflamed due to repetitive or intense strain. This tendon is crucial for walking, running, jumping, and pushing up on your toes. There are two main types: Noninsertional Achilles Tendonitis, where fibers in the middle portion of the tendon begin to break down, swell, and thicken (more common in younger, active individuals), and Insertional Achilles Tendonitis, which involves the lower part of the tendon where it attaches to the heel bone, and can lead to bone spur formation (can occur at any age, even in less active individuals).",
       "what_sym": "The primary symptoms of Achilles Tendonitis include pain and stiffness along the Achilles tendon, typically in the morning or after periods of inactivity. The pain often worsens with activity and may be more severe the day after exercising. Tenderness or intense pain when the sides of the tendon are squeezed is common. Swelling may be present along the tendon, and a thickened area or bump may develop. You might also experience limited range of motion when flexing your foot (dorsiflexion). In insertional tendonitis, pain can be prominent when wearing shoes that rub against the back of theheel.",
@@ -2883,8 +2883,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     {
       "title": "Flat Feet (Pes Planus)",
       "tag": "Foot",
-      "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
-      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
+      "card_img": "https://mountainspineortho.b-cdn.net/public/flat2.webp",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/flat.webp",
       "body": "Flat feet, or pes planus, is a condition where the arches of the feet are partially or totally collapsed, causing the entire sole to touch the ground when standing. While often painless, flat feet can sometimes lead to discomfort and other foot-related problems. Understanding this condition is key to managing any associated symptoms effectively.",
       "detail": "Flat feet occur when the tendons, ligaments, and small bones on the underside of the foot do not form a supportive arch. In many cases, flat feet are congenital (present from birth) and may run in families, often causing no issues. This is known as flexible flatfoot, where an arch is visible when the foot is not bearing weight but disappears when standing. Acquired flatfoot, also known as posterior tibial tendon dysfunction (PTTD) in adults, can develop due to injury, aging, arthritis, or conditions affecting the posterior tibial tendon, which is a primary supporter of the arch. This can lead to a progressive flattening of the arch and associated pain.",
       "what_sym": "Many individuals with flat feet experience no symptoms. However, when symptoms do occur, they can include: pain in the arch, heel, ankle, or along the inside of the foot; tired or achy feet, especially after prolonged standing or activity; swelling along the inside of the ankle; difficulty moving the foot in certain ways or standing on tiptoes. The pain may also extend to the calf, knee, hip, or lower back due to altered biomechanics and gait. Shoes may wear unevenly. In cases of PTTD, there may be a gradual outward pointing of the forefoot and heel.",
@@ -2898,7 +2898,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
     {
       "title": "Ankle Arthroscopy",
-      "tag": "Surgical Procedures",
+      "tag": "Foot",
       "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
       "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
       "body": "Ankle arthroscopy is a minimally invasive surgical procedure used to diagnose and treat a variety of ankle joint problems. By using a small camera and specialized instruments, surgeons can address issues with less pain and faster recovery compared to traditional open surgery. Understanding the indications, procedure, and recovery process is important for patients considering this option.",
