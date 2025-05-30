@@ -340,31 +340,31 @@ export const AllTreatments : TreatmentsCardProp[] = [
       "schedule": "If you're living with chronic low back pain that hasn’t improved with conservative care and you are seeking a motion-preserving surgical solution, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review, expert second opinion, and convenient transportation—then explore if lumbar disc replacement is the right solution for your spine health and mobility.",
       "slug": "lumbar-disc-replacement-surgery"
     },
-    {
-      "title": "Artificial Disc Replacement Surgery",
-      "tag": "Lower Spine",
-        "card_img": 'https://mountainspineortho.b-cdn.net/public/artificaldisc1.png',
-      "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/artificaldisk2.jpeg',
-      "body": "Artificial Disc Replacement is a motion-preserving surgical solution for degenerative disc disease and spinal disc damage. At Mountain Spine and Orthopedic, we offer this innovative alternative to spinal fusion—supported by complimentary MRI reviews, free second opinions, and convenient car service—to relieve nerve pressure, restore mobility, and help patients return to an active lifestyle.",
-      "detail": "Artificial Disc Replacement (ADR), also known as Total Disc Arthroplasty, is a spine surgical procedure designed to replace a damaged or degenerated intervertebral disc with a prosthetic implant while preserving motion at that spinal level. This is in contrast to spinal fusion, which eliminates motion by joining two vertebrae together. ADR is typically performed through an anterior approach (front of the neck for cervical spine, front of the abdomen for lumbar spine) to access the disc space directly. The damaged disc is completely removed, and an artificial disc made of materials like metal and medical-grade polymer is inserted into the space. The goal of ADR is to relieve pressure on the spinal cord or nerve roots caused by disc herniation or degeneration while maintaining the natural flexibility and range of motion of the spine segment. It is considered for select patients with single-level or sometimes two-level symptomatic disc disease who have not responded to non-surgical treatments and meet specific anatomical criteria, such as having healthy facet joints and good bone quality.",
-      "conditions_treated": (
-        <div className="flex flex-col space-y-[16px] items-center justify-center">
-          <p>Artificial Disc Replacement is an option for patients with chronic neck or back pain and neurological symptoms caused by: Symptomatic degenerative disc disease affecting a single spinal level (or two levels in the cervical spine). Large or contained disc herniations causing significant nerve compression. Disc collapse leading to loss of disc height and nerve root impingement. Pain and dysfunction unresponsive to conservative treatments like physical therapy, medication, or injections. Ideal candidates typically have healthy facet joints at the affected level, no significant spinal instability beyond the damaged disc, and no history of prior spinal surgery or infection at that level.</p>
-          <Image src={'https://mountainspineortho.b-cdn.net/public/artreplaceside.png'} alt="artside" width={300} height={300} fill className="w-full h-full object-fill aspect-video rounded-xl overflow-hidden"/>
-        </div>
-      ),
-      "procedure_info": "The procedure is performed under general anesthesia. For cervical ADR, an incision is made on the front of the neck. For lumbar ADR, an incision is made on the front of the abdomen, often with assistance from a vascular surgeon. The muscles and structures are carefully moved aside to expose the front of the spine. The damaged disc is completely removed, along with any bone spurs (osteophytes) that may be compressing nerves. The endplates of the adjacent vertebrae are prepared to accept the artificial disc implant. The appropriate size and type of artificial disc prosthesis, which typically consists of two metal endplates and a mobile core (often polymer), is inserted into the empty disc space. The design of the artificial disc allows for movement that mimics the natural disc. The approach incision is then closed.",
-      "recovery_info": "Recovery from Artificial Disc Replacement is often faster and involves fewer restrictions on mobility compared to spinal fusion. Patients typically spend 1-3 days in the hospital. Oral pain medication is prescribed for post-operative discomfort. A soft cervical collar may be worn for a short period after cervical ADR, but typically no rigid bracing is required for lumbar ADR. Physical therapy is essential, starting soon after surgery, focusing on restoring range of motion, strengthening core muscles, and improving posture. Because motion is preserved, patients can often return to many activities, including light exercise, sooner than with fusion. While initial pain relief is often immediate, full recovery and return to strenuous activities can take 3-6 months, depending on the individual and the level treated.",
-      "benefits": "The primary benefits of Artificial Disc Replacement are: Preservation of motion at the treated spinal level, which can help reduce stress on adjacent discs and potentially lower the risk of future problems at those levels (Adjacent Segment Disease), a known complication of fusion. Effective relief of spinal cord and nerve root compression, leading to resolution of pain, numbness, tingling, and weakness. Reduced recovery time and potentially less post-operative pain compared to spinal fusion. Restoration of disc height and spinal alignment. Potential for a quicker return to daily activities and an active lifestyle. Maintains spinal flexibility, which can contribute to overall spinal health.",
-      "why_choose_us": (
-        <div className="flex flex-col space-y-[16px] items-center justify-center">
-          <p>At Mountain Spine and Orthopedic, our spine specialists are experienced in the latest techniques for Artificial Disc Replacement surgery. We conduct a comprehensive diagnostic evaluation, including complimentary high-resolution MRI and dynamic standing X-rays, to precisely assess disc damage, spinal alignment under load, and the overall health and stability of the spine. A thorough physical and neurological examination is crucial to confirm candidacy for ADR, ensuring that you meet the specific criteria for this motion-preserving procedure, such as having healthy facet joints and appropriate bone quality. We provide expert second opinions to help you understand if ADR is the best option for your long-term spinal health and activity goals.</p>
-          <Image src={'https://mountainspineortho.b-cdn.net/public/artreplaceback.png'} alt="artback" width={300} height={300} fill className="w-full h-full object-fill aspect-video rounded-xl overflow-hidden"/>
-        </div>
-      ),
-      "schedule": "If chronic neck or back pain is limiting your lifestyle and you are seeking a motion-preserving solution, schedule a consultation with Mountain Spine and Orthopedic today. Receive a complimentary MRI review, expert second opinion, and door-to-door transportation—then explore whether artificial disc replacement surgery is the right solution for your spinal health.",
-      "slug": "artificial-disc-replacement-surgery"
-    },
+    
+      {
+        title: "Artificial Disc Replacement Surgery",
+        tag: "Lower Spine",
+        card_img: "https://mountainspineortho.b-cdn.net/public/artificaldisc1.png",
+        inTxt_img: "https://mountainspineortho.b-cdn.net/public/artificaldisk2.jpeg",
+        body:
+          "Artificial Disc Replacement is a motion-preserving solution for degenerative disc disease. We relieve nerve pressure and restore mobility with advanced orthopedic care in Florida.",
+        detail:
+          "Artificial Disc Replacement (ADR), or Total Disc Arthroplasty, replaces a damaged intervertebral disc with a prosthetic implant, maintaining motion and reducing pain. It’s an alternative to spinal fusion. ADR is performed through an anterior approach and is ideal for patients with symptomatic disc disease who have not responded to conservative treatments. The goal is to relieve nerve compression while preserving spinal flexibility.",
+        conditions_treated:
+          "Degenerative disc disease, disc herniation, spinal instability, nerve compression, disc height loss, facet joint preservation, radiculopathy, chronic back or neck pain",
+        procedure_info:
+          "ADR is performed under general anesthesia using an anterior approach. The damaged disc is removed, and an artificial disc is inserted to restore height and maintain motion. It mimics natural disc function and avoids spinal fusion.",
+        recovery_info:
+          "Recovery is typically faster than spinal fusion. Hospital stay is 1–3 days. Patients begin physical therapy early, and many return to daily activity within weeks. Full recovery takes 3–6 months depending on the level treated.",
+        benefits:
+          "Preserves spinal motion, reduces risk of adjacent segment disease, quick recovery, maintains disc height, relieves nerve compression, enables return to activity, avoids fusion complications",
+        why_choose_us:
+          "Mountain Spine and Orthopedic offers advanced ADR techniques. We provide complimentary MRI reviews, dynamic X-rays, and second opinions. Our surgeons ensure you meet the ideal criteria for this motion-preserving solution, using high-resolution diagnostics to support optimal outcomes.",
+        schedule:
+          "If chronic neck or back pain is limiting your lifestyle and you are seeking a motion-preserving solution, schedule a consultation with Mountain Spine and Orthopedic today. Receive a complimentary MRI review, expert second opinion, and door-to-door transportation—then explore whether artificial disc replacement surgery is the right solution for your spinal health.",
+        slug: "artificial-disc-replacement-surgery"
+      } ,
+      
     {
       "title": "Cervical Disc Arthroplasty",
       "tag": "Neck",
