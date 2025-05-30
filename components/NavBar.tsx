@@ -267,6 +267,30 @@ const NavBarLinks = [
         title : 'Foot & Ankle',
         href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
         subLinks : [
+          {
+            title : 'Bunions',
+            href : '/area-of-pain/foot-pain/bunions-hallux-valgus'
+          },          
+          {
+            title : 'Plantar Fasciitis',
+            href : '/area-of-pain/foot-pain/plantar-fasciitis'
+          },
+          {
+            title : 'Achilles Tendonitis',
+            href : '/area-of-pain/foot-pain/achilles-tendonitis'
+          },
+          {
+            title : 'Flat Feet',
+            href : '/area-of-pain/foot-pain/flat-feet'
+          },
+          {
+            title : 'Ankle Arthroscopy',
+            href : '/area-of-pain/foot-pain/ankle-arthroscopy'
+          },
+          {
+            title : 'Hammertoes',
+            href  : '/area-of-pain/foot-pain/hammertoes'
+          }
         ]
       },
       {
