@@ -2829,7 +2829,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "pain_info": "Pain arises from both mechanical overload of the fascia and the inflammatory mediators released at sites of microtearing. Morning pain and post-rest pain are hallmark features due to overnight tightening of the fascia. Our treatment plan addresses both inflammation and biomechanical contributors to deliver lasting relief.",
       "prevent": "Preventive strategies include maintaining a healthy weight, choosing supportive, well-fitted footwear, incorporating daily stretching of the Achilles tendon and plantar fascia, gradually increasing activity intensity, avoiding prolonged standing on hard surfaces, and using orthotic inserts or heel cups when needed.",
       "schedule": "If you are experiencing heel pain or stiffness first thing in the morning, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options as we create a personalized plan to relieve your plantar fasciitis and restore your active lifestyle.",
-      "slug": "plantarfasciitis"
+      "slug": "plantar-fasciitis"
     },
 
     {
@@ -2862,7 +2862,141 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "pain_info": "Pain from bunions primarily originates from the inflamed MTP joint due to pressure and misalignment. It can range from a dull ache to sharp, intense pain, especially when walking or wearing shoes. The overlying bursa can become inflamed (bursitis), contributing to tenderness and swelling. Pressure from footwear can also irritate the skin, leading to calluses or corns, which can be painful. In advanced cases, arthritic changes in the joint can cause chronic pain.",
       "prevent": "While genetic predisposition cannot be changed, certain measures can help prevent bunions or slow their progression. Choosing well-fitting footwear with a wide toe box, low heels, and good arch support is crucial. Avoid shoes that squeeze the toes or put excessive pressure on the MTP joint. Maintaining a healthy weight can reduce stress on the feet. Exercises to strengthen foot muscles may also be beneficial. If you have flat feet or other structural foot issues, using orthotics can help maintain proper alignment and reduce strain on the MTP joint. Early attention to foot pain and changes in toe alignment can lead to interventions that may prevent worsening of the condition.",
       "schedule": "If you are struggling with bunion pain or a noticeable deformity affecting your daily life, we encourage you to contact Mountain Spine & Orthopedics. Our specialists can provide a thorough evaluation, including a complimentary MRI review if needed, and discuss personalized treatment pathways. Explore your options for relief, with patient conveniences like telehealth consultations and door-to-door transportation.",
-      "slug": "bunions-hallux-valgus"
+      "slug": "bunions-hallux-valgus",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                What are Bunions?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  A bunion is a structural misalignment of the first metatarsophalangeal joint where the first metatarsal bone deviates outward and the big toe angles inward. This creates an outward bulge that rubs against footwear and concentrates pressure on the joint surface, leading to inflammation, bursitis, and arthritic change. Patients typically report localized soreness, swelling, burning sensations, and difficulty finding comfortable shoes. Accurate assessment of bunion size, joint flexibility, and underlying bone shape guides the most effective treatment strategy.        
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Bunions
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Most patients first notice a visible bump and intermittent soreness at the base of the big toe. With time, persistent joint pain develops, often described as a burning or throbbing sensation that worsens in snug footwear. Localized skin may appear shiny and warm because of underlying bursitis. The big toe gradually overlaps or under-rides the second toe, increasing crowding and making ordinary activities such as running, hiking, or even shopping arduous. Advanced bunions can cause numbness along the inside of the toe or lead to tingling within the forefoot as nerve branches become compressed. Prompt evaluation is crucial because early intervention can slow or even halt further joint damage.
+              </h1>
+              <div className="mt-[40px] space-y-[40px] flex flex-col">
+                <OutlinedButton text="Find a Treatment" />
+                <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Bunion Development 
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Bunion progression typically follows a predictable path. In the mild stage, the joint angle deviates slightly, and discomfort appears only during extended activity. During the moderate stage, the bump becomes visually obvious, pain occurs daily, and the big toe begins to rotate. In the severe stage, pronounced angular deviation, joint stiffness, and arthritic change limit walking distance and shoe options to wide or custom designs. Recognizing your stage allows the team at Mountain Spine & Care to match therapies from conservative bracing to surgical realignment precisely to your needs and lifestyle goals.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Bunion Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+Many bunions respond well to conservative management when addressed early. Wider toe-box shoes, silicone separators worn at night, and custom orthotics redistribute weight and slow progression. Targeted stretching and strengthening exercises restore flexor-extensor balance in the foot, while nonsteroidal anti-inflammatory medication eases flare-ups. When these measures no longer control pain or when deformity interferes with normal footwear, surgical correction becomes the gold standard. <br/><br/>Our surgeons perform minimally invasive percutaneous osteotomies as well as state-of-the-art Lapidus and scarf-type procedures that realign the metatarsal, restore joint congruency, and stabilize the foot with low-profile titanium hardware. Patients often bear weight in a protective postoperative shoe within days and resume athletic activities within weeks, guided by our in-house physical therapy team.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+              Persistent foot pain, swelling, and visible toe deviation do not have to define your day-to-day life. Early, expert-guided treatment can halt bunion progression and restore comfortable motion.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our specialists will evaluate your symptoms, provide a personalized diagnosis, and craft a comprehensive plan that relieves pain, realigns your toe, and gets you back on your feet without compromise to your lifestyle or goals.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
     },
     {
       "title": "Achilles Tendonitis",
@@ -2878,10 +3012,150 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "pain_info": "Pain from Achilles Tendonitis is typically felt along the back of the lower leg, near the heel. It can range from a mild ache to a more severe, burning pain. The pain often begins as a mild ache after running or other sports activity and can gradually worsen. Morning pain and stiffness are characteristic. The area may be tender to touch and swollen. The type and location of pain can sometimes help differentiate between noninsertional (mid-portion) and insertional (at the heel) tendonitis.",
       "prevent": "Preventing Achilles Tendonitis involves several strategies: gradually increase your activity level and intensity, rather than making sudden changes. Always warm up before exercising and cool down afterward. Incorporate regular stretching exercises for your calf muscles and Achilles tendons to maintain flexibility. Wear appropriate, supportive footwear for your activities and replace worn-out shoes. Strengthen your calf muscles to help them absorb more of the impact from exercise. If you have flat feet or other biomechanical issues, consider using orthotics. Listen to your body and rest if you feel pain or tightness in your Achilles tendon.",
       "schedule": "Experiencing ongoing Achilles tendon pain or stiffness that limits your activities? It's time to seek expert care. Contact Mountain Spine & Orthopedics to arrange a consultation. We provide thorough diagnostic services, including complimentary MRI reviews, and offer amenities like door-to-door transportation to ensure your path to recovery is smooth and effective.",
-      "slug": "achilles-tendonitis"
+      "slug": "achilles-tendonitis",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                What Is Achilles Tendonitis?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Achilles Tendonitis is a degenerative inflammatory condition resulting from cumulative overload. Two primary patterns occur: insertional tendonitis, which affects the lower 2 cm where the tendon anchors into the heel bone, and mid-substance tendonitis, which involves the region 2–6 cm above the heel. In both cases, collagen fibers lose their organized alignment, forming thickened, painful nodules. Patients usually describe morning “start-up pain” that improves with gentle movement but returns after intense exercise or long periods on their feet. Properly distinguishing Achilles Tendonitis from conditions such as Haglund’s deformity, retrocalcaneal bursitis, or partial tendon rupture is essential to selecting the right treatment.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Bunions
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Most patients first notice a visible bump and intermittent soreness at the base of the big toe. With time, persistent joint pain develops, often described as a burning or throbbing sensation that worsens in snug footwear. Localized skin may appear shiny and warm because of underlying bursitis. The big toe gradually overlaps or under-rides the second toe, increasing crowding and making ordinary activities such as running, hiking, or even shopping arduous. Advanced bunions can cause numbness along the inside of the toe or lead to tingling within the forefoot as nerve branches become compressed. Prompt evaluation is crucial because early intervention can slow or even halt further joint damage.
+              </h1>
+              <div className="mt-[40px] space-y-[40px] flex flex-col">
+                <OutlinedButton text="Find a Treatment" />
+                <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of  Achilles Tendonitis
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                <li>Pain and stiffness along the Achilles tendon, typically in the morning or after periods of inactivity</li>
+                <li>Morning stiffness that loosens after a few minutes of walking</li>
+                <li>Localized swelling or a thickened “cord-like” feeling in the tendon</li>
+                <li>Tender nodules or bumps that hurt when squeezed</li>
+                <li>Pain when rising on tiptoes or during uphill running</li>
+                <li>A creaking or crackling sensation (crepitus) during ankle movement</li>
+                <li>Limited ankle dorsiflexion (when the foot flexes upward) due to tight calf muscles Ignoring these signs can lead to tendon degeneration (tendinosis) and elevate the risk of full rupture a surgical emergency.</li>
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Bunion Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+Many bunions respond well to conservative management when addressed early. Wider toe-box shoes, silicone separators worn at night, and custom orthotics redistribute weight and slow progression. Targeted stretching and strengthening exercises restore flexor-extensor balance in the foot, while nonsteroidal anti-inflammatory medication eases flare-ups. When these measures no longer control pain or when deformity interferes with normal footwear, surgical correction becomes the gold standard. <br/><br/>Our surgeons perform minimally invasive percutaneous osteotomies as well as state-of-the-art Lapidus and scarf-type procedures that realign the metatarsal, restore joint congruency, and stabilize the foot with low-profile titanium hardware. Patients often bear weight in a protective postoperative shoe within days and resume athletic activities within weeks, guided by our in-house physical therapy team.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+              Persistent foot pain, swelling, and visible toe deviation do not have to define your day-to-day life. Early, expert-guided treatment can halt bunion progression and restore comfortable motion.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our specialists will evaluate your symptoms, provide a personalized diagnosis, and craft a comprehensive plan that relieves pain, realigns your toe, and gets you back on your feet without compromise to your lifestyle or goals.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
     },
     {
-      "title": "Flat Feet (Pes Planus)",
+      "title": "Flat Feet",
       "tag": "Foot",
       "card_img": "https://mountainspineortho.b-cdn.net/public/flat2.webp",
       "inTxt_img": "https://mountainspineortho.b-cdn.net/public/flat.webp",
@@ -2894,7 +3168,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "pain_info": "Pain associated with flat feet can manifest in various locations, including the arch, heel (due to associated Plantar Fasciitis), inner ankle (often related to posterior tibial tendon strain), or even the outer ankle if the foot rolls inward excessively (overpronation). The pain is often described as an ache or fatigue in the feet and legs, particularly after activity or standing for long periods. This discomfort arises from the increased strain on tendons, ligaments, and joints due to the lack of arch support and altered foot biomechanics.",
       "prevent": "While congenital flat feet cannot be prevented, you can take steps to prevent symptoms or the progression of acquired flatfoot. Wearing supportive shoes that provide good arch support and stability is key. Avoid prolonged standing or activities that cause foot pain. Maintain a healthy weight to reduce stress on your feet. Perform regular stretching exercises for the Achilles tendon and calf muscles, as tightness in these areas can exacerbate flat feet. If you notice changes in your arch or develop foot pain, seek early evaluation from a healthcare professional to implement appropriate management strategies.",
       "schedule": "If foot pain or fatigue associated with flat feet is impacting your comfort or mobility, consider scheduling an appointment at Mountain Spine & Orthopedics. Our team is ready to provide a detailed evaluation, discuss if a complimentary MRI review or free second opinion could benefit you, and outline suitable treatment strategies, accessible via in-person or telehealth visits.",
-      "slug": "flat-feet-pes-planus"
+      "slug": "flat-feet"
     },
     {
       "title": "Ankle Arthroscopy",
