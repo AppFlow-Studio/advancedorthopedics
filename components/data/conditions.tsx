@@ -25,6 +25,7 @@ import pinchednerve2 from '@/public/pinchednerve2.jpeg'
 import pinchednerveside from '@/public/pinchednerveside.jpeg'
 
 import spondy3 from '@/public/spondy3.png'
+import { sign } from "crypto";
 
 
 // export interface ConditionInfoProp {
@@ -2853,7 +2854,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website.jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -2890,7 +2891,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(2).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -2969,7 +2970,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(1).jpg'
     },
     {
       "title": "Bursitis",
@@ -3023,9 +3024,9 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 >
                   A bunion is a structural misalignment of the first metatarsophalangeal joint where the first metatarsal bone deviates outward and the big toe angles inward. This creates an outward bulge that rubs against footwear and concentrates pressure on the joint surface, leading to inflammation, bursitis, and arthritic change. Patients typically report localized soreness, swelling, burning sensations, and difficulty finding comfortable shoes. Accurate assessment of bunion size, joint flexibility, and underlying bone shape guides the most effective treatment strategy.        
                 </h1>
-                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(1).png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3057,7 +3058,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               <div className="mt-[40px] space-y-[40px] flex flex-col">
                 <OutlinedButton text="Find a Treatment" />
                 <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(3).png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3135,7 +3136,7 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(2).png'
     },
     {
       "title": "Achilles Tendonitis",
@@ -3174,7 +3175,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(3).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3211,7 +3212,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(4).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3295,7 +3296,7 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(4).png'
     },
     {
       "title": "Flat Feet",
@@ -3335,7 +3336,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(5).png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3366,7 +3367,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(5).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3446,13 +3447,13 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(6).png'
     },
     {
       "title": "Ankle Arthroscopy",
       "tag": "Foot",
-      "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
-      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).png",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).png",
       "body": "Ankle arthroscopy is a minimally invasive surgical procedure used to diagnose and treat a variety of ankle joint problems. By using a small camera and specialized instruments, surgeons can address issues with less pain and faster recovery compared to traditional open surgery.<br/> Understanding the indications, procedure, and recovery process is important for patients considering this option.",
       "detail": "During ankle arthroscopy the surgeon fills the joint with sterile fluid to create a clear working space, then guides a high definition camera to inspect the articular cartilage, ligaments, and synovial lining in real time. Through a second or third portal, micro instruments shave damaged tissue, remove inflamed synovium, trim bone spurs, or implant biologic scaffolds that encourage cartilage healing. Because muscles and tendons remain untouched, most patients walk in a protective boot within a few days and begin gentle range of motion exercises almost immediately.<br/>Advanced imaging at Mountain Spine & Orthopedics—including weight bearing radiographs, high resolution MRI, and when needed CT scans—helps us plan each arthroscopy with pinpoint accuracy so we can correct the underlying problem and preserve as much healthy tissue as possible.",
       "what_sym": "Ankle arthroscopy is not a condition itself but a procedure to address symptoms of underlying ankle problems. Symptoms that might lead to a recommendation for ankle arthroscopy include: persistent ankle pain not relieved by conservative treatments, chronic ankle instability or recurrent sprains, sensations of catching, locking, or grinding in the ankle joint, stiffness and limited range of motion, swelling that doesn't resolve, and pain associated with specific conditions like osteochondral defects (damage to cartilage and underlying bone), synovitis, or impingement.",
@@ -3486,7 +3487,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(6).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3517,7 +3518,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                  imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                  imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(8).jpg'} // Placeholder for another diagram/image
                   height="500px"
                   gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
               />
@@ -3596,12 +3597,13 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
+      side_img : "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(7).jpg"
     },
     {
       "title": "Hammertoes",
       "tag": "Foot",
-      "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
-      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).png",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).png",
       "body": "Hammertoes are a progressive toe deformity in which one or more of the lesser toes bend at the middle joint so that the tip points downward while the joint protrudes upward. This abnormal position can rub against shoes, leading to painful corns, calluses, inflammation, and eventually rigid stiffness that interferes with walking and balance. Genetics, poor fitting footwear, high arched or flat feet, previous injury, and certain neuromuscular conditions all contribute to the problem.<br/>At Mountain Spine & Orthopedics our foot and ankle specialists use advanced imaging and individualized care plans to straighten your toes, relieve pressure, and keep you comfortably on your feet.",
       "detail": "A healthy toe relies on balanced pull between its flexor and extensor tendons. When that balance shifts toward the extensor side the toe begins to buckle at the proximal interphalangeal joint. Over time the surrounding ligaments tighten, the joint capsule contracts, and the toe becomes fixed in a hammer shape. Friction inside shoes creates thick calluses over the joint prominence and beneath the tip of the toe, producing burning pain with each step.<br/>At Mountain Spine & Orthopedics we begin with weight bearing X rays to measure joint angles, evaluate the flexibility of the deformity, and rule out arthritic change in the metatarsophalangeal joints. We then craft step by step solutions that may start with shoe modifications, custom orthotics, and soft silicone shields to redistribute pressure while targeted exercises stretch tight tendons and strengthen intrinsic foot muscles.",
       "what_sym": "Common symptoms of hammertoes include a visible abnormal bend in the toe, pain or irritation on the top of the bent toe when wearing shoes, and the formation of corns or calluses on the top of the PIP joint or at the tip of the toe due to friction against footwear. Redness and swelling may occur at the affected joint. In some cases, there might be pain in the ball of the foot beneath the affected toe. Movement of the toe may become restricted and painful. Finding comfortable shoes can become increasingly difficult.",
@@ -3635,7 +3637,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(9).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3666,7 +3668,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(10).jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3743,13 +3745,13 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(7).png'
     },
     {
       "title": "Diabetic Foot Ulcers",
-      "tag": "Wound Care & Diabetes",
-      "card_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
-      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(15).jpg",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(15).jpg",
       "body": "Diabetic ulcers are open sores that usually develop on the bottom of the foot or around the toes in people with diabetes. Elevated blood sugar damages small blood vessels and nerves, reducing sensation and slowing circulation so even a small cut or blister can evolve into a deep nonhealing wound. Left untreated these ulcers invite serious infection and raise the risk of amputation.<br/>At Mountain Spine & Orthopedics our multidisciplinary wound care team combines advanced diagnostics with evidence based therapies to close ulcers quickly, prevent complications, and protect overall limb health.",
       "detail": "A healthy foot relies on prompt blood flow and intact sensation to heal minor injuries. Diabetes compromises both. Peripheral neuropathy dulls pain perception so patients may not notice pressure points or sharp objects inside a shoe, while peripheral arterial disease limits oxygen delivery to tissues. The result is a breakdown of skin that deepens into subcutaneous fat, muscle, and even bone.<br/>At Mountain Spine & Orthopedics we start every evaluation with a thorough vascular assessment that includes ankle brachial index testing and Doppler ultrasound to measure blood supply, followed by high resolution imaging such as MRI when bone infection is suspected. We also perform in office foot pressure mapping to identify areas of excess load that must be offloaded for reliable healing.",
       "what_sym": "Early signs of a potential diabetic foot ulcer can include: unusual swelling, irritation, redness, warmth, or odors from one or both feet. Drainage or pus from a sore on the foot, which may stain socks or shoes, is a clear indication of an ulcer. The ulcer itself may appear as a crater-like lesion, sometimes surrounded by callused skin. Pain may not be present due to nerve damage, which is why visual inspection is critical. In advanced cases, black tissue (eschar or gangrene) may form around the ulcer, indicating tissue death due to lack of blood flow. Systemic signs of infection like fever or chills can occur if the ulcer becomes severely infected.",
@@ -3783,7 +3785,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).jpg'} 
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3814,7 +3816,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(10).png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3891,6 +3893,156 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png'
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(8).png'
+    },
+
+    {
+      "title": "Ankle Replacement",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(16).jpg",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(16).jpg",
+      "body": "Ankle replacement sometimes called total ankle arthroplasty is an advanced procedure that removes damaged bone and cartilage in the ankle joint and restores function with a precision engineered prosthesis. Severe ankle arthritis can make every step painful and limit the activities you enjoy. By resurfacing the joint surfaces and inserting a streamlined metal and medical grade plastic implant this surgery relieves pain preserves motion and helps you walk more naturally than older methods that fused the joint.<br/>At Mountain Spine & Orthopedics our fellowship trained foot and ankle specialists use cutting edge imaging and computer guided alignment tools to personalize each ankle replacement and deliver lasting comfort and mobility.",
+      "detail": "The ankle joint carries forces up to five times body weight during walking and even higher during running or jumping. Over years previous injuries inflammatory disease or degenerative wear can erode the protective cartilage lining the tibia and talus leading to bone on bone grinding swelling and stiffness. When non surgical treatments such as medication bracing and targeted physical therapy can no longer control symptoms ankle replacement becomes the most effective solution.<br/>Before surgery our team obtains high resolution weight bearing CT scans that reveal the exact shape of your joint and any subtle deformities. We then design a three dimensional plan that guides implant positioning within fractions of a millimeter ensuring proper alignment and longevity.",    
+      "what_sym": "Symptoms indicating the need for an ankle replacement often develop gradually and worsen over time. These may include: severe and persistent ankle pain, especially during weight-bearing activities like walking or standing; significant ankle stiffness and reduced range of motion, making it difficult to flex or point the foot; chronic swelling and tenderness around the ankle joint; a grinding or catching sensation within the joint during movement; difficulty with daily activities such as climbing stairs, walking on uneven surfaces, or participating in recreational pursuits. Pain may also be present at rest or disrupt sleep in advanced cases. These symptoms typically persist despite conservative treatments like pain medication, anti-inflammatory drugs, bracing, or physical therapy.",
+      "risk_fac": "Several factors can increase the risk of developing severe ankle arthritis necessitating an ankle replacement. These include: a history of significant ankle trauma, such as previous ankle fractures or recurrent severe sprains that may have damaged the joint cartilage; osteoarthritis, the 'wear-and-tear' arthritis that degenerates cartilage over time; inflammatory arthritis, like rheumatoid arthritis, psoriatic arthritis, or gout, which can attack and destroy the ankle joint lining and cartilage; avascular necrosis of the talus (the lower bone of the ankle joint), where a loss of blood supply leads to bone collapse and cartilage damage. Other contributing factors can be increasing age, obesity (which places greater stress on the ankle joint), and certain congenital foot or ankle deformities that cause abnormal joint mechanics.",
+      "diagnose": "Diagnosing the underlying condition leading to the consideration of ankle replacement involves a comprehensive evaluation by an orthopedic specialist. This typically starts with a detailed medical history, including the onset of symptoms, previous injuries, and any existing medical conditions. A thorough physical examination of the foot and ankle will assess range of motion, stability, areas of tenderness, gait abnormalities, and overall alignment. Imaging studies are crucial: weight-bearing X-rays are usually the first step to visualize the extent of joint space narrowing, bone spurs, and any deformities. Advanced imaging, such as CT scans, provides detailed information about the bone structure and is often used for pre-operative planning, as mentioned. MRI scans may be employed to evaluate the condition of soft tissues, including cartilage integrity, ligaments, tendons, and to detect conditions like avascular necrosis. In some cases, diagnostic injections of local anesthetic into the ankle joint can help confirm it as the primary source of pain.",
+      "treatment": "Ankle replacement surgery is a surgical procedure that replaces the damaged ankle joint with an artificial one. This procedure is typically performed when the ankle joint is severely damaged or arthritic, and other treatments have not been successful. The artificial joint is made of metal and plastic and is designed to mimic the natural movement of the ankle joint. At Mountain Spine & Orthopedics we perform ankle replacement surgery using the latest techniques and technologies to ensure the best possible outcome for our patients.",
+      "pain_info": "The pain experienced by individuals requiring ankle replacement is typically chronic, debilitating, and primarily due to arthritic changes in the joint, where protective cartilage has worn away leading to bone-on-bone contact. This pain often manifests as a deep ache or sharp pain within the ankle, significantly worsened by activities like walking, standing, or climbing stairs. It can limit mobility and daily functioning, and in severe cases, pain may persist even at rest or disrupt sleep. The primary goal of ankle replacement surgery is to significantly reduce or eliminate this chronic arthritic pain by replacing the damaged joint surfaces with an artificial implant, thereby restoring smoother, pain-free motion to the ankle.",
+      "prevent": "While it's not always possible to prevent the conditions that lead to needing an ankle replacement, such as arthritis stemming from autoimmune diseases, certain measures can help reduce the risk or slow the progression of ankle joint damage. These include: prompt and appropriate medical attention for ankle injuries like fractures or severe sprains to ensure optimal healing and joint stability; maintaining a healthy body weight to minimize stress on the ankle joints; wearing supportive, well-fitting footwear suitable for your activities; engaging in regular, low-impact exercises (e.g., swimming, cycling) to maintain joint mobility and muscle strength without overburdening the joint; avoiding repetitive high-impact activities if you have a pre-existing ankle condition or are at higher risk. For those with inflammatory conditions like rheumatoid arthritis, diligent management of the underlying disease with medical guidance is crucial to protect joint health.",
+      "schedule": "For individuals with diabetes, any foot wound or unusual change requires immediate professional attention. Mountain Spine & Orthopedics offers specialized diabetic foot care. Please contact us without delay to arrange an evaluation. We provide support through services like complimentary MRI reviews if indicated, free second opinions, telehealth consultations, and door-to-door transportation to ensure you receive timely and comprehensive care.",
+      "slug": "ankle-replacement",
+      
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               What Is Ankle Replacement?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Ankle replacement involves two main steps. First the surgeon removes the diseased joint surfaces and any osteophytes or bone spurs. Second custom cutting guides prepare precise flat surfaces on the tibia and talus to accept the implant. The new joint consists of a cobalt chrome tibial component a titanium talar component and a durable polyethylene insert that glides smoothly between them. Unlike ankle fusion which eliminates motion ankle replacement preserves up and down movement allowing more natural gait and reducing stress on nearby joints such as the knee and hip.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).jpg'} 
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I need this surgery?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               Ankle Replacement Candidates
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Candidates for ankle replacement usually experience constant deep ankle pain that interferes with walking work and sleep. Swelling and stiffness limit range of motion and the joint may give way on uneven ground. Imaging shows advanced arthritis with narrow joint space cystic bone changes and large spurs. When daily activities require frequent pain medication or when bracing and injections no longer provide relief our specialists may recommend ankle replacement as the best path to restore quality of life.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(14).jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Ankle Replacement Recovery Progress
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Ankle arthritis begins with intermittent soreness after vigorous activity then progresses to daily pain morning stiffness and episodic swelling. As cartilage erodes the joint space narrows and spurs form leading to visible deformity and limited motion. In the final stage bone on bone contact causes grinding and sharp pain with every step. During evaluation we assess the integrity of surrounding ligaments alignment of the foot and prior surgeries to confirm that ankle replacement will offer predictable pain relief and durable function.
+              </h1>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Ankle Replacement Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                The procedure is performed under regional or general anesthesia and usually requires a hospital stay of one night. A well padded splint protects the ankle for the first two weeks while the incision heals. Most patients begin gentle non weight bearing range of motion exercises within days followed by progressive partial weight bearing in a removable boot. By the sixth week supervised physical therapy focuses on rebuilding strength balance and gait mechanics.<br/><br/>During months three to six many people return to low impact sports such as cycling golf and swimming while long distance running and high impact court activities are discouraged to prolong implant life. Our modern implants have shown excellent ten year survival and ongoing studies demonstrate continued success beyond fifteen years.
+              </h1>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+            Persistent ankle pain and stiffness do not have to dictate your pace of life. Early expert evaluation can determine whether total ankle replacement is the right solution for you. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our experienced foot and ankle team will review your imaging explain every treatment option and design a personalized surgical and rehabilitation plan that restores comfort supports mobility and helps you step forward with confidence.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(13).jpg'
     },
   ]
