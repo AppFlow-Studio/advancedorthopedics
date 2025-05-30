@@ -210,7 +210,7 @@ const OrthoConditionsWeTreat = [
       },
       {
         name: 'Cervical Laminectomy',
-        slug: 'posteriorcervicallaminoplasty'
+        slug: 'posterior-cervical-laminectomy-surgery'
       },
       {
         name: 'Cervical Foraminotomy',
@@ -232,23 +232,23 @@ const OrthoConditionsWeTreat = [
     treatment_categories: [
       {
         name: 'Rotator Cuff Repair',
-        slug: 'rotatorcuffrepair'
+        slug: 'rotator-cuff-repair-surgery'
       },
       {
         name: 'Shoulder Arthroscopy', 
-        slug: 'shoulderarthroscopy'
+        slug: 'shoulder-arthroscopy'
       },
       {
         name: 'Resurfacing Shoulder Replacement',
-        slug: 'resurfacingshoulderreplacement'
+        slug: 'resurfacing-shoulder-replacement'
       },
       {
         name: 'Shoulder Instability',
         slug: 'shoulder-instability'
       },
       {
-        name : 'Fracture Fixation Surgery',
-        slug : 'fracturefixation'
+        name: 'Fracture Fixation Surgery',
+        slug: 'fracture-fixation-surgery'
       }
     ]
   },
@@ -262,15 +262,15 @@ const OrthoConditionsWeTreat = [
     treatment_categories: [
       {
         name: 'Arthritis Treatment',
-        slug: 'anti-inflammatory-injections'
+        slug: 'arthritis-treatment'
       },
       {
         name: 'Carpal Tunnel Treatment', 
-        slug: 'carpaltunnelrelease'
+        slug: 'carpal-tunnel-treatment'
       },
       {
         name: 'Trigger Finger Release Surgery',
-        slug: 'triggerfingerrelease'
+        slug: 'trigger-finger-release'
       }
     ]
   },
@@ -301,8 +301,7 @@ const OrthoConditionsWeTreat = [
       {
         name: 'Axial Fusion Surgery',
         slug: 'axial-fusion-surgery'
-      },
-      
+      }
     ]
   },
   {
@@ -349,16 +348,16 @@ const OrthoConditionsWeTreat = [
       },
       {
         name: 'Meniscus Repair', 
-        slug: 'arthroscopickneesurgery'
+        slug: 'knee-meniscus-repair'
       },
       {
         name: 'Total Knee Replacement',
-        slug: 'totalkneereplacement'
+        slug: 'total-knee-replacement'
       },
       {
         name: 'Knee Arthroscopy',
-        slug: 'arthroscopickneesurgery'
-      },
+        slug: 'knee-arthroscopy'
+      }
     ]
   },
   {
@@ -371,7 +370,7 @@ const OrthoConditionsWeTreat = [
     treatment_categories: [
       {
         name: 'Bunion Correction',
-        slug: 'bunioncorrectionsurgery'
+        slug: 'bunion-correction-surgery'
       },
       {
         name: 'Ankle Ligament Reconstruction', 
@@ -379,8 +378,8 @@ const OrthoConditionsWeTreat = [
       },
       {
         name: 'Foot Fracture Fixation',
-        slug: 'fracturefixation'
-      },
+        slug: 'foot-fracture-fixation'
+      }
     ]
   },
 ];
