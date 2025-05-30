@@ -96,7 +96,7 @@ export default function TreatmentDetails({
     : null;
 
   // Function to perform a Fisher-Yates shuffle on the array
-  function shuffleArray(array) {
+  function shuffleArray<T>(array: T[]): T[] {
       const newArray = [...array]; // Clone the array
       for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
