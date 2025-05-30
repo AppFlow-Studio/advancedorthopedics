@@ -290,6 +290,14 @@ const NavBarLinks = [
           {
             title : 'Hammertoes',
             href  : '/area-of-pain/foot-pain/hammertoes'
+          },
+          {
+            title : 'Diabetic Foot Ulcers',
+            href : '/area-of-pain/foot-pain/diabetic-foot-ulcers'
+          },
+          {
+            title : 'Ankle Replacement',
+            href : '/area-of-pain/foot-pain/ankle-replacement'
           }
         ]
       },

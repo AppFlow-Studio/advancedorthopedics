@@ -120,7 +120,7 @@ export default function TreatmentDetails({
       }}
       className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
       />
-      <Image src={ConditionDetialsLanding} className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+      <Image src={ConditionDetialsLanding} width={300} height={300} layout="responsive" className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
       <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
           <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
@@ -286,8 +286,8 @@ export default function TreatmentDetails({
                         </h1>
                     </div>
                     
-                    {/* Video */}
-                    <Image src={treatment_details.inTxt_img} alt={treatment_details.title} width={240} height={240} layout="cover" className="w-full h-full object-fill object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" />
+                  
+                    <Image src={treatment_details.inTxt_img}  alt={treatment_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" />
                     
                      <div className=' flex flex-col space-y-[16px] '>
                     <h1
@@ -332,8 +332,29 @@ export default function TreatmentDetails({
                             {treatment_details.conditions_treated}
                         </h1>
                     </div>
+
+                    <div className=' flex flex-col space-y-[16px] '>
+                    <h1
+                        style={{
+                            fontFamily : 'var(--font-reem-kufi)',
+                            fontWeight : 500,
+                          }}
+                        className='text-[#111315] text-2xl sm:text-4xl'
+                        >
+                        Benefits of {treatment_details.title}?
+                        </h1>
+                        <h1
+                         style={{
+                            fontFamily : 'var(--font-inter)',
+                            fontWeight : 400,
+                          }}
+                          className='text-[#5B5F67] sm:text-xl text-md'
+                        >
+                            {treatment_details.benefits}
+                        </h1>
+                    </div>
     
-                    {/*  Diagnosing */}
+                    {/*  Why Choose Us */}
                     <div className=' flex flex-col space-y-[16px] '>
                     <h1
                         style={{
@@ -355,7 +376,7 @@ export default function TreatmentDetails({
                         </h1>
                     </div>
                     
-                    {/* Treatment for  */}
+                    {/* Recovery Info */}
                     <div className=' flex flex-col space-y-[16px] '>
                     <h1
                         style={{
@@ -376,98 +397,8 @@ export default function TreatmentDetails({
                             {treatment_details.recovery_info}
                         </h1>
                     </div>
-    
-    
-                    {/* Schedule a Consultation Today */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                        <h1
-                            style={{
-                                fontFamily : 'var(--font-reem-kufi)',
-                                fontWeight : 500,
-                            }}
-                          className='text-[#111315] text-2xl sm:text-4xl'
-                          >
-                          What does {treatment_details.title} look like?
-                          </h1>
-                          <h1
-                           style={{
-                              fontFamily : 'var(--font-inter)',
-                              fontWeight : 400,
-                            }}
-                            className='text-[#5B5F67] sm:text-xl text-md'
-                          >
-                              {treatment_details.procedure_info}
-                          </h1>
-                      </div>
-      
-                      
-                  {/* Conditions it Treats */}
-                  <div className=' flex flex-col space-y-[16px] '>
-                  <h1
-                      style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                      className='text-[#111315] text-2xl sm:text-4xl'
-                      >
-                      What Conditions does {treatment_details.title} Help Ease?
-                      </h1>
-                      <h1
-                       style={{
-                          fontFamily : 'var(--font-inter)',
-                          fontWeight : 400,
-                        }}
-                        className='text-[#5B5F67] sm:text-xl text-md'
-                      >
-                          {treatment_details.conditions_treated}
-                      </h1>
-                  </div>
-      
-                  {/*  Diagnosing */}
-                  <div className=' flex flex-col space-y-[16px] '>
-                  <h1
-                      style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                      className='text-[#111315] text-2xl sm:text-4xl'
-                      >
-                      Why Choose Mountain Spine & Orthopedics for {treatment_details.title}?
-                      </h1>
-                      <h1
-                       style={{
-                          fontFamily : 'var(--font-inter)',
-                          fontWeight : 400,
-                        }}
-                        className='text-[#5B5F67] sm:text-xl text-md'
-                      >
-                          {treatment_details.why_choose_us}
-                      </h1>
-                  </div>
-                  
-                  {/* Treatment for  */}
-                  <div className=' flex flex-col space-y-[16px] '>
-                  <h1
-                      style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                      className='text-[#111315] text-2xl sm:text-4xl'
-                      >
-                      What does post {treatment_details.title} recovery look like?
-                      </h1>
-                      <h1
-                       style={{
-                          fontFamily : 'var(--font-inter)',
-                          fontWeight : 400,
-                        }}
-                        className='text-[#5B5F67] sm:text-xl text-md'
-                      >
-                          {treatment_details.recovery_info}
-                      </h1>
-                  </div>
-      
-      
+  
+  
                   {/* Schedule a Consultation Today */}
                   <div className=' flex flex-col space-y-[16px] '>
                       <h1

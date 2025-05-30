@@ -35,7 +35,7 @@ export default function FootPainArea({
       </main>
     )
   }
-function shuffleArray(array) {
+function shuffleArray<T>(array: T[]): T[] {
     const newArray = [...array]; // Clone the array
     for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
@@ -57,7 +57,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} width={300} height={300} layout="responsive" className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top sm:pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} width={300} height={300} layout="responsive" className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top  self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
@@ -144,7 +144,16 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
             }}
             className="text-white text-shadow-sm sm:text-lg text-sm"
             >
-                {condition_details.body}
+                  {condition_details?.body?.split('<br/>').map((paragraph, index, array) => (
+                    <React.Fragment key={index}>
+                    {paragraph}
+                    {index < array.length - 1 && (
+                        <>
+                        <br /><br />
+                        </>
+                    )}
+                    </React.Fragment>
+                ))}
             </p>
         </div>
         </div>
@@ -180,7 +189,16 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                           }}
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
-                            {condition_details?.detail}
+                            {condition_details?.detail?.split('<br/>').map((paragraph, index, array) => (
+                              <React.Fragment key={index}>
+                                {paragraph}
+                                {index < array.length - 1 && (
+                                  <>
+                                    <br /><br />
+                                  </>
+                                )}
+                              </React.Fragment>
+                            ))}
                         </h1>
                     </div>
                     
