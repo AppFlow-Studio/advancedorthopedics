@@ -398,7 +398,7 @@ export default function NavBar() {
       <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] backdrop-blur-3xl '>
           <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
               <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '> 
-                  <Image src={Logo} alt="Mountain Spine & Care Logo" className="max-h-[80px] lg:h-[80px] lg:w-auto w-10 h-10  " />
+                  <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] lg:w-auto w-10 h-10  " />
                   <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet'/>
                   <div className="flex flex-col text-white"
                   style={{
@@ -610,7 +610,7 @@ ListItem.displayName = "ListItem"
 //                 <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 sm:px-[40px] py-2 z-[1]"> {/* Responsive padding */}
 //                     {/* Logo */}
 //                     <Link href={'/'} className='flex flex-row items-center justify-center space-x-2 sm:space-x-[8px]' onClick={closeSidebar}>
-//                         <Image src={Logo} alt="Mountain Spine & Care Logo" className="h-[50px] sm:h-[60px] lg:h-[70px] w-auto" /> {/* Responsive height */}
+//                         <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="h-[50px] sm:h-[60px] lg:h-[70px] w-auto" /> {/* Responsive height */}
 //                         <div className={`w-[1px] h-[35px] ${dividerGradient}`} />
 //                         <div className="flex flex-col text-white"
 //                             style={{
