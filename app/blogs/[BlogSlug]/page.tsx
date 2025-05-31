@@ -14,8 +14,8 @@ import ContactUsSection from '@/components/ContactUsSection'
 import { GetBlogInfo } from '../api/get-blog-info'
 import { Badge } from '@/components/ui/badge'
 
-const getBlogDetails = cache(async (BlogId: string) => {
-  const blogDetails = await GetBlogInfo(BlogId);
+const getBlogDetails = cache(async (BlogSlug: string) => {
+  const blogDetails = await GetBlogInfo(BlogSlug);
   return blogDetails;
 });
 
@@ -27,14 +27,14 @@ function truncateString(str : string, maxLength = 172) {
 export default function BlogDetails({
     params,
   }: {
-    params: Promise<{ BlogId : string }>
+    params: Promise<{ BlogSlug : string }>
   }) {
 // Unwrap the promise using React.use (the experimental hook)
   const [ blog_details, setBlogDetails ] = useState<supabaseBlogPostProp | null>(null)
   const [ isLoading, setIsLoading ] = useState(true)
   const [ error, setError ] = useState<string | null>(null)
   const resolvedParams = React.use(params)
-  const conditionSlug = resolvedParams.BlogId
+  const conditionSlug = resolvedParams.BlogSlug
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {

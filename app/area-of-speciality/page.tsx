@@ -4,6 +4,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ChevronDown, Filter, User, BicepsFlexed, Bone, Footprints, Hand, TorusIcon, TextCursorInputIcon } from 'lucide-react'
+import { MultiSelect } from '@/components/ui/multi-select'
 
 // Components & Data - Adjust paths as needed
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton' // Assuming component exists
@@ -13,14 +15,81 @@ import ConditionsSearchBar from '@/components/ConditionsSearchBar'
 import { Conditions } from '@/components/data/conditions' // Import the data array
 import { AnimatedList } from '@/components/magicui/animated-list' // Assuming component exists
 import { TextAnimate } from '@/components/magicui/text-animate' // Assuming component exists
+import { useSearchParams } from 'next/navigation'
 
 export default function AreaOfSpeciality() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9);
-  // Initialize state with the full list of conditions
-  // Use the imported 'Condition' type for better type safety
   const [data, setData] = useState<ConditionInfoProp[]>(Conditions);
-  const paginationRef = useRef<HTMLDivElement>(null); // Type the ref
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const paginationRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+
+  // Get URL parameters and apply initial filters
+  const getSelectedFilters = () => {
+    const dataParam = searchParams.get('data');
+    if (dataParam) {
+      return JSON.parse(decodeURIComponent(dataParam)).tags;
+    }
+    return [];
+  }
+  
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const dataParam = searchParams.get('data');
+    if (dataParam) {
+      try {
+        const parsedData = JSON.parse(decodeURIComponent(dataParam));
+        if (parsedData.tags && Array.isArray(parsedData.tags)) {
+          setSelectedFilters(parsedData.tags);
+          filterConditions(parsedData.tags);
+          const section = document.getElementById('conditions-section');
+          if (section) {
+            section.scrollIntoView({ block : 'start', behavior: 'smooth' });
+          }
+        }
+      } catch (error) {
+        console.error('Error parsing URL parameters:', error);
+      }
+    }
+  }, [searchParams]);
+
+
+
+  const filterCategories = [
+    { value: "Neck", label: "Neck", icon : User },
+    { value: "Shoulder", label: "Shoulder", icon : BicepsFlexed },
+    { value: "Spine", label: "Spine", icon : Bone },
+    { value: "Lower Spine", label: "Lower Spine", icon : TorusIcon },
+    { value: "Knee", label: "Knee", icon : TextCursorInputIcon },
+    { value: "Foot", label: "Foot & Ankle", icon : Footprints },
+    { value: "Hand", label: "Hand", icon : Hand },
+  ];
+
+  // Filter conditions based on selected categories
+  const filterConditions = (categories: string[]) => {
+    if (categories.length === 0) {
+      setData(Conditions);
+      return;
+    }
+    const filtered = Conditions.filter(condition => 
+      categories.some(category => 
+        condition.tag?.toLowerCase() === category.toLowerCase()
+      )
+    );
+    setData(filtered);
+    setCurrentPage(1);
+  };
+
+  // Handle filter change
+  const handleFilterChange = (values: string[]) => {
+    setSelectedFilters(values);
+  };
+
+  // Update filtered data when filters change
+  useEffect(() => {
+    filterConditions(selectedFilters);
+  }, [selectedFilters]);
 
   // Calculate items for the current page based on 'data' state
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -46,7 +115,7 @@ export default function AreaOfSpeciality() {
   }, [currentPage]);
 
   // --- Handler function for when a condition is selected in the search bar ---
-  const handleConditionSelect = (condition: Condition) => {
+  const handleConditionSelect = (condition: ConditionInfoProp) => {
     console.log("Parent: Condition selected - ", condition.title);
     setData([condition]); // Update state to show only the selected condition
     setCurrentPage(1);    // Reset to page 1
@@ -137,7 +206,7 @@ export default function AreaOfSpeciality() {
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
             className="text-[#5B5F67] sm:text-xl text-md lg:w-[75%]"
           >
-            Do you have a spinal condition that’s causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you’ll never be able to get your pain under control or that it might continue to worsen as you age?
+            Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
           </h1>
         </div>
         <div className="flex flex-col space-y-[16px]">
@@ -145,7 +214,7 @@ export default function AreaOfSpeciality() {
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] sm:text-2xl text-xl "
           >
-            WELL, YOU’RE NOT ALONE.
+            WELL, YOU'RE NOT ALONE.
           </h1>
           <h1
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
@@ -160,22 +229,33 @@ export default function AreaOfSpeciality() {
       </section>
 
       {/* All Our Conditions Section */}
-      <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px]">
-        {/* Section Header with Search Bar */}
-        <div className="flex md:flex-row flex-col justify-between  md:items-center" ref={paginationRef}>
+      <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px] scroll-mt-16" id="conditions-section">
+        {/* Section Header with Search Bar and Filter */}
+        <div className="flex lg:flex-row flex-col justify-between md:items-start items-center lg:space-y-0 space-y-4 px-4" ref={paginationRef} >
           <h1
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-            className="text-[#111315] text-5xl md:w-full w-[90%]"
+            className="text-[#111315] text-5xl"
           >
             All Our Conditions
           </h1>
-          <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4">
-            {/* *** Corrected ConditionsSearchBar usage *** */}
-            <ConditionsSearchBar
-              conditions={Conditions}        // Pass the full list for searching
-              onSelect={handleConditionSelect} // Pass the select handler function
-              onClear={handleSearchClear}      // Pass the clear handler function
-            />
+          <div className="w-full lg:w-1/2  flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
+            <div className="w-full md:w-1/2">
+              <ConditionsSearchBar
+                conditions={Conditions}
+                onSelect={handleConditionSelect}
+                onClear={handleSearchClear}
+              />
+            </div>
+            <div className="w-full md:w-1/2">
+              <MultiSelect
+                value={selectedFilters}
+                onValueChange={handleFilterChange}
+                defaultValue={getSelectedFilters()}
+                options={filterCategories}
+                placeholder="Filter by Category"
+                className="w-full h-[48px] bg-[#EFF5FF] border-[#DCDEE1]"
+              />
+            </div>
           </div>
         </div>
 

@@ -51,7 +51,6 @@ export function DelayedLocationPopup({
     localStorage.setItem("location_permission_denied", "true")
     setShowPopup(false)
   }
-  console.log('Show Popup',showPopup)
 
   if (!showPopup) return null
 

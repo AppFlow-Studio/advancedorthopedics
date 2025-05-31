@@ -201,7 +201,7 @@ const NavBarLinks = [
     subLinks : [
       {
         title : 'Back Pain',
-        href : '/area-of-speciality',
+        href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
         subLinks : [
           {
             title : 'Lower Back Pain',
@@ -235,7 +235,7 @@ const NavBarLinks = [
       },
       {
         title : 'Neck & Shoulder Pain',
-        href : '/area-of-speciality',
+        href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
         subLinks : [
           {
             title : 'Cervical Spinal Stenosis',
@@ -260,6 +260,44 @@ const NavBarLinks = [
           {
             title : 'Neck and Shoulder Treatments',
             href : '/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments'
+          }
+        ]
+      },
+      {
+        title : 'Foot & Ankle',
+        href : `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
+        subLinks : [
+          {
+            title : 'Bunions',
+            href : '/area-of-pain/foot-pain/bunions-hallux-valgus'
+          },          
+          {
+            title : 'Plantar Fasciitis',
+            href : '/area-of-pain/foot-pain/plantar-fasciitis'
+          },
+          {
+            title : 'Achilles Tendonitis',
+            href : '/area-of-pain/foot-pain/achilles-tendonitis'
+          },
+          {
+            title : 'Flat Feet',
+            href : '/area-of-pain/foot-pain/flat-feet'
+          },
+          {
+            title : 'Ankle Arthroscopy',
+            href : '/area-of-pain/foot-pain/ankle-arthroscopy'
+          },
+          {
+            title : 'Hammertoes',
+            href  : '/area-of-pain/foot-pain/hammertoes'
+          },
+          {
+            title : 'Diabetic Foot Ulcers',
+            href : '/area-of-pain/foot-pain/diabetic-foot-ulcers'
+          },
+          {
+            title : 'Ankle Replacement',
+            href : '/area-of-pain/foot-pain/ankle-replacement'
           }
         ]
       },
@@ -314,7 +352,7 @@ const NavBarLinks = [
         subLinks : clinics.map((clinic) => {
           return {
             title : clinic.name,
-            href : `/locations/${clinic.id}`
+            href : `/locations/${clinic.slug}`
           }
         })
       }
@@ -426,23 +464,25 @@ export default function NavBar() {
            {/* Sidebar Container */}
            <aside
                id="mobile-sidebar" // ID for aria-controls
-               className={`fixed top-0 right-0 h-full w-full md:w-[65%] bg-white shadow-xl p-6 transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${
+               className={`fixed top-0 right-0 h-full w-full md:w-[65%] bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${
                    isSidebarOpen ? 'translate-x-0' : 'translate-x-full' // Slide in/out from right
                }`}
                aria-hidden={!isSidebarOpen} // Hide from screen readers when closed
            >
-                <button
-                  className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 mt-20 ml-auto bg-white rounded-xl backdrop-blur-3xl`}   //ml-auto pushes it right if space allows
-                  onClick={toggleSidebar}
-                  aria-label="Toggle menu"
-                  aria-expanded={isSidebarOpen}
-                  aria-controls="mobile-sidebar"  //Should match sidebar id
-              >
-                  <HamburgerIcon open={isSidebarOpen} />
-              </button>
+                <div className="p-6">
+                    <button
+                      className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 mt-20 ml-auto bg-white rounded-xl backdrop-blur-3xl`}   //ml-auto pushes it right if space allows
+                      onClick={toggleSidebar}
+                      aria-label="Toggle menu"
+                      aria-expanded={isSidebarOpen}
+                      aria-controls="mobile-sidebar"  //Should match sidebar id
+                  >
+                      <HamburgerIcon open={isSidebarOpen} />
+                  </button>
+                </div>
 
                {/* Sidebar Navigation Links */}
-               <nav className="mt-16 flex flex-col space-y-4">
+               <nav className="mt-16 flex flex-col space-y-4 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]">
                     {NavBarLinks.map((link, index) => {
                         return (
                           <SidebarNavItem

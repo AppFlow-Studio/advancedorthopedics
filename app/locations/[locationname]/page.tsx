@@ -16,12 +16,12 @@ export default function LocationDetails(
     {
         params,
       }: {
-        params: Promise<{ locationname : number }>
+        params: Promise<{ locationname : string }>
       }
 ) {
       const resolvedParams = React.use(params)
       const locationslug = resolvedParams.locationname
-      let location = clinics.filter( x => x.id == locationslug )[0]
+      let location = clinics.filter( x => x.slug == locationslug )[0]
 
   return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>

@@ -85,7 +85,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       <p style={{ margin: '0' }}>123 Healthway Drive, Mountain City, MC 54321</p>
       <p style={{ margin: '0' }}>
 
-        <a href="https://www.mountainspineortho.example.com" style={{ color: '#0094E0' }}>www.mountainspineortho.example.com</a>
+        <a href="https://mountainspineorthopedics.com" style={{ color: '#0094E0' }}>www.mountainspineorthopedics.com</a>
       </p> */}
     </div>
   </div>

@@ -157,7 +157,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({name, ema
                     </div>
                 </div>
               ))}
-                <a href="/locations" style={{
+                <a href="https://mountainspineorthopedics.com/locations" style={{
                 backgroundColor: '#f9fafb',
                 paddingLeft: '16px',
                 paddingRight: '16px', 
@@ -198,13 +198,13 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({name, ema
             marginBottom: '12px' /* mb-3 -- note: space-x-4 handled by individual link margins */
           }}>
             {/* space-x-4: Apply margin to links. For email, better to wrap each in a span or apply directly. */}
-            <a href="#" style={{ color: '#0094E0', textDecoration: 'underline', marginRight: '8px' }}>{/* text-[#0094E0] hover:underline. For half of space-x-4 (16px / 2) */}
+            <a href="https://mountainspineorthopedics.com" style={{ color: '#0094E0', textDecoration: 'underline', marginRight: '8px' }}>{/* text-[#0094E0] hover:underline. For half of space-x-4 (16px / 2) */}
               Website
             </a>
-            <a href="#" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}> {/* for space-x-4 */}
+            <a href="https://mountainspineorthopedics.com/locations" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}> {/* for space-x-4 */}
               Locations
             </a>
-            <a href="#" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px' }}> {/* for half of space-x-4 */}
+            <a href="tel:8339314888" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px' }}> {/* for half of space-x-4 */}
               Contact Us
             </a>
           </div>

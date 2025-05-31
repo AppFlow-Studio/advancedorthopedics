@@ -23,99 +23,9 @@ import arthritis2 from '@/public/arthritis2.jpeg'
 import pinchednerve from '@/public/pinchednerve.jpeg'
 import pinchednerve2 from '@/public/pinchednerve2.jpeg'
 import pinchednerveside from '@/public/pinchednerveside.jpeg'
-import adjacentSegmentDisease from '@/public/adjsegdisease1.jpg'
-import adjacentSegmentDisease2 from '@/public/AdjacentSegmentDisease2.png'
-import adultDegenerativeScoliosis from '@/public/AdultDegenerativeScoliosis.png'
-import LowerBackPainimg from '@/public/LowerBackPainimg.png'
-import LowerBackPaintxt from '@/public/LowerBackPaintxt.png'
-import BackPaincard from '@/public/BackPaincard.jpg'
-import BulgingDisc from '@/public/BulgingDisc.png'
-import BulgingDiscarti from '@/public/BulgingDiscarti.png'
-import CarpalTunnelSyndrome from '@/public/CarpalTunnelSyndrome.png'
-import CarpalTunnelSyndromearti from '@/public/CarpalTunnelSyndromearti.png'
-import CervicalDeformitiescard from '@/public/CervicalDeformitiescard.png'
-import CervicalDeformitiestxt from '@/public/CervicalDeformitiestxt.webp'
-import DiscTear from '@/public/DiscTear.jpeg'
-import DiscTeartxt from '@/public/DiscTeartxt.jpeg'
-import aiicard from '@/public/aiicard.jpeg'
-import aiitxt from '@/public/aiitxt.jpg'
 
-import DegenerativeDiscDisease from '@/public/DegenerativeDiscDisease.png'
-import DegenerativeDiscDiseasec from '@/public/DegenerativeDiscDiseasec.png'
-import FacetJointDisease from '@/public/FacetJointDisease.png'
-import FacetJointDiseasearti from '@/public/FacetJointDiseasearti.png'
-import pinchednervea from '@/public/PinchedNerve.png'
-import pinchednevrearti from '@/public/PinchedNervearti.png'
-import cervicalHerniatedDisc from '@/public/CervicalHerniatedDisc.png'
-import cervicalSpinalStenosis from '@/public/CervicalSpinalStenosis.png'
-import cervicalSpinalStenosisatri from '@/public/CervicalSpinalStenosisarti.png'
-import sciaticacopy from '@/public/Sciaticacopy.png'
-import sciaticaarti from '@/public/Sciaticaarti.png'
-import LumbarHerniatedDiscCard from '@/public/LumbarHerniatedDisc.png'
-import LumbarHerniatedDiscTxt from '@/public/LumbarHerniatedDiscarti.png'
-import coccydyniaC from '@/public/Coccydynia.png'
-import coccydyniaarti from '@/public/Coccydyniaarti.png'
-import failedBAN from '@/public/FailedBAN.png'
-import failedBANarti from '@/public/failedBANarti.png'
-import foraminalS from '@/public/ForaminalS.png'
-import foraminalSarti from '@/public/ForaminalSarti.png'
-import hipcard from '@/public/Hipcard.jpg'
-import hiparti from '@/public/Hiparti.png'
-import kyphosiscard from '@/public/Kyphosiscard.jpeg'
-import kyphosisarti from '@/public/Kyphosisarti.png'
-import labralTears from '@/public/labraltear.jpg'
-import labralTearsarti from '@/public/LabralTeararti.png'
-import looseB from '@/public/looseBody.png'
-import looseBarti from '@/public/looseBodiescard.jpeg'
-import agingcard from '@/public/agingM.jpg'
-import agingarti from '@/public/agearti.png'
-import neckcard from '@/public/neckcard.png'
-import neckarti from '@/public/neckarti.webp'
-import dddScard from '@/public/dddScard.png'
-import dddarti from '@/public/dddarti.png'
-import oste from '@/public/oste.png'
-import ostearti from '@/public/ostearti.jpg'
-import Pseud from '@/public/Pseud.png'
-import Pseudarti from '@/public/Pseudarti.webp'
-import sjdcard from '@/public/sjdcard.jpg'
-import sacard from '@/public/sacard.jpg'
-import saarti from '@/public/saartib.jpg'
-import stcard from '@/public/stcard.jpg'
-import starti from '@/public/starti.png'
-import shscard from '@/public/shscard.jpg'
-import shsarti from '@/public/shsarti.jpg'
-import sbscard from '@/public/sbscard.jpg'
-import sbsarti from '@/public/sbsarti.webp'
-import scfcard from '@/public/scfcard.png'
-import scfarti from '@/public/scfarti.jpg'
-import sscard from '@/public/sscard.jpg'
-import ssarti from '@/public/ssarti.jpg'
-import sdcard from '@/public/sdcard.png'
-import sdarti from '@/public/sdarti.jpg'
-import sdtcard from '@/public/adtcard.png'
-import syncard from '@/public/syncard.png'
-import synarti from '@/public/synarti.jpg'
-import tnecard from '@/public/tnecard.jpg'
-import tnearti from '@/public/tnearti.jpg'
-import tbarti from '@/public/tbarti.webp'
-import hdarti from '@/public/hdarti.jpeg'
-import hdcard from '@/public/hdcard.webp'
-import racard from '@/public/racard.jpeg'
-import raarti from '@/public/raarti.jpeg'
-import tmcard from '@/public/tmcard.png'
-import tmarti from '@/public/tmarti.webp'
-import rctcard from '@/public/rctcard.jpg'
-import rctarti from '@/public/rtcarti.jpg'
-import aclarti from '@/public/aclcard.png'
-import tecard from '@/public/tecard.jpg'
-import tearti from '@/public/tearti.jpg'
-import pfcard from '@/public/pfcard.webp'
-import pfarti from '@/public/pfarti.jpg'
-import barti from '@/public/barti.webp'
-import bcard from '@/public/bcard.jpeg'
-import rotatorcuff3 from '@/public/rotatorcufftear3.png'
-import ddd3 from '@/public/ddd3.png'
 import spondy3 from '@/public/spondy3.png'
+import { sign } from "crypto";
 
 
 // export interface ConditionInfoProp {
@@ -139,6 +49,7 @@ import spondy3 from '@/public/spondy3.png'
 export const Conditions : ConditionInfoProp[] = [
   {
     "title": "Adult Degenerative Scoliosis",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/AdultDegenerativeScoliosis.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/AdultDegenerativeScoliosisArti.png',
     "body": "Adult Degenerative Scoliosis develops when age related wear on the spine creates a side to side curve that can cause pain and limit movement.  offers specialized care that eases discomfort, restores function, and improves quality of life while providing complimentary services that make every visit smooth and stress free.",
@@ -154,6 +65,7 @@ export const Conditions : ConditionInfoProp[] = [
   },
   {
     "title": "Adjacent Segment Disease",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/adjsegdisease1.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/AdjacentSegmentDisease2.png',
     "body": "Adjacent Segment Disease (ASD) occurs when spinal segments next to a surgically treated area endure extra stress, which accelerates degeneration and discomfort. Knowing the symptoms, risk factors, diagnostic methods, and treatment options offered at  helps patients manage and prevent this condition effectively.",
@@ -169,6 +81,7 @@ export const Conditions : ConditionInfoProp[] = [
   },
   {
     "title": "Lumbar Herniated Disc",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDisc.png', 
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDiscarti.png',
     "body": "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
@@ -341,6 +254,7 @@ export const Conditions : ConditionInfoProp[] = [
 
 {
   "title": "Degenerative Disc Disease",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/DegenerativeDiscDiseasec.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/DegenerativeDiscDisease.png',
   "body": "Degenerative Disc Disease, often called DDD, refers to the natural wear and tear of the spinal discs that cushion each vertebra. At  our specialists provide comprehensive patient focused treatment that relieves back pain and improves quality of life through advanced care and complimentary services.",
@@ -513,6 +427,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Cervical Spinal Stenosis",
+  "tag": "Neck",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/CervicalSpinalStenosis.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/cervicalspinal2.png',
   "body": "Cervical Spinal Stenosis is a condition in which the spinal canal in the neck narrows compressing the spinal cord or exiting nerve roots. At  our fellowship trained spine specialists combine precise diagnostics with leading edge therapies to relieve pain protect neurologic function and restore confident neck mobility supported by complimentary MRI reviews free second opinions and convenient car service",
@@ -703,6 +618,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
 {
   "title": "Spondylolisthesis",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/adtcard.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sdtarti.jpg',
   "body": "Spondylolisthesis is a spinal condition in which one vertebra slips forward over the one below it often causing back pain nerve compression and reduced mobility. At Mountain Spine & Orthopedics we offer expert diagnosis and individualized treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore confident movement",
@@ -723,6 +639,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   title : 'Cervical Herniated Disc',
+  "tag": "Neck",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/CervicalHerniatedDisc.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/CervicalHerniatedDiscarti.png',
   "body": "A cervical herniated disc occurs when the soft gel like core of a neck level intervertebral disc ruptures through its outer layer and presses on nearby nerves or the spinal cord.  provides leading edge diagnostics and multidisciplinary care to relieve pain protect nerve function and restore neck mobility with free second opinions complimentary MRI reviews and car service for every patient",
@@ -946,6 +863,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Spinal Compression Fractures",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/scfcard.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/scfarti.jpg',
   "body": "Spinal compression fractures are small cracks or collapses in the vertebrae often caused by osteoporosis trauma or spinal tumors. These fractures can result in sudden back pain posture changes and mobility loss. At Mountain Spine & Orthopedics we provide expert evaluation and treatment supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the spine relieve pain and restore function",
@@ -961,6 +879,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Kyphosis",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/Kyphosiscard.jpeg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Kyphosisarti.png',
   "body": "Kyphosis refers to an exaggerated forward curvature of the thoracic spine that can create a rounded back appearance chronic pain muscle fatigue and in severe cases breathing or digestive issues.  combines high resolution imaging evidence based therapies and patient centered amenities including complimentary MRI reviews free second opinions and convenient car service to correct spinal alignment relieve discomfort and restore confident posture",
@@ -975,7 +894,8 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
   "slug": "kyphosis"
 },
 {
-  "title": "Osteoarthritis",
+  "title": "Osteoarthritis",  
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/oste.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ostearti.jpg',
   "body": "Osteoarthritis is a progressive joint condition characterized by the breakdown of articular cartilage, bone spur formation, and low grade inflammation that together cause pain, stiffness, and reduced mobility. Mountain Spine & Orthopedics delivers comprehensive evaluation and evidence based treatment supported by complimentary MRI reviews, free second opinions, and convenient car service to slow disease progression, relieve symptoms, and help you remain active at every stage of life.",
@@ -991,6 +911,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Rotator Cuff Tear",
+  "tag": "Shoulder",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/rctcard.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/rtcarti.jpg',
   "body": "A rotator cuff tear occurs when one or more of the tendons that stabilize the shoulder joint become partially or fully torn, often causing persistent shoulder pain, weakness, and limited range of motion. Rotator cuff injuries affect up to 30 percent of people over age 60 and can significantly impact daily activities and quality of life. At Mountain Spine & Orthopedics, we provide comprehensive evaluation and treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to accurately diagnose tears and restore shoulder function.",
@@ -1011,6 +932,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "ACL Injury",
+  "tag": "Knee",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/aclcard.webp',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/aclcard.png',
   "body": "An ACL injury occurs when the anterior cruciate ligament—the primary stabilizer of knee rotation and forward tibial translation—is overstretched or torn, commonly due to sudden pivoting, abrupt deceleration, or direct impact. Patients often report a popping sound at the moment of injury, followed by rapid swelling and a sensation of instability. At Mountain Spine & Orthopedics, we specialize in prompt, accurate diagnosis and personalized treatment plans supported by complimentary MRI reviews, free second opinions, and door-to-door transportation. Our multidisciplinary approach ensures patients receive advanced care to restore knee stability, alleviate pain, and return to daily activities and sports with confidence.",
@@ -1025,7 +947,8 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
   "slug": "aclinjury"
 },
 {
-  "title": "Labral Tears",
+  "title": "Labral Tears",  
+  "tag": "Shoulder",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/labraltear.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LabralTeararti.png',
   "body": "A labral tear is a rupture of the fibrous cartilage ring that deepens and stabilizes either the shoulder glenoid or hip acetabular socket. These tears can produce pain clicking and instability that limit athletic performance and daily tasks. At  we pair cutting edge imaging with tailored non operative and arthroscopic solutions supported by complimentary MRI reviews free second opinions and convenient car service to repair the labrum restore smooth motion and protect long term joint health",
@@ -1041,6 +964,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Torn Meniscus",
+  "tag": "Knee",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/tmcard.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tmarti.webp',
   "body": "A torn meniscus is a tear of the C shaped cartilage pads that cushion and stabilize the knee joint, often resulting in pain, swelling, and mechanical symptoms that limit mobility. At Mountain Spine & Orthopedics, we provide expert evaluation with high resolution MRI, personalized treatment plans, and supportive services including complimentary MRI reviews, free second opinions, and door to door transportation to help you recover knee function and return to the activities you love.",
@@ -1057,6 +981,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
 {
   "title": "Sacroiliac Joint Dysfunction",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/sjdcard.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sjdarti.jpg',                                                                                                                                                                                                                                                                                                                                                                                                                 
   "body": "Sacroiliac SI Joint Dysfunction arises when the small but critical joints connecting the spine to the pelvis become inflamed or move abnormally producing lower back buttock or groin pain that can mimic sciatica. Mountain Spine & Orthopedics delivers precision diagnostics and evidence based therapies supported by complimentary MRI reviews free second opinions and convenient car service to stabilize the SI joint relieve pain and restore effortless movement",
@@ -1073,6 +998,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
 {
   "title": "Trochanteric Bursitis",
+  "tag": "Lower Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/tbcard.avif',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tbarti.webp',
   "body": "Trochanteric bursitis is a painful condition caused by inflammation of the bursa over the outer hip leading to discomfort with walking climbing stairs or lying on the affected side. At Mountain Spine & Orthopedics we provide expert care supported by complimentary MRI reviews free second opinions and convenient car service to reduce inflammation relieve pain and restore hip function",
@@ -1088,6 +1014,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
 {
   "title": "Carpal Tunnel Syndrome",
+  "tag": "Hand",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/CarpalTunnelSyndrome.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/CarpalTunnelSyndromearti.png',
   "body": "Carpal Tunnel Syndrome is a nerve compression disorder affecting the median nerve in the wrist often causing pain tingling and weakness in the hand. At  our team offers precise diagnostics and evidence based treatments to relieve symptoms restore hand function and protect your quality of life with complimentary patient amenities",
@@ -1103,6 +1030,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
   {
     "title": "Back Pain",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/BackPaincard.jpg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/BackPaintxt.jpeg',
     "body": "Back pain refers to discomfort or severe pain that can appear in the lower, middle, or upper back and often limits daily activity.  creates complete treatment plans that blend modern techniques with compassionate, patient focused care to give lasting relief and restore mobility.",
@@ -1119,6 +1047,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Bulging Disc",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/BulgingDisc.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/BulgingDiscarti.png',
     "body": "A bulging disc occurs when an intervertebral disc protrudes beyond its normal boundary and may compress nearby nerves causing pain numbness or weakness. At  our specialists provide targeted treatments designed to relieve symptoms restore function and enhance quality of life through compassionate patient focused care.",
@@ -1134,6 +1063,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
   },
 {
   "title": "Pinched Nerve",
+  "tag": "Spine",
   "card_img": 'https://mountainspineortho.b-cdn.net/public/PinchedNerve.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/PinchedNervearti.png',
   "body": "A pinched nerve, also called nerve compression or radiculopathy, occurs when surrounding tissues such as discs, bones, or swollen soft tissue press against a spinal or peripheral nerve producing pain, numbness, or weakness along the nerve’s path. Mountain Spine & Orthopedics offers precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve compression, restore sensation, and get you moving comfortably again.",
@@ -1318,6 +1248,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 },
   {
     "title": "Cervical Deformities",
+    "tag": "Neck",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/CervicalDeformitiescard.png',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/CervicalDeformitiestxt.webp',
     "body": "Cervical deformities involve abnormal alignment of the neck portion of the spine such as excessive kyphosis loss of natural lordosis or complex scoliosis which can cause pain neurological deficits and noticeable posture changes. At  our fellowship trained spine surgeons and multidisciplinary team provide state of the art evaluation and correction strategies that relieve symptoms protect spinal cord function and restore natural alignment while offering complimentary MRI reviews free second opinions and convenient car service",
@@ -1334,6 +1265,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Disc Tear",
+    "tag": "Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/DiscTear.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/DiscTeartxt.jpeg',
     "body": "A disc tear also called an annular fissure or annular tear occurs when the tough outer ring of an intervertebral disc develops a crack allowing chemical irritants to leak and inflame nearby nerves. At  we deliver accurate diagnosis and evidence based care pairing complimentary MRI reviews and free second opinions with personalized treatment plans that relieve pain speed healing and restore spinal stability",
@@ -1350,6 +1282,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Anti Inflammatory Injections",
+    "tag": "Spine", 
     "card_img": 'https://mountainspineortho.b-cdn.net/public/aiicard.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/aiitxt.jpg',
     "body": "Anti inflammatory injections such as corticosteroid or biologic agents deliver potent medication directly to inflamed joints bursae or spinal regions rapidly reducing pain and swelling when oral therapies fall short. At  our specialists use image guided precision complimentary MRI reviews and personalized follow up to ensure each injection provides maximum relief with minimal risk",
@@ -1366,6 +1299,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
   {
     "title": "Hip Dysplasia",
+    "tag": "Lower Spine",
     "card_img": 'https://mountainspineortho.b-cdn.net/public/HipDysplasiatxt.jpeg',
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/HipDysplsia.jpg',
     "body": "Hip dysplasia is a structural condition in which the hip socket or acetabulum is too shallow to fully cover and support the femoral head leading to joint instability early cartilage wear and progressive arthritis. At  our fellowship trained hip specialists combine state of the art imaging individualized treatment plans and patient focused amenities including complimentary MRI reviews free second opinions and convenient car service to preserve joint health and keep you moving pain free",
@@ -1383,6 +1317,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
     
     {
       "title": "Facet Joint Disease",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/FacetJointDisease.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/FacetJointDiseasearti.png',
       "body": "Facet Joint Disease, sometimes called Facet Syndrome, involves inflammation and degeneration of the facet joints in the spine.  delivers targeted treatment that eases pain, restores mobility, and supports an active lifestyle through exceptional patient care and helpful amenities.",
@@ -1398,6 +1333,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
     },
     {
       "title": "Arthritis",
+      "tag": "Hand",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/arthritis2.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/arthritis.png',
       "body": `Arthritis is a common joint condition that causes inflammation, stiffness, and pain, affecting millions of people across the U.S. It can severely limit mobility and interfere with daily activities like walking, climbing stairs, or even gripping objects. While arthritis is often associated with aging, it can affect people of all ages depending on the type and underlying cause.
@@ -1584,6 +1520,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
 
     {
       "title": "Lower Back Pain",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/LowerBackPainimg.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LowerBackPaintxt.png',
       "body": "Lower back pain is one of the most common musculoskeletal complaints ranging from a dull ache to sharp disabling discomfort that limits work sports and daily activities. At  we provide comprehensive evaluation and personalized treatment supported by complimentary MRI reviews free second opinions and convenient car service to identify the root cause of lower back pain and restore pain free movement",
@@ -1745,6 +1682,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
         "title": "Sciatica", 
+        "tag": "Lower Spine",
         "card_img": 'https://mountainspineortho.b-cdn.net/public/Sciaticacopy.png',
         "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Sciaticaarti.png',
         "body": "Sciatica refers to pain caused by irritation or compression of the sciatic nerve, which runs from the lower back through the hips and down each leg. Mountain Spine & Orthopedics provides precise diagnostics and targeted therapies supported by complimentary MRI reviews, free second opinions, and convenient car service to relieve sciatic nerve pressure, reduce inflammation, and restore comfortable pain free motion.",
@@ -1929,6 +1867,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Coccydynia",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/Coccydynia.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Coccydyniaarti.png',
       "body": "Coccydynia or tailbone pain can make every sit stand or step an ordeal.  uses precise diagnosis and evidence based therapies to ease discomfort improve mobility and restore pain free sitting while providing complimentary MRI reviews free second opinions and door to door car service",
@@ -2245,7 +2184,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-      "title": "Failed Back or Failed Neck Surgery Syndrome",
+      "title": "Failed Back or Failed Neck Surgery Syndrome", 
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/FailedBAN.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/failedBANarti.png',
       "body": "Failed Back or Failed Neck Surgery Syndrome describes persistent or recurrent pain and functional limitations following spinal procedures that were expected to relieve symptoms. At  our multidisciplinary team specializes in uncovering the root causes of ongoing pain delivering precision diagnostics revision strategies and comprehensive rehabilitation supported by complimentary MRI reviews free second opinions and convenient car service to help patients reclaim quality of life",
@@ -2261,7 +2201,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     },
 
     {
-    "title": "Foraminal Stenosis",
+    "title": "Foraminal Stenosis",  
+    "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/ForaminalS.png', // Placeholder for card image variable
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ForaminalSarti.png', 
       "body": "Foraminal stenosis, a narrowing of the spinal canal openings where nerves exit, can cause radiating pain, numbness, or weakness. Mountain Spine Orthopedics offers advanced diagnostics and personalized treatments, including minimally invasive options, to relieve nerve compression and restore function, backed by complimentary MRI reviews and free second opinions.",
@@ -2587,6 +2528,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Hip Impingement (Femoroacetabular Impingement)",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/Hipcard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Hiparti.png',
       "body": "Hip impingement also known as femoroacetabular impingement or FAI occurs when abnormal contact between the femoral head neck junction and the rim of the hip socket leads to cartilage and labral damage causing groin pain stiffness and reduced athletic performance. At  we provide high resolution imaging personalized treatment options and patient centered amenities including complimentary MRI reviews free second opinions and convenient car service to help you return to pain free motion",
@@ -2603,6 +2545,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Loose Bodies",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/looseBodiescard.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/looseBody.png',
       "body": "Loose bodies are small fragments of cartilage bone or synovial tissue that break free within a joint and float in the synovial fluid causing painful catching locking and swelling. At  our team uses high resolution imaging arthroscopic expertise and patient centered care with complimentary MRI reviews free second opinions and car service to locate and remove loose bodies relieve symptoms and protect long term joint health",
@@ -2619,6 +2562,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Aging Management",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/agingM.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/agearti.png',
       "body": "Aging management focuses on proactive measures that preserve bone density, joint integrity, and muscle strength as we grow older, reducing the risk of fractures, chronic pain, and loss of independence.  offers personalized aging management programs supported by complimentary MRI reviews, free second opinions, and convenient car service to help you stay active, strong, and pain free throughout every decade",
@@ -2635,6 +2579,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Neck Pain",
+      "tag": "Neck",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/neckcard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/neckarti.webp',
       "body": "Neck pain ranges from a dull nagging ache to sharp disabling discomfort that can radiate into the arms and head disrupting work sleep and everyday activities.  offers comprehensive evaluation and individualized treatment supported by complimentary MRI reviews free second opinions and convenient car service to identify the precise cause of neck pain and restore comfortable motion",
@@ -2651,6 +2596,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     
     {
       "title": "Degenerative Disc Disease Surgery",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/dddScard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/dddarti.png',
       "body": "When conservative care no longer controls pain from Degenerative Disc Disease DDD surgical intervention can restore stability relieve nerve pressure and reclaim active living. Mountain Spine & Orthopedics offers state of the art surgical solutions including lumbar or cervical fusion motion preserving disc replacement and minimally invasive decompression backed by complimentary MRI reviews free second opinions and convenient car service to guide you confidently from decision to recovery",
@@ -2668,6 +2614,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Pseudarthrosis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/Pseudarti.webp',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/Pseud.png',
       "body": "Pseudarthrosis commonly called a non union occurs when a fractured bone or surgical fusion site fails to heal into solid bone leaving a painful false joint that moves abnormally. At Mountain Spine & Orthopedics our subspecialty team combines high resolution imaging biologic therapies and revision surgical expertise supported by complimentary CT or MRI reviews free second opinions and door to door car service to achieve solid union relieve pain and restore dependable function",
@@ -2684,6 +2631,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Shoulder Arthritis",
+      "tag": "Shoulder",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sacard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/saartib.jpg',
       "body": "Shoulder arthritis is a degenerative joint condition that leads to cartilage loss, joint stiffness, and pain with motion, often impacting daily activities like lifting, dressing, or reaching overhead. At Mountain Spine & Orthopedics we offer expert evaluation and treatment supported by complimentary MRI reviews, free second opinions, and convenient car service to reduce shoulder pain, restore range of motion, and improve quality of life",
@@ -2700,6 +2648,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Shoulder Tendonitis",
+      "tag": "Shoulder",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/stcard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/starti.png',
       "body": "Shoulder tendonitis is a common overuse injury involving inflammation of the rotator cuff or biceps tendon, causing pain with motion, tenderness, and limited function. At Mountain Spine & Orthopedics we specialize in accurate diagnosis and targeted treatments supported by complimentary MRI reviews, free second opinions, and convenient car service to calm inflammation, restore motion, and get you back to pain free activity",
@@ -2716,6 +2665,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Snapping Hip Syndrome",
+      "tag": "Lower Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/shscard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/shsarti.jpg',
       "body": "Snapping Hip Syndrome is a condition where a tendon or muscle moves over a bony structure in the hip creating a snapping or popping sensation sometimes accompanied by pain or tightness. At Mountain Spine & Orthopedics we offer accurate diagnosis and personalized treatment supported by complimentary MRI reviews free second opinions and convenient car service to restore hip comfort function and mobility",
@@ -2732,6 +2682,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Spinal Bone Spurs",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sbscard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sbsarti.webp',
       "body": "Spinal bone spurs also known as osteophytes are bony growths that develop along the edges of vertebrae often in response to arthritis or disc degeneration. At Mountain Spine & Orthopedics we provide expert diagnosis and advanced treatment options supported by complimentary MRI reviews free second opinions and convenient car service to relieve nerve compression reduce pain and restore spinal mobility",
@@ -2748,6 +2699,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Spinal Stenosis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sscard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/ssarti.jpg',
       "body": "Spinal stenosis is the narrowing of spaces within the spine which can compress spinal nerves and cause pain numbness or weakness. Mountain Spine & Orthopedics provides expert diagnosis and treatment supported by complimentary MRI reviews free second opinions and convenient car service to relieve nerve pressure restore comfort and help you move freely again",
@@ -2764,6 +2716,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Spine Deformities",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/sdcard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/sdarti.jpg',
       "body": "Spine deformities including scoliosis kyphosis and lordosis involve abnormal curvatures or misalignment of the spine that can lead to pain postural changes and reduced mobility. At Mountain Spine & Orthopedics we specialize in diagnosing and treating spinal deformities with customized care plans supported by complimentary MRI reviews free second opinions and convenient car service to improve alignment reduce discomfort and restore balance and function",
@@ -2780,6 +2733,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Synovitis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/syncard.png',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/synarti.jpg',
       "body": "Synovitis is the inflammation of the synovial membrane that lines joints, leading to pain, swelling, and restricted movement. At Mountain Spine & Orthopedics we provide expert evaluation and advanced care supported by complimentary MRI reviews free second opinions and convenient car service to reduce joint inflammation improve mobility and prevent long term joint damage",
@@ -2796,6 +2750,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Tingling or Numbness in Extremities",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/tnecard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tnearti.jpg',
       "body": "Tingling or numbness in the arms hands legs or feet can signal nerve compression circulation issues or underlying neurological conditions. At Mountain Spine & Orthopedics we offer comprehensive diagnostics and advanced treatment supported by complimentary MRI reviews free second opinions and convenient car service to pinpoint the cause and restore healthy nerve function and sensation",
@@ -2812,6 +2767,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     
     {
       "title": "Herniated Disc",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/hdarti.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/hdcard.webp',
       "body": "A herniated disc occurs when the soft inner core of an intervertebral disc protrudes through its tougher outer layer, often pressing on nearby nerves and causing pain, numbness, or weakness. At Mountain Spine & Orthopedics, we provide advanced imaging, expert interpretation, and personalized care plans supported by complimentary MRI reviews, free second opinions, and door to door transportation to diagnose and treat herniated discs effectively.",
@@ -2828,6 +2784,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
     
     {
       "title": "Rheumatoid Arthritis",
+      "tag": "Spine",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/racard.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/raarti.jpeg',
       "body": "Rheumatoid arthritis is a chronic autoimmune disorder in which the body’s immune system mistakenly attacks the synovial lining of joints, leading to inflammation, pain, and progressive joint damage. It affects approximately 1% of the global population and can cause significant disability if untreated. At Mountain Spine & Orthopedics, we deliver comprehensive care—from early diagnosis to long-term management—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation to ensure every patient receives personalized treatment and unmatched convenience.",
@@ -2844,6 +2801,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Tennis Elbow",
+      "tag": "Hand",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/tecard.jpg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/tearti.jpg',
       "body": "Tennis elbow, also known as lateral epicondylitis, is an overuse injury causing degeneration of the extensor carpi radialis brevis tendon at its attachment on the lateral epicondyle of the elbow. Patients typically experience sharp or aching pain on the outside of the elbow that worsens with gripping or wrist extension. At Mountain Spine & Orthopedics, we offer precise diagnosis and individualized treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to relieve pain, promote tendon healing, and restore full function.",
@@ -2860,10 +2818,11 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
 
     {
       "title": "Plantar Fasciitis",
+      "tag": "Foot",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/pfcard.webp',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/pfarti.jpg',
-      "body": "Plantar fasciitis is a common cause of heel pain, resulting from inflammation and microtearing of the thick band of tissue (plantar fascia) that runs along the bottom of the foot. Patients often experience a sharp, stabbing pain with the first steps in the morning or after long periods of rest. At Mountain Spine & Orthopedics, we combine precise diagnostic imaging, expert interpretation, and individualized care—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to help you relieve pain, restore foot function, and get you back on your feet comfortably.",
-      "detail": "The plantar fascia acts as both a shock absorber and stabilizer for the arch of the foot. Repetitive stress, poor foot mechanics, tight calf muscles, or sudden increases in activity can overload the fascia, causing tiny tears and inflammation at its insertion on the heel bone (calcaneus). Over time, chronic irritation can lead to degeneration of the fascia, known as plantar fasciosis. At Mountain Spine & Orthopedics, our evaluation starts with a detailed history of symptom onset, activity level, footwear habits, and any contributing medical conditions such as obesity or diabetes. We conduct a focused physical exam assessing foot alignment, arch height, calf flexibility, and point tenderness at the medial calcaneal tubercle. High-resolution ultrasound or MRI helps confirm the diagnosis by visualizing thickening of the plantar fascia, areas of degeneration, and ruling out other causes of heel pain like stress fractures or nerve entrapment.",
+      "body": "Plantar Fasciitis is the leading cause of heel pain in adults. It develops when the plantar fascia a thick band of connective tissue that runs from the heel to the base of the toes becomes irritated, inflamed, or partially torn. Repetitive stress from walking, running, or long hours of standing can strain the fascia, producing sharp, stabbing heel pain that is often worst with the first steps in the morning or after periods of rest.<br/> At Mountain Spine & Care our foot and ankle specialists combine precise diagnosis with evidence based therapies to relieve discomfort, restore normal gait, and keep you active without interruption.",
+      "detail": "The plantar fascia acts like a shock absorbing bowstring that supports the arch of the foot. When microtears accumulate faster than the body can repair them, inflammation sets in, leading to pain and stiffness along the heel and arch. Contributing factors include tight calf muscles, high arches, flat feet, sudden increases in activity level, inappropriate footwear, and excess body weight. <br/> At Mountain Spine & Care we begin with a thorough physical examination and high resolution ultrasound or weight bearing X rays to confirm the diagnosis and rule out related conditions such as stress fractures or heel spurs. From there, we design a step by step plan that may include personalized stretching routines, targeted manual therapy, and custom orthotics that redistribute load across the heel and midfoot. For athletes and workers who spend long hours on hard surfaces, we also provide footwear consultations to ensure proper cushioning and arch support.",
       "what_sym": "Patients with plantar fasciitis typically report sharp heel pain first thing in the morning or after sitting, which improves slightly with movement but may return after prolonged standing, walking, or stair climbing. Other symptoms include tenderness at the bottom of the heel, swelling, a tight Achilles tendon, and discomfort when dorsiflexing the foot.",
       "risk_fac": "Key risk factors include excessive pronation (flat feet), high-arched feet, tight calf muscles and Achilles tendon, obesity, prolonged standing or walking on hard surfaces, sudden increases in activity, improper or worn-out footwear, and underlying conditions such as diabetes or rheumatoid arthritis.",
       "diagnose": "Diagnosis is primarily clinical, based on history and physical exam demonstrating point tenderness at the plantar fascia origin. Imaging is reserved for atypical cases or refractory symptoms. Ultrasound reveals fascia thickness (>4 mm), hypoechoic areas, and neovascularization. MRI can further assess associated bone marrow edema or rule out alternative diagnoses. Weight-bearing X-rays may show heel spurs but spur presence does not correlate directly with pain.",
@@ -2871,11 +2830,151 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "pain_info": "Pain arises from both mechanical overload of the fascia and the inflammatory mediators released at sites of microtearing. Morning pain and post-rest pain are hallmark features due to overnight tightening of the fascia. Our treatment plan addresses both inflammation and biomechanical contributors to deliver lasting relief.",
       "prevent": "Preventive strategies include maintaining a healthy weight, choosing supportive, well-fitted footwear, incorporating daily stretching of the Achilles tendon and plantar fascia, gradually increasing activity intensity, avoiding prolonged standing on hard surfaces, and using orthotic inserts or heel cups when needed.",
       "schedule": "If you are experiencing heel pain or stiffness first thing in the morning, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options as we create a personalized plan to relieve your plantar fasciitis and restore your active lifestyle.",
-      "slug": "plantarfasciitis"
-    },
+      "slug": "plantar-fasciitis",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               What Is Plantar Fasciitis?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Plantar Fasciitis is a degenerative inflammatory condition of the plantar fascia. Repetitive overload causes tiny tears at the origin of the fascia on the heel bone, leading to a cycle of inflammation, scarring, and further degeneration. Pain is classically described as a knife like sensation in the heel with the first few steps after waking or after extended sitting. As the fascia warms up, pain may ease, only to return after prolonged standing or activity. Identifying the true source of heel pain is essential because nerve entrapment, fat pad atrophy, and systemic arthritis can mimic plantar fasciitis and require different treatment strategies.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full ">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[40px] w-full ">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Plantar Fasciitis
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                <li>Sharp or stabbing heel pain with the first steps in the morning</li>
+                <li>Pain that improves after a few minutes of walking but returns with prolonged standing</li>
+                <li>Tenderness and swelling near the bottom of the heel</li>
+                <li>Increased discomfort when climbing stairs or after intense exercise</li>
+                <li>A tight feeling in the calf or Achilles region</li>
+                <li>Difficulty walking barefoot on hard floors When left untreated, plantar fasciitis can alter walking mechanics and trigger secondary problems such as knee, hip, and lower back strain.</li>
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/fixplantf.jpg'} // Placeholder for another diagram/image
+                    height="500px"
 
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+              />
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               Stages of Plantar Fasciitis
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Early stage – intermittent heel pain that flares after new activities or long days on the feetProgressive stage – daily pain, tightening of the calf and arch, and swelling near the heel pad<br/><br/> Chronic stage – persistent inflammation, thickening of the fascia, heel spur formation, and compensatory gait changes<br/><br/> Recognizing your stage enables the care team at Mountain Spine & Orthopedics to tailor treatments from basic stretching to advanced regenerative options exactly to your needs.
+                Learn About Plantar Fasciitis Treatments
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl"
+                >
+                  Learn About Plantar Fasciitis Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Initial therapy focuses on reducing inflammation and restoring flexibility. Key components include doctor guided stretching, massage of the plantar fascia and calf, ice massage, and nonsteroidal anti inflammatory medication. Night splints hold the foot in gentle dorsiflexion during sleep, preventing painful morning tightness. Custom orthotic inserts cushion the heel and support the arch, while targeted physical therapy strengthens intrinsic foot muscles for long term stability.<br/><br/>When conservative care does not provide lasting relief within three to six months, advanced modalities such as extracorporeal shockwave therapy, platelet rich plasma injections, or ultrasound guided needle tenotomy can stimulate tissue healing. Surgical release of the plantar fascia is reserved for rare, stubborn cases and is performed using minimally invasive techniques that allow rapid return to weight bearing with a structured rehabilitation program.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+              Persistent heel pain should not sideline your lifestyle. Early professional intervention can stop Plantar Fasciitis from progressing and return you to comfortable movement. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our dedicated specialists will evaluate your symptoms, provide an accurate diagnosis, and craft a comprehensive treatment plan that relieves pain, restores function, and gets you back on your feet with confidence.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(1).jpg'
+    },
     {
       "title": "Bursitis",
+      "tag": "Knee",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/bcard.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/barti.webp',
       "body": "Bursitis is the inflammation of a bursa—a small, fluid-filled sac that cushions and reduces friction between bones, tendons, and muscles—commonly occurring in joints such as the shoulder, elbow, hip, or knee. Patients experience localized pain, swelling, and tenderness that worsen with movement or pressure. At Mountain Spine & Orthopedics, we combine expert clinical evaluation, advanced imaging, and personalized treatment plans—supported by complimentary MRI reviews, free second opinions, and door-to-door transportation—to relieve pain, reduce inflammation, and restore full joint function.",
@@ -2889,6 +2988,1063 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "schedule": "If you are experiencing persistent joint pain, swelling, or stiffness, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review, free second opinion, door-to-door transportation, and telehealth options as we develop a tailored plan to diagnose and treat your bursitis and help you return to pain-free movement.",
       "slug": "bursitis"
     },
+    {
+      "title": "Bunions (Hallux Valgus)",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/public/Bunions%20(1).jpg",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/bunions2.png",
+      "body": "Bunions develop when the big toe drifts inward toward the other toes, causing the joint at its base to enlarge and protrude along the inside of the foot. This bony bump, known medically as hallux valgus, can create chronic pain, shoe-fit problems, and progressive deformity that interferes with walking and daily activities.<br/>Although tight or narrow footwear often aggravates the condition, bunions stem from a combination of inherited foot structure, biomechanical imbalance, and repetitive stress over time. At Mountain Spine & Orthopedics our specialists diagnose and treat bunions with personalized plans that relieve pain, correct alignment, and help you stay active.",
+      "detail": "As a bunion forms, the protective cartilage covering the big-toe joint wears down and the surrounding soft tissues become inflamed. Over time the toe rotates, the bump enlarges, and pressure spreads to the smaller toes, sometimes creating calluses, hammertoes, and altered gait mechanics that strain the knees, hips, and lower back.<br/>The team at Mountain Spine & Orthopedics combines advanced imaging, custom orthotics, and both non-surgical and surgical options to slow progression, restore normal toe position, and prevent long-term complications.",
+      "what_sym": "Key symptoms of bunions include a visible bony prominence on the side of the big toe, pain and tenderness around the MTP joint, redness and inflammation, a burning sensation, and possible numbness or tingling. The skin over the bunion may become callused. As the bunion progresses, it can lead to restricted movement of the big toe and pain that worsens with pressure from shoes or standing for long periods. Corns and calluses may also develop on adjacent toes due to pressure and misalignment.",
+      "risk_fac": "Primary risk factors for developing bunions include a family history of the condition, as foot type and structure are often inherited. Wearing shoes that are too tight, narrow, or have high heels significantly increases the risk by compressing the toes and altering natural foot mechanics. Individuals with certain arthritic conditions (e.g., rheumatoid arthritis, gout) or those with low arches, flat feet, or overly flexible ligaments are also more susceptible. Age can be a factor, as bunions tend to worsen over time. Occupations that involve a lot of standing or walking can also exacerbate the condition.",
+      "diagnose": "Diagnosing a bunion typically involves a physical examination of the foot, where a healthcare provider will assess the MTP joint, check the range of motion of the big toe, and look for signs of pain, redness, and swelling. They will also inquire about family history, footwear habits, and activity levels. X-rays are commonly ordered to determine the extent of the deformity, assess the alignment of the bones, and detect any associated arthritis or damage to the joint. This imaging helps in planning the appropriate treatment strategy.",
+      "treatment": "Bunion treatment aims to relieve pain and prevent progression. Conservative, non-surgical treatments are often the first approach and include: wearing wider shoes with a roomy toe box, using over-the-counter bunion pads or cushions, applying ice packs to reduce inflammation, taking nonsteroidal anti-inflammatory drugs (NSAIDs) for pain relief, and using custom orthotic devices or shoe inserts to support the arch and improve foot mechanics. Toe spacers and splints may also be recommended. If conservative measures fail to provide adequate relief or the bunion is severe and significantly impacting quality of life, surgical options (bunionectomy) may be considered to realign the bone and repair soft tissues.",
+      "pain_info": "Pain from bunions primarily originates from the inflamed MTP joint due to pressure and misalignment. It can range from a dull ache to sharp, intense pain, especially when walking or wearing shoes. The overlying bursa can become inflamed (bursitis), contributing to tenderness and swelling. Pressure from footwear can also irritate the skin, leading to calluses or corns, which can be painful. In advanced cases, arthritic changes in the joint can cause chronic pain.",
+      "prevent": "While genetic predisposition cannot be changed, certain measures can help prevent bunions or slow their progression. Choosing well-fitting footwear with a wide toe box, low heels, and good arch support is crucial. Avoid shoes that squeeze the toes or put excessive pressure on the MTP joint. Maintaining a healthy weight can reduce stress on the feet. Exercises to strengthen foot muscles may also be beneficial. If you have flat feet or other structural foot issues, using orthotics can help maintain proper alignment and reduce strain on the MTP joint. Early attention to foot pain and changes in toe alignment can lead to interventions that may prevent worsening of the condition.",
+      "schedule": "If you are struggling with bunion pain or a noticeable deformity affecting your daily life, we encourage you to contact Mountain Spine & Orthopedics. Our specialists can provide a thorough evaluation, including a complimentary MRI review if needed, and discuss personalized treatment pathways. Explore your options for relief, with patient conveniences like telehealth consultations and door-to-door transportation.",
+      "slug": "bunions-hallux-valgus",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                What are Bunions?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  A bunion is a structural misalignment of the first metatarsophalangeal joint where the first metatarsal bone deviates outward and the big toe angles inward. This creates an outward bulge that rubs against footwear and concentrates pressure on the joint surface, leading to inflammation, bursitis, and arthritic change. Patients typically report localized soreness, swelling, burning sensations, and difficulty finding comfortable shoes. Accurate assessment of bunion size, joint flexibility, and underlying bone shape guides the most effective treatment strategy.        
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/bunions.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Bunions
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Most patients first notice a visible bump and intermittent soreness at the base of the big toe. With time, persistent joint pain develops, often described as a burning or throbbing sensation that worsens in snug footwear. Localized skin may appear shiny and warm because of underlying bursitis. The big toe gradually overlaps or under-rides the second toe, increasing crowding and making ordinary activities such as running, hiking, or even shopping arduous. Advanced bunions can cause numbness along the inside of the toe or lead to tingling within the forefoot as nerve branches become compressed. Prompt evaluation is crucial because early intervention can slow or even halt further joint damage.
+              </h1>
+              <div className="mt-[40px] space-y-[40px] flex flex-col">
+                <OutlinedButton text="Find a Treatment" />
+                <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/bunion3.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+              </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Bunion Development 
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Bunion progression typically follows a predictable path. In the mild stage, the joint angle deviates slightly, and discomfort appears only during extended activity. During the moderate stage, the bump becomes visually obvious, pain occurs daily, and the big toe begins to rotate. In the severe stage, pronounced angular deviation, joint stiffness, and arthritic change limit walking distance and shoe options to wide or custom designs. Recognizing your stage allows the team at Mountain Spine & Care to match therapies from conservative bracing to surgical realignment precisely to your needs and lifestyle goals.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Bunion Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+Many bunions respond well to conservative management when addressed early. Wider toe-box shoes, silicone separators worn at night, and custom orthotics redistribute weight and slow progression. Targeted stretching and strengthening exercises restore flexor-extensor balance in the foot, while nonsteroidal anti-inflammatory medication eases flare-ups. When these measures no longer control pain or when deformity interferes with normal footwear, surgical correction becomes the gold standard. <br/><br/>Our surgeons perform minimally invasive percutaneous osteotomies as well as state-of-the-art Lapidus and scarf-type procedures that realign the metatarsal, restore joint congruency, and stabilize the foot with low-profile titanium hardware. Patients often bear weight in a protective postoperative shoe within days and resume athletic activities within weeks, guided by our in-house physical therapy team.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+              Persistent foot pain, swelling, and visible toe deviation do not have to define your day-to-day life. Early, expert-guided treatment can halt bunion progression and restore comfortable motion.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our specialists will evaluate your symptoms, provide a personalized diagnosis, and craft a comprehensive plan that relieves pain, realigns your toe, and gets you back on your feet without compromise to your lifestyle or goals.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/bunions2.png'
+    },
+    {
+      "title": "Achilles Tendonitis",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/public/tendo.png",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/tendo2.jpeg",
+      "body": "Achilles Tendonitis is one of the most frequent overuse injuries seen in active adults. It occurs when the strong Achilles tendon the thick cord connecting your calf muscles to the back of the heel becomes irritated, inflamed, or micro-torn from repetitive stress. <br/> At Mountain Spine & Care, our foot-and-ankle specialists provide state-of-the-art diagnostics and comprehensive treatment plans that calm inflammation, rebuild strength, and protect you from future injury.",
+      "detail": "The Achilles tendon endures forces up to eight times body weight during high-impact activities. Sudden mileage increases, tight calf muscles, poorly cushioned shoes, or naturally flat or high-arched feet all shift excess load to the tendon. Over time, microscopic collagen fibers fray, and the tendon’s lining thickens, limiting its ability to glide smoothly. Blood flow to the mid-portion of the Achilles is already limited, slowing natural healing.<br/>Imaging at Mountain Spine & Care including high-resolution diagnostic ultrasound and, when indicated, MRI pinpoints inflamed tissue, tendon thickening, or small tears, allowing us to tailor care from the very first visit.",
+      "risk_fac": "Risk factors for Achilles Tendonitis include: sudden increases in the intensity or amount of physical activity, tight calf muscles which put extra stress on the Achilles tendon, and improper footwear that doesn't provide adequate support or cushioning. Having flat arches (overpronation) or bone spurs on the heel can also contribute. Older age is a risk factor as the tendon becomes less flexible and more prone to injury. Certain medical conditions like psoriasis or high blood pressure, and the use of some antibiotics (fluoroquinolones), have also been linked to an increased risk.",
+      "diagnose": "Diagnosis usually involves a physical examination by a healthcare provider. They will ask about your symptoms and activity levels. During the exam, they will gently palpate (feel) along the Achilles tendon for pain, swelling, thickening, or tenderness. They will also assess your foot and ankle's range of motion, flexibility, alignment, and strength. X-rays may be taken to check for bone spurs (common in insertional Achilles Tendonitis) or calcification within the tendon. In some cases, an MRI or ultrasound may be ordered to get a more detailed view of the tendon and assess the extent of damage or degeneration.",
+      "treatment": "Treatment for Achilles Tendonitis focuses on reducing pain and inflammation and allowing the tendon to heal. The RICE protocol (Rest, Ice, Compression, Elevation) is often the first line of defense. Over-the-counter NSAIDs can help manage pain and swelling. Physical therapy is crucial and typically includes stretching exercises (especially for the calf muscles and Achilles tendon), strengthening exercises (particularly eccentric exercises like heel drops), and potentially other modalities like ultrasound or massage. Orthotic devices or heel lifts may be recommended to reduce stress on the tendon. In some cases, a walking boot or cast may be used to immobilize the ankle. If conservative treatments are not effective after several months, options like extracorporeal shock wave therapy (ESWT) or surgery might be considered for more severe or chronic cases.",
+      "pain_info": "Pain from Achilles Tendonitis is typically felt along the back of the lower leg, near the heel. It can range from a mild ache to a more severe, burning pain. The pain often begins as a mild ache after running or other sports activity and can gradually worsen. Morning pain and stiffness are characteristic. The area may be tender to touch and swollen. The type and location of pain can sometimes help differentiate between noninsertional (mid-portion) and insertional (at the heel) tendonitis.",
+      "prevent": "Preventing Achilles Tendonitis involves several strategies: gradually increase your activity level and intensity, rather than making sudden changes. Always warm up before exercising and cool down afterward. Incorporate regular stretching exercises for your calf muscles and Achilles tendons to maintain flexibility. Wear appropriate, supportive footwear for your activities and replace worn-out shoes. Strengthen your calf muscles to help them absorb more of the impact from exercise. If you have flat feet or other biomechanical issues, consider using orthotics. Listen to your body and rest if you feel pain or tightness in your Achilles tendon.",
+      "schedule": "Experiencing ongoing Achilles tendon pain or stiffness that limits your activities? It's time to seek expert care. Contact Mountain Spine & Orthopedics to arrange a consultation. We provide thorough diagnostic services, including complimentary MRI reviews, and offer amenities like door-to-door transportation to ensure your path to recovery is smooth and effective.",
+      "slug": "achilles-tendonitis",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                What Is Achilles Tendonitis?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Achilles Tendonitis is a degenerative inflammatory condition resulting from cumulative overload. Two primary patterns occur: insertional tendonitis, which affects the lower 2 cm where the tendon anchors into the heel bone, and mid-substance tendonitis, which involves the region 2–6 cm above the heel. In both cases, collagen fibers lose their organized alignment, forming thickened, painful nodules. Patients usually describe morning “start-up pain” that improves with gentle movement but returns after intense exercise or long periods on their feet. Properly distinguishing Achilles Tendonitis from conditions such as Haglund’s deformity, retrocalcaneal bursitis, or partial tendon rupture is essential to selecting the right treatment.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/achilles.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    className=""
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of  Achilles Tendonitis
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                <li>Persistent or burning pain at the back of the heel or lower calf, worse with activity</li>
+                <li>Morning stiffness that loosens after a few minutes of walking</li>
+                <li>Localized swelling or a thickened “cord-like” feeling in the tendon</li>
+                <li>Tender nodules or bumps that hurt when squeezed</li>
+                <li>Pain when rising on tiptoes or during uphill running</li>
+                <li>A creaking or crackling sensation (crepitus) during ankle movement</li>
+                <li>Limited ankle dorsiflexion (when the foot flexes upward) due to tight calf muscles Ignoring these signs can lead to tendon degeneration (tendinosis) and elevate the risk of full rupture a surgical emergency.</li>
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/tendon2.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Achilles Tendonitis
+              </h1>
+              <ul
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                <li>1. Reactive Stage – Sudden overload triggers temporary swelling of the tendon sheath; pain appears after an unusually hard workout.</li>
+                <li>2. Early Degenerative Stage – Collagen fibers begin to disorganize; pain emerges more frequently, and a small lump may form.</li>
+                <li>3. Late Degenerative Stage – Significant thickening, chronic inflammation, and scar tissue reduce elasticity; daily pain and weakness limit activity.</li>
+                <li>4. Pre-Rupture Stage – Multiple micro-tears create severe pain, audible snapping sensations, or sudden loss of push-off power.<br/> Determining your stage helps Mountain Spine & Care match therapies—from conservative care to minimally invasive procedures—precisely to your needs.</li>
+              </ul>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Achilles Tendonitis Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                <li>Phase 1: Calm Inflammation – Activity modification, ice massage, topical or oral NSAIDs, and a structured eccentric-calf-loading program proven to stimulate tendon remodeling.</li>
+                <li>Phase 2: Correct Mechanics – Customized orthotics or heel lifts reduce tensile load; our physical therapists mobilize tight ankle joints and teach calf-lengthening stretches.</li>
+                <li>Phase 3: Regenerate Tissue – For persistent cases, we offer ultrasound-guided platelet-rich plasma (PRP) injections, extracorporeal shock-wave therapy, and percutaneous needle micro-tenotomy to trigger new collagen growth.</li>
+                <li>Phase 4: Restore Strength & Return to Sport – Progressive strengthening, plyometrics, and sport-specific drills under physiotherapist supervision ensure a safe comeback.</li>
+                <li>Phase 5: Surgical Options (When Necessary) – Minimally invasive debridement, tendon-splitting repair, or reconstruction with a flexor-hallucis-longus tendon transfer for severe degeneration or partial tears. Most patients walk in a boot within days and transition to sneakers by week eight, guided by our on-site rehab team.</li>
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+              Heel or calf pain that lingers more than a few days deserves expert evaluation early treatment preserves tendon integrity and prevents rupture.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our experienced specialists will confirm your diagnosis, explain every treatment option, and design a personalized plan that relieves pain, rebuilds tendon strength, and returns you to pain-free performance.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(4).png'
+    },
+    {
+      "title": "Flat Feet",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/public/flat2.webp",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/public/flat.webp",
+      "body": "Flat feet also called fallen arches or pes planus occur when the arch on the inside of the foot collapses and comes into complete or near-complete contact with the ground. Some people are born with flat feet, while others acquire them over time because of ligament laxity, obesity, pregnancy, injury, or illnesses such as arthritis and diabetes. <br/> Although many individuals experience no pain at first, progressive flattening can strain the ankles, knees, hips, and lower back, leading to fatigue, imbalance, and overuse injuries. At Mountain Spine & Orthopedics, our foot-and-ankle specialists combine precise imaging, gait analysis, and personalized treatment plans to support your arches, restore alignment, and help you move comfortably and confidently.",
+      "detail": "A healthy arch works like a spring, absorbing shock and distributing body weight across the foot. When the arch collapses, the heel often rolls inward (overpronation) and the forefoot splays outward, altering the entire kinetic chain. Over time this imbalance can stretch the plantar fascia, inflame the posterior tibial tendon, and overload the shin and knee.<br/>At Mountain Spine & Orthopedics, we begin with weight-bearing X-rays and, when needed, high-resolution ultrasound or MRI to assess bone alignment, ligament laxity, and tendon integrity. We then craft a multi-step plan that may include custom orthotics, targeted muscle-strengthening exercises, and shoe recommendations for optimal arch support. For active patients, our sports medicine team offers video gait analysis to fine-tune running mechanics and prevent secondary injuries.",
+      "what_sym": "Many individuals with flat feet experience no symptoms. However, when symptoms do occur, they can include: pain in the arch, heel, ankle, or along the inside of the foot; tired or achy feet, especially after prolonged standing or activity; swelling along the inside of the ankle; difficulty moving the foot in certain ways or standing on tiptoes. The pain may also extend to the calf, knee, hip, or lower back due to altered biomechanics and gait. Shoes may wear unevenly. In cases of PTTD, there may be a gradual outward pointing of the forefoot and heel.",
+      "risk_fac": "Risk factors for developing symptomatic flat feet or acquired flatfoot include: genetics (inherited foot structure), aging (wear and tear on tendons), injuries to the foot or ankle (e.g., posterior tibial tendon injury), obesity (increased stress on the arches), and certain medical conditions like rheumatoid arthritis, diabetes (which can cause neuropathy and Charcot foot), and Ehlers-Danlos syndrome (connective tissue disorders). Pregnancy can also temporarily or permanently cause flat feet due to hormonal changes and weight gain. Occupations requiring prolonged standing or walking can also be a contributing factor.",
+      "diagnose": "Diagnosing flat feet typically involves a physical examination. Your doctor will observe your feet while you stand and walk, looking for the absence of an arch. They may ask you to stand on your tiptoes to assess the flexibility of the arch and the function of the posterior tibial tendon. The wear pattern on your shoes can also provide clues. If pain is present or an acquired flatfoot is suspected, imaging tests like X-rays may be ordered to examine the bone structure and alignment. In some cases, an MRI or CT scan might be used to evaluate tendon or ligament damage, especially if posterior tibial tendon dysfunction is suspected.",
+      "treatment": "Treatment for flat feet is usually only necessary if they cause pain or other problems. For asymptomatic flat feet, no treatment is typically required. If symptoms are present, conservative measures are often effective: wearing supportive, well-fitting shoes with good arch support; using over-the-counter or custom-made orthotic insoles to support the arch and improve foot mechanics; stretching exercises for the Achilles tendon and calf muscles; strengthening exercises for the muscles that support the arch; and weight management if obesity is a factor. Pain relievers like NSAIDs can help with discomfort. In cases of severe PTTD or when conservative treatments fail, surgical options to repair the tendon, realign bones, or fuse joints may be considered.",
+      "pain_info": "Pain associated with flat feet can manifest in various locations, including the arch, heel (due to associated Plantar Fasciitis), inner ankle (often related to posterior tibial tendon strain), or even the outer ankle if the foot rolls inward excessively (overpronation). The pain is often described as an ache or fatigue in the feet and legs, particularly after activity or standing for long periods. This discomfort arises from the increased strain on tendons, ligaments, and joints due to the lack of arch support and altered foot biomechanics.",
+      "prevent": "While congenital flat feet cannot be prevented, you can take steps to prevent symptoms or the progression of acquired flatfoot. Wearing supportive shoes that provide good arch support and stability is key. Avoid prolonged standing or activities that cause foot pain. Maintain a healthy weight to reduce stress on your feet. Perform regular stretching exercises for the Achilles tendon and calf muscles, as tightness in these areas can exacerbate flat feet. If you notice changes in your arch or develop foot pain, seek early evaluation from a healthcare professional to implement appropriate management strategies.",
+      "schedule": "If foot pain or fatigue associated with flat feet is impacting your comfort or mobility, consider scheduling an appointment at Mountain Spine & Orthopedics. Our team is ready to provide a detailed evaluation, discuss if a complimentary MRI review or free second opinion could benefit you, and outline suitable treatment strategies, accessible via in-person or telehealth visits.",
+      "slug": "flat-feet",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                What Are Flat Feet?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Flat feet fall into three broad categories. Flexible flat feet maintain an arch when the foot is off the ground but flatten under body weight. Rigid flat feet lack an arch whether seated or standing, often because of tarsal bone fusion or severe arthritis. Adult acquired flatfoot usually appears later in life when the posterior tibial tendon—the primary dynamic supporter of the arch weakens or tears. People with flat feet frequently notice rapid shoe wear along the inner edge, aching or swelling along the arch or inside ankle, and a tendency to stand or walk with the toes pointed outward. A precise diagnosis is essential because each subtype responds to different interventions.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/flatfoot.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    objectFit="contain"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Flat Feet
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Typical signs include tired, aching feet after prolonged standing, persistent pain or swelling along the inner ankle and arch, heel or arch stiffness first thing in the morning, frequent ankle sprains, knee or lower back discomfort from altered gait, difficulty fitting into regular shoes because of foot widening, and thickened skin under the big toe or along the inside border of the foot. Ignoring these symptoms can invite complications such as plantar fasciitis, shin splints, posterior tibial tendonitis, and early joint arthritis.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/flatfoot.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    objectFit="contain"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Flat Feet Progression
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+              Flat foot deformity generally advances through four recognizable stages. In Stage I the posterior tibial tendon is inflamed but still functional, and the arch collapses only during strenuous activity. Stage II brings a flexible deformity in which the tendon elongates, the heel drifts outward, and the arch flattens fully under load, though manual realignment is still possible.
+              <br/><br/>Stage III represents a rigid deformity in which the tendon is severely degenerated or torn, the arch collapse becomes fixed, and arthritis develops in the subtalar and midfoot joints. Stage IV extends the collapse into the ankle itself, producing valgus tilt and advanced arthritic change. Understanding your stage allows our specialists to match treatment, from conservative bracing to corrective surgery, precisely to your needs.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Flat Feet Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Early care focuses on non surgical measures. Custom molded orthotics or ankle foot braces cradle the arch and limit overpronation, while calf stretching and posterior tibial strengthening exercises improve muscular support. Physical therapy sessions teach balance drills and gait retraining techniques that stabilize the entire lower limb chain. When painful flare ups occur, short courses of anti inflammatory medication or precisely guided corticosteroid injections reduce swelling and restore mobility, and footwear counseling ensures you select shoes with firm heel counters, ample toe boxes, and built in arch support. For stubborn cases, regenerative therapies such as platelet rich plasma injections or extracorporeal shock wave therapy stimulate tendon healing. If the deformity is rigid or continues to progress despite diligent conservative care, surgical correction may be necessary. Our surgeons perform realignment procedures that can include calcaneal osteotomy to reposition the heel, tendon transfer or reconstruction to replace a degenerated posterior tibial tendon, and midfoot or subtalar fusion when severe arthritis is present. Most patients are allowed to bear weight in a protective boot within a few weeks and transition to supportive footwear under the guidance of our in house rehabilitation team.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+             Foot fatigue, arch pain, or ankle instability do not have to limit your daily life. Early expert evaluation can halt flat foot progression and protect the joints throughout your lower body.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.
+             <br/><br/> Our multidisciplinary team will confirm your diagnosis, explain every treatment option, and design a personalized plan that supports your arches, relieves discomfort, and helps you walk, run, and work without pain.
+            
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(6).png'
+    },
+    {
+      "title": "Ankle Arthroscopy",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).png",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).png",
+      "body": "Ankle arthroscopy is a minimally invasive surgical procedure used to diagnose and treat a variety of ankle joint problems. By using a small camera and specialized instruments, surgeons can address issues with less pain and faster recovery compared to traditional open surgery.<br/> Understanding the indications, procedure, and recovery process is important for patients considering this option.",
+      "detail": "During ankle arthroscopy the surgeon fills the joint with sterile fluid to create a clear working space, then guides a high definition camera to inspect the articular cartilage, ligaments, and synovial lining in real time. Through a second or third portal, micro instruments shave damaged tissue, remove inflamed synovium, trim bone spurs, or implant biologic scaffolds that encourage cartilage healing. Because muscles and tendons remain untouched, most patients walk in a protective boot within a few days and begin gentle range of motion exercises almost immediately.<br/>Advanced imaging at Mountain Spine & Orthopedics—including weight bearing radiographs, high resolution MRI, and when needed CT scans—helps us plan each arthroscopy with pinpoint accuracy so we can correct the underlying problem and preserve as much healthy tissue as possible.",
+      "what_sym": "Ankle arthroscopy is not a condition itself but a procedure to address symptoms of underlying ankle problems. Symptoms that might lead to a recommendation for ankle arthroscopy include: persistent ankle pain not relieved by conservative treatments, chronic ankle instability or recurrent sprains, sensations of catching, locking, or grinding in the ankle joint, stiffness and limited range of motion, swelling that doesn't resolve, and pain associated with specific conditions like osteochondral defects (damage to cartilage and underlying bone), synovitis, or impingement.",
+      "risk_fac": "Risks associated with ankle arthroscopy, while generally lower than open surgery, include those common to any surgical procedure such as infection, bleeding, blood clots, and adverse reactions to anesthesia. Specific risks related to ankle arthroscopy can include nerve irritation or damage (leading to numbness, tingling, or weakness around the ankle or foot), stiffness in the ankle joint, persistent pain or swelling, and the potential need for further surgery if the initial problem is not fully resolved or recurs. The surgeon will discuss these potential risks in detail before the procedure.",
+      "diagnose": "The decision to proceed with ankle arthroscopy is based on a thorough diagnostic process. This includes a detailed medical history, a physical examination to assess pain, instability, range of motion, and swelling. Imaging studies are crucial: X-rays can identify bone abnormalities, fractures, or arthritis. Magnetic Resonance Imaging (MRI) provides detailed images of soft tissues like ligaments, tendons, and cartilage, helping to identify tears or damage. A CT scan may be used for a more detailed look at bone structures or loose bodies. If these diagnostic tools indicate an intra-articular (inside the joint) problem amenable to arthroscopic treatment, and conservative measures have failed, arthroscopy may be recommended as both a diagnostic tool (to directly visualize the joint) and a therapeutic procedure.",
+      "treatment": "Ankle arthroscopy is itself a treatment method. During the procedure, various problems can be addressed. For example, surgeons can: debride (clean out) damaged cartilage or synovium, remove loose bodies (bone chips or cartilage fragments), repair or reconstruct torn ligaments, treat osteochondral lesions (e.g., by microfracture to stimulate cartilage growth or by grafting), and remove bone spurs causing impingement. Post-operative care typically involves rest, ice, compression, and elevation (RICE). Pain medication will be prescribed. Weight-bearing status will depend on the specific procedure performed. Physical therapy is a critical component of recovery to restore range of motion, strength, and function to the ankle.",
+      "pain_info": "Pain after ankle arthroscopy is expected but is generally less severe than after open ankle surgery. The level of pain will depend on the complexity of the procedure performed. Pain is typically managed with prescribed pain medications and NSAIDs. The initial pain and swelling are often due to the surgical trauma and inflammation. As healing progresses and physical therapy begins, some discomfort may be experienced during exercises, but this should gradually subside. Persistent or worsening pain should be reported to the surgeon.",
+      "prevent": "Prevention focuses on avoiding ankle injuries that might necessitate arthroscopy. This includes: wearing appropriate and supportive footwear for activities, properly warming up before exercise and cooling down afterward, strengthening the muscles around the ankle to provide better support and stability, maintaining good flexibility in the ankle and calf muscles, and being cautious on uneven surfaces to prevent sprains. For individuals with a history of ankle instability, using braces or taping during high-risk activities may be beneficial. If an ankle injury does occur, seeking prompt and appropriate treatment can help prevent chronic problems that might eventually require surgical intervention like arthroscopy.",
+      "schedule": "If chronic ankle issues are holding you back and you're considering surgical options like arthroscopy, please connect with Mountain Spine & Orthopedics. We offer expert consultations, complimentary MRI reviews to assess your case, and convenient services such as door-to-door transportation and telehealth appointments to facilitate your care journey.",
+      "slug": "ankle-arthroscopy",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                What Is Ankle Arthroscopy?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Ankle arthroscopy uses a rigid fiber optic scope connected to a digital camera and light source to visualize the interior of the joint on a high resolution monitor. The surgeon works through portals typically measuring less than one centimeter, guiding instruments such as graspers, shavers, micro drills, and radiofrequency probes to perform precise repairs. Common indications include persistent ankle pain after a sprain, osteochondral defects, impingement caused by bone spurs at the front or back of the joint, loose fragments of cartilage or bone that catch during movement, and early synovitis associated with inflammatory arthritis. By treating these conditions early, ankle arthroscopy can delay or even eliminate the need for more extensive surgery such as ankle fusion or total ankle replacement.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/anklereplace.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms and Signs That May Lead to Ankle Arthroscopy
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Patients considered for ankle arthroscopy usually report ongoing deep ankle pain that fails to improve with rest, physical therapy, and medication; repeated episodes of the ankle giving way because of chronic ligament laxity; locking, catching, or grinding sensations that suggest loose bodies or cartilage flaps; swelling that persists long after the original injury; or painful limits in ankle motion caused by anterior or posterior bone spurs. A careful clinical exam combined with targeted imaging confirms whether arthroscopy is the most effective next step.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                  imageData={'https://mountainspineortho.b-cdn.net/ankleant3.jpg'} // Placeholder for another diagram/image
+                  height="500px"
+                  gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+              />
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Injury Progression and Recovery Timeline
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              > 
+              Most ankle problems begin with an acute injury such as a sprain or fracture that heals incompletely, leaving residual scar tissue, cartilage defects, or subtle bone overgrowth. When conservative care fails, ankle arthroscopy addresses these residual issues before they advance to diffuse arthritis. Recovery unfolds in three predictable phases. The first week focuses on pain control and gentle motion while weight bearing occurs in a removable boot. Weeks two through six emphasize progressive strengthening, balance training, and gradual transition from the boot to supportive athletic shoes. By the third month most patients resume running, court sports, or occupational tasks that require prolonged standing, guided throughout by our on site physical therapy team.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               Learn About Ankle Arthroscopy Treatment Options
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Not every ankle problem requires surgery, so we exhaust nonsurgical measures first, including targeted physical therapy, ultrasound guided corticosteroid or platelet rich plasma injections, custom bracing, and gait retraining. When imaging shows mechanical impingement, unstable cartilage, or loose debris, arthroscopy becomes the gold standard. Our surgeons use state of the art 4K camera systems, biologic adhesives, and micro fracture drilling techniques that stimulate new cartilage growth, all performed through incisions so small they often require only adhesive strips rather than sutures. After surgery patients follow a tailored rehabilitation plan that blends early protected motion with incremental loading to restore full strength and flexibility without overstressing the healing tissues.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+             Persistent ankle pain, swelling, or instability should not compromise your lifestyle. Early expert intervention can prevent minor joint problems from progressing to disabling arthritis. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.
+             <br/><br/> Our fellowship trained foot and ankle specialists will review your imaging, perform a comprehensive exam, and explain whether ankle arthroscopy or another advanced treatment can give you lasting relief and a confident return to work, sport, and everyday life.
+            
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(7).jpg"
+    },
+    {
+      "title": "Hammertoes",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).png",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).png",
+      "body": "Hammertoes are a progressive toe deformity in which one or more of the lesser toes bend at the middle joint so that the tip points downward while the joint protrudes upward. This abnormal position can rub against shoes, leading to painful corns, calluses, inflammation, and eventually rigid stiffness that interferes with walking and balance. Genetics, poor fitting footwear, high arched or flat feet, previous injury, and certain neuromuscular conditions all contribute to the problem.<br/>At Mountain Spine & Orthopedics our foot and ankle specialists use advanced imaging and individualized care plans to straighten your toes, relieve pressure, and keep you comfortably on your feet.",
+      "detail": "A healthy toe relies on balanced pull between its flexor and extensor tendons. When that balance shifts toward the extensor side the toe begins to buckle at the proximal interphalangeal joint. Over time the surrounding ligaments tighten, the joint capsule contracts, and the toe becomes fixed in a hammer shape. Friction inside shoes creates thick calluses over the joint prominence and beneath the tip of the toe, producing burning pain with each step.<br/>At Mountain Spine & Orthopedics we begin with weight bearing X rays to measure joint angles, evaluate the flexibility of the deformity, and rule out arthritic change in the metatarsophalangeal joints. We then craft step by step solutions that may start with shoe modifications, custom orthotics, and soft silicone shields to redistribute pressure while targeted exercises stretch tight tendons and strengthen intrinsic foot muscles.",
+      "what_sym": "Common symptoms of hammertoes include a visible abnormal bend in the toe, pain or irritation on the top of the bent toe when wearing shoes, and the formation of corns or calluses on the top of the PIP joint or at the tip of the toe due to friction against footwear. Redness and swelling may occur at the affected joint. In some cases, there might be pain in the ball of the foot beneath the affected toe. Movement of the toe may become restricted and painful. Finding comfortable shoes can become increasingly difficult.",
+      "risk_fac": "The most common risk factor for hammertoes is wearing ill-fitting shoes, particularly those that are too tight, too short, or have high heels, which can crowd the toes and force them into a bent position. A traumatic toe injury, such as stubbing, jamming, or breaking a toe, can also predispose to hammertoe. An imbalance in the toe muscles and tendons, which can be due to genetics or nerve damage (e.g., from diabetes or stroke), is another significant factor. Foot structure, such as having a second toe that is longer than the big toe, or having bunions, can also increase the risk. Arthritis can also contribute to the development of hammertoes.",
+      "diagnose": "Diagnosis of hammertoes is typically made through a physical examination of the foot. The healthcare provider will assess the structure of the toes, check for flexibility or rigidity of the affected joints, and look for associated corns, calluses, or redness. They will also inquire about symptoms, footwear habits, and any history of foot trauma or medical conditions. X-rays may be taken to evaluate the alignment of the bones, the severity of the deformity, and to check for any underlying arthritis or bone abnormalities. This imaging can help in planning treatment, especially if surgery is being considered.",
+      "treatment": "Treatment for hammertoes depends on their severity and whether they are flexible or rigid. For flexible hammertoes, conservative treatments are often effective. These include: wearing shoes with a wider and deeper toe box to accommodate the bent toe, avoiding high heels and tight shoes, using over-the-counter corn pads or cushions to relieve pressure, and gentle stretching or manipulation of the toe. Custom orthotic devices or shoe inserts may help control muscle/tendon imbalance. If corns and calluses are painful, a podiatrist can safely trim them. For rigid hammertoes or when conservative measures fail to relieve pain, surgical options may be considered. Surgery can involve releasing a tight tendon, realigning the toe, or fusing the joint to straighten it.",
+      "pain_info": "Pain from hammertoes primarily arises from the pressure and friction on the bent joint when wearing shoes, leading to irritation, corns, and calluses. The abnormal joint position can also cause inflammation within the joint itself (capsulitis or synovitis). If the toe tip is forced downwards, it can also cause pain and calluses on the end of the toe. In some cases, the altered mechanics of the foot due to hammertoes can contribute to pain in the ball of the foot (metatarsalgia).",
+      "prevent": "The most effective way to prevent hammertoes is to wear properly fitting shoes. Choose footwear with adequate toe room (both width and depth), low heels, and good arch support. Ensure there is about a half-inch of space between your longest toe and the end of the shoe. Avoid shoes that are too tight or have pointed toes. If you have a predisposition to hammertoes (e.g., family history, long second toe), be particularly mindful of your footwear choices. Performing foot exercises that stretch and strengthen the toe muscles may also be beneficial. Addressing conditions like bunions promptly may also help prevent secondary hammertoe formation.",
+      "schedule": "If hammertoes are causing you discomfort, corns, or difficulty with shoes, it's time to explore your options. The specialists at Mountain Spine & Orthopedics are available for consultations, offering services like a no-cost second opinion and telehealth appointments to help you find the best path toward pain-free, functional toes. Contact us to learn more.",
+      "slug": "hammertoes",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               What Is Hammertoes?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Hammertoes most often affect the second third or fourth toes and can be either flexible or rigid. In the flexible stage you can still straighten the toe with your fingers, although it quickly returns to a bent position when pressure is released. In the semi rigid stage stiffness increases and pain becomes more frequent with activity. In the rigid stage the joint locks in place, corns harden, and shoes become difficult to wear. Although hammertoes can arise in isolation they often occur alongside bunions or arch imbalance which must be addressed simultaneously for lasting relief.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/hammertoe3.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Hammertoes
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Early signs include a noticeable upward bump at the middle of the toe, redness or irritation on the top of the joint, and soreness that worsens in narrow shoes or high heels. As the condition advances you may feel a sharp burning pain when walking, develop thickened skin at the toe tip, or experience cramps in the ball of the foot as the metatarsal heads bear extra load. Chronic hammertoes can also cause the affected toe to overlap its neighbor, leading to further crowding and friction.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/hammertoe2.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Hammertoes Progression 
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+               Stage one involves a flexible deformity with occasional discomfort that improves after removing tight shoes. Stage two brings semi rigid change with daily pain and limited toe motion. Stage three results in a rigid deformity where the joint cannot be straightened by hand and corns or calluses become persistent. Recognizing your stage allows the specialists at Mountain Spine & Orthopedics to match treatment intensity to the exact severity of your condition.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Hammertoes Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Conservative management aims to reduce pressure and restore tendon balance. Wider toe box shoes with soft uppers prevent rubbing while custom orthotic inserts offload the ball of the foot. Toe spacers and prefabricated hammer toe pads cushion prominent joints and night splints gently stretch the flexor tendons during sleep. Physical therapy focuses on towel scrunches marble pickups and resistance band exercises to strengthen the small muscles that stabilize the toes. When discomfort persists or the toe becomes rigid surgical correction offers a reliable solution. <br/><br/> Our surgeons perform minimally invasive procedures such as flexor to extensor tendon transfer or small joint resection to realign the toe, remove painful corns in the same sitting, and secure the toe with low profile implants that allow early protected weight bearing. Postoperative care includes protective footwear for two to four weeks followed by progressive range of motion and strengthening supervised by our onsite rehabilitation team. Most patients resume regular shoes and low impact activities within six to eight weeks.
+              </h1>
+            </div>
+          )
+        },
+        {
+          post : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+             Do not let painful hammertoes dictate your footwear choices or limit your mobility. Early expert evaluation can stop the deformity from worsening and restore natural toe alignment<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our dedicated foot and ankle team will confirm your diagnosis, explain every treatment option, and create a personalized plan that straightens your toes, relieves pressure, and lets you walk in comfort and confidence once again.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(7).png'
+    },
+    {
+      "title": "Diabetic Foot Ulcers",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(15).jpg",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(15).jpg",
+      "body": "Diabetic ulcers are open sores that usually develop on the bottom of the foot or around the toes in people with diabetes. Elevated blood sugar damages small blood vessels and nerves, reducing sensation and slowing circulation so even a small cut or blister can evolve into a deep nonhealing wound. Left untreated these ulcers invite serious infection and raise the risk of amputation.<br/>At Mountain Spine & Orthopedics our multidisciplinary wound care team combines advanced diagnostics with evidence based therapies to close ulcers quickly, prevent complications, and protect overall limb health.",
+      "detail": "A healthy foot relies on prompt blood flow and intact sensation to heal minor injuries. Diabetes compromises both. Peripheral neuropathy dulls pain perception so patients may not notice pressure points or sharp objects inside a shoe, while peripheral arterial disease limits oxygen delivery to tissues. The result is a breakdown of skin that deepens into subcutaneous fat, muscle, and even bone.<br/>At Mountain Spine & Orthopedics we start every evaluation with a thorough vascular assessment that includes ankle brachial index testing and Doppler ultrasound to measure blood supply, followed by high resolution imaging such as MRI when bone infection is suspected. We also perform in office foot pressure mapping to identify areas of excess load that must be offloaded for reliable healing.",
+      "what_sym": "Early signs of a potential diabetic foot ulcer can include: unusual swelling, irritation, redness, warmth, or odors from one or both feet. Drainage or pus from a sore on the foot, which may stain socks or shoes, is a clear indication of an ulcer. The ulcer itself may appear as a crater-like lesion, sometimes surrounded by callused skin. Pain may not be present due to nerve damage, which is why visual inspection is critical. In advanced cases, black tissue (eschar or gangrene) may form around the ulcer, indicating tissue death due to lack of blood flow. Systemic signs of infection like fever or chills can occur if the ulcer becomes severely infected.",
+      "risk_fac": "Major risk factors for diabetic foot ulcers include: poorly controlled blood sugar levels, a history of previous foot ulcers, peripheral neuropathy, peripheral artery disease, foot deformities, improper footwear, impaired vision (making foot inspection difficult), kidney disease (common in diabetics), and smoking (which further impairs circulation). The longer a person has diabetes, the higher their risk. Calluses or corns, if not properly managed, can also break down and form ulcers.",
+      "diagnose": "Diagnosis of a diabetic foot ulcer involves a thorough examination of the foot by a healthcare provider. The provider will assess the ulcer's size, depth, location, and appearance, looking for signs of infection (redness, warmth, swelling, pus, odor) and checking for neuropathy (using a monofilament test) and vascular status (checking pulses, skin temperature, and capillary refill time). A probe may be used to determine the depth of the ulcer and whether it extends to bone. A wound culture might be taken if infection is suspected. X-rays, MRI, or bone scans may be ordered to check for bone infection (osteomyelitis) or foreign bodies.",
+      "treatment": "Treatment for diabetic foot ulcers is multifaceted and aims to promote healing, prevent infection, and reduce pressure on the affected area. Key components include: 'off-loading' (reducing pressure on the ulcer with special footwear, casts, braces, or crutches), debridement (removal of dead or infected tissue from the ulcer), application of appropriate wound dressings and topical medications to promote a moist healing environment and control infection, and management of any infection with antibiotics (oral or intravenous). Blood sugar control is essential for healing. In cases of severe PAD, procedures to restore blood flow (angioplasty or bypass surgery) may be necessary. Advanced therapies like hyperbaric oxygen therapy or bioengineered skin substitutes may be used for non-healing ulcers. Amputation may be required as a last resort for severe, non-healing, or life-threatening infections.",
+      "pain_info": "A significant concern with diabetic foot ulcers is that they are often painless due to diabetic neuropathy, which deadens nerve sensation in the feet. This lack of pain means that an ulcer can develop and worsen without the individual being aware of it. If pain is present, it might indicate a deep infection, significant inflammation, or ischemia (lack of blood flow). Any new pain in the foot of a person with diabetes should be evaluated promptly.",
+      "prevent": "Prevention is paramount for diabetic foot ulcers. Key preventive measures include: daily foot inspection (checking for cuts, blisters, redness, swelling, or nail problems), practicing good foot hygiene (washing feet daily with lukewarm water and mild soap, drying thoroughly, especially between the toes), moisturizing feet (but not between toes) to prevent cracking, wearing properly fitting, comfortable shoes and socks (avoiding tight shoes or going barefoot), and regular professional foot exams by a podiatrist or healthcare provider. Proper toenail care (cutting straight across) is important. Managing blood sugar levels effectively, maintaining a healthy lifestyle, and quitting smoking are also crucial. Any foot injury, no matter how minor, should be attended to promptly.",
+      "schedule": "For individuals with diabetes, any foot wound or unusual change requires immediate professional attention. Mountain Spine & Orthopedics offers specialized diabetic foot care. Please contact us without delay to arrange an evaluation. We provide support through services like complimentary MRI reviews if indicated, free second opinions, telehealth consultations, and door-to-door transportation to ensure you receive timely and comprehensive care.",
+      "slug": "diabetic-foot-ulcers",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               What Is Diabetic Ulcers?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Diabetic ulcers are classified as chronic full thickness wounds that penetrate through the dermis. Most appear beneath the metatarsal heads or at the heel where body weight concentrates, but any area exposed to friction or trauma can break down. The ulcers are staged according to depth and tissue involvement. A superficial Grade One ulcer involves only skin, whereas a Grade Four ulcer exposes bone or joint and may already harbor osteomyelitis. Recognizing the exact grade guides both local wound care and systemic treatment decisions.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/ulcer1.jpg'} 
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I have this condition?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Symptoms of Diabetic Ulcers
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Early signs include a persistent redness or callus that feels slightly moist, a foul odor from bacterial colonization, or drainage spotted inside socks. As the ulcer deepens patients may notice swelling, warmth, or blackened tissue called eschar along the edges. Fever, chills, and increasing pain signal spreading infection that demands urgent medical attention. Any nonhealing foot sore lasting longer than two weeks warrants evaluation by a specialist.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/ulcer3.png'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Stages of Diabetic Ulcers Progression 
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Stage one involves a flexible deformity with occasional discomfort that improves after removing tight shoes. Stage two brings semi rigid change with daily pain and limited toe motion. Stage three results in a rigid deformity where the joint cannot be straightened by hand and corns or calluses become persistent. Recognizing your stage allows the specialists at Mountain Spine & Orthopedics to match treatment intensity to the exact severity of your condition.
+              </h1>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Diabetic Ulcers Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Comprehensive care begins with aggressive offloading using total contact casts, removable walkers, or custom orthotics that redirect pressure away from the ulcer bed. Debridement removes devitalized tissue and biofilm, creating a clean base for healing. We apply advanced dressings impregnated with silver or iodine to control bacterial load and maintain optimal moisture balance. Negative pressure wound therapy draws edges together and stimulates granulation, while biologic skin substitutes and growth factor gels accelerate closure in stubborn wounds. When poor circulation impedes healing our vascular partners perform minimally invasive angioplasty or bypass to restore blood flow.<br/><br/>For confirmed osteomyelitis we combine targeted antibiotics with surgical excision of infected bone if necessary. Throughout recovery our diabetes educators fine tune blood sugar control because tight glycemic management speeds tissue repair and reduces recurrence.
+              </h1>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+             A diabetic foot ulcer should never be ignored. Prompt specialized care prevents infection, shortens healing time, and safeguards mobility.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our dedicated wound care experts will evaluate your ulcer, design a personalized treatment plan, and guide you toward rapid healing and lasting limb preservation.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(8).png'
+    },
 
-
+    {
+      "title": "Ankle Replacement",
+      "tag": "Foot",
+      "card_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(16).jpg",
+      "inTxt_img": "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(16).jpg",
+      "body": "Ankle replacement sometimes called total ankle arthroplasty is an advanced procedure that removes damaged bone and cartilage in the ankle joint and restores function with a precision engineered prosthesis. Severe ankle arthritis can make every step painful and limit the activities you enjoy. By resurfacing the joint surfaces and inserting a streamlined metal and medical grade plastic implant this surgery relieves pain preserves motion and helps you walk more naturally than older methods that fused the joint.<br/>At Mountain Spine & Orthopedics our fellowship trained foot and ankle specialists use cutting edge imaging and computer guided alignment tools to personalize each ankle replacement and deliver lasting comfort and mobility.",
+      "detail": "The ankle joint carries forces up to five times body weight during walking and even higher during running or jumping. Over years previous injuries inflammatory disease or degenerative wear can erode the protective cartilage lining the tibia and talus leading to bone on bone grinding swelling and stiffness. When non surgical treatments such as medication bracing and targeted physical therapy can no longer control symptoms ankle replacement becomes the most effective solution.<br/>Before surgery our team obtains high resolution weight bearing CT scans that reveal the exact shape of your joint and any subtle deformities. We then design a three dimensional plan that guides implant positioning within fractions of a millimeter ensuring proper alignment and longevity.",    
+      "what_sym": "Symptoms indicating the need for an ankle replacement often develop gradually and worsen over time. These may include: severe and persistent ankle pain, especially during weight-bearing activities like walking or standing; significant ankle stiffness and reduced range of motion, making it difficult to flex or point the foot; chronic swelling and tenderness around the ankle joint; a grinding or catching sensation within the joint during movement; difficulty with daily activities such as climbing stairs, walking on uneven surfaces, or participating in recreational pursuits. Pain may also be present at rest or disrupt sleep in advanced cases. These symptoms typically persist despite conservative treatments like pain medication, anti-inflammatory drugs, bracing, or physical therapy.",
+      "risk_fac": "Several factors can increase the risk of developing severe ankle arthritis necessitating an ankle replacement. These include: a history of significant ankle trauma, such as previous ankle fractures or recurrent severe sprains that may have damaged the joint cartilage; osteoarthritis, the 'wear-and-tear' arthritis that degenerates cartilage over time; inflammatory arthritis, like rheumatoid arthritis, psoriatic arthritis, or gout, which can attack and destroy the ankle joint lining and cartilage; avascular necrosis of the talus (the lower bone of the ankle joint), where a loss of blood supply leads to bone collapse and cartilage damage. Other contributing factors can be increasing age, obesity (which places greater stress on the ankle joint), and certain congenital foot or ankle deformities that cause abnormal joint mechanics.",
+      "diagnose": "Diagnosing the underlying condition leading to the consideration of ankle replacement involves a comprehensive evaluation by an orthopedic specialist. This typically starts with a detailed medical history, including the onset of symptoms, previous injuries, and any existing medical conditions. A thorough physical examination of the foot and ankle will assess range of motion, stability, areas of tenderness, gait abnormalities, and overall alignment. Imaging studies are crucial: weight-bearing X-rays are usually the first step to visualize the extent of joint space narrowing, bone spurs, and any deformities. Advanced imaging, such as CT scans, provides detailed information about the bone structure and is often used for pre-operative planning, as mentioned. MRI scans may be employed to evaluate the condition of soft tissues, including cartilage integrity, ligaments, tendons, and to detect conditions like avascular necrosis. In some cases, diagnostic injections of local anesthetic into the ankle joint can help confirm it as the primary source of pain.",
+      "treatment": "Ankle replacement surgery is a surgical procedure that replaces the damaged ankle joint with an artificial one. This procedure is typically performed when the ankle joint is severely damaged or arthritic, and other treatments have not been successful. The artificial joint is made of metal and plastic and is designed to mimic the natural movement of the ankle joint. At Mountain Spine & Orthopedics we perform ankle replacement surgery using the latest techniques and technologies to ensure the best possible outcome for our patients.",
+      "pain_info": "The pain experienced by individuals requiring ankle replacement is typically chronic, debilitating, and primarily due to arthritic changes in the joint, where protective cartilage has worn away leading to bone-on-bone contact. This pain often manifests as a deep ache or sharp pain within the ankle, significantly worsened by activities like walking, standing, or climbing stairs. It can limit mobility and daily functioning, and in severe cases, pain may persist even at rest or disrupt sleep. The primary goal of ankle replacement surgery is to significantly reduce or eliminate this chronic arthritic pain by replacing the damaged joint surfaces with an artificial implant, thereby restoring smoother, pain-free motion to the ankle.",
+      "prevent": "While it's not always possible to prevent the conditions that lead to needing an ankle replacement, such as arthritis stemming from autoimmune diseases, certain measures can help reduce the risk or slow the progression of ankle joint damage. These include: prompt and appropriate medical attention for ankle injuries like fractures or severe sprains to ensure optimal healing and joint stability; maintaining a healthy body weight to minimize stress on the ankle joints; wearing supportive, well-fitting footwear suitable for your activities; engaging in regular, low-impact exercises (e.g., swimming, cycling) to maintain joint mobility and muscle strength without overburdening the joint; avoiding repetitive high-impact activities if you have a pre-existing ankle condition or are at higher risk. For those with inflammatory conditions like rheumatoid arthritis, diligent management of the underlying disease with medical guidance is crucial to protect joint health.",
+      "schedule": "For individuals with diabetes, any foot wound or unusual change requires immediate professional attention. Mountain Spine & Orthopedics offers specialized diabetic foot care. Please contact us without delay to arrange an evaluation. We provide support through services like complimentary MRI reviews if indicated, free second opinions, telehealth consultations, and door-to-door transportation to ensure you receive timely and comprehensive care.",
+      "slug": "ankle-replacement",
+      forum: [
+        {
+           "post": (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               What Is Ankle Replacement?
+              </h1>
+               <h1
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 400
+                  }}
+                  className="text-[#5B5F67] text-md sm:text-xl"
+                >
+                  Ankle replacement involves two main steps. First the surgeon removes the diseased joint surfaces and any osteophytes or bone spurs. Second custom cutting guides prepare precise flat surfaces on the tibia and talus to accept the implant. The new joint consists of a cobalt chrome tibial component a titanium talar component and a durable polyethylene insert that glides smoothly between them. Unlike ankle fusion which eliminates motion ankle replacement preserves up and down movement allowing more natural gait and reducing stress on nearby joints such as the knee and hip.
+                </h1>
+                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                  <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/ankleant6.jpg'} 
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                  />
+                  <OutlinedButton text="Do I need this surgery?" />
+                </div>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[40px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+               Ankle Replacement Candidates
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Candidates for ankle replacement usually experience constant deep ankle pain that interferes with walking work and sleep. Swelling and stiffness limit range of motion and the joint may give way on uneven ground. Imaging shows advanced arthritis with narrow joint space cystic bone changes and large spurs. When daily activities require frequent pain medication or when bracing and injections no longer provide relief our specialists may recommend ankle replacement as the best path to restore quality of life.
+              </h1>
+              <OutlinedButton text="Find a Treatment" />
+              <GradientOverlayImage
+                    imageData={'https://mountainspineortho.b-cdn.net/anklereplace1.jpg'} // Placeholder for another diagram/image
+                    height="500px"
+                    gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
+                />
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Ankle Replacement Recovery Progress
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                Ankle arthritis begins with intermittent soreness after vigorous activity then progresses to daily pain morning stiffness and episodic swelling. As cartilage erodes the joint space narrows and spurs form leading to visible deformity and limited motion. In the final stage bone on bone contact causes grinding and sharp pain with every step. During evaluation we assess the integrity of surrounding ligaments alignment of the foot and prior surgeries to confirm that ankle replacement will offer predictable pain relief and durable function.
+              </h1>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+              <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500
+                }}
+                className="text-[#111315] sm:text-4xl text-3xl">
+                Learn About Ankle Replacement Treatments
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400
+                }}
+                className="text-[#5B5F67] text-md sm:text-xl"
+              >
+                The procedure is performed under regional or general anesthesia and usually requires a hospital stay of one night. A well padded splint protects the ankle for the first two weeks while the incision heals. Most patients begin gentle non weight bearing range of motion exercises within days followed by progressive partial weight bearing in a removable boot. By the sixth week supervised physical therapy focuses on rebuilding strength balance and gait mechanics.<br/><br/>During months three to six many people return to low impact sports such as cycling golf and swimming while long distance running and high impact court activities are discouraged to prolong implant life. Our modern implants have shown excellent ten year survival and ongoing studies demonstrate continued success beyond fifteen years.
+              </h1>
+            </div>
+          )
+        },
+        {
+          "post" : (
+            <div className="flex flex-col space-y-[16px]">
+            <h1
+              style={{
+                fontFamily: "var(--font-reem-kufi)",
+                fontWeight: 500
+              }}
+              className="text-[#111315] sm:text-4xl text-3xl">
+              Schedule a Consultation Today            
+            </h1>
+            <h1
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400
+              }}
+              className="text-[#5B5F67] text-md sm:text-xl"
+            >
+            Persistent ankle pain and stiffness do not have to dictate your pace of life. Early expert evaluation can determine whether total ankle replacement is the right solution for you. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our experienced foot and ankle team will review your imaging explain every treatment option and design a personalized surgical and rehabilitation plan that restores comfort supports mobility and helps you step forward with confidence.
+            </h1>
+          </div>
+          )
+        }
+      ],
+      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(13).jpg'
+    },
   ]

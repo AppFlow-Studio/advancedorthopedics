@@ -1,4 +1,4 @@
-import { GetBlogs } from "../blogs/api/get-blogs";
+import { GetBlogs } from "@/app/blogs/api/get-blogs";
 import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
 import { Conditions } from "@/components/data/conditions";
@@ -6,130 +6,143 @@ import { AllTreatments } from "@/components/data/treatments";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const BackPainAreas = Conditions.filter(( condition ) =>
-    condition.slug === "degenerativediscdisease" || condition.slug == "lowerbackpain" || condition.slug == "lumbarherniateddisc" || condition.slug == ""
-    || condition.slug == "foraminal-stenosis" || condition.slug == "sciatica" || condition.slug == "coccydynia"
+// Helper function to ensure valid slugs
+function isValidSlug(slug: string | undefined): boolean {
+  return slug !== undefined 
+}
+
+// Helper function to generate URL entry
+function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
+  return `
+  <url>
+    <loc>${baseUrl}${path}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+}
+
+const BackPainAreas = Conditions.filter((condition) =>
+  [
+    "degenerativediscdisease",
+    "lowerbackpain",
+    "lumbarherniateddisc",
+    "foraminal-stenosis",
+    "sciatica",
+    "coccydynia",
+  ].includes(condition.slug)
 );
 
-const NeckPainAreas = Conditions.filter(( condition ) =>
-    condition.slug === "cervicalspinalstenosis" || condition.slug == "cervicalherniateddisc" || condition.slug == "degenerativediscdisease" || condition.slug == "cervicalradiculopathy"
-    || condition.slug == "arthritis" || condition.slug == "pinchednerve"
+const NeckPainAreas = Conditions.filter((condition) =>
+  [
+    "cervicalspinalstenosis",
+    "cervicalherniateddisc",
+    "degenerativediscdisease",
+    "arthritis",
+    "pinchednerve",
+  ].includes(condition.slug)
 );
+
+// Foot & Ankle conditions
+const FootAnkleConditions = [
+  "bunion",
+  "plantar-fasciitis",
+  "achilles-tendonitis",
+  "flat-feet",
+  "ankle-arthroscopy",
+  "hammertoes",
+  "ankle-replacement",
+  "diabetic-foot-ulcers"
+];
 
 const FindCare = [
-    "book-an-appointment",
-    "find-a-doctor",
-    "second-opinion",
-    "free-mri-review",
-    "candidacy-check",
+  "book-an-appointment",
+  "find-a-doctor",
+  "second-opinion",
+  "free-mri-review",
+  "candidacy-check",
+  "insurance-policy",
+  "patient-forms",
 ];
 
 function slugify(text: string): string {
-    return text
-        .toLowerCase()
-        .replace(/&/g, 'and')
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '')
-        .replace(/-+/g, '-');
+  return text
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-+/g, "-");
 }
 
 export async function GET() {
-    const blogs = await GetBlogs();
-    const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+  if (!baseUrl) {
+    console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
+    return new Response("Server configuration error: Base URL not set. Sitemap generation failed.", {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+
+  let blogsData: any[] = []; // Initialize with an empty array for type safety
+  try {
+    const fetchedBlogs = await GetBlogs();
+    // Ensure that GetBlogs returns an array before assigning it
+    if (Array.isArray(fetchedBlogs)) {
+      blogsData = fetchedBlogs;
+    } else {
+      console.warn("Warning: GetBlogs did not return an array. Received:", fetchedBlogs, ". Proceeding with empty blogs list for sitemap.");
+    }
+  } catch (error) {
+    console.error("Error fetching blogs for sitemap:", error);
+    // Proceed with an empty blogsData array; sitemap will be generated without blog entries.
+  }
+
+  const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>${baseUrl}/about</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
-     <url>
-        <loc>${baseUrl}/about/FAQs</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    ${Array.from({length: 8}, (_, i) => `
-    <url>
-        <loc>${baseUrl}/locations/${i + 1}</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    
-    <url>
-        <loc>${baseUrl}/condition-check</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>${baseUrl}/area-of-pain/back-pain/backpaintreatmentoptions</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>${baseUrl}/area-of-pain/neck-and-shoulder-pain/neckandshouldertreatments</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    ${FindCare.map(findCare => `
-    <url>
-        <loc>${baseUrl}/find-care/${findCare}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${Doctors.map(doctor => `
-    <url>
-        <loc>${baseUrl}/about/meetourdoctors/${doctor.slug}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${Conditions.map(condition => `
-    <url>
-        <loc>${baseUrl}/area-of-speciality/${condition.slug}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${AllTreatments.map(treatment => `
-    <url>
-        <loc>${baseUrl}/treatments/${treatment.slug}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${BackPainAreas.map(backPainArea => `
-    <url>
-        <loc>${baseUrl}/area-of-pain/back-pain/${backPainArea.slug}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${NeckPainAreas.map(neckPainArea => `
-    <url>
-        <loc>${baseUrl}/area-of-pain/neck-and-shoulder-pain/${neckPainArea.slug}</loc>
-        <lastmod>2025-05-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
-    ${blogs.map(blog => `
-    <url>
-        <loc>${baseUrl}/blogs/${blog.id}</loc>
-        <lastmod>${blog.modified_at}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>`).join('')}
+  ${generateUrlEntry("/about")}
+  ${generateUrlEntry("/about/FAQs")}
+
+  ${clinics.map( clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
+
+  ${generateUrlEntry("/condition-check")}
+  ${generateUrlEntry("/area-of-pain/back-pain/backpaintreatmentoptions")}
+  ${generateUrlEntry("/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments")}
+
+  ${FindCare.map(findCare => generateUrlEntry(`/find-care/${findCare}`)).join('')}
+
+  ${Doctors.filter(doctor => isValidSlug(doctor.slug))
+    .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
+    .join('')}
+
+  ${Conditions.filter(condition => isValidSlug(condition.slug))
+    .map(condition => generateUrlEntry(`/area-of-speciality/${condition.slug}`))
+    .join('')}
+
+  ${FootAnkleConditions.filter(isValidSlug)
+    .map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`))
+    .join('')}
+
+  ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))
+    .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
+    .join('')}
+
+  ${BackPainAreas.filter(condition => isValidSlug(condition.slug))
+    .map(condition => generateUrlEntry(`/area-of-pain/back-pain/${condition.slug}`))
+    .join('')}
+
+  ${NeckPainAreas.filter(condition => isValidSlug(condition.slug))
+    .map(condition => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${condition.slug}`))
+    .join('')}
+
+  ${blogsData
+    .filter(blog => isValidSlug(blog?.id) && blog?.blog_info?.title)
+    .map(blog => generateUrlEntry(`/blogs/${blog.id}`, blog.modified_at, "monthly"))
+    .join('')}
 </urlset>`;
 
-    return new Response(xmlContent, {
-        headers: {
-            'Content-Type': 'application/xml',
-        },
-    });
-} 
+  return new Response(xmlContent, {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
+}

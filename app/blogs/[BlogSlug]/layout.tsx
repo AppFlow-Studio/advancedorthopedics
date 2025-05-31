@@ -2,11 +2,11 @@ import { GetBlogInfo } from '../api/get-blog-info'
 import type { Metadata, ResolvingMetadata } from "next";
 
 export async function generateMetadata(
-  { params }: { params: Promise<{ BlogId: string }> },
+  { params }: { params: Promise<{ BlogSlug: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const resolvedParams = await params;
-  const blog = await GetBlogInfo(resolvedParams.BlogId);
+  const blog = await GetBlogInfo(resolvedParams.BlogSlug);
 
   if (!blog) {
     return {
@@ -16,7 +16,6 @@ export async function generateMetadata(
   }
 
   const info = blog.blog_info;
-
   return {
     title: `${info.title} | Mountain Spine & Orthopedics`,
     description: info.desc,
@@ -25,7 +24,7 @@ export async function generateMetadata(
       title: `${info.title} | Mountain Spine & Orthopedics`,
       description: info.desc,
       type: "article",
-      url: `https://mountainspineorthopedics.com/blogs/${blog.id}`,
+      url: `https://mountainspineorthopedics.com/blogs/${blog.slug}`,
       publishedTime: blog.created_at,
       modifiedTime: blog.modified_at,
       authors: ["https://mountainspineorthopedics.com/about"],
@@ -47,7 +46,7 @@ export async function generateMetadata(
       images: [info.img],
     },
     alternates: {
-      canonical: `https://mountainspineorthopedics.com/blogs/${blog.id}`
+      canonical: `https://mountainspineorthopedics.com/blogs/${blog.slug}`
     }
   };
 }

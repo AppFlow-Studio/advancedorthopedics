@@ -136,7 +136,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
         onFocus={() => { if (query.trim()) { setShow(true); } }}
         onKeyDown={handleKeyDown}
         placeholder="Search Name or Keyword"
-        className="w-full h-12 pl-12 pr-10 py-2 rounded-[62px] bg-[#EFF5FF] placeholder-gray-500 text-gray-900 outline-none border border-transparent focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+        className="w-full h-12 pl-12 pr-10 py-2 rounded-lg bg-[#EFF5FF] placeholder-gray-500 text-gray-900 outline-none border border-transparent focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
         autoComplete="off"
       />
       {query && (
