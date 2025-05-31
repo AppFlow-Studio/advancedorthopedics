@@ -83,6 +83,7 @@ export default function Footer() {
                             fontWeight : 400,
                             color : '#DCDEE1'
                         }}
+                        className='sm:text-md text-sm'
                         >info@mountainspineorthopedics.com</h1>
                     </div>
 

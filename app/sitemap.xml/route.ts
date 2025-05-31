@@ -8,7 +8,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 // Helper function to ensure valid slugs
 function isValidSlug(slug: string | undefined): boolean {
-  return !!slug && slug !== "undefined" && slug !== "faqs" && !slug.includes("www");
+  return slug !== undefined 
 }
 
 // Helper function to generate URL entry
@@ -38,7 +38,6 @@ const NeckPainAreas = Conditions.filter((condition) =>
     "cervicalspinalstenosis",
     "cervicalherniateddisc",
     "degenerativediscdisease",
-    "cervicalradiculopathy",
     "arthritis",
     "pinchednerve",
   ].includes(condition.slug)
@@ -52,6 +51,8 @@ const FootAnkleConditions = [
   "flat-feet",
   "ankle-arthroscopy",
   "hammertoes",
+  "ankle-replacement",
+  "diabetic-foot-ulcers"
 ];
 
 const FindCare = [
@@ -74,18 +75,38 @@ function slugify(text: string): string {
 }
 
 export async function GET() {
-  const blogs = await GetBlogs();
+  if (!baseUrl) {
+    console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
+    return new Response("Server configuration error: Base URL not set. Sitemap generation failed.", {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+
+  let blogsData: any[] = []; // Initialize with an empty array for type safety
+  try {
+    const fetchedBlogs = await GetBlogs();
+    // Ensure that GetBlogs returns an array before assigning it
+    if (Array.isArray(fetchedBlogs)) {
+      blogsData = fetchedBlogs;
+    } else {
+      console.warn("Warning: GetBlogs did not return an array. Received:", fetchedBlogs, ". Proceeding with empty blogs list for sitemap.");
+    }
+  } catch (error) {
+    console.error("Error fetching blogs for sitemap:", error);
+    // Proceed with an empty blogsData array; sitemap will be generated without blog entries.
+  }
 
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${generateUrlEntry("/about")}
   ${generateUrlEntry("/about/FAQs")}
 
-  ${Array.from({ length: 8 }, (_, i) => generateUrlEntry(`/locations/${i + 1}`)).join('')}
+  ${clinics.map( clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
 
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/area-of-pain/back-pain/backpaintreatmentoptions")}
-  ${generateUrlEntry("/area-of-pain/neck-and-shoulder-pain/neckandshouldertreatments")}
+  ${generateUrlEntry("/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments")}
 
   ${FindCare.map(findCare => generateUrlEntry(`/find-care/${findCare}`)).join('')}
 
@@ -98,7 +119,7 @@ export async function GET() {
     .join('')}
 
   ${FootAnkleConditions.filter(isValidSlug)
-    .map(slug => generateUrlEntry(`/area-of-speciality/${slug}`))
+    .map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`))
     .join('')}
 
   ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))
@@ -113,7 +134,7 @@ export async function GET() {
     .map(condition => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${condition.slug}`))
     .join('')}
 
-  ${blogs
+  ${blogsData
     .filter(blog => isValidSlug(blog?.id) && blog?.blog_info?.title)
     .map(blog => generateUrlEntry(`/blogs/${blog.id}`, blog.modified_at, "monthly"))
     .join('')}

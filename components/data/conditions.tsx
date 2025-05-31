@@ -2852,7 +2852,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 >
                   Plantar Fasciitis is a degenerative inflammatory condition of the plantar fascia. Repetitive overload causes tiny tears at the origin of the fascia on the heel bone, leading to a cycle of inflammation, scarring, and further degeneration. Pain is classically described as a knife like sensation in the heel with the first few steps after waking or after extended sitting. As the fascia warms up, pain may ease, only to return after prolonged standing or activity. Identifying the true source of heel pain is essential because nerve entrapment, fat pad atrophy, and systemic arthritis can mimic plantar fasciitis and require different treatment strategies.
                 </h1>
-                <div className="flex flex-col space-y-[40px] mt-[40px]">
+                <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full ">
                   <GradientOverlayImage
                     imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website.jpg'} // Placeholder for another diagram/image
                     height="500px"
@@ -2863,10 +2863,9 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
             </div>
           )
         },
-        
         {
           post : (
-            <div className="flex flex-col space-y-[40px]">
+            <div className="flex flex-col space-y-[40px] w-full ">
               <h1
                 style={{
                   fontFamily: "var(--font-reem-kufi)",
@@ -2891,10 +2890,11 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(2).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/fixplantf.jpg'} // Placeholder for another diagram/image
                     height="500px"
+
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
-                />
+              />
             </div>
           )
         },
@@ -3026,7 +3026,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(1).png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/bunions.png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3058,7 +3058,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               <div className="mt-[40px] space-y-[40px] flex flex-col">
                 <OutlinedButton text="Find a Treatment" />
                 <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(3).png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/bunion3.png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3136,7 +3136,7 @@ Many bunions respond well to conservative management when addressed early. Wider
           )
         }
       ],
-      side_img : 'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(2).png'
+      side_img : 'https://mountainspineortho.b-cdn.net/bunions2.png'
     },
     {
       "title": "Achilles Tendonitis",
@@ -3175,8 +3175,9 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(3).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/achilles.jpg'} // Placeholder for another diagram/image
                     height="500px"
+                    className=""
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
                   <OutlinedButton text="Do I have this condition?" />
@@ -3212,7 +3213,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(4).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/tendon2.jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3336,8 +3337,9 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(5).png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/flatfoot.png'} // Placeholder for another diagram/image
                     height="500px"
+                    objectFit="contain"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
                   <OutlinedButton text="Do I have this condition?" />
@@ -3367,8 +3369,9 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(5).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/flatfoot.jpg'} // Placeholder for another diagram/image
                     height="500px"
+                    objectFit="contain"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
             </div>
@@ -3487,7 +3490,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(6).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/anklereplace.jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3518,7 +3521,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                  imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(8).jpg'} // Placeholder for another diagram/image
+                  imageData={'https://mountainspineortho.b-cdn.net/ankleant3.jpg'} // Placeholder for another diagram/image
                   height="500px"
                   gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
               />
@@ -3637,7 +3640,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(9).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/hammertoe3.jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3668,7 +3671,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(10).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/hammertoe2.jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3785,7 +3788,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).jpg'} 
+                    imageData={'https://mountainspineortho.b-cdn.net/ulcer1.jpg'} 
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3816,7 +3819,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(10).png'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/ulcer3.png'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />
@@ -3911,7 +3914,6 @@ Many bunions respond well to conservative management when addressed early. Wider
       "prevent": "While it's not always possible to prevent the conditions that lead to needing an ankle replacement, such as arthritis stemming from autoimmune diseases, certain measures can help reduce the risk or slow the progression of ankle joint damage. These include: prompt and appropriate medical attention for ankle injuries like fractures or severe sprains to ensure optimal healing and joint stability; maintaining a healthy body weight to minimize stress on the ankle joints; wearing supportive, well-fitting footwear suitable for your activities; engaging in regular, low-impact exercises (e.g., swimming, cycling) to maintain joint mobility and muscle strength without overburdening the joint; avoiding repetitive high-impact activities if you have a pre-existing ankle condition or are at higher risk. For those with inflammatory conditions like rheumatoid arthritis, diligent management of the underlying disease with medical guidance is crucial to protect joint health.",
       "schedule": "For individuals with diabetes, any foot wound or unusual change requires immediate professional attention. Mountain Spine & Orthopedics offers specialized diabetic foot care. Please contact us without delay to arrange an evaluation. We provide support through services like complimentary MRI reviews if indicated, free second opinions, telehealth consultations, and door-to-door transportation to ensure you receive timely and comprehensive care.",
       "slug": "ankle-replacement",
-      
       forum: [
         {
            "post": (
@@ -3935,7 +3937,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 </h1>
                 <div className="flex flex-col space-y-[40px] mt-[40px]">
                   <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).jpg'} 
+                    imageData={'https://mountainspineortho.b-cdn.net/ankleant6.jpg'} 
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                   />
@@ -3966,7 +3968,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               </h1>
               <OutlinedButton text="Find a Treatment" />
               <GradientOverlayImage
-                    imageData={'https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(14).jpg'} // Placeholder for another diagram/image
+                    imageData={'https://mountainspineortho.b-cdn.net/anklereplace1.jpg'} // Placeholder for another diagram/image
                     height="500px"
                     gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
                 />

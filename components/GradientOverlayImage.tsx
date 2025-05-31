@@ -6,12 +6,16 @@ interface GradientOverlayImageProps {
   imageData: string | StaticImageData;
   height?: string | number; // You can use any valid CSS height value, e.g. '400px', '50vh'
   gradient?: string; // To allow custom gradient overlays
+  objectFit?: string;
+  objectPosition?: string;
 }
 
 const GradientOverlayImage: React.FC<GradientOverlayImageProps> = ({
   imageData,
   height = '400px',
   gradient = 'linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)',
+  objectFit = 'cover',
+  objectPosition = 'center',
 }) => {
   // If imageData is an object (StaticImageData), use its src property.
   const imageUrl = typeof imageData === 'string' ? imageData : imageData.src;
@@ -21,8 +25,8 @@ const GradientOverlayImage: React.FC<GradientOverlayImageProps> = ({
     width: '100%',
     height,
     backgroundImage: `${gradient}, url(${imageUrl})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: objectFit,
+    backgroundPosition: objectPosition,
     backgroundRepeat: 'no-repeat',
   };
 
@@ -39,7 +43,7 @@ const GradientOverlayImage: React.FC<GradientOverlayImageProps> = ({
   };
 
   return (
-    <div style={containerStyle} className='aspect-video rounded-[20px]'/> 
+    <div style={containerStyle} className={`aspect-video rounded-[20px]`}/> 
   );
 };
 

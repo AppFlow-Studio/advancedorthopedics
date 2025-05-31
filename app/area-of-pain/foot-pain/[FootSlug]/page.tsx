@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { BackPainDropdown } from '@/components/back-pain-dropdown'
 import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { FootPainDropdown } from '@/components/foot-pain-dropdown'
 export default function FootPainArea({
     params,
   }: {
@@ -55,9 +56,9 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
         background: 'white',
         filter: 'blur(30px)'
         }}
-        className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
+        className="w-full h-[120px] absolute top-0 z-[1] border-red-500"
         />
-        <Image src={ConditionDetialsLanding} width={300} height={300} layout="responsive" className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top  self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} fill className=" h-full absolute top-0 object-cover object-top self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
@@ -77,7 +78,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md sm:flex hidden text-xs text-[#111315]"
                 >
                     Area of Speciality 
                 </h1>
@@ -87,7 +88,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md sm:flex hidden text-xs text-[#111315]"
                 >
                     /
                 </h1>
@@ -142,7 +143,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
             }}
-            className="text-white text-shadow-sm sm:text-lg text-sm"
+            className="text-white text-shadow-sm sm:text-lg text-sm "
             >
                   {condition_details?.body?.split('<br/>').map((paragraph, index, array) => (
                     <React.Fragment key={index}>
@@ -163,7 +164,7 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
             <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col space-y-[60px]'>
                 <DoctorContactForm backgroundcolor={'#FAFAFA'}/>
                 <div className=' space-y-[30px] lg:flex lg:flex-col hidden'>
-                    <BackPainDropdown  CurrentCondition={condition_details.title}/>
+                    <FootPainDropdown  CurrentCondition={condition_details.title}/>
                     <Image src={condition_details.side_img!} width={300} height={300} layout="responsive" className="w-full rounded-[20px] max-h-[500px] aspect-1/2 object-center object-cover" alt='' />
                 </div>
             </div>
@@ -203,10 +204,10 @@ const randomDoctors = shuffleArray(Doctors).slice(0, 2);
                     </div>
                     
                     {
-                        condition_details.forum?.map((item) => (
-                            <>
+                        condition_details.forum?.map((item, index) => (
+                            <div key={index}>
                                 {item.post}
-                            </>
+                            </div>
                         ))
                     }
                     
