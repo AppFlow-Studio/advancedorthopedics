@@ -5,7 +5,20 @@ import Monica from '../../public/Monica.png'
 import David from '../../public/David.png'
 import Douglas from '../../public/DouglasSlaughter.png'
 import Christopher from '../../public/ChristopherMcarthy.png'
-export default function DoctorsAvatar() {
+export default function DoctorsAvatar({tag, condition} : {tag : string, condition : string}) {
+  if (tag === 'Foot') {
+    return (
+      <div className="flex -space-x-3">
+        <Image
+          className="rounded-full ring-2 ring-white"
+          src={Katzman}
+          width={40}
+          height={40}
+          alt="Avatar 01"
+        />
+      </div>
+    )
+  }
   return (
     <div className="flex -space-x-3">
       <Image
@@ -31,11 +44,19 @@ export default function DoctorsAvatar() {
       />
       <Image
         className="rounded-full ring-2 ring-white"
-        src={Monica}
+        src={Christopher}
         width={40}
         height={40}
         alt="Avatar 03"
       />
+      {
+        condition.includes('Injections') && <Image
+        className="rounded-full ring-2 ring-white"
+        src={Monica}
+        width={40}
+        height={40}
+        alt="Avatar 04"
+      />}
     </div>
   )
 }
