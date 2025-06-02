@@ -377,8 +377,13 @@ const OrthoConditionsWeTreat = [
         slug: 'ankle-ligament-reconstruction-surgery'
       },
       {
-        name: 'Foot Fracture Fixation',
-        slug: 'foot-fracture-fixation'
+        name: 'Ankle Arthroscopy',
+        slug: 'ankle-arthroscopy-minimally-invasive-surgery'
+      },
+
+      {
+        name: 'Ankle Replacement Surgery',
+        slug: 'ankle-replacement-surgery'
       }
     ]
   },

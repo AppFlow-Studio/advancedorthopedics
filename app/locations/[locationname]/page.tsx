@@ -12,6 +12,7 @@ import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
 import Image from 'next/image'
 import { Marquee } from '@/components/magicui/marquee'
+import { redirect } from 'next/navigation'
 export default function LocationDetails(
     {
         params,
@@ -22,7 +23,9 @@ export default function LocationDetails(
       const resolvedParams = React.use(params)
       const locationslug = resolvedParams.locationname
       let location = clinics.filter( x => x.slug == locationslug )[0]
-
+      if(location === undefined) {
+        return redirect('/404')
+      }
   return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>

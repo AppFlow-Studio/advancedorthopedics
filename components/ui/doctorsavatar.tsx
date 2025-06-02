@@ -6,6 +6,7 @@ import David from '../../public/David.png'
 import Douglas from '../../public/DouglasSlaughter.png'
 import Christopher from '../../public/ChristopherMcarthy.png'
 export default function DoctorsAvatar({tag, condition} : {tag : string, condition : string}) {
+  console.log(tag)
   if (tag === 'Foot') {
     return (
       <div className="flex -space-x-3">
