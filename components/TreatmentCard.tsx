@@ -51,7 +51,7 @@ export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : Trea
             <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
             
             <div className=' flex flex-row w-full space-x-[16px] items-center'>
-                <DoctorsAvatar />
+                <DoctorsAvatar tag={ConditionInfo.tag} condition={ConditionInfo.title} />
                 <h1
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
