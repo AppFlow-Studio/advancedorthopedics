@@ -53,7 +53,13 @@ const services = [
     { id: "service3", name: "Service 3" },
     { id: "service4", name: "Service 4" },
   ]
-export function DoctorContactForm({backgroundcolor = 'white'}) {
+
+interface DoctorContactFormProp {
+    backgroundcolor : string
+    header? : string
+    buttonText? : string
+} 
+export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment'}: DoctorContactFormProp) {
   const [ openContactForm, setOpenContactForm ] = useState(false)
   const [ openAppointmentConfirm, setAppointmentConfirm ] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
@@ -78,7 +84,7 @@ export function DoctorContactForm({backgroundcolor = 'white'}) {
   }
 
   return (
-     <div className={`w-full p-8 rounded-3xl overflow-hidden backdrop-blur-[15px] bg-[${backgroundcolor}] bg-opacity-50`}
+     <div className={`w-full p-8 rounded-3xl overflow-hidden  bg-[${backgroundcolor}] bg-opacity-50`}
      
      >
         <Form {...form} 
@@ -87,14 +93,14 @@ export function DoctorContactForm({backgroundcolor = 'white'}) {
   
             {/* Name Fields */}
             <div className="grid grid-cols-1 gap-6">
-                <h1
+                {header && <h1
                 style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
                 }}
                 className='text-[#111315] text-2xl'>
-                    Book Your Appointment
-                </h1>
+                    {header}
+                </h1> }
               <FormField
                 control={form.control}
                 name="name"
@@ -178,7 +184,7 @@ export function DoctorContactForm({backgroundcolor = 'white'}) {
                 )}
               />
             </div>
-            <div className="w-full self-center flex items-center justify-center" onClick={() => setOpenContactForm(true)}><BookAnAppointmentClient /></div>
+            <div className="w-full self-center flex items-center justify-center" onClick={() => setOpenContactForm(true)}><BookAnAppointmentClient buttonText={buttonText} /></div>
 
             <Dialog open={openContactForm} onOpenChange={() => setOpenContactForm(false)}>
                 <DialogContent className=" rounded-[20px] p-[32px] " >

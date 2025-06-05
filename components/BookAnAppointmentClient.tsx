@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function BookAnAppointmentClient() {
+export default function BookAnAppointmentClient({buttonText = 'Book an Appointment'}: {buttonText? : string}) {
   return (
     <div className='max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#022968] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer'>
         <div className='pr-[10px] group-hover:scale-[1.2] transition-all duration-300 ease-in-out'>
@@ -12,12 +12,11 @@ export default function BookAnAppointmentClient() {
         style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
-            fontSize: "16px",
             lineHeight: "24px",
             letterSpacing: "0.02em"
         }}
-        className='group-hover:translate-x-1 transition-all duration-300 ease-in-out'
-        >Book an Appointment</p>
+        className='group-hover:translate-x-1 transition-all duration-300 ease-in-out lg:text-lg text-md'
+        >{buttonText}</p>
     </div>
   )
 }
