@@ -266,7 +266,7 @@ const OrthoConditionsWeTreat = [
       },
       {
         name: 'Carpal Tunnel Treatment', 
-        slug: 'carpal-tunnel-treatment'
+        slug: 'carpal-tunnel-release'
       },
       {
         name: 'Trigger Finger Release Surgery',
