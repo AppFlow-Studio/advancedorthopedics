@@ -418,7 +418,7 @@ export default function Home() {
         />
 
         <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between">
-          <div className="z-[2] flex flex-col xl:w-[50%] w-[70%] h-full  text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
+          <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
           
   
            {/* <SlidingDiv position="left" className="z-[2]">
@@ -452,7 +452,9 @@ export default function Home() {
                 </h1>
              </div>
            </SlidingDiv>
-  
+          <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mb-4">
+            <div className="rounded-2xl bg-[rgba(255,255,255,0.50)]"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header=""/></div>
+          </SlidingDiv>
            <SlidingDiv position="left" className="z-[2]">
              <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
                 <p
@@ -470,8 +472,7 @@ export default function Home() {
               <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
                 <div className=""><BookAnAppoitmentButton /></div>
                 <a href="tel:8339314888"
-  
-                    className="h-full max-h-[56px] group hover:cursor-pointer lg:block hidden  px-[32px] py-[16px] rounded-[62px] relative flex items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
+                    className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden  px-[32px] py-[16px] rounded-[62px] relative items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
                     >
                     <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
                     <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
@@ -484,7 +485,7 @@ export default function Home() {
             </SlidingDiv>
           </div>
   
-          <div className="w-[50%] self-end h-full  flex flex-col z-[2] xl:mb-32" >
+          <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >
             <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header=""/></div>
           </div>
         </div>
