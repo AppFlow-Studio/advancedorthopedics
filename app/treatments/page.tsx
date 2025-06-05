@@ -247,7 +247,7 @@ const treatmentAreaParam = () => {
               >
                 Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
                 <br/><br/>
-                At NJ Spine and Orthopedic, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
+                At Mountain Spine and Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
               </h1>
           </div>
         </section>

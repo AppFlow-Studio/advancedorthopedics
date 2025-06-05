@@ -117,13 +117,13 @@ export default function RatingsAndReviews() {
                         <div className="self-end">
                           <StarRating rating={item.rating} size={30}/>
                         </div>
-                        <div className="lg:mt-22 md:mt-0 mt-12 xl:mt-auto flex flex-col space-y-[32px] ">
+                        <div className="lg:mt-22 md:mt-0 sm:mt-12 mt-12 xl:mt-auto flex flex-col space-y-[32px] ">
                           <h1
                           style={{
                             fontFamily: "var(--font-inter)",
                             fontWeight: 500,
                           }}
-                          className="md:text-2xl text-xl text-[#5B5F67] lg:pt-0  md:pt-10"
+                          className="md:text-2xl sm:text-xl text-lg text-[#5B5F67] lg:pt-0  md:pt-10"
                           >{item.body}</h1>
 
                           <h1

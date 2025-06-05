@@ -51,7 +51,7 @@ export default function DoctorCard({doctor} : {doctor  : DoctorProp}) {
             <div className=' flex flex-row space-x-[16px]'>
                 {
                     socials.map((item,index) => (
-                        <div className=' border border-[#EFF5FF] rounded-full px-[13px] py-[10px] items-center justify-center' key={index}>
+                        <div className=' border border-[#EFF5FF] rounded-full lg:px-[13px] lg:py-[10px] px-[10px] py-[8px] items-center justify-center' key={index}>
                             <item.icon />
                         </div>
                     ))

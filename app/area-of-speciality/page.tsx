@@ -223,7 +223,7 @@ export default function AreaOfSpeciality() {
             Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year.
             <br />
             <br />
-            At Mountain Spine & Care, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
+            At Mountain Spine & Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
           </h1>
         </div>
       </section>

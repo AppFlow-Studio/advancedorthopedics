@@ -40,6 +40,7 @@ import ExpertCare from '@/public/ExpertCare.png'
 import aftercare from '@/public/aftercare.jpg'
 import { Marquee } from "@/components/magicui/marquee";
 import { useRouter } from "next/navigation";
+import { DoctorContactForm } from "@/components/DoctorContactForm";
 
 
 const ServicesAndExpertise = [
@@ -377,13 +378,17 @@ const OrthoConditionsWeTreat = [
         slug: 'ankle-ligament-reconstruction-surgery'
       },
       {
-        name: 'Foot Fracture Fixation',
-        slug: 'foot-fracture-fixation'
+        name: 'Ankle Arthroscopy',
+        slug: 'ankle-arthroscopy-minimally-invasive-surgery'
+      },
+
+      {
+        name: 'Ankle Replacement Surgery',
+        slug: 'ankle-replacement-surgery'
       }
     ]
   },
 ];
-
 
 export default function Home() {
   const [ selectedService , setSelectedService ] = useState('Neck & Spine')
@@ -397,92 +402,99 @@ export default function Home() {
   return (
     <main className=" w-full flex flex-col items-center justify-center bg-white h-full" >
       {/* Hero Section */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden" >
+      <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
         <div 
         style={{
         background: 'white',
         filter: 'blur(30px)'
         }}
-        className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
+        className="w-full h-[120px] absolute top-0 z-[1] border-red-500"
         />
-        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} layout='fill' className=" xl:max-h-[945px] h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
-
-        <div className="z-[1] flex flex-col w-full h-full  text-left xl:px-6 xl:py-8 relative  xl:pb-[160px]">
-          <div className="lg:w-[60%] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
+        <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
           style={{
             background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
           }}
-          />
+        />
 
-         <SlidingDiv position="left" className="z-[2]">
-           <div className="lg:px-[80px]  px-8 flex sm:flex-row flex-col space-x-4 md:space-x-[20px] sm:items-center justify-start sm:space-y-0 space-y-2 mt-[128px] lg:w-[55%]">
-              <div><Avatars /></div>
-              <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.02em",
-              }}
-              className=" text-white text-xl lg:text-2xl"
-              >
-                100,000+ Happy Patient's
-              </h1>
-           </div>
-         </SlidingDiv>
-
-         <SlidingDiv position="left" className="z-[2]"
-         >
-           <div className="lg:px-[80px] px-8 my-[24px] xl:w-[44%] lg:w-[50%]">
-              <h1
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
-              >
-              Welcome to<br/> Mountain <br/> Spine & Orthopedics 
-              </h1>
-           </div>
-         </SlidingDiv>
-
-         <SlidingDiv position="left" className="z-[2]">
-           <div className="lg:px-[80px] px-8 mb-[24px] xl:w-[50%] md:w-[80%] md:text-left sm:text-center">
-              <p
-              style={{
-                fontWeight: 400,
-              }}
-              className="text-white text-xl lg:text-2xl text-shadow-sm"
-              >
-              Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
-              </p>
-           </div>
-         </SlidingDiv>
+        <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between">
+          <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
           
-          <SlidingDiv position="left" className="z-[2]">
-            <div className="lg:px-[80px] px-8 my-[24px] xl:w-[55%] flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
-              <div className=""><BookAnAppoitmentButton /></div>
-              <a href="tel:8339314888"
-
-                  className="h-full max-h-[56px] group hover:cursor-pointer  px-[32px] py-[16px] rounded-[62px] relative flex items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
-                  >
-                  <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
-                  <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                          <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0094E0"/>
-                      </svg>
-                  </div>
-              </a>
-            </div>
+  
+           {/* <SlidingDiv position="left" className="z-[2]">
+             <div className="lg:px-[80px]  px-8 flex sm:flex-row flex-col space-x-4 md:space-x-[20px] sm:items-center justify-start sm:space-y-0 space-y-2 mt-[128px] lg:w-[55%]">
+                <div><Avatars /></div>
+                <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                  lineHeight: "24px",
+                  letterSpacing: "0.02em",
+                }}
+                className=" text-white text-xl lg:text-2xl"
+                >
+                  100,000+ Happy Patient's
+                </h1>
+             </div>
+           </SlidingDiv> */}
+  
+           <SlidingDiv position="left" className="z-[2] mt-38"
+           >
+             <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]  ">
+                <h1
+                style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 500,
+                }}
+                className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
+                >
+                Welcome to<br/> Mountain <br/> Spine & Orthopedics 
+                </h1>
+             </div>
+           </SlidingDiv>
+          <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mb-4">
+            <div className="rounded-2xl bg-[rgba(255,255,255,0.50)]"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header=""/></div>
           </SlidingDiv>
+           <SlidingDiv position="left" className="z-[2]">
+             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
+                <p
+                style={{
+                  fontWeight: 400,
+                }}
+                className="text-white text-xl lg:text-2xl text-shadow-sm"
+                >
+                Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
+                </p>
+             </div>
+           </SlidingDiv>
+            
+            <SlidingDiv position="left" className="z-[2]">
+              <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
+                <div className=""><BookAnAppoitmentButton /></div>
+                <a href="tel:8339314888"
+                    className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden  px-[32px] py-[16px] rounded-[62px] relative items-center  justify-center `md:justify-between bg-[white] text-[#0094E0]  w-full md:w-fit font-[500] text-[14px] "
+                    >
+                    <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
+                    <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+                            <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0094E0"/>
+                        </svg>
+                    </div>
+                </a>
+              </div>
+            </SlidingDiv>
+          </div>
+  
+          <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >
+            <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header=""/></div>
+          </div>
+        </div>
 
-          <div className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute bottom-0 left-0 right-0 bg-white py-12 xl:py-0 xl:pt-[32px] xl:pb-[50px]"
+        <div className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute xl:bottom-0 xl:left-0 xl:right-0 bg-white py-12 pt-[32px] pb-[50px]"
           style={{
             background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
           }}
           >
-
-
             <Marquee pauseOnHover className="w-full" >
               {
                 [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
@@ -490,8 +502,6 @@ export default function Home() {
                 ))
               }
             </Marquee>
-
-          </div>
 
         </div>
         
@@ -1152,7 +1162,7 @@ export default function Home() {
                   <div className=" md:w-[45%] w-full "> 
                   <BookAnAppoitmentButton />
                   </div>
-                  <button className="bg-white border hover:cursor-pointer border-[#022968] px-[32px] py-[16px] space-x-[10px] max-h-[56px] flex flex-row items-center justify-center rounded-[62px] w-full md:w-[45%] group">
+                  <Link href={'/about'} className="bg-white border hover:cursor-pointer border-[#022968] px-[32px] py-[16px] space-x-[10px] max-h-[56px] flex flex-row items-center justify-center rounded-[62px] w-full md:w-[45%] group">
                       <h1
                       style={{
                         fontFamily: "var(--font-inter)",
@@ -1165,7 +1175,7 @@ export default function Home() {
                           <path d="M13.4985 0.965242C13.252 0.736636 12.9267 0.609835 12.6498 0.530065C12.3544 0.444969 12.0165 0.386948 11.6686 0.34632C10.9713 0.264898 10.1536 0.244548 9.38838 0.251159C8.61878 0.257808 7.88161 0.291999 7.33826 0.324347C7.06612 0.340548 6.84152 0.356353 6.68445 0.368151C6.6059 0.374051 6.54417 0.378953 6.50177 0.382408L6.45295 0.38645L6.43999 0.387552L6.43495 0.387986C6.0223 0.423934 5.71693 0.787596 5.75287 1.20025C5.78882 1.61288 6.15303 1.9182 6.56565 1.88228L6.56817 1.88207L6.57907 1.88114L6.62358 1.87745C6.66303 1.87424 6.7216 1.86959 6.7968 1.86394C6.94725 1.85264 7.16405 1.83737 7.42741 1.8217C7.95506 1.79028 8.66529 1.75746 9.40134 1.7511C10.1417 1.74471 10.8879 1.76536 11.4946 1.8362C11.5287 1.84017 11.562 1.84428 11.5947 1.84852L0.96967 12.4736C0.676777 12.7665 0.676777 13.2413 0.96967 13.5342C1.26256 13.8271 1.73744 13.8271 2.03033 13.5342L12.6578 2.90672C12.6596 2.92107 12.6614 2.93557 12.6631 2.95021C12.7334 3.55004 12.7544 4.30047 12.7486 5.05046C12.7429 5.79576 12.711 6.51955 12.6803 7.05855C12.6651 7.32757 12.6501 7.54947 12.6391 7.70364C12.6336 7.7807 12.629 7.84078 12.6258 7.8813L12.6222 7.92705L12.621 7.94154C12.5868 8.35431 12.8936 8.71673 13.3063 8.75104C13.7191 8.78536 14.0816 8.47805 14.1159 8.06526L14.1163 8.06067L14.1174 8.04746L14.1213 7.99761C14.1247 7.95428 14.1295 7.89119 14.1352 7.81094C14.1467 7.65046 14.1622 7.4211 14.1779 7.14367C14.2094 6.58976 14.2426 5.83985 14.2485 5.06198C14.2545 4.2888 14.2338 3.46659 14.1529 2.77563C14.1125 2.43136 14.0547 2.09687 13.9689 1.80777C13.8907 1.54431 13.758 1.20593 13.4985 0.965242Z" fill="#022968"/>
                         </svg>
                       </div>
-                  </button>
+                  </Link>
                 </div>
 
                 <div className="">

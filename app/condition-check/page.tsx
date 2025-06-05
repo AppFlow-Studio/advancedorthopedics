@@ -675,16 +675,16 @@ export default function ConditionChecker() {
                         fontWeight: 500,
                     }}
                     className='text-[#022968] text-4xl md:text-5xl'
-                    >Mountain Spine & Care<br className='md:flex hidden'/> Condition Check Tool</h1>
+                    >Mountain Spine & Orthopedics<br className='md:flex hidden'/> Condition Check Tool</h1>
                     <h1
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                     }}
                     className='text-[#5B5F67] text-lg md:text-xl'>
-                        Mountain Spine & Care offers a free condition check tool to help you understand the source of <span className='text-[#022968] underline'>your back pain.</span> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
+                        Mountain Spine & Orthopedics offers a free condition check tool to help you understand the source of <span className='text-[#022968] underline'>your back pain.</span> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
                         <br /><br/>
-                        To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Care spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn’t conclusive and you need to<span className='text-[#022968] underline'> be further evaluated by an Mountain Spine & Care specialist</span> at one of our clinics.
+                        To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Orthopedics spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn’t conclusive and you need to<span className='text-[#022968] underline'> be further evaluated by an Mountain Spine & Orthopedics specialist</span> at one of our clinics.
                    </h1>
             </div>
         </section>

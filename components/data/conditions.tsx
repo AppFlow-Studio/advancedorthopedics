@@ -85,14 +85,14 @@ export const Conditions : ConditionInfoProp[] = [
     "card_img": 'https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDisc.png', 
     "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDiscarti.png',
     "body": "A lumbar herniated disc occurs when a disc in the lower back becomes damaged or shifts out of place, often due to aging, injury, or improper lifting. These discs cushion the vertebrae and allow for movement, but when the outer layer tears, the inner gel like center can press on nearby nerves. This can lead to pain, tingling, or weakness that radiates from the lower back into the hips, buttocks, or legs often referred to as sciatica. The lower back is the most common area for herniated discs because it absorbs the most stress from daily movement.",
-    "detail": "Each spinal disc has a tough outer layer called the annulus fibrosus and a soft, gel-like center known as the nucleus pulposus. Herniation happens when a tear in the annulus allows the nucleus to push outward. This displacement can occur gradually due to degenerative changes or suddenly from excessive strain or trauma. When the herniated material compresses or irritates spinal nerves exiting the spinal canal in the lower back, it triggers the characteristic radiating symptoms down the leg (sciatica). Mountain Spine & Care specializes in accurately diagnosing the level and severity of the herniation to guide effective treatment.",
+    "detail": "Each spinal disc has a tough outer layer called the annulus fibrosus and a soft, gel-like center known as the nucleus pulposus. Herniation happens when a tear in the annulus allows the nucleus to push outward. This displacement can occur gradually due to degenerative changes or suddenly from excessive strain or trauma. When the herniated material compresses or irritates spinal nerves exiting the spinal canal in the lower back, it triggers the characteristic radiating symptoms down the leg (sciatica). Mountain Spine & Orthopedics specializes in accurately diagnosing the level and severity of the herniation to guide effective treatment.",
     "what_sym": "Symptoms often include sharp, shooting pain originating in the lower back and traveling down the buttock and back of one leg (sciatica), though sometimes back pain itself might be minimal. Numbness, tingling ('pins and needles'), or muscle weakness in the affected leg or foot are common. Pain may worsen with activities like sitting for long periods, bending forward, coughing, or sneezing.",
     "risk_fac": "Key risk factors include age, as discs naturally degenerate over time making them more prone to herniation (most common between ages 30-50), improper lifting techniques or repetitive twisting motions, physically demanding occupations, excess body weight putting added strain on the spine, a sedentary lifestyle leading to weaker core support muscles, smoking which can impair disc nutrition, and a potential genetic predisposition to disc degeneration.",
-    "diagnose": "Diagnosis at Mountain Spine & Care involves a comprehensive evaluation, starting with a detailed medical history focusing on the pattern and triggers of your pain. A physical examination includes neurological testing (checking reflexes, muscle strength, sensation) and specific maneuvers like the straight leg raise test to identify nerve irritation. While symptoms often suggest a herniated disc, imaging studies, particularly an MRI, are crucial to confirm the diagnosis, visualize the disc pressing on the nerve, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy.",
-    "treatment": "Mountain Spine & Care prioritizes conservative treatment initially for most lumbar herniated discs. This often includes modified rest, targeted physical therapy focusing on core stabilization and specific exercises (like McKenzie method), pain and anti-inflammatory medications (NSAIDs, muscle relaxants), and epidural steroid injections to reduce nerve inflammation and radiating pain. If significant pain or neurological symptoms persist despite several weeks of conservative care, minimally invasive surgical options like microdiscectomy (removing the herniated portion of the disc) may be recommended to decompress the affected nerve.",
-    "pain_info": "The pain from a lumbar herniated disc is often neuropathic, meaning it stems from nerve compression, resulting in sharp, burning, or electric shock-like sensations down the leg (sciatica). This leg pain is frequently more severe than the localized back pain. Mountain Spine & Care focuses on alleviating this nerve pain through targeted treatments like epidural injections and physical therapy designed to reduce nerve irritation and improve function.",
+    "diagnose": "Diagnosis at Mountain Spine & Orthopedics involves a comprehensive evaluation, starting with a detailed medical history focusing on the pattern and triggers of your pain. A physical examination includes neurological testing (checking reflexes, muscle strength, sensation) and specific maneuvers like the straight leg raise test to identify nerve irritation. While symptoms often suggest a herniated disc, imaging studies, particularly an MRI, are crucial to confirm the diagnosis, visualize the disc pressing on the nerve, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy.",
+    "treatment": "Mountain Spine & Orthopedics prioritizes conservative treatment initially for most lumbar herniated discs. This often includes modified rest, targeted physical therapy focusing on core stabilization and specific exercises (like McKenzie method), pain and anti-inflammatory medications (NSAIDs, muscle relaxants), and epidural steroid injections to reduce nerve inflammation and radiating pain. If significant pain or neurological symptoms persist despite several weeks of conservative care, minimally invasive surgical options like microdiscectomy (removing the herniated portion of the disc) may be recommended to decompress the affected nerve.",
+    "pain_info": "The pain from a lumbar herniated disc is often neuropathic, meaning it stems from nerve compression, resulting in sharp, burning, or electric shock-like sensations down the leg (sciatica). This leg pain is frequently more severe than the localized back pain. Mountain Spine & Orthopedics focuses on alleviating this nerve pain through targeted treatments like epidural injections and physical therapy designed to reduce nerve irritation and improve function.",
     "prevent": "While not all herniated discs are preventable, you can reduce your risk by consistently using proper lifting techniques (lifting with your legs, not your back), maintaining a healthy weight, practicing good posture, strengthening your core and back muscles through regular exercise, avoiding prolonged periods of sitting by taking frequent breaks to stand and stretch, and quitting smoking.",
-    "schedule": "If you're experiencing persistent lower back pain radiating into your leg, contact Mountain Spine & Care for an expert evaluation. Utilize our complimentary MRI review for an accurate diagnosis, and let our specialists develop a personalized treatment plan, emphasizing conservative care first, to relieve your pain and help you return to your daily activities.",
+    "schedule": "If you're experiencing persistent lower back pain radiating into your leg, contact Mountain Spine & Orthopedics for an expert evaluation. Utilize our complimentary MRI review for an accurate diagnosis, and let our specialists develop a personalized treatment plan, emphasizing conservative care first, to relieve your pain and help you return to your daily activities.",
    side_img : lumbarherniateddiscside,
    forum : [
     {
@@ -128,7 +128,7 @@ export const Conditions : ConditionInfoProp[] = [
             }}
             className="text-[#5B5F67] text-md sm:text-xl"
           >
-            If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Mountain Spine & Care offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
+            If these symptoms sound familiar, you may be suffering from a lumbar herniated disc. Mountain Spine & Orthopedics offers a quick and effective symptom checker to gather information and help determine the best path to recovery. Our goal is to diagnose your condition early and create a treatment plan that delivers real results.
           </h1>
 
           <OutlinedButton text="Do I have this Condition?" />
@@ -157,7 +157,7 @@ export const Conditions : ConditionInfoProp[] = [
             className="text-[#5B5F67] text-md sm:text-xl"
           >
             The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.<br/><br/>
-            At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+            At Mountain Spine & Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
           </h1>
           <OutlinedButton text="Find a Treatment" />
         </div>
@@ -184,7 +184,7 @@ export const Conditions : ConditionInfoProp[] = [
             className="text-[#5B5F67] text-md sm:text-xl"
           >
             The right treatment for a lumbar herniated disc depends on how severe your symptoms are and how much they impact your daily life. Most cases respond well to conservative care, including rest, heat and ice therapy, physical therapy, and anti-inflammatory medications. These methods aim to reduce nerve irritation, restore movement, and strengthen the muscles that support the spine. If pain persists or worsens despite these efforts, more advanced treatments such as spinal injections or minimally invasive surgery may be recommended.
-            At Mountain Spine & Care, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
+            At Mountain Spine & Orthopedics, our spine specialists will evaluate your condition and create a customized treatment plan to help you return to a pain-free, active lifestyle. You don’t have to live with back pain we’re here to help you find the right solution.
           </h1>
           <GradientOverlayImage
               imageData={'https://mountainspineortho.b-cdn.net/public/lumberherniateddisc2.png'} // Passing static image data
@@ -216,7 +216,7 @@ export const Conditions : ConditionInfoProp[] = [
           >
            If you’re experiencing symptoms of a lumbar herniated disc, there are several treatment options available depending on the severity of your condition. If your pain is mild and manageable, starting with home care and guided physical therapy can often lead to improvement. Applying heat or ice, taking anti-inflammatory medications such as ibuprofen or naproxen, and making lifestyle adjustments like avoiding long periods of sitting or poor lifting techniques can help reduce strain on the lower back. Exercise programs that strengthen the core and improve flexibility are also an essential part of recovery.<br/><br/>
             When conservative care is not enough, surgical treatment may be necessary to relieve pressure on the affected nerves. Discectomy is a common procedure where the portion of the disc pressing on the nerve is removed to relieve pain. In some cases, a laminectomy may be performed to widen the spinal canal and ease nerve compression. For patients with severe disc damage, spinal fusion may be considered to stabilize the spine and prevent further injury.<br/><br/>
-            Every patient is different, which is why the team at Mountain Spine & Care develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
+            Every patient is different, which is why the team at Mountain Spine & Orthopedics develops personalized care plans using the most advanced and least invasive techniques available. Whether your condition is new or has been ongoing for years, we’re here to help you get back to living the life you love.
           </h1>
         </div>
       </div>
@@ -241,8 +241,8 @@ export const Conditions : ConditionInfoProp[] = [
             }}
             className="text-[#5B5F67] text-md sm:text-xl"
           >
-           Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Mountain Spine & Care, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
-           Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Mountain Spine & Care on your side, a pain-free future is within reach.
+           Living with a lumbar herniated disc can affect every aspect of your day, from walking and sitting to sleeping and working. You don’t have to push through the pain. At Mountain Spine & Orthopedics, our expert spine team is ready to help you regain control through innovative treatments and compassionate care. Whether you’re just beginning to feel discomfort or you’ve been suffering for some time, the first step toward recovery starts with a conversation.<br/><br/>
+           Call us today at (855) 853-6542 or fill out our secure online form to schedule your consultation. With Mountain Spine & Orthopedics on your side, a pain-free future is within reach.
           </h1>
         </div>
       </div>
@@ -390,7 +390,7 @@ forum : [
           }}
           className="text-[#5B5F67] text-md sm:text-xl"
           >
-          At Mountain Spine & Care, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
+          At Mountain Spine & Orthopedics, we create personalized treatment plans tailored to your condition and lifestyle. Treatment options may include physical therapy to improve strength, flexibility, and posture, as well as medications like non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain and swelling. For patients with nerve irritation, epidural steroid injections can offer targeted relief. Other approaches may include chiropractic care or spinal manipulation therapy. In more severe cases, minimally invasive spine surgery may be recommended to stabilize the spine and relieve nerve pressure. Our goal is to relieve your pain and restore spine stability while avoiding unnecessary surgery whenever possible.
           </h1>
         </div>
       </div>
@@ -415,7 +415,7 @@ forum : [
           }}
           className="text-[#5B5F67] text-md sm:text-xl"
           >
-          If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Mountain Spine & Care, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
+          If you’re experiencing persistent back or neck pain, don’t wait to seek help. Degenerative Disc Disease is manageable with the right care plan and professional guidance. At Mountain Spine & Orthopedics, our experienced spine specialists are here to evaluate your condition, offer expert recommendations, and guide you toward long-term relief.<br/><br/>Call us today at (855) 853-6542 or fill out our online form to schedule your consultation. Let’s work together to get your spine and your life back on track.
           </h1>
         </div>
       </div>
@@ -512,7 +512,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
           }}
           className="text-[#5B5F67] text-md sm:text-xl"
           >
-            At Mountain Spine & Care, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
+            At Mountain Spine & Orthopedics, we specialize in procedures that relieve spinal cord compression while preserving motion. For patients with multi level stenosis (typically three or more levels), we recommend cervical laminoplasty. This procedure opens the spinal canal and decompresses the spinal cord without the need for a multi-level fusion, preserving mobility in the neck.<br/> <br/>
             For patients with one or two affected levels, a decompression and artificial disc replacement is often ideal. This modern approach allows for motion preservation and avoids the long-term stiffness associated with spinal fusion. While multi-level fusion is sometimes used, it can leave patients with a permanently stiff neck, especially when four levels are involved. In contrast, laminoplasty provides the best option for multiple levels of compression without sacrificing mobility.
           </h1>
 
@@ -603,7 +603,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
           }}
           className="text-[#5B5F67] text-md sm:text-xl"
           >
-            If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Mountain Spine & Care, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
+            If you’re experiencing symptoms like numbness, clumsiness, or radiating pain in your arms or legs, you may have cervical spinal stenosis. Early treatment can significantly improve your outcome and prevent further neurological damage. At Mountain Spine & Orthopedics, our expert surgeons specialize in both minimally invasive and motion-preserving spinal procedures to help you get back to life without pain or stiffness.<br /><br/>
             Take the first step toward recovery. Call us at (855) 853-6542 or fill out our online form to schedule your consultation today.
           </h1>
 
@@ -745,7 +745,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-             In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Mountain Spine & Care will help determine the best approach based on your condition.
+             In the early stages of a cervical disc herniation, pain can often be managed with rest, ice, heat therapy, and anti-inflammatory medications. Muscle relaxants or prescription pain relievers may also be used. If pain continues, physicians may suggest physical therapy to help strengthen the surrounding neck muscles. In some cases, nerve root blocks or epidural steroid injections are used to reduce inflammation and nerve pressure. Our team at Mountain Spine & Orthopedics will help determine the best approach based on your condition.
             </h1>
           </div>
         </div>
@@ -827,7 +827,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
             }}
             className="text-[#5B5F67] text-md sm:text-xl"
           >
-           Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Mountain Spine & Care, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
+           Treatment for a herniated disc depends on the severity of the condition and the patient’s overall health. Mild cases often respond well to conservative approaches like rest, physical therapy, heat/ice, and anti-inflammatory medication. If these measures fail to provide relief, more advanced treatments such as epidural injections or surgery may be required. Surgical options typically involve removing part or all of the damaged disc to relieve pressure on the spinal nerves. At Mountain Spine & Orthopedics, our specialists are trained in minimally invasive procedures that aim to reduce recovery time and preserve neck mobility
           </h1>
         </div>
       </div>
@@ -852,7 +852,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
             }}
             className="text-[#5B5F67] text-md sm:text-xl"
           >
-           Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Mountain Spine & Care, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
+           Cervical herniated discs can significantly impact your daily life but you don’t have to manage the pain alone. Whether you're just beginning to feel discomfort or you've been struggling for months, there are many effective treatments available. At Mountain Spine & Orthopedics, our spine surgeons are highly experienced in diagnosing and treating herniated discs through both non-surgical and surgical solutions.<br/><br/>
            Call us today at (855) 853-6542 or fill out our online form to schedule a consultation. You may have more options than you think and recovery may be closer than you realize.
           </h1>
         </div>
@@ -1210,7 +1210,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
           className="text-[#5B5F67] text-md sm:text-xl"
           >
             A pinched nerve doesn’t have to control your life. With early intervention and the right treatment strategy, most patients experience relief without surgery. Non-surgical options may include physical therapy, anti-inflammatory medication, activity modification, ergonomic adjustments, and corticosteroid injections. When conservative care fails to relieve pressure on the nerve, minimally invasive surgical solutions such as microdiscectomy or foraminotomy may be considered.<br/><br/>
-            At Mountain Spine & Care, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
+            At Mountain Spine & Orthopedics, our team uses advanced imaging and diagnostic tools to pinpoint the source of nerve compression and build a customized care plan. Whether you need non-invasive treatment or surgical intervention, we’re here to help you recover quickly and safely.
           </h1>
         </div>
       </div>
@@ -1235,7 +1235,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
           }}
           className="text-[#5B5F67] text-md sm:text-xl"
           >
-            If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Mountain Spine & Care, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
+            If you’re living with shooting pain, numbness, or tingling that just won’t go away, it may be time to speak with a spine specialist. A pinched nerve is highly treatable, especially when diagnosed early. At Mountain Spine & Orthopedics, our experienced physicians will evaluate your symptoms, identify the source of the problem, and recommend a treatment path that works best for your needs and lifestyle.<br/><br/>
             Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Lasting relief could be just one visit away.
           </h1>
         </div>
@@ -1337,15 +1337,15 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
       "card_img": 'https://mountainspineortho.b-cdn.net/public/arthritis2.jpeg',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/arthritis.png',
       "body": `Arthritis is a common joint condition that causes inflammation, stiffness, and pain, affecting millions of people across the U.S. It can severely limit mobility and interfere with daily activities like walking, climbing stairs, or even gripping objects. While arthritis is often associated with aging, it can affect people of all ages depending on the type and underlying cause.
-      At Mountain Spine & Care, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
-      "detail": "Arthritis isn't a single disease, but rather an umbrella term covering over 100 types of joint pain and joint disease. The most common forms include Osteoarthritis (OA), resulting from the wear-and-tear breakdown of cartilage cushioning the joints, and Rheumatoid Arthritis (RA), an autoimmune disorder where the body's immune system mistakenly attacks the joint lining. Other types can stem from infections, underlying diseases like lupus, or uric acid crystal buildup (gout). Regardless of the type, arthritis can significantly impact mobility and overall well-being. Mountain Spine & Care is dedicated to identifying the specific type and cause of your arthritis to provide targeted, effective relief.",
+      At Mountain Spine & Orthopedics, we offer comprehensive arthritis treatment plans tailored to your condition whether it's osteoarthritis, rheumatoid arthritis, or another form. With a combination of expert diagnosis, non-surgical therapies, and cutting-edge orthopedic care, our goal is to reduce inflammation, restore joint function, and help you regain your quality of life.`,
+      "detail": "Arthritis isn't a single disease, but rather an umbrella term covering over 100 types of joint pain and joint disease. The most common forms include Osteoarthritis (OA), resulting from the wear-and-tear breakdown of cartilage cushioning the joints, and Rheumatoid Arthritis (RA), an autoimmune disorder where the body's immune system mistakenly attacks the joint lining. Other types can stem from infections, underlying diseases like lupus, or uric acid crystal buildup (gout). Regardless of the type, arthritis can significantly impact mobility and overall well-being. Mountain Spine & Orthopedics is dedicated to identifying the specific type and cause of your arthritis to provide targeted, effective relief.",
       "what_sym": "Common symptoms include persistent or intermittent joint pain, stiffness (often worse in the morning or after periods of inactivity), swelling or warmth around the joints, redness of the overlying skin, and a decreased range of motion. Fatigue and a general sense of feeling unwell can also accompany inflammatory types like Rheumatoid Arthritis.",
       "risk_fac": "Risk factors vary depending on the type of arthritis but commonly include advancing age (especially for OA), a family history of arthritis, previous joint injuries or surgeries, obesity (which puts extra stress on joints like hips and knees), autoimmune conditions, and gender (some types, like RA and lupus, are more common in women).",
-      "diagnose": "At Mountain Spine & Care, diagnosis begins with a thorough review of your medical history and a detailed physical examination, assessing joint range of motion, tenderness, swelling, and stability. Diagnostic imaging, such as X-rays to visualize cartilage loss and bone spurs or MRIs for detailed views of soft tissues, is often employed; we offer a complimentary MRI review to aid this process. Blood tests or analysis of joint fluid may also be necessary to pinpoint specific types like RA or gout.",
-      "treatment": "Mountain Spine & Care creates personalized treatment plans that may involve a combination of approaches: pain-relieving and anti-inflammatory medications (including NSAIDs or specific drugs for RA like DMARDs), tailored physical therapy programs to improve strength and flexibility, lifestyle adjustments focusing on weight management and joint protection, corticosteroid or hyaluronic acid injections directly into the joint for temporary relief, and the use of assistive devices like braces or canes. For severe cases unresponsive to conservative care, advanced minimally invasive surgical options or joint replacement may be considered.",
-      "pain_info": "Arthritis pain can manifest differently – it might be a dull ache or a sharp pain, constant or activity-triggered, often accompanied by significant stiffness, especially upon waking. Mountain Spine & Care utilizes a comprehensive pain management strategy, combining medication, therapeutic injections, physical therapy, and lifestyle advice to effectively reduce discomfort, manage flare-ups, and significantly improve your ability to perform daily tasks.",
+      "diagnose": "At Mountain Spine & Orthopedics, diagnosis begins with a thorough review of your medical history and a detailed physical examination, assessing joint range of motion, tenderness, swelling, and stability. Diagnostic imaging, such as X-rays to visualize cartilage loss and bone spurs or MRIs for detailed views of soft tissues, is often employed; we offer a complimentary MRI review to aid this process. Blood tests or analysis of joint fluid may also be necessary to pinpoint specific types like RA or gout.",
+      "treatment": "Mountain Spine & Orthopedics creates personalized treatment plans that may involve a combination of approaches: pain-relieving and anti-inflammatory medications (including NSAIDs or specific drugs for RA like DMARDs), tailored physical therapy programs to improve strength and flexibility, lifestyle adjustments focusing on weight management and joint protection, corticosteroid or hyaluronic acid injections directly into the joint for temporary relief, and the use of assistive devices like braces or canes. For severe cases unresponsive to conservative care, advanced minimally invasive surgical options or joint replacement may be considered.",
+      "pain_info": "Arthritis pain can manifest differently – it might be a dull ache or a sharp pain, constant or activity-triggered, often accompanied by significant stiffness, especially upon waking. Mountain Spine & Orthopedics utilizes a comprehensive pain management strategy, combining medication, therapeutic injections, physical therapy, and lifestyle advice to effectively reduce discomfort, manage flare-ups, and significantly improve your ability to perform daily tasks.",
       "prevent": "While preventing some types of arthritis (like those caused by genetics or autoimmune factors) isn't fully possible, managing risk factors and slowing progression is key. Maintaining a healthy weight reduces stress on weight-bearing joints, regular low-impact exercise (like swimming or cycling) keeps joints flexible and supporting muscles strong, protecting joints from injury during sports or work is crucial, and eating a balanced, anti-inflammatory diet may also offer benefits.",
-      "schedule": "If joint pain and stiffness are impacting your life, schedule a consultation at Mountain Spine & Care today. Our specialists can provide an accurate diagnosis, leveraging our complimentary MRI review service, discuss the wide range of effective treatment options available, and develop a personalized care plan designed to manage your arthritis and restore your mobility and comfort.",
+      "schedule": "If joint pain and stiffness are impacting your life, schedule a consultation at Mountain Spine & Orthopedics today. Our specialists can provide an accurate diagnosis, leveraging our complimentary MRI review service, discuss the wide range of effective treatment options available, and develop a personalized care plan designed to manage your arthritis and restore your mobility and comfort.",
     
       side_img : 'https://mountainspineortho.b-cdn.net/public/arthritisside.jpeg',
       forum : [
@@ -1482,7 +1482,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
                 }}
                 className="text-[#5B5F67] text-md sm:text-xl"
                 >
-                  Arthritis may be a chronic condition, but that doesn’t mean it has to control your life. With the right treatment plan, it’s possible to reduce pain, slow joint damage, and improve your mobility. At Mountain Spine & Care, our team of experts offers a full spectrum of arthritis care from advanced imaging and diagnosis to non-surgical therapies and state-of-the-art surgical solutions when needed. Whether you’re managing early signs of osteoarthritis or facing the challenges of an inflammatory condition like rheumatoid arthritis, we’re here to help guide you through every stage of your treatment.
+                  Arthritis may be a chronic condition, but that doesn’t mean it has to control your life. With the right treatment plan, it’s possible to reduce pain, slow joint damage, and improve your mobility. At Mountain Spine & Orthopedics, our team of experts offers a full spectrum of arthritis care from advanced imaging and diagnosis to non-surgical therapies and state-of-the-art surgical solutions when needed. Whether you’re managing early signs of osteoarthritis or facing the challenges of an inflammatory condition like rheumatoid arthritis, we’re here to help guide you through every stage of your treatment.
                 </h1>
               </div>
           </div>
@@ -1507,7 +1507,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
                 }}
                 className="text-[#5B5F67] text-md sm:text-xl"
                 >
-                  If you’re living with persistent joint pain, stiffness, or swelling, don’t wait to get the help you need. Arthritis is a manageable condition when addressed early with the right treatment plan and expert care. At Mountain Spine & Care, our experienced specialists are here to evaluate your symptoms, provide a personalized diagnosis, and guide you toward lasting relief and better joint health.<br/><br/>
+                  If you’re living with persistent joint pain, stiffness, or swelling, don’t wait to get the help you need. Arthritis is a manageable condition when addressed early with the right treatment plan and expert care. At Mountain Spine & Orthopedics, our experienced specialists are here to evaluate your symptoms, provide a personalized diagnosis, and guide you toward lasting relief and better joint health.<br/><br/>
                   Call us today at (855) 853-6542 or fill out our online consultation form to schedule your appointment. Let’s take the first step together toward improving your mobility, comfort, and quality of life.
                 </h1>
               </div>
@@ -1594,7 +1594,7 @@ side_img : 'https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg',
                 }}
                 className="text-[#5B5F67] text-md sm:text-xl"
                 >
-                  The only way to determine the right treatment is through an accurate diagnosis. Our specialists use a variety of advanced tools, including MRI scans, X-rays, ultrasounds, and physical evaluations to assess the source of your lower back pain. These methods help detect conditions like herniated or bulging discs, osteoarthritis, spinal stenosis, spondylolisthesis, or even spinal fractures. Once a clear diagnosis is made, our highly trained doctors at Mountain Spine & Care can recommend a treatment plan tailored to your needs. With access to advanced procedures not widely available elsewhere, we’re able to offer both non-surgical and surgical options based on what’s best for your recovery. 
+                  The only way to determine the right treatment is through an accurate diagnosis. Our specialists use a variety of advanced tools, including MRI scans, X-rays, ultrasounds, and physical evaluations to assess the source of your lower back pain. These methods help detect conditions like herniated or bulging discs, osteoarthritis, spinal stenosis, spondylolisthesis, or even spinal fractures. Once a clear diagnosis is made, our highly trained doctors at Mountain Spine & Orthopedics can recommend a treatment plan tailored to your needs. With access to advanced procedures not widely available elsewhere, we’re able to offer both non-surgical and surgical options based on what’s best for your recovery. 
                </h1>
                <OutlinedButton text="Find a Treatment"/>
               </div>
@@ -1670,7 +1670,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 }}
                 className="text-[#5B5F67] text-md sm:text-xl"
                 >
-                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At Mountain Spine & Care, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
+                  If you’re experiencing persistent lower back pain, numbness, or radiating leg symptoms, it may be time to speak with a spine specialist. These signs could indicate a more serious issue that, if caught early, can be treated before it worsens. <br/> <br/> At Mountain Spine & Orthopedics, we specialize in diagnosing and treating the full range of lower back conditions with the most advanced technology and techniques available. Don’t wait to take control of your health. Contact us at (855) 853-6542 or fill out our online form to schedule your consultation today.
                 </h1>
               </div>
             </div>
@@ -1757,7 +1757,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                   className="text-[#5B5F67] text-md sm:text-xl"
                 >
                   Most cases of sciatica respond well to conservative treatment, especially when the underlying condition compressing the sciatic nerve is addressed. Treatment may include anti-inflammatory medication, stretching exercises, heat and ice therapy, and physical therapy. These methods aim to relieve pressure, reduce inflammation, and restore mobility.<br /><br />
-                  Only after conservative options have been exhausted is surgery considered. At Mountain Spine & Care, our board-certified orthopedic doctors are experts in treating sciatica. We offer advanced, customized care plans that many other practices are not equipped to provide.
+                  Only after conservative options have been exhausted is surgery considered. At Mountain Spine & Orthopedics, our board-certified orthopedic doctors are experts in treating sciatica. We offer advanced, customized care plans that many other practices are not equipped to provide.
                 </h1>
                 <OutlinedButton text="Find a Treatment" />
               </div>
@@ -1853,7 +1853,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
               >
-                If you suspect you’re experiencing sciatica, don’t wait to seek help. Our team at Mountain Spine & Care specializes in diagnosing and treating sciatica with both non-invasive and surgical approaches. We’ve helped thousands of patients regain their comfort, mobility, and quality of life.<br/><br/>
+                If you suspect you’re experiencing sciatica, don’t wait to seek help. Our team at Mountain Spine & Orthopedics specializes in diagnosing and treating sciatica with both non-invasive and surgical approaches. We’ve helped thousands of patients regain their comfort, mobility, and quality of life.<br/><br/>
                 Call us today at (855) 853-6542 or fill out our online form to book your appointment. Let us help you find lasting relief.
               </h1>
 
@@ -2073,7 +2073,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 }}
                 className="text-[#5B5F67] text-md sm:text-xl"
                 >
-                  In rare cases, a coccygectomy (surgical removal of the coccyx) may be considered. At Mountain Spine & Care, we specialize in minimally invasive spine procedures to provide targeted relief while preserving mobility and reducing recovery time.
+                  In rare cases, a coccygectomy (surgical removal of the coccyx) may be considered. At Mountain Spine & Orthopedics, we specialize in minimally invasive spine procedures to provide targeted relief while preserving mobility and reducing recovery time.
                 </h1>
               </div>
             </div>
@@ -2171,7 +2171,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
               >
-                Tailbone pain doesn’t have to interfere with your life. At Mountain Spine & Care, our expert team offers effective, patient-centered solutions for coccydynia from non-surgical therapies to advanced procedures. We’ll help you get to the root of your pain and back to feeling your best.<br/><br/>
+                Tailbone pain doesn’t have to interfere with your life. At Mountain Spine & Orthopedics, our expert team offers effective, patient-centered solutions for coccydynia from non-surgical therapies to advanced procedures. We’ll help you get to the root of your pain and back to feeling your best.<br/><br/>
                 Call us today at (855) 853-6542 or complete our online form to schedule your consultation.
               </h1>
 
@@ -2821,8 +2821,8 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
       "tag": "Foot",
       "card_img": 'https://mountainspineortho.b-cdn.net/public/pfcard.webp',
       "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/pfarti.jpg',
-      "body": "Plantar Fasciitis is the leading cause of heel pain in adults. It develops when the plantar fascia a thick band of connective tissue that runs from the heel to the base of the toes becomes irritated, inflamed, or partially torn. Repetitive stress from walking, running, or long hours of standing can strain the fascia, producing sharp, stabbing heel pain that is often worst with the first steps in the morning or after periods of rest.<br/> At Mountain Spine & Care our foot and ankle specialists combine precise diagnosis with evidence based therapies to relieve discomfort, restore normal gait, and keep you active without interruption.",
-      "detail": "The plantar fascia acts like a shock absorbing bowstring that supports the arch of the foot. When microtears accumulate faster than the body can repair them, inflammation sets in, leading to pain and stiffness along the heel and arch. Contributing factors include tight calf muscles, high arches, flat feet, sudden increases in activity level, inappropriate footwear, and excess body weight. <br/> At Mountain Spine & Care we begin with a thorough physical examination and high resolution ultrasound or weight bearing X rays to confirm the diagnosis and rule out related conditions such as stress fractures or heel spurs. From there, we design a step by step plan that may include personalized stretching routines, targeted manual therapy, and custom orthotics that redistribute load across the heel and midfoot. For athletes and workers who spend long hours on hard surfaces, we also provide footwear consultations to ensure proper cushioning and arch support.",
+      "body": "Plantar Fasciitis is the leading cause of heel pain in adults. It develops when the plantar fascia a thick band of connective tissue that runs from the heel to the base of the toes becomes irritated, inflamed, or partially torn. Repetitive stress from walking, running, or long hours of standing can strain the fascia, producing sharp, stabbing heel pain that is often worst with the first steps in the morning or after periods of rest.<br/> At Mountain Spine & Orthopedics our foot and ankle specialists combine precise diagnosis with evidence based therapies to relieve discomfort, restore normal gait, and keep you active without interruption.",
+      "detail": "The plantar fascia acts like a shock absorbing bowstring that supports the arch of the foot. When microtears accumulate faster than the body can repair them, inflammation sets in, leading to pain and stiffness along the heel and arch. Contributing factors include tight calf muscles, high arches, flat feet, sudden increases in activity level, inappropriate footwear, and excess body weight. <br/> At Mountain Spine & Orthopedics we begin with a thorough physical examination and high resolution ultrasound or weight bearing X rays to confirm the diagnosis and rule out related conditions such as stress fractures or heel spurs. From there, we design a step by step plan that may include personalized stretching routines, targeted manual therapy, and custom orthotics that redistribute load across the heel and midfoot. For athletes and workers who spend long hours on hard surfaces, we also provide footwear consultations to ensure proper cushioning and arch support.",
       "what_sym": "Patients with plantar fasciitis typically report sharp heel pain first thing in the morning or after sitting, which improves slightly with movement but may return after prolonged standing, walking, or stair climbing. Other symptoms include tenderness at the bottom of the heel, swelling, a tight Achilles tendon, and discomfort when dorsiflexing the foot.",
       "risk_fac": "Key risk factors include excessive pronation (flat feet), high-arched feet, tight calf muscles and Achilles tendon, obesity, prolonged standing or walking on hard surfaces, sudden increases in activity, improper or worn-out footwear, and underlying conditions such as diabetes or rheumatoid arthritis.",
       "diagnose": "Diagnosis is primarily clinical, based on history and physical exam demonstrating point tenderness at the plantar fascia origin. Imaging is reserved for atypical cases or refractory symptoms. Ultrasound reveals fascia thickness (>4 mm), hypoechoic areas, and neovascularization. MRI can further assess associated bone marrow edema or rule out alternative diagnoses. Weight-bearing X-rays may show heel spurs but spur presence does not correlate directly with pain.",
@@ -2964,7 +2964,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-              Persistent heel pain should not sideline your lifestyle. Early professional intervention can stop Plantar Fasciitis from progressing and return you to comfortable movement. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our dedicated specialists will evaluate your symptoms, provide an accurate diagnosis, and craft a comprehensive treatment plan that relieves pain, restores function, and gets you back on your feet with confidence.
+              Persistent heel pain should not sideline your lifestyle. Early professional intervention can stop Plantar Fasciitis from progressing and return you to comfortable movement. <br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our dedicated specialists will evaluate your symptoms, provide an accurate diagnosis, and craft a comprehensive treatment plan that relieves pain, restores function, and gets you back on your feet with confidence.
             </h1>
           </div>
           )
@@ -3084,7 +3084,7 @@ Surgery is not always necessary for lower back pain. In fact, many patients expe
                 }}
                 className="text-[#5B5F67] text-md sm:text-xl"
               >
-                Bunion progression typically follows a predictable path. In the mild stage, the joint angle deviates slightly, and discomfort appears only during extended activity. During the moderate stage, the bump becomes visually obvious, pain occurs daily, and the big toe begins to rotate. In the severe stage, pronounced angular deviation, joint stiffness, and arthritic change limit walking distance and shoe options to wide or custom designs. Recognizing your stage allows the team at Mountain Spine & Care to match therapies from conservative bracing to surgical realignment precisely to your needs and lifestyle goals.
+                Bunion progression typically follows a predictable path. In the mild stage, the joint angle deviates slightly, and discomfort appears only during extended activity. During the moderate stage, the bump becomes visually obvious, pain occurs daily, and the big toe begins to rotate. In the severe stage, pronounced angular deviation, joint stiffness, and arthritic change limit walking distance and shoe options to wide or custom designs. Recognizing your stage allows the team at Mountain Spine & Orthopedics to match therapies from conservative bracing to surgical realignment precisely to your needs and lifestyle goals.
               </h1>
             </div>
           )
@@ -3130,7 +3130,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-              Persistent foot pain, swelling, and visible toe deviation do not have to define your day-to-day life. Early, expert-guided treatment can halt bunion progression and restore comfortable motion.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our specialists will evaluate your symptoms, provide a personalized diagnosis, and craft a comprehensive plan that relieves pain, realigns your toe, and gets you back on your feet without compromise to your lifestyle or goals.
+              Persistent foot pain, swelling, and visible toe deviation do not have to define your day-to-day life. Early, expert-guided treatment can halt bunion progression and restore comfortable motion.<br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our specialists will evaluate your symptoms, provide a personalized diagnosis, and craft a comprehensive plan that relieves pain, realigns your toe, and gets you back on your feet without compromise to your lifestyle or goals.
             </h1>
           </div>
           )
@@ -3143,8 +3143,8 @@ Many bunions respond well to conservative management when addressed early. Wider
       "tag": "Foot",
       "card_img": "https://mountainspineortho.b-cdn.net/public/tendo.png",
       "inTxt_img": "https://mountainspineortho.b-cdn.net/public/tendo2.jpeg",
-      "body": "Achilles Tendonitis is one of the most frequent overuse injuries seen in active adults. It occurs when the strong Achilles tendon the thick cord connecting your calf muscles to the back of the heel becomes irritated, inflamed, or micro-torn from repetitive stress. <br/> At Mountain Spine & Care, our foot-and-ankle specialists provide state-of-the-art diagnostics and comprehensive treatment plans that calm inflammation, rebuild strength, and protect you from future injury.",
-      "detail": "The Achilles tendon endures forces up to eight times body weight during high-impact activities. Sudden mileage increases, tight calf muscles, poorly cushioned shoes, or naturally flat or high-arched feet all shift excess load to the tendon. Over time, microscopic collagen fibers fray, and the tendon’s lining thickens, limiting its ability to glide smoothly. Blood flow to the mid-portion of the Achilles is already limited, slowing natural healing.<br/>Imaging at Mountain Spine & Care including high-resolution diagnostic ultrasound and, when indicated, MRI pinpoints inflamed tissue, tendon thickening, or small tears, allowing us to tailor care from the very first visit.",
+      "body": "Achilles Tendonitis is one of the most frequent overuse injuries seen in active adults. It occurs when the strong Achilles tendon the thick cord connecting your calf muscles to the back of the heel becomes irritated, inflamed, or micro-torn from repetitive stress. <br/> At Mountain Spine & Orthopedics, our foot-and-ankle specialists provide state-of-the-art diagnostics and comprehensive treatment plans that calm inflammation, rebuild strength, and protect you from future injury.",
+      "detail": "The Achilles tendon endures forces up to eight times body weight during high-impact activities. Sudden mileage increases, tight calf muscles, poorly cushioned shoes, or naturally flat or high-arched feet all shift excess load to the tendon. Over time, microscopic collagen fibers fray, and the tendon’s lining thickens, limiting its ability to glide smoothly. Blood flow to the mid-portion of the Achilles is already limited, slowing natural healing.<br/>Imaging at Mountain Spine & Orthopedics including high-resolution diagnostic ultrasound and, when indicated, MRI pinpoints inflamed tissue, tendon thickening, or small tears, allowing us to tailor care from the very first visit.",
       "risk_fac": "Risk factors for Achilles Tendonitis include: sudden increases in the intensity or amount of physical activity, tight calf muscles which put extra stress on the Achilles tendon, and improper footwear that doesn't provide adequate support or cushioning. Having flat arches (overpronation) or bone spurs on the heel can also contribute. Older age is a risk factor as the tendon becomes less flexible and more prone to injury. Certain medical conditions like psoriasis or high blood pressure, and the use of some antibiotics (fluoroquinolones), have also been linked to an increased risk.",
       "diagnose": "Diagnosis usually involves a physical examination by a healthcare provider. They will ask about your symptoms and activity levels. During the exam, they will gently palpate (feel) along the Achilles tendon for pain, swelling, thickening, or tenderness. They will also assess your foot and ankle's range of motion, flexibility, alignment, and strength. X-rays may be taken to check for bone spurs (common in insertional Achilles Tendonitis) or calcification within the tendon. In some cases, an MRI or ultrasound may be ordered to get a more detailed view of the tendon and assess the extent of damage or degeneration.",
       "treatment": "Treatment for Achilles Tendonitis focuses on reducing pain and inflammation and allowing the tendon to heal. The RICE protocol (Rest, Ice, Compression, Elevation) is often the first line of defense. Over-the-counter NSAIDs can help manage pain and swelling. Physical therapy is crucial and typically includes stretching exercises (especially for the calf muscles and Achilles tendon), strengthening exercises (particularly eccentric exercises like heel drops), and potentially other modalities like ultrasound or massage. Orthotic devices or heel lifts may be recommended to reduce stress on the tendon. In some cases, a walking boot or cast may be used to immobilize the ankle. If conservative treatments are not effective after several months, options like extracorporeal shock wave therapy (ESWT) or surgery might be considered for more severe or chronic cases.",
@@ -3241,7 +3241,7 @@ Many bunions respond well to conservative management when addressed early. Wider
                 <li>1. Reactive Stage – Sudden overload triggers temporary swelling of the tendon sheath; pain appears after an unusually hard workout.</li>
                 <li>2. Early Degenerative Stage – Collagen fibers begin to disorganize; pain emerges more frequently, and a small lump may form.</li>
                 <li>3. Late Degenerative Stage – Significant thickening, chronic inflammation, and scar tissue reduce elasticity; daily pain and weakness limit activity.</li>
-                <li>4. Pre-Rupture Stage – Multiple micro-tears create severe pain, audible snapping sensations, or sudden loss of push-off power.<br/> Determining your stage helps Mountain Spine & Care match therapies—from conservative care to minimally invasive procedures—precisely to your needs.</li>
+                <li>4. Pre-Rupture Stage – Multiple micro-tears create severe pain, audible snapping sensations, or sudden loss of push-off power.<br/> Determining your stage helps Mountain Spine & Orthopedics match therapies—from conservative care to minimally invasive procedures—precisely to your needs.</li>
               </ul>
             </div>
           )
@@ -3291,7 +3291,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-              Heel or calf pain that lingers more than a few days deserves expert evaluation early treatment preserves tendon integrity and prevents rupture.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our experienced specialists will confirm your diagnosis, explain every treatment option, and design a personalized plan that relieves pain, rebuilds tendon strength, and returns you to pain-free performance.
+              Heel or calf pain that lingers more than a few days deserves expert evaluation early treatment preserves tendon integrity and prevents rupture.<br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our experienced specialists will confirm your diagnosis, explain every treatment option, and design a personalized plan that relieves pain, rebuilds tendon strength, and returns you to pain-free performance.
             </h1>
           </div>
           )
@@ -3442,7 +3442,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-             Foot fatigue, arch pain, or ankle instability do not have to limit your daily life. Early expert evaluation can halt flat foot progression and protect the joints throughout your lower body.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.
+             Foot fatigue, arch pain, or ankle instability do not have to limit your daily life. Early expert evaluation can halt flat foot progression and protect the joints throughout your lower body.<br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.
              <br/><br/> Our multidisciplinary team will confirm your diagnosis, explain every treatment option, and design a personalized plan that supports your arches, relieves discomfort, and helps you walk, run, and work without pain.
             
             </h1>
@@ -3592,7 +3592,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-             Persistent ankle pain, swelling, or instability should not compromise your lifestyle. Early expert intervention can prevent minor joint problems from progressing to disabling arthritis. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.
+             Persistent ankle pain, swelling, or instability should not compromise your lifestyle. Early expert intervention can prevent minor joint problems from progressing to disabling arthritis. <br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.
              <br/><br/> Our fellowship trained foot and ankle specialists will review your imaging, perform a comprehensive exam, and explain whether ankle arthroscopy or another advanced treatment can give you lasting relief and a confident return to work, sport, and everyday life.
             
             </h1>
@@ -3742,7 +3742,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-             Do not let painful hammertoes dictate your footwear choices or limit your mobility. Early expert evaluation can stop the deformity from worsening and restore natural toe alignment<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our dedicated foot and ankle team will confirm your diagnosis, explain every treatment option, and create a personalized plan that straightens your toes, relieves pressure, and lets you walk in comfort and confidence once again.
+             Do not let painful hammertoes dictate your footwear choices or limit your mobility. Early expert evaluation can stop the deformity from worsening and restore natural toe alignment<br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.<br/><br/> Our dedicated foot and ankle team will confirm your diagnosis, explain every treatment option, and create a personalized plan that straightens your toes, relieves pressure, and lets you walk in comfort and confidence once again.
             </h1>
           </div>
           )
@@ -3890,7 +3890,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-             A diabetic foot ulcer should never be ignored. Prompt specialized care prevents infection, shortens healing time, and safeguards mobility.<br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our dedicated wound care experts will evaluate your ulcer, design a personalized treatment plan, and guide you toward rapid healing and lasting limb preservation.
+             A diabetic foot ulcer should never be ignored. Prompt specialized care prevents infection, shortens healing time, and safeguards mobility.<br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our dedicated wound care experts will evaluate your ulcer, design a personalized treatment plan, and guide you toward rapid healing and lasting limb preservation.
             </h1>
           </div>
           )
@@ -4039,7 +4039,7 @@ Many bunions respond well to conservative management when addressed early. Wider
               }}
               className="text-[#5B5F67] text-md sm:text-xl"
             >
-            Persistent ankle pain and stiffness do not have to dictate your pace of life. Early expert evaluation can determine whether total ankle replacement is the right solution for you. <br/><br/> Contact Mountain Spine & Care today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our experienced foot and ankle team will review your imaging explain every treatment option and design a personalized surgical and rehabilitation plan that restores comfort supports mobility and helps you step forward with confidence.
+            Persistent ankle pain and stiffness do not have to dictate your pace of life. Early expert evaluation can determine whether total ankle replacement is the right solution for you. <br/><br/> Contact Mountain Spine & Orthopedics today at (855) 853-6542 or complete our simple online consultation form.<br/><br/>Our experienced foot and ankle team will review your imaging explain every treatment option and design a personalized surgical and rehabilitation plan that restores comfort supports mobility and helps you step forward with confidence.
             </h1>
           </div>
           )
