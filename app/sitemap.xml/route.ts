@@ -7,9 +7,12 @@ import { AllTreatments } from "@/components/data/treatments";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 // Helper function to ensure valid slugs
-function isValidSlug(slug: string | undefined): boolean {
-  return slug !== undefined 
+function isValidSlug(slug: string | undefined | null): boolean {
+  if (!slug) return false;
+  const invalid = ["undefined", "null", "faqs", ""];
+  return !invalid.includes(slug.trim().toLowerCase());
 }
+
 
 // Helper function to generate URL entry
 function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
