@@ -1,7 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { Conditions } from "@/components/data/conditions";
+import { conditions } from "@/components/data/conditions";
 export async function generateMetadata({ params }: { params: { ConditionDetails: string } }, parent: ResolvingMetadata) {
-    const condition = Conditions.filter(x => x.slug === params.ConditionDetails)[0]
+    const condition = conditions.filter(x => x.slug === params.ConditionDetails)[0]
     return {
       title: condition.title,
       description: condition.body,
