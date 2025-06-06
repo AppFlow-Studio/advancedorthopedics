@@ -17,6 +17,7 @@ export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : Trea
     const imageSource = (ConditionInfo.card_img && typeof ConditionInfo.card_img !== 'string' && ConditionInfo.card_img !== null) || (typeof ConditionInfo.card_img === 'string' && ConditionInfo.card_img.length > 0 && !ConditionInfo.card_img.includes('Placeholder'))
     ? ConditionInfo.card_img // Use the provided image if it seems valid
     : Logo; // Otherwise, use the default Logo
+    console.log(ConditionInfo.tag, ConditionInfo.title)
   return (
     <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/treatments/${ConditionInfo.slug}`}>
         <div >
@@ -51,7 +52,7 @@ export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : Trea
             <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
             
             <div className=' flex flex-row w-full space-x-[16px] items-center'>
-                <DoctorsAvatar />
+                <DoctorsAvatar tag={ConditionInfo.tag} condition={ConditionInfo.title} />
                 <h1
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -59,7 +60,7 @@ export default function TreatmentCard({ ConditionInfo } : { ConditionInfo : Trea
                     color : '#5B5F67',
                     }}
                 >
-                    4 Specialist Doctors
+                    {ConditionInfo.tag === 'Foot' ? '1 Specialist Doctor' : ConditionInfo.title.includes('Injections') ? '5 Specialist Doctors' : '4 Specialist Doctors'}
                 </h1>
             </div>
 

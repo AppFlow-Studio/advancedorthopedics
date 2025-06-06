@@ -55,8 +55,8 @@ export default function FAQs() {
         question: "What non-surgical alternatives do you offer?",
         answer: (
             <p>
-            We offer a comprehensive range of non-surgical treatments including physical therapy, pain management
-            injections, medication management, chiropractic care, acupuncture, and lifestyle modification programs. Our
+            We offer a comprehensive range of non-surgical treatments including pain management
+            injections, medication management and lifestyle modification programs. Our
             team believes in exploring all conservative treatment options before considering surgical intervention.
             </p>
         ),

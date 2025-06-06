@@ -106,10 +106,10 @@ export default function DocotorDetails(
 
         <section className='max-w-[1440px] w-full h-full flex flex-col lg:flex-row gap-x-[60px] relative overflow-hidden px-6 xl:px-[80px] py-[50px] '>
             <div className=' w-full lg:w-[35%] flex flex-col md:flex-row lg:space-x-0 space-x-6 lg:flex-col h-full'>
-                <div className='w-full h-full lg:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'
+                <div className='lg:w-full sm:w-[50%] w-full h-full lg:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'
                 >
                     <div className='w-full h-full flex flex-col'>
-                        <Image src={doctor_details.img} alt={doctor_details.name} className='w-full lg:max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px] aspect-square' draggable={false} />
+                        <Image src={doctor_details.img} alt={doctor_details.name} className='w-full lg:max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px] aspect-square object-cover' draggable={false} />
                         <div className='flex flex-col space-y-[16px]'>
                             <h1
                             style={{
@@ -123,7 +123,7 @@ export default function DocotorDetails(
                             fontFamily: "var(--font-inter)",
                             fontWeight: 400,
                             }}
-                            className="text-[#54535C] w-[50%]"
+                            className="text-[#54535C] sm:w-[50%]"
                             >
                             {doctor_details.practice}
                             </h1>
@@ -141,15 +141,15 @@ export default function DocotorDetails(
                         </div>
                     </div>
                 </div>
-                <div className='my-10'><DoctorContactForm backgroundcolor='#FAFAFA'/></div>
+                <div className='lg:my-10 sm:my-0 my-10'><DoctorContactForm backgroundcolor='#FAFAFA'/></div>
                 {
                     doctor_details.cert &&
-                    <div className='w-full h-full object-cover rounded-2xl overflow-hidden'>
+                    <div className='w-full h-full object-cover rounded-2xl overflow-hidden lg:block hidden'>
                         <Image  src={doctor_details.cert} className='w-full h-full' alt='Doctort Certification'/>
                     </div>
                 }
             </div>
-            <div className=' w-full lg:w-[70%] h-full flex flex-col space-y-[40px] md:mt-0 mt-4'>
+            <div className=' w-full lg:w-[70%] h-full flex flex-col py-2 space-y-[40px] md:mt-0 mt-4'>
                 <div className=' flex flex-col space-y-[24px]'>
                     <h1
                     style={{

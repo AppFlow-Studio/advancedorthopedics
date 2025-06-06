@@ -83,7 +83,7 @@ export default function ConditionCard({ ConditionInfo } : { ConditionInfo : Cond
             <div className=' bg-[#DCDEE1] h-[1px] w-full'/>
             
             <div className=' flex flex-row w-full space-x-[16px] items-center'>
-                <DoctorsAvatar />
+                <DoctorsAvatar tag={ConditionInfo.tag} condition={ConditionInfo.title} />
                 <h1
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
@@ -91,7 +91,7 @@ export default function ConditionCard({ ConditionInfo } : { ConditionInfo : Cond
                     color : '#5B5F67',
                     }}
                 >
-                    4 Specialist Doctors
+                    {ConditionInfo.tag === 'Foot' ? '1 Specialist Doctor' : ConditionInfo.title.includes('Injections') ? '5 Specialist Doctors' : '4 Specialist Doctors'}
                 </h1>
             </div>
 

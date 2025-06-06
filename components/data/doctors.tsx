@@ -115,7 +115,7 @@ export const Doctors : DoctorProp[] = [
             <br/> <br/>
             Dr. McPhail-Pruitt’s clinical career has spanned over two decades, with a focus on anesthesia services, pain medicine application, and pre- and post-operative care. She is certified as both an ACLS and BLS provider through the American Heart Association. As a member of the American Society of Anesthesiologists, the American Society of Regional Anesthesia and Pain Medicine, and the Florida Medical Association, she stays at the forefront of advancements in patient comfort and surgical safety.
             <br/> <br/>
-            Her expertise in managing complex pain cases and optimizing anesthesia care has made her an invaluable part of the OLSS team. Patients benefit not only from her deep knowledge but also from her compassionate approach to helping individuals lead pain-free lives after surgery.
+            Her expertise in managing complex pain cases and optimizing anesthesia care has made her an invaluable part of the Mountain Spine & Orthopedics team. Patients benefit not only from her deep knowledge but also from her compassionate approach to helping individuals lead pain-free lives after surgery.
     </h1>),
     snapshot : [
         'Double board-certified in anesthesiology and pain medicine',

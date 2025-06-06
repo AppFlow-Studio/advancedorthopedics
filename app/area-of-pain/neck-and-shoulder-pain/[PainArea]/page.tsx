@@ -58,7 +58,7 @@ export default function PainArea({
         }}
         className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} width={300} height={300} layout="responsive" className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} fill className="h-full absolute top-0 object-cover object-top pt-16 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
             <div className="lg:w-[60%] w-full h-full absolute left-0 top-0 "
