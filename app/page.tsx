@@ -502,7 +502,6 @@ export default function Home() {
                 ))
               }
             </Marquee>
-
         </div>
         
       </section>
