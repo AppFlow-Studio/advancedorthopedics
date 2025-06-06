@@ -12,7 +12,7 @@ import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton' // Assu
 import ConditionCard, { ConditionInfoProp } from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import ConditionsSearchBar from '@/components/ConditionsSearchBar'
-import { Conditions } from '@/components/data/conditions' // Import the data array
+import { conditions } from '@/components/data/conditions' // Import the data array
 import { AnimatedList } from '@/components/magicui/animated-list' // Assuming component exists
 import { TextAnimate } from '@/components/magicui/text-animate' // Assuming component exists
 import { useSearchParams } from 'next/navigation'
@@ -20,7 +20,7 @@ import { useSearchParams } from 'next/navigation'
 export default function AreaOfSpeciality() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9);
-  const [data, setData] = useState<ConditionInfoProp[]>(Conditions);
+  const [data, setData] = useState<ConditionInfoProp[]>(conditions);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const paginationRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
@@ -69,10 +69,10 @@ export default function AreaOfSpeciality() {
   // Filter conditions based on selected categories
   const filterConditions = (categories: string[]) => {
     if (categories.length === 0) {
-      setData(Conditions);
+      setData(conditions);
       return;
     }
-    const filtered = Conditions.filter(condition => 
+    const filtered = conditions.filter((condition: ConditionInfoProp) => 
       categories.some(category => 
         condition.tag?.toLowerCase() === category.toLowerCase()
       )
@@ -124,7 +124,7 @@ export default function AreaOfSpeciality() {
   // --- Handler function for when the search bar is cleared ---
   const handleSearchClear = () => {
     console.log("Parent: Search cleared - Resetting data to full list");
-    setData(Conditions); // Reset state to the original full list of conditions
+    setData(conditions); // Reset state to the original full list of conditions
     setCurrentPage(1);    // Reset to page 1
   };
 
@@ -241,7 +241,7 @@ export default function AreaOfSpeciality() {
           <div className="w-full lg:w-1/2  flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
             <div className="w-full md:w-1/2">
               <ConditionsSearchBar
-                conditions={Conditions}
+                conditions={conditions}
                 onSelect={handleConditionSelect}
                 onClear={handleSearchClear}
               />
@@ -268,10 +268,10 @@ export default function AreaOfSpeciality() {
             <ConditionCard ConditionInfo={item} key={item.slug} />
           ))}
           {/* Handle case where currentItems is empty */}
-          {currentItems.length === 0 && data.length === 1 && (
+          {Array.isArray(currentItems) && currentItems.length === 0 && Array.isArray(data) && data.length === 1 && (
              <p className="col-span-3 text-center text-gray-500">Displaying selected condition.</p>
           )}
-           {currentItems.length === 0 && data.length !== 1 && (
+           {Array.isArray(currentItems) && currentItems.length === 0 && Array.isArray(data) && data.length !== 1 && (
              <p className="col-span-3 text-center text-gray-500">No conditions to display.</p>
           )}
         </div>

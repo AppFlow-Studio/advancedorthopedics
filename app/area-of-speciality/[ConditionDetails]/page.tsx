@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
-import {Conditions} from '@/components/data/conditions'
+import {conditions} from '@/components/data/conditions'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -23,7 +23,7 @@ export default function ConditionDetails({
 // Unwrap the promise using React.use (the experimental hook)
   const resolvedParams = React.use(params)
   const conditionSlug = resolvedParams.ConditionDetails
-  const condition_details = Conditions.find( x => x.slug === conditionSlug)
+  const condition_details = conditions.find( (x: ConditionInfoProp) => x.slug === conditionSlug)
   if (!condition_details) {
     return (
       <main className="w-full h-screen flex items-center justify-center">

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { Conditions } from './data/conditions';
+import { conditions } from './data/conditions';
 import { ConditionInfoProp } from './ConditionCard';
 import ConditionsSearchBar from './ConditionsSearchBar';
 // Your data - replace with your actual list items
@@ -10,14 +10,14 @@ import ConditionsSearchBar from './ConditionsSearchBar';
 const INITIAL_VISIBLE_COUNT = 4; // Adjust as needed
 
 function ConditionList({currentCondition} : { currentCondition: string }) {
-  const [ data, setData ] = useState(Conditions)
+  const [ data, setData ] = useState(conditions)
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [ VisibilityCount, setVisibilityCount] = useState(INITIAL_VISIBLE_COUNT);
   const handleShowMore = () => {
     setIsExpanded(true);
     setVisibilityCount(VisibilityCount + 4); // Show all items
-    if(VisibilityCount + 4 < Conditions.length) {
+    if(VisibilityCount + 4 < conditions.length) {
       setIsExpanded(false);
     }
   };
@@ -31,15 +31,15 @@ function ConditionList({currentCondition} : { currentCondition: string }) {
   // --- Handler function for when the search bar is cleared ---
   const handleSearchClear = () => {
     console.log("Parent: Search cleared - Resetting data to full list");
-    setData(Conditions); // Reset state to the original full list of conditions
+    setData(conditions); // Reset state to the original full list of conditions
   };
 
 
   return (
     <div className="w-full max-w-lg mx-auto space-y-10"> {/* Optional: Container styling */}
-      <ConditionsSearchBar conditions={Conditions} onSelect={handleConditionSelect} onClear={handleSearchClear} />
+      <ConditionsSearchBar conditions={conditions} onSelect={handleConditionSelect} onClear={handleSearchClear} />
        <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-        {data.map((condition, index) => {
+        {data.map((condition: ConditionInfoProp, index: number) => {
           // Determine if this item is beyond the initial visible count
           const isInitiallyHidden = index >= VisibilityCount;
 
@@ -72,7 +72,7 @@ function ConditionList({currentCondition} : { currentCondition: string }) {
       {/* Show the "More" button only if:
           1. The list is not currently expanded.
           2. There are more items than initially shown. */}
-      {!isExpanded && Conditions.length > VisibilityCount && (
+      {!isExpanded && conditions.length > VisibilityCount && (
         <button
           onClick={handleShowMore}
           // Button is visible by default ('block'), but hidden on medium screens and up ('md:hidden')
