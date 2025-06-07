@@ -1,19 +1,32 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { Conditions } from "@/components/data/conditions";
+import { conditions } from "@/components/data/conditions";
+import { PainAreaTreatments } from "@/components/data/painareatreatments";
 export async function generateMetadata({ params }: { params: { PainArea: string } }, parent: ResolvingMetadata) {
-    const condition = Conditions.filter(x => x.slug === params.PainArea)[0]
+    let condition 
+    if ( params.PainArea == 'neckandshoulderpaintreatments' ) {
+      condition = PainAreaTreatments.find( x => x.slug === params.PainArea)
+    }else{
+      condition = conditions.find( x => x.slug === params.PainArea)
+    }
+    if (!condition) {
+      return {
+        title: "Condition not found",
+        description: "Condition not found",
+      }
+    }
     return {
       title: condition.title,
-      description: condition.body,
+      description: condition.body.replaceAll('<br/>', ' '),
+      keywords: condition.keywords,
       openGraph: {
         title: `${condition.title} | Mountain Spine & Orthopedics`,
-        description: condition.body,
+        description: condition.body.replaceAll('<br/>', ' '),
         type: "article",
         url: `https://mountainspineorthopedics.com/blogs/${condition.slug}`,
         publishedTime: '2025-05-18',
         modifiedTime: '2025-05-18',
         authors: ["https://mountainspineorthopedics.com/about"],
-        tags: ["Back Pain", "Orthopedics", "Spine Orthopedics", "Neck Pain", "Leg Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain", "Toe Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"],
+        tags: condition.keywords,
         images: [
           {
             url: condition.card_img,

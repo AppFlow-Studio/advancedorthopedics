@@ -5,7 +5,7 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { ConditionInfoProp } from "./ConditionCard"
-import { Conditions } from "./data/conditions"
+import { conditions } from "./data/conditions"
 const FootAnkleConditions = [
     "bunion",
     "plantar-fasciitis",
@@ -16,7 +16,7 @@ const FootAnkleConditions = [
     "ankle-replacement",
     "diabetic-foot-ulcers"
   ];
-const footPainOpitions: ConditionInfoProp[] = Conditions.filter(x => FootAnkleConditions.includes(x.slug))
+const footPainOpitions: ConditionInfoProp[] = conditions.filter(x => FootAnkleConditions.includes(x.slug))
 export function FootPainDropdown({CurrentCondition} : { CurrentCondition : string}) {
   const [isOpen, setIsOpen] = useState(true)
   const [selectedOption, setSelectedOption] = useState<string | null>("treatments")

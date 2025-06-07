@@ -306,12 +306,15 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
             } 
         ],
         side_img : backpaintreatmentside,
-        slug : "backpaintreatmentoptions"
+        slug : "backpaintreatmentoptions",
+        tag : "Back Pain",
+        keywords : ["Back Pain", "Orthopedics", "Spine Orthopedics", "Neck Pain", "Leg Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain", "Toe Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"]
     },
     {
         title : "Neck & Shoulder Treatment Options",
         body : `Chronic neck and shoulder pain can interfere with your everyday activities from working at a desk to sleeping through the night. Whether the cause is poor posture, a pinched nerve, muscle strain, arthritis, or a more complex spine condition, finding the right treatment starts with understanding the root cause.
 At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating a wide range of neck and shoulder conditions. From non-invasive therapies to advanced surgical solutions, we help patients regain motion, strength, and long-term comfort. If you're unsure about your current care plan, we also offer second opinions and customized treatment strategies.`,
+        tag : "Neck & Shoulder Pain",
         forum  : [
             {
                 post : (
@@ -501,7 +504,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                             }}
                             className="text-[#5B5F67] text-xl">
                                 Living with chronic pain in your neck or shoulders can limit your ability to enjoy everyday activities. At Mountain Spine & Orthopedics, our expert team is here to help you find lasting relief. We take the time to understand your condition, explain all your options, and create a treatment plan tailored to your goals.<br/><br/>
-                                Call us today at (855) 853-6542 or fill out our online consultation form to get started. Relief may be closer than you think.
+                                Call us today at (833) 931-4888 or fill out our online consultation form to get started. Relief may be closer than you think.
                             </h1>
                            
                         </div>
@@ -510,6 +513,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
             }
         ],
         side_img : pinchednerveside,
-        slug : "neckandshoulderpaintreatments"
+        slug : "neckandshoulderpaintreatments",
+        keywords : ["Neck Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"]
     }
 ]

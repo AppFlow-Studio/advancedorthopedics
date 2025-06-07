@@ -41,14 +41,13 @@ export async function generateMetadata(
     description: treatment.body, // Meta Description
     keywords: [
       treatment.title, // Keyword: exact treatment name
-      "Artificial Disc Replacement is an option for patients with chronic neck or back pain and neurological symptoms caused by: Symptomatic degenerative disc disease affecting a single spinal level (or two levels in the cervical spine). Large or contained disc herniations causing significant nerve compression. Disc collapse leading to loss of disc height and nerve root impingement. Pain and dysfunction unresponsive to conservative treatments like physical therapy, medication, or injections. Ideal candidates typically have healthy facet joints at the affected level, no significant spinal instability beyond the damaged disc, and no history of prior spinal surgery or infection at that level.", // Keyword: condition treated
       "spine treatment",
       "orthopedic surgery",
       "Florida orthopedic care",
       "back pain relief",
       "joint pain specialist",
+      ...(treatment.keywords || [])
     ], // Meta Keywords (for reference only, not a ranking factor)
-
     // Open Graph metadata for social sharing
     openGraph: {
       title: `${treatment.title} | Mountain Spine & Orthopedics`,
@@ -58,7 +57,7 @@ export async function generateMetadata(
       publishedTime: "2025-05-18",
       modifiedTime: "2025-05-18",
       authors: ["https://mountainspineorthopedics.com/about"],
-      tags: [treatment.title, "Back Pain", "Orthopedics", "Spine Surgery"], // Add related topics
+      tags: [treatment.title, "Back Pain", "Orthopedics", "Spine Surgery", ...(treatment.keywords || [])], // Add related topics
       images: [
         {
           url: imageSource,
