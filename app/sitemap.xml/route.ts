@@ -1,7 +1,7 @@
 import { GetBlogs } from "@/app/blogs/api/get-blogs";
 import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
-import { Conditions } from "@/components/data/conditions";
+import { conditions } from "@/components/data/conditions";
 import { AllTreatments } from "@/components/data/treatments";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -10,7 +10,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 function isValidSlug(slug: string | undefined | null): boolean {
   if (!slug) return false;
   const invalid = ["undefined", "null", "faqs", ""];
-  return !invalid.includes(slug.trim().toLowerCase());
+  return !invalid.includes(slug);
 }
 
 
@@ -25,24 +25,24 @@ function generateUrlEntry(path: string, lastmod: string = new Date().toISOString
   </url>`;
 }
 
-const BackPainAreas = Conditions.filter((condition) =>
+const BackPainAreas = conditions.filter((condition) =>
   [
     "degenerativediscdisease",
-    "lowerbackpain",
-    "lumbarherniateddisc",
+    "lower-back-pain",
+    "lumbar-herniateddisc",
     "foraminal-stenosis",
     "sciatica",
     "coccydynia",
   ].includes(condition.slug)
 );
 
-const NeckPainAreas = Conditions.filter((condition) =>
+const NeckPainAreas = conditions.filter((condition) =>
   [
-    "cervicalspinalstenosis",
-    "cervicalherniateddisc",
+    "cervical-spinal-stenosis",
+    "cervical-herniated-disc",
     "degenerativediscdisease",
     "arthritis",
-    "pinchednerve",
+    "pinched-nerve",
   ].includes(condition.slug)
 );
 
@@ -117,7 +117,7 @@ export async function GET() {
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
     .join('')}
 
-  ${Conditions.filter(condition => isValidSlug(condition.slug))
+  ${conditions.filter(condition => isValidSlug(condition.slug))
     .map(condition => generateUrlEntry(`/area-of-speciality/${condition.slug}`))
     .join('')}
 
