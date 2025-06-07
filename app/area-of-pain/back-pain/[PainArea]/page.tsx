@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
-import {Conditions} from '@/components/data/conditions'
+import {conditions} from '@/components/data/conditions'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -26,7 +26,7 @@ export default function PainArea({
   if ( conditionSlug == 'backpaintreatmentoptions' ) {
     condition_details = PainAreaTreatments.find( x => x.slug === conditionSlug)
   }else{
-    condition_details = Conditions.find( x => x.slug === conditionSlug)
+    condition_details = conditions.find( x => x.slug === conditionSlug)
   }
   if (!condition_details) {
     return (
@@ -35,7 +35,7 @@ export default function PainArea({
       </main>
     )
   }
-function shuffleArray(array) {
+function shuffleArray(array : any[]) {
     const newArray = [...array]; // Clone the array
     for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i

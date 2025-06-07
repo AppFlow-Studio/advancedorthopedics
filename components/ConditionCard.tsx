@@ -1,27 +1,36 @@
-import React from 'react'
+import React from 'react';
 import Image, { StaticImageData } from 'next/image'
 import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
 import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
+
 export interface ConditionInfoProp {
-    title : string
-    body : string
-    tag : string
-    slug : string
-    forum? : {}[]
-    card_img?: StaticImageData | string
-    inTxt_img?: StaticImageData | string
-    side_img? : StaticImageData | string
-    detail? : string
-    what_sym? : string
-    risk_fac? : string
-    diagnose? : string
-    treatment? : string
-    pain_info? : string
-    prevent? : string
-    schedule? : string
-}
+    title: string;
+    body: string;
+    tag: string;
+    slug: string;
+    forum?: { post: React.ReactNode }[]; // <<< FIX #1: This now accepts an array of objects with a post property that is a JSX element.
+    card_img?: StaticImageData | string;
+    inTxt_img?: StaticImageData | string;
+    side_img?: StaticImageData | string;
+    detail?: string;
+    what_sym?: string;
+    risk_fac?: string;
+    diagnose?: string | React.ReactNode; // <<< FIX #2: This now accepts either a string OR a JSX element.
+    treatment?: string;
+    procedure_info?: string;
+    recovery_info?: string;
+    benefits?: string;
+    why_choose_us?: string;
+    pain_info?: string;
+    prevent?: string;
+    schedule?: string;
+    keywords?: string[];
+  }
+
+
+
 
 function truncateString(str : string, maxLength = 125) {
     if (str.length <= maxLength) return str;

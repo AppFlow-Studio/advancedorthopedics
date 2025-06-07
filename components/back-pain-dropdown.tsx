@@ -5,9 +5,9 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { ConditionInfoProp } from "./ConditionCard"
-import { Conditions } from "./data/conditions"
+import { conditions } from "./data/conditions"
 
-const backPainOptions: ConditionInfoProp[] = Conditions.filter(x => x.title == 'Lower Back Pain' || x.title == 'Sciatica' || x.title == 'Coccydynia' || x.title == 'Lumbar Herniated Disc' || x.title == 'Degenerative Disc Disease' || x.title == 'Foraminal Stenosis')
+const backPainOptions: ConditionInfoProp[] = conditions.filter(x => x.title == 'Lower Back Pain' || x.title == 'Sciatica' || x.title == 'Coccydynia' || x.title == 'Lumbar Herniated Disc' || x.title == 'Degenerative Disc Disease' || x.title == 'Foraminal Stenosis')
 
 export function BackPainDropdown({CurrentCondition} : { CurrentCondition : string}) {
   const [isOpen, setIsOpen] = useState(true)

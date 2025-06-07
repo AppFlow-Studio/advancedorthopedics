@@ -205,7 +205,7 @@ const NavBarLinks = [
         subLinks : [
           {
             title : 'Lower Back Pain',
-            href : '/area-of-pain/back-pain/lowerbackpain'
+            href : '/area-of-pain/back-pain/lower-back-pain'
           },
           {
             title : 'Degenerative Disc Disease',
@@ -213,7 +213,7 @@ const NavBarLinks = [
           },
           {
             title : 'Lumbar Herniated Disc',
-            href : '/area-of-pain/back-pain/lumbarherniateddisc'
+            href : '/area-of-pain/back-pain/lumbar-herniated-disc'
           },
           {
             title : 'Foraminal Stenosis',
@@ -239,11 +239,11 @@ const NavBarLinks = [
         subLinks : [
           {
             title : 'Cervical Spinal Stenosis',
-            href : '/area-of-pain/neck-and-shoulder-pain/cervicalspinalstenosis'
+            href : '/area-of-pain/neck-and-shoulder-pain/cervical-spinal-stenosis'
           },
           {
             title : 'Cervical Herniated Disc',
-            href : '/area-of-pain/neck-and-shoulder-pain/cervicalherniateddisc'
+            href : '/area-of-pain/neck-and-shoulder-pain/cervical-herniated-disc'
           },
           {
             title : 'Degenerative Disc Disease',
@@ -255,7 +255,7 @@ const NavBarLinks = [
           },
           {
             title : 'Pinched Nerve',
-            href : '/area-of-pain/neck-and-shoulder-pain/pinchednerve'
+            href : '/area-of-pain/neck-and-shoulder-pain/pinched-nerve'
           },
           {
             title : 'Neck and Shoulder Treatments',
