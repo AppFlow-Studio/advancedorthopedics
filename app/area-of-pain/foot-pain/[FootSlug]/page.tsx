@@ -15,6 +15,7 @@ import { BackPainDropdown } from '@/components/back-pain-dropdown'
 import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import { FootPainDropdown } from '@/components/foot-pain-dropdown'
+import { notFound } from 'next/navigation'
 export default function FootPainArea({
     params,
   }: {
@@ -31,9 +32,7 @@ export default function FootPainArea({
   }
   if (!condition_details) {
     return (
-      <main className="w-full h-screen flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-red-600">Condition not found</h1>
-      </main>
+    notFound()
     )
   }
 function shuffleArray<T>(array: T[]): T[] {

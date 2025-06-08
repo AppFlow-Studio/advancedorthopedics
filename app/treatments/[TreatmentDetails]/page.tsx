@@ -12,6 +12,7 @@ import DoctorCard from '@/components/DoctorCard';
 import Link from 'next/link';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
+import { notFound, redirect } from 'next/navigation';
 
 
 export default function TreatmentDetails({
@@ -56,9 +57,7 @@ export default function TreatmentDetails({
 
   if (!treatment_details) {
     return (
-      <main className="w-full h-screen flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-red-600">Condition not found</h1>
-      </main>
+      notFound()
     )
   }
 

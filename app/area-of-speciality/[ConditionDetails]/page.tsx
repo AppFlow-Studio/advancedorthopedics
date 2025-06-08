@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import ConditionList from '@/components/ConditionsList'
 import Logo from '@/public/newlogo4.png'
+import { notFound } from 'next/navigation';
 
 export default function ConditionDetails({
     params,
@@ -26,9 +27,7 @@ export default function ConditionDetails({
   const condition_details = conditions.find( (x: ConditionInfoProp) => x.slug === conditionSlug)
   if (!condition_details) {
     return (
-      <main className="w-full h-screen flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-red-600">Condition not found</h1>
-      </main>
+      notFound()
     )
   }
   // Function to perform a Fisher-Yates shuffle on the array

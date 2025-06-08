@@ -2,6 +2,12 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 export async function generateMetadata({ params }: { params: { ConditionDetails: string } }, parent: ResolvingMetadata) {
     const condition = conditions.filter(x => x.slug === params.ConditionDetails)[0]
+    if (!condition) {
+      return {
+        title: "Condition not found",
+        description: "Condition not found",
+      }
+    }
     return {
       title: condition.title,
       description: condition.body,
