@@ -12,6 +12,61 @@ import DoctorCard from '@/components/DoctorCard';
 import Link from 'next/link';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
+import { Metadata } from 'next';
+
+// ⛳️ Dynamic Metadata per Treatment (moved from layout.tsx) by Bilal
+export async function generateMetadata({
+  params,
+}: {
+  params: { TreatmentDetails: string };
+}): Promise<Metadata> {
+  const treatment = AllTreatments.find(x => x.slug === params.TreatmentDetails);
+
+  if (!treatment) {
+    return {
+      title: 'Treatment Not Found | Mountain Spine & Orthopedics',
+      description: 'This treatment page could not be found. Please contact us for assistance.',
+    };
+  }
+
+  const keywords = [
+    treatment.title,
+    'minimally invasive spine surgery Florida',
+    'advanced orthopedic treatments',
+    'Mountain Spine & Orthopedics',
+    'back pain solutions Altamonte Springs',
+    ...(treatment.keywords || []),
+  ];
+
+  return {
+    title: `${treatment.title} | Mountain Spine & Orthopedics`,
+    description: treatment.body,
+    keywords,
+    openGraph: {
+      title: `${treatment.title} | Mountain Spine & Orthopedics`,
+      description: treatment.body,
+      url: `https://mountainspineorthopedics.com/treatments/${treatment.slug}`,
+      type: 'article',
+      images: [
+        {
+          url: typeof treatment.card_img === 'string' ? treatment.card_img : treatment.card_img?.src || '/AboutUsLanding.jpeg',
+          width: 1200,
+          height: 628,
+          alt: treatment.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: treatment.title,
+      description: treatment.body,
+      images: [typeof treatment.card_img === 'string' ? treatment.card_img : treatment.card_img?.src || '/AboutUsLanding.jpeg'],
+    },
+    alternates: {
+      canonical: `https://mountainspineorthopedics.com/treatments/${treatment.slug}`,
+    },
+  };
+}
 
 
 export default function TreatmentDetails({
@@ -287,7 +342,14 @@ export default function TreatmentDetails({
                     </div>
                     
                   
-                    <Image src={treatment_details.inTxt_img}  alt={treatment_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" />
+                    <Image 
+                      src={treatment_details.inTxt_img || '/default-treatment.png'}  
+                      alt={treatment_details.title} 
+                      width={300} 
+                      height={300} 
+                      layout="responsive" 
+                      className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" 
+                    />
                     
                      <div className=' flex flex-col space-y-[16px] '>
                     <h1
