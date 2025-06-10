@@ -25,38 +25,16 @@ function generateUrlEntry(path: string, lastmod: string = new Date().toISOString
   </url>`;
 }
 
-const BackPainAreas = conditions.filter((condition) =>
-  [
-    "degenerativediscdisease",
-    "lower-back-pain",
-    "lumbar-herniateddisc",
-    "foraminal-stenosis",
-    "sciatica",
-    "coccydynia",
-  ].includes(condition.slug)
-);
-
-const NeckPainAreas = conditions.filter((condition) =>
-  [
-    "cervical-spinal-stenosis",
-    "cervical-herniated-disc",
-    "degenerativediscdisease",
-    "arthritis",
-    "pinched-nerve",
-  ].includes(condition.slug)
-);
-
-// Foot & Ankle conditions
-const FootAnkleConditions = [
-  "bunion",
-  "plantar-fasciitis",
-  "achilles-tendonitis",
-  "flat-feet",
-  "ankle-arthroscopy",
-  "hammertoes",
-  "ankle-replacement",
-  "diabetic-foot-ulcers"
-];
+// Helper function to create SEO-friendly slugs from titles
+function slugify(text: string): string {
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-") 
+    .replace(/^-+|-+$/g, "")    
+    .replace(/-+/g, "-");
+}
 
 const FindCare = [
   "book-an-appointment",
@@ -68,15 +46,6 @@ const FindCare = [
   "patient-forms",
 ];
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-+/g, "-");
-}
-
 export async function GET() {
   if (!baseUrl) {
     console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
@@ -86,60 +55,55 @@ export async function GET() {
     });
   }
 
-  let blogsData: any[] = []; // Initialize with an empty array for type safety
+  let blogsData: any[] = [];
   try {
     const fetchedBlogs = await GetBlogs();
-    // Ensure that GetBlogs returns an array before assigning it
     if (Array.isArray(fetchedBlogs)) {
       blogsData = fetchedBlogs;
     } else {
-      console.warn("Warning: GetBlogs did not return an array. Received:", fetchedBlogs, ". Proceeding with empty blogs list for sitemap.");
+      console.warn("Warning: GetBlogs did not return an array. Proceeding with empty blogs list for sitemap.");
     }
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);
-    // Proceed with an empty blogsData array; sitemap will be generated without blog entries.
   }
 
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  // --- Static Pages ---
+  ${generateUrlEntry("/")}
   ${generateUrlEntry("/about")}
   ${generateUrlEntry("/about/FAQs")}
-
-  ${clinics.map( clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
-
   ${generateUrlEntry("/condition-check")}
-  ${generateUrlEntry("/area-of-pain/back-pain/backpaintreatmentoptions")}
-  ${generateUrlEntry("/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments")}
+  
+  // --- Dynamic Pages from Data ---
 
-  ${FindCare.map(findCare => generateUrlEntry(`/find-care/${findCare}`)).join('')}
+  ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
+  
+  // CORRECTED: Logic to handle the two special-case URLs for insurance and patient forms
+  ${FindCare.map(slug => {
+    if (slug === 'insurance-policy' || slug === 'patient-forms') {
+      return generateUrlEntry(`/${slug}`);
+    }
+    return generateUrlEntry(`/find-care/${slug}`);
+  }).join('')}
 
   ${Doctors.filter(doctor => isValidSlug(doctor.slug))
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
     .join('')}
 
+  // CORRECTED: Only generating the canonical /area-of-speciality/ URLs to avoid duplicate content
   ${conditions.filter(condition => isValidSlug(condition.slug))
     .map(condition => generateUrlEntry(`/area-of-speciality/${condition.slug}`))
-    .join('')}
-
-  ${FootAnkleConditions.filter(isValidSlug)
-    .map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`))
     .join('')}
 
   ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))
     .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
     .join('')}
 
-  ${BackPainAreas.filter(condition => isValidSlug(condition.slug))
-    .map(condition => generateUrlEntry(`/area-of-pain/back-pain/${condition.slug}`))
-    .join('')}
-
-  ${NeckPainAreas.filter(condition => isValidSlug(condition.slug))
-    .map(condition => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${condition.slug}`))
-    .join('')}
-
+  // CORRECTED: Blog URLs generated from a title/slug field instead of a generic ID
   ${blogsData
-    .filter(blog => isValidSlug(blog?.id) && blog?.blog_info?.title)
-    .map(blog => generateUrlEntry(`/blogs/${blog.id}`, blog.modified_at, "monthly"))
+    .filter(blog => blog?.blog_info?.title)
+    .map(blog => generateUrlEntry(`/blogs/${slugify(blog.blog_info.title)}`, blog.modified_at, "monthly"))
     .join('')}
 </urlset>`;
 

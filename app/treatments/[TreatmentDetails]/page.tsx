@@ -13,8 +13,6 @@ import Link from 'next/link';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
 import { notFound, redirect } from 'next/navigation';
-
-
 export default function TreatmentDetails({
     params,
   }: {
@@ -286,7 +284,14 @@ export default function TreatmentDetails({
                     </div>
                     
                   
-                    <Image src={treatment_details.inTxt_img}  alt={treatment_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" />
+                    <Image 
+                      src={treatment_details.inTxt_img || '/default-treatment.png'}  
+                      alt={treatment_details.title} 
+                      width={300} 
+                      height={300} 
+                      layout="responsive" 
+                      className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video" 
+                    />
                     
                      <div className=' flex flex-col space-y-[16px] '>
                     <h1

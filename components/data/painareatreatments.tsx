@@ -308,8 +308,15 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
         side_img : backpaintreatmentside,
         slug : "backpaintreatmentoptions",
         tag : "Back Pain",
-        keywords : ["Back Pain", "Orthopedics", "Spine Orthopedics", "Neck Pain", "Leg Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain", "Toe Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"]
-    },
+        keywords: [
+            "back pain treatment Florida",
+            "degenerative disc disease relief",
+            "herniated disc solutions",
+            "orthopedic spine specialist Florida",
+            "minimally invasive back surgery",
+            "lumbar spine care",
+            "sciatica treatment options",
+            "non-surgical spine therapy"]    },
     {
         title : "Neck & Shoulder Treatment Options",
         body : `Chronic neck and shoulder pain can interfere with your everyday activities from working at a desk to sleeping through the night. Whether the cause is poor posture, a pinched nerve, muscle strain, arthritis, or a more complex spine condition, finding the right treatment starts with understanding the root cause.
@@ -514,6 +521,16 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
         ],
         side_img : pinchednerveside,
         slug : "neckandshoulderpaintreatments",
-        keywords : ["Neck Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"]
+        keywords: [
+            "neck pain treatment Florida",
+            "shoulder pain specialist",
+            "cervical disc herniation care",
+            "ACDF surgery options",
+            "pinched nerve relief Florida",
+            "minimally invasive neck surgery",
+            "cervical spine doctor Florida",
+            "shoulder stiffness treatment"
+          ],
+        
     }
 ]
