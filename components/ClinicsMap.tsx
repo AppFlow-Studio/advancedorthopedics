@@ -114,7 +114,7 @@ export default function ClinicsMap({ startingClinic } :  {
           font-family="${fontFamily}"
           font-weight="${fontWeight}"
           text-anchor="start">
-          ${clinicName == 'Mountain Spine & Orthopedics Fort Pierce' ? 'Mountain Spine and Orthopedics Fort Pierce' : clinicName}
+          ${clinicName.replace(' & ', ' and ')}
         </text>
       </svg>
     `;

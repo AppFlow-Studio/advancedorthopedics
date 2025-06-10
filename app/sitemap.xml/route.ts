@@ -46,6 +46,35 @@ const FindCare = [
   "patient-forms",
 ];
 
+const BackPainPages =[
+"lower-back-pain",
+'degenerativediscdisease',
+'lumbar-herniated-disc',
+'foraminal-stenosis',
+'sciatica',
+'coccydynia',
+'backpaintreatmentoptions'
+]
+
+const NeckPainPages =[
+  'cervical-spinal-stenosis',
+  'cervical-herniated-disc',
+  'degenerativediscdisease',
+  'arthritis',
+  'pinched-nerve',
+  'neckandshoulderpaintreatments',
+]
+
+const FootPainPages =[
+  'bunions-hallux-valgus',
+  'plantar-fasciitis',
+  'flat-feet',
+  'ankle-arthroscopy',
+  'hammertoes',
+  'diabetic-foot-ulcers',
+  'ankle-replacement'
+]
+
 export async function GET() {
   if (!baseUrl) {
     console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
@@ -74,7 +103,6 @@ export async function GET() {
   ${generateUrlEntry("/about")}
   ${generateUrlEntry("/about/FAQs")}
   ${generateUrlEntry("/condition-check")}
-  
   // --- Dynamic Pages from Data ---
 
   ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
@@ -86,6 +114,10 @@ export async function GET() {
     }
     return generateUrlEntry(`/find-care/${slug}`);
   }).join('')}
+
+  ${BackPainPages.map(slug => generateUrlEntry(`/area-of-pain/back-pain/${slug}`)).join('')}
+  ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-pain/${slug}`)).join('')}
+  ${FootPainPages.map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`)).join('')}
 
   ${Doctors.filter(doctor => isValidSlug(doctor.slug))
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
