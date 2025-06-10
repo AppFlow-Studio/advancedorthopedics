@@ -12,63 +12,7 @@ import DoctorCard from '@/components/DoctorCard';
 import Link from 'next/link';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
-import { Metadata } from 'next';
-
-// ⛳️ Dynamic Metadata per Treatment (moved from layout.tsx) by Bilal
-export async function generateMetadata({
-  params,
-}: {
-  params: { TreatmentDetails: string };
-}): Promise<Metadata> {
-  const treatment = AllTreatments.find(x => x.slug === params.TreatmentDetails);
-
-  if (!treatment) {
-    return {
-      title: 'Treatment Not Found | Mountain Spine & Orthopedics',
-      description: 'This treatment page could not be found. Please contact us for assistance.',
-    };
-  }
-
-  const keywords = [
-    treatment.title,
-    'minimally invasive spine surgery Florida',
-    'advanced orthopedic treatments',
-    'Mountain Spine & Orthopedics',
-    'back pain solutions Altamonte Springs',
-    ...(treatment.keywords || []),
-  ];
-
-  return {
-    title: `${treatment.title} | Mountain Spine & Orthopedics`,
-    description: treatment.body,
-    keywords,
-    openGraph: {
-      title: `${treatment.title} | Mountain Spine & Orthopedics`,
-      description: treatment.body,
-      url: `https://mountainspineorthopedics.com/treatments/${treatment.slug}`,
-      type: 'article',
-      images: [
-        {
-          url: typeof treatment.card_img === 'string' ? treatment.card_img : treatment.card_img?.src || '/AboutUsLanding.jpeg',
-          width: 1200,
-          height: 628,
-          alt: treatment.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: treatment.title,
-      description: treatment.body,
-      images: [typeof treatment.card_img === 'string' ? treatment.card_img : treatment.card_img?.src || '/AboutUsLanding.jpeg'],
-    },
-    alternates: {
-      canonical: `https://mountainspineorthopedics.com/treatments/${treatment.slug}`,
-    },
-  };
-}
-
-
+import { notFound, redirect } from 'next/navigation';
 export default function TreatmentDetails({
     params,
   }: {
@@ -111,9 +55,7 @@ export default function TreatmentDetails({
 
   if (!treatment_details) {
     return (
-      <main className="w-full h-screen flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-red-600">Condition not found</h1>
-      </main>
+      notFound()
     )
   }
 

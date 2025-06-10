@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { BackPainDropdown } from '@/components/back-pain-dropdown'
 import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { notFound } from 'next/navigation'
 export default function PainArea({
     params,
   }: {
@@ -30,9 +31,7 @@ export default function PainArea({
   }
   if (!condition_details) {
     return (
-      <main className="w-full h-screen flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-red-600">Condition not found</h1>
-      </main>
+      notFound()
     )
   }
 function shuffleArray(array : any[]) {
