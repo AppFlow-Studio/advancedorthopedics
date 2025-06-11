@@ -1,45 +1,139 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
-export async function generateMetadata({ params }: { params: { ConditionDetails: string } }, parent: ResolvingMetadata) {
-    const condition = conditions.filter(x => x.slug === params.ConditionDetails)[0]
+
+// This function dynamically generates metadata for each condition page.
+export async function generateMetadata(
+    { params }: { params: { ConditionDetails: string } },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+
+    const condition = conditions.find(c => c.slug === params.ConditionDetails);
+
     if (!condition) {
-      return {
-        title: "Condition not found",
-        description: "Condition not found",
-      }
+        return {
+            title: "Condition Not Found | Mountain Spine & Orthopedics",
+            description: "The requested medical condition could not be found.",
+        };
     }
+
+    // Ensure image URL is a string
+    const imageUrl = typeof condition.card_img === 'string' ? condition.card_img : condition.card_img?.src || '';
+    const conditionUrl = `https://mountainspineorthopedics.com/area-of-speciality/${condition.slug}`;
+
     return {
-      title: condition.title,
+      metadataBase: new URL('https://mountainspineorthopedics.com'),
+      title: `${condition.title} | Symptoms & Treatments | Mountain Spine`,
       description: condition.body,
+      keywords: condition.keywords,
+      alternates: {
+        canonical: conditionUrl,
+      },
       openGraph: {
         title: `${condition.title} | Mountain Spine & Orthopedics`,
         description: condition.body,
+        url: conditionUrl,
+        siteName: 'Mountain Spine & Orthopedics',
         type: "article",
-        url: `https://mountainspineorthopedics.com/blogs/${condition.slug}`,
-        publishedTime: '2025-05-18',
-        modifiedTime: '2025-05-18',
-        authors: ["https://mountainspineorthopedics.com/about"],
-        tags: ["Back Pain", "Orthopedics", "Spine Orthopedics", "Neck Pain", "Leg Pain", "Shoulder Pain", "Knee Pain", "Hip Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain", "Toe Pain", "Ankle Pain", "Foot Pain", "Elbow Pain", "Wrist Pain", "Hand Pain", "Thumb Pain", "Finger Pain"],
-        images: [
-          {
-            url: condition.card_img,
-            width: 1024,
-            height: 576,
-            alt: condition.title,
-            type: "image/png"
-          }
-        ]
+        images: [{
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: `Illustration of ${condition.title}`,
+        }],
       },
-      alternates: {
-        canonical: `https://mountainspineorthopedics.com/area-of-speciality/${condition.slug}`
-      }
+      twitter: {
+        card: "summary_large_image",
+        title: `${condition.title} | Symptoms & Diagnosis`,
+        description: condition.body,
+        images: [imageUrl],
+      },
     };
 }
 
+// --- SEO ENHANCEMENT: Combined JSON-LD Schema Component ---
+const CombinedSchema = ({ params }: { params: { ConditionDetails: string } }) => {
+    const condition = conditions.find(c => c.slug === params.ConditionDetails);
+
+    if (!condition) {
+        return null;
+    }
+    
+    const conditionUrl = `https://mountainspineorthopedics.com/area-of-speciality/${condition.slug}`;
+    const imageUrl = typeof condition.card_img === 'string' ? condition.card_img : condition.card_img?.src || '';
+
+    // Schema for the specific medical condition page
+    const medicalPageSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        'headline': condition.title,
+        'description': condition.body,
+        'url': conditionUrl,
+        'keywords': condition.keywords?.join(', '),
+        'image': imageUrl,
+        'publisher': {
+            '@type': 'Organization',
+            'name': 'Mountain Spine & Orthopedics',
+            'logo': {
+                '@type': 'ImageObject',
+                'url': 'https://mountainspineortho.b-cdn.net/logoSearch.png'
+            }
+        }
+    };
+
+    // Schema for the breadcrumb trail
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mountainspineorthopedics.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Area of Speciality",
+                "item": "https://mountainspineorthopedics.com/area-of-speciality" 
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": condition.title,
+                "item": conditionUrl
+            }
+        ]
+    };
+
+    // Render both schemas
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalPageSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+        </>
+    );
+};
+
+
+// Main layout component that injects the schemas and renders the page
 export default function ConditionLayout({
     children,
+    params
 }: {
-    children: React.ReactNode
+    children: React.ReactNode;
+    params: { ConditionDetails: string };
 }) {
-    return children;
-} 
+    return (
+        <>
+            <CombinedSchema params={params} />
+            {children}
+        </>
+    );
+}

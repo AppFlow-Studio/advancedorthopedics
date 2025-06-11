@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from "next";
 import { clinics } from "@/components/data/clinics";
 
-// This function dynamically generates metadata for each location page on the server.
+// This function dynamically generates metadata for each location page.
 export async function generateMetadata(
     { params }: { params: { locationname: string } },
     parent: ResolvingMetadata
@@ -10,7 +10,7 @@ export async function generateMetadata(
     // Find the specific clinic data based on the URL slug
     const location = clinics.find(clinic => clinic.slug === params.locationname);
 
-    // If no matching location is found, return default metadata to prevent errors.
+    // If no matching location is found, return default metadata.
     if (!location) {
         return {
             title: 'Location Not Found | Mountain Spine & Orthopedics',
@@ -20,10 +20,9 @@ export async function generateMetadata(
 
     const locationUrl = `https://mountainspineorthopedics.com/locations/${location.slug}`;
 
-    // --- FINAL SEO IMPLEMENTATION ---
-    // This code correctly uses your dedicated meta fields for optimal SEO.
+    // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
     return {
-      metadataBase: new URL('https://mountainspineorthopedics.com'), // Base URL for resolving relative image paths
+      metadataBase: new URL('https://mountainspineorthopedics.com'), // Important for resolving relative image paths
       title: location.metaTitle,
       description: location.metaDescription,
       keywords: location.keywords,
@@ -37,28 +36,30 @@ export async function generateMetadata(
         description: location.metaDescription,
         url: locationUrl,
         siteName: 'Mountain Spine & Orthopedics',
+        // Assuming a generic OG image, but you could add a specific one per location in clinics.tsx
         images: [
           {
-            url: '/og-image-locations.jpg', // Ensure this image exists in your /public folder
+            url: '/og-image-locations.jpg', // Place a relevant image in your /public folder
             width: 1200,
             height: 630,
             alt: `A view of the Mountain Spine & Orthopedics clinic in ${location.region}`,
           },
         ],
         locale: 'en_US',
-        type: 'website',
+        type: 'website', // or 'MedicalClinic' could also be appropriate
       },
 
       twitter: {
         card: 'summary_large_image',
         title: location.metaTitle,
         description: location.metaDescription,
-        images: ['/og-image-locations.jpg'], // Match the OpenGraph image
+        // Match the OpenGraph image
+        images: ['/og-image-locations.jpg'],
       },
     };
 }
 
-// --- DYNAMIC JSON-LD SCHEMA FOR EACH CLINIC ---
+// --- SEO ENHANCEMENT: DYNAMIC JSON-LD SCHEMA FOR EACH CLINIC ---
 // This component generates a unique schema for each medical clinic location.
 const LocationJsonLdSchema = ({ params }: { params: { locationname: string } }) => {
     const location = clinics.find(clinic => clinic.slug === params.locationname);
@@ -67,17 +68,16 @@ const LocationJsonLdSchema = ({ params }: { params: { locationname: string } }) 
         return null;
     }
 
-    // Safely split address for the schema
+    // Split address for the schema
     const addressParts = location.address.split(', ');
-    const streetAddress = addressParts[0] || '';
-    const addressLocality = addressParts[1] || '';
-    const regionAndPostal = (addressParts[2] || '').split(' ');
-    const addressRegion = regionAndPostal[0] || 'FL';
-    const postalCode = regionAndPostal[1] || '';
+    const streetAddress = addressParts[0];
+    const addressLocality = addressParts[1];
+    const addressRegion = addressParts.length > 2 ? addressParts[2].split(' ')[0] : 'FL';
+    const postalCode = addressParts.length > 2 ? addressParts[2].split(' ')[1] : '';
 
     const schema = {
       '@context': 'https://schema.org',
-      '@type': 'MedicalClinic',
+      '@type': 'MedicalClinic', // More specific than MedicalOrganization for a location page
       'name': location.name,
       'description': location.metaDescription,
       'url': `https://mountainspineorthopedics.com/locations/${location.slug}`,
@@ -95,11 +95,13 @@ const LocationJsonLdSchema = ({ params }: { params: { locationname: string } }) 
           'latitude': location.lat,
           'longitude': location.lng
       },
+      // This links each clinic back to the main organization
       'parentOrganization': {
           '@type': 'MedicalOrganization',
           'name': 'Mountain Spine & Orthopedics',
           'url': 'https://mountainspineorthopedics.com/'
       },
+      // Add a generic image or create a location-specific one
       'image': 'https://mountainspineorthopedics.com/og-image-locations.jpg',
     };
   
@@ -112,8 +114,8 @@ const LocationJsonLdSchema = ({ params }: { params: { locationname: string } }) 
   };
 
 
-// This is the final layout component. It renders the JSON-LD schema
-// in the head and then renders the page content.
+// This is the layout component that will wrap the page.
+// We inject the JSON-LD schema here.
 export default function LocationLayout({
     children,
     params,
