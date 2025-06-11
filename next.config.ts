@@ -1,21 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // --- SEO OPTIMIZATION: Enforce consistent URLs ---
+  // This ensures that pages with a trailing slash (e.g., /locations/)
+  // are permanently redirected to the non-slash version (/locations).
+  // This prevents duplicate content issues with search engines.
+  trailingSlash: false,
+
+  /* Your existing config options */
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  images : {
+  images: {
     remotePatterns: [
       {
-        protocol: 'https', // Assuming the images are served over HTTPS
+        protocol: 'https',
         hostname: 'originui.com',
-        port: '', // Leave empty for default ports (80 for http, 443 for https)
         pathname: '/**', 
       },
       {
@@ -31,7 +34,52 @@ const nextConfig: NextConfig = {
         source: '/blogs/4',
         destination: '/blogs/4-safe-stretching-techniques-for-postoperative-recovery',
         permanent: true,
-      }
+      },
+      {
+        source: '/locations/1',
+        destination: '/locations/altamonte-springs-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/2',
+        destination: '/locations/davenport-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/3',
+        destination: '/locations/palm-spring-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/4',
+        destination: '/locations/hollywood-fl-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/5',
+        destination: '/locations/orlando-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/6',
+        destination: '/locations/palm-beach-gardens-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/7',
+        destination: '/locations/miami-beach-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/8',
+        destination: '/locations/boca-raton-orthopedics',
+        permanent: true,
+      },
+      {
+        source: '/locations/9',
+        destination: '/locations/fort-pierce-orthopedics',
+        permanent: true,
+      },
     ];
   }
 };
