@@ -456,7 +456,7 @@ export const conditions: ConditionInfoProp[] = [
       }
     ],
     "side_img": "https://mountainspineortho.b-cdn.net/public/degendiscside.jpeg",
-    "slug": "degenerativediscdisease",
+    "slug": "degenerative-disc-disease",
     "keywords": [
       "degenerative disc disease",
       "DDD treatment Florida",

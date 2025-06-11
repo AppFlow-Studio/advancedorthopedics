@@ -209,7 +209,7 @@ const NavBarLinks = [
           },
           {
             title : 'Degenerative Disc Disease',
-            href : '/area-of-pain/back-pain/degenerativediscdisease'
+            href : '/area-of-pain/back-pain/degenerative-disc-disease'
           },
           {
             title : 'Lumbar Herniated Disc',
@@ -229,7 +229,7 @@ const NavBarLinks = [
           },
           {
             title : 'Back Pain Treament Options',
-            href : '/area-of-pain/back-pain/backpaintreatmentoptions'
+            href : '/area-of-pain/back-pain/back-pain-treatment-options'
           }
         ]
       },
@@ -247,7 +247,7 @@ const NavBarLinks = [
           },
           {
             title : 'Degenerative Disc Disease',
-            href : '/area-of-pain/neck-and-shoulder-pain/degenerativediscdisease'
+            href : '/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease'
           },
           {
             title : 'Arthritis',
@@ -259,7 +259,7 @@ const NavBarLinks = [
           },
           {
             title : 'Neck and Shoulder Treatments',
-            href : '/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments'
+            href : '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatments'
           }
         ]
       },
