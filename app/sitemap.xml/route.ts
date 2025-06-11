@@ -56,14 +56,15 @@ const BackPainPages =[
 'backpaintreatmentoptions'
 ]
 
-const NeckPainPages =[
+const NeckPainPages = [
   'cervical-spinal-stenosis',
   'cervical-herniated-disc',
-  'degenerativediscdisease',
+  'degenerative-disc-disease',
   'arthritis',
   'pinched-nerve',
   'neckandshoulderpaintreatments',
-]
+];
+
 
 const FootPainPages =[
   'bunions-hallux-valgus',
@@ -116,7 +117,7 @@ export async function GET() {
   }).join('')}
 
   ${BackPainPages.map(slug => generateUrlEntry(`/area-of-pain/back-pain/${slug}`)).join('')}
-  ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-pain/${slug}`)).join('')}
+  ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${slug}`)).join('')} 
   ${FootPainPages.map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`)).join('')}
 
   ${Doctors.filter(doctor => isValidSlug(doctor.slug))
