@@ -24,7 +24,7 @@ export default function AboutUs() {
         />
 
       <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[300px] md:w-[70%] xl:w-[55%]">
-          <TextAnimate animation="blurInUp" by="character" once
+          <TextAnimate animation="blurInUp" by="word" once
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 400,

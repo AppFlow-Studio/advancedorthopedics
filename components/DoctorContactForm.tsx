@@ -84,7 +84,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
   }
 
   return (
-     <div className={`w-full p-8 rounded-3xl overflow-hidden  bg-[${backgroundcolor}] bg-opacity-50`}
+     <div className={`w-full p-4 rounded-3xl overflow-hidden  bg-[${backgroundcolor}] bg-opacity-50`}
      
      >
         <Form {...form} 
@@ -119,8 +119,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                    </FormLabel>
                     <FormControl>                   
                       <div className=" flex  ">
-                       
-                        <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
+                        <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                       </div>                   
                     </FormControl>
                     <FormMessage />
@@ -150,7 +149,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                     </FormLabel>
                     <FormControl>
                      <div className=" flex  ">
-                        <Input placeholder="example@gmail.com" startIcon={Mail} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
+                        <Input placeholder="example@gmail.com" startIcon={Mail} className="h-10 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                       </div> 
                     </FormControl>
                     <FormMessage />
@@ -176,7 +175,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                     </FormLabel>                    
                     <FormControl>
                     <div className=" flex  ">
-                        <Input placeholder="+1 0123456789" startIcon={Phone} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
+                        <Input placeholder="+1 0123456789" startIcon={Phone} className="h-10 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                       </div> 
                     </FormControl>
                     <FormMessage />
@@ -212,7 +211,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                               <FormItem>
                                   <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
                                   <FormControl>                   
-                                      <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]  bg-[#EFF5FF]" {...field} />
+                                      <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1]  bg-[#EFF5FF]" {...field} />
                                   </FormControl>
                                   <FormMessage />
                               </FormItem>
@@ -240,7 +239,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                                   </h1>                                
                                   </FormLabel>
                                   <FormControl>
-                                      <Input placeholder="Enter your email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]  bg-[#EFF5FF]" {...field} />
+                                      <Input placeholder="Enter your email" startIcon={Mail} className="h-10 text-lg border-[#DCDEE1]  bg-[#EFF5FF]" {...field} />
                                   </FormControl>
                                   <FormMessage />
                               </FormItem>
@@ -265,7 +264,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                                   
                                   </FormLabel>
                                   <FormControl>
-                                      <Input placeholder="+1 0123456789" startIcon={Phone} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
+                                      <Input placeholder="+1 0123456789" startIcon={Phone} className="h-10 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
                                   </FormControl>
                                   <FormMessage />
                               </FormItem>
@@ -292,9 +291,9 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                                   <FormControl>
                                   <Select onValueChange={field.onChange} value={field.value} >
                                       <SelectTrigger
-                                      className="w-full h-12 px-6 bg-[#f0f5ff]  border rounded-sm"
+                                      className="w-full h-10 px-6 bg-[#f0f5ff]  border rounded-sm"
                                       >
-                                          <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-12 text-lg data-[placeholder]:text-red-500"/>
+                                          <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-10 text-lg data-[placeholder]:text-red-500"/>
                                       </SelectTrigger>
                                       <SelectContent>
                                       <SelectGroup>
