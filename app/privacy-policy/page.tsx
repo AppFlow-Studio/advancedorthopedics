@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="mt-20 bg-white ">
         <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-[#0094E0] mb-4">Privacy Policy</h1>
@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
                   website, please contact us at the email provided below.
                 </p>
                 <p>
-                  Finally, OLSS will not use or transfer personally identifiable information provided to us in ways
+                  Finally, Mountain Spine & Orthopedics will not use or transfer personally identifiable information provided to us in ways
                   unrelated to the ones described above without also providing you an opportunity to opt-out of these
                   unrelated uses.
                 </p>
@@ -89,6 +89,20 @@ export default function PrivacyPolicy() {
                 </p>
                 <p>
                   Cookies, by themselves, do not tell us your email address or other personally identifiable information.
+                </p>
+              </div>
+            </section>
+  
+            <section className="mb-8">
+              <h2 className="text-2xl font-semibold text-[#0094E0] mb-4 border-b-2 border-[#0094E0] pb-2">
+                Location Data
+              </h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  To help you find the nearest clinic location, our website may request access to your location data. This information is used solely to provide you with the most relevant clinic locations and is processed entirely on your device (client-side). We do not store, collect, or transmit your location data to our servers.
+                </p>
+                <p>
+                  You can choose to allow or deny location access when prompted by your browser. If you deny access, you can still use our website, but you may need to manually enter your location to find nearby clinics.
                 </p>
               </div>
             </section>
