@@ -145,12 +145,12 @@ export default function LocationDetails(
                 />
 
                 <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between sm:py-20">
-                <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
+                <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-4 relative xl:pb-[160px]">
                 
                 <SlidingDiv position="left" className="z-[2]"
                 >
-                    <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%] space-y-4  ">
-                    <div className=' mt-[20px] md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+                    <div className="xl:px-[80px] px-8  xl:w-[90%] space-y-4  ">
+                    <div className=' md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                             style={{
                                 background : 'rgba(255, 255, 255, 0.50)'
                             }}
