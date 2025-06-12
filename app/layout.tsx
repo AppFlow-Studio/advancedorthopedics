@@ -5,9 +5,9 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { MapProvider } from "@/providers/map-provider";
 import { GeolocationProvider } from "@/providers/geolocationcontext";
-import { GoogleAnalytics } from '@next/third-parties/google';
-import Head from "next/head";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { DelayedLocationPopup } from "@/components/delayedlocationpopup";
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "orthopedic clinic Florida",
     "board certified orthopedic surgeons",
     "scoliosis treatment Florida",
-    "Mountain Spine and Orthopedics"
+    "Mountain Spine and Orthopedics",
   ],
   robots: {
     index: true,
@@ -94,26 +94,53 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mountainspineorthopedics.com"),
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Mountain Spine & Orthopedics",
+  "url": "https://mountainspineorthopedics.com",
+  "logo": "https://mountainspineortho.b-cdn.net/logoSearch.png", 
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-833-931-4888",
+    "contactType": "Customer Service",
+    "areaServed": "US",
+    "availableLanguage": ["en"],
+  },
+  // --- Social media links updated here ---
+  "sameAs": [
+    "https://www.facebook.com/people/Mountain-Spine-Orthopedics/61576930958681/",
+    "https://www.instagram.com/mountainspineortho/"
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">  
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
-        >
-          <MapProvider>
-            <GeolocationProvider>
-              <NavBar />
-              {children}
-              <Footer />
-              <DelayedLocationPopup delayInSeconds={2.5} />
-            </GeolocationProvider>
-          </MapProvider>
-        </body>
+    <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
+      >
+        <MapProvider>
+          <GeolocationProvider>
+            <NavBar />
+            {children}
+            <Footer />
+            <DelayedLocationPopup delayInSeconds={2.5} />
+          </GeolocationProvider>
+        </MapProvider>
+
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
+      </body>
     </html>
   );
 }
