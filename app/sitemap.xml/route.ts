@@ -48,7 +48,7 @@ const FindCare = [
 
 const BackPainPages =[
 "lower-back-pain",
-'degenerativediscdisease',
+'degenerative-disc-disease',
 'lumbar-herniated-disc',
 'foraminal-stenosis',
 'sciatica',
