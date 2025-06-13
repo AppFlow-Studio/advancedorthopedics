@@ -610,7 +610,7 @@ export default function HomePageUI() {
                   }}
                   className="text-lg text-[#5B5F67] mt-[20px] text-center w-full md:w-[55%] self-center"
                 >
-                  Trust Mountain Spine & Orthopaedics for expert care, compassionate service, and results 
+                  Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results 
                   that make a difference. Your mobility and well-being are our top priority!
                 </h1>
               </div>

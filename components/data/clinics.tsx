@@ -70,15 +70,15 @@ export const clinics : ClinicsProps[]= [
       link : 'https://www.google.com/maps/place/Orthopedic+%26+Laser+Spine+Surgery+(Orlando)/@28.5136111,-81.466257,15z/data=!4m6!3m5!1s0x88e77853a8dbc7bb:0x8835f4fad688eb5!8m2!3d28.5136111!4d-81.466257!16s%2Fg%2F1q6c8m48j?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
       slug: 'orlando-orthopedics',
       paragraph : `
-      Orlando residents no longer need to search far and wide for a world-class Orlando orthopaedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopaedic center and walk-in clinic for all your needs.
+      Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center and walk-in clinic for all your needs.
       [PARAGRAPH BREAK]
-      Our Orlando team includes fellowship-trained, board-certified Orlando orthopaedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of your pain to achieve lasting results.
+      Our Orlando team includes fellowship-trained, board-certified Orlando orthopedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of your pain to achieve lasting results.
       [PARAGRAPH BREAK]
-      Inside our state-of-the-art Orlando orthopaedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando’s expert team for spine and orthopedic health.
+      Inside our state-of-the-art Orlando orthopedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando’s expert team for spine and orthopedic health.
       `,
-      keywords: ['orlando orthopaedic center', 'orlando orthopaedic', 'orlando orthopaedic center and walk-in clinic - lake nona', 'orlando orthopaedic center orlando fl', 'orlando orthopaedic lake nona', 'orlando orthopaedic surgeons', 'orlando orthopaedic center lake nona office', 'orlando orthopaedic center lake nona', 'orlando spine and orthopaedic specialists of central fl', 'orlando orthopaedic center orthopaedic injury walk-in clinic photos'],
-      metaTitle: 'Orthopaedic Center in Orlando & Walk-in Clinic in Central Florida',
-      metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopaedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.'
+      keywords: ['orlando orthopedic center', 'orlando orthopedic', 'orlando orthopedic center and walk-in clinic - lake nona', 'orlando orthopedic center orlando fl', 'orlando orthopedic lake nona', 'orlando orthopedic surgeons', 'orlando orthopedic center lake nona office', 'orlando orthopedic center lake nona', 'orlando spine and orthopedic specialists of central fl', 'orlando orthopedic center orthopedic injury walk-in clinic photos'],
+      metaTitle: 'Orthopedic Center in Orlando & Walk-in Clinic in Central Florida',
+      metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.'
     },
     {
       id : 9,
@@ -207,4 +207,4 @@ export const clinics : ClinicsProps[]= [
       metaDescription: 'Trust Mountain Spine & Orthopedics for expert care from leading Surgeons in Davenport, FL. Advanced treatments for joint pain, injuries, and more.'
     },
 ];
-  // theres one problem if i change the names to Mountain Spine & Orthopaedics ... then when people try to google it or put the adress it wont take them there so im keep the location how it is
+  // theres one problem if i change the names to Mountain Spine & Orthopedics ... then when people try to google it or put the adress it wont take them there so im keep the location how it is

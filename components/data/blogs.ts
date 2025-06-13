@@ -6,7 +6,7 @@ export const BlogPosts : BlogPostProp[]= [
       "title": "4 Safe Stretching Techniques for Postoperative Recovery",
       "desc": `Recovering from back or spine surgery can be a long road, but the reward at the end is worth the work it takes to achieve rehabilitation. While a good amount of rest is necessary following surgery, exercise is also key to regaining mobility in your neck and back.
 Orthopedic & Laser Spine Surgery knows the importance of stretching techniques for postoperative recovery. Do not fall victim to the consequences that await if you choose not to use these safe stretching techniques! Get your life back on track and utilize these stretches that the experts say are safe and effective.`,
-      "img": "placeholder_advanced_orthopaedics_logo.png",
+      "img": "placeholder_advanced_Orthopedics_logo.png",
       "tags": ["Back pain Resources", "Exercises"],
       "blog_info": [
         {
@@ -59,7 +59,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
       "id": "can-a-pinched-nerve-cause-dizziness",
       "title": "Can a Pinched Nerve Cause Dizziness?",
       "desc": "Vertigo and nausea should not be a regular part of your day. Can a pinched nerve in the back cause dizziness? When these symptoms pair themselves with considerable...",
-      "img": "placeholder_advanced_orthopaedics_logo.png",
+      "img": "placeholder_advanced_Orthopedics_logo.png",
       "tags": ["Back pain", "Neck Pain"],
       "blog_info": [
         {
@@ -97,7 +97,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
       "id": "the-risks-of-cracking-neck-and-its-benefits",
       "title": "The Risks of Cracking Neck and Its Benefits",
       "desc": "Cracking your neck—or any part of your spine—may seem like an easy way to relieve tension, but it can actually cause more harm than good. Once you understand the p...",
-      "img": "placeholder_advanced_orthopaedics_logo.png",
+      "img": "placeholder_advanced_Orthopedics_logo.png",
       "tags": ["Neck Pain"],
       "blog_info": [
         {
@@ -140,7 +140,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
       "id": "life-after-acdf-surgery-tips-for-long-term-success",
       "title": "Life After ACDF Surgery: Tips for Long-Term Success",
       "desc": "Anterior Cervical Discectomy and Fusion (ACDF) surgery is a highly effective procedure for treating various conditions affecting the cervical spine, such as herniated discs, cerv...",
-      "img": "placeholder_advanced_orthopaedics_logo.png",
+      "img": "placeholder_advanced_Orthopedics_logo.png",
       "tags": ["Back pain", "Neck Pain"],
       "blog_info": [
         {
@@ -210,7 +210,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
       "id": "lifestyle-changes-to-support-spinal-health-after-decompression",
       "title": "Lifestyle Changes to Support Spinal Health After Decompression....",
       "desc": "After undergoing spinal decompression surgery, many patients find relief from chronic back pain, but recovery and long-term spinal health depend on more than just the...",
-      "img": "placeholder_advanced_orthopaedics_logo.png",
+      "img": "placeholder_advanced_Orthopedics_logo.png",
       "tags": ["Back pain", "Neck Pain"],
       "blog_info": [
         {
@@ -263,7 +263,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
       "id": "what-is-tlif-an-introduction-to-transforaminal-lumbar",
       "title": "What is TLIF? An Introduction to Transforaminal Lumbar....",
       "desc": "Back pain is a common issue that many people deal with, often interfering with daily life and reducing overall quality of life. For some, conservative treatments like medication,...",
-      "img": "placeholder_advanced_orthopaedics_logo.png",
+      "img": "placeholder_advanced_Orthopedics_logo.png",
       "tags": ["Back pain", "Neck Pain"],
       "blog_info": [
         {
