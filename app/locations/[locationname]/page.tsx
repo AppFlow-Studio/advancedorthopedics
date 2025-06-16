@@ -78,7 +78,7 @@ export default function LocationDetails(
       }
   return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-            <section className=' bg-[#6FC2ED] w-full flex flex-row'>
+            {/* <section className=' bg-[#6FC2ED] w-full flex flex-row'>
                 <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 xl:px-[80px]'>
                     <TextAnimate animation="blurInUp" by="word" once
                     style={{
@@ -134,7 +134,7 @@ export default function LocationDetails(
                         </h1>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
                 <Image src={LocationLanding} priority={true} layout='fill' className="h-full absolute top-0 object-cover object-center sm:object-center self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
@@ -145,16 +145,51 @@ export default function LocationDetails(
                 />
 
                 <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between sm:py-20">
-                <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
+                <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 py-4 relative xl:pb-[160px]">
+                
                 <SlidingDiv position="left" className="z-[2]"
                 >
-                    <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]  ">
+                    <div className="xl:px-[80px] px-8  xl:w-[90%] space-y-4  ">
+                    <div className=' md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+                            style={{
+                                background : 'rgba(255, 255, 255, 0.50)'
+                            }}
+                            >
+                                <h1
+                                style={{
+                                    fontFamily: "var(--font-reem-kufi)",
+                                    fontWeight: 400,
+                                }}
+                                className="text-[#111315]"
+                                >
+                                Location
+                                </h1>
+                    
+                                <h1
+                                style={{
+                                    fontFamily: "var(--font-reem-kufi)",
+                                    fontWeight: 400,
+                                }}
+                                className="text-[#111315]"
+                                >
+                                    /
+                                </h1>
+                                <h1
+                                style={{
+                                    fontFamily: "var(--font-reem-kufi)",
+                                    fontWeight: 400,
+                                }}
+                                className="text-[#2258AC]"
+                                >
+                                    {location.region}
+                                </h1>
+                        </div>
                         <h1
                         style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                         }}
-                        className="text-white text-5xl sm:text-6xl xl:text-7xl text-shadow-sm"
+                        className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
                         >
                         Welcome to {location.name}
                         </h1>

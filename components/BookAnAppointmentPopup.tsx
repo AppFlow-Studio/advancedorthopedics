@@ -18,6 +18,7 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
+import Link from "next/link"
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -252,7 +253,7 @@ export default function BookAnAppointmentPopup() {
                         fontWeight : 500,
                     }}
                     className='text-[#838890] text-md'
-                    >By submitting, you agree to our <span className="text-[#2358AC] underline">privacy policy and disclaimer.</span> Someone from our team may contact you via phone, email and/or text.</p>
+                    >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
                 </div>
              </form>
             </Form>

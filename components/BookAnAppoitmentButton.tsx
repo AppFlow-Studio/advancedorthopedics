@@ -22,6 +22,7 @@ import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from './email/sendcontactemail'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
@@ -250,7 +251,7 @@ export default function BookAnAppoitmentButton() {
                             fontWeight : 500,
                         }}
                         className='text-[#838890] text-md'
-                        >By submitting, you agree to our <span className="text-[#2358AC] underline">privacy policy and disclaimer.</span> Someone from our team may contact you via phone, email and/or text.</p>
+                        >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
                     </div>
                  </form>
                 </Form>

@@ -1,46 +1,61 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
-export async function generateMetadata({ params }: { params: { PainArea: string } }, parent: ResolvingMetadata) {
-    let condition 
-    if ( params.PainArea == 'neckandshoulderpaintreatments' ) {
-      condition = PainAreaTreatments.find( x => x.slug === params.PainArea)
-    }else{
-      condition = conditions.find( x => x.slug === params.PainArea)
-    }
-    if (!condition) {
-      return {
-        title: "Condition not found",
-        description: "Condition not found",
-      }
-    }
+
+function capitalizeWords(str: string): string {
+  return str.replace(/\b\w/g, l => l.toUpperCase());
+}
+
+export async function generateMetadata(
+  { params }: { params: { PainArea: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const painArea = PainAreaTreatments.find(
+    (area) => area.slug === params.PainArea
+  );
+
+  if (!painArea) {
+    const readableSlug = params.PainArea.replace(/-/g, " ");
     return {
-      title: condition.title,
-      description: condition.body.replaceAll('<br/>', ' '),
-      keywords: condition.keywords,
-      openGraph: {
-        title: `${condition.title} | Mountain Spine & Orthopedics`,
-        description: condition.body.replaceAll('<br/>', ' '),
-        type: "article",
-        url: `https://mountainspineorthopedics.com/blogs/${condition.slug}`,
-        publishedTime: '2025-05-18',
-        modifiedTime: '2025-05-18',
-        authors: ["https://mountainspineorthopedics.com/about"],
-        tags: condition.keywords,
-        images: [
-          {
-            url: condition.card_img,
-            width: 1024,
-            height: 576,
-            alt: condition.title,
-            type: "image/png"
-          }
-        ]
-      },
-      alternates: {
-            canonical: `https://mountainspineorthopedics.com/area-of-pain/neck-and-shoulder-pain/${condition.slug}`
-      } 
+      title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+      description: "Learn about orthopedic care and treatments with our specialists in Florida."
     };
+  }
+
+  const painAreaUrl = `https://mountainspineorthopedics.com/area-of-pain/neck-and-shoulder-pain/${painArea.slug}`;
+
+  return {
+    metadataBase: new URL('https://mountainspineorthopedics.com'),
+    title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
+    description: painArea.metaDescription || painArea.desc,
+    keywords: painArea.keywords || [painArea.title, "neck pain", "shoulder pain", "orthopedic treatment"],
+    
+    openGraph: {
+      title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
+      description: painArea.metaDescription || painArea.desc,
+      type: "article",
+      url: painAreaUrl,
+      images: [
+        {
+          url: painArea.img.src,
+          width: 1200,
+          height: 630,
+          alt: painArea.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
+      description: painArea.metaDescription || painArea.desc,
+      images: [painArea.img.src],
+    },
+
+    alternates: {
+      canonical: painAreaUrl,
+    },
+  };
 }
 
 export default function NeckAndShoulderPainAreaLayout({

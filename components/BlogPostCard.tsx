@@ -14,6 +14,8 @@ export interface BlogPostProp {
     keywords : string[]
     author : string
     date : string
+    metaTitle?: string
+    metaDescription?: string
     blog_info : {
         header : string, 
         body : string, 

@@ -202,7 +202,7 @@ export default function Footer() {
         >Copyright © 2025 Mountain Spine & Orthopedics.</h1>
 
         <div className='flex md:flex-row flex-col md:space-x-[40px] space-y-[10px]'>
-            <h1
+            <Link href={'/privacy-policy'}
             style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 400,
@@ -210,7 +210,7 @@ export default function Footer() {
             }}
             >
                 Privacy Policy
-            </h1>
+            </Link>
             <h1
             style={{
                 fontFamily : 'var(--font-reem-kufi)',

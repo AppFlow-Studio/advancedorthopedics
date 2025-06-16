@@ -1,16 +1,22 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { Doctors } from "@/components/data/doctors";
 
+function capitalizeWords(str: string): string {
+    return str.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 // Dynamically generate metadata for each doctor's page
 export async function generateMetadata(
-    { params }: { params: { Doctor_Name: string } }
+    { params }: { params: { Doctor_Name: string } },
+    parent: ResolvingMetadata
 ): Promise<Metadata> {
     const doctor = Doctors.find((d) => d.slug === params.Doctor_Name);
 
     if (!doctor) {
+        const readableSlug = params.Doctor_Name.replace(/-/g, " ");
         return {
-            title: "Doctor Not Found | Mountain Spine & Orthopedics",
-            description: "The requested doctor profile could not be found.",
+            title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+            description: "Learn about orthopedic care and treatments with our specialists in Florida."
         };
     }
     
@@ -20,26 +26,32 @@ export async function generateMetadata(
 
     return {
         metadataBase: new URL('https://mountainspineorthopedics.com'),
-        // --- FIX: Using the new, specific SEO fields from doctors.tsx ---
-        title: doctor.metaTitle,
-        description: doctor.metaDescription,
-        keywords: doctor.keywords,
+        title: doctor.metaTitle || `${doctor.name} | Mountain Spine & Orthopedics`,
+        description: doctor.metaDescription || doctor.desc,
+        keywords: doctor.keywords || [doctor.name, "orthopedic doctor", "spine specialist"],
         
         alternates: {
             canonical: doctorUrl,
         },
         openGraph: {
-            title: doctor.metaTitle,
-            description: doctor.metaDescription,
+            title: doctor.metaTitle || `${doctor.name} | Mountain Spine & Orthopedics`,
+            description: doctor.metaDescription || doctor.desc,
             url: doctorUrl,
             type: "profile",
-            images: [{ url: imageUrl, alt: doctor.name }],
+            images: [
+                {
+                    url: doctor.img.src,
+                    width: 1200,
+                    height: 630,
+                    alt: doctor.name,
+                },
+            ],
         },
         twitter: {
             card: "summary_large_image",
-            title: doctor.metaTitle,
-            description: doctor.metaDescription,
-            images: [imageUrl],
+            title: doctor.metaTitle || `${doctor.name} | Mountain Spine & Orthopedics`,
+            description: doctor.metaDescription || doctor.desc,
+            images: [doctor.img.src],
         },
     };
 }
