@@ -66,13 +66,13 @@ export const Doctors: DoctorProp[] = [
         bio: (<h1>
             Dr. David Cowin was born in Washington, D.C. and spent part of his upbringing in the Philippines, where his father served as an orthopedic surgeon for the U.S. Air Force. He attended Dartmouth College in New Hampshire as an undergraduate, where he conducted orthopedic research. He earned his Doctor of Medicine degree from the University of Florida Medical School, graduating with research honors.
             <br /> <br />
-            He completed his orthopedic residency at the University of Florida’s Department of Orthopaedics and then went on to train further at the Bone and Joint Institute in Arizona, focusing on total joint reconstruction. Dr. Cowin specializes in diagnosing and treating a variety of orthopedic conditions including joint disorders, extremity injuries, and spine-related issues. His clinical focus also includes sacroiliac fusion and other minimally invasive spine procedures.
+            He completed his orthopedic residency at the University of Florida’s Department of Orthopedics and then went on to train further at the Bone and Joint Institute in Arizona, focusing on total joint reconstruction. Dr. Cowin specializes in diagnosing and treating a variety of orthopedic conditions including joint disorders, extremity injuries, and spine-related issues. His clinical focus also includes sacroiliac fusion and other minimally invasive spine procedures.
             <br /> <br />
             Outside the clinic, Dr. Cowin enjoys traveling, scuba diving, snowboarding, and spending time with his children as they participate in sports.
         </h1>),
         snapshot: ['Board-certified orthopedic surgeon with over 20 years of experience',
             'Doctor of Medicine from University of Florida in 1998',
-            'Residency in Orthopaedics at University of Florida Department of Orthopaedics',
+            'Residency in Orthopedics at University of Florida Department of Orthopedics',
             'Completed advanced training at Bone and Joint Institute in Arizona focusing on joint reconstruction',
             'Specializes in sacroiliac fusion and minimally invasive spine procedures',
             'Undergraduate research in orthopedic surgery at Dartmouth College',

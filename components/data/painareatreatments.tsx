@@ -12,7 +12,9 @@ import pinchednerveside from '@/public/pinchednerveside.jpeg'
 export const PainAreaTreatments : ConditionInfoProp[] = [
     {
         title : "Back Pain Treatment Options",
-        body : "We offer a range of advanced back pain treatments, starting with non-surgical options like physical therapy and medication. When conservative care isn’t enough, we provide minimally invasive procedures such as microdiscectomy, cervical discectomy, and artificial disc replacement to relieve nerve compression. For more complex cases, traditional surgeries like spinal fusion or laminectomy may be necessary. Our focus is on restoring mobility, reducing pain, and helping you get back to daily life with lasting relief.",
+        body : "We offer a range of advanced back pain treatments, starting with non-surgical options like physical therapy and medication. When conservative care isn't enough, we provide minimally invasive procedures such as microdiscectomy, cervical discectomy, and artificial disc replacement to relieve nerve compression. For more complex cases, traditional surgeries like spinal fusion or laminectomy may be necessary. Our focus is on restoring mobility, reducing pain, and helping you get back to daily life with lasting relief.",
+        metaTitle: "Back Pain Treatment Options - Mountain Spine & Orthopedics",
+        metaDesc: "Explore our comprehensive back pain treatments, from non-surgical options to advanced minimally invasive procedures. Get personalized care for lasting relief.",
         forum : [
             {
                 post : (
@@ -49,7 +51,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                             }}
                             className="text-[#5B5F67] text-xl"
                             >
-                            If you’re struggling with persistent or worsening back pain, our team is here to help. Use our quick and easy condition checker to determine whether you may be a candidate for evaluation or treatment.
+                            If you're struggling with persistent or worsening back pain, our team is here to help. Use our quick and easy condition checker to determine whether you may be a candidate for evaluation or treatment.
                             </h1>
             
                             <OutlinedButton text="Do I have this Condition?" />
@@ -202,7 +204,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                                 fontWeight: 400,
                             }}
                             className="text-[#5B5F67] text-xl">
-                            A healthy lifestyle plays a key role in preventing chronic back pain. Here’s what we recommend:<br/>
+                            A healthy lifestyle plays a key role in preventing chronic back pain. Here's what we recommend:<br/>
                             <li>Exercise Regularly: Strengthen your core and improve flexibility</li><br/>
                             <li>Eat a Balanced Diet: Choose anti-inflammatory foods to support joint health</li><br/>
                             <li>Maintain Good Posture: Adjust your seating and work environment</li><br/>
@@ -231,7 +233,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                                 fontWeight: 400,
                             }}
                             className="text-[#5B5F67] text-xl">
-                            What’s the recovery time for minimally invasive back surgery?<br/>
+                            What's the recovery time for minimally invasive back surgery?<br/>
                             <li>Most patients recover faster than with traditional surgery returning to activity within weeks.</li>
                             </h1>
 
@@ -288,7 +290,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                         fontWeight: 500,
                         }}
                         className="text-[#111315] text-4xl">
-                        Back Pain Doesn’t Have to Control Your Life
+                        Back Pain Doesn't Have to Control Your Life
                     </h1>
                     <div className=" flex flex-col space-y-[40px]">
                         <h1
@@ -297,7 +299,7 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
                             fontWeight: 400,
                         }}
                         className="text-[#5B5F67] text-xl">
-                        Living with chronic back pain can be exhausting—but you don’t have to do it alone. At Mountain Spine & Orthopedics, our team specializes in advanced, minimally invasive techniques and personalized recovery plans to help you get back to doing what you love.<br/><br/>
+                        Living with chronic back pain can be exhausting—but you don't have to do it alone. At Mountain Spine & Orthopedics, our team specializes in advanced, minimally invasive techniques and personalized recovery plans to help you get back to doing what you love.<br/><br/>
                         Call us today at (866) 272-9271 or fill out our online form to schedule your consultation. Relief may be closer than you think.
                         </h1>
                     </div>
@@ -321,6 +323,8 @@ export const PainAreaTreatments : ConditionInfoProp[] = [
         title : "Neck & Shoulder Treatment Options",
         body : `Chronic neck and shoulder pain can interfere with your everyday activities from working at a desk to sleeping through the night. Whether the cause is poor posture, a pinched nerve, muscle strain, arthritis, or a more complex spine condition, finding the right treatment starts with understanding the root cause.
 At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating a wide range of neck and shoulder conditions. From non-invasive therapies to advanced surgical solutions, we help patients regain motion, strength, and long-term comfort. If you're unsure about your current care plan, we also offer second opinions and customized treatment strategies.`,
+        metaTitle: "Neck & Shoulder Treatment Options - Mountain Spine & Orthopedics",
+        metaDesc: "Discover our comprehensive neck and shoulder pain treatments, from non-invasive therapies to advanced surgical solutions. Get personalized care for lasting relief.",
         tag : "Neck & Shoulder Pain",
         forum  : [
             {

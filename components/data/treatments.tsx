@@ -126,7 +126,7 @@ import shoulderart1 from '@/public/shoulderart1.webp'
 import shoulderart2 from '@/public/shoulderart2.jpg'
 import artreplaceside from '@/public/artreplaceside.png'
 import artreplaceback from '@/public/artreplaceback.png'
-
+import React from "react"
 
 export interface TreatmentsCardProp {
   title : string;
@@ -144,6 +144,8 @@ export interface TreatmentsCardProp {
   schedule? : string;
   procedure_info? : string;
   keywords?: string[];
+  metaTitle?: string;
+  metaDesc?: string;
 }
 
 export const AllTreatments : TreatmentsCardProp[] = [
@@ -161,7 +163,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons possess extensive experience in complex revision spinal surgeries. Mountain Spine & Orthopedics utilizes advanced diagnostic imaging and evidence-based care plans to tailor treatment. We are committed to helping patients in Florida achieve the best possible outcomes from these challenging procedures.",
   "schedule": "Experiencing pain after spine surgery? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to explore revision surgery options.",
   "slug": "revision-spinal-surgery",
-  "keywords": ["Revision spinal surgery", "failed back surgery Florida", "complex spine revision", "orthopedic spine specialist", "persistent post-surgical back pain", "secondary spine operation"]
+  "keywords": ["Revision spinal surgery", "failed back surgery Florida", "complex spine revision", "orthopedic spine specialist", "persistent post-surgical back pain", "secondary spine operation"],
+  "metaTitle": "Revision Spinal Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about revision spinal surgery options for persistent back or neck pain. Our orthopedic specialists provide personalized care for successful outcomes."
 },
 {
   "title": "Multilevel Degenerative Disc Disease Surgery",
@@ -177,7 +181,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly experienced in performing advanced procedures that maintain spinal flexibility. Our orthopedic center provides comprehensive diagnostic evaluations, including complimentary MRI reviews, to determine if this advanced surgery is your best option for long-term spinal health.",
   "schedule": "Diagnosed with degenerative disc disease at multiple spinal levels? Start your recovery with expert orthopedic care in Florida. Contact Mountain Spine & Orthopedics for a complimentary MRI review.",
   "slug": "multilevel-degenerative-disc-disease-surgery",
-  "keywords": ["Multilevel DDD surgery", "motion-preserving spine Florida", "artificial disc replacement", "spine care specialist", "degenerative disc disease treatment", "chronic neck pain solutions"]
+  "keywords": ["Multilevel DDD surgery", "motion-preserving spine Florida", "artificial disc replacement", "spine care specialist", "degenerative disc disease treatment", "chronic neck pain solutions"],
+  "metaTitle": "Multilevel Degenerative Disc Disease Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Discover the benefits of multilevel disc replacement for degenerative disc disease. Our orthopedic specialists provide personalized care for lasting back pain relief."
 },
 {
   "title": "Anterior Lumbar Corpectomy and Fusion",
@@ -193,7 +199,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons have extensive experience in ALCF. Our orthopedic practice utilizes comprehensive diagnostics and advanced imaging techniques to formulate effective, evidence-based care plans for patients requiring complex spine surgery in Florida.",
   "schedule": "Experiencing severe lumbar spine symptoms? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss ALCF.",
   "slug": "anterior-lumbar-corpectomy-and-fusion",
-  "keywords": ["Anterior Lumbar Corpectomy and Fusion", "ALCF surgery", "complex spine surgery", "spinal cord decompression Florida", "vertebral body replacement", "lumbar spine tumor surgery"]
+  "keywords": ["Anterior Lumbar Corpectomy and Fusion", "ALCF surgery", "complex spine surgery", "spinal cord decompression Florida", "vertebral body replacement", "lumbar spine tumor surgery"],
+  "metaTitle": "Anterior Lumbar Corpectomy and Fusion - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about anterior lumbar corpectomy and fusion for severe spinal cord compression. Our orthopedic specialists provide personalized care for lasting spinal stability."
 },
 {
   "title": "Anterior Lumbar Interbody Fusion",
@@ -209,7 +217,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our spine specialists are skilled in performing ALIF using advanced techniques. Our orthopedic center conducts thorough diagnostic evaluations to determine if ALIF in Florida is the most appropriate solution for your specific condition, aiming to restore function and provide lasting relief.",
   "schedule": "Start your recovery with expert orthopedic care in Florida. Contact Mountain Spine & Orthopedics for a consultation regarding ALIF.",
   "slug": "anterior-lumbar-interbody-fusion",
-  "keywords": ["Anterior Lumbar Interbody Fusion", "ALIF surgery", "minimally invasive spine surgery", "DDD lumbar treatment Florida", "spondylolisthesis surgical options", "low back instability solutions"]
+  "keywords": ["Anterior Lumbar Interbody Fusion", "ALIF surgery", "minimally invasive spine surgery", "DDD lumbar treatment Florida", "spondylolisthesis surgical options", "low back instability solutions"],
+  "metaTitle": "Anterior Lumbar Interbody Fusion - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about anterior lumbar interbody fusion for lower back pain and instability. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Hybrid Lumbar Spine Surgery",
@@ -225,7 +235,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in advanced multilevel fusion and motion-preserving procedures. Our center uses comprehensive diagnostics and advanced imaging techniques to create a personalized surgical plan balancing stability and motion preservation for patients in Florida.",
   "schedule": "Living with multilevel lumbar spine pain? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss hybrid surgery.",
   "slug": "hybrid-lumbar-spine-surgery",
-  "keywords": ["Hybrid lumbar spine surgery", "multilevel DDD treatment Florida", "lumbar fusion with ADR", "motion-sparing back surgery options", "complex lumbar spine reconstruction", "orthopedic surgeon Florida"]
+  "keywords": ["Hybrid lumbar spine surgery", "multilevel DDD treatment Florida", "lumbar fusion with ADR", "motion-sparing back surgery options", "complex lumbar spine reconstruction", "orthopedic surgeon Florida"],
+  "metaTitle": "Hybrid Lumbar Spine Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about hybrid lumbar spine surgery for multilevel degenerative disc disease. Our orthopedic specialists provide personalized care for lasting pain relief and improved mobility."
 },
 {
   "title": "Lumbar Fusion Surgery",
@@ -241,7 +253,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons specialize in complex lumbar fusion procedures, utilizing advanced techniques, including minimally invasive approaches. Our orthopedic practice conducts comprehensive evaluations with advanced imaging techniques to determine if lumbar fusion in Florida is the most beneficial treatment.",
   "schedule": "If chronic low back pain or spinal instability is impacting your life, schedule a consultation with Mountain Spine & Orthopedics. Receive a complimentary MRI review and find out if lumbar fusion surgery is right for you.",
   "slug": "lumbar-fusion-surgery",
-  "keywords": ["Lumbar fusion surgery", "spinal stabilization Florida", "DDD surgical care", "spondylolisthesis treatment", "minimally invasive lumbar fusion", "orthopedic surgeon Florida", "chronic low back pain solutions"]
+  "keywords": ["Lumbar fusion surgery", "spinal stabilization Florida", "DDD surgical care", "spondylolisthesis treatment", "minimally invasive lumbar fusion", "orthopedic surgeon Florida", "chronic low back pain solutions"],
+  "metaTitle": "Lumbar Fusion Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about lumbar fusion surgery for chronic lower back pain. Our orthopedic specialists provide personalized care for lasting pain relief and improved spinal function."
 },
 {
   "title": "Spinal Fusion Surgery",
@@ -257,7 +271,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons specialize in complex fusion procedures, utilizing advanced imaging techniques and computer navigation for precise surgical planning. Our center's comprehensive evaluation ensures fusion is the most appropriate evidence-based care plan for patients in Florida.",
   "schedule": "Suffering from chronic back pain, instability, or deformity? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "spinal-fusion",
-  "keywords": ["Spinal fusion surgery", "vertebral stabilization Florida", "DDD surgical options", "scoliosis surgery", "minimally invasive spine fusion", "orthopedic spine care", "back pain surgical relief"]
+  "keywords": ["Spinal fusion surgery", "vertebral stabilization Florida", "DDD surgical options", "scoliosis surgery", "minimally invasive spine fusion", "orthopedic spine care", "back pain surgical relief"],
+  "metaTitle": "Spinal Fusion Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about spinal fusion surgery for chronic back pain and instability. Our orthopedic specialists provide personalized care for lasting pain relief and improved spinal function."
 },
 {
   "title": "Understanding TLIF Surgery",
@@ -273,7 +289,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in performing TLIF using both traditional and minimally invasive techniques. Our practice conducts comprehensive diagnostic evaluations, including advanced imaging techniques, to confirm if TLIF in Florida is the most effective option for your specific spinal condition.",
   "schedule": "Living with persistent lower back pain or sciatica? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "understanding-tlif-surgery",
-  "keywords": ["TLIF surgery", "Transforaminal Lumbar Interbody Fusion", "minimally invasive lumbar fusion Florida", "lumbar spine stabilization", "degenerative disc disease TLIF", "spondylolisthesis surgical treatment", "sciatica relief surgery"]
+  "keywords": ["TLIF surgery", "Transforaminal Lumbar Interbody Fusion", "minimally invasive lumbar fusion Florida", "lumbar spine stabilization", "degenerative disc disease TLIF", "spondylolisthesis surgical treatment", "sciatica relief surgery"],
+  "metaTitle": "Understanding TLIF Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about transforaminal lumbar interbody fusion (TLIF) for lower back pain from degenerative disc disease or instability. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Posterior Cervical Fusion with Instrumentation Surgery",
@@ -289,7 +307,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in complex posterior cervical fusion with instrumentation. Our center in Florida uses advanced imaging and evidence-based care plans for meticulous surgical planning to achieve strong spinal stability and effective neural decompression for your neck condition.",
   "schedule": "Diagnosed with cervical instability or spinal cord compression? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "posterior-cervical-fusion-with-instrumentation-surgery",
-  "keywords": ["Posterior cervical fusion instrumentation", "cervical spine fixation", "neck stabilization surgery Florida", "spinal cord relief neck", "cervical myelopathy surgery", "neck fracture care"]
+  "keywords": ["Posterior cervical fusion instrumentation", "cervical spine fixation", "neck stabilization surgery Florida", "spinal cord relief neck", "cervical myelopathy surgery", "neck fracture care"],
+  "metaTitle": "Posterior Cervical Fusion with Instrumentation - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about posterior cervical fusion with instrumentation for cervical spine stabilization and relief from neck pain. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Posterior Cervical Fusion Surgery",
@@ -305,7 +325,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in posterior cervical fusion procedures. Our practice uses comprehensive assessments, including advanced imaging techniques, to plan the surgery meticulously, aiming for optimal spinal stability and neural decompression for patients in Florida.",
   "schedule": "Experiencing spinal instability or neurological symptoms related to neck compression? Schedule a consultation with Mountain Spine & Orthopedics. Receive a complimentary MRI review and explore if posterior cervical fusion is your solution.",
   "slug": "posterior-cervical-fusion-surgery",
-  "keywords": ["Posterior cervical fusion", "neck surgery for instability", "orthopedic care Florida", "cervical spine stabilization", "CSM surgical management", "neck pain from fracture treatment", "vertebral fusion for neck conditions"]
+  "keywords": ["Posterior cervical fusion", "neck surgery for instability", "orthopedic care Florida", "cervical spine stabilization", "CSM surgical management", "neck pain from fracture treatment", "vertebral fusion for neck conditions"],
+  "metaTitle": "Posterior Cervical Fusion - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about posterior cervical fusion for cervical spine stabilization and relief from neck pain. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Anterior Cervical Corpectomy and Fusion",
@@ -321,7 +343,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our spine specialists are highly experienced in performing complex cervical fusion procedures like ACCF. Our center utilizes state-of-the-art diagnostics, including advanced imaging techniques, for precise surgical planning tailored to your unique anatomy and condition, ensuring optimal spinal decompression for patients in Florida.",
   "schedule": "Experiencing severe cervical spine symptoms? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss ACCF.",
   "slug": "anterior-cervical-corpectomy-and-fusion",
-  "keywords": ["Anterior Cervical Corpectomy and Fusion", "ACCF surgery", "Florida spine institute", "cervical spinal cord surgery", "neck fusion for severe stenosis", "spine care options Florida", "OPLL surgical treatment", "cervical vertebral body fusion"]
+  "keywords": ["Anterior Cervical Corpectomy and Fusion", "ACCF surgery", "Florida spine institute", "cervical spinal cord surgery", "neck fusion for severe stenosis", "spine care options Florida", "OPLL surgical treatment", "cervical vertebral body fusion"],
+  "metaTitle": "Anterior Cervical Corpectomy and Fusion - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about anterior cervical corpectomy and fusion for cervical spine stabilization and relief from neck pain. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "ACDF Surgery",
@@ -337,7 +361,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our orthopedic practice uses clinical examination and complimentary high-resolution MRI and/or CT scans to evaluate disc health and nerve compression for ACDF planning. Our board-certified surgeons in Florida are experts in this common and effective neck procedure.",
   "schedule": "Experiencing chronic neck pain or nerve symptoms? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "acdf-surgery",
-  "keywords": ["ACDF surgery", "Anterior Cervical Discectomy and Fusion", "Florida neck surgery center", "neck fusion for arm pain", "cervical DDD surgical relief", "spine care specialist Florida", "cervical radiculopathy ACDF", "herniated disc neck fusion", "minimally invasive neck surgery", "cervical spine fusion", "neck pain treatment", "cervical disc herniation surgery", "Florida spine surgeon", "cervical stenosis treatment", "neck surgery recovery"]
+  "keywords": ["ACDF surgery", "Anterior Cervical Discectomy and Fusion", "Florida neck surgery center", "neck fusion for arm pain", "cervical DDD surgical relief", "spine care specialist Florida", "cervical radiculopathy ACDF", "herniated disc neck fusion", "minimally invasive neck surgery", "cervical spine fusion", "neck pain treatment", "cervical disc herniation surgery", "Florida spine surgeon", "cervical stenosis treatment", "neck surgery recovery"],
+  "metaTitle": "ACDF Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about anterior cervical discectomy and fusion for cervical disc herniation and nerve root compression. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Lumbar Disc Replacement Surgery",
@@ -353,7 +379,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are experts in advanced, minimally invasive lumbar disc replacement surgery. Our center uses thorough diagnostics, including advanced imaging techniques, to ensure this motion-preserving option offered in Florida is appropriate for your specific pathology and activity goals.",
   "schedule": "Living with chronic low back pain and seeking a motion-preserving surgical solution? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "lumbar-disc-replacement-surgery",
-  "keywords": ["Lumbar disc replacement", "artificial disc surgery Florida L5-S1", "orthopedic care", "motion preservation back surgery", "degenerative disc disease L4-L5", "spine health options Florida", "chronic low back pain ADR", "minimally invasive lumbar arthroplasty"]
+  "keywords": ["Lumbar disc replacement", "artificial disc surgery Florida L5-S1", "orthopedic care", "motion preservation back surgery", "degenerative disc disease L4-L5", "spine health options Florida", "chronic low back pain ADR", "minimally invasive lumbar arthroplasty"],
+  "metaTitle": "Lumbar Disc Replacement - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about lumbar disc replacement for degenerative disc disease. Our orthopedic specialists provide personalized care for lasting pain relief and improved spinal function."
 },
 {
   "title": "Artificial Disc Replacement Surgery",
@@ -369,7 +397,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our spine specialists are experienced in Artificial Disc Replacement surgery. Our practice conducts comprehensive evaluations, including MRI and dynamic X-rays, to confirm candidacy for this motion-preserving procedure, ensuring it's the best option for your long-term spinal health in Florida. Image shows a back view of ADR, highlighting implant positioning.",
   "schedule": "Chronic neck or back pain limiting your lifestyle? Schedule a consultation with Mountain Spine & Orthopedics. Explore whether artificial disc replacement surgery is the right solution for your spinal health.",
   "slug": "artificial-disc-replacement-surgery",
-  "keywords": ["Artificial disc replacement", "ADR surgery", "Florida orthopedic center", "motion preservation spine technology", "DDD relief options", "spine care specialist", "total disc arthroplasty outcomes", "non-fusion spine surgery"]
+  "keywords": ["Artificial disc replacement", "ADR surgery", "Florida orthopedic center", "motion preservation spine technology", "DDD relief options", "spine care specialist", "total disc arthroplasty outcomes", "non-fusion spine surgery"],
+  "metaTitle": "Artificial Disc Replacement - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about artificial disc replacement for degenerative disc disease. Our orthopedic specialists provide personalized care for lasting pain relief and improved spinal function."
 },
 {
   "title": "Cervical Disc Arthroplasty",
@@ -385,7 +415,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are experts in cervical disc arthroplasty. Our center uses thorough diagnostics, including MRI and CT scans, to evaluate candidacy for this motion-preserving procedure, ensuring effective symptom relief while preserving spinal mobility for patients in Florida.",
   "schedule": "Experiencing neck pain or neurological symptoms from cervical disc damage? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "cervical-disc-arthroplasty",
-  "keywords": ["Cervical disc arthroplasty", "CDA surgery", "Florida neck pain specialist", "neck artificial disc replacement", "motion-sparing neck surgery", "spine care center Florida", "cervical radiculopathy ADR", "non-fusion neck surgery"]
+  "keywords": ["Cervical disc arthroplasty", "CDA surgery", "Florida neck pain specialist", "neck artificial disc replacement", "motion-sparing neck surgery", "spine care center Florida", "cervical radiculopathy ADR", "non-fusion neck surgery"],
+  "metaTitle": "Cervical Disc Arthroplasty - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about cervical disc arthroplasty for cervical disc herniation and nerve root compression. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Motion Preservation Spine Surgery",
@@ -401,7 +433,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are at the forefront of motion preservation techniques. Our practice uses comprehensive diagnostics and evidence-based care plans to determine if options like artificial disc replacement are best for your pathology and goals, prioritizing pain relief and spinal movement for patients in Florida.",
   "schedule": "Looking for a spine solution that doesn't compromise movement? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "motion-preservation-spine-surgery",
-  "keywords": ["Motion preservation spine surgery", "Florida spine specialist", "non-fusion spine options", "ADR and dynamic stabilization", "orthopedic spine care", "spine health innovation", "maintaining spinal motion", "alternatives to fusion surgery"]
+  "keywords": ["Motion preservation spine surgery", "Florida spine specialist", "non-fusion spine options", "ADR and dynamic stabilization", "orthopedic spine care", "spine health innovation", "maintaining spinal motion", "alternatives to fusion surgery"],
+  "metaTitle": "Motion Preservation Spine Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about motion preservation spine surgery for degenerative disc disease. Our orthopedic specialists provide personalized care for lasting pain relief and improved spinal function."
 },
 {
   "title": "Total Hip Replacement Surgery",
@@ -417,7 +451,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our board-certified orthopedic surgeons specializing in hip replacement use advanced techniques. Our center's diagnostic process includes advanced imaging techniques to evaluate hip joint damage and bone quality, personalizing your evidence-based care plan in Florida, potentially with robotic-assisted navigation for optimal implant positioning.",
   "schedule": "Chronic hip pain keeping you from living fully? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss total hip replacement.",
   "slug": "total-hip-replacement",
-  "keywords": ["Total hip replacement", "THA surgery", "Florida hip surgeon", "hip arthritis surgery", "minimally invasive hip replacement", "joint replacement options Florida", "hip pain after injury", "robotic-assisted hip surgery"]
+  "keywords": ["Total hip replacement", "THA surgery", "Florida hip surgeon", "hip arthritis surgery", "minimally invasive hip replacement", "joint replacement options Florida", "hip pain after injury", "robotic-assisted hip surgery"],
+  "metaTitle": "Total Hip Replacement - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about total hip replacement for severe hip arthritis. Our orthopedic specialists provide personalized care for lasting pain relief and improved mobility."
 },
 {
   "title": "Total Knee Replacement Surgery",
@@ -433,7 +469,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our board-certified orthopedic surgeons specializing in knee replacement use advanced techniques. Our practice's diagnostic process includes advanced imaging to assess joint damage, planning personalized care in Florida, potentially with robotic navigation for optimal knee replacement outcomes and lasting knee pain solutions.",
   "schedule": "Chronic knee pain significantly interfering with your life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "total-knee-replacement",
-  "keywords": ["Total knee replacement", "TKA surgery", "Florida knee surgeon", "knee arthritis surgery", "minimally invasive knee replacement", "joint replacement options Florida", "knee pain after injury", "robotic-assisted knee surgery"]
+  "keywords": ["Total knee replacement", "TKA surgery", "Florida knee surgeon", "knee arthritis surgery", "minimally invasive knee replacement", "joint replacement options Florida", "knee pain after injury", "robotic-assisted knee surgery"],
+  "metaTitle": "Total Knee Replacement - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about total knee replacement for severe knee arthritis. Our orthopedic specialists provide personalized care for lasting pain relief and improved mobility."
 },
 {
   "title": "Posterior Cervical Laminoplasty Surgery",
@@ -449,7 +487,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in advanced cervical spine decompression techniques like posterior cervical laminoplasty. Our center uses advanced imaging techniques to determine if this motion-preserving option is best for your condition, offering expert care in Florida.",
   "schedule": "Experiencing symptoms of cervical spinal cord compression? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "posterior-cervical-laminoplasty",
-  "keywords": ["Posterior cervical laminoplasty", "motion-sparing neck surgery", "Florida orthopedic spine care", "cervical myelopathy treatment options", "spinal cord decompression without fusion", "spine health solutions", "multilevel cervical stenosis surgery", "OPLL laminoplasty"]
+  "keywords": ["Posterior cervical laminoplasty", "motion-sparing neck surgery", "Florida orthopedic spine care", "cervical myelopathy treatment options", "spinal cord decompression without fusion", "spine health solutions", "multilevel cervical stenosis surgery", "OPLL laminoplasty"],
+  "metaTitle": "Posterior Cervical Laminoplasty - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about posterior cervical laminoplasty for cervical spinal stenosis and myelopathy. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Posterior Cervical Foraminotomy Surgery",
@@ -465,7 +505,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in minimally invasive cervical spine procedures like posterior cervical foraminotomy. Our practice uses advanced imaging techniques to precisely identify nerve compression, ensuring targeted treatment to relieve your symptoms effectively in Florida.",
   "schedule": "Experiencing persistent arm pain or nerve symptoms due to cervical spine issues? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "posterior-cervical-foraminotomy-surgery",
-  "keywords": ["Posterior cervical foraminotomy", "minimally invasive neck surgery", "Florida orthopedic solutions", "cervical radiculopathy surgical relief", "nerve decompression for neck pain", "spine health Florida", "pinched nerve neck operation", "foraminal stenosis cervical treatment"]
+  "keywords": ["Posterior cervical foraminotomy", "minimally invasive neck surgery", "Florida orthopedic solutions", "cervical radiculopathy surgical relief", "nerve decompression for neck pain", "spine health Florida", "pinched nerve neck operation", "foraminal stenosis cervical treatment"],
+  "metaTitle": "Posterior Cervical Foraminotomy - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about posterior cervical foraminotomy for cervical radiculopathy and nerve root compression. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Lumbar Laminectomy Surgery",
@@ -481,7 +523,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our board-certified spine surgeons are highly experienced in advanced decompression techniques, including minimally invasive lumbar laminectomy. Our center uses advanced imaging techniques to precisely visualize nerve compression and plan the most appropriate evidence-based care plan to improve your quality of life in Florida.",
   "schedule": "Spinal stenosis or nerve compression affecting your life? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "lumbar-laminectomy-surgery",
-  "keywords": ["Lumbar laminectomy", "spinal stenosis surgery", "Florida orthopedic spine care", "minimally invasive back operation", "nerve decompression for leg pain", "spine health solutions Florida", "neurogenic claudication surgery", "lumbar spinal canal decompression"]
+  "keywords": ["Lumbar laminectomy", "spinal stenosis surgery", "Florida orthopedic spine care", "minimally invasive back operation", "nerve decompression for leg pain", "spine health solutions Florida", "neurogenic claudication surgery", "lumbar spinal canal decompression"],
+  "metaTitle": "Lumbar Laminectomy - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about lumbar laminectomy for spinal stenosis and nerve root compression. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Lumbar Decompression Surgery",
@@ -497,7 +541,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our board-certified spine surgeons specialize in advanced decompression techniques, including minimally invasive approaches. Our practice uses advanced imaging techniques to identify the cause of nerve compression and tailor the most effective surgical treatment to improve your quality of life in Florida.",
   "schedule": "Lower back pain or radiating leg pain interfering with daily life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "lumbar-decompression",
-  "keywords": ["Lumbar decompression surgery", "spinal stenosis treatment", "Florida orthopedic solutions", "minimally invasive lumbar options", "sciatica surgical management", "spine health Florida", "pinched nerve relief surgery lower back", "leg pain from spinal compression"]
+  "keywords": ["Lumbar decompression surgery", "spinal stenosis treatment", "Florida orthopedic solutions", "minimally invasive lumbar options", "sciatica surgical management", "spine health Florida", "pinched nerve relief surgery lower back", "leg pain from spinal compression"],
+  "metaTitle": "Lumbar Decompression - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about lumbar decompression for spinal stenosis and nerve root compression. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Lumbar Microendoscopic Discectomy Surgery",
@@ -513,7 +559,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in advanced minimally invasive techniques like lumbar microendoscopic discectomy. Our center uses high-resolution MRI and other advanced imaging techniques to plan precise removal of the offending disc fragment, ensuring optimal outcomes for patients in Florida.",
   "schedule": "Suffering from a herniated disc or sciatica? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss MED.",
   "slug": "lumbar-microendoscopic-discectomy-surgery",
-  "keywords": ["Lumbar microendoscopic discectomy", "MED surgery", "Florida orthopedic specialist", "endoscopic discectomy for herniated disc", "minimally invasive sciatica surgery", "spine care center", "nerve root decompression MED procedure", "fast recovery spine surgery"]
+  "keywords": ["Lumbar microendoscopic discectomy", "MED surgery", "Florida orthopedic specialist", "endoscopic discectomy for herniated disc", "minimally invasive sciatica surgery", "spine care center", "nerve root decompression MED procedure", "fast recovery spine surgery"],
+  "metaTitle": "Lumbar Microendoscopic Discectomy - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about lumbar microendoscopic discectomy for herniated disc. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Lumbar Microdiscectomy Surgery",
@@ -529,7 +577,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in minimally invasive lumbar microdiscectomy. Our practice uses high-resolution MRI and other advanced imaging techniques to precisely visualize the herniated disc, ensuring targeted treatment to effectively relieve nerve pressure for patients in Florida.",
   "schedule": "Herniated disc causing persistent sciatica? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "lumbar-microdiscectomy-surgery",
-  "keywords": ["Lumbar microdiscectomy", "minimally invasive spine surgery", "Florida orthopedic care", "herniated disc surgery relief", "sciatica treatment options", "spine health management", "radiculopathy surgical solution", "microsurgical discectomy benefits"]
+  "keywords": ["Lumbar microdiscectomy", "minimally invasive spine surgery", "Florida orthopedic care", "herniated disc surgery relief", "sciatica treatment options", "spine health management", "radiculopathy surgical solution", "microsurgical discectomy benefits"],
+  "metaTitle": "Lumbar Microdiscectomy - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about lumbar microdiscectomy for herniated disc. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Degenerative Disc Disease Surgery",
@@ -545,7 +595,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our board-certified spine surgeons are experts in diagnosing and treating DDD with advanced surgical options, including minimally invasive fusion and motion-preserving disc replacement. Our center uses comprehensive diagnostics and evidence-based care plans for tailored surgical strategies in Florida.",
   "schedule": "Living with persistent back or neck pain from degenerative disc disease? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "degenerative-disc-disease-surgery",
-  "keywords": ["Degenerative disc disease surgery", "DDD surgery", "Florida spine center", "spinal fusion for disc pain", "artificial disc for DDD", "spine care solutions", "chronic back pain surgical options", "minimally invasive treatment for DDD"]
+  "keywords": ["Degenerative disc disease surgery", "DDD surgery", "Florida spine center", "spinal fusion for disc pain", "artificial disc for DDD", "spine care solutions", "chronic back pain surgical options", "minimally invasive treatment for DDD"],
+  "metaTitle": "Degenerative Disc Disease Surgery - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about degenerative disc disease surgery for chronic back or neck pain. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Percutaneous Discectomy",
@@ -561,7 +613,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our pain management specialists and spine surgeons are experienced in percutaneous discectomy. Our practice uses advanced imaging techniques for diagnosis and precise image guidance during the procedure to ensure accurate removal of herniated disc material for effective nerve compression relief in Florida.",
   "schedule": "Dealing with persistent nerve pain due to a herniated disc? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "percutaneous-discectomy",
-  "keywords": ["Percutaneous discectomy", "minimally invasive discectomy", "Florida orthopedic solutions", "herniated disc needle treatment", "non-surgical spine intervention", "spine health options", "sciatica outpatient treatment", "cervical disc pain management"]
+  "keywords": ["Percutaneous discectomy", "minimally invasive discectomy", "Florida orthopedic solutions", "herniated disc needle treatment", "non-surgical spine intervention", "spine health options", "sciatica outpatient treatment", "cervical disc pain management"],
+  "metaTitle": "Percutaneous Discectomy - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about percutaneous discectomy for symptomatic herniated or bulging discs. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Resurfacing Shoulder Replacement Treatment",
@@ -577,7 +631,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our orthopedic surgeons specializing in shoulder surgery are skilled in bone-sparing procedures like resurfacing. Our center uses advanced imaging techniques to determine if resurfacing in Florida is the most appropriate option for your condition and activity goals, focusing on joint health preservation.",
   "schedule": "Chronic shoulder pain or limited motion? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss resurfacing.",
   "slug": "resurfacing-shoulder-replacement",
-  "keywords": ["Resurfacing shoulder replacement", "shoulder hemiarthroplasty", "Florida orthopedic surgeon", "bone-sparing shoulder surgery", "shoulder arthritis non-total replacement", "joint preservation shoulder", "shoulder AVN surgical option", "active patient shoulder care"]
+  "keywords": ["Resurfacing shoulder replacement", "shoulder hemiarthroplasty", "Florida orthopedic surgeon", "bone-sparing shoulder surgery", "shoulder arthritis non-total replacement", "joint preservation shoulder", "shoulder AVN surgical option", "active patient shoulder care"],
+  "metaTitle": "Resurfacing Shoulder Replacement - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about resurfacing shoulder replacement for arthritis. Our orthopedic specialists provide personalized care for lasting pain relief and improved mobility."
 },
 {
   "title": "Hip Arthroscopy Treatment",
@@ -593,7 +649,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our orthopedic surgeons specializing in hip preservation are highly skilled in advanced hip arthroscopy. Our practice uses advanced imaging techniques and diagnostic injections to confirm intra-articular hip pathology, ensuring targeted treatment to restore your hip function in Florida.",
   "schedule": "Hip pain, clicking, or stiffness limiting your movement? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "hip-arthroscopy-treatment",
-  "keywords": ["Hip arthroscopy", "minimally invasive hip procedure Florida", "orthopedic care", "hip labral tear surgery", "FAI treatment options", "joint preservation for hip", "hip pain management Florida", "sports medicine hip specialist"]
+  "keywords": ["Hip arthroscopy", "minimally invasive hip procedure Florida", "orthopedic care", "hip labral tear surgery", "FAI treatment options", "joint preservation for hip", "hip pain management Florida", "sports medicine hip specialist"],
+  "metaTitle": "Hip Arthroscopy - Mountain Spine & Orthopedics",
+  "metaDesc": "Learn about hip arthroscopy for labral tears and impingement. Our orthopedic specialists provide personalized care for lasting pain relief."
 },
 {
   "title": "Arthroscopic Knee Surgery",
@@ -609,6 +667,8 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our board-certified orthopedic surgeons are highly skilled in advanced arthroscopic knee surgery. Our center's diagnostic evaluation includes physical exams and advanced imaging techniques to precisely assess internal knee structures, ensuring a tailored surgical plan for optimal outcomes in Florida.",
   "schedule": "Knee pain interfering with your mobility? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss arthroscopic surgery.",
   "slug": "arthroscopic-knee-surgery",
+  "keywords": ["Arthroscopic knee surgery", "minimally invasive knee surgery", "Florida orthopedic solutions", "meniscus tear arthroscopy", "knee cartilage damage repair", "joint pain relief Florida (knee)", "ACL tear arthroscopic options", "sports injury knee specialist"],
+  "metaTitle": "Arthroscopic Knee Surgery - Mountain Spine & Orthopedics",
   "keywords": ["Arthroscopic knee surgery", "minimally invasive knee surgery", "Florida orthopedic solutions", "meniscus tear arthroscopy", "knee cartilage damage repair", "joint pain relief Florida (knee)", "ACL tear arthroscopic options", "sports injury knee specialist"]
 },
 {

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import HomePageUI from '@/app/ui/HomePageUI';
+import HomePageUI from '@/app/ui/HomePageUI'; // Assuming your UI code is in this component
 
-// ✅ Server-Rendered Metadata for Homepage SEO
+// ✅ Server-Rendered Metadata for Homepage SEO (This part is correct)
 export const metadata: Metadata = {
   title: ' Mountain Spine & Orthopedics | Top Florida Orthopedic Surgeons',
   description: 'Mountain Spine & Orthopedics offers expert care in minimally invasive spine surgery, joint pain relief, herniated disc treatment, and nerve pain therapy. Book your free MRI review or second opinion today across multiple Florida locations.',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   ],
 };
 
-// ✅ JSON-LD Schema for Search Engine Rich Results
+// ✅ JSON-LD Schema for Search Engine Rich Results (This part is also correct)
 const HomePageJsonLdSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
@@ -82,7 +82,11 @@ const HomePageJsonLdSchema = () => {
   );
 };
 
-// ✅ Final Server Component with Injected Schema and UI
+// --- FIX: Separating the UI into a Client Component ---
+// Your `HomePageUI` component contains all the interactive JSX.
+// Ensure that the file (`app/ui/HomePageUI.tsx`) begins with the line: 'use client';
+// This `page.tsx` file remains a clean Server Component.
+
 export default function Home() {
   return (
     <>

@@ -1,33 +1,54 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
-export async function generateMetadata({ params }: { params: { FootSlug: string } }, parent: ResolvingMetadata) {
-    const condition = conditions.filter(x => x.slug === params.FootSlug)[0]
+
+function capitalizeWords(str: string): string {
+  return str.replace(/\b\w/g, l => l.toUpperCase());
+}
+
+export async function generateMetadata({ params }: { params: { FootSlug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
+    const painArea = conditions.find(x => x.slug === params.FootSlug);
+
+    if (!painArea) {
+        const readableSlug = params.FootSlug.replace(/-/g, " ");
+        return {
+            title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+            description: "Learn about orthopedic care and treatments with our specialists in Florida."
+        };
+    }
+
+    const painAreaUrl = `https://mountainspineorthopedics.com/area-of-pain/foot-pain/${painArea.slug}`;
+
     return {
-      title: condition.title,
-      description: condition.body,
-      keywords: condition.keywords,
-      openGraph: {
-        title: `${condition.title} | Mountain Spine & Orthopedics`,
-        description: condition.body,
-        type: "article",
-        url: `https://mountainspineorthopedics.com/blogs/${condition.slug}`,
-        publishedTime: '2025-05-18',
-        modifiedTime: '2025-05-18',
-        authors: ["https://mountainspineorthopedics.com/about"],
-        tags: condition.keywords,
-        images: [
-          {
-            url: condition.card_img,
-            width: 1024,
-            height: 576,
-            alt: condition.title,
-            type: "image/png"
-          }
-        ]
-      },
-      alternates: {
-        canonical: `https://mountainspineorthopedics.com/area-of-pain/foot-pain/${condition.slug}`
-      } 
+        metadataBase: new URL('https://mountainspineorthopedics.com'),
+        title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
+        description: painArea.metaDesc || painArea.body,
+        keywords: painArea.keywords || [painArea.title, "foot pain", "orthopedic treatment"],
+        
+        openGraph: {
+            title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
+            description: painArea.metaDesc || painArea.body,
+            type: "article",
+            url: painAreaUrl,
+            images: [
+                {
+                    url: typeof painArea.card_img === "string" ? painArea.card_img : painArea.card_img?.src || "https://mountainspineorthopedics.com/default-image.png",
+                    width: 1200,
+                    height: 630,
+                    alt: painArea.title,
+                },
+            ],
+        },
+
+        twitter: {
+            card: "summary_large_image",
+            title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
+            description: painArea.metaDesc || painArea.body,
+            images: [typeof painArea.card_img === "string" ? painArea.card_img : painArea.card_img?.src || "https://mountainspineorthopedics.com/default-image.png"],
+        },
+
+        alternates: {
+            canonical: painAreaUrl,
+        },
     };
 }
 

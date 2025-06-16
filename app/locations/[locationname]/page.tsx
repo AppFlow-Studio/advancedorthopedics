@@ -145,7 +145,7 @@ export default function LocationDetails(
                 />
 
                 <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between sm:py-20">
-                <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-4 relative xl:pb-[160px]">
+                <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 py-4 relative xl:pb-[160px]">
                 
                 <SlidingDiv position="left" className="z-[2]"
                 >

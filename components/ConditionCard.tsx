@@ -27,7 +27,9 @@ export interface ConditionInfoProp {
     prevent?: string;
     schedule?: string;
     keywords?: string[];
-  }
+    metaTitle?: string;
+    metaDesc?: string;
+}
 
 
 

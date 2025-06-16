@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -50,6 +50,28 @@ export default function HomePageUI() {
   const [selectedOrthoCondition, setSelectedOrthoCondition] = useState(OrthoConditionsWeTreat[0]);
   const router = useRouter();
   const [treatmentFilter, setTreatmentFilter] = useState<string>('');
+  const [hasMounted, setHasMounted] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    setHasMounted(true);
+    // Calculate initial dimensions
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+    
+    // Initial calculation
+    updateDimensions();
+    
+    // Add resize listener
+    window.addEventListener('resize', updateDimensions);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
   const SendTreatmentFilterData = (treatmentfilter: string) => {
     setTreatmentFilter(treatmentfilter);
@@ -131,13 +153,21 @@ export default function HomePageUI() {
                 background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
             }}
             >
-                <Marquee pauseOnHover className="w-full" >
-                {
-                    [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                    <Image key={index} src={item} alt="Logo of a professional medical association" className=" lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]" draggable={false}/>
-                    ))
-                }
-                </Marquee>
+                {hasMounted && dimensions.width > 0 && (
+                  <div className="w-full">
+                    <Marquee pauseOnHover className="w-full">
+                      {[AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+                        <Image 
+                          key={index} 
+                          src={item} 
+                          alt="Logo of a professional medical association" 
+                          className="lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]" 
+                          draggable={false}
+                        />
+                      ))}
+                    </Marquee>
+                  </div>
+                )}
             </div>
         </section>
 
@@ -571,7 +601,7 @@ export default function HomePageUI() {
         <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] ">
           <div
             style={{
-              background : 'linear-gradient(246deg, #FAFBFC 13.17%, #E0F5FF 52.92%, #E1ECFE 99.53%)'
+              background: 'linear-gradient(246deg, #FAFBFC 13.17%, #E0F5FF 52.92%, #E1ECFE 99.53%)'
             }}
             className=" w-full p-[40px] rounded-[24px] items-center justify-center flex flex-col space-y-[0px]"
           >
@@ -610,47 +640,56 @@ export default function HomePageUI() {
                   }}
                   className="text-lg text-[#5B5F67] mt-[20px] text-center w-full md:w-[55%] self-center"
                 >
-                  Trust Mountain Spine & Orthopaedics for expert care, compassionate service, and results 
+                  Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results 
                   that make a difference. Your mobility and well-being are our top priority!
                 </h1>
               </div>
             </div>
-            <div className=" w-full md:mt-[60px] mt-4 ">
-              <Carousel className="w-full h-full " >
-                <CarouselContent className=" -ml-4 md:gap-x-4 " minusOffset={2}>
-                  {
-                    PainToProgress.map((item, index) => (
-                      <CarouselItem className="xl:basis-1/3 md:basis-1/2 pl-6 relative" key={index}>
-                        <div className=" bg-[#EFF5FF] flex flex-col p-4 rounded-[24px] space-y-[32px]" key={item.title}>
-                          <div >
-                            <Image src={item.img} alt={item.title} className="w-full max-h-[240px] h-[240px] object-cover rounded-[24px] lg:h-[240px]" draggable={false}/>
+            <div className="w-full md:mt-[60px] mt-4">
+              {hasMounted && dimensions.width > 0 && (
+                <div className="w-full">
+                  <Carousel className="w-full h-full">
+                    <CarouselContent className="-ml-4 md:gap-x-4" minusOffset={2}>
+                      {PainToProgress.map((item, index) => (
+                        <CarouselItem className="xl:basis-1/3 md:basis-1/2 pl-6 relative" key={index}>
+                          <div className="bg-[#EFF5FF] flex flex-col p-4 rounded-[24px] space-y-[32px]" key={item.title}>
+                            <div>
+                              <Image 
+                                src={item.img} 
+                                alt={item.title} 
+                                className="w-full max-h-[240px] h-[240px] object-cover rounded-[24px] lg:h-[240px]" 
+                                draggable={false}
+                              />
+                            </div>
+                            <div className="flex flex-col space-y-[16px]">
+                              <h1
+                                style={{
+                                  fontFamily: "var(--font-reem-kufi)",
+                                  fontWeight: 500,
+                                  color: '#022968',
+                                }}
+                                className="text-xl"
+                              >
+                                {item.title}
+                              </h1>
+                              <h1
+                                style={{
+                                  fontFamily: "var(--font-reem-kufi)",
+                                  fontWeight: 500,
+                                  color: '#5B5F67',
+                                }}
+                                className="text-lg"
+                              >
+                                {item.body}
+                              </h1>
+                            </div>
                           </div>
-                          <div className=" flex flex-col space-y-[16px]">
-                            <h1
-                              style={{
-                                fontFamily: "var(--font-reem-kufi)",
-                                fontWeight: 500,
-                                color : '#022968',
-                              }}
-                              className="text-xl"
-                            >{item.title}</h1>
-                            <h1
-                              style={{
-                                fontFamily: "var(--font-reem-kufi)",
-                                fontWeight: 500,
-                                color : '#5B5F67',
-                              }}
-                              className="text-lg"
-                            >
-                              {item.body}
-                            </h1>
-                          </div>
-                        </div>
-                      </CarouselItem>
-                    ))
-                  }
-                </CarouselContent>
-              </Carousel>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
+                </div>
+              )}
             </div>
           </div>
         </section>

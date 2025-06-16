@@ -1,6 +1,10 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 
+function capitalizeWords(str: string): string {
+  return str.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 // This function dynamically generates metadata for each condition page.
 export async function generateMetadata(
     { params }: { params: { ConditionDetails: string } },
@@ -10,9 +14,10 @@ export async function generateMetadata(
     const condition = conditions.find(c => c.slug === params.ConditionDetails);
 
     if (!condition) {
+        const readableSlug = params.ConditionDetails.replace(/-/g, " ");
         return {
-            title: "Condition Not Found | Mountain Spine & Orthopedics",
-            description: "The requested medical condition could not be found.",
+            title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+            description: "Learn about orthopedic care and treatments with our specialists in Florida."
         };
     }
 
@@ -22,15 +27,15 @@ export async function generateMetadata(
 
     return {
       metadataBase: new URL('https://mountainspineorthopedics.com'),
-      title: `${condition.title} | Symptoms & Treatments | Mountain Spine`,
-      description: condition.body,
-      keywords: condition.keywords,
+      title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
+      description: condition.metaDesc || condition.body,
+      keywords: condition.keywords || [condition.title, "orthopedic condition", "spine condition"],
       alternates: {
         canonical: conditionUrl,
       },
       openGraph: {
-        title: `${condition.title} | Mountain Spine & Orthopedics`,
-        description: condition.body,
+        title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
+        description: condition.metaDesc || condition.body,
         url: conditionUrl,
         siteName: 'Mountain Spine & Orthopedics',
         type: "article",
@@ -43,8 +48,8 @@ export async function generateMetadata(
       },
       twitter: {
         card: "summary_large_image",
-        title: `${condition.title} | Symptoms & Diagnosis`,
-        description: condition.body,
+        title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
+        description: condition.metaDesc || condition.body,
         images: [imageUrl],
       },
     };

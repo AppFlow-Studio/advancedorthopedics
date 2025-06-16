@@ -104,6 +104,7 @@ export async function GET() {
   ${generateUrlEntry("/about")}
   ${generateUrlEntry("/about/FAQs")}
   ${generateUrlEntry("/condition-check")}
+  ${generateUrlEntry("/privacy-policy")}
   // --- Dynamic Pages from Data ---
 
   ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
