@@ -1,6 +1,5 @@
 import { StaticImageData } from 'next/image';
-
-// Define marker data (replace with your actual clinic data)
+import { Testimonial } from '../ui/testimonial-card';
 
 export interface ClinicsProps {
   id: number;
@@ -16,8 +15,26 @@ export interface ClinicsProps {
   keywords: string[];
   metaTitle: string;
   metaDescription: string;
+  specialists? : React.ReactNode;
+  skilled? : React.ReactNode;
+  whyChoose? : React.ReactNode;
+  easyToReach? : React.ReactNode;
+  nearby? : React.ReactNode;
+  advancedTreatments? : React.ReactNode;
+  whatOurPatientsSay? : React.ReactNode;
 }
 
+const LocationFeatures = ({
+  specialistHeader, specialistParagraph, skilledHeader, skilledParagraph, 
+  whyChooseHeader, whyChooseReasons, easyToReachHeader, easyToReachPlaces,
+  convenientHeader, convenientReason, 
+} : {specialistHeader : string, specialistParagraph : string}) => {
+  return (
+    <section className='flex flex-col space-y-4'>
+
+    </section>
+  )
+}
 export const clinics : ClinicsProps[]= [
     {
       id: 4,
@@ -78,7 +95,121 @@ export const clinics : ClinicsProps[]= [
       `,
       keywords: ['orlando orthopedic center', 'orlando orthopedic', 'orlando orthopedic center and walk-in clinic - lake nona', 'orlando orthopedic center orlando fl', 'orlando orthopedic lake nona', 'orlando orthopedic surgeons', 'orlando orthopedic center lake nona office', 'orlando orthopedic center lake nona', 'orlando spine and orthopedic specialists of central fl', 'orlando orthopedic center orthopedic injury walk-in clinic photos'],
       metaTitle: 'Orthopedic Center in Orlando & Walk-in Clinic in Central Florida',
-      metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.'
+      metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.',
+      specialists : 
+      <div className='flex flex-col space-y-4'>
+        <h1 style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-3xl '>Orlando Spine and Orthopedic Specialists of Central FL</h1>
+        <p className='text-lg'>Orlando residents can get world-class spine care right here in Central Florida. As your trusted <span className='font-bold'>Orlando orthopedic center</span>, Mountain Spine & Orthopedics brings expert care to Orlando families. We know Orlando life is active. Our goal is to give you the best care so you can get back to work and play.</p>
+      </div>,
+      skilled:
+      <div className='flex flex-col space-y-4'>
+        <h2  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Orlando & Nearby Areas</h2>
+        <p className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <a href='/treatments/back-pain-treatment' className='text-[#0094E0] underline '>back pain</a>, <a href ='/treatments/neck-pain-treatment underline' className='text-[#0094E0] underline'>neck pain</a>, <a href='/area-of-speciality/degenerative-disc-disease-surgery' className='text-[#0094E0] underline'>disc problems</a>, <a href='/area-of-speciality/acl-injury' className='text-[#0094E0] underline'>ACL injuries</a>, and work injuries. Every patient gets a treatment plan made just for them.</p>
+      </div>,
+      whyChoose: 
+      <div className='flex flex-col space-y-4'>
+        <h2  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-xl'>Why Orlando Patients Choose Mountain Spine & Orthopedics:</h2>
+        <h2 className='text-lg'>
+          <li>Over 15 years serving Orlando families</li>
+          <li>Same-day appointments available for urgent problems</li>
+          <li>Spanish-speaking staff for Orlando's diverse community</li>
+          <li>Free parking at our Orlando orthopedic center.</li>
+        </h2>
+      </div>,
+      easyToReach:
+      <div className='flex flex-col space-y-[10px]'>
+        <h2  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-xl'>Easy to Reach From Anywhere in Orlando: <span className='font-normal'>• Disney World - 20 minutes • Universal Studios - 15 minutes
+        • Orlando Airport - 25 minutes • Downtown Orlando - 12 minutes • Lake Nona - 18 minutes </span> </h2>
+      </div>,
+      nearby:
+      <div className='flex flex-col space-y-4'>
+        <h1  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-xl'>Convenient for Lake Nona Residents</h1>
+        <p className='text-lg'>Our orthopedic walk-in clinic is perfectly positioned to serve <a href='https://lakenona.com/' className='text-[#0094E0] underline'>Lake Nona</a> residents who need expert spine care. We're easily accessible from Highway 417 and 528, making it simple for Orlando's Lake Nona community to receive advanced treatment without traveling far from home.</p>
+      </div>,
+      advancedTreatments:
+      <div className='flex flex-col space-y-[10px]'>
+        <h1  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+        <p className='text-lg'>Our Orlando Orthopedic Center brings cutting-edge medical innovations to Central Florida families with exclusive minimally invasive procedures not available elsewhere.</p>
+        <h2  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+        <div className='flex flex-col space-y-2'>
+          <li className='flex flex-row space-x-2'>
+            <h3 className='font-bold'>Advanced Pain Relief:</h3>
+            <p><a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a></p>
+          </li>
+
+          <li className='flex flex-row space-x-2'>
+            <h3  className='font-bold'>Laser & Radiofrequency Treatments</h3>
+            <p>Advanced laser spine procedures and targeted radio treatments using the latest minimally invasive procedure technology for better outcomes.</p>
+          </li>
+
+          <li className='flex flex-row space-x-2'>
+            <h3 className='font-bold'>Precision Injections:</h3>
+            <p><a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a></p>
+          </li>
+        </div>
+
+        <h1  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+        <div className='flex flex-col space-y-2'>
+          <li className='flex flex-row space-x-2'>
+            <h3 className='font-bold'>Band Aid Back Surgery: </h3>
+            <p>Revolutionary minimally invasive procedure available at few locations. Tiny incisions that heal like band aids with exceptional results and faster recovery.</p>
+          </li>
+
+          <li className='flex flex-row space-x-2'>
+            <h3 className='font-bold'>Minimally Invasive Excellence: </h3>
+            <p><a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced Techniques</a> | <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>Disc Replacement</a> | <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>Spinal Fusion</a></p>
+          </li>
+
+          <li className='flex flex-row space-x-2'>
+            <h3 className='font-bold'>Complex Procedures:</h3>
+              <p><a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF Surgery</a> | <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>Revision Surgery</a> | <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>Motion Preservation</a></p>
+            </li>
+          </div>
+          <p>Orlando's advantage: Robotic-assisted minimally invasive procedures, computer-guided navigation, same-day outpatient techniques.</p>
+          <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+      </div>,
+      whatOurPatientsSay:
+      <div className='flex flex-col space-y-4'>
+        <h1  style={{
+          fontFamily: "var(--font-reem-kufi)",
+        }} className=' font-bold text-3xl'>What Our Orlando Patients Say</h1>
+        <p className='text-lg'>Real Orlando residents share their experiences with Mountain Spine & Orthopedics. These are verified patients who trusted us with their care and want to help other Orlando families make informed decisions about their spine health.</p>
+        <div className='grid lg:grid-cols-3 grid-cols-1 gap-4 lg:mt-10 mt-4'>
+
+          <Testimonial
+            name="Sarah M."
+            role="Disney Cast Member, Celebration"
+            testimonial="Eight years working at Magic Kingdom left me with terrible back pain. I tried three different Orlando doctors before finding Mountain Spine & Orthopedics. Dr. Katzman at this Orlando orthopedic center took time to understand the physical demands of theme park work. His minimally invasive approach had me back to full Disney shifts in just three weeks. Two years later, I'm still pain-free and can enjoy the Orlando parks with my own children. This Orlando team truly understands working families."
+          />
+          <Testimonial
+            name="Dr. Michael Rodriguez"
+            role="Emergency Physician, Orlando Health"
+            testimonial="As an Orlando emergency doctor, I see spine injuries every day. When my own herniated disc started affecting my ability to work 12-hour shifts, I researched every spine specialist in Orlando. I chose Mountain Spine & Orthopedics because of their reputation among medical professionals. Dr. Katzman's expertise exceeded my expectations. I now confidently refer my patients and colleagues to these Orlando spine and orthopedic specialists of Central FL because I've experienced their excellent care firsthand."
+          />
+          <Testimonial
+            name="David L."
+            role="Construction Supervisor, Winter Garden"
+            testimonial="Fifteen years in Orlando construction gave me chronic back pain that workers' comp couldn't seem to fix. Three different Orlando centers couldn't help until a coworker mentioned Mountain Spine & Orthopedics. The orthopedic surgeons here understood construction work demands and got me back to managing job sites in one month. Their workers' comp coordination was professional and hassle-free. Finally found Orlando doctors who understand working people."
+          />
+        </div>
+      </div>
+
     },
     {
       id : 9,
