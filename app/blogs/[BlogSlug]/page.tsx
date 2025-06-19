@@ -80,230 +80,53 @@ export default function BlogDetails({
  return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         {/* Landing */}
-        <section className=" w-full h-full flex flex-col relative overflow-hidden" >
+        <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <Image src={blog_details.blog_info.img} fill className=" h-full absolute top-0 object-cover object-top pt-0 self-end w-full md:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
-
         <div className="z-[1] flex flex-col w-full h-full text-left relative md:pt-20 lg:pt-40 ">
             <div className="lg:w-[90%] w-full h-full absolute left-0 top-0"
-            style={{
-            background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
-            }}
+            style={{background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)'}}
             />
-
-        <div className=' px-6 xl:px-[80px] z-[2]'>
-            <div className=' mt-60  md:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
-            style={{
-                background : 'rgba(255, 255, 255, 0.50)'
-            }}
-            >
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#022968]"
-                >
-                    Blogs
-                </h1>
-    
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#022968]"
-                >
-                    /
-                </h1>
-    
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#2358AC]"
-                >
-                    Blog Details
-                </h1>
+            <div className='px-6 xl:px-[80px] z-[2] mt-60 md:mt-[220px]'>
+              <nav aria-label="Breadcrumb" className="mb-4">
+                <ol className="flex space-x-2 text-[#022968]">
+                  <li><a href="/blogs">Blogs</a> /</li>
+                  <li aria-current="page">{blog_details.blog_info.title}</li>
+                </ol>
+              </nav>
+              <h1 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 700 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl ">{blog_details.blog_info.title}</h1>
+              <p style={{ fontWeight: 400, fontSize: "20px", lineHeight: "148%" }} className="text-white mt-4">{blog_details.blog_info.desc}</p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {blog_details.blog_info.tags.map((tag, index) => (
+                  <span key={index} className="bg-[#EFF5FF] text-[#022968] px-3 py-1 rounded-full text-sm">{tag}</span>
+                ))}
+              </div>
+              <p className="text-white text-sm mt-2">By {blog_details.blog_info.author} | <time dateTime={blog_details.blog_info.date}>{blog_details.blog_info.date}</time></p>
             </div>
-        </div>
-        {/* Max 6 words */}
-        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[65%] xl:w-[55%]">
-            <h1
-            style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 400,
-            }}
-            className="text-[#022968] text-2xl md:text-5xl lg:text-6xl "
-            >
-                {blog_details.blog_info.title}
-            </h1>
-        </div>
-
-        <div className="   z-[2] px-6 xl:px-[80px] mt-[24px] w-[55%] pb-8 xl:flex hidden">
-            <p
-            style={{
-                fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "148%",
-            }}
-            className="text-white"
-            >
-                {blog_details.blog_info.desc}
-            </p>
-        </div>
-
-        <div className=' px-6 xl:px-[80px] mt-[24px] md:w-[55%] xl:hidden flex z-[2] pb-8'>
-            <button className="border w-fit border-white py-[16px] px-[32px] items-center justify-center bg-white rounded-[62px] ">
-            <p
-                style={{
-                    lineHeight: "148%",
-                }}
-                className="text-[#0094E0] text-sm font-bold"
-                >
-                    Check Your Condition
-                </p>
-            </button>
-        </div>
-
         </div>
         </section>
-
-        <main className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
-        
-            <div className=' lg:w-[70%] w-full  flex flex-col space-y-[60px] rounded-[24px] '>
-                 {/* Detail */}
-                 <div className=' flex flex-col space-y-[40px] '>
-                        <h1
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] text-5xl'
-                        >
-                        {blog_details.blog_info.title}
-
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] text-lg'
-                        >
-                            {blog_details.blog_info.desc}
-                        </h1>
-                        <div className="flex flex-wrap gap-2">
-                            {blog_details.blog_info.tags.length > 0 ? (
-                                blog_details.blog_info.tags.map((tag, index) => (
-                                <Badge key={index} variant="secondary">
-                                    {tag}
-                                </Badge>
-                                ))
-                            ) : (
-                                <Badge variant="outline" className="text-muted-foreground">
-                                Tags will appear here
-                                </Badge>
-                            )}
-                         </div>
-
-                         <div className="relative w-full h-120 overflow-hidden rounded-lg">
-                            <Image src={blog_details.blog_info.img} alt="Blog Image" fill className='w-full h-full object-cover aspect-video' />
-                         </div>
-                </div>
-
-                <div className=' space-y-[32px] flex flex-col '>
-                    {
-                        blog_details.blog_info.blog_info.map((info) => (
-                            <div className=' flex flex-col space-y-[28px]' key={info.header}>
-                                <h1
-                                style={{
-                                    fontFamily : 'var(--font-reem-kufi)',
-                                    fontWeight : 500,
-                                }}
-                                className='text-[#111315] text-4xl'
-                                >
-                                {info.header}
-                                </h1>
-                                {
-                                    info.video ? 
-                                    <ClinicsMap />
-                                    : 
-                                    <></>
-                                }
-                                <h1
-                                style={{
-                                    fontFamily : 'var(--font-inter)',
-                                    fontWeight : 400,
-                                }}
-                                className='text-[#5B5F67] text-lg'
-                                >
-                                    {info.body}
-                                </h1>
-                                    <div className="pl-4 border-l-2 border-muted space-y-4 mt-6"> 
-                                        {info.sub_stories.map((sub_info) => (
-                                           <div key={sub_info.header} className='flex flex-col space-y-2'>
-                                                <h1
-                                                style={{
-                                                    fontFamily : 'var(--font-reem-kufi)',
-                                                    fontWeight : 500,
-                                                }}
-                                                className='text-[#111315] text-2xl'
-                                                >
-                                                {sub_info.header}
-                                                </h1>
-                                                <h1
-                                                style={{
-                                                    fontFamily : 'var(--font-inter)',
-                                                    fontWeight : 400,
-                                                }}
-                                                className='text-[#5B5F67] text-md'
-                                                >
-                                                    {sub_info.body}
-                                                </h1>
-                                                {sub_info.img && (
-                                                <div className="relative w-full h-52 overflow-hidden rounded-lg">
-                                                    <Image
-                                                    src={sub_info.img || "/placeholder.svg"}
-                                                    alt={sub_info.header || "Sub story image"}
-                                                    fill
-                                                    className="object-cover"
-                                                    />
-                                                </div>
-                        )}
-                                           </div>
-                                        ))}
-                                    </div>
-                            </div>
-                        ))
-                    }
-                </div>
-
-                    
-            </div>
-
-            <div className='lg:w-[30%] w-full bg-white flex flex-col'>
-                
-                <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px] rounded-[24px]'>
-                    <h1
-                    style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 400,
-                    }}
-                    className="text-[black] text-xl"
-                    >
-                        Recent Posts
-                    </h1>
-                    <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1  gap-4'>
-                        {/* {
-                            blogs.map((item) => (
-                                <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='#FAFAFA' id={item.id}/>
-                            ))
-                        } */}
-                    </div>
-                </div>
-            </div>
-
+        <main className='max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
+          <article className='lg:w-[70%] w-full flex flex-col space-y-[60px] rounded-[24px]'>
+            {blog_details.blog_info.blog_info.map((section, idx) => (
+              <section key={idx} className="mb-8">
+                <h2 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
+                <p className='text-[#5B5F67] text-lg mb-4'>{section.body}</p>
+                {section.sub_stories && section.sub_stories.length > 0 && (
+                  <div className="space-y-4">
+                    {section.sub_stories.map((sub, subIdx) => (
+                      <div key={subIdx} className="ml-4">
+                        <h3 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#022968] text-xl mb-1'>{sub.header}</h3>
+                        <p className='text-[#5B5F67] text-base'>{sub.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            ))}
+          </article>
+          <aside className='lg:w-[30%] w-full flex flex-col space-y-8'>
+            <h2 className='text-[#022968] text-2xl font-bold mb-4'>Recent Posts</h2>
+            {/* Render recent posts here */}
+          </aside>
         </main>
 
         <ContactUsSection />

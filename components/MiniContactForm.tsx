@@ -56,13 +56,13 @@ export function MiniContactForm({backgroundcolor = 'white'} : { backgroundcolor?
      <div className={`w-full p-8 rounded-3xl overflow-hidden backdrop-blur-[15px] bg-[${backgroundcolor}] bg-opacity-50`}
      
      >
-       <h1
+       <h2
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
           }}
           className="text-black text-2xl text-left w-full"
-          >Book Your Appointment</h1>
+          >Book Your Appointment</h2>
 
         <Form {...form} 
         

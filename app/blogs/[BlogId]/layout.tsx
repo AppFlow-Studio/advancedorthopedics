@@ -21,12 +21,12 @@ export async function generateMetadata(
   return {
     metadataBase: new URL('https://mountainspineorthopedics.com'),
     title: blog.metaTitle || `${blog.title} | Mountain Spine & Orthopedics`,
-    description: blog.metaDescription || blog.desc,
+    description: blog.metaDescription || blog.desc.slice(0, 160),
     keywords: blog.keywords || [blog.title, "orthopedic blog", "spine health"],
     
     openGraph: {
       title: blog.metaTitle || `${blog.title} | Mountain Spine & Orthopedics`,
-      description: blog.metaDescription || blog.desc,
+      description: blog.metaDescription || blog.desc.slice(0, 160),
       type: "article",
       url: blogUrl,
       images: [
@@ -37,12 +37,13 @@ export async function generateMetadata(
           alt: blog.title,
         },
       ],
+      ...(blog.date ? { article: { published_time: blog.date } } : {}),
     },
 
     twitter: {
       card: "summary_large_image",
       title: blog.metaTitle || `${blog.title} | Mountain Spine & Orthopedics`,
-      description: blog.metaDescription || blog.desc,
+      description: blog.metaDescription || blog.desc.slice(0, 160),
       images: [blog.img],
     },
 

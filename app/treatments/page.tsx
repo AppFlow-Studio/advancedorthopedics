@@ -124,7 +124,7 @@ const treatmentAreaParam = () => {
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(
         <button key={i} onClick={() => paginate(i)} className={` h-[40px] hover:cursor-pointer w-[40px] flex items-center  justify-center ${ i == currentPage ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
-          <h1
+          <span
             style={{
               fontFamily : 'var(--font-reem-kufi)',
               fontWeight : 500,
@@ -132,7 +132,7 @@ const treatmentAreaParam = () => {
             className=' text-lg'
           >
             {i}
-          </h1>
+          </span>
         </button>
       );
     }
@@ -204,7 +204,7 @@ const treatmentAreaParam = () => {
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
          {/* ... (rest of your "Tell us Your Story" section code) ... */}
          <div className=' flex flex-col space-y-[16px] '>
-              <h1
+              <h2
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
@@ -212,9 +212,9 @@ const treatmentAreaParam = () => {
               className='text-[#111315] sm:text-5xl text-3xl'
               >
                 We are Here to Listen, Tell us your Story
-              </h1>
+              </h2>
 
-              <h1
+              <p
                style={{
                 fontFamily : 'var(--font-inter)',
                 fontWeight : 500,
@@ -222,11 +222,11 @@ const treatmentAreaParam = () => {
               className='text-[#5B5F67] sm:text-xl text-md sm:w-[75%] '
               >
                 Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
-              </h1>
+              </p>
           </div>
 
           <div className=' flex flex-col space-y-[16px] ' ref={paginationRef}>
-              <h1
+              <h3
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
@@ -235,9 +235,9 @@ const treatmentAreaParam = () => {
               className='text-[#111315] sm:text-2xl text-xl '
               >
                 WELL, YOU'RE NOT ALONE.
-              </h1>
+              </h3>
 
-              <h1
+              <p
                style={{
                 fontFamily : 'var(--font-inter)',
                 fontWeight : 500,
@@ -248,7 +248,7 @@ const treatmentAreaParam = () => {
                 Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
                 <br/><br/>
                 At Mountain Spine and Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
-              </h1>
+              </p>
           </div>
         </section>
 
@@ -256,7 +256,7 @@ const treatmentAreaParam = () => {
         {/* Treatments List Section */}
         <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8 ' id="treatments-section">
           <div className='flex flex-col lg:flex-row justify-between lg:items-center lg:space-y-0 space-y-4'>
-            <h1
+            <h2
               style={{
                 fontFamily: 'var(--font-reem-kufi)',
                 fontWeight: 500,
@@ -264,7 +264,7 @@ const treatmentAreaParam = () => {
               className='text-[#111315] text-4xl md:text-5xl mb-4 lg:mb-0'
             >
               All Our Treatments
-            </h1>
+            </h2>
 
             <div className="w-full  lg:w-2/3 flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
               {/* Search Bar */}
@@ -343,9 +343,9 @@ const treatmentAreaParam = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="currentColor"> {/* Changed fill */}
                         <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" /> {/* Removed fill attribute, inherits */}
                         </svg>
-                        <h1 style={{ fontFamily : 'var(--font-inter)', fontWeight : 400 }} className='text-[#5B5F67]'>
+                        <span style={{ fontFamily : 'var(--font-inter)', fontWeight : 400 }} className='text-[#5B5F67]'>
                         Previous
-                        </h1>
+                        </span>
                     </button>
 
                     {/* Page Numbers */}
@@ -359,9 +359,9 @@ const treatmentAreaParam = () => {
                         onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                         disabled={currentPage === totalPages} // Disable if on last page
                     >
-                        <h1 style={{ fontFamily : 'var(--font-inter)', fontWeight : 400 }} className='text-[#111315]'>
+                        <span style={{ fontFamily : 'var(--font-inter)', fontWeight : 400 }} className='text-[#111315]'>
                         Next
-                        </h1>
+                        </span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="currentColor"> {/* Changed fill */}
                         <path d="M12.7071 11.7071C12.3166 12.0976 11.6834 12.0976 11.2929 11.7071C10.9024 11.3166 10.9024 10.6834 11.2929 10.2929L14.5858 7L1 7C0.447716 7 0 6.55228 0 6C0 5.44771 0.447716 5 1 5L14.5858 5L11.2929 1.7071C10.9024 1.31657 10.9024 0.683409 11.2929 0.292888C11.6835 -0.0976335 12.3166 -0.0976287 12.7072 0.292899L17.7018 5.2876C17.7202 5.30578 17.738 5.32468 17.755 5.34424C17.8225 5.42185 17.8761 5.50741 17.9158 5.59762C17.9696 5.71989 17.9996 5.85497 18 5.99702L18 6C18 6.00309 18 6.00617 18 6.00925C17.9988 6.13503 17.9745 6.25525 17.931 6.36586C17.8822 6.49017 17.8076 6.60669 17.7071 6.70715L12.7071 11.7071Z" /> {/* Removed fill attribute, inherits */}
                         </svg>

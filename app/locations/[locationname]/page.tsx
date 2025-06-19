@@ -2,7 +2,7 @@
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { clinics } from '@/components/data/clinics'
 import ContactUsSection from '@/components/ContactUsSection'
 import AAOS from '@/public/AAOS.png';
@@ -23,6 +23,8 @@ import { Doctors } from '@/components/data/doctors'
 import SlidingDiv from '@/components/SlidingAnimation'
 import { DoctorContactForm } from '@/components/DoctorContactForm'
 import LocationLanding from '@/public/ConditionDetails.jpeg'
+
+
 
 
 export default function LocationDetails(
@@ -79,65 +81,7 @@ export default function LocationDetails(
         },
       ]
   return (
-        <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-            {/* <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-                <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 xl:px-[80px]'>
-                    <TextAnimate animation="blurInUp" by="word" once
-                    style={{
-                    fontFamily : 'var(--font-reem-kufi)',
-                    fontWeight : 500,
-
-                    }}
-                    className='text-[#022968] text-3xl sm:text-4xl md:text-5xl'
-                    >
-                    {location.name}
-                    </TextAnimate>
-                    <h1
-                    style={{
-                    fontFamily : 'var(--font-reem-kufi)',
-                    fontWeight : 500,
-                    }}
-                    className='text-white text-md md:text-xl'
-                    >
-                    Mountain Spine & Orthopedics delivers expert spine care across Florida with 8 locations and an Ambulatory Surgery Center. 
-                    </h1>
-                    <div className=' mt-[20px] md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
-                    style={{
-                        background : 'rgba(255, 255, 255, 0.50)'
-                    }}
-                    >
-                        <h1
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 400,
-                        }}
-                        className="text-[#111315]"
-                        >
-                        Location
-                        </h1>
-            
-                        <h1
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 400,
-                        }}
-                        className="text-[#111315]"
-                        >
-                            /
-                        </h1>
-                        <h1
-                        style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 400,
-                        }}
-                        className="text-[#2258AC]"
-                        >
-                            {location.region}
-                        </h1>
-                    </div>
-                </div>
-            </section> */}
-
+        <main className='w-full flex-col items-center justify-center bg-white h-full'>
             <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
                 <Image src={LocationLanding} priority={true} layout='fill' className="h-full absolute top-0 object-cover object-center sm:object-center self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient"/>
                 <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
@@ -157,7 +101,7 @@ export default function LocationDetails(
                                 background : 'rgba(255, 255, 255, 0.50)'
                             }}
                             >
-                                <h1
+                                <span
                                 style={{
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 400,
@@ -165,9 +109,9 @@ export default function LocationDetails(
                                 className="text-[#111315]"
                                 >
                                 Location
-                                </h1>
+                                </span>
                     
-                                <h1
+                                <span
                                 style={{
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 400,
@@ -175,8 +119,8 @@ export default function LocationDetails(
                                 className="text-[#111315]"
                                 >
                                     /
-                                </h1>
-                                <h1
+                                </span>
+                                <span
                                 style={{
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 400,
@@ -184,7 +128,7 @@ export default function LocationDetails(
                                 className="text-[#2258AC]"
                                 >
                                     {location.region}
-                                </h1>
+                                </span>
                         </div>
                         <h1
                         style={{
@@ -193,12 +137,16 @@ export default function LocationDetails(
                         }}
                         className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
                         >
-                        Welcome to {location.name}
+                        Welcome to Mountain Spine & Orthopedics {location.name.replace('Mountain Spine & Orthopedics', '').trim()}
                         </h1>
                     </div>
                 </SlidingDiv>
                 <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mb-4">
-                    <div className="rounded-2xl bg-[rgba(255,255,255,0.50)] "><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header=""/></div>
+                    (
+                        <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
+                    ) : (
+                        <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="Book an Appointment" />
+                    )
                 </SlidingDiv>
                 <SlidingDiv position="left" className="z-[2]">
                     <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center mt-4">
@@ -208,7 +156,7 @@ export default function LocationDetails(
                         }}
                         className="text-white text-xl lg:text-2xl text-shadow-sm"
                         >
-                        {/* Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures.  */}
+                         Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
                         Orlando, Florida's most trusted spine and joint care center, serving Central Florida families since 2009.
                         </p>
                     </div>
@@ -232,7 +180,7 @@ export default function LocationDetails(
                 </div>
         
                 <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >
-                    <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header=""/></div>
+                    <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="Book an Appointment"/></div>
                 </div>
                 </div>
 
@@ -251,24 +199,11 @@ export default function LocationDetails(
                 </div>
                 
             </section>
-            {/* <div className="z-[2] w-full flex flex-row items-center justify-evenly bg-white py-[80px]"
-            style={{
-                background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
-            }}
-            >
-                <Marquee pauseOnHover className='w-full' >
-                    {
-                        [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                        <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-                        ))
-                    }   
-                </Marquee>
-            </div> */}
              {/* Our Speciality */}
             <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
                 <Reveal className="w-full" width="100%">
                     <div className=" flex xl:flex-row space-x-[60px] flex-col xl:space-y-0 space-y-8 w-full">
-                        <h1
+                        <h2
                         style={{
                             fontFamily: "var(--font-reem-kufi)",
                             fontWeight: 500,
@@ -277,10 +212,10 @@ export default function LocationDetails(
                         className=" text-6xl w-[100%]"
                         >
                             Why Choose<br/> {location.name}
-                        </h1>
+                        </h2>
         
                         <div>
-                            <h1
+                            <p
                             style={{
                             fontFamily: "var(--font-reem-kufi)",
                             fontWeight: 400,
@@ -289,7 +224,7 @@ export default function LocationDetails(
                             className="text-lg "
                             >
                             Trust {location.name} for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
-                            </h1>
+                            </p>
         
                             <div className=" mt-[40px] xl:w-[50%] w-full md:w-fit"><BookAnAppoitmentButton /></div>
                         </div>
@@ -302,7 +237,7 @@ export default function LocationDetails(
                     <div className=" xl:w-[50%] w-full flex flex-col space-y-[32px] ">
                         <Reveal className="w-full" width="100%">
                         <div className=" flex flex-col w-full space-y-[16px]">
-                            <h1
+                            <h3
                             style={{
                                 fontFamily: "var(--font-reem-kufi)",
                                 fontWeight: 500,
@@ -311,9 +246,9 @@ export default function LocationDetails(
                             className=" text-4xl"
                             >
                                 Our {location.name.replace('Mountain Spine & Orthopedics', '').trim()} Clinic Specialty
-                            </h1>
+                            </h3>
             
-                            <h1
+                            <p
                             style={{
                                 fontFamily: "var(--font-reem-kufi)",
                                 fontWeight: 500,
@@ -322,7 +257,7 @@ export default function LocationDetails(
                             className=" text-lg"
                             >
                                 At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why <a href='https://www.orlando.gov/Home' className='underline text-[#022968]'>Orlando</a> families choose us:
-                            </h1>
+                            </p>
                     </div>
                         </Reveal>
 
@@ -334,22 +269,22 @@ export default function LocationDetails(
                                     <div className=" rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] ">
                                     <item.icon />
                                     </div>
-                                    <h1
+                                    <h4
                                     style={{
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 500,
                                     color : '#022968'
                                     }}  
                                     className=" text-xl"
-                                    >{item.title}</h1>
-                                    <h1
+                                    >{item.title}</h4>
+                                    <p
                                     style={{
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 500,
                                     color : '#5B5F67'
                                     }}  
                                     className="text-md"
-                                    >{item.body}</h1>
+                                    >{item.body}</p>
                                 </div> 
                                 ))
                             }
@@ -377,14 +312,14 @@ export default function LocationDetails(
             <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]">
                 <div className=" flex md:flex-row flex-col">
                     <div className=" flex flex-col space-y-[24px] lg:w-[50%] w-full">
-                        <h1
+                        <h2
                         style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
                         }}
                         className="text-black text-5xl text-left w-full"
-                        >Meet Our Experts</h1>
-                        <h1
+                        >Meet Our Experts</h2>
+                        <p
                         style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 400,
@@ -392,22 +327,22 @@ export default function LocationDetails(
                         className="text-[#54535C] lg:w-[50%] w-full"
                         >
                         Highly skilled and compassionate professionals ready to care for you
-                        </h1>
+                        </p>
                     </div>
 
                     <div className="md:w-[50%] flex items-center md:justify-end w-full md:mt-0 mt-4">
                         <Link
                         href={'/about/meetourdoctors'}
                         className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px]">
-                        <h1
+                        <span
                         style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 400,
                         }}
                         className="text-[#022968]"
-                        >View all</h1>
+                        >View all</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11" viewBox="0 0 18 11" fill="none">
-                        <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 9.79314 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#022968"/>
+                        <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 10.2931 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#022968"/>
                         </svg>
                         </Link>
                     </div>
@@ -415,7 +350,7 @@ export default function LocationDetails(
                 <div className=" mt-[60px] grid sm:grid-cols-3 grid-cols-1 xl:gap-x-[50px] sm:gap-x-10 space-y-8 sm:space-y-0  ">
                    <div className='sm:col-span-1'><DoctorCard doctor={Doctors[0]} /></div>
                    <div className='flex flex-col space-y-[32px] col-span-2'>
-                     <h1
+                     <p
                      style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 500,
@@ -434,7 +369,7 @@ export default function LocationDetails(
                     )}
                     </React.Fragment>
                 ))}
-                     </h1>
+                     </p>
                    </div>
                 </div>
             </section>

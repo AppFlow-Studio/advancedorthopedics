@@ -53,7 +53,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
         >
           <Link href={href}
           >
-            <h1 
+            <span 
             style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
@@ -63,7 +63,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
             }}
             >
               {title}
-            </h1>
+            </span>
           </Link>
         </NavigationMenuTrigger>
         <NavigationMenuContent 
@@ -83,23 +83,23 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                     <NavigationMenuLink key={link.title}  href={link.title == 'Florida' ? '#' : link.href} className='w-full'>
                           {
                           link.subLinks.length == 0 ? 
-                          <h1 
+                          <span 
                           style={{
                                 fontFamily: "var(--font-reem-kufi)",
                                 fontWeight: 400,
                             }}
                             >{link.title}
-                          </h1>
+                          </span>
                           :
                           <HoverCard>
                             <HoverCardTrigger>
-                                <h1 
+                                <span 
                               style={{
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 400,
                                 }}
                                 >{link.title}
-                              </h1>
+                              </span>
                             </HoverCardTrigger>
                             <HoverCardContent side='right'
                             sideOffset={18}
@@ -116,13 +116,13 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                                 {
                                   link.subLinks.map((sub_link) => (
                                     <NavigationMenuLink className='' href={sub_link.href}>
-                                      <h1 
+                                      <span 
                                       style={{
                                             fontFamily: "var(--font-reem-kufi)",
                                             fontWeight: 400,
                                         }}
                                         >{sub_link.title}
-                                      </h1>
+                                      </span>
                                     </NavigationMenuLink>
                                   ))
                                 }
@@ -361,7 +361,7 @@ const NavBarLinks = [
   
 ]
 
-const HamburgerIcon = ({ open, ...props }) => (
+const HamburgerIcon = ({ open, ...props }: { open: boolean } & React.SVGProps<SVGSVGElement>) => (
     <svg
         {...props}
         xmlns="http://www.w3.org/2000/svg"
@@ -408,8 +408,8 @@ export default function NavBar() {
                       letterSpacing: "0.02em",
                   }}
                   >
-                      <h1 className="md:text-lg text-mdfont-[600]">MOUNTAIN</h1>
-                      <h2 className="font-[600] text-xs"> SPINE & ORTHOPEDICS</h2>    
+                      <span className="md:text-lg text-mdfont-[600]">MOUNTAIN</span>
+                      <span className="font-[600] text-xs"> SPINE & ORTHOPEDICS</span>    
                   </div>
               </Link>
   
@@ -527,7 +527,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
             className
           )}
           {...props}
@@ -542,194 +542,6 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = "ListItem"
-
-// // Add this at the top if using Next.js App Router
-// 'use client';
-
-// import { useState } from 'react'; // <-- Import useState
-// import { usePathname } from 'next/navigation';
-// import Link from 'next/link';
-// import Image from 'next/image';
-// import Logo from '@/path/to/your/logo.png'; // <-- Adjust path to your logo
-// import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu"; // Assuming you use Shadcn UI NavigationMenu
-// import NavLink from './NavLink'; // Assuming this is your custom component for nav links
-
-// // --- Dummy Data (Replace with your actual links) ---
-// const NavBarLinks = [
-//     { title: "Home", href: "/", screen: "both" },
-//     { title: "About Us", href: "/about", screen: "both" },
-//     { title: "Services", href: "/services", screen: "both", subLinks: [ {title: 'Sub 1', href: '/sub1'}, /* ... */ ] },
-//     { title: "Contact", href: "/contact", screen: "both" },
-// ];
-// // --- End Dummy Data ---
-
-// // --- Hamburger Icon Component ---
-// const HamburgerIcon = ({ open, ...props }) => (
-//     <svg
-//         {...props}
-//         xmlns="http://www.w3.org/2000/svg"
-//         width="28" // Increased size slightly
-//         height="28"
-//         viewBox="0 0 24 24"
-//         fill="none"
-//         stroke="currentColor" // Use currentColor to inherit text color
-//         strokeWidth="2"
-//         strokeLinecap="round"
-//         strokeLinejoin="round"
-//     >
-//         {open ? (
-//             <> {/* X icon */}
-//                 <line x1="18" y1="6" x2="6" y2="18"></line>
-//                 <line x1="6" y1="6" x2="18" y2="18"></line>
-//             </>
-//         ) : (
-//             <> {/* Hamburger icon */}
-//                 <line x1="3" y1="12" x2="21" y2="12"></line>
-//                 <line x1="3" y1="6" x2="21" y2="6"></line>
-//                 <line x1="3" y1="18" x2="21" y2="18"></line>
-//             </>
-//         )}
-//     </svg>
-// );
-// // --- End Hamburger Icon ---
-
-// export default function NavBar() {
-//     const pathname = usePathname();
-//     const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <-- State for sidebar
-
-//     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-//     const closeSidebar = () => setIsSidebarOpen(false);
-
-//     // Corrected typo: to-transparent
-//     const dividerGradient = 'bg-gradient-to-b from-transparent via-gray-200 to-transparent'; // Adjusted color slightly
-
-//     return (
-//         // Use React Fragment <> </> to return multiple elements (header + sidebar + overlay)
-//         <>
-//             <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center mt-4 sm:mt-6 max-h-[128px] lg:h-[80px]'> {/* Adjusted margin/height slightly */}
-//                 <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 sm:px-[40px] py-2 z-[1]"> {/* Responsive padding */}
-//                     {/* Logo */}
-//                     <Link href={'/'} className='flex flex-row items-center justify-center space-x-2 sm:space-x-[8px]' onClick={closeSidebar}>
-//                         <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="h-[50px] sm:h-[60px] lg:h-[70px] w-auto" /> {/* Responsive height */}
-//                         <div className={`w-[1px] h-[35px] ${dividerGradient}`} />
-//                         <div className="flex flex-col text-white"
-//                             style={{
-//                                 fontFamily: "var(--font-reem-kufi)", // Ensure this font is loaded
-//                                 fontSize: "16px",
-//                                 lineHeight: "20px", // Adjusted line height
-//                                 letterSpacing: "0.02em",
-//                             }}
-//                         >
-//                             <h1 className="text-sm sm:text-lg font-[600]">MOUNTAIN</h1>
-//                             <h2 className="font-[600] text-[10px] sm:text-xs"> SPINE & ORTHOPEDIC</h2>
-//                         </div>
-//                     </Link>
-
-//                     {/* Desktop Navigation (Hidden below xl) */}
-//                     <div className="flex-grow flex justify-center items-center"> {/* Centering the desktop nav */}
-//                         <NavigationMenu className="space-x-8 text-[16px] font-semibold items-center justify-center z-1 xl:flex hidden" viewport={false}>
-//                             <NavigationMenuList>
-//                                 {
-//                                     NavBarLinks.map((link, index) => (
-//                                         <NavLink key={`desktop-${index}`} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} pathname={pathname} />
-//                                     ))
-//                                 }
-//                             </NavigationMenuList>
-//                         </NavigationMenu>
-//                     </div>
-
-
-//                     {/* Contact Button (Hidden below sm, adjust as needed) */}
-//                     <button
-//                         className="hidden sm:flex max-h-[40px] h-full px-[20px] rounded-[62px] relative items-center justify-between bg-[#022968] text-white text-[14px] font-semibold whitespace-nowrap ml-4" // Added ml-4 for spacing, whitespace-nowrap
-//                     >
-//                         Contact Us
-//                         <div className='pl-[10px]'>
-//                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-//                                 <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF"/>
-//                             </svg>
-//                         </div>
-//                     </button>
-
-//                     {/* Hamburger Menu Button (Visible below xl) */}
-//                     <button
-//                         className="xl:hidden text-white p-2 z-50 ml-auto" // ml-auto pushes it right if space allows
-//                         onClick={toggleSidebar}
-//                         aria-label="Toggle menu"
-//                         aria-expanded={isSidebarOpen}
-//                         aria-controls="mobile-sidebar" // Should match sidebar id
-//                     >
-//                         <HamburgerIcon open={isSidebarOpen} />
-//                     </button>
-//                 </nav>
-//             </header>
-
-//             {/* Overlay (Visible when sidebar is open, below xl) */}
-//             {isSidebarOpen && (
-//                  <div
-//                      className="fixed inset-0 bg-black/60 z-30 xl:hidden" // Semi-transparent black
-//                      onClick={closeSidebar} // Close sidebar when overlay is clicked
-//                      aria-hidden="true"
-//                  />
-//              )}
-
-//             {/* Sidebar Container */}
-//             <aside
-//                 id="mobile-sidebar" // ID for aria-controls
-//                 className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl p-6 transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${
-//                     isSidebarOpen ? 'translate-x-0' : 'translate-x-full' // Slide in/out from right
-//                 }`}
-//                 aria-hidden={!isSidebarOpen} // Hide from screen readers when closed
-//             >
-//                  {/* Optional: Add a close button inside sidebar */}
-//                  <button
-//                     onClick={closeSidebar}
-//                     className="absolute top-5 right-5 text-gray-500 hover:text-gray-800"
-//                     aria-label="Close menu"
-//                 >
-//                     <HamburgerIcon open={true} /> {/* Show X icon */}
-//                 </button>
-
-//                 {/* Sidebar Navigation Links */}
-//                 <nav className="mt-16 flex flex-col space-y-4">
-//                      {
-//                         NavBarLinks.map((link, index) => (
-//                             // Using simple Link for sidebar, adapt if NavLink handles submenus differently
-//                             <Link
-//                                 key={`mobile-${index}`}
-//                                 href={link.href}
-//                                 className={`block px-3 py-2 rounded-md text-base font-medium ${
-//                                     pathname === link.href
-//                                         ? 'bg-blue-50 text-blue-700' // Active style
-//                                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' // Default style
-//                                 }`}
-//                                 onClick={closeSidebar} // Close sidebar on link click
-//                             >
-//                                 {link.title}
-//                                 {/* You might need to add logic here if you have sublinks in mobile */}
-//                             </Link>
-//                         ))
-//                     }
-//                     {/* Optional: Add Contact Us button in sidebar */}
-//                      <button
-//                          className="w-full mt-6 max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#022968] text-white text-[14px] font-semibold"
-//                          onClick={() => {
-//                              // Add navigation or action for contact button
-//                              closeSidebar();
-//                          }}
-//                      >
-//                          Contact Us
-//                          <div className='pl-[10px]'>
-//                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-//                                  <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF"/>
-//                              </svg>
-//                          </div>
-//                      </button>
-//                 </nav>
-//             </aside>
-//         </>
-//     );
-// }
 
 
 

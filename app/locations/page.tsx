@@ -29,7 +29,7 @@ export default function LocationsScreen() {
                   >
                    Locations
                   </TextAnimate>
-                  <h1
+                  <p
                   style={{
                     fontFamily : 'var(--font-reem-kufi)',
                     fontWeight : 500,
@@ -38,7 +38,7 @@ export default function LocationsScreen() {
                   className='text-white text-xl'
                   >
                     Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 locations and an Ambulatory Surgery Center. 
-                  </h1>
+                  </p>
               </div>
             </section>
 
@@ -81,9 +81,9 @@ export default function LocationsScreen() {
                           <path fillRule="evenodd" clipRule="evenodd" d="M25 12C25 15.3137 22.3137 18 19 18C15.6863 18 13 15.3137 13 12C13 8.68629 15.6863 6 19 6C22.3137 6 25 8.68629 25 12ZM20 9V11H22V13H20V15H18V13H16V11H18V9H20Z" fill="white"/>
                         </svg>
                       </div>
-                      <h1 className='text-[#022968] text-2xl text-center group-hover:font-bold transition-all duration-300 ease-in-out '>
+                      <h2 className='text-[#022968] text-2xl text-center group-hover:font-bold transition-all duration-300 ease-in-out '>
                         {item.name}
-                      </h1>
+                      </h2>
                       <div/>
                     </div>
                   </div>

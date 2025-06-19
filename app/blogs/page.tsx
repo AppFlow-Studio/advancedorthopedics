@@ -20,6 +20,8 @@ import { BlogPosts } from '@/components/data/blogs'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import BlogSearchBar from '@/components/BlogSearchBar'
 import { GetBlogs } from './api/get-blogs'
+import Link from 'next/link'
+
 const ServicesAndExpertise = [
     {
         title : 'Treatment finder',
@@ -50,6 +52,11 @@ const ServicesAndExpertise = [
     }
 ]
 
+function truncateString(str, maxLength = 172) {
+  if (!str) return '';
+  if (str.length <= maxLength) return str;
+  return str.slice(0, maxLength) + '...';
+}
 
 export default function Blogs() {
   const [data, setData] = useState(BlogPosts)
@@ -87,52 +94,17 @@ export default function Blogs() {
             />
 
         <div className='  px-6 xl:px-[80px] z-[2]'>
-            <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
-            style={{
-                background : 'rgba(255, 255, 255, 0.50)'
-            }}
-            >
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#022968]"
-                >
-                    About
-                </h1>
-
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#022968]"
-                >
-                    /
-                </h1>
-
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#2358AC]"
-                >
-                    Blogs
-                </h1>
-            </div>
+            <nav aria-label="Breadcrumb" className='xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]' style={{ background : 'rgba(255, 255, 255, 0.50)' }}>
+              <ol className="flex space-x-2 text-[#022968]">
+                <li><a href="/about">About</a> /</li>
+                <li><a href="/blogs">Blogs</a></li>
+              </ol>
+            </nav>
         </div>
         <div className= "px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] lg:w-[63%] xl:w-[55%]">
-            <TextAnimate animation="blurInUp" by="word" once
-            style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 400,
-            }}
-            className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl lg:text-7xl"
-            >
+            <h1 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 700 }} className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl lg:text-7xl">
                 Spine Wellness Blog
-            </TextAnimate>
+            </h1>
         </div>
 
         <div className="z-[2]  px-6 xl:px-[80px] mt-[24px] w-full sm:w-[70%] lg:w-[45%] pb-8">
@@ -153,44 +125,24 @@ export default function Blogs() {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-[24px]'>
                 {
                     ServicesAndExpertise.map((item,index) => (
-                    <motion.div className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] hover:text-white text-[#022968] "
-                    whileHover={{
-                        background : 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)',
-                        scale: 1.02
-                    }}
-                    key={item.title}
-                    >
-                        <div className=" flex flex-row items-center justify-between">
-                        <div className=" rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
-                            <h1 
-                            style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                            }}
-                            className="text-lg self-center "
-                            >0{index + 1}</h1>
+                    <article className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] hover:text-white text-[#022968]" key={item.title}>
+                        <div className="flex flex-row items-center justify-between">
+                        <div className="rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
+                            <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-lg self-center">0{index + 1}</span>
                         </div>
 
-                        <div className=" bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-6"><item.icon /></div>
+                        <div className="bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-6"><item.icon /></div>
                         
                         </div>
 
-                        <div className=" flex flex-col space-y-[16px]">
-                            <h1
-                            style={{
-                            fontFamily: "var(--font-reem-kufi)",
-                            fontWeight: 500,
-                            }}
-                            className="text-3xl "
-                            >{item.title}</h1>
-
-                            
+                        <div className="flex flex-col space-y-[16px]">
+                            <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-2xl">{item.title}</h2>
                         </div>
 
                         <div >
                         <Image src={item.img} alt={item.title} className="w-full lg:max-h-[240px] aspect-square h-full object-cover rounded-[24px] lg:h-[240px]"/>
                         </div>
-                    </motion.div>
+                    </article>
                     ))
                 }
             </div>
@@ -198,16 +150,7 @@ export default function Blogs() {
 
         <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px] md:order-2  '>
              <div className='space-y-[16px] flex flex-col lg:flex-row justify-between'>
-                <h1
-                style={{
-                    fontFamily : 'var(--font-reem-kufi)',
-                    fontWeight : 500,
-
-                }}
-                className='text-[#111315] text-5xl'
-                >
-                    Our latest Blogs
-                </h1>
+                <h2 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#111315] text-5xl'>Our Latest Blogs</h2>
 
                 <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={blogs}/></div>
             </div>
@@ -215,107 +158,14 @@ export default function Blogs() {
             <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
                 {
                   blogs.map((item) => (
-                    <BlogPostCard BlogInfo={item.blog_info} key={item.id} backgroundcolor='white' id={item.id.toString()}/>
+                    <BlogPostCard BlogInfo={item.blog_info} key={item.id} backgroundcolor='white' id={item.id}/>
                   ))
                 }
             </div>
 
-            {/* <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
-                {
-                    BlogPosts.map((item) => 
-                    <BlogPostCard BlogInfo={item} key={item.title} backgroundcolor='white' id={item.id}/>
-                    )
-                }
-            </div> */}
-
             <div className=' bg-[#DCDEE1] h-[1px] w-full mt-[40px]'/>
 
           <div className=' mt-[20px] flex flex-row items-center justify-between'>
-              {/* <div className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                  <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" fill="#5B5F67"/>
-                </svg>
-                <h1
-                style={{
-                  fontFamily : 'var(--font-inter)',
-                  fontWeight : 400
-                }}
-                className='text-[#5B5F67]'
-                >
-                  Previous
-                </h1>
-              </div> */}
-
-             {/* <div className=' flex-row items-center space-x-[2px] md:flex hidden'>
-                {
-                  [1,2,3,4,5,6,7,8,9,10].map((item) => (
-                    <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
-                      <h1
-                        style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                        className=' text-lg'
-                      >
-                        {item}
-                      </h1>
-                    </div>
-                  ))
-                }
-              </div> */}
-                {/* Change this Later */}
-              {/* <div className=' flex-row items-center space-x-[2px] lg:flex hidden  '>
-                {
-                  [1,2,3,10].map((item) => (
-                    <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
-                      <h1
-                        style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                        className=' text-lg'
-                      >
-                        {item}
-                      </h1>
-                    </div>
-                  ))
-                }
-              </div> */}
-
-              {/* <div className=' flex-row items-center space-x-[2px] flex sm:hidden'>
-                {
-                  [1,2,10].map((item) => (
-                    <div key={item} className={` h-[40px] w-[40px] flex items-center  justify-center ${ item == 1 ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]' }`}>
-                      <h1
-                        style={{
-                          fontFamily : 'var(--font-reem-kufi)',
-                          fontWeight : 500,
-                        }}
-                        className=' text-lg'
-                      >
-                        {item}
-                      </h1>
-                    </div>
-                  ))
-                }
-              </div> */}
-           
-           
-              {/* <button className=' flex flex-row items-center space-x-[6px] hover:cursor-pointer '>
-              <h1
-                style={{
-                  fontFamily : 'var(--font-inter)',
-                  fontWeight : 400
-                }}
-                className='text-[#111315]'
-                >
-                  Next
-                </h1>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                  <path d="M12.7071 11.7071C12.3166 12.0976 11.6834 12.0976 11.2929 11.7071C10.9024 11.3166 10.9024 10.6834 11.2929 10.2929L14.5858 7L1 7C0.447716 7 0 6.55228 0 6C0 5.44771 0.447716 5 1 5L14.5858 5L11.2929 1.7071C10.9024 1.31657 10.9024 0.683409 11.2929 0.292888C11.6835 -0.0976335 12.3166 -0.0976287 12.7072 0.292899L17.7018 5.2876C17.7202 5.30578 17.738 5.32468 17.755 5.34424C17.8225 5.42185 17.8761 5.50741 17.9158 5.59762C17.9696 5.71989 17.9996 5.85497 18 5.99702L18 6C18 6.00309 18 6.00617 18 6.00925C17.9988 6.13503 17.9745 6.25525 17.931 6.36586C17.8822 6.49017 17.8076 6.60669 17.7071 6.70715L12.7071 11.7071Z" fill="#111315"/>
-                </svg>
-              </button> */}
-
           </div>
          
 

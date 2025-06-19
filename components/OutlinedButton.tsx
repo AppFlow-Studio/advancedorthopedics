@@ -5,7 +5,7 @@ export default function OutlinedButton({text} : { text : string }) {
     <button
    className=" max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[white] text-[#022968] border border-[#022968] text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
    >
-       <h1
+       <span
        style={{
            fontFamily: "var(--font-reem-kufi)",
            fontWeight: 500,
@@ -13,7 +13,7 @@ export default function OutlinedButton({text} : { text : string }) {
            lineHeight: "24px",
            letterSpacing: "0.02em"
        }}
-       >{text}</h1>     
+       >{text}</span>     
    </button>
   )
 }

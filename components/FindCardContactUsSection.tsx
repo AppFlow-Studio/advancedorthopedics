@@ -13,7 +13,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
                     background : 'rgba(255, 255, 255, 0.50)'
                 }}
                     >
-                    <h1
+                    <span
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
@@ -21,9 +21,9 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
                     className="text-black"
                     >
                         Find Care
-                    </h1>
+                    </span>
 
-                    <h1
+                    <span
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
@@ -31,9 +31,9 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
                     className="text-black"
                     >
                         /
-                    </h1>
+                    </span>
 
-                    <h1
+                    <span
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
@@ -41,10 +41,10 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
                     className="text-[#2358AC]"
                     >
                         {page}
-                    </h1>
+                    </span>
                 </div>
             </div>
-          <h1
+          <h2
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -54,9 +54,9 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           >
             Take the first step toward 
             a pain-free life .
-          </h1>
+          </h2>
 
-          <h1
+          <p
            style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -64,15 +64,15 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           }}
           className="text-lg mt-[24px]"
           >
-            Don’t let pain hold you back any longer. Whether you need a second opinion, non-surgical options, or Mountain Spine & Orthopedics surgery, our team is here to help.
-          </h1>
+            Don't let pain hold you back any longer. Whether you need a second opinion, non-surgical options, or Mountain Spine & Orthopedics surgery, our team is here to help.
+          </p>
 
           <Image src={HomeContactUs} className="w-full rounded-[24px] mt-[40px]" alt="Doctor teaching other doctors flex-1 flex" />
           
       </div>
 
       <div className=" w-full lg:w-[50%] flex flex-col bg-white p-[24px] rounded-[24px] items-center justify-center">
-          <h1
+          <h3
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -81,9 +81,9 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           className="text-5xl text-center"
           >
             Contact Us
-          </h1>
+          </h3>
 
-          <h1
+          <p
            style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -93,7 +93,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           >
             Have questions or need support? 
             Reach out to us anytime - we're here to help.
-          </h1>
+          </p>
 
           <ConsultationForm />          
       </div>
