@@ -11,6 +11,13 @@ import SMIS from '@/public/SMIS.png';
 import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { Marquee } from '@/components/magicui/marquee';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Book Your Appointment | Mountain Spine & Orthopedics',
+  description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.'
+}
+
 export default function BookAnAppointment() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -20,22 +27,20 @@ export default function BookAnAppointment() {
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
-
               }}
               className='text-[#022968] text-3xl md:text-6xl'
               >
-                Ready to book an Appointment ?
+                Book an Appointment
               </TextAnimate>
-              <h1
+              <p
               style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
-
               }}
               className='text-white md:text-xl text-lg mt-2'
               >
                 Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
-              </h1>
+              </p>
           </div>
         </section>
         <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white"/>

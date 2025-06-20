@@ -178,7 +178,7 @@ export default function AreaOfSpeciality() {
               href="/condition-check"
               className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
             >
-              <h1
+              <span
                 style={{
                   fontFamily: 'var(--font-reem-kufi)',
                   fontWeight: 500,
@@ -186,7 +186,7 @@ export default function AreaOfSpeciality() {
                 }}
               >
                 Condition Checker
-              </h1>
+              </span>
             </Link>
           </div>
         </div>
@@ -196,27 +196,27 @@ export default function AreaOfSpeciality() {
       <section className="max-w-[1440px] w-full flex flex-col py-[50px] px-6 xl:px-[80px] space-y-[24px]">
          {/* ... (rest of your 'Tell us Your Story' JSX - no changes needed here) ... */}
          <div className="flex flex-col space-y-[16px]">
-          <h1
+          <h2
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] sm:text-5xl text-3xl"
           >
             We are Here to Listen, Tell us your Story
-          </h1>
-          <h1
+          </h2>
+          <p
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
             className="text-[#5B5F67] sm:text-xl text-md lg:w-[75%]"
           >
             Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
-          </h1>
+          </p>
         </div>
         <div className="flex flex-col space-y-[16px]">
-          <h1
+          <h3
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] sm:text-2xl text-xl "
           >
             WELL, YOU'RE NOT ALONE.
-          </h1>
-          <h1
+          </h3>
+          <p
             style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
             className="text-[#5B5F67] sm:text-xl text-md lg:w-[75%]"
           >
@@ -224,7 +224,7 @@ export default function AreaOfSpeciality() {
             <br />
             <br />
             At Mountain Spine & Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
-          </h1>
+          </p>
         </div>
       </section>
 
@@ -238,6 +238,12 @@ export default function AreaOfSpeciality() {
           >
             All Our Conditions
           </h1>
+          <h2
+            style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
+            className="text-[#111315] text-5xl"
+          >
+            All Our Conditions
+          </h2>
           <div className="w-full lg:w-1/2  flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
             <div className="w-full md:w-1/2">
               <ConditionsSearchBar

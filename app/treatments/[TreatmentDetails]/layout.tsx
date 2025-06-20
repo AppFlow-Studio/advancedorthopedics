@@ -28,7 +28,7 @@ export async function generateMetadata(
   if (!treatment) {
     const readableSlug = params.TreatmentDetails.replace(/-/g, " ");
     return {
-      title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+      title: "Treatment Not Found | Mountain Spine & Orthopedics",
       description: "Learn about orthopedic care and treatments with our specialists in Florida."
     };
   }
@@ -36,15 +36,18 @@ export async function generateMetadata(
   const imageSource = getImageSource(treatment.card_img);
   const treatmentUrl = `https://mountainspineorthopedics.com/treatments/${treatment.slug}`;
 
+  // Robust, trimmed, non-empty title/description
+  const title = (treatment.metaTitle && treatment.metaTitle.trim()) || `${treatment.title} | Mountain Spine & Orthopedics`;
+  const description = (treatment.metaDesc && treatment.metaDesc.trim()) || (treatment.detail && treatment.detail.trim()) || (treatment.body && treatment.body.slice(0, 160).trim()) || `Learn about ${treatment.title}, offered by our specialists at Mountain Spine & Orthopedics.`;
+
   return {
     metadataBase: new URL('https://mountainspineorthopedics.com'),
-    title: treatment.metaTitle || `${treatment.title} | Mountain Spine & Orthopedics`,
-    description: treatment.metaDesc || treatment.detail || treatment.body?.slice(0, 160),
+    title,
+    description,
     keywords: treatment.keywords || [treatment.title, "orthopedic treatment", "spine surgery"],
-    
     openGraph: {
-      title: treatment.metaTitle || `${treatment.title} | Mountain Spine & Orthopedics`,
-      description: treatment.metaDesc || treatment.detail || treatment.body?.slice(0, 160),
+      title,
+      description,
       type: "article",
       url: treatmentUrl,
       images: [
@@ -56,14 +59,12 @@ export async function generateMetadata(
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
-      title: treatment.metaTitle || `${treatment.title} | Mountain Spine & Orthopedics`,
-      description: treatment.metaDesc || treatment.detail || treatment.body?.slice(0, 160),
+      title,
+      description,
       images: [imageSource],
     },
-
     alternates: {
       canonical: treatmentUrl,
     },

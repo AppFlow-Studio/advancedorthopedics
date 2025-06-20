@@ -3,14 +3,14 @@ import HomePageUI from '@/app/ui/HomePageUI'; // Assuming your UI code is in thi
 
 // ✅ Server-Rendered Metadata for Homepage SEO (This part is correct)
 export const metadata: Metadata = {
-  title: ' Mountain Spine & Orthopedics | Top Florida Orthopedic Surgeons',
-  description: 'Mountain Spine & Orthopedics offers expert care in minimally invasive spine surgery, joint pain relief, herniated disc treatment, and nerve pain therapy. Book your free MRI review or second opinion today across multiple Florida locations.',
+  title: 'Mountain Spine & Orthopedics | Top Florida Spine & Joint Pain Specialists',
+  description: 'Trusted orthopedic and spine care across Florida. Experts in minimally invasive surgery, arthritis, and joint pain relief. Book your free MRI review or second opinion today.',
   alternates: {
     canonical: 'https://mountainspineorthopedics.com/',
   },
   openGraph: {
-    title: 'Top Florida Orthopedic Spine Surgeons | Mountain Spine & Orthopedics',
-    description: 'Discover world-class orthopedic care in Florida. Specializing in minimally invasive back surgery, cervical disc herniation relief, sciatica treatments, and joint preservation procedures.',
+    title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
+    description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
     url: 'https://mountainspineorthopedics.com/',
     siteName: 'Mountain Spine & Orthopedics',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
-    description: 'Florida’s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
+    description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
     images: ['https://mountainspineorthopedics.com/og-image-homepage.jpg'],
   },
   keywords: [
@@ -40,7 +40,12 @@ export const metadata: Metadata = {
     "sciatica pain relief Florida",
     "orthopedic clinic Altamonte Springs",
     "free MRI review orthopedic",
-    "Florida spine specialist"
+    "Florida spine specialist",
+    "joint pain relief Florida",
+    "neck pain treatment Florida",
+    "shoulder pain specialist Florida",
+    "knee pain doctor Florida",
+    "foot pain treatment Florida"
   ],
 };
 

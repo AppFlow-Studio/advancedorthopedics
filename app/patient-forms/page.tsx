@@ -76,7 +76,7 @@ export default function PatientForms() {
             }}
             className="text-white text-shadow-sm text-xl lg:text-2xl"
             >
-            If you have been told to use one of our online forms prior to a visit or treatment, please look below. If you have any questions, or do not see the specific form you are looking for, please don’t hesitate to call or email us.
+            If you have been told to use one of our online forms prior to a visit or treatment, please look below. If you have any questions, or do not see the specific form you are looking for, please don't hesitate to call or email us.
             </p>
         </div>
         </div>
@@ -100,16 +100,9 @@ export default function PatientForms() {
                 Download Patient Forms and Fax/Bring to Office.
                 </h1>
 
-                <h1
-                 style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color : '#5B5F67',
-                  }}
-                  className='text-xl text-center px-5'
-                >
-                If you prefer you can download New Patient Packet here. Upon completion you may fax it to us at this number: <span className=' text-[#111315]'>(561)-318-8746 </span>or just bring them with you on your next visit with us. 
-                </h1>
+                <p className='text-xl text-center px-5'>
+                  If you prefer you can download New Patient Packet here. Upon completion you may fax it to us at this number: <span className=' text-[#111315]'> (561)-318-8746 </span>or just bring them with you on your next visit with us.
+                </p>
 
 
                 <button className='max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer space-x-[10px]'>

@@ -5,6 +5,20 @@ import DoctorCard from '@/components/DoctorCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import Link from 'next/link';
+
+export const metadata = {
+  title: 'Meet Our Doctors | Orthopedic & Spine Specialists in Florida | Mountain Spine & Orthopedics',
+  description: 'Our team of board-certified spine and orthopedic specialists offers expert care across Florida. Learn more about our surgeons and pain management experts.',
+  openGraph: {
+    title: 'Meet Our Doctors | Orthopedic & Spine Specialists in Florida | Mountain Spine & Orthopedics',
+    description: 'Our team of board-certified spine and orthopedic specialists offers expert care across Florida. Learn more about our surgeons and pain management experts.'
+  },
+  twitter: {
+    title: 'Meet Our Doctors | Orthopedic & Spine Specialists in Florida | Mountain Spine & Orthopedics',
+    description: 'Our team of board-certified spine and orthopedic specialists offers expert care across Florida. Learn more about our surgeons and pain management experts.'
+  }
+};
+
 export default function MeetOurDoctors() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -20,15 +34,12 @@ export default function MeetOurDoctors() {
             />
 
           <div className= "px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] md:w-[60%] lg:w-[45%] xl:w-[56%]">
-              <TextAnimate animation="blurInUp" by="word" once
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 400,
-              }}
-              className="text-[#022968] lg:text-7xl md:text-5xl text-4xl"
+              <h1
+                style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }}
+                className="text-[#022968] lg:text-7xl md:text-5xl text-4xl"
               >
-                Meet all our doctors
-              </TextAnimate>
+                Meet Our Doctors
+              </h1>
           </div>
 
           <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[50%]">
@@ -63,13 +74,10 @@ export default function MeetOurDoctors() {
            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
                 <div className=" flex flex-row">
                   <div className=" flex flex-col space-y-[24px] md:w-[50%]">
-                    <h1
-                    style={{
-                      fontFamily: "var(--font-reem-kufi)",
-                      fontWeight: 500,
-                    }}
-                    className="text-black text-5xl text-left w-full"
-                    >Meet Our doctors</h1>
+                    <h2
+                      style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }}
+                      className="text-black text-5xl text-left w-full"
+                    >Meet Our Doctors</h2>
                   </div>
                 </div>    
                 <div className=" mt-[60px] grid  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16">

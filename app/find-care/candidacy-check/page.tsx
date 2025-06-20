@@ -1,4 +1,3 @@
-
 'use client'
 import React, { useState } from 'react'
 import PatientFormsLanding from '@/public/PatientFormsLanding.jpeg'
@@ -55,18 +54,18 @@ const formSchema = z.object({
 
 const faqItems : {question : string, answer : React.JSX.Element}[] = [
     {
-        question : 'Reason 1: Understand What’s Causing Your Back Pain',
+        question : 'Reason 1: Understand What's Causing Your Back Pain',
         answer : (
             <p>
-               Your back is a complex and highly engineered system made up of bones, muscles, joints, and ligaments. Unfortunately, it’s also vulnerable to pain. Whether caused by injuries, fractures, or conditions like spinal stenosis, disc degeneration, pinched nerves, or herniated discs, understanding the source of your pain is the first step toward treatment.
+               Your back is a complex and highly engineered system made up of bones, muscles, joints, and ligaments. Unfortunately, it's also vulnerable to pain. Whether caused by injuries, fractures, or conditions like spinal stenosis, disc degeneration, pinched nerves, or herniated discs, understanding the source of your pain is the first step toward treatment.
             </p>
         )
     },
     {
-        question : 'Reason 2: Don’t Ignore the Warning Signs',
+        question : 'Reason 2: Don't Ignore the Warning Signs',
         answer : (
             <p>
-                We’ve all experienced back pain but recurring or chronic pain should never be ignored. In fact, studies show that regular pain in your spine can increase your risk of death by up to 15%. Identifying and treating the root of your pain early can be lifesaving.
+                We've all experienced back pain but recurring or chronic pain should never be ignored. In fact, studies show that regular pain in your spine can increase your risk of death by up to 15%. Identifying and treating the root of your pain early can be lifesaving.
                 <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
             </p>
         )
@@ -75,7 +74,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'Reason 3: Explore Non-Surgical and Surgical Solutionss',
         answer : (
             <p>
-                The good news? Most patients respond well to non-surgical options like physical therapy and medication. However, if these don’t work, minimally invasive surgery may be the next step. Mountain Spine & Orthopedics provides advanced treatments tailored to your unique condition.
+                The good news? Most patients respond well to non-surgical options like physical therapy and medication. However, if these don't work, minimally invasive surgery may be the next step. Mountain Spine & Orthopedics provides advanced treatments tailored to your unique condition.
                 <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
             </p>
         )
@@ -93,7 +92,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
 
 const Testimonial = (
     <p>
-Request a Free Candidacy Evaluation from Our Spine Team: <br/> <br/>Knowing your options starts with the right diagnosis. That’s why Mountain Spine & Orthopedics offers free spine surgery candidacy checks. We help determine which treatments may be a fit for your condition at no cost to you. Whether you need physical therapy or surgery, you’ll get expert advice based on your specific needs.    </p>
+Request a Free Candidacy Evaluation from Our Spine Team: <br/> <br/>Knowing your options starts with the right diagnosis. That's why Mountain Spine & Orthopedics offers free spine surgery candidacy checks. We help determine which treatments may be a fit for your condition at no cost to you. Whether you need physical therapy or surgery, you'll get expert advice based on your specific needs.    </p>
 )
 
 const Header = (
@@ -495,7 +494,7 @@ function CandidacyCheck() {
                                                                                         :
                                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                                                             <path fillRule="evenodd" clipRule="evenodd" d="M2.081 17.9184C3.55775 19.3952 5.711 19.3952 10.0001 19.3952C14.2892 19.3952 16.4424 19.3943 17.9192 17.9184C19.3959 16.4426 19.3959 14.2884 19.3959 9.99935C19.3959 5.71027 19.395 3.55703 17.9192 2.08028C16.4433 0.603525 14.2892 0.603516 10.0001 0.603516C5.711 0.603516 3.55775 0.603525 2.081 2.08028C0.604248 3.55611 0.604248 5.71026 0.604248 9.99934V9.99935V9.99936C0.604248 14.2884 0.604248 16.4417 2.081 17.9184ZM10 1.97852H10.0001H10.0001C13.9106 1.97852 15.8741 1.97852 16.9475 3.05193C18.0209 4.12626 18.0209 6.08884 18.0209 9.99933V9.99935V9.99937C18.0209 13.9099 18.0209 15.8734 16.9475 16.9468C15.8732 18.0202 13.9106 18.0202 10.0001 18.0202H10.0001H10.0001C6.08958 18.0202 4.127 18.0202 3.05267 16.9468C1.97925 15.8724 1.97925 13.9099 1.97925 9.99935C1.97925 6.08885 1.97925 4.12535 3.05267 3.05193C4.127 1.97852 6.08957 1.97852 10 1.97852ZM7.84688 13.9575C7.98805 14.1985 8.24563 14.3452 8.5243 14.3452H8.54814C8.83505 14.337 9.09263 14.1729 9.2228 13.9171C9.83605 12.7016 10.7435 11.0956 11.4521 10.2312L11.5851 10.069L11.5909 10.0618C11.9761 9.59031 12.2107 9.30316 12.6649 8.86629C12.9115 8.62979 13.0609 8.49505 13.3506 8.27505C13.5449 8.12655 13.896 7.91205 14.0142 7.84238C14.3415 7.64988 14.4505 7.22821 14.258 6.90096C14.0655 6.57371 13.6439 6.46464 13.3166 6.65714C13.2653 6.68739 12.8115 6.95597 12.5173 7.18055C12.1772 7.43813 11.9866 7.60956 11.7106 7.87539C11.1978 8.36908 10.9293 8.69742 10.5254 9.19142L10.5199 9.19813L10.3879 9.35947C9.69488 10.2056 8.9423 11.5127 8.45005 12.4257C8.27771 12.2195 8.0843 12.0224 7.87439 11.8629C7.47499 11.5596 6.873 11.1375 6.74807 11.0499C6.73595 11.0414 6.72832 11.036 6.7258 11.0342C6.41413 10.817 5.98605 10.893 5.7688 11.2047C5.55155 11.5164 5.62763 11.9445 5.9393 12.1617C5.93966 12.162 5.94218 12.1637 5.94667 12.1669C6.02181 12.2195 6.65025 12.6599 7.04205 12.9574C7.29046 13.1462 7.5838 13.511 7.84688 13.9575Z" fill="#838890"/>
-                                                                                        </svg>
+                                                                    </svg>
     
                                                                                     }
                                                                                 </div>
@@ -554,7 +553,7 @@ function CandidacyCheck() {
                                                                     {
                                                                         field.value == 'true' ? 
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                                        <path fillRule="evenodd" clipRule="evenodd" d="M10.0526 0.604126C12.061 0.604126 13.6386 0.604131 14.8697 0.770048C16.1319 0.939631 17.1329 1.29439 17.9194 2.08089C18.7059 2.86739 19.0607 3.86837 19.2302 5.13062C19.3962 6.3617 19.3962 7.93929 19.3962 9.9477V10.0522C19.3962 12.0606 19.3962 13.6382 19.2302 14.8693C19.0607 16.1316 18.7059 17.1325 17.9194 17.919C17.1329 18.7055 16.1319 19.0603 14.8697 19.2299C13.6386 19.3958 12.061 19.3958 10.0526 19.3958H9.94807C7.93965 19.3958 6.36207 19.3958 5.13098 19.2299C3.86873 19.0603 2.86775 18.7055 2.08125 17.919C1.29475 17.1325 0.939998 16.1316 0.770414 14.8693C0.604498 13.6382 0.604492 12.0606 0.604492 10.0522V9.9477C0.604492 7.93929 0.604498 6.3617 0.770414 5.13062C0.939998 3.86837 1.29475 2.86739 2.08125 2.08089C2.86775 1.29439 3.86873 0.939631 5.13098 0.770048C6.36207 0.604131 7.93965 0.604126 9.94807 0.604126H10.0526ZM14.4718 6.35162C14.7147 6.79621 14.5516 7.35355 14.107 7.59646C12.8502 8.28396 11.6696 9.72313 10.7676 11.1027C10.3285 11.7755 9.97558 12.4025 9.73358 12.86C9.61259 13.0891 9.52 13.2743 9.45767 13.4017L9.36784 13.5896C9.22575 13.8995 8.92416 14.1048 8.58408 14.124C8.244 14.1424 7.92224 13.971 7.74715 13.6795C7.46207 13.2028 7.01016 12.7683 6.59033 12.4365C6.38683 12.2751 6.20348 12.1486 6.0724 12.0625L5.879 11.9424C5.43991 11.6912 5.28683 11.1311 5.538 10.692C5.78825 10.252 6.34832 10.099 6.78832 10.3501L7.07709 10.5289C7.24392 10.6389 7.47307 10.7975 7.72699 10.9982C7.92224 11.1522 8.1395 11.3374 8.35858 11.55C8.59417 11.1275 8.8884 10.6279 9.23307 10.1008C10.1653 8.67355 11.5513 6.90438 13.227 5.98771C13.6716 5.74479 14.2289 5.90796 14.4718 6.35162Z" fill="#022968"/>
+                                                                        <path fillRule="evenodd" clipRule="evenodd" d="M10.0526 0.604126C12.061 0.604126 13.6386 0.604131 14.8697 0.770048C16.1319 0.939631 17.1329 1.29439 17.9194 2.08089C18.7059 2.86678 19.0607 3.86776 19.2302 5.13001C19.3962 6.36109 19.3962 7.93868 19.3962 9.94709V10.0516C19.3962 12.06 19.3962 13.6376 19.2302 14.8687C19.0607 16.1309 18.7059 17.1319 17.9194 17.9184C17.1327 18.7049 16.1317 19.0597 14.8697 19.2293C13.6383 19.3952 12.0608 19.3952 10.0523 19.3952H9.94783C7.93941 19.3952 6.36182 19.3952 5.13074 19.2293C3.86849 19.0597 2.86751 18.7049 2.08101 17.9184C1.29451 17.1319 0.939753 16.1309 0.77017 14.8687C0.604253 13.6376 0.604248 12.06 0.604248 10.0516V9.94709C0.604248 7.93868 0.604253 6.36109 0.77017 5.13001C0.939753 3.86776 1.29451 2.86678 2.08101 2.08028C2.86751 1.29378 3.86849 0.939021 5.13074 0.769438C6.36182 0.603521 7.93941 0.603516 9.94783 0.603516H10.0523ZM14.4718 6.35162C14.7147 6.79621 14.5516 7.35355 14.107 7.59646C12.8502 8.28396 11.6696 9.72313 10.7676 11.1027C10.3285 11.7755 9.97558 12.4025 9.73358 12.86C9.61259 13.0891 9.52 13.2743 9.45767 13.4017L9.36784 13.5896C9.22575 13.8995 8.92416 14.1048 8.58408 14.124C8.244 14.1424 7.92224 13.971 7.74715 13.6795C7.46207 13.2028 7.01016 12.7683 6.59033 12.4365C6.38683 12.2751 6.20348 12.1486 6.0724 12.0625L5.879 11.9424C5.43991 11.6912 5.28683 11.1311 5.538 10.692C5.78825 10.252 6.34832 10.099 6.78832 10.3501L7.07709 10.5289C7.24392 10.6389 7.47307 10.7975 7.72699 10.9982C7.92224 11.1522 8.1395 11.3374 8.35858 11.55C8.59417 11.1275 8.8884 10.6279 9.23307 10.1008C10.1653 8.67355 11.5513 6.90438 13.227 5.98771C13.6716 5.74479 14.2289 5.90796 14.4718 6.35162Z" fill="#022968"/>
                                                                       </svg>
                                                                       :
                                                                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -562,7 +561,7 @@ function CandidacyCheck() {
                                                                     </svg>
 
                                                                     }
-                                                                    <h1>I don’t want to receive occasional emails from Orthopedic and Laser Spine Surgery.</h1>
+                                                                    <p>I don't want to receive occasional emails from Orthopedic and Laser Spine Surgery.</p>
                                                                 </div>
                                                             :
                                                             <Input placeholder={question.question} className="h-12 text-lg  border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
@@ -725,7 +724,6 @@ function CandidacyCheck() {
                                     <path fillRule="evenodd" clipRule="evenodd" d="M12.1194 0.95737C11.4704 0.416553 10.5277 0.416554 9.87875 0.957371L7.72754 2.75005L4.49907 2.75005C3.53258 2.75005 2.74908 3.53355 2.74907 4.50005L2.74907 7.72851L0.956394 9.87973C0.415578 10.5287 0.415577 11.4714 0.956394 12.1204L2.74907 14.2716L2.74908 17.5001C2.74908 18.4666 3.53258 19.2501 4.49908 19.2501L7.72754 19.25L9.87875 21.0427C10.5277 21.5835 11.4704 21.5835 12.1194 21.0427L14.2706 19.25H17.4991C18.4656 19.25 19.2491 18.4665 19.2491 17.5L19.2491 14.2716L21.0417 12.1204C21.5826 11.4714 21.5826 10.5287 21.0418 9.87973L19.2491 7.72851L19.2491 4.50005C19.2491 3.53355 18.4656 2.75005 17.4991 2.75005L14.2706 2.75005L12.1194 0.95737ZM14.4611 9.38694C14.9509 9.13182 15.1412 8.52792 14.8861 8.03809C14.6309 7.54826 14.027 7.35799 13.5372 7.61311C12.1092 8.35684 10.9442 9.7806 10.1744 10.9032C10.1078 11.0004 10.0434 11.0964 9.98137 11.1907C9.84153 11.4033 9.71366 11.6073 9.59878 11.7971C9.51302 11.7245 9.42957 11.6575 9.35034 11.5963C9.32499 11.5767 9.30008 11.5577 9.27566 11.5393C9.06035 11.3772 8.86673 11.2494 8.72532 11.1612C8.65433 11.1169 8.59572 11.0821 8.55316 11.0575C8.53187 11.0451 8.51453 11.0353 8.50161 11.0281L8.48557 11.0191L8.48012 11.0161L8.47806 11.015L8.47644 11.0141C7.99113 10.7505 7.38401 10.9303 7.1204 11.4156C6.85685 11.9008 7.03677 12.5079 7.52183 12.7716L7.52391 12.7728L7.55058 12.788C7.576 12.8028 7.61582 12.8263 7.6667 12.8581C7.76905 12.9219 7.91292 13.0168 8.07261 13.1371C8.40619 13.3882 8.74611 13.7036 8.9523 14.0319C9.14601 14.3403 9.4921 14.519 9.85574 14.4984C10.2193 14.4778 10.543 14.2609 10.7007 13.9328L10.7032 13.9276L10.7159 13.9018C10.7276 13.878 10.746 13.8413 10.7707 13.7932C10.8202 13.6969 10.8947 13.5553 10.992 13.3804C11.187 13.0294 11.4706 12.5494 11.8239 12.0343C12.5541 10.9694 13.489 9.89321 14.4611 9.38694Z" fill="#E5F6FF"/>
                                 </svg>
                             </motion.div>
-                        </motion.div>
 
                         </div>
 

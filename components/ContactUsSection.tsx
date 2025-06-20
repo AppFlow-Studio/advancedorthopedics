@@ -7,7 +7,7 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
     <section className={`bg-[${backgroundcolor}] w-full h-full py-[50px]`}>
     <div className="max-w-[1440px] w-full md:px-[40px] px-2 mx-auto flex xl:flex-row flex-col space-x-[60px]">
       <div className=" xl:w-[50%] w-full  flex flex-col p-[24px]">
-          <h1
+          <h2
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -17,9 +17,9 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
           >
             Take the first step toward 
             a pain-free life .
-          </h1>
+          </h2>
 
-          <h1
+          <p
            style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -27,14 +27,14 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
           }}
           className="text-lg mt-[24px]"
           >
-            Don’t let pain hold you back any longer. Whether you need a second opinion, non-surgical options, or Mountain Spine & Orthopedics surgery, our team is here to help.
-          </h1>
+            Don't let pain hold you back any longer. Whether you need a second opinion, non-surgical options, or Mountain Spine & Orthopedics surgery, our team is here to help.
+          </p>
 
           <Image src={HomeContactUs} className="w-full rounded-[24px] mt-[40px]" alt="Doctor teaching other doctors flex-1 flex" />
       </div>
 
       <div className=" xl:w-[50%] w-full flex flex-col bg-white p-[24px] rounded-[24px] items-center justify-center">
-          <h1
+          <h3
           style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -43,9 +43,9 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
           className="text-5xl text-center"
           >
             Contact Us
-          </h1>
+          </h3>
 
-          <h1
+          <p
            style={{
             fontFamily: "var(--font-reem-kufi)",
             fontWeight: 500,
@@ -55,7 +55,7 @@ export default function ContactUsSection({backgroundcolor = '#FAFCFF'}: { backgr
           >
             Have questions or need support? 
             Reach out to us anytime - we're here to help.
-          </h1>
+          </p>
 
           <ConsultationForm />          
       </div>

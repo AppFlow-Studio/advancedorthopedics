@@ -144,7 +144,7 @@ export default function BookAnAppoitmentButton() {
                         render={({ field }) => (
                         <FormItem>
                             <FormLabel>
-                            <h1 
+                            <span 
                             style={{
                                 fontFamily : 'var(--font-reem-kufi)',
                                 fontWeight : 500,
@@ -152,7 +152,7 @@ export default function BookAnAppoitmentButton() {
                             className='text-[#111315] text-md'
                             >
                                 Email Address
-                            </h1>                                
+                            </span>                                
                             </FormLabel>
                             <FormControl>
                                 <Input placeholder="Enter your email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]  bg-[#EFF5FF]" {...field} />
@@ -168,7 +168,7 @@ export default function BookAnAppoitmentButton() {
                         render={({ field }) => (
                         <FormItem>
                             <FormLabel>
-                            <h1
+                            <span
                             style={{
                                 fontFamily : 'var(--font-reem-kufi)',
                                 fontWeight : 500,
@@ -176,7 +176,7 @@ export default function BookAnAppoitmentButton() {
                             className='text-[#111315] text-md'
                             >
                                 Phone Number
-                            </h1>
+                            </span>
                             
                             </FormLabel>
                             <FormControl>
@@ -194,7 +194,7 @@ export default function BookAnAppoitmentButton() {
                     render={({field}) => (
                         <FormItem>
                             <FormLabel>
-                                <h1
+                                <span
                                 style={{
                                     fontFamily : 'var(--font-reem-kufi)',
                                     fontWeight : 500,
@@ -202,7 +202,7 @@ export default function BookAnAppoitmentButton() {
                                 className='text-[#111315] text-md'
                                 >
                                     Best Time To Contact
-                                </h1>
+                                </span>
                             </FormLabel>
                             <FormControl>
                             <Select onValueChange={field.onChange} value={field.value} >
@@ -321,7 +321,7 @@ export default function BookAnAppoitmentButton() {
                         </div>
 
                         <div className=" flex flex-col space-y-[10px] items-center justify-center">
-                        <h1
+                        <h3
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 700,
@@ -329,8 +329,8 @@ export default function BookAnAppoitmentButton() {
                         className='text-[black] text-2xl'
                         >
                             Your Appointment Request Is Confirmed
-                        </h1>
-                        <h1
+                        </h3>
+                        <p
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -340,7 +340,7 @@ export default function BookAnAppoitmentButton() {
                             You're one step closer to a pain-free life!<br/>
                             Please check your email for details. Our team will contact you shortly.<br/>
                             Thank you for choosing Mountain Spine & Orthopedic Center!
-                        </h1>
+                        </p>
                         </div>
                         <div 
                         onClick={() => {
@@ -349,7 +349,7 @@ export default function BookAnAppoitmentButton() {
                         }}
                         className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
                         >
-                            <h1
+                            <span
                             style={{
                                 fontFamily: "var(--font-reem-kufi)",
                                 fontWeight: 500,
@@ -357,7 +357,7 @@ export default function BookAnAppoitmentButton() {
                                 lineHeight: "24px",
                                 letterSpacing: "0.02em"
                             }}
-                            >Done</h1>
+                            >Done</span>
                         </div>
                     </div>
                 </DialogContent>

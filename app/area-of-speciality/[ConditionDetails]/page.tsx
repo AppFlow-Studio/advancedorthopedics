@@ -68,47 +68,24 @@ export default function ConditionDetails({
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
             >
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#022968]"
-                >
-                    Condition
-                </h1>
-    
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#022968]"
-                >
-                    /
-                </h1>
-    
-                <h1
-                style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
-                }}
-                className="text-[#2358AC]"
-                >
-                    Condition Details
-                </h1>
+                <nav aria-label="breadcrumb" className="text-sm text-[#022968] font-medium">
+                  <ol className="breadcrumb-list flex space-x-2">
+                    <li><Link href="/area-of-speciality">Conditions</Link></li>
+                    <li aria-current="page">{condition_details.title}</li>
+                  </ol>
+                </nav>
             </div>
         </div>
         <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
-            <TextAnimate animation="blurInUp" by="word" once
-            style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 400,
-            }}
-            className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+            <h1
+              style={{
+                  fontFamily: "var(--font-reem-kufi)",
+                  fontWeight: 400,
+              }}
+              className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
                 {condition_details.title}
-            </TextAnimate>
+            </h1>
         </div>
 
         <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[55%] pb-8">
@@ -131,7 +108,7 @@ export default function ConditionDetails({
                 <ConditionList currentCondition={condition_details.title} />
 
                 <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
-                    <h1
+                    <h2
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
@@ -139,7 +116,7 @@ export default function ConditionDetails({
                     className="text-[#111315] text-5xl"
                     >
                         Meet our Doctors
-                    </h1>
+                    </h2>
                     <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
                         {
                             randomDoctors.map((doctor) => (
@@ -156,7 +133,7 @@ export default function ConditionDetails({
                 <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
                     {/* Detail */}
                     <div className=' flex flex-col space-y-[16px] '>
-                        <h1
+                        <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -164,8 +141,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-5xl text-2xl'
                         >
                         Details
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -173,12 +150,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.detail}
-                        </h1>
+                        </p>
                     </div>
                     
                     {/* What are symptoms of */}
                     <div className=' flex flex-col space-y-[16px] '>
-                        <h1
+                        <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -186,8 +163,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         What Are the Symptoms of {condition_details.title}?
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -195,12 +172,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.what_sym}
-                        </h1>
+                        </p>
                     </div>
                     
                     {/* Video */}
                     <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
-                    <h1
+                    <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -208,12 +185,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details.body}
-                     </h1>
+                     </p>
                     
                     
                     {/* Are There Specific Risk Factors  */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -221,8 +198,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Are There Specific Risk Factors for {condition_details.title}?
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -230,12 +207,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.risk_fac}
-                        </h1>
+                        </p>
                     </div>
     
                     {/*  Diagnosing */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -243,8 +220,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Diagnosing {condition_details.title}?
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -252,12 +229,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.diagnose}
-                        </h1>
+                        </p>
                     </div>
                     
                     {/* Treatment for  */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -265,8 +242,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Treatment for {condition_details.title}?
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -274,12 +251,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.treatment}
-                        </h1>
+                        </p>
                     </div>
     
                     {/* Does ... Cause Pain? */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -287,8 +264,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         Does {condition_details.title} Cause Pain?
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -296,13 +273,13 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.pain_info}
-                        </h1>
+                        </p>
                     </div>
                     
                     {/* What Can Patients Do to Prevent It? */}
     
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -310,8 +287,8 @@ export default function ConditionDetails({
                         className='text-[#111315] sm:text-4xl text-2xl'
                         >
                         What Can Patients Do to Prevent It?
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -319,12 +296,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.prevent}
-                        </h1>
+                        </p>
                     </div>
     
                     {/* Schedule a Consultation Today */}
                     <div className=' flex flex-col space-y-[16px] '>
-                        <h1
+                        <h2
                             style={{
                                 fontFamily : 'var(--font-reem-kufi)',
                                 fontWeight : 500,
@@ -332,8 +309,8 @@ export default function ConditionDetails({
                             className='text-[#111315] sm:text-4xl text-2xl'
                             >
                             Schedule a Consultation Today
-                        </h1>
-                        <h1
+                        </h2>
+                        <p
                          style={{
                             fontFamily : 'var(--font-inter)',
                             fontWeight : 400,
@@ -341,12 +318,12 @@ export default function ConditionDetails({
                           className='text-[#5B5F67] sm:text-xl text-sm'
                         >
                             {condition_details?.schedule}
-                        </h1>
+                        </p>
                     </div>
                 </section>
 
                 <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden '>
-                    <h1
+                    <h2
                     style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 400,
@@ -354,7 +331,7 @@ export default function ConditionDetails({
                     className="text-[#111315] text-5xl"
                     >
                         Meet our Doctors
-                    </h1>
+                    </h2>
                     <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
                         {
                             randomDoctors.map((doctor) => (

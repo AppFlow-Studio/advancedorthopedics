@@ -132,7 +132,7 @@ export default function TreatmentDetails({
               background : 'rgba(255, 255, 255, 0.50)'
           }}
           >
-              <h1
+              <span
               style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 400,
@@ -140,9 +140,8 @@ export default function TreatmentDetails({
               className="text-[#022968]"
               >
                   Treatment
-              </h1>
-  
-              <h1
+              </span>
+              <span
               style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 400,
@@ -150,9 +149,8 @@ export default function TreatmentDetails({
               className="text-[#022968]"
               >
                   /
-              </h1>
-  
-              <h1
+              </span>
+              <span
               style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 400,
@@ -160,8 +158,8 @@ export default function TreatmentDetails({
               className="text-[#2358AC]"
               >
                   Treatment Details
-              </h1>
-              <h1
+              </span>
+              <span
               style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 400,
@@ -169,9 +167,8 @@ export default function TreatmentDetails({
               className="text-[#022968] sm:flex hidden"
               >
                   /
-              </h1>
-  
-              <h1
+              </span>
+              <span
               style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 400,
@@ -179,11 +176,11 @@ export default function TreatmentDetails({
               className="text-[#2358AC] sm:flex hidden"
               >
                   {treatment_details.title}
-              </h1>
+              </span>
           </div>
       </div>
       <div className=" px-6 xl:px-[80px] z-[2] flex flex-row items-center justify-start mt-[12px] lg:w-[50%]">
-          <TextAnimate animation="blurInUp" by="word" once
+          <h1
           style={{
               fontFamily: "var(--font-reem-kufi)",
               fontWeight: 400,
@@ -191,7 +188,7 @@ export default function TreatmentDetails({
           className="text-[#022968] flex-wrap text-3xl md:text-6xl lg:text-7xl"
           >
               {treatment_details.title}
-          </TextAnimate>
+          </h1>
       </div>
 
       <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
@@ -216,7 +213,7 @@ export default function TreatmentDetails({
               </div>
 
               <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
-                  <h1
+                  <h2
                   style={{
                       fontFamily: "var(--font-reem-kufi)",
                       fontWeight: 400,
@@ -224,7 +221,7 @@ export default function TreatmentDetails({
                   className="text-[#111315] sm:text-5xl text-3xl"
                   >
                       Meet our Doctors
-                  </h1>
+                  </h2>
                   <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
                       {
                           randomDoctors.map((doctor) => (
@@ -241,7 +238,7 @@ export default function TreatmentDetails({
                 <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
                     {/* Detail */}
                     <div className=' flex flex-col space-y-[16px] '>
-                        <h1
+                        <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -249,21 +246,20 @@ export default function TreatmentDetails({
                         className='text-[#111315] sm:text-5xl text-3xl'
                         >
                         Details
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-md'
+                        </h2>
+                        <p
+                        style={{
+                            fontWeight: 400,
+                        }}
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                         >
                             {treatment_details.body}
-                        </h1>
+                        </p>
                     </div>
                     
                     {/* What are symptoms of */}
                     <div className=' flex flex-col space-y-[16px] '>
-                        <h1
+                        <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -271,16 +267,15 @@ export default function TreatmentDetails({
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What is {treatment_details.title}?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] text-sm sm:text-lg'
+                        </h2>
+                        <p
+                        style={{
+                            fontWeight: 400,
+                        }}
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                         >
                             {treatment_details.detail}
-                        </h1>
+                        </p>
                     </div>
                     
                   
@@ -294,7 +289,7 @@ export default function TreatmentDetails({
                     />
                     
                      <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -302,22 +297,21 @@ export default function TreatmentDetails({
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What does {treatment_details.title} look like?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-md'
+                        </h2>
+                        <p
+                        style={{
+                            fontWeight: 400,
+                        }}
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                         >
                             {treatment_details.procedure_info}
-                        </h1>
+                        </p>
                     </div>
     
                     
                     {/* Conditions it Treats */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -325,42 +319,37 @@ export default function TreatmentDetails({
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What Conditions does {treatment_details.title} Help Ease?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-md'
+                        </h2>
+                        <p
+                        style={{
+                            fontWeight: 400,
+                        }}
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                         >
                             {treatment_details.conditions_treated}
-                        </h1>
+                        </p>
                     </div>
 
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        Benefits of {treatment_details.title}?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-md'
-                        >
-                            {treatment_details.benefits}
-                        </h1>
+                        Benefits of {treatment_details.title}
+                        </h2>
+                        {typeof treatment_details.benefits === 'string' ? (
+                          <ul><li>{treatment_details.benefits}</li></ul>
+                        ) : (
+                          treatment_details.benefits
+                        )}
                     </div>
     
                     {/*  Why Choose Us */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -368,21 +357,20 @@ export default function TreatmentDetails({
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         Why Choose Mountain Spine & Orthopedics for {treatment_details.title}?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-md'
+                        </h2>
+                        <p
+                        style={{
+                            fontWeight: 400,
+                        }}
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                         >
                             {treatment_details.why_choose_us}
-                        </h1>
+                        </p>
                     </div>
                     
                     {/* Recovery Info */}
                     <div className=' flex flex-col space-y-[16px] '>
-                    <h1
+                    <h2
                         style={{
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
@@ -390,22 +378,21 @@ export default function TreatmentDetails({
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
                         What does post {treatment_details.title} recovery look like?
-                        </h1>
-                        <h1
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-md'
+                        </h2>
+                        <p
+                        style={{
+                            fontWeight: 400,
+                        }}
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                         >
                             {treatment_details.recovery_info}
-                        </h1>
+                        </p>
                     </div>
   
   
                   {/* Schedule a Consultation Today */}
                   <div className=' flex flex-col space-y-[16px] '>
-                      <h1
+                      <h2
                           style={{
                               fontFamily : 'var(--font-reem-kufi)',
                               fontWeight : 500,
@@ -413,21 +400,20 @@ export default function TreatmentDetails({
                           className='text-[#111315] text-2xl sm:text-4xl'
                           >
                           Schedule a Consultation Today
-                      </h1>
-                      <h1
+                      </h2>
+                      <p
                        style={{
-                          fontFamily : 'var(--font-inter)',
-                          fontWeight : 400,
+                          fontWeight: 400,
                         }}
-                        className='text-[#5B5F67] sm:text-xl text-md'
+                        className="text-white text-shadow-sm sm:text-xl text-md"
                       >
                           {treatment_details.schedule}
-                      </h1>
+                      </p>
                   </div>
               </section>
 
               <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden'>
-                  <h1
+                  <h2
                   style={{
                       fontFamily: "var(--font-reem-kufi)",
                       fontWeight: 400,
@@ -435,7 +421,7 @@ export default function TreatmentDetails({
                   className="text-[#111315] sm:text-5xl text-3xl"
                   >
                       Meet our Doctors
-                  </h1>
+                  </h2>
                   <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
                       {
                           randomDoctors.map((doctor) => (

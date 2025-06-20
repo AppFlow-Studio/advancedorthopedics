@@ -66,15 +66,16 @@ export default function RatingsAndReviews() {
   //console.log(size)
   //console.log(singleCard)
   return (
-    <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] ">
+    <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] " aria-labelledby="reviews-heading">
             <div>
-              <h1
+              <h4
+              id="reviews-heading"
               style={{
                 fontFamily: "var(--font-reem-kufi)",
                 fontWeight: 500,
               }}
               className="text-black text-5xl text-left w-full"
-              >What Our Patients Say</h1>
+              >What Our Patients Say</h4>
             </div>
             <div
             style={{
@@ -84,9 +85,9 @@ export default function RatingsAndReviews() {
             className=" text-[#5B5F67] mt-[16px] w-full justify-between items-center flex flex-row"
             >
               <div className="md:w-[45%] w-full">
-                <h1
+                <p
                 className='text-lg'
-                >Our patients’ experiences speak volumes about our care. See their stories below.Real feedback from those who trust us with their health. Hear their thoughts here.</h1>
+                >Our patients' experiences speak volumes about our care. See their stories below.Real feedback from those who trust us with their health. Hear their thoughts here.</p>
               </div>
               <div className=" md:flex hidden flex-row space-x-[16px]">
                 <button className=" bg-white border border-[#0094E0] rounded-full p-[18px] py-[20px] hover:cursor-pointer" onClick={() => setReviewsIndex(Math.max(0, ReviewsIndex - 1))}>
@@ -118,21 +119,21 @@ export default function RatingsAndReviews() {
                           <StarRating rating={item.rating} size={30}/>
                         </div>
                         <div className="lg:mt-22 md:mt-0 sm:mt-12 mt-12 xl:mt-auto flex flex-col space-y-[32px] ">
-                          <h1
+                          <blockquote
                           style={{
                             fontFamily: "var(--font-inter)",
                             fontWeight: 500,
                           }}
                           className="md:text-2xl sm:text-xl text-lg text-[#5B5F67] lg:pt-0  md:pt-10"
-                          >{item.body}</h1>
+                          >{item.body}</blockquote>
 
-                          <h1
+                          <cite
                           style={{
                             fontFamily: "var(--font-reem-kufi)",
                             fontWeight: 600,
                           }}
-                          className="text-3xl text-black"
-                          >{item.name}</h1>
+                          className="text-3xl text-black not-italic"
+                          >{item.name}</cite>
 
                         </div>
                     </div>

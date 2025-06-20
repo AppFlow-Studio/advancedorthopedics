@@ -23,35 +23,7 @@ export interface ClinicsProps {
   advancedTreatments? : React.ReactNode;
   whatOurPatientsSay? : React.ReactNode;
 }
-const LocationFeatures = ({
-  specialistHeader,
-  specialistParagraph,
-  skilledHeader,
-  skilledParagraph,
-  whyChooseHeader,
-  whyChooseReasons,
-  easyToReachHeader,
-  easyToReachPlaces,
-  convenientHeader,
-  convenientReason,
-}: {
-  specialistHeader: string;
-  specialistParagraph: string;
-  skilledHeader: string;
-  skilledParagraph: string;
-  whyChooseHeader: string;
-  whyChooseReasons: string[];
-  easyToReachHeader: string;
-  easyToReachPlaces: string[];
-  convenientHeader: string;
-  convenientReason: string;
-}) => {
-  return (
-    <section className='flex flex-col space-y-4'>
 
-    </section>
-  )
-}
 export const clinics : ClinicsProps[]= [
   {
     id: 4,
@@ -73,7 +45,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Find top Orthopedic Doctors in Hollywood FL at Mountain Spine & Orthopedics. Our Sports Medicine Surgeons in FL treat injuries with advanced & personalized care.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-        <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h1>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h2>
         <p className='text-lg'>Hollywood residents can get world-class spine care right here in South Florida. As your trusted Hollywood orthopedic center, Mountain Spine & Orthopedics brings expert care to Hollywood families. We know Hollywood life is active, from the Broadwalk to the marina. Our goal is to give you the best care so you can get back to work and play.</p>
       </div>
     ),
@@ -102,53 +74,50 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-        <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Dania Beach Residents</h1>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Dania Beach Residents</h2>
         <p className='text-lg'>Our orthopedic walk-in clinic is perfectly positioned to serve Dania Beach residents who need expert spine care. We're a convenient choice for our neighbors in Dania Beach looking for advanced treatment.</p>
       </div>
     ),
     advancedTreatments: (
-      <div className='flex flex-col space-y-[10px]'>
-        <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
-        <p className='text-lg'>Our Hollywood Orthopedic Center brings cutting-edge medical innovations to South Florida families with exclusive minimally invasive procedures not available elsewhere.</p>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
-        <div className='flex flex-col space-y-2 list-disc pl-5'>
-          <li>
-              <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
-          </li>
-          <li><span className='font-bold'>Laser & Radiofrequency Treatments:</span> Advanced laser spine procedures and targeted radio treatments.</li>
-          <li>
-              <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
-          </li>
-        </div>
-        <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
-        <div className='flex flex-col space-y-2 list-disc pl-5'>
-          <li><span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at few locations.</li>
-          <li>
-              <span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced Techniques</a> | <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>Disc Replacement</a> | <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>Spinal Fusion</a>
-          </li>
-          <li>
-              <span className='font-bold'>Complex Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF Surgery</a> | <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>Revision Surgery</a> | <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>Motion Preservation</a>
-          </li>
-        </div>
-        <p className='text-lg'>Hollywood's advantage: Robotic-assisted minimally invasive procedures, computer-guided navigation, same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+      <div className='flex flex-col space-y-4'>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
+              <div className='flex flex-col space-y-4'>
+                  <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
+                  <ul className='space-y-2'>
+                      <li>• Advanced Physical Therapy Programs</li>
+                      <li>• Regenerative Medicine Treatments</li>
+                      <li>• Minimally Invasive Injections</li>
+                      <li>• Custom Orthotic Solutions</li>
+                  </ul>
+              </div>
+              <div className='flex flex-col space-y-4'>
+                  <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
+                  <ul className='space-y-2'>
+                      <li>• Band Aid Back Surgery™</li>
+                      <li>• Laser Spine Procedures</li>
+                      <li>• Robotic-Assisted Surgery</li>
+                      <li>• Motion Preservation Techniques</li>
+                  </ul>
+              </div>
+          </div>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Hollywood Patients Say</h1>
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
-          <Testimonial
-            name="Jessica B."
-            role="Flight Attendant, Dania Beach"
-            testimonial="Years of flying out of FLL took a toll on my lower back. I was skeptical about surgery, but the pain was constant. The team at this Hollywood orthopedic center was incredible. They explained their minimally invasive options, and the 'Band-Aid' procedure was life-changing. I was back on my feet quickly and flying pain-free within a month. I recommend this orthopedic surgeon in Hollywood, FL, to all my colleagues."
-          />
-          <Testimonial
-            name="Carlos R."
-            role="Boat Captain, Hollywood"
-            testimonial="A sudden injury on the water left me with a serious neck issue. I thought my career was over. The Hollywood spine and orthopedic specialists of South Florida got me an appointment the next day. Dr. Katzman's expertise was obvious, and his team handled everything, including my complex insurance. I’m back on the water, all thanks to them."
-          />
-        </div>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Hollywood Patients Say</h3>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
+              <Testimonial
+                  name="Maria G."
+                  role="Restaurant Owner, Hollywood"
+                  testimonial="Running my restaurant in Hollywood was impossible with my back pain. The Hollywood orthopedic center team gave me my life back. Their minimally invasive approach had me back to work in weeks, not months. I can't recommend them enough."
+              />
+              <Testimonial
+                  name="David F."
+                  role="Construction Worker, Hollywood"
+                  testimonial="After years of back problems from heavy lifting, I finally found relief at Mountain Spine & Orthopedics. The Hollywood spine specialists understood my work demands and got me back on the job site quickly and safely."
+              />
+          </div>
       </div>
     )
   },
@@ -167,14 +136,14 @@ export const clinics : ClinicsProps[]= [
     [PARAGRAPH BREAK]
     Our Palm Springs clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. They are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, and degenerative disc disease. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
     [PARAGRAPH BREAK]
-    Utilizing the industry’s most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in laser and endoscopic procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Trust Mountain Spine & Orthopedics in Palm Springs to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in laser and endoscopic procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Trust Mountain Spine & Orthopedics in Palm Springs to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
     keywords: ['palm springs orthopedic', 'orthopedic care palm springs', 'spine specialists palm springs', 'orthopedic surgeons palm springs'],
     metaTitle: 'Orthopedic Surgeons in Palm Springs, FL | Mountain Spine',
     metaDescription: 'Advanced spine and orthopedic care in Palm Springs. Our board-certified surgeons specialize in minimally invasive techniques to restore your active lifestyle.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Palm Springs Spine and Orthopedic Specialists of Palm Beach County</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Palm Springs Spine and Orthopedic Specialists of Palm Beach County</h2>
           <p className='text-lg'>Palm Springs residents can get world-class spine care right in their community. As your trusted Palm Springs orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. Our spine specialists in Palm Springs know life here is demanding. Our goal is to give you the best care so you can get back to your active life.</p>
       </div>
     ),
@@ -203,15 +172,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Maitland Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Maitland Residents</h2>
           <p className='text-lg'>Our orthopedic clinic is perfectly positioned to serve Maitland residents, located just south and easily accessible via major roads like I-4.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Palm Springs Orthopedic Center brings cutting-edge medical innovations to Palm Beach County families with exclusive minimally invasive procedures.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -220,7 +189,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -236,7 +205,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Palm Springs Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Palm Springs Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Maria G."
@@ -267,16 +236,16 @@ export const clinics : ClinicsProps[]= [
     [PARAGRAPH BREAK]
     Our Orlando team includes fellowship-trained, board-certified Orlando orthopedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of your pain to achieve lasting results.
     [PARAGRAPH BREAK]
-    Inside our state-of-the-art Orlando orthopedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando’s expert team for spine and orthopedic health.
+    Inside our state-of-the-art Orlando orthopedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando's expert team for spine and orthopedic health.
     `,
     keywords: ['orlando orthopedic center', 'orlando orthopedic', 'orlando orthopedic center and walk-in clinic - lake nona', 'orlando orthopedic center orlando fl', 'orlando orthopedic lake nona', 'orlando orthopedic surgeons', 'orlando orthopedic center lake nona office', 'orlando orthopedic center lake nona', 'orlando spine and orthopedic specialists of central fl', 'orlando orthopedic center orthopedic injury walk-in clinic photos'],
     metaTitle: 'Orthopedic Center in Orlando & Walk-in Clinic in Central Florida',
     metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.',
     specialists : 
     <div className='flex flex-col space-y-4'>
-      <h1 style={{
+      <h2 style={{
         fontFamily: "var(--font-reem-kufi)",
-      }} className=' font-bold text-3xl '>Orlando Spine and Orthopedic Specialists of Central FL</h1>
+      }} className=' font-bold text-3xl '>Orlando Spine and Orthopedic Specialists of Central FL</h2>
       <p className='text-lg'>Orlando residents can get world-class spine care right here in Central Florida. As your trusted Orlando orthopedic center, Mountain Spine & Orthopedics brings expert care to Orlando families. We know Orlando life is active. Our goal is to give you the best care so you can get back to work and play.</p>
     </div>,
     skilled:
@@ -307,20 +276,20 @@ export const clinics : ClinicsProps[]= [
     </div>,
     nearby:
     <div className='flex flex-col space-y-4'>
-      <h1  style={{
+      <h2  style={{
         fontFamily: "var(--font-reem-kufi)",
-      }} className=' font-bold text-xl'>Convenient for Lake Nona Residents</h1>
+      }} className=' font-bold text-xl'>Convenient for Lake Nona Residents</h2>
       <p className='text-lg'>Our orthopedic walk-in clinic is perfectly positioned to serve <a href='https://lakenona.com/' className='text-[#0094E0] underline'>Lake Nona</a> residents who need expert spine care. We're easily accessible from Highway 417 and 528, making it simple for Orlando's Lake Nona community to receive advanced treatment without traveling far from home.</p>
     </div>,
     advancedTreatments:
     <div className='flex flex-col space-y-[10px]'>
-      <h1  style={{
-        fontFamily: "var(--font-reem-kufi)",
-      }} className=' font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
-      <p className='text-lg'>Our Orlando Orthopedic Center brings cutting-edge medical innovations to Central Florida families with exclusive minimally invasive procedures not available elsewhere.</p>
       <h2  style={{
         fontFamily: "var(--font-reem-kufi)",
-      }} className=' font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+      }} className=' font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
+      <p className='text-lg'>Our Orlando Orthopedic Center brings cutting-edge medical innovations to Central Florida families with exclusive minimally invasive procedures not available elsewhere.</p>
+      <h3  style={{
+        fontFamily: "var(--font-reem-kufi)",
+      }} className=' font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
       <div className='flex flex-col space-y-2 list-disc pl-5'>
         <li>
           <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -335,9 +304,9 @@ export const clinics : ClinicsProps[]= [
         </li>
       </div>
 
-      <h1  style={{
+      <h3  style={{
         fontFamily: "var(--font-reem-kufi)",
-      }} className=' font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+      }} className=' font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
       <div className='flex flex-col space-y-2 list-disc pl-5'>
         <li>
           <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at few locations. Tiny incisions that heal like band aids with exceptional results and faster recovery.
@@ -356,9 +325,9 @@ export const clinics : ClinicsProps[]= [
     </div>,
     whatOurPatientsSay:
     <div className='flex flex-col space-y-4'>
-      <h1  style={{
+      <h3  style={{
         fontFamily: "var(--font-reem-kufi)",
-      }} className=' font-bold text-3xl'>What Our Orlando Patients Say</h1>
+      }} className=' font-bold text-3xl'>What Our Orlando Patients Say</h3>
       <p className='text-lg'>Real Orlando residents share their experiences with Mountain Spine & Orthopedics. These are verified patients who trusted us with their care and want to help other Orlando families make informed decisions about their spine health.</p>
       <div className='grid lg:grid-cols-3 grid-cols-1 gap-4 lg:mt-10 mt-4'>
         <Testimonial
@@ -401,7 +370,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Find trusted Orthopedic Doctors in Fort Pierce, FL at Mountain Spine & Orthopedics. Our Orthopedic Surgeons offer expert care for pain, injuries, and recovery.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Fort Pierce Spine and Orthopedic Specialists of the Treasure Coast</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Fort Pierce Spine and Orthopedic Specialists of the Treasure Coast</h2>
           <p className='text-lg'>Fort Pierce residents can get world-class spine care right here on the Treasure Coast. As your trusted Fort Pierce orthopedic center, we bring expert care to local families. We know life in the "Sunrise City" is about enjoying the outdoors, and our orthopedic doctor in Fort Pierce is here to help you get back to it.</p>
       </div>
     ),
@@ -430,15 +399,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Port St. Lucie Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Port St. Lucie Residents</h2>
           <p className='text-lg'>Our orthopedic clinic is perfectly located to serve Port St. Lucie residents needing expert spine care. We're a short drive away for any orthopedic care needs in Fort Pierce, FL.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Fort Pierce Orthopedic Center brings cutting-edge medical innovations to Treasure Coast families.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -447,7 +416,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -463,7 +432,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Fort Pierce Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Fort Pierce Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Tom W."
@@ -501,7 +470,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Mountain Spine & Orthopedics connects you with top Orthopedic Doctors in Palm Beach Gardens, Florida—personalized care for sports injuries, arthritis, and more.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Palm Beach Gardens Spine and Orthopedic Specialists of Palm Beach County</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Palm Beach Gardens Spine and Orthopedic Specialists of Palm Beach County</h2>
           <p className='text-lg'>Palm Beach Gardens residents can get world-class spine care from a top orthopedic doctor in Palm Beach Gardens in their own backyard. As your trusted Palm Beach Gardens orthopedic center, we bring expert care to local families.</p>
       </div>
     ),
@@ -530,15 +499,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Jupiter Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Jupiter Residents</h2>
           <p className='text-lg'>Our orthopedic clinic is ideally located for Jupiter residents seeking an elite orthopedic surgeon in Palm Beach Gardens, FL.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Palm Beach Gardens Orthopedic Center brings cutting-edge medical innovations to Palm Beach County families.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -547,7 +516,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -563,7 +532,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Palm Beach Gardens Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Palm Beach Gardens Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Robert P."
@@ -590,7 +559,7 @@ export const clinics : ClinicsProps[]= [
     link : 'https://www.google.com/maps/place/8000+SW+67th+Ave+2nd+Floor,+Miami,+FL+33143,+USA/@25.6960207,-80.3012753,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9c7950e5118eb:0xfe7d082cdf8a27ac!8m2!3d25.6960207!4d-80.3012753!16s%2Fg%2F11nss9lqm0?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
     slug: 'miami-beach-orthopedics',
     paragraph : `
-    In a city as dynamic as Miami Beach, persistent pain shouldn’t compromise your lifestyle. Mountain Spine & Orthopedics provides sophisticated, outcome-focused care with the best orthopedic doctor in Miami Beach. We are the premier destination for those who seek a complete return to the activities they love, backed by a team of surgeons who understand the high expectations of Miami Beach residents.
+    In a city as dynamic as Miami Beach, persistent pain shouldn't compromise your lifestyle. Mountain Spine & Orthopedics provides sophisticated, outcome-focused care with the best orthopedic doctor in Miami Beach. We are the premier destination for those who seek a complete return to the activities they love, backed by a team of surgeons who understand the high expectations of Miami Beach residents.
     [PARAGRAPH BREAK]
     Our elite team consists of fellowship-trained, board-certified Miami Beach orthopedic specialists who are at the forefront of medical innovation. They are experts in treating a wide range of conditions, from sciatica and herniated discs to chronic degenerative conditions and sports injuries. We ensure every patient feels heard, understood, and confident in their personalized treatment plan from our trusted orthopedic specialists & surgeon.
     [PARAGRAPH BREAK]
@@ -601,7 +570,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Find expert Orthopedic Doctors in Miami Beach at Mountain Spine & Orthopedics. Our Orthopedic Specialists & Surgeon treat pain, injuries, and joint conditions.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Miami Beach Spine and Orthopedic Specialists of Miami-Dade</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Miami Beach Spine and Orthopedic Specialists of Miami-Dade</h2>
           <p className='text-lg'>Miami Beach residents can access world-class spine care from a leading Miami Beach orthopedic surgeon without crossing the causeway. As your trusted Miami Beach orthopedic center, we bring expert care to local families. We understand the active, fast-paced life in Miami Beach, from South Pointe Park to Lincoln Road.</p>
       </div>
     ),
@@ -630,15 +599,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Pinecrest Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Pinecrest Residents</h2>
           <p className='text-lg'>Our clinic is an excellent choice for Pinecrest residents seeking top-tier spine care, located just a short drive away.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Miami Beach Orthopedic Center brings cutting-edge medical innovations to Miami-Dade families.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -648,7 +617,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -664,7 +633,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Miami Beach Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Miami Beach Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Isabella M."
@@ -702,7 +671,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Mountain Spine & Orthopedics connects you with a top Orthopedic Surgeon & Sports Doctor in Boca Raton, Florida—treating injuries, joint pain, and athletes.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Boca Raton Spine and Orthopedic Specialists of South Palm Beach County</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Boca Raton Spine and Orthopedic Specialists of South Palm Beach County</h2>
           <p className='text-lg'>Boca Raton residents deserve world-class spine care right in their city from the best orthopedic doctor in Boca Raton. As your trusted Boca Raton orthopedic center, we bring expert care to local families.</p>
       </div>
     ),
@@ -731,15 +700,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Delray Beach Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Delray Beach Residents</h2>
           <p className='text-lg'>Our clinic is an ideal choice for Delray Beach residents seeking advanced spine care from a leading orthopedic surgeon in Boca Raton, FL.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Boca Raton Orthopedic Center brings cutting-edge medical innovations to South Palm Beach County families.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -748,7 +717,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -764,7 +733,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Boca Raton Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Boca Raton Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Dr. Emily S."
@@ -802,7 +771,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Mountain Spine and Orthopedics delivers expert care in Altamonte Springs. Trust our top Orthopedic Surgery Specialists in Florida to restore your mobility.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Altamonte Springs Spine and Orthopedic Specialists of Seminole County</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Altamonte Springs Spine and Orthopedic Specialists of Seminole County</h2>
           <p className='text-lg'>As the premier orthopedic surgery specialists in Altamonte Springs, Florida, we bring expert care to local families. We know life in Altamonte Springs is busy, and our goal is to provide the best care so you can get back to your routine.</p>
       </div>
     ),
@@ -831,15 +800,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Longwood Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Longwood Residents</h2>
           <p className='text-lg'>Our clinic is perfectly situated for Longwood families seeking specialized spine care from an expert orthopedic surgeon in Altamonte Springs, FL.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Altamonte Springs Orthopedic Center brings cutting-edge medical innovations to Seminole County families.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -849,7 +818,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -865,7 +834,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Altamonte Springs Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Altamonte Springs Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Karen H."
@@ -903,7 +872,7 @@ export const clinics : ClinicsProps[]= [
     metaDescription: 'Trust Mountain Spine & Orthopedics for expert care from leading Surgeons in Davenport, FL. Advanced treatments for joint pain, injuries, and more.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Davenport Spine and Orthopedic Specialists of Polk County</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Davenport Spine and Orthopedic Specialists of Polk County</h2>
           <p className='text-lg'>Davenport residents can now access world-class spine care right in their rapidly growing community from trusted orthopedic specialists in Davenport, FL. As your trusted Davenport orthopedic center, we bring expert care to local families.</p>
       </div>
     ),
@@ -932,15 +901,15 @@ export const clinics : ClinicsProps[]= [
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for ChampionsGate Residents</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for ChampionsGate Residents</h2>
           <p className='text-lg'>Our clinic is the premier choice for ChampionsGate residents seeking elite orthopedic care in Davenport, FL, close to home.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h1>
+          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
           <p className='text-lg'>Our Davenport Orthopedic Center brings cutting-edge medical innovations to Polk County families.</p>
-          <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h2>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li>
                   <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
@@ -950,7 +919,7 @@ export const clinics : ClinicsProps[]= [
                   <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
               </li>
           </div>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
           <div className='flex flex-col space-y-2 list-disc pl-5'>
               <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
               <li>
@@ -966,7 +935,7 @@ export const clinics : ClinicsProps[]= [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-          <h1 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Davenport Patients Say</h1>
+          <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Davenport Patients Say</h3>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
               <Testimonial
                   name="Laura G."
@@ -983,3 +952,4 @@ export const clinics : ClinicsProps[]= [
     )
   },
 ];
+

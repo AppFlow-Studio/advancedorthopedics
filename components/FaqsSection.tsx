@@ -18,13 +18,13 @@ export default function FAQsSection({header, faqItems} : { header : React.JSX.El
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
         <section className="max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden space-y-[60px] px-6 xl:px-[100px] py-[50px]">
-            <h1
+            <h2
             style={{
                 fontFamily : 'var(--font-reem-kufi)',
                 fontWeight : 500,
             }}
             className=' text-black text-6xl text-center w-[90%] self-center'
-            >{header}</h1>
+            >{header}</h2>
 
             <div className="space-y-[20px] flex flex-col">
                 {faqItems.map((item, index) => (
