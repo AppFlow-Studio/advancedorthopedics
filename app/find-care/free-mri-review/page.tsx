@@ -354,7 +354,7 @@ function FreeMRIReview() {
                                 ConditionStep == 2 ? 
                                 <div className='flex-col space-y-[16px] '>
                                     {
-                                        ["100% Secure", "Your information is never shared", "We are HIPPA compliant", "We hate spam"].map((item) => (
+                                        ["100% Secure", "Your information is never shared", "We are HIPAA compliant", "We hate spam"].map((item) => (
                                             <div className=' flex flex-row space-x-[12px] items-center' 
                                             key={item}
                                             >         
