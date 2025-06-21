@@ -53,7 +53,6 @@ export default function ConditionCard({ ConditionInfo } : { ConditionInfo : Cond
                         letterSpacing: "0.02em",
                     }}
                     >
-                        {/* <h1 className="text-xl font-[600] text-[#022968]">MOUNTAIN</h1> */}
                         <h2 className="font-[600] text-xs text-[#0094E0]">SPINE & ORTHOPEDICS</h2>    
                     </div> */}
             </div>

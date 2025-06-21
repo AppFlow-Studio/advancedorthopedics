@@ -62,18 +62,41 @@ export default function ConditionDetails({
             }}
             />
 
-        <div className=' px-6 xl:px-[80px] z-[2]'>
+<div className=' px-6 xl:px-[80px] z-[2]'>
             <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
             >
-                <nav aria-label="breadcrumb" className="text-sm text-[#022968] font-medium">
-                  <ol className="breadcrumb-list flex space-x-2">
-                    <li><Link href="/area-of-speciality">Conditions</Link></li>
-                    <li aria-current="page">{condition_details.title}</li>
-                  </ol>
-                </nav>
+                <h1
+                style={{
+                    fontFamily: "var(--font-reem-kufi)",
+                    fontWeight: 400,
+                }}
+                className="text-[#022968]"
+                >
+                    Condition
+                </h1>
+    
+                <h1
+                style={{
+                    fontFamily: "var(--font-reem-kufi)",
+                    fontWeight: 400,
+                }}
+                className="text-[#022968]"
+                >
+                    /
+                </h1>
+    
+                <h1
+                style={{
+                    fontFamily: "var(--font-reem-kufi)",
+                    fontWeight: 400,
+                }}
+                className="text-[#2358AC]"
+                >
+                    Condition Details
+                </h1>
             </div>
         </div>
         <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">

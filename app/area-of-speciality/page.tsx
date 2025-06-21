@@ -232,12 +232,6 @@ export default function AreaOfSpeciality() {
       <section className="max-w-[1440px] w-full flex flex-col py-[50px] xl:px-[80px] px-2 space-y-[24px] scroll-mt-16" id="conditions-section">
         {/* Section Header with Search Bar and Filter */}
         <div className="flex lg:flex-row flex-col justify-between md:items-start items-center lg:space-y-0 space-y-4 px-4" ref={paginationRef} >
-          <h1
-            style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-            className="text-[#111315] text-5xl"
-          >
-            All Our Conditions
-          </h1>
           <h2
             style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
             className="text-[#111315] text-5xl"

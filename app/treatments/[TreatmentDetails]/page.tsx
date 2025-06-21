@@ -196,7 +196,7 @@ export default function TreatmentDetails({
           style={{
               fontWeight: 400,
           }}
-          className="text-white text-shadow-sm sm:text-xl text-md"
+          className="text-[#5B5F67] sm:text-xl text-sm"
           >
               {treatment_details.body}
           </p>
@@ -251,7 +251,7 @@ export default function TreatmentDetails({
                         style={{
                             fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                         >
                             {treatment_details.body}
                         </p>
@@ -272,7 +272,7 @@ export default function TreatmentDetails({
                         style={{
                             fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                         >
                             {treatment_details.detail}
                         </p>
@@ -302,7 +302,7 @@ export default function TreatmentDetails({
                         style={{
                             fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                         >
                             {treatment_details.procedure_info}
                         </p>
@@ -324,7 +324,7 @@ export default function TreatmentDetails({
                         style={{
                             fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                         >
                             {treatment_details.conditions_treated}
                         </p>
@@ -362,7 +362,7 @@ export default function TreatmentDetails({
                         style={{
                             fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                         >
                             {treatment_details.why_choose_us}
                         </p>
@@ -383,7 +383,7 @@ export default function TreatmentDetails({
                         style={{
                             fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                         >
                             {treatment_details.recovery_info}
                         </p>
@@ -405,7 +405,7 @@ export default function TreatmentDetails({
                        style={{
                           fontWeight: 400,
                         }}
-                        className="text-white text-shadow-sm sm:text-xl text-md"
+                        className="text-[#5B5F67] sm:text-xl text-sm"
                       >
                           {treatment_details.schedule}
                       </p>

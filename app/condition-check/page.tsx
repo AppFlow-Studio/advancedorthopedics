@@ -140,26 +140,45 @@ export default function ConditionChecker() {
       {/* Interactive Condition Checker Section */}
       <ConditionCheckSection steps={ConditionCheckSteps} initialValues={initialValues} />
       {/* Informational Cards Section */}
-      <section className="w-full flex flex-col md:flex-row gap-8 justify-center items-stretch px-6 xl:px-[80px] mt-8 max-w-[1440px] mx-auto" aria-label="Condition Check Info Cards">
-        <div className="bg-white rounded-[24px] shadow p-8 flex-1 min-w-[320px]">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#022968] mb-2" style={{ fontFamily: 'var(--font-reem-kufi)' }}>
-            Check<br/>Back Pain & Neck Pain
-          </h2>
-          <p className="text-[#54535C] text-base md:text-lg" style={{ fontFamily: 'var(--font-reem-kufi)' }}>
-            When you first visit a doctor, he will ask questions about the symptoms you are experiencing. This is known as medical history. It allows the doctor to get more information about your symptoms. For instance, when they first developed, what makes them worse and what treatments you've tried.<br/><br/>
-            The doctor will then do a physical examination to measure your muscle strength, sensation and reflexes so they can determine your particular condition. The location of symptoms will help the doctor to narrow down the conditions you may have. After the physical examination, the doctor may perform additional tests to accurately confirm the diagnosis. These could include X-rays, CT scans or MRI scans.
-          </p>
-        </div>
-        <div className="bg-white rounded-[24px] shadow p-8 flex-1 min-w-[320px]">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#022968] mb-2" style={{ fontFamily: 'var(--font-reem-kufi)' }}>
-            Mountain Spine & Orthopedics<br/>Condition Check Tool
-          </h2>
-          <p className="text-[#54535C] text-base md:text-lg" style={{ fontFamily: 'var(--font-reem-kufi)' }}>
-            Mountain Spine & Orthopedics offers a free condition check tool to help you understand the source of your back or joint pain. With our condition check tool, you can quickly identify if your current neck, back or spine problem means you can obtain treatment as soon as possible.<br/><br/>
-            To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Orthopedics spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn't conclusive and you may need to be further evaluated by a Mountain Spine & Orthopedics specialist at one of our clinics.
-          </p>
-        </div>
-      </section>
+      <section className='w-full h-full xl:space-y-0 space-y-6 flex flex-col xl:flex-row space-x-[32px] relative overflow-hidden py-[50px] px-6 lg:px-[80px]'>
+            <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                    }}
+                    className='text-[#022968] text-4xl md:text-5xl'
+                    >Check<br className='md:flex hidden' /> Back Pain & Neck Pain</h1>
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                    }}
+                    className='text-[#5B5F67] text-lg md:text-xl'
+                    >When you first visit a doctor, he will ask questions about the symptoms you’re experiencing. This is known as medical history. It allows the doctor to get more information about your symptoms. For instance, when they first developed, what makes them worse and what treatments you’ve tried.
+                    <br /> <br/>
+                    The doctor will then do a physical examination to assess your muscle strength, sensation and reflexes so they can determine your particular condition. The location of symptoms will help the doctor narrow down the conditions you may have. After the physical examination, the doctor may perform additional tests to accurately confirm the diagnosis. These can include X-rays, CT scans or MRI scans.</h1>
+            </div>
+            <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                    }}
+                    className='text-[#022968] text-4xl md:text-5xl'
+                    >Mountain Spine & Orthopedics<br className='md:flex hidden'/> Condition Check Tool</h1>
+                    <h1
+                    style={{
+                        fontFamily: "var(--font-reem-kufi)",
+                        fontWeight: 500,
+                    }}
+                    className='text-[#5B5F67] text-lg md:text-xl'>
+                        Mountain Spine & Orthopedics offers a free condition check tool to help you understand the source of <a href="/area-of-speciality?data=%7B%22tags%22%3A%5B%22Lower+Spine%22%5D%7D" className='text-[#022968] underline'>your back pain.</a> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
+                        <br /><br/>
+                        To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Orthopedics spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn’t conclusive and you need to<a href="#contact-us-section" className='text-[#022968] underline'> be further evaluated by an Mountain Spine & Orthopedics specialist</a> at one of our clinics.
+                   </h1>
+            </div>
+        </section>
       {/* Final CTA Section */}
       <section className="w-full flex flex-col items-center justify-center py-16" aria-label="Condition Check CTA">
         <h2 className="text-3xl md:text-5xl font-bold text-[#022968] mb-4" style={{ fontFamily: 'var(--font-reem-kufi)' }}>
