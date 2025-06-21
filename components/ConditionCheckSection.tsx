@@ -53,11 +53,11 @@ export default function ConditionCheckSection({
 }: ConditionCheckSectionProps) {
   const [ConditionStep, setConditionStep] = useState(1)
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
-  const ConditionForm = useForm({
+  const ConditionForm = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues,
   })
-  async function onSubmit(values: any) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     if (parentOnSubmit) await parentOnSubmit(values)
     else {
       const data = await sendConditionCheckEmail(values)
@@ -97,7 +97,7 @@ export default function ConditionCheckSection({
           </p>
           {ConditionStep == 3 ? (
             <div className='flex-col space-y-[16px] '>
-              {['100% Secure', 'Your information is never shared', 'We are HIPPA compliant', 'We hate spam'].map((item) => (
+              {['100% Secure', 'Your information is never shared', 'We are HIPAA compliant', 'We hate spam'].map((item) => (
                 <div className=' flex flex-row space-x-[12px] items-center' key={item}>
                   {/* SVG icon omitted for brevity */}
                   <span style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className="text-[#5B5F67] text-lg text-left w-full">{item}</span>
