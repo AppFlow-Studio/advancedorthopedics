@@ -195,6 +195,7 @@ const FreeMriReviewSteps = [
 function FreeMRIReview() {
   const [ ConditionStep, setConditionStep ] = useState(1)
   const [ openAppointmentConfirm, setAppointmentConfirm ] = useState(false)
+  const [ disabled, setDisabled ] = useState(false)
   const ConditionForm = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
@@ -213,13 +214,17 @@ function FreeMRIReview() {
       },
     })
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log('Called')
+        setDisabled(true)
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        console.log(values)
         await sendUserEmail({name : values.first_name + " " + values.last_name, email : values.email, phone : values.phone})
         const data = await sendMRIContactEmail(values)
-        if(data){ setAppointmentConfirm(true) }
+        if(data){ 
+            ConditionForm.reset()
+            setAppointmentConfirm(true) 
+            setDisabled(false)
+        }
+        
       }
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -548,6 +553,7 @@ function FreeMRIReview() {
                                : <></>
                             }
                             <button
+                            disabled={disabled}
                             onClick={
                             () => {
                                 // const parse = formSchema.safeParse(ConditionForm.getValues());
@@ -566,12 +572,12 @@ function FreeMRIReview() {
                                 }
                                 
                             } }
-                            className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
+                            className={`${disabled ? "hover:cursor-not-allowed bg-[#022968]" : 'hover:cursor-pointer'} self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer`}
                             >
                                 {
                                 ConditionStep != 2 ?
                                 <>
-                                    <h1
+                                    <p
                                     style={{
                                         fontFamily: "var(--font-reem-kufi)",
                                         fontWeight: 500,
@@ -579,7 +585,7 @@ function FreeMRIReview() {
                                         lineHeight: "24px",
                                         letterSpacing: "0.02em"
                                     }}
-                                    >Next</h1>
+                                    >Next</p>
                                     <div className=''>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M12.5303 0.469668C12.2374 0.176776 11.7626 0.176778 11.4697 0.469672C11.1768 0.762566 11.1768 1.23744 11.4697 1.53033L15.1894 5.25H1C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75H15.1893L11.4697 10.4697C11.1768 10.7626 11.1768 11.2374 11.4697 11.5303C11.7626 11.8232 12.2375 11.8232 12.5304 11.5303L17.5258 6.53486C17.542 6.51892 17.5575 6.50224 17.5722 6.48489C17.619 6.42974 17.6566 6.36941 17.685 6.30596C17.7268 6.21252 17.75 6.10898 17.75 6C17.75 5.99768 17.75 5.99537 17.75 5.99305C17.7491 5.90338 17.7323 5.81382 17.6996 5.72903C17.663 5.63451 17.6066 5.5459 17.5303 5.46963L12.5303 0.469668Z" fill="#E5F6FF"/>
@@ -587,7 +593,7 @@ function FreeMRIReview() {
                                     </div>
                                 </>
                                 :
-                                <h1
+                                <p 
                                     style={{
                                         fontFamily: "var(--font-reem-kufi)",
                                         fontWeight: 500,
@@ -595,7 +601,7 @@ function FreeMRIReview() {
                                         lineHeight: "24px",
                                         letterSpacing: "0.02em"
                                     }}
-                                    >Claim my FREE Review</h1>
+                                    >{disabled ? "Sending..." : "Claim my FREE Review"}</p>
                                 }
                             </button>
                         </div>

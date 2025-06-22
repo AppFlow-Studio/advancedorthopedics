@@ -62,6 +62,7 @@ export default function ConditionCheckSection({
 }: ConditionCheckSectionProps) {
   const [ConditionStep, setConditionStep] = useState(1)
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
+  const [ disabled, setDisabled ] = useState(false)
   const ConditionForm = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -88,13 +89,14 @@ export default function ConditionCheckSection({
     },
   })
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (parentOnSubmit) await parentOnSubmit(values)
-    else {
-      const data = await sendConditionCheckEmail(values)
-      await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone })
-      if (data) ConditionForm.reset()
+    setDisabled(true)
+    const data = await sendConditionCheckEmail(values)
+    await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone })
+    if (data) {
+      ConditionForm.reset()
+      setAppointmentConfirm(true)
+      setDisabled(false)
     }
-    setAppointmentConfirm(true)
   }
   return (
     <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-6 lg:px-[80px]' aria-label="Condition Check Form">
@@ -273,19 +275,20 @@ export default function ConditionCheckSection({
           ) : null}
           <button
             type="button"
+            disabled={disabled}
             onClick={() => {
               if (ConditionStep != steps.length) {
                 setConditionStep(Math.min(steps.length, ConditionStep + 1))
               } else {
-                ConditionForm.handleSubmit(onSubmit, (e) => console.log(e))()
+                ConditionForm.handleSubmit(onSubmit)()
               }
             }}
-            className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
+            className={`self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center ${disabled ? "hover:cursor-not-allowed bg-[#022968]" : 'hover:cursor-pointer'}`}
           >
             {ConditionStep != steps.length ? (
               <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Next</span>
-            ) : (
-              <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Get My Results</span>
+            ) :(
+                <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>{disabled ? "Sending..." : "Get My Results"}</span>
             )}
           </button>
         </div>

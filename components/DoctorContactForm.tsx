@@ -64,6 +64,7 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
   console.log('DoctorContactForm rendered', {header});
   const [ openContactForm, setOpenContactForm ] = useState(false)
   const [ openAppointmentConfirm, setAppointmentConfirm ] = useState(false)
+  const [ disabled, setDisabled ] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -76,12 +77,15 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await sendContactEmail(values)
-    const data = await sendUserEmail({name : values.name, email : values.email, phone : values.phone})
+    setDisabled(true)
+    const data = await sendContactEmail(values)
+    await sendUserEmail({name : values.name, email : values.email, phone : values.phone})
+    setDisabled(false)
     if (data) { 
       setOpenContactForm(false)
       setAppointmentConfirm(true) 
       form.reset()
+      setDisabled(false)
     }
   }
 
@@ -326,12 +330,21 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
                           )}
                           />
               
-                          <button className="w-full self-center flex items-center justify-center"
+                          <button 
+                          className="w-full self-center flex items-center justify-center"
+                          disabled={disabled}
                           onClick={
                             form.handleSubmit(onSubmit, () => {console.log('error')})
                           }
                           >
-                            <BookAnAppointmentClient />
+                            {disabled ? (
+                               <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#022968] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
+                                <span className="text-white">Sending...</span>
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                               </div>
+                            ) : (
+                              <BookAnAppointmentClient />
+                            )}
                           </button>
 
                           <div>

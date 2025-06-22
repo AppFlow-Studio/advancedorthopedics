@@ -39,6 +39,7 @@ const timeSlots = [
 
 export function PatientAdvocateForm() {
   const [ appointmentConfirm, setAppointmentConfirm ] = useState(false)
+  const [ disabled, setDisabled ] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,12 +53,13 @@ export function PatientAdvocateForm() {
 
   
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    setDisabled(true)
     const data = await sendContactEmail(values)
     await sendUserEmail({name : values.name, email : values.email, phone : values.phone})
     if (data) { 
       setAppointmentConfirm(true) 
       form.reset()
+      setDisabled(false)
     }
   }
 
@@ -178,7 +180,16 @@ export function PatientAdvocateForm() {
                     </FormItem>
                   )}
                 />
-                <button type="submit" className="w-full self-center flex items-center justify-center mt-[40px]" ><BookAnAppointmentClient /></button>
+                <button type="submit" className="w-full self-center flex items-center justify-center mt-[40px]" disabled={disabled} >
+                  {disabled ? (
+                    <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#022968] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
+                      <span className="text-white">Sending...</span>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    </div>
+                  ) : (
+                    <BookAnAppointmentClient />
+                  )}
+                </button>
               </form>
         </Form>
         <Dialog open={appointmentConfirm} onOpenChange={() => setAppointmentConfirm(!appointmentConfirm)} >
