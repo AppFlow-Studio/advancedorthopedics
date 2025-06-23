@@ -156,8 +156,8 @@ export default function LocationDetails(
                         }}
                         className="text-white text-xl lg:text-2xl text-shadow-sm"
                         >
-                         Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
-                        Orlando, Florida's most trusted spine and joint care center, serving Central Florida families since 2009.
+                         Experience the future of orthopedic care at our modern facility at {location.region}, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures. 
+                        Florida's most trusted spine and joint care centers, serving and strengthening {location.region} families one patient at a time.
                         </p>
                     </div>
                 </SlidingDiv>
@@ -383,7 +383,7 @@ export default function LocationDetails(
                      {location.whatOurPatientsSay}
             </section>
 
-            <RatingsAndReviews />
+        
 
         </main>
   )
