@@ -229,7 +229,7 @@ const NavBarLinks = [
           },
           {
             title : 'Back Pain Treament Options',
-            href : '/area-of-pain/back-pain/back-pain-treatment-options'
+            href : '/area-of-pain/back-pain/backpaintreatmentoptions'
           }
         ]
       },
@@ -259,7 +259,7 @@ const NavBarLinks = [
           },
           {
             title : 'Neck and Shoulder Treatments',
-            href : '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatments'
+            href : '/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments'
           }
         ]
       },
@@ -527,7 +527,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
@@ -542,7 +542,6 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = "ListItem"
-
 
 
 

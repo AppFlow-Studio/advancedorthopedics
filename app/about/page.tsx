@@ -162,5 +162,26 @@ export default function AboutUs() {
 
 export const metadata: Metadata = {
   title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
-  description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors."
+  description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
+  openGraph: {
+    title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
+    description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
+    type: 'website',
+    url: 'https://mountainspineorthopedics.com/about',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
+    description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
+  },
+  keywords: [
+    'about Mountain Spine & Orthopedics',
+    'spine experts Florida',
+    'orthopedic care team',
+    'minimally invasive spine surgery',
+    'orthopedic doctors Florida',
+    'spine specialists',
+    'orthopedic credentials',
+    'Florida orthopedic team'
+  ]
 }
