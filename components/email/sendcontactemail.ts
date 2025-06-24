@@ -27,7 +27,7 @@ export async function sendUserEmail(formData : {name : string, email : string, p
 export async function sendContactEmail(formData : {name : string, email : string, phone : string, reason : string, bestTime : string}) {
     try {
         const data = await resend.emails.send({
-            from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
+            from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
             to: ['info@mountainspineorthopedics.com'],
             subject: 'New Contact Form Submission',
             react: await EmailTemplate({name : formData.name, email : formData.email, phone : formData.phone, reason : formData.reason, bestTime : formData.bestTime}),
@@ -42,7 +42,7 @@ export async function sendContactEmail(formData : {name : string, email : string
 export async function sendMRIContactEmail(formData : {email : string, phone : string, first_name : string, last_name : string, comments : string, email_optout : string, insurance_type : string, last_test_date : string, other : string, recent_diagnosis : string, state : string, bestTime : string}) {
     try {
         const data = await resend.emails.send({
-            from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
+            from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
             to: ['info@mountainspineorthopedics.com'],
             subject: 'New MRI Review Form Submission',
             react: await MRIEmailTemplate({

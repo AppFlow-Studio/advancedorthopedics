@@ -43,7 +43,6 @@ const formSchema = z.object({
  state : z.string().min(2, { message: "Please select your state." }),
  insurance_type : z.string().min(2, { message: "Please select an insurance type." }),
  comments : z.string(),
- email_optout : z.string()
 })
 
 // Reverted form steps to match the image content
@@ -78,7 +77,6 @@ const CandidacyCheckSteps = [
             { question : "State", control : "state", options : [ "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY" ] },
             { question : "Insurance Type", control : "insurance_type", options : [ "Blue Cross Blue Shield","Aetna","Cigna Healthcare","United Healthcare","Meritan Health","Bright Health Group","Multiplan","Self-pay" ] },
             { question : "Comments", control : "comments", options : [] },
-            { question : 'Email Opt Out', control : 'email_optout', options : [] }
         ]
     }
 ]
@@ -136,6 +134,7 @@ const Header = (
 export default function CandidacyCheckClient() {
   const [conditionStep, setConditionStep] = useState(1);
   const [appointmentConfirm, setAppointmentConfirm] = useState(false);
+  const [ disabled, setDisabled ] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -153,17 +152,17 @@ export default function CandidacyCheckClient() {
       state: "",
       insurance_type: "",
       comments: "",
-      email_optout: "false",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    setDisabled(true)
     await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone });
-    const data = await sendCandidacyEmail(values);
+    const data = await sendCandidacyEmail({...values, email_optout : "false"});
     if (data) {
       setAppointmentConfirm(true);
-      form.reset();
+      form.reset();    
+      setDisabled(false)
     }
   }
 
@@ -398,6 +397,7 @@ export default function CandidacyCheckClient() {
               : <></>
             }
             <button
+              disabled={disabled}
               onClick={() => {
                 if(conditionStep != 3){
                   setConditionStep(Math.min(3,conditionStep + 1))
@@ -406,7 +406,7 @@ export default function CandidacyCheckClient() {
                   form.handleSubmit(onSubmit,(e) => console.log(e))()
                 }
               }}
-              className=" self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
+              className={`${disabled ? "hover:cursor-not-allowed bg-[#022968]" : 'hover:cursor-pointer'} self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer`}
             >
               {
               conditionStep != 3 ?
@@ -435,7 +435,7 @@ export default function CandidacyCheckClient() {
                   lineHeight: "24px",
                   letterSpacing: "0.02em"
                 }}
-                >Get my Result</span>
+                >{disabled ? "Sending..." : "Get my Result"}</span>
               }
             </button>
           </div>

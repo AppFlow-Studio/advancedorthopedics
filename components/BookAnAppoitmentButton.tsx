@@ -60,6 +60,7 @@ const services = [
 export default function BookAnAppoitmentButton() {
   const [open, setOpen] = React.useState(false)
     const [ openAppointmentConfirm, setAppointmentConfirm ] = useState(false)
+    const [ disabled, setDisabled ] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
@@ -80,16 +81,22 @@ export default function BookAnAppoitmentButton() {
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setDisabled(true)
     console.log('Called')
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
     const data = await sendContactEmail(values)
     await sendUserEmail(values)
+    // let data = null
+    // setTimeout(async () => {
+    //   data = 1
+    // }, 2000)
     if(data){ 
         setOpen(false)
         setAppointmentConfirm(true) 
         form.reset()
+        setDisabled(false)
     }
   }
   return (
@@ -240,8 +247,19 @@ export default function BookAnAppoitmentButton() {
                     )}
                     />
         
-                    <button type="submit" className="w-full self-center flex items-center justify-center">
-                      <BookAnAppointmentClient />
+                    <button 
+                      type="submit" 
+                      className={`w-full self-center flex items-center justify-center transition-all duration-300`} 
+                      disabled={disabled}
+                    >
+                      {disabled ? (
+                        <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#022968] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
+                          <span className="text-white">Sending...</span>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        </div>
+                      ) : (
+                        <BookAnAppointmentClient />
+                      )}
                     </button>
     
                     <div>
