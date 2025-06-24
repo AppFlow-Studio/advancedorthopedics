@@ -245,7 +245,7 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] sm:text-5xl text-3xl'
                         >
-                        Details
+                        About {treatment_details.title}
                         </h2>
                         <p
                         style={{

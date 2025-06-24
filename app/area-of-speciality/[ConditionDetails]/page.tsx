@@ -31,7 +31,7 @@ export default function ConditionDetails({
     )
   }
   // Function to perform a Fisher-Yates shuffle on the array
-    function shuffleArray(array) {
+    function shuffleArray(array: any[]) {
         const newArray = [...array]; // Clone the array
         for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
@@ -163,7 +163,7 @@ export default function ConditionDetails({
                           }}
                         className='text-[#111315] sm:text-5xl text-2xl'
                         >
-                        Details
+                        About {condition_details.title}
                         </h2>
                         <p
                          style={{

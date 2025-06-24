@@ -382,9 +382,7 @@ export default function LocationDetails(
                      {location.advancedTreatments}
                      {location.whatOurPatientsSay}
             </section>
-
             {/* <RatingsAndReviews /> */}
-
         </main>
   )
 }

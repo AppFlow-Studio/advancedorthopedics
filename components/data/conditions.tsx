@@ -156,7 +156,7 @@ forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -164,9 +164,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 How Do I Know If I Have a Lumbar Herniated Disc?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -183,13 +183,13 @@ coughing. Some patients also experience tingling, numbness, or
 muscle weakness in the leg or foot on the affected side. In
 severe cases, the condition can affect walking or standing for
 extended periods, reducing your quality of life.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={lumbarherniateddisc} // Passing static image data
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -202,7 +202,7 @@ quick and effective symptom checker to gather information and
 help determine the best path to recovery. Our goal is to
 diagnose your condition early and create a treatment plan that
 delivers real results.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -212,7 +212,7 @@ delivers real results.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -220,9 +220,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Lumbar Herniated Disc Treatment is Right for Me?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -245,7 +245,7 @@ evaluate your condition and create a customized treatment plan
 to help you return to a pain-free, active lifestyle. You don’t
 have to live with back pain we’re here to help you find the
 right solution.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 </div>
 </div>
@@ -254,7 +254,7 @@ right solution.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -262,9 +262,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Pain Management for a Lumbar Herniated Disc
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -285,7 +285,7 @@ evaluate your condition and create a customized treatment plan
 to help you return to a pain-free, active lifestyle. You don’t
 have to live with back pain we’re here to help you find the
 right solution.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/lumberherniateddisc2.png"
@@ -300,17 +300,17 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Best Treatment to Prevent Pain From a Lumbar Herniated Disc
-</h1>
+    Preventative Treatments for Lumbar Herniated Disc Pain
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -344,7 +344,7 @@ Spine & Orthopedics develops personalized care plans using the
 most advanced and least invasive techniques available. Whether
 your condition is new or has been ongoing for years, we’re here
 to help you get back to living the life you love.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -352,7 +352,7 @@ to help you get back to living the life you love.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -360,9 +360,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -382,7 +382,7 @@ with a conversation.
 Call us today at (833) 931-4888 or fill out our secure online
 form to schedule your consultation. With Mountain Spine &
 Orthopedics on your side, a pain-free future is within reach.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -444,7 +444,7 @@ forum: [
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -452,9 +452,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 What is Degenerative Disc Disease?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -471,13 +471,13 @@ develops slowly over time and is especially common in
 individuals over 40. However, it can also affect younger
 individuals with physically demanding lifestyles or spinal
 injuries.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={"https://mountainspineortho.b-cdn.net/public/degendisc.png"} // Passing static image data
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -491,7 +491,7 @@ signs of degeneration. We also assess nerve function and spinal
 alignment to understand the full extent of the damage. Diagnosis
 may involve ruling out other conditions, such as herniated discs
 or spinal stenosis, that share similar symptoms.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -501,7 +501,7 @@ or spinal stenosis, that share similar symptoms.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -509,9 +509,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Symptoms of Degenerative Disc Disease
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -526,7 +526,7 @@ Others may experience muscle weakness or numbness in the arms or
 legs if nerve compression occurs. Many people also report
 stiffness or reduced flexibility in the spine. The pain may be
 intermittent, flaring up during activity and easing with rest.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 
 <GradientOverlayImage
@@ -541,7 +541,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -549,9 +549,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Risk Factors for Degenerative Disc Disease
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -566,7 +566,7 @@ contribute, and individuals with a family history of
 spine-related conditions are more likely to develop DDD.
 Identifying these risk factors early can help slow the
 progression of the disease and guide preventative care.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -574,7 +574,7 @@ progression of the disease and guide preventative care.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -582,9 +582,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Treatment Options for Degenerative Disc Disease
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -603,7 +603,7 @@ more severe cases, minimally invasive spine surgery may be
 recommended to stabilize the spine and relieve nerve pressure.
 Our goal is to relieve your pain and restore spine stability
 while avoiding unnecessary surgery whenever possible.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -611,7 +611,7 @@ while avoiding unnecessary surgery whenever possible.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -619,9 +619,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -639,7 +639,7 @@ you toward long-term relief.
 Call us today at (833) 931-4888 or fill out our online form to
 schedule your consultation. Let’s work together to get your
 spine and your life back on track.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -675,14 +675,14 @@ risk_fac:
 "The risk of cervical spinal stenosis increases with advancing age. Other risk factors include osteoarthritis, degenerative disc disease, previous neck trauma or surgery, a congenitally narrow spinal canal, and lifestyle factors like smoking or heavy manual labor.",
 diagnose: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1>
+    <p>
 Our diagnostic process integrates detailed physical and neurological
 examinations with upright X rays to assess alignment flexion extension
 films to reveal instability and nerve conduction studies when arm
 symptoms predominate. These complimentary diagnostics ensure dynamic
 and static contributors to stenosis are identified before therapy
 begins
-</h1>
+    </p>
 <Image
 src={"https://mountainspineortho.b-cdn.net/public/cervicalspinal3.jpeg"}
 width={300}
@@ -708,18 +708,18 @@ forum: [
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-How Do I Know If I Have Spinal Stenosis?
-</h1>
+    How Do I Know If I Have Cervical Spinal Stenosis?
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -734,7 +734,7 @@ of coordination, balance issues, difficulty walking, and in
 severe cases, loss of bladder control. These symptoms may
 suggest compression of the spinal cord or nerve roots and should
 never be ignored.
-</h1>
+    </p>
 
 <GradientOverlayImage
 imageData={cervicalspinalstenosis1} // Passing static image data
@@ -742,7 +742,7 @@ height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -754,7 +754,7 @@ get evaluated early. We offer a quick and easy spinal condition
 assessment tool to help gather information and determine if you
 may be a candidate for treatment. Don’t delay your recovery the
 earlier we intervene, the better your outcome.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -764,7 +764,7 @@ earlier we intervene, the better your outcome.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -772,10 +772,10 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What is the Right Treatment for Me?
-</h1>
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -797,7 +797,7 @@ fusion is sometimes used, it can leave patients with a
 permanently stiff neck, especially when four levels are
 involved. In contrast, laminoplasty provides the best option for
 multiple levels of compression without sacrificing mobility.
-</h1>
+    </p>
 
 <OutlinedButton text="Find a Treatment" />
 
@@ -813,18 +813,18 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-More About Cervical Laminoplasty
-</h1>
+    Understanding Cervical Laminoplasty
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -847,7 +847,7 @@ relieving nerve-related symptoms like arm and leg pain or
 headaches, it is not intended to address central neck pain. For
 axial neck pain, artificial disc replacement may be the better
 solution.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -855,18 +855,18 @@ solution.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Post-Op Recovery
-</h1>
+    Post-Operative Recovery
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -879,7 +879,7 @@ an outpatient basis. Pain typically improves by the third day
 after surgery. Since neck movement is preserved, stiffness is
 minimized, and mobility is encouraged early on, which further
 speeds up recovery.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -887,7 +887,7 @@ speeds up recovery.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -895,10 +895,10 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -916,7 +916,7 @@ help you get back to life without pain or stiffness.
 <br />
 Take the first step toward recovery. Call us at (833) 931-4888
 or fill out our online form to schedule your consultation today.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -1036,17 +1036,17 @@ forum: [
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-What Is a Herniated Cervical Disc?
-</h1>
+    What Is a Cervical Herniated Disc?
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1063,7 +1063,7 @@ symptoms such as neck pain, numbness, tingling, or weakness in
 the shoulders, arms, or hands. Treatment options range from
 conservative therapies like rest and physical therapy to more
 advanced solutions, including cervical spine surgery.
-</h1>
+    </p>
 
 <div className="rounded-[24px] overflow-hidden">
 <iframe
@@ -1076,7 +1076,7 @@ allowFullScreen
 ></iframe>
 </div>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1088,7 +1088,7 @@ upper limbs, you may be dealing with a herniated disc in your
 cervical spine. Our symptom checker tool is a quick and easy way
 to help determine if you’re showing signs of disc herniation and
 whether a treatment consultation is recommended.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -1098,17 +1098,17 @@ whether a treatment consultation is recommended.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-How Are Herniated Discs Diagnosed?
-</h1>
+    How Are Cervical Herniated Discs Diagnosed?
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1124,7 +1124,7 @@ visualization of soft tissue and nerve compression. If a
 herniated disc is confirmed, treatment usually starts
 conservatively with rest, ice, and medication. If symptoms
 persist, surgical intervention may be recommended.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 </div>
 </div>
@@ -1133,7 +1133,7 @@ persist, surgical intervention may be recommended.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -1141,9 +1141,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Pain Management for a Cervical Herniated Disc
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1159,7 +1159,7 @@ neck muscles. In some cases, nerve root blocks or epidural
 steroid injections are used to reduce inflammation and nerve
 pressure. Our team at Mountain Spine & Orthopedics will help
 determine the best approach based on your condition.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -1167,17 +1167,17 @@ determine the best approach based on your condition.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-What Causes a Herniated Disc in the Neck?
-</h1>
+    What Causes a Cervical Herniated Disc?
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1193,7 +1193,7 @@ obesity, repetitive strain, and spinal injury. In people over
 the age of 30, disc degeneration becomes more common, but even
 younger patients can suffer from herniated discs if their
 lifestyle puts excess stress on the spine.
-</h1>
+    </p>
 
 <GradientOverlayImage
 imageData={
@@ -1209,7 +1209,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -1217,9 +1217,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Risk Factors for a Cervical Herniated Disc
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1235,7 +1235,7 @@ Herniated discs may present with a wide range of symptoms pain,
 numbness, tingling, and weakness in the arms or legs so it’s
 important to get evaluated by a medical professional if you
 suspect you may have this condition.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -1243,17 +1243,17 @@ suspect you may have this condition.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Treatment Options for Herniated Discs
-</h1>
+    Treatment Options for Cervical Herniated Discs
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1271,7 +1271,7 @@ disc to relieve pressure on the spinal nerves. At Mountain Spine
 & Orthopedics, our specialists are trained in minimally invasive
 procedures that aim to reduce recovery time and preserve neck
 mobility
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -1279,7 +1279,7 @@ mobility
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -1287,9 +1287,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1308,7 +1308,7 @@ both non-surgical and surgical solutions.
 Call us today at (833) 931-4888 or fill out our online form to
 schedule a consultation. You may have more options than you
 think and recovery may be closer than you realize.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -1367,6 +1367,7 @@ metaTitle:
 metaDesc:
 "Spinal compression fractures cause sudden back pain, often from osteoporosis. Our Florida specialists offer kyphoplasty and other advanced treatments for relief.",
 },
+    
 {
 title: "Kyphosis",
 tag: "Spine",
@@ -1424,7 +1425,7 @@ pain_info:
 prevent:
 "Maintaining a healthy body weight, engaging in a balanced strength and flexibility training program, correcting any biomechanical malalignment, and addressing acute joint injuries promptly can help slow cartilage degradation and preserve long-term joint function.",
 why_choose_us:
-"At Mountain Spine & Orthopedics, we offer comprehensive management for osteoarthritis, focusing on preserving your mobility and quality of life. Our Florida-based specialists provide a complimentary MRI review and free second opinion to create a personalized plan. From advanced non-surgical options like regenerative medicine to minimally invasive joint replacement, our goal is to help you remain active at every stage of life.",
+    "At Mountain Spine & Orthopedics, we offer comprehensive management for osteoarthritis, focusing on preserving your mobility and quality of life. Our Florida-based specialists provide a complimentary MRI review and a free second opinion to create a personalized plan. From advanced non-surgical options like regenerative medicine to minimally invasive joint replacement, our goal is to help you remain active at every stage of life.",
 schedule:
 "If joint pain or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and expert second opinion to move forward with a personalized plan to manage your osteoarthritis.",
 slug: "osteoarthritis",
@@ -1693,6 +1694,8 @@ metaTitle:
 metaDesc:
 "Trochanteric bursitis causes sharp outer hip pain. Our Florida specialists offer accurate diagnosis and advanced, image-guided injections for effective relief.",
 },
+    
+    
 {
 title: "Carpal Tunnel Syndrome",
 tag: "Hand",
@@ -1837,7 +1840,7 @@ forum: [
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -1845,9 +1848,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 What Is a Pinched Nerve?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1867,7 +1870,7 @@ Common causes of nerve compression include herniated discs, bone
 spurs, spinal stenosis, and poor posture. Over time, continued
 pressure can lead to worsening symptoms and even permanent nerve
 damage if not treated properly.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/pinchednerve.jpeg"
@@ -1875,7 +1878,7 @@ imageData={
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1887,7 +1890,7 @@ movement or after long periods of sitting. Some also experience
 burning sensations or weakness in the arms or legs. Early
 diagnosis and treatment are essential to preventing long-term
 nerve damage and restoring full function.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -1897,7 +1900,7 @@ nerve damage and restoring full function.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -1905,9 +1908,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Symptoms of a Pinched Nerve
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1916,26 +1919,28 @@ className="text-[#5B5F67] text-md sm:text-xl"
 >
 Symptoms of a pinched nerve depend on where the nerve is
 compressed, but common warning signs include:
-<br />
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>A sharp or burning pain radiating into the arms or legs</li>
-<br />
 <li>Numbness or tingling in the affected limb</li>
-<br />
 <li>Muscle weakness or feeling that the limb is "asleep"</li>
-<br />
 <li>
 Pain that worsens with certain movements, like turning the
 head or standing up
 </li>
-<br />
 <li>
 Discomfort that improves slightly when leaning forward or
 resting
 </li>
-<br />
-</h1>
+    </ul>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1947,7 +1952,7 @@ on the cause. If left untreated, nerve compression may lead to
 permanent nerve damage, chronic pain, or muscle atrophy.
 Recognizing these early warning signs is the first step toward
 finding lasting relief.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
 imageData={
@@ -1963,17 +1968,17 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] text-2xl"
 >
-Types of Pinched Nerve Conditions
-</h1>
+    Common Conditions Causing a Pinched Nerve
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -1993,7 +1998,7 @@ can also contribute to nerve compression by invading space meant
 for nerves. In some cases, muscle tightness or repetitive strain
 from poor posture may also lead to a pinched nerve. Understanding
 what’s causing your symptoms is key to receiving the right care.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2001,17 +2006,17 @@ what’s causing your symptoms is key to receiving the right care.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] text-2xl"
 >
-Learn About Pinched Nerve Treatments
-</h1>
+    Treatments for a Pinched Nerve
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2033,7 +2038,7 @@ and diagnostic tools to pinpoint the source of nerve compression
 and build a customized care plan. Whether you need non-invasive
 treatment or surgical intervention, we’re here to help you
 recover quickly and safely.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2041,7 +2046,7 @@ recover quickly and safely.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2049,9 +2054,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2070,7 +2075,7 @@ best for your needs and lifestyle.
 Call us today at (833) 931-4888 or fill out our online
 consultation form to schedule your appointment. Lasting relief
 could be just one visit away.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2227,7 +2232,7 @@ treatment:
 pain_info:
 "Hip dysplasia pain often begins as intermittent groin discomfort after exercise and can progress to a constant ache that disrupts sleep. By correcting the underlying biomechanical overload and rehabilitating surrounding muscles, our integrated care model breaks the cycle of inflammation and provides lasting relief.",
 prevent:
-"Early detection through screening of at-risk infants is the best prevention. For adults, maintaining a healthy body weight, engaging in low-impact exercise, and avoiding repetitive, extreme hip positions can help slow cartilage degeneration and delay the onset of arthritis.",
+    "Early detection through screening of at-risk infants is the best prevention. For adults, a healthy body weight, engaging in low-impact exercise, and avoiding repetitive, extreme hip positions can help slow cartilage degeneration and delay the onset of arthritis.",
 why_choose_us:
 "The fellowship-trained hip specialists at Mountain Spine & Orthopedics offer cutting-edge care for hip dysplasia. Our Florida-based practice is one of few that performs advanced joint preservation surgeries like the periacetabular osteotomy (PAO). With a complimentary MRI review and free second opinion, we can create a personalized plan to preserve your joint health and keep you moving pain-free.",
 schedule:
@@ -2248,6 +2253,8 @@ metaTitle:
 metaDesc:
 "Hip dysplasia can cause hip pain and instability. Our Florida hip specialists offer advanced joint preservation surgery like PAO to treat adult hip dysplasia.",
 },
+    
+    
 {
 title: "Facet Joint Disease",
 tag: "Spine",
@@ -2315,7 +2322,7 @@ forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2323,9 +2330,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 What Is Arthritis?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2344,7 +2351,7 @@ The primary symptoms of arthritis include joint pain, stiffness,
 swelling, redness, and decreased range of motion. Over time,
 arthritis can lead to cartilage loss, bone erosion, and even
 joint deformity, particularly if left untreated.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/arthritis.png"
@@ -2352,7 +2359,7 @@ imageData={
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2363,7 +2370,7 @@ Many patients describe arthritis as a dull, aching pain that
 worsens with activity or after periods of rest. Understanding
 the exact type of arthritis you have is critical for choosing
 the most effective treatment path.
-</h1>
+    </p>
 <OutlinedButton text="Do I have this Condition?" />
 </div>
 </div>
@@ -2372,7 +2379,7 @@ the most effective treatment path.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2380,39 +2387,31 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Symptoms of Arthritis
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <ul
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
 }}
-className="text-[#5B5F67] text-md sm:text-xl"
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
 >
 <li>
 Joint stiffness, especially in the morning or after inactivity
 </li>
-<br />
 <li>Swelling around the joints</li>
-<br />
 <li>Persistent or sharp joint pain</li>
-<br />
 <li>Tenderness when touching the joint</li>
-<br />
 <li>Reduced range of motion</li>
-<br />
 <li>Clicking, popping, or grinding sounds</li>
-<br />
 <li>Warmth or redness over the joint</li>
-<br />
 <li>
 Fatigue or flu-like symptoms (common in inflammatory types
 like RA)
 </li>
-<br />
-</h1>
+    </ul>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2423,7 +2422,7 @@ In more advanced stages, arthritis can lead to joint deformity,
 loss of function, and reduced ability to perform everyday
 tasks. Early diagnosis and treatment can significantly slow
 progression and reduce permanent damage.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
 imageData={
@@ -2439,7 +2438,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2447,9 +2446,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Types of Arthritis
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2470,7 +2469,7 @@ psoriasis and can cause both joint inflammation and skin
 symptoms. Each of these conditions presents unique challenges
 and requires a tailored treatment plan to effectively control
 pain and prevent further damage.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2478,17 +2477,17 @@ pain and prevent further damage.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] text-2xl"
 >
-Learn About Arthritis Treatments
-</h1>
+    Arthritis Treatment Options
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2505,7 +2504,7 @@ surgical solutions when needed. Whether you’re managing early
 signs of osteoarthritis or facing the challenges of an
 inflammatory condition like rheumatoid arthritis, we’re here to
 help guide you through every stage of your treatment.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2513,7 +2512,7 @@ help guide you through every stage of your treatment.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2521,9 +2520,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2543,7 +2542,7 @@ Call us today at (833) 931-4888 or fill out our online
 consultation form to schedule your appointment. Let’s take the
 first step together toward improving your mobility, comfort, and
 quality of life.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2593,7 +2592,7 @@ forum: [
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2601,9 +2600,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Could Be Causing My Lower Back Pain?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2620,7 +2619,7 @@ causes of chronic lower back pain. If you’re experiencing
 numbness or tingling in particular, this may point to nerve
 compression which is often more serious than general discomfort
 and should be addressed immediately to prevent long-term damage.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
@@ -2628,7 +2627,7 @@ imageData={
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2641,7 +2640,7 @@ spinal conditions. That’s why we offer a quick and easy Back
 Condition Checker to help identify potential issues. This tool
 is designed to gather information about your symptoms and guide
 you toward the appropriate care pathway.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -2651,7 +2650,7 @@ you toward the appropriate care pathway.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2659,9 +2658,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What is the Right Treatment for Me?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2680,7 +2679,7 @@ treatment plan tailored to your needs. With access to advanced
 procedures not widely available elsewhere, we’re able to offer
 both non-surgical and surgical options based on what’s best for
 your recovery.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 </div>
 </div>
@@ -2689,17 +2688,17 @@ your recovery.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Can Back Pain Mean I Need Surgery?
-</h1>
+    Is Surgery Necessary for Back Pain?
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2715,7 +2714,7 @@ or if there is significant damage to spinal discs or nerves,
 surgical intervention may be required. In those cases, our team
 specializes in minimally invasive procedures designed to reduce
 recovery time and improve outcomes.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2723,17 +2722,17 @@ recovery time and improve outcomes.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-What Can I Do to Prevent Lower Back Pain?
-</h1>
+    How Can I Prevent Lower Back Pain?
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2749,7 +2748,7 @@ smoking or prolonged sitting can increase the risk of developing
 chronic back pain. Making simple changes, such as staying
 active and practicing good posture, can go a long way in
 protecting your spine.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2757,7 +2756,7 @@ protecting your spine.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2765,9 +2764,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2784,7 +2783,7 @@ with the most advanced technology and techniques available.
 Don’t wait to take control of your health. Contact us at (833)
 931-4888 or fill out our online form to schedule your
 consultation today.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -2833,7 +2832,7 @@ forum: [
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2841,9 +2840,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 How Do I Know if I Have Sciatica?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2857,7 +2856,7 @@ muscle weakness in the affected leg. If the condition advances,
 it may begin to impact your ability to walk or perform daily
 activities. In some cases, tingling or numbness in the arms and
 legs could signal a more advanced orthopedic issue.
-</h1>
+    </p>
 
 <div className="rounded-[24px] overflow-hidden">
 <iframe
@@ -2870,7 +2869,7 @@ allowFullScreen
 ></iframe>
 </div>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2881,7 +2880,7 @@ If you suspect you may be experiencing sciatica, we offer a
 quick and easy condition checker. This tool gathers key
 information about your symptoms and helps determine if you're a
 candidate for evaluation and treatment.
-</h1>
+    </p>
 
 <OutlinedButton text="Do I have this Condition?" />
 </div>
@@ -2891,7 +2890,7 @@ candidate for evaluation and treatment.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -2899,9 +2898,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Is the Right Treatment for Me?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2921,7 +2920,7 @@ considered. At Mountain Spine & Orthopedics, our board-certified
 orthopedic doctors are experts in treating sciatica. We offer
 advanced, customized care plans that many other practices are
 not equipped to provide.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 </div>
 </div>
@@ -2930,17 +2929,17 @@ not equipped to provide.
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Best Sciatica Treatment Options
-</h1>
+    Sciatica Treatment Options
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2950,9 +2949,9 @@ className="text-[#5B5F67] text-md sm:text-xl"
 Sciatica treatments vary depending on nerve involvement and
 symptom severity. Our team offers both non-surgical and
 surgical solutions tailored to your condition
-</h1>
+    </p>
 
-<h1
+    <h3
 style={{
 fontFamily: "var(--font-inter),",
 fontWeight: 500,
@@ -2960,9 +2959,9 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 Non-Surgical Treatment:
-</h1>
+    </h3>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2972,8 +2971,8 @@ className="text-[#5B5F67] text-md sm:text-xl"
 Stretching exercises improve mobility and flexibility.
 Chiropractic care eases pressure on the spine. Medications
 reduce inflammation and pain.
-</h1>
-<h1
+    </p>
+    <h3
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 500,
@@ -2981,9 +2980,9 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 Surgical Treatment:
-</h1>
+    </h3>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -2999,7 +2998,7 @@ nerve.
 <br />
 Our orthopedic specialists will help determine the best option
 based on your condition, lifestyle, and treatment goals.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/sciatica.png"
@@ -3014,7 +3013,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3022,10 +3021,10 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3041,7 +3040,7 @@ their comfort, mobility, and quality of life.
 <br />
 Call us today at (833) 931-4888 or fill out our online form to
 book your appointment. Let us help you find lasting relief.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3090,7 +3089,7 @@ forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3098,9 +3097,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Is Coccydynia?
-</h1>
+    </h2>
 <div className="flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3119,7 +3118,7 @@ traumatic fall, stressful childbirth, or prolonged pressure from
 improper sitting posture. Rarely, it may be due to a tumor in
 the coccyx region. If the pain persists or intensifies, it’s
 important to consult with a spine specialist.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/coccydynia.jpeg"
@@ -3127,7 +3126,7 @@ imageData={
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3138,7 +3137,7 @@ If you're experiencing symptoms like tailbone pain that worsens
 when sitting or during bowel movements, you may be dealing with
 coccydynia. Our diagnostic checker is a fast way to determine
 whether a specialist evaluation is recommended.
-</h1>
+    </p>
 <OutlinedButton text="Do I have this Condition?" />
 </div>
 </div>
@@ -3147,7 +3146,7 @@ whether a specialist evaluation is recommended.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3155,9 +3154,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl"
 >
 How Is Coccydynia Diagnosed?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3174,7 +3173,7 @@ fractures, joint instability, or signs of inflammation.
 <br />
 Once diagnosed, your provider will recommend a treatment plan
 based on the severity and duration of symptoms.
-</h1>
+    </p>
 <OutlinedButton text="Find a Treatment" />
 </div>
 </div>
@@ -3184,7 +3183,7 @@ based on the severity and duration of symptoms.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3192,9 +3191,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Pain Management for Coccydynia
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3213,7 +3212,7 @@ If the pain persists beyond a few weeks, stronger pain
 relievers, physical therapy, or injections may be recommended.
 Surgery (coccygectomy) is reserved for severe cases when all
 other options have failed.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3221,7 +3220,7 @@ other options have failed.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3229,9 +3228,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Causes Coccydynia?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3240,7 +3239,14 @@ className="text-[#5B5F67] text-md sm:text-xl"
 >
 Coccydynia can result from both sudden trauma and long-term
 strain. Common causes include:
-<br />
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li> Falls or direct impact to the tailbone</li>
 <li> Prolonged sitting on hard or unstable surfaces</li>
 <li>Childbirth, especially when prolonged or difficult</li>
@@ -3249,7 +3255,7 @@ Repetitive strain or poor posture In rare cases, bone tumors
 or infections may lead to coccyx pain, which is why imaging
 may be required when pain does not respond to treatment.
 </li>
-</h1>
+    </ul>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/coccydynia2.jpeg"
@@ -3264,7 +3270,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3272,9 +3278,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Risk Factors for Coccydynia
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3283,6 +3289,14 @@ className="text-[#5B5F67] text-md sm:text-xl"
 >
 Several factors increase the risk of developing coccydynia,
 including being:
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>Female (due to childbirth)</li>
 <li> Obese or underweight (both affect sitting posture)</li>
 <li>Sedentary (extended sitting)</li>
@@ -3291,7 +3305,7 @@ Engaging in high-impact sports or activities Additionally,
 hormonal changes during pregnancy or aging can loosen the
 pelvic area and increase tailbone vulnerability.
 </li>
-</h1>
+    </ul>
 </div>
 </div>
 ),
@@ -3299,7 +3313,7 @@ pelvic area and increase tailbone vulnerability.
 {
 post: (
 <div className=" flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3307,9 +3321,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Treatment Options for Coccydynia
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3318,12 +3332,20 @@ className="text-[#5B5F67] text-md sm:text-xl"
 >
 Treatment depends on how long you’ve had symptoms and how severe
 the pain is. Common treatments include:
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>Cushions and posture correction</li>
 <li>Anti-inflammatory medications</li>
 <li>Physical Therapy</li>
 <li>Corticosteroid injections</li>
-</h1>
-<h1
+    </ul>
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3334,7 +3356,7 @@ In rare cases, a coccygectomy (surgical removal of the coccyx)
 may be considered. At Mountain Spine & Orthopedics, we specialize
 in minimally invasive spine procedures to provide targeted
 relief while preserving mobility and reducing recovery time.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3342,7 +3364,7 @@ relief while preserving mobility and reducing recovery time.
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3350,9 +3372,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Frequently Asked Questions About Coccydynia
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <h3
 style={{
 fontFamily: "var(--font-inter),",
 fontWeight: 500,
@@ -3360,9 +3382,9 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 How is coccydynia pain treated during pregnancy?
-</h1>
+    </h3>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3374,8 +3396,8 @@ hormone relaxin, which loosens pelvic joints. Using supportive
 cushions, applying hot/cold therapy, and taking acetaminophen
 may provide relief. Persistent pain should be evaluated by a
 spine specialist.
-</h1>
-<h1
+    </p>
+    <h3
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 500,
@@ -3383,9 +3405,9 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 Does walking help coccydynia?
-</h1>
+    </h3>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3396,9 +3418,9 @@ For many, gentle walking can reduce tailbone pressure. But if
 there’s a fracture or joint instability, walking may worsen the
 pain. Low-impact stretching or yoga may be a safer option in
 those cases.
-</h1>
+    </p>
 
-<h1
+    <h3
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 500,
@@ -3406,9 +3428,9 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 How should I sleep with coccydynia?
-</h1>
+    </h3>
 
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3418,7 +3440,7 @@ className="text-[#5B5F67] text-md sm:text-xl"
 Avoid sleeping flat on your back. Instead, sleep on your side
 with a pillow between your knees. This position minimizes
 pressure on the coccyx and can improve sleep quality.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3426,7 +3448,7 @@ pressure on the coccyx and can improve sleep quality.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3434,10 +3456,10 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
+    </h2>
 
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3453,7 +3475,7 @@ of your pain and back to feeling your best.
 <br />
 Call us today at (833) 931-4888 or complete our online form to
 schedule your consultation.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3541,7 +3563,7 @@ forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3549,9 +3571,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Understanding Foraminal Stenosis
-</h1>
+    </h2>
 <div className="flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3574,7 +3596,7 @@ spine along the path of the affected nerve. The location of
 symptoms depends on which nerve is compressed – neck (cervical)
 stenosis affects the arms, while lower back (lumbar) stenosis
 affects the legs (often called sciatica).
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/ForaminalSarti.png"
@@ -3582,7 +3604,7 @@ imageData={
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3595,9 +3617,7 @@ space, thickening of spinal ligaments, or a vertebra slipping
 out of place (spondylolisthesis). If you're experiencing
 radiating symptoms, understanding the cause is the first step
 toward effective treatment.
-</h1>
-{/* Placeholder for a potential diagnostic checker button */}
-{/* <OutlinedButton text="Do I have this Condition?" /> */}
+    </p>
 </div>
 </div>
 ),
@@ -3605,7 +3625,7 @@ toward effective treatment.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3613,9 +3633,9 @@ fontWeight: 500,
 className="text-[#111315] text-2xl" // Adjusted size for secondary heading
 >
 How Is Foraminal Stenosis Diagnosed?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3641,7 +3661,7 @@ We offer complimentary MRI reviews to help assess your
 condition. In some cases, a CT (Computed Tomography) scan might
 be used for better bone detail, or nerve conduction studies
 (EMG/NCS) might assess nerve function directly.
-</h1>
+    </p>
 <OutlinedButton text="Explore Treatment Options" />
 </div>
 </div>
@@ -3650,7 +3670,7 @@ be used for better bone detail, or nerve conduction studies
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3658,9 +3678,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Managing Pain from Foraminal Stenosis
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3670,7 +3690,14 @@ className="text-[#5B5F67] text-md sm:text-xl"
 The goal of managing foraminal stenosis pain is to reduce nerve
 compression and inflammation. Conservative, non-surgical
 approaches are typically tried first:
-<br />
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>
 <b>Activity Modification:</b> Avoiding activities that worsen
 symptoms.
@@ -3691,13 +3718,19 @@ nerve.
 injected near the compressed nerve can provide significant,
 though often temporary, relief from inflammation and pain.
 </li>
-<br />
-<br />
+    </ul>
+    <p
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl"
+    >
 If these methods don't provide adequate relief, or if there is
 progressive weakness, surgical options might be considered. Our
 focus is on effective pain relief tailored to your specific
 situation.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3705,7 +3738,7 @@ situation.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3713,9 +3746,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Causes Foraminal Stenosis?
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3725,7 +3758,14 @@ className="text-[#5B5F67] text-md sm:text-xl"
 Foraminal stenosis is most often caused by the natural aging
 process and degenerative changes in the spine. As we age,
 various structures can encroach upon the neural foramina:
-<br />
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>
 <b>Bone Spurs (Osteophytes):</b> The body may grow extra bone
 around joints affected by arthritis, narrowing the foraminal
@@ -3751,12 +3791,18 @@ level.
 connecting vertebrae (facet joints) due to arthritis can also
 contribute to foraminal narrowing.
 </li>
-<br />
-<br />
+    </ul>
+    <p
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl"
+    >
 Less common causes include spinal injuries, tumors, or cysts.
 Understanding the specific cause is key to choosing the right
 treatment.
-</h1>
+    </p>
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/public/ForaminalS.png"
@@ -3771,7 +3817,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3779,9 +3825,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Risk Factors for Developing Foraminal Stenosis
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3790,7 +3836,14 @@ className="text-[#5B5F67] text-md sm:text-xl"
 >
 While anyone can develop foraminal stenosis, certain factors
 increase your risk:
-<br />
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>
 <b>Age:</b> It's most common in individuals over 50 due to
 cumulative wear and tear.
@@ -3816,11 +3869,17 @@ predisposition to spinal degeneration.
 spine, and smoking can impair disc health. Repetitive strain
 from certain jobs or activities may also play a role.
 </li>
-<br />
-<br />
+    </ul>
+    <p
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl"
+    >
 Being aware of these factors can help in early recognition and
 management.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3828,17 +3887,17 @@ management.
 {
 post: (
 <div className=" flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Treatment Options for Foraminal Stenosis
-</h1>
+    Surgical Treatments for Foraminal Stenosis
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3847,17 +3906,15 @@ className="text-[#5B5F67] text-md sm:text-xl"
 >
 Treatment for foraminal stenosis aims to relieve nerve pressure
 and reduce symptoms. The approach depends on symptom severity
-and cause:
-<br />
-<b>Conservative Treatments:</b>
-<li>
-Physical therapy, NSAIDs, activity modification.
-</li>
-<li>Epidural steroid injections for inflammation.</li>
-<b>
-Surgical Treatments (when conservative care fails or symptoms
-are severe):
-</b>
+    and cause. After conservative treatments have been explored, surgical options may be considered:
+    </p>
+    <ul
+    style={{
+    fontFamily: "var(--font-inter)",
+    fontWeight: 400,
+    }}
+    className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+    >
 <li>
 <b>Foraminotomy:</b> A minimally invasive procedure where bone
 or tissue compressing the nerve within the foramen is removed,
@@ -3874,8 +3931,8 @@ foraminotomy.
 (like spondylolisthesis) often performed alongside
 decompression procedures.
 </li>
-</h1>
-<h1
+    </ul>
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3889,7 +3946,7 @@ disruption, reduced blood loss, and potentially faster recovery
 times compared to traditional open surgery. We tailor the
 treatment plan to provide the most effective relief for your
 specific condition.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3897,7 +3954,7 @@ specific condition.
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -3905,9 +3962,9 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Frequently Asked Questions About Foraminal Stenosis
-</h1>
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <h3
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 500,
@@ -3915,8 +3972,8 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 Is foraminal stenosis serious?
-</h1>
-<h1
+    </h3>
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3930,8 +3987,8 @@ untreated. In rare cases involving the lower spine, severe
 compression can affect bowel or bladder control (cauda equina
 syndrome), which is a medical emergency. Early diagnosis and
 treatment are important.
-</h1>
-<h1
+    </p>
+    <h3
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 500,
@@ -3939,8 +3996,8 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 Can foraminal stenosis heal on its own?
-</h1>
-<h1
+    </h3>
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3953,8 +4010,8 @@ However, symptoms can sometimes improve or fluctuate with
 conservative treatments that reduce inflammation (like
 injections) or improve biomechanics (like physical therapy),
 effectively managing the condition without surgery.
-</h1>
-<h1
+    </p>
+    <h3
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 500,
@@ -3962,8 +4019,8 @@ fontWeight: 500,
 className="text-[#111315] text-md sm:text-xl"
 >
 What activities should be avoided with foraminal stenosis?
-</h1>
-<h1
+    </h3>
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -3977,7 +4034,7 @@ improper form, prolonged sitting or standing without breaks, and
 activities involving excessive twisting or extension of the
 affected spinal region. A physical therapist can provide
 personalized guidance.
-</h1>
+    </p>
 </div>
 </div>
 ),
@@ -3985,17 +4042,17 @@ personalized guidance.
 {
 post: (
 <div className=" flex flex-col space-y-[16px] ">
-<h1
+    <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Schedule Your Foraminal Stenosis Consultation
-</h1>
+    Schedule Your Consultation
+    </h2>
 <div className=" flex flex-col space-y-[40px]">
-<h1
+    <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -4013,9 +4070,7 @@ Take the first step towards relief. Contact us to schedule your
 consultation, benefit from a complimentary MRI review, and
 receive a free second opinion from our spine specialists. Call
 us today or use our online form to request an appointment.
-</h1>
-{/* Add contact info or button here */}
-{/* Example: <OutlinedButton text="Request Appointment" /> */}
+    </p>
 </div>
 </div>
 ),
@@ -4075,6 +4130,7 @@ metaTitle:
 metaDesc:
 "Hip impingement (FAI) causes groin pain and stiffness. Our Florida hip specialists offer advanced hip arthroscopy to repair damage and preserve your joint.",
 },
+    
 {
 title: "Loose Bodies",
 tag: "Lower Spine",
@@ -4379,6 +4435,11 @@ metaTitle:
 metaDesc:
 "Snapping hip syndrome causes a painful popping in the hip joint. Our Florida specialists offer advanced diagnosis and treatment to restore smooth hip motion.",
 },
+    // Final Batch: Refactoring conditions 41 through 57 to complete the file.
+    // - Forums for Plantar Fasciitis, Bunions, Achilles Tendonitis, Flat Feet, Ankle Arthroscopy, Hammertoes, Diabetic Foot Ulcers, and Ankle Replacement were refactored with proper <h2> heading structure and <p>/<ul> tags.
+    // - All other conditions in this batch were reviewed and confirmed compliant.
+    // - This completes the refactoring for the entire file of 57 conditions.
+    
 {
 title: "Spinal Bone Spurs",
 tag: "Spine",
@@ -4387,20 +4448,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/sbsarti.webp",
 body: "Spinal bone spurs, or osteophytes, are bony growths that form on the spine, often due to arthritis, and can cause pain by compressing nerves.",
 detail: "Spinal bone spurs (osteophytes) are bony projections that develop along the edges of vertebrae, typically as a response to the joint degeneration seen in osteoarthritis. While many bone spurs are asymptomatic, they can cause significant pain, stiffness, or radiating symptoms if they grow large enough to narrow the spinal canal or press on nearby nerves. At Mountain Spine & Orthopedics, our evaluation includes a detailed physical exam and complimentary imaging to identify the impact of bone spurs and guide treatment.",
 what_sym: "When symptomatic, bone spurs can cause localized neck or back pain, stiffness, and radiating pain, numbness, or weakness in the arms or legs. In severe cases, they can contribute to spinal stenosis, leading to issues with balance or walking.",
-risk_fac:
-"Age-related disc degeneration and osteoarthritis are the primary risk factors. Other contributing factors include previous spinal injuries, poor posture, repetitive spinal stress from manual labor or sports, and a genetic predisposition to joint degeneration.",
-diagnose:
-"In addition to a clinical evaluation, we offer a complimentary high-resolution MRI or CT review to pinpoint the size and location of bone spurs and assess their impact on spinal nerves. This precise diagnosis helps differentiate bone spur pain from other spinal conditions.",
-treatment:
-"Initial management may include anti-inflammatory medications, physical therapy focused on improving posture and core stabilization, and activity modification. Image-guided injections can reduce inflammation and relieve nerve pressure. When symptoms persist, our surgeons may recommend minimally invasive surgery to remove the bone spur and decompress the affected nerve root or spinal cord.",
-pain_info:
-"Pain from spinal bone spurs often presents as a dull, aching discomfort that can become a sharper, radiating pain during activity. Our approach aims to reduce the mechanical pressure and calm the nerve inflammation to provide long-term symptom relief.",
-prevent:
-"Maintaining good posture, engaging in regular low-impact exercise, managing weight, and treating underlying conditions like arthritis or disc degeneration early can help slow the progression of bone spur formation.",
-why_choose_us:
-"At Mountain Spine & Orthopedics, our spine specialists are experts at treating symptomatic bone spurs. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize the full spectrum of non-surgical and minimally invasive surgical techniques to relieve your pain and restore mobility.",
-schedule:
-"If neck or back pain from bone spurs is impacting your life, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and an expert second opinion to move forward with a personalized care plan.",
+        risk_fac: "Age-related disc degeneration and osteoarthritis are the primary risk factors. Other contributing factors include previous spinal injuries, poor posture, repetitive spinal stress from manual labor or sports, and a genetic predisposition to joint degeneration.",
+        diagnose: "In addition to a clinical evaluation, we offer a complimentary high-resolution MRI or CT review to pinpoint the size and location of bone spurs and assess their impact on spinal nerves. This precise diagnosis helps differentiate bone spur pain from other spinal conditions.",
+        treatment: "Initial management may include anti-inflammatory medications, physical therapy focused on improving posture and core stabilization, and activity modification. Image-guided injections can reduce inflammation and relieve nerve pressure. When symptoms persist, our surgeons may recommend minimally invasive surgery to remove the bone spur and decompress the affected nerve root or spinal cord.",
+        pain_info: "Pain from spinal bone spurs often presents as a dull, aching discomfort that can become a sharper, radiating pain during activity. Our approach aims to reduce the mechanical pressure and calm the nerve inflammation to provide long-term symptom relief.",
+        prevent: "Maintaining good posture, engaging in regular low-impact exercise, managing weight, and treating underlying conditions like arthritis or disc degeneration early can help slow the progression of bone spur formation.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our spine specialists are experts at treating symptomatic bone spurs. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize the full spectrum of non-surgical and minimally invasive surgical techniques to relieve your pain and restore mobility.",
+        schedule: "If neck or back pain from bone spurs is impacting your life, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and an expert second opinion to move forward with a personalized care plan.",
 slug: "spinalbonespurs",
 keywords: [
 "spinal bone spurs",
@@ -4412,10 +4466,8 @@ keywords: [
 "nerve compression",
 "facet joint arthritis",
 ],
-metaTitle:
-"Spinal Bone Spurs | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Spinal bone spurs (osteophytes) can cause pain by pinching nerves. Our Florida spine specialists offer advanced non-surgical and surgical treatment options.",
+        metaTitle: "Spinal Bone Spurs | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Spinal bone spurs (osteophytes) can cause pain by pinching nerves. Our Florida spine specialists offer advanced non-surgical and surgical treatment options.",
 },
 {
 title: "Spinal Stenosis",
@@ -4425,20 +4477,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/ssarti.jpg",
 body: "Spinal stenosis is a narrowing of the spinal canal that can compress the spinal cord and nerves, causing pain, numbness, or weakness.",
 detail: "Spinal stenosis is a condition characterized by the narrowing of the spinal canal, most commonly in the neck (cervical) or lower back (lumbar) due to age-related changes like herniated discs, thickened ligaments, or bone spurs. This narrowing places pressure on the spinal cord or nerve roots, leading to symptoms that may worsen over time. At Mountain Spine & Orthopedics, our specialists use complimentary imaging and a neurologic exam to confirm the stenosis and develop a personalized treatment plan.",
 what_sym: "Lumbar stenosis often causes pain, cramping, or weakness in the legs with walking or standing, which improves with sitting. Cervical stenosis can cause neck pain, numbness in the arms or hands, and in severe cases, balance or coordination issues.",
-risk_fac:
-"The primary risk factor for spinal stenosis is aging. Other factors include arthritis, herniated discs, prior spinal surgery, spinal injuries, and a congenitally narrow spinal canal. Conditions like scoliosis can also contribute.",
-diagnose:
-"We use complimentary high-resolution imaging, such as an MRI and standing X-rays, to visualize the spinal canal, nerve roots, and surrounding structures. This allows us to confirm the location and severity of the stenosis and identify any associated spinal instability or disc issues, guiding the best course of treatment.",
-treatment:
-"Conservative care includes anti-inflammatory medications, physical therapy to improve strength and flexibility, and activity modification. Image-guided epidural steroid injections can effectively reduce inflammation and relieve nerve compression. If symptoms persist or neurologic function declines, our surgeons may recommend minimally invasive decompression surgery, such as a laminectomy, to create more space for the nerves.",
-pain_info:
-"Pain from spinal stenosis is often positional, worsening with standing or walking and improving with sitting or leaning forward (which opens up the spinal canal). Our treatments target both the mechanical compression and the resulting nerve inflammation to provide lasting relief and improve mobility.",
-prevent:
-"Staying physically active, maintaining good posture, avoiding smoking, and treating other spinal conditions early can help reduce the risk or slow the progression of spinal stenosis.",
-why_choose_us:
-"The spine specialists at Mountain Spine & Orthopedics are leaders in treating spinal stenosis. We provide patients throughout Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize advanced, minimally invasive surgical techniques designed to minimize downtime and maximize long-term relief.",
-schedule:
-"If you're experiencing back or neck pain, numbness, or difficulty walking, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to manage your spinal stenosis and regain mobility.",
+        risk_fac: "The primary risk factor for spinal stenosis is aging. Other factors include arthritis, herniated discs, prior spinal surgery, spinal injuries, and a congenitally narrow spinal canal. Conditions like scoliosis can also contribute.",
+        diagnose: "We use complimentary high-resolution imaging, such as an MRI and standing X-rays, to visualize the spinal canal, nerve roots, and surrounding structures. This allows us to confirm the location and severity of the stenosis and identify any associated spinal instability or disc issues, guiding the best course of treatment.",
+        treatment: "Conservative care includes anti-inflammatory medications, physical therapy to improve strength and flexibility, and activity modification. Image-guided epidural steroid injections can effectively reduce inflammation and relieve nerve compression. If symptoms persist or neurologic function declines, our surgeons may recommend minimally invasive decompression surgery, such as a laminectomy, to create more space for the nerves.",
+        pain_info: "Pain from spinal stenosis is often positional, worsening with standing or walking and improving with sitting or leaning forward (which opens up the spinal canal). Our treatments target both the mechanical compression and the resulting nerve inflammation to provide lasting relief and improve mobility.",
+        prevent: "Staying physically active, maintaining good posture, avoiding smoking, and treating other spinal conditions early can help reduce the risk or slow the progression of spinal stenosis.",
+        why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating spinal stenosis. We provide patients throughout Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize advanced, minimally invasive surgical techniques designed to minimize downtime and maximize long-term relief.",
+        schedule: "If you're experiencing back or neck pain, numbness, or difficulty walking, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to manage your spinal stenosis and regain mobility.",
 slug: "spinalstenosis",
 keywords: [
 "spinal stenosis",
@@ -4450,10 +4495,8 @@ keywords: [
 "spinal decompression",
 "stenosis pain relief",
 ],
-metaTitle:
-"Spinal Stenosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Spinal stenosis causes pain and numbness from nerve compression. Our Florida spine specialists offer advanced, minimally invasive surgery to provide lasting relief.",
+        metaTitle: "Spinal Stenosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Spinal stenosis causes pain and numbness from nerve compression. Our Florida spine specialists offer advanced, minimally invasive surgery to provide lasting relief.",
 },
 {
 title: "Spine Deformities",
@@ -4463,20 +4506,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/sdarti.jpg",
 body: "Spine deformities like scoliosis and kyphosis involve abnormal spinal curves that can cause pain, poor posture, and functional limitations.",
 detail: "Spinal deformities are abnormal curvatures of the spine, such as scoliosis (sideways curve) or kyphosis (forward rounding), that can develop during adolescence or in adulthood due to degenerative changes. These curvatures can disrupt spinal balance, strain muscles, and compress nerves, leading to chronic pain and fatigue. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a thorough physical exam to confirm the type and severity of the deformity and create a personalized treatment plan.",
 what_sym: "Common symptoms include visibly uneven shoulders or hips, a noticeable spinal curve, persistent back pain, and fatigue after standing. Severe deformities can lead to a loss of height or interfere with breathing.",
-risk_fac:
-"Risk factors include genetics, adolescent growth spurts, degenerative disc disease, osteoporosis, spinal trauma, and a history of previous spinal surgery. Neuromuscular conditions can also lead to the development of spinal deformities.",
-diagnose:
-"Our specialists use complimentary standing X-rays to measure the curvature angles (like the Cobb angle) and assess overall spinal balance. An MRI or CT scan may be used to detect any associated disc or nerve issues. Ongoing monitoring is often used to track curve progression, especially in younger patients.",
-treatment:
-"Non-surgical options include physical therapy to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and fusion techniques. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
-pain_info:
-"Pain from spine deformities can be mechanical, stemming from muscle fatigue and postural strain, or neurologic, resulting from compressed nerves. Our comprehensive approach addresses both sources with a combination of targeted therapies and, when necessary, structural realignment.",
-prevent:
-"Early detection in children and adolescents is key. For adults, maintaining strong core musculature, good bone health, and proper posture can help slow the progression or reduce the impact of degenerative spinal deformities.",
-why_choose_us:
-"Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across Florida, we offer a complimentary MRI or X-ray review and a free second opinion to create a plan that restores your natural alignment and balance.",
-schedule:
-"If you or a loved one is living with a spinal curvature, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary imaging review and a thorough second opinion to move forward with a plan to manage the deformity.",
+        risk_fac: "Risk factors include genetics, adolescent growth spurts, degenerative disc disease, osteoporosis, spinal trauma, and a history of previous spinal surgery. Neuromuscular conditions can also lead to the development of spinal deformities.",
+        diagnose: "Our specialists use complimentary standing X-rays to measure the curvature angles (like the Cobb angle) and assess overall spinal balance. An MRI or CT scan may be used to detect any associated disc or nerve issues. Ongoing monitoring is often used to track curve progression, especially in younger patients.",
+        treatment: "Non-surgical options include physical therapy to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and fusion techniques. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
+        pain_info: "Pain from spine deformities can be mechanical, stemming from muscle fatigue and postural strain, or neurologic, resulting from compressed nerves. Our comprehensive approach addresses both sources with a combination of targeted therapies and, when necessary, structural realignment.",
+        prevent: "Early detection in children and adolescents is key. For adults, maintaining strong core musculature, good bone health, and proper posture can help slow the progression or reduce the impact of degenerative spinal deformities.",
+        why_choose_us: "Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across Florida, we offer a complimentary MRI or X-ray review and a free second opinion to create a plan that restores your natural alignment and balance.",
+        schedule: "If you or a loved one is living with a spinal curvature, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary imaging review and a thorough second opinion to move forward with a plan to manage the deformity.",
 slug: "spinedeformities",
 keywords: [
 "spine deformity",
@@ -4488,10 +4524,8 @@ keywords: [
 "spinal alignment",
 "complex spine surgeon",
 ],
-metaTitle:
-"Spine Deformities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Spine deformities like scoliosis and kyphosis cause pain and postural issues. Our Florida surgeons offer advanced correction surgery to improve alignment.",
+        metaTitle: "Spine Deformities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Spine deformities like scoliosis and kyphosis cause pain and postural issues. Our Florida surgeons offer advanced correction surgery to improve alignment.",
 },
 {
 title: "Synovitis",
@@ -4501,20 +4535,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/synarti.jpg",
 body: "Synovitis is the inflammation of the synovial membrane that lines a joint, which causes pain, swelling, and stiffness.",
 detail: "Synovitis is the inflammation of the synovial membrane, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like rheumatoid arthritis. The resulting pain, swelling, and excess fluid can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.",
 what_sym: "Key symptoms include joint pain, visible swelling, warmth over the affected joint, tenderness, and a reduced range of motion. When caused by an inflammatory condition, synovitis may affect multiple joints and worsen with inactivity.",
-risk_fac:
-"Autoimmune diseases such as rheumatoid arthritis or lupus are major risk factors. Other causes include overuse injuries, joint trauma, infections, and metabolic conditions like gout.",
-diagnose:
-"Our specialists use complimentary MRI and diagnostic ultrasound to assess synovial thickening and fluid buildup. If an underlying condition is suspected, blood tests may be ordered. For definitive diagnosis, a joint aspiration may be performed to analyze the synovial fluid for signs of crystals, infection, or inflammation.",
-treatment:
-"Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue.",
-pain_info:
-"The pain from synovitis is typically a dull, aching sensation but can intensify with activity or prolonged immobility. Our integrated approach aims to reduce the inflammation, protect the joint surfaces from further damage, and restore comfortable function.",
-prevent:
-"Prevention focuses on managing any underlying autoimmune or metabolic disorders, avoiding joint overuse, maintaining a healthy weight, and using proper biomechanics during physical activity to reduce stress on the joints.",
-why_choose_us:
-"At Mountain Spine & Orthopedics, our specialists are skilled at diagnosing the cause of synovitis, whether it's in the knee, shoulder, or another joint. For patients in Florida, we offer a complimentary MRI review and free second opinion to ensure an accurate diagnosis. Our goal is to reduce your joint inflammation and prevent long-term joint damage.",
-schedule:
-"If joint swelling, pain, or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a thorough second opinion to take the first step toward resolving synovitis.",
+        risk_fac: "Autoimmune diseases such as rheumatoid arthritis or lupus are major risk factors. Other causes include overuse injuries, joint trauma, infections, and metabolic conditions like gout.",
+        diagnose: "Our specialists use complimentary MRI and diagnostic ultrasound to assess synovial thickening and fluid buildup. If an underlying condition is suspected, blood tests may be ordered. For definitive diagnosis, a joint aspiration may be performed to analyze the synovial fluid for signs of crystals, infection, or inflammation.",
+        treatment: "Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue.",
+        pain_info: "The pain from synovitis is typically a dull, aching sensation but can intensify with activity or prolonged immobility. Our integrated approach aims to reduce the inflammation, protect the joint surfaces from further damage, and restore comfortable function.",
+        prevent: "Prevention focuses on managing any underlying autoimmune or metabolic disorders, avoiding joint overuse, maintaining a healthy weight, and using proper biomechanics during physical activity to reduce stress on the joints.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our specialists are skilled at diagnosing the cause of synovitis, whether it's in the knee, shoulder, or another joint. For patients in Florida, we offer a complimentary MRI review and free second opinion to ensure an accurate diagnosis. Our goal is to reduce your joint inflammation and prevent long-term joint damage.",
+        schedule: "If joint swelling, pain, or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a thorough second opinion to take the first step toward resolving synovitis.",
 slug: "synovitis",
 keywords: [
 "synovitis",
@@ -4526,10 +4553,8 @@ keywords: [
 "joint aspiration",
 "orthopedic pain management",
 ],
-metaTitle:
-"Synovitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Synovitis is joint inflammation causing pain and swelling. Our Florida specialists diagnose the cause and offer advanced care to reduce inflammation and pain.",
+        metaTitle: "Synovitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Synovitis is joint inflammation causing pain and swelling. Our Florida specialists diagnose the cause and offer advanced care to reduce inflammation and pain.",
 },
 {
 title: "Tingling or Numbness in Extremities",
@@ -4539,20 +4564,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/tnearti.jpg",
 body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation.",
 detail: "Tingling and numbness in the extremities, also known as paresthesia, can signal a problem with a nerve. This may be caused by nerve root compression in the spine (radiculopathy), peripheral nerve entrapment like carpal tunnel syndrome, or systemic conditions such as diabetes. At Mountain Spine & Orthopedics, our diagnosis starts with a thorough neurologic exam, advanced imaging, and electrodiagnostic testing (EMG/NCS) to identify the precise nerve involved and determine the cause.",
 what_sym: "Symptoms include a 'pins and needles' sensation, a loss of feeling, burning, or prickling in the hands, arms, legs, or feet. This can be accompanied by weakness, clumsiness, or a feeling that the limbs are 'falling asleep.'",
-risk_fac:
-"Common risk factors include spinal issues like herniated discs and stenosis, as well as diabetes, repetitive motion injuries, autoimmune diseases, and vitamin deficiencies. A previous trauma can also lead to nerve-related symptoms.",
-diagnose:
-"A comprehensive clinical and neurological evaluation is key. We provide a complimentary MRI review to check for spinal causes, and we use electrodiagnostic testing (EMG/NCS) to assess nerve health directly. These tools help us differentiate between a peripheral issue (like carpal tunnel) and a spinal nerve root compression (radiculopathy).",
-treatment:
-"Treatment is entirely guided by the underlying diagnosis. If the cause is spinal, care may include physical therapy, anti-inflammatory medications, and targeted epidural steroid injections. If a structural issue like a herniated disc is the cause, minimally invasive surgery may be considered. For peripheral issues, treatments like wrist splinting or carpal tunnel release may be recommended.",
-pain_info:
-"Tingling and numbness may be painless or accompanied by burning, aching, or sharp, shooting pain. Our approach targets both symptom relief and the underlying condition to protect long-term nerve health and improve daily function.",
-prevent:
-"Maintaining good posture, avoiding repetitive strain, managing blood sugar levels in the case of diabetes, and staying physically active can all help reduce the risk of developing nerve-related numbness and tingling.",
-why_choose_us:
-"At Mountain Spine & Orthopedics, our specialists are experts at getting to the root cause of numbness and tingling. We offer patients in Florida a comprehensive diagnostic workup, including a complimentary MRI review and a free second opinion. By identifying the exact source of your symptoms, we can provide the most effective treatment to restore healthy nerve function.",
-schedule:
-"If tingling or numbness is affecting your mobility or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to resolve your symptoms and restore healthy sensation.",
+        risk_fac: "Common risk factors include spinal issues like herniated discs and stenosis, as well as diabetes, repetitive motion injuries, autoimmune diseases, and vitamin deficiencies. A previous trauma can also lead to nerve-related symptoms.",
+        diagnose: "A comprehensive clinical and neurological evaluation is key. We provide a complimentary MRI review to check for spinal causes, and we use electrodiagnostic testing (EMG/NCS) to assess nerve health directly. These tools help us differentiate between a peripheral issue (like carpal tunnel) and a spinal nerve root compression (radiculopathy).",
+        treatment: "Treatment is entirely guided by the underlying diagnosis. If the cause is spinal, care may include physical therapy, anti-inflammatory medications, and targeted epidural steroid injections. If a structural issue like a herniated disc is the cause, minimally invasive surgery may be considered. For peripheral issues, treatments like wrist splinting or carpal tunnel release may be recommended.",
+        pain_info: "Tingling and numbness may be painless or accompanied by burning, aching, or sharp, shooting pain. Our approach targets both symptom relief and the underlying condition to protect long-term nerve health and improve daily function.",
+        prevent: "Maintaining good posture, avoiding repetitive strain, managing blood sugar levels in the case of diabetes, and staying physically active can all help reduce the risk of developing nerve-related numbness and tingling.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our specialists are experts at getting to the root cause of numbness and tingling. We offer patients in Florida a comprehensive diagnostic workup, including a complimentary MRI review and a free second opinion. By identifying the exact source of your symptoms, we can provide the most effective treatment to restore healthy nerve function.",
+        schedule: "If tingling or numbness is affecting your mobility or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to resolve your symptoms and restore healthy sensation.",
 slug: "tinglingornumbnessinextremities",
 keywords: [
 "tingling in hands and feet",
@@ -4564,10 +4582,8 @@ keywords: [
 "nerve compression",
 "EMG test",
 ],
-metaTitle:
-"Tingling or Numbness in Extremities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Tingling or numbness can signal nerve compression. Our Florida specialists offer advanced diagnostics like EMG to find the cause and provide effective treatment.",
+        metaTitle: "Tingling or Numbness in Extremities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Tingling or numbness can signal nerve compression. Our Florida specialists offer advanced diagnostics like EMG to find the cause and provide effective treatment.",
 },
 {
 title: "Herniated Disc",
@@ -4577,20 +4593,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/hdcard.webp",
 body: "A herniated disc, also known as a slipped or ruptured disc, occurs when a disc's soft core pushes out and presses on a nerve, causing significant pain.",
 detail: "A herniated disc occurs when the soft, gel-like nucleus of a spinal disc pushes through a tear in its tough outer wall, often compressing a nearby nerve root. This condition, which most commonly affects the lower back or neck, can cause localized pain as well as radiating pain, numbness, or weakness in the limbs. At Mountain Spine & Orthopedics, our evaluation includes a comprehensive exam and a complimentary MRI review to pinpoint the herniation and guide a personalized care plan.",
 what_sym: "Common symptoms include persistent back or neck pain, pain that radiates down an arm or leg (sciatica), and numbness or tingling in the extremities. Muscle weakness and difficulty with fine motor tasks can also occur.",
-risk_fac:
-"Risk factors include advancing age, occupations involving repetitive heavy lifting or bending, poor posture, smoking, and obesity. A genetic predisposition to disc degeneration can also play a significant role.",
-diagnose:
-"Diagnosis relies on a thorough clinical examination and imaging studies. We provide a complimentary MRI review, as MRI is the gold standard for visualizing the herniated disc and its effect on the nerves. Electromyography (EMG) and nerve conduction studies may also be used to assess the extent of nerve irritation and help guide treatment planning.",
-treatment:
-"Conservative management is often successful and may include targeted physical therapy, anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. For patients who do not respond to non-surgical care or who have severe neurologic deficits, our surgeons may perform a minimally invasive microdiscectomy to relieve the nerve compression while preserving spinal stability.",
-pain_info:
-"Pain results from both the mechanical compression of the nerve root and the inflammatory chemicals released by the damaged disc material. Symptoms often worsen with sitting, bending, or coughing. Our multidisciplinary approach addresses both the inflammation and the structural issue to provide lasting relief.",
-prevent:
-"Patients can reduce their risk of herniation by maintaining good posture, practicing proper lifting techniques, engaging in regular core strengthening exercises, maintaining a healthy weight, and avoiding prolonged static positions.",
-why_choose_us:
-"The spine specialists at Mountain Spine & Orthopedics are leaders in treating herniated discs. Our Florida clinics offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We prioritize non-surgical and minimally invasive options like microdiscectomy to help you recover faster and with less pain.",
-schedule:
-"If you are experiencing back or neck pain with radiating limb symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and a free second opinion to take the first step toward relief.",
+        risk_fac: "Risk factors include advancing age, occupations involving repetitive heavy lifting or bending, poor posture, smoking, and obesity. A genetic predisposition to disc degeneration can also play a significant role.",
+        diagnose: "Diagnosis relies on a thorough clinical examination and imaging studies. We provide a complimentary MRI review, as MRI is the gold standard for visualizing the herniated disc and its effect on the nerves. Electromyography (EMG) and nerve conduction studies may also be used to assess the extent of nerve irritation and help guide treatment planning.",
+        treatment: "Conservative management is often successful and may include targeted physical therapy, anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. For patients who do not respond to non-surgical care or who have severe neurologic deficits, our surgeons may perform a minimally invasive microdiscectomy to relieve the nerve compression while preserving spinal stability.",
+        pain_info: "Pain results from both the mechanical compression of the nerve root and the inflammatory chemicals released by the damaged disc material. Symptoms often worsen with sitting, bending, or coughing. Our multidisciplinary approach addresses both the inflammation and the structural issue to provide lasting relief.",
+        prevent: "Patients can reduce their risk of herniation by maintaining good posture, practicing proper lifting techniques, engaging in regular core strengthening exercises, maintaining a healthy weight, and avoiding prolonged static positions.",
+        why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating herniated discs. Our Florida clinics offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We prioritize non-surgical and minimally invasive options like microdiscectomy to help you recover faster and with less pain.",
+        schedule: "If you are experiencing back or neck pain with radiating limb symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and a free second opinion to take the first step toward relief.",
 slug: "herniateddisc",
 keywords: [
 "herniated disc",
@@ -4602,10 +4611,8 @@ keywords: [
 "microdiscectomy surgery",
 "non-surgical spine care",
 ],
-metaTitle:
-"Herniated Disc | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"A herniated disc causes back or neck pain and radiating symptoms. Our Florida spine specialists offer advanced, minimally invasive treatments for lasting relief.",
+        metaTitle: "Herniated Disc | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "A herniated disc causes back or neck pain and radiating symptoms. Our Florida spine specialists offer advanced, minimally invasive treatments for lasting relief.",
 },
 {
 title: "Rheumatoid Arthritis",
@@ -4615,20 +4622,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/raarti.jpeg",
 body: "Rheumatoid arthritis (RA) is a chronic autoimmune disorder where the body's immune system attacks its own joints, causing inflammation, pain, and damage.",
 detail: "Rheumatoid arthritis (RA) is a systemic autoimmune disease that primarily attacks the synovial lining of joints, causing chronic inflammation, pain, swelling, and progressive joint damage. It most often affects the small joints of the hands and feet but can also involve the spine and other organs. At Mountain Spine & Orthopedics, our specialists use advanced diagnostics to confirm RA, gauge disease activity, and create a comprehensive treatment plan to prevent irreversible joint erosion.",
 what_sym: "Patients with RA typically experience persistent joint pain, swelling, warmth, and prolonged morning stiffness lasting more than an hour. Symptoms are often symmetrical (affecting both sides of the body) and may include systemic issues like fatigue and fever.",
-risk_fac:
-"Risk factors for rheumatoid arthritis include a family history of autoimmune disease, specific genetic markers, and being female. Environmental factors like smoking and obesity can also contribute to disease onset and progression.",
-diagnose:
-"Diagnosis follows established criteria, combining clinical findings with serologic markers. We perform comprehensive blood tests for rheumatoid factor and anti-CCP antibodies, and we use complimentary high-resolution MRI or ultrasound to detect early joint inflammation and erosions. Early detection allows for timely initiation of therapy to prevent irreversible joint damage.",
-treatment:
-"Treatment focuses on achieving remission or low disease activity through early and aggressive therapy with medications known as DMARDs. Biologic agents and other targeted molecules may be introduced for more severe cases. Adjunctive measures include physical therapy to preserve function and, in advanced cases with severe joint destruction, collaboration with our orthopedic surgeons to evaluate for joint replacement.",
-pain_info:
-"The inflammatory joint pain in RA arises from the autoimmune attack on the synovial lining and the release of inflammatory chemicals. The pain often worsens after periods of rest and improves with gentle movement. Our multidisciplinary team addresses both the inflammation and the pain through tailored pharmacologic regimens and supportive therapies.",
-prevent:
-"While there is no cure for RA, early intervention can slow progression. Patients can improve outcomes by quitting smoking, maintaining a healthy weight, and engaging in low-impact exercises to preserve joint mobility. Diligent management of the disease with a specialist is crucial.",
-why_choose_us:
-"At Mountain Spine & Orthopedics, our specialists work as part of a multidisciplinary team to provide comprehensive management of rheumatoid arthritis. For patients across Florida, we offer expert diagnosis, including complimentary imaging reviews and free second opinions, and state-of-the-art treatment plans designed to control your RA and help you reclaim an active, pain-free life.",
-schedule:
-"If you are experiencing persistent joint pain, stiffness, or swelling, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin a personalized treatment plan.",
+        risk_fac: "Risk factors for rheumatoid arthritis include a family history of autoimmune disease, specific genetic markers, and being female. Environmental factors like smoking and obesity can also contribute to disease onset and progression.",
+        diagnose: "Diagnosis follows established criteria, combining clinical findings with serologic markers. We perform comprehensive blood tests for rheumatoid factor and anti-CCP antibodies, and we use complimentary high-resolution MRI or ultrasound to detect early joint inflammation and erosions. Early detection allows for timely initiation of therapy to prevent irreversible joint damage.",
+        treatment: "Treatment focuses on achieving remission or low disease activity through early and aggressive therapy with medications known as DMARDs. Biologic agents and other targeted molecules may be introduced for more severe cases. Adjunctive measures include physical therapy to preserve function and, in advanced cases with severe joint destruction, collaboration with our orthopedic surgeons to evaluate for joint replacement.",
+        pain_info: "The inflammatory joint pain in RA arises from the autoimmune attack on the synovial lining and the release of inflammatory chemicals. The pain often worsens after periods of rest and improves with gentle movement. Our multidisciplinary team addresses both the inflammation and the pain through tailored pharmacologic regimens and supportive therapies.",
+        prevent: "While there is no cure for RA, early intervention can slow progression. Patients can improve outcomes by quitting smoking, maintaining a healthy weight, and engaging in low-impact exercises to preserve joint mobility. Diligent management of the disease with a specialist is crucial.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our specialists work as part of a multidisciplinary team to provide comprehensive management of rheumatoid arthritis. For patients across Florida, we offer expert diagnosis, including complimentary imaging reviews and free second opinions, and state-of-the-art treatment plans designed to control your RA and help you reclaim an active, pain-free life.",
+        schedule: "If you are experiencing persistent joint pain, stiffness, or swelling, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin a personalized treatment plan.",
 slug: "rheumatoidarthritis",
 keywords: [
 "rheumatoid arthritis",
@@ -4640,10 +4640,8 @@ keywords: [
 "biologic agents for RA",
 "arthritis specialist",
 ],
-metaTitle:
-"Rheumatoid Arthritis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Rheumatoid Arthritis causes joint pain, swelling, and damage. Our Florida specialists offer advanced diagnosis and treatment to manage RA and preserve joints.",
+        metaTitle: "Rheumatoid Arthritis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Rheumatoid Arthritis causes joint pain, swelling, and damage. Our Florida specialists offer advanced diagnosis and treatment to manage RA and preserve joints.",
 },
 {
 title: "Tennis Elbow",
@@ -4653,20 +4651,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/tearti.jpg",
 body: "Tennis elbow, or lateral epicondylitis, is an overuse injury from repetitive wrist and arm motions that causes pain on the outside of the elbow.",
 detail: "Tennis elbow (lateral epicondylitis) is a painful condition caused by overuse of the tendons on the outside of the elbow. Repetitive wrist and arm motions can lead to micro-tears and degeneration in the tendon, causing pain and weakness. Though its name comes from racquet sports, it commonly affects anyone engaged in repetitive gripping tasks. At Mountain Spine & Orthopedics, our evaluation includes a focused physical exam and may use imaging to visualize the tendon pathology and guide treatment.",
 what_sym: "Patients commonly report pain and tenderness on the bony knob on the outside of the elbow. This pain can radiate down the forearm and may be accompanied by weakness when gripping objects, shaking hands, or turning a doorknob.",
-risk_fac:
-"Risk factors include repetitive wrist extension movements found in sports and certain occupations (like plumbing or painting), poor ergonomic setup, and being between the ages of 35 and 55. Smoking can also impair the tendon's ability to heal.",
-diagnose:
-"Diagnosis relies on a clinical assessment and physical tests like Cozen’s test to reproduce the symptoms. A high-resolution ultrasound offers a dynamic evaluation of the tendon structure, while a complimentary MRI review can provide detailed visualization of any tears or associated joint pathology if needed.",
-treatment:
-"Conservative management is successful in most cases and includes activity modification, using a counterforce brace, and physical therapy emphasizing eccentric strengthening of the wrist extensors. For persistent symptoms, our specialists may recommend image-guided interventions such as platelet-rich plasma (PRP) injections to enhance tendon healing. Surgery is rarely required.",
-pain_info:
-"The pain in tennis elbow stems from both the mechanical overload of the tendon fibers and the inflammatory mediators released during the degenerative process. This sensitizes local nerve endings, amplifying pain with even simple wrist movements.",
-prevent:
-"To prevent tennis elbow, patients should use proper technique and equipment in sports, incorporate a thorough warm-up and stretching routine, perform regular forearm strengthening exercises, and maintain optimal workstation ergonomics.",
-why_choose_us:
-"The orthopedic specialists at Mountain Spine & Orthopedics are experts in treating overuse injuries like tennis elbow. We provide patients across Florida with accurate diagnoses, often aided by a complimentary imaging review, and advanced, non-surgical treatments like PRP injections. Our goal is to relieve your pain and restore full, pain-free function.",
-schedule:
-"If you are experiencing persistent lateral elbow pain or weakness, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin an effective treatment plan.",
+        risk_fac: "Risk factors include repetitive wrist extension movements found in sports and certain occupations (like plumbing or painting), poor ergonomic setup, and being between the ages of 35 and 55. Smoking can also impair the tendon's ability to heal.",
+        diagnose: "Diagnosis relies on a clinical assessment and physical tests like Cozen’s test to reproduce the symptoms. A high-resolution ultrasound offers a dynamic evaluation of the tendon structure, while a complimentary MRI review can provide detailed visualization of any tears or associated joint pathology if needed.",
+        treatment: "Conservative management is successful in most cases and includes activity modification, using a counterforce brace, and physical therapy emphasizing eccentric strengthening of the wrist extensors. For persistent symptoms, our specialists may recommend image-guided interventions such as platelet-rich plasma (PRP) injections to enhance tendon healing. Surgery is rarely required.",
+        pain_info: "The pain in tennis elbow stems from both the mechanical overload of the tendon fibers and the inflammatory mediators released during the degenerative process. This sensitizes local nerve endings, amplifying pain with even simple wrist movements.",
+        prevent: "To prevent tennis elbow, patients should use proper technique and equipment in sports, incorporate a thorough warm-up and stretching routine, perform regular forearm strengthening exercises, and maintain optimal workstation ergonomics.",
+        why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in treating overuse injuries like tennis elbow. We provide patients across Florida with accurate diagnoses, often aided by a complimentary imaging review, and advanced, non-surgical treatments like PRP injections. Our goal is to relieve your pain and restore full, pain-free function.",
+        schedule: "If you are experiencing persistent lateral elbow pain or weakness, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin an effective treatment plan.",
 slug: "tenniselbow",
 keywords: [
 "tennis elbow",
@@ -4678,10 +4669,8 @@ keywords: [
 "overuse injury",
 "orthopedic hand specialist",
 ],
-metaTitle:
-"Tennis Elbow | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Tennis elbow causes outer elbow pain from overuse. Our Florida specialists offer advanced non-surgical treatments, including PRP injections, to restore function.",
+        metaTitle: "Tennis Elbow | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Tennis elbow causes outer elbow pain from overuse. Our Florida specialists offer advanced non-surgical treatments, including PRP injections, to restore function.",
 },
 {
 title: "Plantar Fasciitis",
@@ -4691,26 +4680,19 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/pfarti.jpg",
 body: "Plantar fasciitis is a common condition causing stabbing heel pain, especially with the first steps in the morning, due to inflammation of the plantar fascia.",
 detail: "Plantar fasciitis is one of the most common causes of heel pain, occurring when the thick band of tissue (plantar fascia) that runs across the bottom of your foot becomes inflamed. This ligament acts as a shock absorber, and repetitive stress can cause tiny tears, leading to pain and stiffness. At Mountain Spine & Orthopedics, our foot specialists use a precise diagnosis to create an evidence-based therapy plan to relieve your discomfort and help you stay active.",
 what_sym: "Patients typically report a sharp, stabbing pain at the bottom of the heel that is most intense with the first steps in the morning or after long periods of rest. The pain may improve with movement but often returns after prolonged standing.",
-risk_fac:
-"Key risk factors include having flat feet or high arches, tight calf muscles, a sudden increase in activity, obesity, and occupations that require prolonged standing on hard surfaces. Improper or worn-out footwear is also a major contributor.",
-diagnose:
-"Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness at the plantar fascia's origin on the heel bone. We may use a complimentary ultrasound or MRI review to assess fascia thickness and rule out alternative diagnoses in atypical or refractory cases.",
-treatment:
-"Most patients improve with conservative care, which includes activity modification, specific stretching exercises for the plantar fascia and calf muscles, and using custom orthotics or supportive shoes. For persistent cases, our specialists may recommend image-guided corticosteroid injections, platelet-rich plasma (PRP), or extracorporeal shockwave therapy (ESWT) to promote healing. Surgery is rarely needed.",
-pain_info:
-"The pain arises from both the mechanical overload of the fascia and the inflammatory response to micro-tearing. The hallmark morning pain is due to the fascia tightening overnight. Our treatment plans address both the inflammation and the underlying biomechanical contributors to deliver lasting relief.",
-prevent:
-"Preventive strategies include maintaining a healthy weight, choosing supportive footwear, performing daily stretching of the Achilles tendon and plantar fascia, and gradually increasing activity intensity. Using orthotic inserts can also be beneficial.",
-why_choose_us:
-"The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating plantar fasciitis. For patients across Florida, we provide an accurate diagnosis, often aided by a complimentary imaging review, and create a comprehensive, personalized plan. Our goal is to relieve your heel pain and keep you active without interruption.",
-schedule:
-"If you are experiencing stabbing heel pain, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review and free second opinion as we create a personalized plan to relieve your plantar fasciitis.",
+        risk_fac: "Key risk factors include having flat feet or high arches, tight calf muscles, a sudden increase in activity, obesity, and occupations that require prolonged standing on hard surfaces. Improper or worn-out footwear is also a major contributor.",
+        diagnose: "Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness at the plantar fascia's origin on the heel bone. We may use a complimentary ultrasound or MRI review to assess fascia thickness and rule out alternative diagnoses in atypical or refractory cases.",
+        treatment: "Most patients improve with conservative care, which includes activity modification, specific stretching exercises for the plantar fascia and calf muscles, and using custom orthotics or supportive shoes. For persistent cases, our specialists may recommend image-guided corticosteroid injections, platelet-rich plasma (PRP), or extracorporeal shockwave therapy (ESWT) to promote healing. Surgery is rarely needed.",
+        pain_info: "The pain arises from both the mechanical overload of the fascia and the inflammatory response to micro-tearing. The hallmark morning pain is due to the fascia tightening overnight. Our treatment plans address both the inflammation and the underlying biomechanical contributors to deliver lasting relief.",
+        prevent: "Preventive strategies include maintaining a healthy weight, choosing supportive footwear, performing daily stretching of the Achilles tendon and plantar fascia, and gradually increasing activity intensity. Using orthotic inserts can also be beneficial.",
+        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating plantar fasciitis. For patients across Florida, we provide an accurate diagnosis, often aided by a complimentary imaging review, and create a comprehensive, personalized plan. Our goal is to relieve your heel pain and keep you active without interruption.",
+        schedule: "If you are experiencing stabbing heel pain, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review and free second opinion as we create a personalized plan to relieve your plantar fasciitis.",
 slug: "plantar-fasciitis",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -4718,8 +4700,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Is Plantar Fasciitis?
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -4737,12 +4719,12 @@ standing or activity. Identifying the true source of heel pain is
 essential because nerve entrapment, fat pad atrophy, and systemic
 arthritis can mimic plantar fasciitis and require different
 treatment strategies.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full ">
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/Orthopedic%20Website.jpg"
-} // Placeholder for another diagram/image
+                    }
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -4754,7 +4736,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px] w-full ">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -4762,14 +4744,15 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Symptoms of Plantar Fasciitis
-</h1>
-<h1
+                </h2>
+                <div
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
 }}
 className="text-[#5B5F67] text-md sm:text-xl"
 >
+                  <ul className="list-disc list-inside space-y-2">
 <li>
 Sharp or stabbing heel pain with the first steps in the morning
 </li>
@@ -4784,14 +4767,15 @@ exercise
 </li>
 <li>A tight feeling in the calf or Achilles region</li>
 <li>
-Difficulty walking barefoot on hard floors When left untreated,
+                      Difficulty walking barefoot on hard floors. When left untreated,
 plantar fasciitis can alter walking mechanics and trigger
 secondary problems such as knee, hip, and lower back strain.
 </li>
-</h1>
+                  </ul>
+                </div>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
-imageData={"https://mountainspineortho.b-cdn.net/fixplantf.jpg"} // Placeholder for another diagram/image
+                  imageData={"https://mountainspineortho.b-cdn.net/fixplantf.jpg"}
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -4801,7 +4785,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -4809,8 +4793,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Stages of Plantar Fasciitis
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -4818,33 +4802,32 @@ fontWeight: 400,
 className="text-[#5B5F67] text-md sm:text-xl"
 >
 Early stage – intermittent heel pain that flares after new
-activities or long days on the feetProgressive stage – daily pain,
-tightening of the calf and arch, and swelling near the heel pad
+                  activities or long days on the feet. Progressive stage – daily pain,
+                  tightening of the calf and arch, and swelling near the heel pad.
 <br />
 <br /> Chronic stage – persistent inflammation, thickening of the
-fascia, heel spur formation, and compensatory gait changes
+                  fascia, heel spur formation, and compensatory gait changes.
 <br />
 <br /> Recognizing your stage enables the care team at Mountain
 Spine & Orthopedics to tailor treatments from basic stretching to
-advanced regenerative options exactly to your needs. Learn About
-Plantar Fasciitis Treatments
-</h1>
+                  advanced regenerative options exactly to your needs.
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Plantar Fasciitis Treatments
-</h1>
-<h1
+                  Plantar Fasciitis Treatments
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -4867,17 +4850,16 @@ shockwave therapy, platelet rich plasma injections, or ultrasound
 guided needle tenotomy can stimulate tissue healing. Surgical
 release of the plantar fascia is reserved for rare, stubborn cases
 and is performed using minimally invasive techniques that allow
-
 rapid return to weight bearing with a structured rehabilitation
 program.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -4885,8 +4867,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -4903,7 +4885,7 @@ progressing and return you to comfortable movement. <br />
 provide an accurate diagnosis, and craft a comprehensive treatment
 plan that relieves pain, restores function, and gets you back on
 your feet with confidence.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -4920,10 +4902,8 @@ keywords: [
 "foot and ankle specialist",
 "ESWT for plantar fasciitis",
 ],
-metaTitle:
-"Plantar Fasciitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Plantar fasciitis causes stabbing heel pain. Our Florida foot and ankle specialists offer advanced, effective treatments to relieve pain and restore mobility.",
+        metaTitle: "Plantar Fasciitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Plantar fasciitis causes stabbing heel pain. Our Florida foot and ankle specialists offer advanced, effective treatments to relieve pain and restore mobility.",
 },
 {
 title: "Bursitis",
@@ -4933,20 +4913,13 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/barti.webp",
 body: "Bursitis is the inflammation of a bursa, a small, fluid-filled sac near a joint, which causes localized pain, swelling, and tenderness.",
 detail: "Bursitis is the inflammation of a bursa, one of the small, fluid-filled sacs that cushion the bones, tendons, and muscles near your joints. Repetitive motions, prolonged pressure, or direct trauma can trigger this inflammation, most commonly in the shoulder, elbow, hip, or knee. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and, when needed, complimentary imaging to confirm the diagnosis and guide treatment to relieve pain and restore function.",
 what_sym: "Symptoms of bursitis include localized sharp or aching pain, visible swelling, warmth, and tenderness over the affected joint. The pain often intensifies with specific activities, such as leaning on an elbow or kneeling.",
-risk_fac:
-"Risk factors include occupations or hobbies involving repetitive or prolonged pressure on a joint, such as gardening, tiling, or leaning on a desk. Overuse from sports, direct trauma, and underlying inflammatory conditions like gout or rheumatoid arthritis also increase the risk.",
-diagnose:
-"Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness. We may use a complimentary ultrasound review to visualize the fluid collection and guide an aspiration or injection. An MRI can provide a more detailed assessment of adjacent structures and rule out other causes of pain.",
-treatment:
-"Most cases of non-infectious bursitis respond to conservative care, including rest, ice, compression, and anti-inflammatory drugs (NSAIDs). If the fluid collection persists or the pain is severe, our specialists can perform an ultrasound-guided bursal aspiration and corticosteroid injection to accelerate recovery. Septic (infected) bursitis requires aspiration for culture and treatment with antibiotics.",
-pain_info:
-"Pain in bursitis originates from the stretching and irritation of the inflamed bursal lining. Mechanical pressure and movement stimulate pain receptors, leading to sharp or throbbing discomfort that can limit daily activities. Our goal is to reduce this inflammation quickly and effectively.",
-prevent:
-"Preventive measures include avoiding prolonged pressure on vulnerable joints by using protective padding for kneeling or leaning. Practicing proper ergonomics and body mechanics, and strengthening the muscles surrounding the joint can also help prevent recurrence.",
-why_choose_us:
-"The orthopedic specialists at Mountain Spine & Orthopedics are experts in diagnosing and treating bursitis. Serving patients across Florida, we utilize advanced, image-guided procedures to aspirate fluid and deliver medication precisely. With a complimentary imaging review and a free second opinion, we can develop a tailored plan to treat your bursitis and help you return to pain-free movement.",
-schedule:
-"If you are experiencing persistent joint pain, swelling, or stiffness, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review and free second opinion to develop a tailored plan to diagnose and treat your bursitis.",
+        risk_fac: "Risk factors include occupations or hobbies involving repetitive or prolonged pressure on a joint, such as gardening, tiling, or leaning on a desk. Overuse from sports, direct trauma, and underlying inflammatory conditions like gout or rheumatoid arthritis also increase the risk.",
+        diagnose: "Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness. We may use a complimentary ultrasound review to visualize the fluid collection and guide an aspiration or injection. An MRI can provide a more detailed assessment of adjacent structures and rule out other causes of pain.",
+        treatment: "Most cases of non-infectious bursitis respond to conservative care, including rest, ice, compression, and anti-inflammatory drugs (NSAIDs). If the fluid collection persists or the pain is severe, our specialists can perform an ultrasound-guided bursal aspiration and corticosteroid injection to accelerate recovery. Septic (infected) bursitis requires aspiration for culture and treatment with antibiotics.",
+        pain_info: "Pain in bursitis originates from the stretching and irritation of the inflamed bursal lining. Mechanical pressure and movement stimulate pain receptors, leading to sharp or throbbing discomfort that can limit daily activities. Our goal is to reduce this inflammation quickly and effectively.",
+        prevent: "Preventive measures include avoiding prolonged pressure on vulnerable joints by using protective padding for kneeling or leaning. Practicing proper ergonomics and body mechanics, and strengthening the muscles surrounding the joint can also help prevent recurrence.",
+        why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in diagnosing and treating bursitis. Serving patients across Florida, we utilize advanced, image-guided procedures to aspirate fluid and deliver medication precisely. With a complimentary imaging review and a free second opinion, we can develop a tailored plan to treat your bursitis and help you return to pain-free movement.",
+        schedule: "If you are experiencing persistent joint pain, swelling, or stiffness, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review and free second opinion to develop a tailored plan to diagnose and treat your bursitis.",
 slug: "bursitis",
 keywords: [
 "bursitis",
@@ -4958,10 +4931,8 @@ keywords: [
 "joint swelling and pain",
 "corticosteroid injection",
 ],
-metaTitle:
-"Bursitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Bursitis causes localized joint pain and swelling. Our Florida specialists offer expert diagnosis and advanced, image-guided injections for effective relief.",
+        metaTitle: "Bursitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Bursitis causes localized joint pain and swelling. Our Florida specialists offer expert diagnosis and advanced, image-guided injections for effective relief.",
 },
 {
 title: "Bunions (Hallux Valgus)",
@@ -4971,26 +4942,19 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/bunions2.png",
 body: "A bunion is a painful bony bump that develops at the base of the big toe as it drifts inward, causing deformity and difficulty with footwear.",
 detail: "A bunion, medically known as hallux valgus, is a deformity that occurs when the big toe drifts inward toward the other toes, causing the joint at its base to enlarge and protrude. While often aggravated by tight footwear, bunions typically stem from inherited foot structure and biomechanical imbalances. At Mountain Spine & Orthopedics, our specialists diagnose and treat bunions with personalized plans to relieve pain, correct alignment, and help you stay active.",
 what_sym: "Key symptoms include a visible bony prominence on the side of the big toe, pain and tenderness around the joint, redness and inflammation, and difficulty finding shoes that fit comfortably due to the bump.",
-risk_fac:
-"Primary risk factors include a family history of bunions, as foot type and structure are often inherited. Wearing shoes that are too tight, narrow, or have high heels significantly increases the risk. Individuals with certain arthritic conditions or those with flat feet are also more susceptible.",
-diagnose:
-"Diagnosing a bunion involves a physical examination of the foot and a review of your symptoms. To fully assess the deformity, we use weight-bearing X-rays to determine the alignment of the bones and detect any associated arthritis. This imaging is crucial for planning the appropriate treatment strategy.",
-treatment:
-"Conservative treatments are often the first approach and include wearing wider shoes, using bunion pads, and custom orthotic devices to improve foot mechanics. If conservative measures fail or the bunion is severe, our surgeons may recommend a bunionectomy. We utilize state-of-the-art procedures to realign the bone, repair soft tissues, and provide lasting relief.",
-pain_info:
-"Pain from bunions primarily originates from the inflamed joint due to pressure and misalignment. It can range from a dull ache to a sharp, intense pain, especially when wearing shoes. The overlying bursa can also become inflamed (bursitis), contributing to the tenderness and swelling.",
-prevent:
-"While a genetic predisposition cannot be changed, certain measures can help prevent bunions or slow their progression. Choosing well-fitting footwear with a wide toe box and low heels is the most crucial step. If you have flat feet or other structural issues, using orthotics can help maintain proper alignment.",
-why_choose_us:
-"The foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in bunion correction. We offer patients in Florida a full range of treatments, from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary X-ray review and a free second opinion, we can create a personalized plan to get you back on your feet comfortably.",
-schedule:
-"If you are struggling with bunion pain or a deformity that affects your daily life, contact Mountain Spine & Orthopedics. Our specialists can provide a thorough evaluation and discuss personalized treatment pathways to provide relief.",
+        risk_fac: "Primary risk factors include a family history of bunions, as foot type and structure are often inherited. Wearing shoes that are too tight, narrow, or have high heels significantly increases the risk. Individuals with certain arthritic conditions or those with flat feet are also more susceptible.",
+        diagnose: "Diagnosing a bunion involves a physical examination of the foot and a review of your symptoms. To fully assess the deformity, we use weight-bearing X-rays to determine the alignment of the bones and detect any associated arthritis. This imaging is crucial for planning the appropriate treatment strategy.",
+        treatment: "Conservative treatments are often the first approach and include wearing wider shoes, using bunion pads, and custom orthotic devices to improve foot mechanics. If conservative measures fail or the bunion is severe, our surgeons may recommend a bunionectomy. We utilize state-of-the-art procedures to realign the bone, repair soft tissues, and provide lasting relief.",
+        pain_info: "Pain from bunions primarily originates from the inflamed joint due to pressure and misalignment. It can range from a dull ache to a sharp, intense pain, especially when wearing shoes. The overlying bursa can also become inflamed (bursitis), contributing to the tenderness and swelling.",
+        prevent: "While a genetic predisposition cannot be changed, certain measures can help prevent bunions or slow their progression. Choosing well-fitting footwear with a wide toe box and low heels is the most crucial step. If you have flat feet or other structural issues, using orthotics can help maintain proper alignment.",
+        why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in bunion correction. We offer patients in Florida a full range of treatments, from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary X-ray review and a free second opinion, we can create a personalized plan to get you back on your feet comfortably.",
+        schedule: "If you are struggling with bunion pain or a deformity that affects your daily life, contact Mountain Spine & Orthopedics. Our specialists can provide a thorough evaluation and discuss personalized treatment pathways to provide relief.",
 slug: "bunions-hallux-valgus",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -4998,8 +4962,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What are Bunions?
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5016,10 +4980,10 @@ burning sensations, and difficulty finding comfortable shoes.
 Accurate assessment of bunion size, joint flexibility, and
 underlying bone shape guides the most effective treatment
 strategy.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px] w-full h-full">
 <GradientOverlayImage
-imageData={"https://mountainspineortho.b-cdn.net/bunions.png"} // Placeholder for another diagram/image
+                    imageData={"https://mountainspineortho.b-cdn.net/bunions.png"}
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -5031,7 +4995,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5039,8 +5003,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Symptoms of Bunions
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5058,11 +5022,11 @@ shopping arduous. Advanced bunions can cause numbness along the
 inside of the toe or lead to tingling within the forefoot as nerve
 branches become compressed. Prompt evaluation is crucial because
 early intervention can slow or even halt further joint damage.
-</h1>
+                </p>
 <div className="mt-[40px] space-y-[40px] flex flex-col">
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
-imageData={"https://mountainspineortho.b-cdn.net/bunion3.png"} // Placeholder for another diagram/image
+                    imageData={"https://mountainspineortho.b-cdn.net/bunion3.png"}
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -5073,7 +5037,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5081,8 +5045,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Stages of Bunion Development
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5099,23 +5063,23 @@ distance and shoe options to wide or custom designs. Recognizing
 your stage allows the team at Mountain Spine & Orthopedics to match
 therapies from conservative bracing to surgical realignment
 precisely to your needs and lifestyle goals.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Bunion Treatments
-</h1>
-<h1
+                  Bunion Treatments
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5138,14 +5102,14 @@ the foot with low-profile titanium hardware. Patients often bear
 weight in a protective postoperative shoe within days and resume
 athletic activities within weeks, guided by our in-house physical
 therapy team.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5153,8 +5117,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5169,11 +5133,12 @@ motion.
 <br /> Contact Mountain Spine & Orthopedics today at (833)
 931-4888 or complete our simple online consultation form.
 <br />
-<br /> Our specialists will evaluate your symptoms, provide a
+                  <br />
+                  Our specialists will evaluate your symptoms, provide a
 personalized diagnosis, and craft a comprehensive plan that
 relieves pain, realigns your toe, and gets you back on your feet
 without compromise to your lifestyle or goals.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -5189,10 +5154,8 @@ keywords: [
 "foot and ankle surgeon",
 "minimally invasive bunion surgery",
 ],
-metaTitle:
-"Bunions (Hallux Valgus) | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Bunions cause a painful bony bump on the big toe. Our Florida foot surgeons offer advanced, minimally invasive bunion surgery to correct the deformity.",
+        metaTitle: "Bunions (Hallux Valgus) | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Bunions cause a painful bony bump on the big toe. Our Florida foot surgeons offer advanced, minimally invasive bunion surgery to correct the deformity.",
 },
 {
 title: "Achilles Tendonitis",
@@ -5202,26 +5165,19 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/tendo2.jpeg",
 body: "Achilles tendonitis is a common overuse injury of the tendon connecting the calf muscles to the heel, causing pain and stiffness at the back of the ankle.",
 detail: "Achilles tendonitis is an overuse injury that occurs when the Achilles tendon, the strong cord connecting your calf muscles to your heel, becomes irritated and inflamed from repetitive stress. This condition is common in active adults and can lead to significant pain and stiffness. At Mountain Spine & Orthopedics, our foot and ankle specialists provide state-of-the-art diagnostics and comprehensive treatment plans to calm inflammation, rebuild strength, and protect you from future injury.",
 what_sym: "Symptoms include pain and stiffness along the back of the Achilles tendon, especially in the morning or after periods of rest. The pain typically worsens with activity, and there may be swelling or tenderness at the back of the heel.",
-risk_fac:
-"Risk factors include a sudden increase in the intensity or amount of physical activity, having tight calf muscles, and wearing improper footwear. Individuals with flat arches or bone spurs on the heel can also be more susceptible to Achilles tendonitis.",
-diagnose:
-"Diagnosis usually involves a physical exam where our specialist will assess the tendon for pain, swelling, and thickening. We may use a complimentary ultrasound or MRI review to get a more detailed view of the tendon and assess the extent of the damage or degeneration.",
-treatment:
-"Treatment focuses on reducing pain and inflammation. The RICE protocol (Rest, Ice, Compression, Elevation) and physical therapy are crucial. Therapy typically includes stretching and eccentric strengthening exercises like heel drops. If conservative treatments are not effective, we offer advanced options like extracorporeal shock wave therapy (ESWT) or platelet-rich plasma (PRP) injections.",
-pain_info:
-"Pain from Achilles tendonitis is typically felt along the back of the lower leg, near the heel. It often begins as a mild ache after activity and can gradually worsen to a more severe, burning pain. Morning pain and stiffness are characteristic symptoms.",
-prevent:
-"Prevention involves several key strategies: gradually increase your activity level, always warm up before exercising, and perform regular stretching for your calf muscles and Achilles tendons. Wearing appropriate, supportive footwear and strengthening your calf muscles are also crucial.",
-why_choose_us:
-"The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating Achilles tendonitis. We provide patients across Florida with a complimentary imaging review and a free second opinion. Our goal is to use the most effective conservative and regenerative treatments to help you avoid surgery and return to your active life.",
-schedule:
-"If ongoing Achilles tendon pain is limiting your activities, contact Mountain Spine & Orthopedics to arrange a consultation. We provide thorough diagnostic services and can discuss your path to a smooth and effective recovery.",
+        risk_fac: "Risk factors include a sudden increase in the intensity or amount of physical activity, having tight calf muscles, and wearing improper footwear. Individuals with flat arches or bone spurs on the heel can also be more susceptible to Achilles tendonitis.",
+        diagnose: "Diagnosis usually involves a physical exam where our specialist will assess the tendon for pain, swelling, and thickening. We may use a complimentary ultrasound or MRI review to get a more detailed view of the tendon and assess the extent of the damage or degeneration.",
+        treatment: "Treatment focuses on reducing pain and inflammation. The RICE protocol (Rest, Ice, Compression, Elevation) and physical therapy are crucial. Therapy typically includes stretching and eccentric strengthening exercises like heel drops. If conservative treatments are not effective, we offer advanced options like extracorporeal shock wave therapy (ESWT) or platelet-rich plasma (PRP) injections.",
+        pain_info: "Pain from Achilles tendonitis is typically felt along the back of the lower leg, near the heel. It often begins as a mild ache after activity and can gradually worsen to a more severe, burning pain. Morning pain and stiffness are characteristic symptoms.",
+        prevent: "Prevention involves several key strategies: gradually increase your activity level, always warm up before exercising, and perform regular stretching for your calf muscles and Achilles tendons. Wearing appropriate, supportive footwear and strengthening your calf muscles are also crucial.",
+        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating Achilles tendonitis. We provide patients across Florida with a complimentary imaging review and a free second opinion. Our goal is to use the most effective conservative and regenerative treatments to help you avoid surgery and return to your active life.",
+        schedule: "If ongoing Achilles tendon pain is limiting your activities, contact Mountain Spine & Orthopedics to arrange a consultation. We provide thorough diagnostic services and can discuss your path to a smooth and effective recovery.",
 slug: "achilles-tendonitis",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5229,8 +5185,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Is Achilles Tendonitis?
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5249,7 +5205,7 @@ after intense exercise or long periods on their feet. Properly
 distinguishing Achilles Tendonitis from conditions such as
 Haglund’s deformity, retrocalcaneal bursitis, or partial tendon
 rupture is essential to selecting the right treatment.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px]">
 <GradientOverlayImage
 imageData={"https://mountainspineortho.b-cdn.net/achilles.jpg"}
@@ -5264,7 +5220,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5272,14 +5228,15 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Symptoms of Achilles Tendonitis
-</h1>
-<h1
+                </h2>
+                <div
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
 }}
 className="text-[#5B5F67] text-md sm:text-xl"
 >
+                  <ul className="list-disc list-inside space-y-2">
 <li>
 Persistent or burning pain at the back of the heel or lower
 calf, worse with activity
@@ -5299,14 +5256,15 @@ movement
 </li>
 <li>
 Limited ankle dorsiflexion (when the foot flexes upward) due to
-tight calf muscles Ignoring these signs can lead to tendon
-degeneration (tendinosis) and elevate the risk of full rupture a
+                      tight calf muscles. Ignoring these signs can lead to tendon
+                      degeneration (tendinosis) and elevate the risk of full rupture—a
 surgical emergency.
 </li>
-</h1>
+                  </ul>
+                </div>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
-imageData={"https://mountainspineortho.b-cdn.net/tendon2.jpg"} // Placeholder for another diagram/image
+                  imageData={"https://mountainspineortho.b-cdn.net/tendon2.jpg"}
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -5316,7 +5274,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5324,59 +5282,64 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Stages of Achilles Tendonitis
-</h1>
-<ul
+                </h2>
+                <div
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
 }}
 className="text-[#5B5F67] text-md sm:text-xl"
 >
+                  <ol className="list-decimal list-inside space-y-2">
 <li>
-1. Reactive Stage – Sudden overload triggers temporary swelling
+                      Reactive Stage – Sudden overload triggers temporary swelling
 of the tendon sheath; pain appears after an unusually hard
 workout.
 </li>
 <li>
-2. Early Degenerative Stage – Collagen fibers begin to
+                      Early Degenerative Stage – Collagen fibers begin to
 disorganize; pain emerges more frequently, and a small lump may
 form.
 </li>
 <li>
-3. Late Degenerative Stage – Significant thickening, chronic
+                      Late Degenerative Stage – Significant thickening, chronic
 inflammation, and scar tissue reduce elasticity; daily pain and
 weakness limit activity.
 </li>
 <li>
-4. Pre-Rupture Stage – Multiple micro-tears create severe pain,
+                      Pre-Rupture Stage – Multiple micro-tears create severe pain,
 audible snapping sensations, or sudden loss of push-off power.
-<br /> Determining your stage helps Mountain Spine & Orthopedics
+                    </li>
+                  </ol>
+                  <p className="mt-4">
+                    Determining your stage helps Mountain Spine & Orthopedics
 match therapies—from conservative care to minimally invasive
 procedures—precisely to your needs.
-</li>
-</ul>
+                  </p>
+                </div>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Achilles Tendonitis Treatments
-</h1>
-<h1
+                  Achilles Tendonitis Treatments
+                </h2>
+                <div
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
 }}
 className="text-[#5B5F67] text-md sm:text-xl"
 >
+                  <ul className="list-disc list-inside space-y-2">
 <li>
 Phase 1: Calm Inflammation – Activity modification, ice
 massage, topical or oral NSAIDs, and a structured
@@ -5407,14 +5370,15 @@ or partial tears. Most patients walk in a boot within days and
 transition to sneakers by week eight, guided by our on-site
 rehab team.
 </li>
-</h1>
+                  </ul>
+                </div>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5422,8 +5386,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5442,7 +5406,7 @@ Our experienced specialists will confirm your diagnosis, explain
 every treatment option, and design a personalized plan that
 relieves pain, rebuilds tendon strength, and returns you to
 pain-free performance.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -5459,10 +5423,8 @@ keywords: [
 "foot and ankle specialist",
 "running injury",
 ],
-metaTitle:
-"Achilles Tendonitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Achilles tendonitis causes heel and ankle pain from overuse. Our Florida specialists offer advanced treatments like PRP and ESWT to restore tendon health.",
+        metaTitle: "Achilles Tendonitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Achilles tendonitis causes heel and ankle pain from overuse. Our Florida specialists offer advanced treatments like PRP and ESWT to restore tendon health.",
 },
 {
 title: "Flat Feet",
@@ -5472,26 +5434,19 @@ inTxt_img: "https://mountainspineortho.b-cdn.net/public/flat.webp",
 body: "Flat feet, or fallen arches, occur when the arch of the foot collapses, which can lead to pain, imbalance, and other lower body issues.",
 detail: "Flat feet (pes planus) is a condition where the arch on the inside of the foot collapses, causing the entire sole to contact the ground. While some people are born with flat feet and have no issues, others acquire them over time, leading to strain on the ankles, knees, and hips. At Mountain Spine & Orthopedics, our foot specialists use advanced imaging and gait analysis to create personalized treatment plans that support your arches, improve alignment, and help you move comfortably.",
 what_sym: "When symptomatic, flat feet can cause pain in the arch, heel, or ankle, as well as tired, achy feet after prolonged standing. Some people experience swelling along the inside of the ankle and pain that extends to the calf, knee, or lower back.",
-risk_fac:
-"Risk factors include genetics, aging, injuries to the foot or ankle, obesity, and certain medical conditions like rheumatoid arthritis and diabetes. Pregnancy can also cause temporary or permanent flat feet due to hormonal changes and weight gain.",
-diagnose:
-"Diagnosing flat feet involves a physical exam where our specialist will observe your feet as you stand and walk. If pain is present or an acquired flatfoot is suspected, we will use weight-bearing X-rays to examine your bone structure and alignment. An MRI may be used to evaluate tendon or ligament damage.",
-treatment:
-"Treatment is usually only necessary if the condition is causing pain. Conservative measures are often effective and include wearing supportive shoes, using over-the-counter or custom-made orthotic insoles, and performing specific stretching and strengthening exercises. If conservative treatments fail, particularly in cases of posterior tibial tendon dysfunction, surgical options may be considered.",
-pain_info:
-"Pain associated with flat feet often manifests as an ache or fatigue in the feet and legs, particularly after activity. This discomfort arises from the increased strain on tendons, ligaments, and joints due to the lack of arch support and the resulting overpronation (inward rolling) of the foot.",
-prevent:
-"While congenital flat feet cannot be prevented, you can take steps to prevent symptoms from an acquired flatfoot. Wearing supportive shoes, maintaining a healthy weight, and performing regular stretching exercises for the Achilles tendon and calf muscles can all help reduce strain on the arches.",
-why_choose_us:
-"The foot and ankle specialists at Mountain Spine & Orthopedics are experts in managing painful flat feet. For patients across Florida, we offer comprehensive gait analysis, complimentary imaging reviews, and a full range of treatments from custom orthotics to complex reconstructive surgery. Our goal is to restore your alignment and help you move without pain.",
-schedule:
-"If foot pain or fatigue associated with flat feet is impacting your comfort or mobility, schedule an appointment at Mountain Spine & Orthopedics. Our team can provide a detailed evaluation and outline suitable treatment strategies.",
+        risk_fac: "Risk factors include genetics, aging, injuries to the foot or ankle, obesity, and certain medical conditions like rheumatoid arthritis and diabetes. Pregnancy can also cause temporary or permanent flat feet due to hormonal changes and weight gain.",
+        diagnose: "Diagnosing flat feet involves a physical exam where our specialist will observe your feet as you stand and walk. If pain is present or an acquired flatfoot is suspected, we will use weight-bearing X-rays to examine your bone structure and alignment. An MRI may be used to evaluate tendon or ligament damage.",
+        treatment: "Treatment is usually only necessary if the condition is causing pain. Conservative measures are often effective and include wearing supportive shoes, using over-the-counter or custom-made orthotic insoles, and performing specific stretching and strengthening exercises. If conservative treatments fail, particularly in cases of posterior tibial tendon dysfunction, surgical options may be considered.",
+        pain_info: "Pain associated with flat feet often manifests as an ache or fatigue in the feet and legs, particularly after activity. This discomfort arises from the increased strain on tendons, ligaments, and joints due to the lack of arch support and the resulting overpronation (inward rolling) of the foot.",
+        prevent: "While congenital flat feet cannot be prevented, you can take steps to prevent symptoms from an acquired flatfoot. Wearing supportive shoes, maintaining a healthy weight, and performing regular stretching exercises for the Achilles tendon and calf muscles can all help reduce strain on the arches.",
+        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in managing painful flat feet. For patients across Florida, we offer comprehensive gait analysis, complimentary imaging reviews, and a full range of treatments from custom orthotics to complex reconstructive surgery. Our goal is to restore your alignment and help you move without pain.",
+        schedule: "If foot pain or fatigue associated with flat feet is impacting your comfort or mobility, schedule an appointment at Mountain Spine & Orthopedics. Our team can provide a detailed evaluation and outline suitable treatment strategies.",
 slug: "flat-feet",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5499,8 +5454,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Are Flat Feet?
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5518,12 +5473,12 @@ rapid shoe wear along the inner edge, aching or swelling along the
 arch or inside ankle, and a tendency to stand or walk with the
 toes pointed outward. A precise diagnosis is essential because
 each subtype responds to different interventions.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px]">
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/flatfoot.png"
-} // Placeholder for another diagram/image
+                    }
 height="500px"
 objectFit="contain"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
@@ -5536,7 +5491,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5544,8 +5499,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Symptoms of Flat Feet
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5561,12 +5516,12 @@ and thickened skin under the big toe or along the inside border of
 the foot. Ignoring these symptoms can invite complications such as
 plantar fasciitis, shin splints, posterior tibial tendonitis, and
 early joint arthritis.
-</h1>
+                </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/flatfoot.jpg"
-} // Placeholder for another diagram/image
+                  }
 height="500px"
 objectFit="contain"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
@@ -5577,7 +5532,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5585,8 +5540,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Stages of Flat Feet Progression
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5608,23 +5563,23 @@ extends the collapse into the ankle itself, producing valgus tilt
 and advanced arthritic change. Understanding your stage allows
 our specialists to match treatment, from conservative bracing to
 corrective surgery, precisely to your needs.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Flat Feet Treatments
-</h1>
-<h1
+                  Flat Feet Treatments
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5652,14 +5607,14 @@ tibial tendon, and midfoot or subtalar fusion when severe
 arthritis is present. Most patients are allowed to bear weight in
 a protective boot within a few weeks and transition to supportive
 footwear under the guidance of our in house rehabilitation team.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5667,8 +5622,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5686,7 +5641,7 @@ progression and protect the joints throughout your lower body.
 explain every treatment option, and design a personalized plan
 that supports your arches, relieves discomfort, and helps you
 walk, run, and work without pain.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -5703,10 +5658,8 @@ keywords: [
 "overpronation",
 "foot and ankle specialist",
 ],
-metaTitle:
-"Flat Feet | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Painful flat feet or fallen arches can cause widespread issues. Our Florida foot specialists offer custom orthotics and advanced surgery to restore alignment.",
+        metaTitle: "Flat Feet | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Painful flat feet or fallen arches can cause widespread issues. Our Florida foot specialists offer custom orthotics and advanced surgery to restore alignment.",
 },
 {
 title: "Ankle Arthroscopy",
@@ -5718,26 +5671,19 @@ inTxt_img:
 body: "Ankle arthroscopy is a minimally invasive surgical procedure that allows surgeons to diagnose and treat a wide range of ankle joint problems.",
 detail: "Ankle arthroscopy is a minimally invasive technique where an orthopedic surgeon uses a small camera (arthroscope) to look inside the ankle joint. This allows for the diagnosis and treatment of various problems, such as cartilage lesions, bone spurs, and chronic instability, without the need for large incisions. At Mountain Spine & Orthopedics, our surgeons use ankle arthroscopy to provide less pain, reduced scarring, and a faster recovery compared to traditional open surgery.",
 what_sym: "Ankle arthroscopy is a procedure, not a condition. It is recommended for symptoms like persistent ankle pain not relieved by conservative care, chronic instability or recurrent sprains, sensations of catching or locking in the joint, and stiffness or swelling that does not resolve.",
-risk_fac:
-"This is a treatment. Risks, while lower than open surgery, include infection, bleeding, blood clots, and nerve irritation around the ankle. Your surgeon will discuss these potential risks in detail before the procedure.",
-diagnose:
-"The decision to proceed with ankle arthroscopy is based on a thorough diagnostic process. This includes a physical exam and imaging studies. We offer a complimentary MRI review, as MRI provides detailed images of the soft tissues like ligaments and cartilage, helping to identify tears or damage that are amenable to arthroscopic treatment.",
-treatment:
-"Ankle arthroscopy is itself a treatment method. During the procedure, our surgeons can debride damaged cartilage, remove loose bone or cartilage fragments, repair torn ligaments, treat osteochondral lesions, and remove bone spurs that cause impingement. Post-operative care involves rest, ice, and a critical physical therapy program to restore range of motion, strength, and function.",
-pain_info:
-"Pain after ankle arthroscopy is expected but is generally less severe than after traditional open ankle surgery. The level of pain depends on the complexity of the procedure performed and is managed with prescribed medication. This initial pain and swelling subsides as healing progresses.",
-prevent:
-"Prevention focuses on avoiding the ankle injuries that might necessitate arthroscopy in the first place. This includes wearing supportive footwear, strengthening the muscles around theankle for better stability, and seeking prompt and appropriate treatment for any ankle sprains to prevent chronic problems.",
-why_choose_us:
-"The foot and ankle surgeons at Mountain Spine & Orthopedics are highly skilled in advanced, minimally invasive ankle arthroscopy. For patients in Florida, we offer a complimentary MRI review and a free second opinion to determine if this procedure is right for you. Our goal is to correct the underlying problem with less pain and a faster recovery.",
-schedule:
-"If chronic ankle issues are holding you back, connect with Mountain Spine & Orthopedics. Our specialists offer expert consultations and complimentary MRI reviews to help you find the best path toward a pain-free, functional ankle.",
+        risk_fac: "This is a treatment. Risks, while lower than open surgery, include infection, bleeding, blood clots, and nerve irritation around the ankle. Your surgeon will discuss these potential risks in detail before the procedure.",
+        diagnose: "The decision to proceed with ankle arthroscopy is based on a thorough diagnostic process. This includes a physical exam and imaging studies. We offer a complimentary MRI review, as MRI provides detailed images of the soft tissues like ligaments and cartilage, helping to identify tears or damage that are amenable to arthroscopic treatment.",
+        treatment: "Ankle arthroscopy is itself a treatment method. During the procedure, our surgeons can debride damaged cartilage, remove loose bone or cartilage fragments, repair torn ligaments, treat osteochondral lesions, and remove bone spurs that cause impingement. Post-operative care involves rest, ice, and a critical physical therapy program to restore range of motion, strength, and function.",
+        pain_info: "Pain after ankle arthroscopy is expected but is generally less severe than after traditional open ankle surgery. The level of pain depends on the complexity of the procedure performed and is managed with prescribed medication. This initial pain and swelling subsides as healing progresses.",
+        prevent: "Prevention focuses on avoiding the ankle injuries that might necessitate arthroscopy in the first place. This includes wearing supportive footwear, strengthening the muscles around theankle for better stability, and seeking prompt and appropriate treatment for any ankle sprains to prevent chronic problems.",
+        why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are highly skilled in advanced, minimally invasive ankle arthroscopy. For patients in Florida, we offer a complimentary MRI review and a free second opinion to determine if this procedure is right for you. Our goal is to correct the underlying problem with less pain and a faster recovery.",
+        schedule: "If chronic ankle issues are holding you back, connect with Mountain Spine & Orthopedics. Our specialists offer expert consultations and complimentary MRI reviews to help you find the best path toward a pain-free, functional ankle.",
 slug: "ankle-arthroscopy",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5745,8 +5691,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Is Ankle Arthroscopy?
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5766,12 +5712,12 @@ that catch during movement, and early synovitis associated with
 inflammatory arthritis. By treating these conditions early, ankle
 arthroscopy can delay or even eliminate the need for more
 extensive surgery such as ankle fusion or total ankle replacement.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px]">
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/anklereplace.jpg"
-} // Placeholder for another diagram/image
+                    }
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -5783,16 +5729,16 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Symptoms and Signs That May Lead to Ankle Arthroscopy
-</h1>
-<h1
+                  When Is Ankle Arthroscopy Recommended?
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5808,12 +5754,12 @@ swelling that persists long after the original injury; or painful
 limits in ankle motion caused by anterior or posterior bone spurs.
 A careful clinical exam combined with targeted imaging confirms
 whether arthroscopy is the most effective next step.
-</h1>
+                </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/ankleant3.jpg"
-} // Placeholder for another diagram/image
+                  }
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -5823,16 +5769,16 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Stages of Injury Progression and Recovery Timeline
-</h1>
-<h1
+                  Injury Progression and Recovery Timeline
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5852,23 +5798,23 @@ supportive athletic shoes. By the third month most patients resume
 running, court sports, or occupational tasks that require
 prolonged standing, guided throughout by our on site physical
 therapy team.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Ankle Arthroscopy Treatment Options
-</h1>
-<h1
+                  Ankle Arthroscopy Procedures
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5888,14 +5834,14 @@ adhesive strips rather than sutures. After surgery patients
 follow a tailored rehabilitation plan that blends early protected
 motion with incremental loading to restore full strength and
 flexibility without overstressing the healing tissues.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -5903,8 +5849,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -5923,7 +5869,7 @@ Our fellowship trained foot and ankle specialists will review your
 imaging, perform a comprehensive exam, and explain whether ankle
 arthroscopy or another advanced treatment can give you lasting
 relief and a confident return to work, sport, and everyday life.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -5940,10 +5886,8 @@ keywords: [
 "foot and ankle surgeon",
 "ankle pain relief",
 ],
-metaTitle:
-"Ankle Arthroscopy | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Ankle arthroscopy treats joint pain and instability. Our Florida surgeons perform this minimally invasive procedure for faster recovery and lasting relief.",
+        metaTitle: "Ankle Arthroscopy | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Ankle arthroscopy treats joint pain and instability. Our Florida surgeons perform this minimally invasive procedure for faster recovery and lasting relief.",
 },
 {
 title: "Hammertoes",
@@ -5955,35 +5899,28 @@ inTxt_img:
 body: "A hammertoe is a progressive toe deformity where a toe bends abnormally at the middle joint, causing pain, corns, and difficulty with shoes.",
 detail: "A hammertoe is a foot deformity where one of the lesser toes bends downward at the middle joint, creating a hammer-like shape. This abnormal position causes the joint to rub against shoes, leading to painful corns, calluses, and inflammation. While ill-fitting footwear is a common cause, hammertoes can also result from muscle imbalance or arthritis. At Mountain Spine & Orthopedics, our foot specialists use advanced imaging and personalized care plans to straighten the toe, relieve pressure, and keep you comfortable.",
 what_sym: "The primary symptoms include a visible, abnormal bend in the toe, pain or irritation on the top of the bent toe when wearing shoes, and the formation of painful corns or calluses on the joint or at the tip of the toe.",
-risk_fac:
-"The most common risk factor for hammertoes is wearing ill-fitting shoes, particularly those that are too tight or have high heels, which can crowd the toes. A traumatic toe injury or an imbalance in the toe muscles and tendons can also be a significant factor.",
-diagnose:
-"Diagnosis is typically made through a physical examination of the foot. Our specialist will assess the structure of the toes and check for flexibility or rigidity. X-rays may be taken to evaluate the alignment of the bones and the severity of the deformity, which helps in planning treatment.",
-treatment:
-"Treatment depends on whether the hammertoe is flexible or rigid. For flexible hammertoes, conservative treatments like wearing shoes with a wider toe box and using corn pads are often effective. For rigid hammertoes or when pain persists, our surgeons may recommend minimally invasive surgery to release a tight tendon or realign the toe, providing a permanent correction.",
-pain_info:
-"Pain from hammertoes primarily arises from the pressure and friction on the bent joint when wearing shoes, leading to the formation of painful corns and calluses. The abnormal joint position can also cause inflammation within the joint itself.",
-prevent:
-"The most effective way to prevent hammertoes is to wear properly fitting shoes with a wide toe box and low heels. Avoid shoes that squeeze the toes. If you have a predisposition to hammertoes, be particularly mindful of your footwear choices.",
-why_choose_us:
-"The foot and ankle specialists at Mountain Spine & Orthopedics are experts in correcting painful hammertoes. For patients in Florida, we offer a full range of treatments from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary consultation and a free second opinion, we can help you walk in comfort once again.",
-schedule:
-"If hammertoes are causing you discomfort or difficulty with shoes, it's time to explore your options. The specialists at Mountain Spine & Orthopedics are available for consultations to help you find the best path toward pain-free, functional toes.",
+        risk_fac: "The most common risk factor for hammertoes is wearing ill-fitting shoes, particularly those that are too tight or have high heels, which can crowd the toes. A traumatic toe injury or an imbalance in the toe muscles and tendons can also be a significant factor.",
+        diagnose: "Diagnosis is typically made through a physical examination of the foot. Our specialist will assess the structure of the toes and check for flexibility or rigidity. X-rays may be taken to evaluate the alignment of the bones and the severity of the deformity, which helps in planning treatment.",
+        treatment: "Treatment depends on whether the hammertoe is flexible or rigid. For flexible hammertoes, conservative treatments like wearing shoes with a wider toe box and using corn pads are often effective. For rigid hammertoes or when pain persists, our surgeons may recommend minimally invasive surgery to release a tight tendon or realign the toe, providing a permanent correction.",
+        pain_info: "Pain from hammertoes primarily arises from the pressure and friction on the bent joint when wearing shoes, leading to the formation of painful corns and calluses. The abnormal joint position can also cause inflammation within the joint itself.",
+        prevent: "The most effective way to prevent hammertoes is to wear properly fitting shoes with a wide toe box and low heels. Avoid shoes that squeeze the toes. If you have a predisposition to hammertoes, be particularly mindful of your footwear choices.",
+        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in correcting painful hammertoes. For patients in Florida, we offer a full range of treatments from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary consultation and a free second opinion, we can help you walk in comfort once again.",
+        schedule: "If hammertoes are causing you discomfort or difficulty with shoes, it's time to explore your options. The specialists at Mountain Spine & Orthopedics are available for consultations to help you find the best path toward pain-free, functional toes.",
 slug: "hammertoes",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-What Is Hammertoes?
-</h1>
-<h1
+                  What Are Hammertoes?
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6000,12 +5937,12 @@ harden, and shoes become difficult to wear. Although hammertoes
 can arise in isolation they often occur alongside bunions or arch
 imbalance which must be addressed simultaneously for lasting
 relief.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px]">
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/hammertoe3.jpg"
-} // Placeholder for another diagram/image
+                    }
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -6017,7 +5954,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6025,8 +5962,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Symptoms of Hammertoes
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6041,12 +5978,12 @@ thickened skin at the toe tip, or experience cramps in the ball of
 the foot as the metatarsal heads bear extra load. Chronic
 hammertoes can also cause the affected toe to overlap its
 neighbor, leading to further crowding and friction.
-</h1>
+                </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/hammertoe2.jpg"
-} // Placeholder for another diagram/image
+                  }
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -6056,16 +5993,16 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Stages of Hammertoes Progression
-</h1>
-<h1
+                  Stages of Hammertoe Progression
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6080,23 +6017,23 @@ straightened by hand and corns or calluses become persistent.
 Recognizing your stage allows the specialists at Mountain Spine &
 Orthopedics to match treatment intensity to the exact severity of
 your condition.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Hammertoes Treatments
-</h1>
-<h1
+                  Hammertoe Treatments
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6121,14 +6058,14 @@ footwear for two to four weeks followed by progressive range of
 motion and strengthening supervised by our onsite rehabilitation
 team. Most patients resume regular shoes and low impact activities
 within six to eight weeks.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6136,8 +6073,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6156,7 +6093,7 @@ Our dedicated foot and ankle team will confirm your diagnosis,
 explain every treatment option, and create a personalized plan
 that straightens your toes, relieves pressure, and lets you walk
 in comfort and confidence once again.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -6173,10 +6110,8 @@ keywords: [
 "foot and ankle specialist",
 "toe pain relief",
 ],
-metaTitle:
-"Hammertoes | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Hammertoes are painful, bent toes caused by muscle imbalance or poor footwear. Our Florida foot specialists offer advanced surgical correction for relief.",
+        metaTitle: "Hammertoes | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Hammertoes are painful, bent toes caused by muscle imbalance or poor footwear. Our Florida foot specialists offer advanced surgical correction for relief.",
 },
 {
 title: "Diabetic Foot Ulcers",
@@ -6188,35 +6123,28 @@ inTxt_img:
 body: "Diabetic foot ulcers are open sores on the foot that can lead to serious infection and amputation if not treated by a specialist.",
 detail: "Diabetic foot ulcers are open sores that typically develop on the bottom of the foot in people with diabetes. They are a serious complication caused by nerve damage (neuropathy) and poor circulation, which means even a small cut can become a non-healing wound. At Mountain Spine & Orthopedics, our multidisciplinary wound care team combines advanced diagnostics with evidence-based therapies to heal ulcers quickly, prevent complications, and protect limb health.",
 what_sym: "A key sign of a diabetic foot ulcer is an open sore or wound on the foot, often with drainage, swelling, redness, and a foul odor if infected. Crucially, due to nerve damage, these ulcers may be painless, making daily foot inspection essential.",
-risk_fac:
-"Major risk factors include poorly controlled blood sugar, a history of previous foot ulcers, peripheral neuropathy (nerve damage), peripheral artery disease (poor circulation), and wearing improper footwear. The longer a person has diabetes, the higher their risk.",
-diagnose:
-"Diagnosis involves a thorough examination of the foot to assess the ulcer's size, depth, and location, looking for signs of infection. We will check for neuropathy and assess vascular status. An X-ray or MRI may be ordered to check for bone infection (osteomyelitis).",
-treatment:
-"Treatment is multifaceted and aims to promote healing and prevent infection. Key components include 'off-loading' (reducing pressure on the ulcer with special footwear or casts), debridement (removal of dead tissue), and the application of advanced wound dressings. In cases of poor circulation, procedures to restore blood flow may be necessary. Meticulous blood sugar control is also essential for healing.",
-pain_info:
-"A significant concern with diabetic foot ulcers is that they are often painless due to diabetic neuropathy. This lack of a pain signal means an ulcer can develop and worsen without the individual being aware of it. Any new pain in the foot of a person with diabetes should be evaluated promptly as it could indicate a deep infection.",
-prevent:
-"Prevention is paramount. Key measures include daily foot inspection, practicing good foot hygiene, wearing properly fitting shoes (and never going barefoot), and having regular professional foot exams. Managing blood sugar levels effectively and quitting smoking are also crucial.",
-why_choose_us:
-"At Mountain Spine & Orthopedics, our dedicated wound care experts provide specialized care for diabetic foot ulcers. Serving the Florida community, we utilize advanced therapies, including off-loading and bioengineered skin substitutes, to heal wounds and prevent amputation. We offer complimentary consultations to assess your wound and create a limb-salvage plan.",
-schedule:
-"For individuals with diabetes, any foot wound or unusual change requires immediate professional attention. Contact Mountain Spine & Orthopedics without delay to arrange an evaluation and receive timely, comprehensive wound care.",
+        risk_fac: "Major risk factors include poorly controlled blood sugar, a history of previous foot ulcers, peripheral neuropathy (nerve damage), peripheral artery disease (poor circulation), and wearing improper footwear. The longer a person has diabetes, the higher their risk.",
+        diagnose: "Diagnosis involves a thorough examination of the foot to assess the ulcer's size, depth, and location, looking for signs of infection. We will check for neuropathy and assess vascular status. An X-ray or MRI may be ordered to check for bone infection (osteomyelitis).",
+        treatment: "Treatment is multifaceted and aims to promote healing and prevent infection. Key components include 'off-loading' (reducing pressure on the ulcer with special footwear or casts), debridement (removal of dead tissue), and the application of advanced wound dressings. In cases of poor circulation, procedures to restore blood flow may be necessary. Meticulous blood sugar control is also essential for healing.",
+        pain_info: "A significant concern with diabetic foot ulcers is that they are often painless due to diabetic neuropathy. This lack of a pain signal means an ulcer can develop and worsen without the individual being aware of it. Any new pain in the foot of a person with diabetes should be evaluated promptly as it could indicate a deep infection.",
+        prevent: "Prevention is paramount. Key measures include daily foot inspection, practicing good foot hygiene, wearing properly fitting shoes (and never going barefoot), and having regular professional foot exams. Managing blood sugar levels effectively and quitting smoking are also crucial.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our dedicated wound care experts provide specialized care for diabetic foot ulcers. Serving the Florida community, we utilize advanced therapies, including off-loading and bioengineered skin substitutes, to heal wounds and prevent amputation. We offer complimentary consultations to assess your wound and create a limb-salvage plan.",
+        schedule: "For individuals with diabetes, any foot wound or unusual change requires immediate professional attention. Contact Mountain Spine & Orthopedics without delay to arrange an evaluation and receive timely, comprehensive wound care.",
 slug: "diabetic-foot-ulcers",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-What Is Diabetic Ulcers?
-</h1>
-<h1
+                  What Are Diabetic Ulcers?
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6232,7 +6160,7 @@ superficial Grade One ulcer involves only skin, whereas a Grade
 Four ulcer exposes bone or joint and may already harbor
 osteomyelitis. Recognizing the exact grade guides both local
 wound care and systemic treatment decisions.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px]">
 <GradientOverlayImage
 imageData={"https://mountainspineortho.b-cdn.net/ulcer1.jpg"}
@@ -6247,7 +6175,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6255,8 +6183,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Symptoms of Diabetic Ulcers
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6271,10 +6199,10 @@ the edges. Fever, chills, and increasing pain signal spreading
 infection that demands urgent medical attention. Any nonhealing
 foot sore lasting longer than two weeks warrants evaluation by a
 specialist.
-</h1>
+                </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
-imageData={"https://mountainspineortho.b-cdn.net/ulcer3.png"} // Placeholder for another diagram/image
+                  imageData={"https://mountainspineortho.b-cdn.net/ulcer3.png"}
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -6284,16 +6212,16 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Stages of Diabetic Ulcers Progression
-</h1>
-<h1
+                  Stages of Diabetic Ulcer Progression
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6308,23 +6236,23 @@ straightened by hand and corns or calluses become persistent.
 Recognizing your stage allows the specialists at Mountain Spine &
 Orthopedics to match treatment intensity to the exact severity of
 your condition.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Diabetic Ulcers Treatments
-</h1>
-<h1
+                  Diabetic Ulcer Treatments
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6349,14 +6277,14 @@ surgical excision of infected bone if necessary. Throughout
 recovery our diabetes educators fine tune blood sugar control
 because tight glycemic management speeds tissue repair and
 reduces recurrence.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6364,8 +6292,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6383,7 +6311,7 @@ mobility.
 Our dedicated wound care experts will evaluate your ulcer, design a
 personalized treatment plan, and guide you toward rapid healing
 and lasting limb preservation.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -6400,10 +6328,8 @@ keywords: [
 "diabetic foot care",
 "foot and ankle specialist",
 ],
-metaTitle:
-"Diabetic Foot Ulcers | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Diabetic foot ulcers require urgent care. Our Florida wound care specialists offer advanced treatments to heal ulcers and prevent serious complications.",
+        metaTitle: "Diabetic Foot Ulcers | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Diabetic foot ulcers require urgent care. Our Florida wound care specialists offer advanced treatments to heal ulcers and prevent serious complications.",
 },
 {
 title: "Ankle Replacement",
@@ -6415,26 +6341,19 @@ inTxt_img:
 body: "Ankle replacement is an advanced surgical procedure to treat severe ankle arthritis by replacing damaged bone and cartilage with a prosthesis.",
 detail: "Total ankle replacement, or total ankle arthroplasty, is a surgical procedure for treating severe ankle arthritis. It involves removing damaged bone and cartilage and replacing them with a precision-engineered prosthesis to relieve pain and restore motion. Unlike ankle fusion, which eliminates movement, an ankle replacement helps maintain a more natural gait. At Mountain Spine & Orthopedics, our fellowship-trained surgeons use cutting-edge imaging and alignment tools to personalize each ankle replacement for lasting mobility.",
 what_sym: "This is a treatment. It is recommended for patients with severe and persistent ankle pain during weight-bearing activities, significant ankle stiffness, chronic swelling, and a grinding or catching sensation in the joint. These symptoms typically persist despite conservative treatments and limit daily activities.",
-risk_fac:
-"Factors that can lead to severe ankle arthritis necessitating a replacement include a history of significant ankle trauma (like fractures), osteoarthritis, and inflammatory arthritis like rheumatoid arthritis. Avascular necrosis of the talus, where a loss of blood supply leads to bone collapse, is another cause.",
-diagnose:
-"The decision to proceed with an ankle replacement is based on a comprehensive evaluation. This includes a physical exam and weight-bearing X-rays to visualize the extent of the joint damage. We use complimentary, high-resolution CT scans to create a three-dimensional plan that guides implant positioning with pinpoint accuracy.",
-treatment:
-"The surgery involves removing the diseased joint surfaces and preparing the tibia and talus to accept the implant. The new joint consists of metal components and a durable polyethylene insert that glides smoothly. Unlike an ankle fusion, which eliminates motion, an ankle replacement preserves up-and-down movement, allowing for a more natural gait.",
-pain_info:
-"The chronic, debilitating pain that leads to an ankle replacement is due to the arthritic changes and bone-on-bone contact in the joint. The primary goal of the surgery is to eliminate this pain by replacing the damaged surfaces, thereby restoring smoother, pain-free motion to the ankle.",
-prevent:
-"While it's not always possible to prevent the conditions that lead to needing a replacement, you can reduce the risk by seeking prompt medical attention for ankle injuries, maintaining a healthy body weight, and wearing supportive footwear.",
-why_choose_us:
-"The fellowship-trained foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in total ankle replacement. Using state-of-the-art technology, we provide patients in Florida with personalized surgical plans designed to preserve motion and provide lasting pain relief. We offer a complimentary imaging review and a free second opinion to help you make an informed decision.",
-schedule:
-"If persistent ankle pain and stiffness are dictating your life, schedule a consultation with Mountain Spine & Orthopedics. Our experienced foot and ankle team will review your imaging, explain your options, and help you step forward with confidence.",
+        risk_fac: "Factors that can lead to severe ankle arthritis necessitating a replacement include a history of significant ankle trauma (like fractures), osteoarthritis, and inflammatory arthritis like rheumatoid arthritis. Avascular necrosis of the talus, where a loss of blood supply leads to bone collapse, is another cause.",
+        diagnose: "The decision to proceed with an ankle replacement is based on a comprehensive evaluation. This includes a physical exam and weight-bearing X-rays to visualize the extent of the joint damage. We use complimentary, high-resolution CT scans to create a three-dimensional plan that guides implant positioning with pinpoint accuracy.",
+        treatment: "The surgery involves removing the diseased joint surfaces and preparing the tibia and talus to accept the implant. The new joint consists of metal components and a durable polyethylene insert that glides smoothly. Unlike an ankle fusion, which eliminates motion, an ankle replacement preserves up-and-down movement, allowing for a more natural gait.",
+        pain_info: "The chronic, debilitating pain that leads to an ankle replacement is due to the arthritic changes and bone-on-bone contact in the joint. The primary goal of the surgery is to eliminate this pain by replacing the damaged surfaces, thereby restoring smoother, pain-free motion to the ankle.",
+        prevent: "While it's not always possible to prevent the conditions that lead to needing a replacement, you can reduce the risk by seeking prompt medical attention for ankle injuries, maintaining a healthy body weight, and wearing supportive footwear.",
+        why_choose_us: "The fellowship-trained foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in total ankle replacement. Using state-of-the-art technology, we provide patients in Florida with personalized surgical plans designed to preserve motion and provide lasting pain relief. We offer a complimentary imaging review and a free second opinion to help you make an informed decision.",
+        schedule: "If persistent ankle pain and stiffness are dictating your life, schedule a consultation with Mountain Spine & Orthopedics. Our experienced foot and ankle team will review your imaging, explain your options, and help you step forward with confidence.",
 slug: "ankle-replacement",
 forum: [
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6442,8 +6361,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 What Is Ankle Replacement?
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6460,7 +6379,7 @@ between them. Unlike ankle fusion which eliminates motion ankle
 replacement preserves up and down movement allowing more natural
 gait and reducing stress on nearby joints such as the knee and
 hip.
-</h1>
+                </p>
 <div className="flex flex-col space-y-[40px] mt-[40px]">
 <GradientOverlayImage
 imageData={
@@ -6477,7 +6396,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[40px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6485,8 +6404,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Ankle Replacement Candidates
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6501,12 +6420,12 @@ space cystic bone changes and large spurs. When daily activities
 require frequent pain medication or when bracing and injections
 no longer provide relief our specialists may recommend ankle
 replacement as the best path to restore quality of life.
-</h1>
+                </p>
 <OutlinedButton text="Find a Treatment" />
 <GradientOverlayImage
 imageData={
 "https://mountainspineortho.b-cdn.net/anklereplace1.jpg"
-} // Placeholder for another diagram/image
+                  }
 height="500px"
 gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)"
 />
@@ -6516,7 +6435,7 @@ gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6524,8 +6443,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Ankle Replacement Recovery Progress
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6541,23 +6460,23 @@ with every step. During evaluation we assess the integrity of
 surrounding ligaments alignment of the foot and prior surgeries
 to confirm that ankle replacement will offer predictable pain
 relief and durable function.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
 }}
 className="text-[#111315] sm:text-4xl text-3xl"
 >
-Learn About Ankle Replacement Treatments
-</h1>
-<h1
+                  Ankle Replacement Treatments
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6580,14 +6499,14 @@ running and high impact court activities are discouraged to
 prolong implant life. Our modern implants have shown excellent ten
 year survival and ongoing studies demonstrate continued success
 beyond fifteen years.
-</h1>
+                </p>
 </div>
 ),
 },
 {
 post: (
 <div className="flex flex-col space-y-[16px]">
-<h1
+                <h2
 style={{
 fontFamily: "var(--font-reem-kufi)",
 fontWeight: 500,
@@ -6595,8 +6514,8 @@ fontWeight: 500,
 className="text-[#111315] sm:text-4xl text-3xl"
 >
 Schedule a Consultation Today
-</h1>
-<h1
+                </h2>
+                <p
 style={{
 fontFamily: "var(--font-inter)",
 fontWeight: 400,
@@ -6614,7 +6533,7 @@ Our experienced foot and ankle team will review your imaging
 explain every treatment option and design a personalized surgical
 and rehabilitation plan that restores comfort supports mobility
 and helps you step forward with confidence.
-</h1>
+                </p>
 </div>
 ),
 },
@@ -6631,9 +6550,7 @@ keywords: [
 "post-traumatic ankle arthritis",
 "rheumatoid arthritis ankle",
 ],
-metaTitle:
-"Ankle Replacement | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-metaDesc:
-"Total ankle replacement relieves arthritis pain and restores motion. Our Florida foot surgeons specialize in this advanced procedure for lasting mobility.",
+        metaTitle: "Ankle Replacement | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaDesc: "Total ankle replacement relieves arthritis pain and restores motion. Our Florida foot surgeons specialize in this advanced procedure for lasting mobility.",
 },
 ]

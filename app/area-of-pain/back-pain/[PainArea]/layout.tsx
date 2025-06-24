@@ -3,53 +3,64 @@ import { conditions } from "@/components/data/conditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
 
 function capitalizeWords(str: string): string {
-  return str.replace(/\b\w/g, l => l.toUpperCase());
+  return str.replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
 export async function generateMetadata(
   { params }: { params: { PainArea: string } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const painArea = PainAreaTreatments.find(
-    (area) => area.slug === params.PainArea
-  );
+  const resolvedParams = await params;
+  const conditionSlug = resolvedParams.PainArea;
+  let data;
 
-  if (!painArea) {
-    const readableSlug = params.PainArea.replace(/-/g, " ");
+  if (conditionSlug === "backpaintreatmentoptions") {
+    data = PainAreaTreatments.find((x) => x.slug === conditionSlug);
+  } else {
+    data = conditions.find((x) => x.slug === conditionSlug);
+  }
+
+  if (!data) {
+    const readableSlug = conditionSlug.replace(/-/g, " ");
     return {
       title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
-      description: "Learn about orthopedic care and treatments with our specialists in Florida."
+      description: "Learn about orthopedic care and treatments.",
     };
   }
 
-  const painAreaUrl = `https://mountainspineorthopedics.com/area-of-pain/back-pain/${painArea.slug}`;
+  const painAreaUrl = `https://mountainspineorthopedics.com/area-of-pain/back-pain/${data.slug}`;
+  
+  const imageUrl =
+    typeof data.card_img === "string"
+      ? data.card_img
+      : (data.card_img as any)?.src || (data as any).img?.src || "";
 
   return {
-    metadataBase: new URL('https://mountainspineorthopedics.com'),
-    title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
-    description: painArea.metaDescription || painArea.desc,
-    keywords: painArea.keywords || [painArea.title, "back pain", "spine treatment"],
-    
+    metadataBase: new URL("https://mountainspineorthopedics.com"),
+    title: data.metaTitle || `${capitalizeWords(data.title)} | Mountain Spine & Orthopedics`,
+    description: data.metaDesc || data.body,
+    keywords: data.keywords || [],
+
     openGraph: {
-      title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
-      description: painArea.metaDescription || painArea.desc,
+      title: data.metaTitle || data.title,
+      description: data.metaDesc || data.body,
       type: "article",
       url: painAreaUrl,
       images: [
         {
-          url: painArea.img.src,
+          url: imageUrl,
           width: 1200,
           height: 630,
-          alt: painArea.title,
+          alt: data.title,
         },
       ],
     },
 
     twitter: {
       card: "summary_large_image",
-      title: painArea.metaTitle || `${painArea.title} | Mountain Spine & Orthopedics`,
-      description: painArea.metaDescription || painArea.desc,
-      images: [painArea.img.src],
+      title: data.metaTitle || data.title,
+      description: data.metaDesc || data.body,
+      images: [imageUrl],
     },
 
     alternates: {
@@ -59,9 +70,9 @@ export async function generateMetadata(
 }
 
 export default function BackPainAreaLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return children;
+  return children;
 } 
