@@ -26,8 +26,8 @@ export const generateMetadata = () => ({
   ]
 });
 
-export default function Page() {
+export default function FreeMRIReview() {
   return <FreeMRIReviewClient />
+}
 
 
-export default FreeMRIReview
