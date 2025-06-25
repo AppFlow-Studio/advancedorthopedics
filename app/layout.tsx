@@ -109,10 +109,10 @@ const jsonLd = {
   "@type": "MedicalOrganization",
   "name": "Mountain Spine & Orthopedics",
   "url": "https://mountainspineorthopedics.com",
-  "logo": "/android-chrome-512x512.png", 
+  "logo": "/android-chrome-512x512.png",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-833-931-4888",
+    "telephone": "+1-561-223-9959",
     "contactType": "Customer Service",
     "areaServed": "US",
     "availableLanguage": ["en"],
@@ -152,7 +152,7 @@ export default function RootLayout({
             <NavBar />
             {children}
             <Footer />
-            <DelayedLocationPopup delayInSeconds={2.5} />
+            <DelayedLocationPopup delayInSeconds={8} />
           </GeolocationProvider>
         </MapProvider>
 

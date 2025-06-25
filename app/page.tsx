@@ -59,7 +59,7 @@ const HomePageJsonLdSchema = () => {
     'logo': 'https://mountainspineorthopedics.com/logo.png',
     'contactPoint': {
       '@type': 'ContactPoint',
-      'telephone': '+1-833-931-4888',
+      'telephone': '+1-561-223-9959',
       'contactType': 'Customer Service',
       'areaServed': 'Florida',
       'availableLanguage': ['en']

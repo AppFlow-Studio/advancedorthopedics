@@ -355,7 +355,7 @@ export default function ConditionDetails({
                     >
                         Meet our Doctors
                     </h2>
-                    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
+                    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px]'>
                         {
                             randomDoctors.map((doctor) => (
                                 <DoctorCard doctor={doctor} key={doctor.name} />

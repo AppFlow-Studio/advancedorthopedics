@@ -59,7 +59,6 @@ export default function DoctorCard({doctor} : {doctor  : DoctorProp}) {
                     }
                 </div>
             </div>
-            <div className='flex-grow' />
             <button className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px] w-full mt-auto">
                 <span
                 style={{

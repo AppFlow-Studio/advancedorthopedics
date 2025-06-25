@@ -40,21 +40,21 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 
   return (
     // Using the HTML structure provided by the user in the latest query
-    <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6', color: '#333', margin: '0 auto', border: '1px solid #ddd', borderRadius: '8px', height : '100%', overflow: 'hidden' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6', color: '#333', margin: '0 auto', border: '1px solid #ddd', borderRadius: '8px', height: '100%', overflow: 'hidden' }}>
       {/* Header Section */}
-      <div style={{ backgroundColor: '#0094E0', color: 'white', padding: '20px', textAlign: 'center'}} className='flex flex-row items-center justify-center'>
-        <img src="https://mountainspineortho.b-cdn.net/newlogo4.png" alt="Mountain Spine & Orthopedic Center" style={{width : '100px', marginRight: '15px'}} /> {/* Added marginRight for spacing */}
-        <h1 style={{ fontSize: '24px', color : 'white', margin: '0' }}>Mountain Spine & Orthopedics</h1> {/* Added margin: 0 to h1 */}
+      <div style={{ backgroundColor: '#0094E0', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
+        <img src="https://mountainspineortho.b-cdn.net/newlogo4.png" alt="Mountain Spine & Orthopedic Center" style={{ width: '100px', marginRight: '15px' }} /> {/* Added marginRight for spacing */}
+        <h1 style={{ fontSize: '24px', color: 'white', margin: '0' }}>Mountain Spine & Orthopedics</h1> {/* Added margin: 0 to h1 */}
       </div>
 
       {/* Body Section */}
       <div style={{ padding: '20px 30px' }}>
         <h2 style={{ color: '#022968', fontSize: '20px' }}>Your Free MRI Review Request is Confirmed!</h2>
-        <p style={{color : 'black'}}>Dear {fullName},</p>
-        <p style={{color : 'black'}}>
+        <p style={{ color: 'black' }}>Dear {fullName},</p>
+        <p style={{ color: 'black' }}>
           Thank you for submitting your information for a Free MRI Review with Mountain Spine & Orthopedics! We're a leading spine and orthopedic center, and our specialists are looking forward to reviewing your case.
         </p>
-        <p style={{color : 'black'}}>
+        <p style={{ color: 'black' }}>
           We have received your details. Our team will carefully review the information you provided and will be in contact with you soon regarding the next steps.
           Please look out for an email, call, or text message from us.
         </p>
@@ -63,50 +63,50 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         <h3 style={{ color: '#022968', fontSize: '18px', margin: '20px 0 10px 0', fontWeight: 'bold' }}>Summary of Your Information:</h3>
         <table style={{ width: '100%', borderCollapse: 'collapse', margin: '0 0 20px 0' }}>
           <tbody>
-            <tr style={{ borderBottom: '1px solid #eee'}}>
+            <tr style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', width: '40%', verticalAlign: 'top' }}>Name:</td>
               <td style={{ padding: '8px 0', color: '#333' }}>{fullName}</td>
             </tr>
-            <tr style={{ borderBottom: '1px solid #eee'}}>
+            <tr style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Email:</td>
               <td style={{ padding: '8px 0', color: '#333' }}>{email}</td>
             </tr>
-            <tr style={{ borderBottom: '1px solid #eee'}}>
+            <tr style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Phone:</td>
               <td style={{ padding: '8px 0', color: '#333' }}>{phone}</td>
             </tr>
             {state && (
-              <tr style={{ borderBottom: '1px solid #eee'}}>
+              <tr style={{ borderBottom: '1px solid #eee' }}>
                 <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>State:</td>
                 <td style={{ padding: '8px 0', color: '#333' }}>{state}</td>
               </tr>
             )}
             {insurance_type && (
-              <tr style={{ borderBottom: '1px solid #eee'}}>
+              <tr style={{ borderBottom: '1px solid #eee' }}>
                 <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Insurance Type:</td>
                 <td style={{ padding: '8px 0', color: '#333' }}>{insurance_type}</td>
               </tr>
             )}
             {last_test_date && (
-              <tr style={{ borderBottom: '1px solid #eee'}}>
+              <tr style={{ borderBottom: '1px solid #eee' }}>
                 <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Date of Last Test/Imaging:</td>
                 <td style={{ padding: '8px 0', color: '#333' }}>{last_test_date}</td>
               </tr>
             )}
             {recent_diagnosis && (
-              <tr style={{ borderBottom: '1px solid #eee'}}>
+              <tr style={{ borderBottom: '1px solid #eee' }}>
                 <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Recent Diagnosis Method:</td>
                 <td style={{ padding: '8px 0', color: '#333' }}>{recent_diagnosis}</td>
               </tr>
             )}
             {bestTime && ( // If 'bestTime' is still relevant for MRI review follow-up
-                 <tr style={{ borderBottom: '1px solid #eee'}}>
-                    <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Preferred Contact Time:</td>
-                    <td style={{ padding: '8px 0', color: '#333' }}>{bestTime}</td>
-                </tr>
+              <tr style={{ borderBottom: '1px solid #eee' }}>
+                <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Preferred Contact Time:</td>
+                <td style={{ padding: '8px 0', color: '#333' }}>{bestTime}</td>
+              </tr>
             )}
             {other && ( // Display if 'other' information is provided
-              <tr style={{ borderBottom: '1px solid #eee'}}>
+              <tr style={{ borderBottom: '1px solid #eee' }}>
                 <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Other Information:</td>
                 <td style={{ padding: '8px 0', color: '#333' }}>{other}</td>
               </tr>
@@ -118,19 +118,19 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         {comments && (
           <div style={{ marginTop: '20px', marginBottom: '20px' }}>
             <h3 style={{ color: '#022968', fontSize: '18px', margin: '0 0 10px 0', fontWeight: 'bold' }}>Additional Comments/Details:</h3>
-            <div style={{ maxHeight: '150px', maxWidth : '100%', overflowY: 'scroll', padding: '10px', border: '1px solid #eee', borderRadius: '4px', backgroundColor: '#f9f9f9', color: '#333' }}>
+            <div style={{ maxHeight: '150px', maxWidth: '100%', overflowY: 'scroll', padding: '10px', border: '1px solid #eee', borderRadius: '4px', backgroundColor: '#f9f9f9', color: '#333' }}>
               {comments}
             </div>
           </div>
         )}
 
-        <p style={{color : 'black'}}>
-            We will do our best to reach you during your preferred contact time of <strong>{bestTime}</strong>, using the contact details you provided.
+        <p style={{ color: 'black' }}>
+          We will do our best to reach you during your preferred contact time of <strong>{bestTime}</strong>, using the contact details you provided.
         </p>
-        <p style={{color : 'black'}}>
-          If you have any immediate questions, please don't hesitate to contact us at <a href="tel:8339314888" style={{ color: '#0094E0' }}>(833) 931-4888</a> or reply to this email.
+        <p style={{ color: 'black' }}>
+          If you have any immediate questions, please don't hesitate to contact us at <a href="tel:8339314888" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email.
         </p>
-        <p style={{ marginTop: '30px', color : 'black' }}>
+        <p style={{ marginTop: '30px', color: 'black' }}>
           Sincerely,
           <br />
           The Team at Mountain Spine & Orthopedics
