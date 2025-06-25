@@ -185,7 +185,7 @@ export const ConditionCheckEmailTemplate: React.FC<Readonly<ConditionCheckEmailP
           Our team will reach out to you as soon as possible using the contact details you provided.
         </p>
         <p style={{ color: 'black' }}>
-          If you have any immediate questions or need to provide further information, please don't hesitate to contact us at <a href="tel:8339314888" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email.
+          If you have any immediate questions or need to provide further information, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email.
         </p>
         <p style={{ marginTop: '30px', color: 'black' }}>
           Sincerely,

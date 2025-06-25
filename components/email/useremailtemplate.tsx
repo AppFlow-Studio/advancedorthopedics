@@ -87,7 +87,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
 
             <p style={{ color: '#374151', marginBottom: '24px' }}> {/* text-gray-700 mb-6 */}
               If you need immediate assistance, please call our main office at{" "}
-              <span style={{ color: '#0094E0', fontWeight: '500' }}><a href="tel:8339314888">(561) 223-9959</a></span>. {/* text-[#0094E0] font-medium */}
+              <span style={{ color: '#0094E0', fontWeight: '500' }}><a href="tel:5612239959">(561) 223-9959</a></span>. {/* text-[#0094E0] font-medium */}
             </p>
 
             <hr style={{ borderColor: '#e5e7eb', marginTop: '24px', marginBottom: '24px' }} /> {/* border-gray-200 my-6 */}
@@ -204,7 +204,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
               <a href="https://mountainspineorthopedics.com/locations" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}> {/* for space-x-4 */}
                 Locations
               </a>
-              <a href="tel:8339314888" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px' }}> {/* for half of space-x-4 */}
+              <a href="tel:5612239959" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px' }}> {/* for half of space-x-4 */}
                 Contact Us
               </a>
             </div>

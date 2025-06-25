@@ -70,7 +70,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         We will do our best to reach you during your preferred contact time of <strong>{bestTime}</strong>, using the contact details you provided.
       </p>
       <p style={{ color: 'black' }}>
-        If you have any immediate questions, please don't hesitate to contact us at <a href="tel:8339314888" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email. {/* Updated link color to secondary color #0094E0 */}
+        If you have any immediate questions, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email. {/* Updated link color to secondary color #0094E0 */}
       </p>
       <p style={{ marginTop: '30px', color: 'black' }}>
         Sincerely,

@@ -75,7 +75,7 @@ export default function Footer() {
                                     fontWeight: 400,
                                     color: '#DCDEE1'
                                 }}
-                            ><a href="tel:8339314888" className='hover:text-[#0094E0] hover:underline'>(561) 223-9959</a></p>
+                            ><a href="tel:5612239959" className='hover:text-[#0094E0] hover:underline'>(561) 223-9959</a></p>
                         </div>
 
                         <div className=' flex flex-row mt-[12px] space-x-[12px] items-center '>
