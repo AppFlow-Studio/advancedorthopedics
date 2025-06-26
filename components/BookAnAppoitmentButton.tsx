@@ -73,8 +73,9 @@ export default function BookAnAppoitmentButton() {
     })
     
   const handleOpen = () => {  
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag('event', 'booking_click', {
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'booking_click',
         button_location: 'BookAnAppoitmentButton'
       });
     }
@@ -93,8 +94,9 @@ export default function BookAnAppoitmentButton() {
     console.log(values)
     const data = await sendContactEmail(values)
     await sendUserEmail(values)
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag('event', 'form_submit', {
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'form_submit',
         form_name: 'BookAnAppoitmentButton',
         ...values
       });

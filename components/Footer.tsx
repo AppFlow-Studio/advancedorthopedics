@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import Image from 'next/image'
 import Logo from '../public/newlogo4.png'
@@ -76,8 +77,9 @@ export default function Footer() {
                                     color: '#DCDEE1'
                                 }}
                             ><a href="tel:5612239959" className='hover:text-[#0094E0] hover:underline' onClick={() => {
-                                if (typeof window !== "undefined" && window.gtag) {
-                                    window.gtag('event', 'call_click', {
+                                if (typeof window !== "undefined" && window.dataLayer) {
+                                    window.dataLayer.push({
+                                        event: 'call_click',
                                         phone_number: '5612239959',
                                         location: 'Footer'
                                     });
