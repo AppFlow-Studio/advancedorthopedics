@@ -438,6 +438,14 @@ export default function NavBar() {
 
           <a href="tel:5612239959"
             className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  h-[40px] px-[20px] rounded-[62px] relative z-50 items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
+            onClick={() => {
+              if (typeof window !== "undefined" && window.gtag) {
+                window.gtag('event', 'call_click', {
+                  phone_number: '5612239959',
+                  location: 'NavBar'
+                });
+              }
+            }}
           >
             <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
             <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
@@ -499,8 +507,12 @@ export default function NavBar() {
           <a href="tel:5612239959"
             className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#022968] text-white text-[14px] font-semibold"
             onClick={() => {
-              // Add navigation or action for contact button
-              closeSidebar();
+              if (typeof window !== "undefined" && window.gtag) {
+                window.gtag('event', 'call_click', {
+                  phone_number: '5612239959',
+                  location: 'NavBar'
+                });
+              }
             }}
           >
             <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>

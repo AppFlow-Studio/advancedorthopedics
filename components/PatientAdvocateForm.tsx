@@ -56,6 +56,12 @@ export function PatientAdvocateForm() {
     setDisabled(true)
     const data = await sendContactEmail(values)
     await sendUserEmail({name : values.name, email : values.email, phone : values.phone})
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag('event', 'form_submit', {
+        form_name: 'PatientAdvocateForm',
+        ...values
+      });
+    }
     if (data) { 
       setAppointmentConfirm(true) 
       form.reset()

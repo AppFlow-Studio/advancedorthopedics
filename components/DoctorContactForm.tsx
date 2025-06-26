@@ -81,6 +81,12 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
     const data = await sendContactEmail(values)
     await sendUserEmail({name : values.name, email : values.email, phone : values.phone})
     setDisabled(false)
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag('event', 'form_submit', {
+        form_name: 'DoctorContactForm',
+        ...values
+      });
+    }
     if (data) { 
       setOpenContactForm(false)
       setAppointmentConfirm(true) 
