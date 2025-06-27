@@ -47,6 +47,13 @@ export function ConsultationForm() {
     setDisabled(true)
     const data = await sendUserEmail(values)
     await sendContactEmail(values)
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'form_submit',
+        form_name: 'ConsultationForm',
+        ...values
+      });
+    }
     if (data) { 
       setAppointmentConfirm(true) 
       form.reset()

@@ -73,6 +73,12 @@ export default function BookAnAppoitmentButton() {
     })
     
   const handleOpen = () => {  
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'booking_click',
+        button_location: 'BookAnAppoitmentButton'
+      });
+    }
     setOpen(true)
   }
   const handleClose = () => {
@@ -88,10 +94,13 @@ export default function BookAnAppoitmentButton() {
     console.log(values)
     const data = await sendContactEmail(values)
     await sendUserEmail(values)
-    // let data = null
-    // setTimeout(async () => {
-    //   data = 1
-    // }, 2000)
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'form_submit',
+        form_name: 'BookAnAppoitmentButton',
+        ...values
+      });
+    }
     if(data){ 
         setOpen(false)
         setAppointmentConfirm(true) 
