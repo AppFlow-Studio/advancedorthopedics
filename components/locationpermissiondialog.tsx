@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { MapPin, X, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -18,9 +18,21 @@ interface LocationPermissionDialogProps {
 }
 
 export function LocationPermissionDialog({ onLocationGranted, onLocationDenied }: LocationPermissionDialogProps) {
+  const [show, setShow] = useState(false)
   const [open, setOpen] = useState(true)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const isBot = typeof navigator !== 'undefined' && /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)
+    if (!isBot) {
+      const timer = setTimeout(() => setShow(true), 2000)
+      return () => clearTimeout(timer)
+    }
+    setShow(false)
+  }, [])
+
+  if (!show) return null
 
   const requestLocation = () => {
     setLoading(true)
