@@ -161,3 +161,9 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// Base Colors
+// Main: #0094E0
+// Secondary: #FFFF
+// Third: #022968

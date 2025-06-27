@@ -126,7 +126,7 @@ export default function ConditionChecker() {
             </ol>
           </nav>
           <div className="px-6 lg:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] xl:w-[55%]">
-            <h1 id="condition-check-heading" style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 700 }} className="text-[#022968] text-5xl sm:text-6xl xl:text-6xl">
+            <h1 id="condition-check-heading" style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 400 }} className="text-[#022968] text-5xl sm:text-6xl xl:text-6xl">
               Check Your Spine Condition – Free Online Assessment
             </h1>
           </div>

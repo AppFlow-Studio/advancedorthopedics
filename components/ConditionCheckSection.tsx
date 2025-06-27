@@ -94,7 +94,8 @@ export default function ConditionCheckSection({
     await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone })
     if (data) {
       ConditionForm.reset()
-      setAppointmentConfirm(true)
+      //setAppointmentConfirm(true)
+      redirect('/thank-you')
       setDisabled(false)
     }
   }

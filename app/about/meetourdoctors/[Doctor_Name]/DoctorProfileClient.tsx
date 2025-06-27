@@ -28,11 +28,6 @@ export default function DoctorProfileClient({ doctor }: { doctor: DoctorProp }) 
             {/* Breadcrumbs */}
             <nav aria-label="Breadcrumb" className="mt-6 mb-2">
               <ol className="flex flex-row flex-wrap gap-2 text-sm text-[#2358AC]">
-                <li><a href="/">Home</a> /</li>
-                <li><a href="/find-care">Find Care</a> /</li>
-                <li><a href="/area-of-speciality">Area of Speciality</a> /</li>
-                <li><a href="/about">About</a> /</li>
-                <li><a href="/locations">Location</a> /</li>
                 <li><a href="/about/meetourdoctors">Doctors</a> /</li>
                 <li aria-current="page" className="text-[#022968] font-semibold">{doctor.name}</li>
               </ol>

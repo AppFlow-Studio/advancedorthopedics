@@ -27,6 +27,7 @@ import { TextAnimate } from '@/components/magicui/text-animate'
 import { Marquee } from '@/components/magicui/marquee'
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { sendMRIContactEmail, sendUserEmail } from '@/components/email/sendcontactemail'
+import { redirect } from 'next/navigation'
 
 const formSchema = z.object({
 // Step 1 Questions
@@ -221,7 +222,8 @@ export default function FreeMRIReviewClient() {
         const data = await sendMRIContactEmail(values)
         if(data){ 
             ConditionForm.reset()
-            setAppointmentConfirm(true) 
+            //setAppointmentConfirm(true) 
+            redirect('/thank-you')
             setDisabled(false)
         }
         

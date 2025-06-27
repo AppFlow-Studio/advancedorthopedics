@@ -23,7 +23,7 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
-
+import { redirect } from 'next/navigation'
 // Reverted form schema to match the "Candidacy Check" steps from the image
 const formSchema = z.object({
 // Step 1 Questions
@@ -160,9 +160,10 @@ export default function CandidacyCheckClient() {
     await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone });
     const data = await sendCandidacyEmail({...values, email_optout : "false"});
     if (data) {
-      setAppointmentConfirm(true);
-      form.reset();    
+      //setAppointmentConfirm(true);
+      form.reset();    
       setDisabled(false)
+      redirect('/thank-you')
     }
   }
 

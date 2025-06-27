@@ -20,6 +20,7 @@ import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import { motion } from 'framer-motion'
 import Link from "next/link"
+import { redirect } from "next/navigation"
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -83,7 +84,8 @@ export function DoctorContactForm({backgroundcolor = 'white', header = 'Book an 
     setDisabled(false)
     if (data) { 
       setOpenContactForm(false)
-      setAppointmentConfirm(true) 
+      //setAppointmentConfirm(true) 
+      redirect('/thank-you')
       form.reset()
       setDisabled(false)
     }

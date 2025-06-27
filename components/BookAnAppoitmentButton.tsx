@@ -23,6 +23,7 @@ import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from './email/sendcontactemail'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
@@ -94,8 +95,9 @@ export default function BookAnAppoitmentButton() {
     // }, 2000)
     if(data){ 
         setOpen(false)
-        setAppointmentConfirm(true) 
+        //setAppointmentConfirm(true) 
         form.reset()
+        redirect('/thank-you')
         setDisabled(false)
     }
   }
