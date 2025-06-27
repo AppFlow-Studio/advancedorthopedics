@@ -97,7 +97,7 @@ export default function HomePageUI() {
 
         <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between">
           <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
-            <SlidingDiv position="left" className="z-[2] sm:mt-38 mt-16">
+            <SlidingDiv position="left" className="z-[2] sm:mt-30 mt-16">
               <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]  ">
                 <h1
                   style={{

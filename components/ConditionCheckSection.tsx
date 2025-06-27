@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { sendConditionCheckEmail, sendUserEmail } from '@/components/email/sendcontactemail'
+import { redirect } from 'next/navigation'
 
 
 const formSchema = z.object({
