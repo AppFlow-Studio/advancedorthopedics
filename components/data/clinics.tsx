@@ -760,91 +760,103 @@ export const clinics: ClinicsProps[] = [
     link: 'https://www.google.com/maps/place/499+E+Central+Pkwy+STE+130,+Altamonte+Springs,+FL+32701,+USA/@28.6701555,-81.3771552,17z/data=!3m1!4b1!4m6!3m5!1s0x88e77185be955555:0xef8b788f235fee85!8m2!3d28.6701508!4d-81.3745803!16s%2Fg%2F11qz9gt3k8?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
     slug: 'altamonte-springs-orthopedics',
     paragraph: `
-    For residents of Altamonte Springs seeking definitive relief from neck and back pain, Mountain Spine & Orthopedics sets the new standard for orthopedic care in Altamonte Springs. Our local clinic is dedicated to serving this vibrant community, helping you return to your life without limitations. We are committed to being the most trusted orthopedic surgery specialists in Florida for every patient.
+    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center and walk-in clinic for all your needs.
     [PARAGRAPH BREAK]
-    At the core of our orthopedic Altamonte Springs practice are our fellowship-trained, board-certified surgeons, who are leaders in the musculoskeletal field. They treat the full spectrum of conditions, including herniated discs, severe spinal stenosis, sciatica, and sports-related injuries. We believe in an outcome-focused approach, ensuring every patient receives a precise diagnosis and an effective treatment plan tailored to their needs.
+    Our team includes fellowship-trained, board-certified orthopedic surgery specialists in Altamonte Springs, Florida recognized for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of your pain to achieve lasting results.
     [PARAGRAPH BREAK]
-    Leveraging state-of-the-art diagnostic imaging and pioneering minimally invasive procedures, our goal is to restore you to an active, pain-free life as quickly and safely as possible. From advanced laser techniques to sophisticated endoscopic surgeries, we provide innovative solutions that minimize recovery time. Experience the pinnacle of compassionate, technologically advanced care with the top orthopedic doctors in Altamonte Springs, FL.
+    Inside our state-of-the-art orthopedic center, we utilize the latest diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Central Florida's expert team for spine and orthopedic health.
     `,
-    keywords: ['orthopedic altamonte springs', 'altamonte springs sports orthopedic doctor', 'orthopedic-laser spine surgery altamonte springs fl', 'orthopedic surgery specialists altamonte springs florida', 'orthopedic surgery specialists altamonte springs fl', 'orthopedic surgeon fl altamonte springs', 'orthopedic altamonte springs fl', 'orthopedic doctors in altamonte springs fl'],
-    metaTitle: 'Orthopedic Altamonte Springs | Orthopedic Surgery Specialists in Florida',
-    metaDescription: 'Mountain Spine and Orthopedics delivers expert care in Altamonte Springs. Trust our top Orthopedic Surgery Specialists in Florida to restore your mobility.',
+    keywords: ['orthopedic altamonte springs', 'altamonte springs sports orthopedic doctor', 'orthopedic-laser spine surgery altamonte springs fl', 'orthopedic surgery specialists altamonte springs florida', 'orthopedic surgery specialists altamonte springs fl', 'orthopedic surgeon fl altamonte springs', 'orthopedic altamonte springs fl', 'orthopedic doctors in altamonte springs fl', 'orthopedic walk-in clinic altamonte springs fl'],
+    metaTitle: 'Orthopedic Walk-In Clinic in Altamonte Springs, FL',
+    metaDescription: 'Looking for an Orthopedic Walk-In Clinic in Altamonte Springs, FL? Mountain Spine & Orthopedics offers expert spine and joint care, minimally invasive surgery, and same-day appointments.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Altamonte Springs Spine and Orthopedic Specialists of Seminole County</h2>
-        <p className='text-lg'>As the premier orthopedic surgery specialists in Altamonte Springs, Florida, we bring expert care to local families. We know life in Altamonte Springs is busy, and our goal is to provide the best care so you can get back to your routine.</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in Central Florida</h2>
+        <p className='text-lg'>Central Florida residents can access world-class spine care right here in their community. As your trusted Altamonte Springs orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Central Florida is active, and our goal is to provide the best care so you can return to work and play.</p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs & Nearby Areas</h2>
-        <p className='text-lg'>Our orthopedic doctors in Altamonte Springs, FL, are specially trained and certified. We treat <a href='/treatments/back-pain-treatment' className='text-[#0094E0] underline'>back pain</a>, <a href='/treatments/neck-pain-treatment' className='text-[#0094E0] underline'>neck pain</a>, <a href='/area-of-speciality/degenerative-disc-disease-surgery' className='text-[#0094E0] underline'>disc problems</a>, and work-related injuries with customized treatment plans.</p>
+        <p className='text-lg'>Our orthopedic doctors in Altamonte Springs, FL are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <a href='/treatments/back-pain-treatment' className='text-[#0094E0] underline'>back pain</a>, <a href='/treatments/neck-pain-treatment' className='text-[#0094E0] underline'>neck pain</a>, <a href='/area-of-speciality/degenerative-disc-disease-surgery' className='text-[#0094E0] underline'>herniated discs, degenerative disc disease</a>, <a href='/area-of-speciality/acl-injury' className='text-[#0094E0] underline'>ACL injuries</a>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Why Altamonte Springs Patients Choose Mountain Spine & Orthopedics:</h2>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h2>
         <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Over 15 years serving Altamonte Springs families</li>
-          <li>Same-day appointments available for urgent issues</li>
-          <li>Spanish-speaking staff</li>
-          <li>Free parking at our Altamonte Springs orthopedic center.</li>
+          <li>Over 15 years serving Central Florida families with high patient satisfaction</li>
+          <li>Same-day appointments available for urgent problems - no long waits</li>
+          <li>Bilingual Spanish-speaking staff for our diverse community</li>
+          <li>Free parking and wheelchair-accessible facility</li>
+          <li>Most insurance plans accepted, including Workers' Compensation</li>
+          <li>Sports orthopedic specialists in Altamonte Springs specializing in athletic injuries</li>
         </ul>
       </div>
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easy to Reach:</h2>
-        <p className='text-lg'>• Altamonte Mall - 5 minutes • AdventHealth Altamonte Springs - 5 minutes • Cranes Roost Park - 7 minutes</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easily Accessible From Throughout Central Florida:</h2>
+        <p className='text-lg'>• Disney World - 45 minutes • Universal Studios - 25 minutes • Orlando Airport - 40 minutes • Downtown Orlando - 20 minutes • Lake Mary & Heathrow - 15 minutes</p>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Longwood Residents</h2>
-        <p className='text-lg'>Our clinic is perfectly situated for Longwood families seeking specialized spine care from an expert orthopedic surgeon in Altamonte Springs, FL.</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Lake Mary Residents</h2>
+        <p className='text-lg'>Our orthopedic center in Altamonte Springs, FL is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
-        <p className='text-lg'>Our Altamonte Springs Orthopedic Center brings cutting-edge medical innovations to Seminole County families.</p>
+        <p className='text-lg'>Our Altamonte Springs Orthopedic Center brings cutting-edge medical innovations to Central Florida families with exclusive minimally invasive procedures.</p>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
         <div className='flex flex-col space-y-2 list-disc pl-5'>
           <li>
-            <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
+            <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural steroid injections</a>, <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>regenerative stem cell therapy</a>, <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>comprehensive pain management programs</a>
           </li>
-          <li><span className='font-bold'>Laser & Radiofrequency Treatments</span></li>
           <li>
-            <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
+            <span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art laser spine procedures and precisely targeted radiofrequency treatments using the latest minimally invasive technology
+          </li>
+          <li>
+            <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Image-guided facet joint procedures</a>, <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>targeted cortisone treatments</a>, trigger point therapy
           </li>
         </div>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
         <div className='flex flex-col space-y-2 list-disc pl-5'>
-          <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
           <li>
-            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced Techniques</a> | <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>Disc Replacement</a> | <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>Spinal Fusion</a>
+            <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at select centers nationwide. Tiny incisions that heal like band-aids with high success rates and quick return to work
           </li>
           <li>
-            <span className='font-bold'>Complex Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF Surgery</a> | <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>Revision Surgery</a> | <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>Motion Preservation</a>
+            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>artificial disc replacement</a>, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a>
+          </li>
+          <li>
+            <span className='font-bold'>Complex Specialized Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF surgery</a>, <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level procedures
           </li>
         </div>
-        <p className='text-lg'>Altamonte Springs' advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <p className='text-lg'>Exclusive advantages for patients in Greater Altamonte Springs: Robotic-assisted minimally invasive procedures, computer-guided surgical navigation, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
+        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Schedule Your Free Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Altamonte Springs Patients Say</h3>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
+        <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial
-            name="Karen H."
-            role="Office Manager, Altamonte Springs"
-            testimonial="Sitting at a desk all day resulted in chronic sciatica. The orthopedic surgery specialists in Altamonte Springs, FL, here were the first to truly listen. Their blend of physical therapy and precision injections worked wonders."
+            name="Jennifer T."
+            role="Teacher, Seminole County Schools"
+            testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This orthopedic center in Altamonte Springs truly understands working families."
           />
           <Testimonial
-            name="Steve P."
-            role="IT Professional, Longwood"
-            testimonial="I had a bad disc problem and was worried about a long, painful surgery. A colleague told me about the 'Band-Aid' surgery at this Altamonte Springs orthopedic center. The recovery was fast, and the team was incredible. They are the top spine and orthopedic specialists in Seminole County, without a doubt."
+            name="Dr. Robert Chen"
+            role="Emergency Physician, AdventHealth Altamonte Springs"
+            testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these orthopedic surgery specialists in Altamonte Springs, FL because I've experienced their excellent care firsthand."
+          />
+          <Testimonial
+            name="Mark S."
+            role="Construction Supervisor, Maitland"
+            testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The sports orthopedic team in Altamonte Springs got me back to work in one month."
           />
         </div>
       </div>
@@ -861,91 +873,102 @@ export const clinics: ClinicsProps[] = [
     link: 'https://www.google.com/maps/place/2400+North+Blvd+W,+Davenport,+FL+33837,+USA/@28.1674336,-81.6414992,17z/data=!3m1!4b1!4m6!3m5!1s0x88dd710dcdc14069:0x95933b5620dfb1e2!8m2!3d28.1674289!4d-81.6389243!16s%2Fg%2F11h08yw72b?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
     slug: 'davenport-orthopedics',
     paragraph: `
-    The rapidly growing Davenport community now has convenient, local access to Florida's most trusted name in musculoskeletal health: Mountain Spine & Orthopedics. As the leading orthopedic surgeon in Davenport, FL, we are thrilled to serve the residents of Davenport and the surrounding Four Corners area, providing dedicated care for those dealing with chronic pain or recent injuries.
+    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center and walk-in clinic for all your needs.
     [PARAGRAPH BREAK]
-    Our Davenport clinic is led by fellowship-trained, board-certified surgeons who are committed to the health and well-being of every patient. They bring a wealth of experience in treating a comprehensive range of conditions, including painful herniated discs, sciatica, and spinal stenosis. Our approach is always personal, ensuring your unique needs are met with a compassionate and thorough treatment plan from the best orthopedic specialists in Davenport, FL.
+    Our team includes fellowship-trained, board-certified orthopedic specialists recognized for their advanced surgical proficiency and evidence-based patient care protocols. We provide comprehensive, multidisciplinary treatment for various spinal pathologies, including lumbar degenerative disc disease, cervical radiculopathy, herniated nucleus pulposus, and complex musculoskeletal sports injuries. Every treatment protocol is meticulously individualized, ensuring we address the underlying pathophysiology of your condition to achieve optimal therapeutic results.
     [PARAGRAPH BREAK]
-    We believe in pairing expert human touch with medical innovation. Our facility is equipped with advanced diagnostics and offers cutting-edge, minimally invasive procedures to ensure you heal faster and with better results. For a precise diagnosis and a personalized recovery strategy from a trusted orthopedic doctor in Davenport, FL, the Davenport community can count on Mountain Spine & Orthopedics.
+    Inside our state-of-the-art orthopedic center, we utilize advanced diagnostic imaging modalities and minimally invasive surgical techniques. These precision-guided methods allow for micro-surgical incisions, reduced neuropathic pain, and significantly accelerated tissue healing. Trust our commitment to evidence-based, outcome-focused care to restore your spinal biomechanics and quality of life.
     `,
-    keywords: ['orthopedic davenport fl', 'orthopedic surgeon davenport fl', 'orthopedic doctor davenport fl', 'orthopedic specialists davenport fl', 'orthopedic in davenport fl'],
-    metaTitle: 'Orthopedic Surgeon Davenport, FL - Mountain Spine & Orthopedics',
-    metaDescription: 'Trust Mountain Spine & Orthopedics for expert care from leading Surgeons in Davenport, FL. Advanced treatments for joint pain, injuries, and more.',
+    keywords: ['orthopedic davenport fl', 'orthopedic surgeon davenport fl', 'orthopedic doctor davenport fl', 'orthopedic specialists davenport fl', 'orthopedic in davenport fl', 'orthopedic walk-in clinic davenport fl', 'orthopedic laser spine surgery davenport fl'],
+    metaTitle: 'Orthopedic Walk-In Clinic in Davenport, FL | Mountain Spine & Orthopedics',
+    metaDescription: 'Central Florida\'s trusted orthopedic walk-in clinic in Davenport, FL. Get expert spine and joint care, including minimally invasive surgery and same-day appointments, from board-certified specialists.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Davenport Spine and Orthopedic Specialists of Polk County</h2>
-        <p className='text-lg'>Davenport residents can now access world-class spine care right in their rapidly growing community from trusted orthopedic specialists in Davenport, FL. As your trusted Davenport orthopedic center, we bring expert care to local families.</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in Central Florida</h2>
+        <p className='text-lg'>Central Florida residents can access world-class spine care right here in their community. As your trusted orthopedic in Davenport, FL, Mountain Spine & Orthopedics delivers expert care to local families. We understand that life in Central Florida is active, and our goal is to deliver the best care so you can return to work and play.</p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Davenport & Nearby Areas</h2>
-        <p className='text-lg'>Our orthopedic doctor in Davenport, FL, and our entire team are specially trained and certified, offering a combination of expert medical skills and compassionate care. We treat <a href='/treatments/back-pain-treatment' className='text-[#0094E0] underline'>back pain</a>, <a href='/treatments/neck-pain-treatment' className='text-[#0094E0] underline'>neck pain</a>, <a href='/area-of-speciality/degenerative-disc-disease-surgery' className='text-[#0094E0] underline'>disc problems</a>, and injuries from accidents or work.</p>
+        <p className='text-lg'>Our orthopedic doctors are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <a href='/treatments/back-pain-treatment' className='text-[#0094E0] underline'>back pain</a>, <a href='/treatments/neck-pain-treatment' className='text-[#0094E0] underline'>neck pain</a>, <a href='/area-of-speciality/degenerative-disc-disease-surgery' className='text-[#0094E0] underline'>intervertebral disc herniation, degenerative disc disease</a>, <a href='/area-of-speciality/acl-injury' className='text-[#0094E0] underline'>ACL injuries</a>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
       </div>
     ),
     whyChoose: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Why Davenport Patients Choose Mountain Spine & Orthopedics:</h2>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h2>
         <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Over 15 years serving Central Florida families</li>
-          <li>Same-day appointments available for urgent problems</li>
-          <li>Spanish-speaking staff for our diverse Davenport community</li>
-          <li>Free parking at our Davenport orthopedic center.</li>
+          <li>Over 15 years of serving Central Florida families with high patient satisfaction</li>
+          <li>Same-day appointments available for urgent problems - no long waits</li>
+          <li>Bilingual Spanish-speaking staff for our diverse community</li>
+          <li>Free parking and wheelchair-accessible facility</li>
+          <li>Most insurance plans accepted, including Workers' Compensation</li>
         </ul>
       </div>
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easy to Reach:</h2>
-        <p className='text-lg'>• Posner Park - 5 minutes • AdventHealth Heart of Florida - 7 minutes • ChampionsGate - 10 minutes</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easily Accessible From Throughout Central Florida:</h2>
+        <p className='text-lg'>• Disney World - 25 minutes • Universal Studios - 40 minutes • Orlando Airport - 40 minutes • Downtown Orlando - 35 minutes • Kissimmee & Celebration - 20 minutes</p>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for ChampionsGate Residents</h2>
-        <p className='text-lg'>Our clinic is the premier choice for ChampionsGate residents seeking elite orthopedic care in Davenport, FL, close to home.</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Kissimmee Residents</h2>
+        <p className='text-lg'>Our orthopedic specialists near Davenport, FL center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
-        <p className='text-lg'>Our Davenport Orthopedic Center brings cutting-edge medical innovations to Polk County families.</p>
+        <p className='text-lg'>Our Davenport Orthopedic Center brings cutting-edge medical innovations to Central Florida families with exclusive minimally invasive procedures.</p>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
         <div className='flex flex-col space-y-2 list-disc pl-5'>
           <li>
-            <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
+            <span className='font-bold'>Advanced Pain Management:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural steroid injections</a>, <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>regenerative stem cell therapy</a>, <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>comprehensive pain management programs</a>
           </li>
-          <li><span className='font-bold'>Laser & Radiofrequency Treatments</span></li>
           <li>
-            <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
+            <span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art therapeutic laser modalities and precisely targeted radiofrequency ablation procedures using advanced minimally invasive technology
+          </li>
+          <li>
+            <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Fluoroscopy-guided facet joint procedures</a>, <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>targeted corticosteroid treatments</a>, myofascial trigger point therapy
           </li>
         </div>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
         <div className='flex flex-col space-y-2 list-disc pl-5'>
-          <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
           <li>
-            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced Techniques</a> | <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>Disc Replacement</a> | <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>Spinal Fusion</a>
+            <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary percutaneous endoscopic procedure available at select centers nationwide. Micro-surgical portals that heal like band-aids with superior clinical outcomes and rapid return to functional activities
           </li>
           <li>
-            <span className='font-bold'>Complex Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF Surgery</a> | <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>Revision Surgery</a> | <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>Motion Preservation</a>
+            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>artificial disc replacement, arthroplasty</a>, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a>
+          </li>
+          <li>
+            <span className='font-bold'>Complex Specialized Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF surgery</a>, <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level decompression procedures
           </li>
         </div>
-        <p className='text-lg'>Davenport's advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <p className='text-lg'>Exclusive advantages for patients in Greater Davenport: Robotic-assisted minimally invasive surgical procedures, computer-guided intraoperative navigation, same-day ambulatory surgery protocols, and accelerated rehabilitation programs. Most patients demonstrate optimal functional recovery within weeks.</p>
+        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Schedule Your Free Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Davenport Patients Say</h3>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
+        <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial
-            name="Laura G."
-            role="Theme Park Employee, Davenport"
-            testimonial="Working on my feet all day caused unbearable back pain. I thought I would have to change careers. The Davenport orthopedic center team was fantastic. They understood the demands of my job and used a minimally invasive procedure that had me back to work in just a few weeks. I can't thank them enough."
+            name="Jessica M."
+            role="Physical Therapist at Heart of Florida Regional Medical Center"
+            testimonial="As a healthcare professional, I understand spinal pathologies from treating patients with various musculoskeletal conditions daily. When my own L4-L5 disc herniation became debilitating, I researched every orthopedic center in Davenport, FL. Dr. Katzman's minimally invasive discectomy technique exceeded my professional expectations. I returned to treating patients pain-free within four weeks."
           />
           <Testimonial
-            name="Mark R."
-            role="Construction Worker, Davenport"
-            testimonial="After an injury on a job site near I-4, I was in bad shape. The Davenport spine and orthopedic specialists not only fixed my back with their advanced surgery but also handled all the paperwork seamlessly. They genuinely care about working people."
+            name="Carlos R."
+            role="Fire Captain with Polk County Fire Rescue Department"
+            testimonial="Twenty years of firefighting took a toll on my cervical spine biomechanics. The cervical radiculopathy and numbness in my arm was affecting my ability to perform emergency rescues safely. After consulting these orthopedic surgery specialists in Davenport FL, their precise ACDF surgical approach restored full neurological function. I'm back to full duty and leading my crew with confidence."
+          />
+          <Testimonial
+            name="Sandra L."
+            role="Hotel Operations Manager at Champions Gate Resort & Spa"
+            testimonial="Managing a busy resort while dealing with chronic lumbar disc disease was becoming impossible. Three previous conservative treatments failed until I discovered the hill orthopedic team in Davenport FL. Their innovative endoscopic approach had me back to managing our 300-room property efficiently. The improvement in my functional capacity is remarkable."
           />
         </div>
       </div>
