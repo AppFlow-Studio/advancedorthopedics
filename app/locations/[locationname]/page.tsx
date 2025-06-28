@@ -145,7 +145,7 @@ export default function LocationDetails(
                             (
                             <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
                             ) : (
-                            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="Book an Appointment" />
+                            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
                             )
                         </SlidingDiv>
                         <SlidingDiv position="left" className="z-[2]">
@@ -180,7 +180,7 @@ export default function LocationDetails(
                     </div>
 
                     <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >
-                        <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="Book an Appointment" /></div>
+                        <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
                     </div>
                 </div>
 
