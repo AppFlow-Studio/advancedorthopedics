@@ -23,10 +23,20 @@ export default function Treatments() {
   const searchParams = useSearchParams();
   useEffect(() => {
     const dataParam = searchParams.get('data');
+    const categoryParam = searchParams.get('category');
+    
     if (dataParam) {
         const filter = JSON.parse(decodeURIComponent(dataParam));
         console.log('filter', filter);
         setSelectedFilters([filter.key]);
+        const section = document.getElementById('treatments-section');
+        if (section) {
+          section.scrollIntoView({ block : 'start', behavior: 'smooth' });
+        }
+    } else if (categoryParam) {
+        // Handle the category parameter for pre-selecting filters
+        console.log('category param:', categoryParam);
+        setSelectedFilters([categoryParam]);
         const section = document.getElementById('treatments-section');
         if (section) {
           section.scrollIntoView({ block : 'start', behavior: 'smooth' });
@@ -36,11 +46,15 @@ export default function Treatments() {
 
 const treatmentAreaParam = () => {
   const dataParam = searchParams.get('data');
-    if (dataParam) {
-        const filter = JSON.parse(decodeURIComponent(dataParam));
-        return [filter.key];
-    }
-    return []
+  const categoryParam = searchParams.get('category');
+  
+  if (dataParam) {
+      const filter = JSON.parse(decodeURIComponent(dataParam));
+      return [filter.key];
+  } else if (categoryParam) {
+      return [categoryParam];
+  }
+  return []
 }
   // State for data:
   // 'allData' holds the original, full list of treatments.
