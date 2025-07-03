@@ -127,42 +127,53 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
         <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented clinical outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
-        <Marquee className='w-full' pauseOnHover={true}>
-          <Testimonial
-            name="Jennifer T."
-            role="Teacher, Broward County Schools"
-            testimonial="After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgical approach had me back to teaching in just three weeks. This top-rated orthopedic center in Hollywood truly understands working families."
-          />
-          <Testimonial
-            name="Dr. Robert Chen"
-            role="Emergency Physician, Memorial Regional Hospital Hollywood"
-            testimonial="Dr. Katzman's clinical expertise exceeded my expectations for my herniated nucleus pulposus. I now confidently refer my patients to these experienced orthopedic surgeon specialists in Hollywood, FL because I've experienced their excellent care firsthand."
-          />
-          <Testimonial
-            name="Mark S."
-            role="Construction Supervisor, Pembroke Pines"
-            testimonial="Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Hollywood got me back to work in one month."
-          />
-          <Testimonial
-            name="Maria L."
-            role="Nurse, Joe DiMaggio Children's Hospital"
-            testimonial="As a healthcare professional myself, I was impressed by the exceptional orthopedic treatment in Hollywood FL. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless."
-          />
-          <Testimonial
-            name="Carlos R."
-            role="Miami-Dade Police Officer"
-            testimonial="Being on the force requires peak physical condition. When I injured my lumbar spine, the professional orthopedic surgeon team in Hollywood Florida got me back to protecting our community in record time."
-          />
-          <Testimonial
-            name="Sarah M."
-            role="Parent from Aventura"
-            testimonial="My teenage son needed specialized pediatric orthopedic care in Hollywood FL after a sports-related ACL injury. The team's expertise with young athletes was incredible - he's back on the field stronger than ever."
-          />
-          <Testimonial
-            name="Dr. Lisa K."
-            role="Physical Therapist, Broward Health"
-            testimonial="When I needed urgent orthopedic care in Hollywood FL for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment exceeded my professional expectations."
-          />
+        <Marquee className='w-full md:px-22 [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]' pauseOnHover={true}>
+          {[
+            {
+              name: "Jennifer T.",
+              role: "Teacher, Broward County Schools",
+              testimonial: "After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgical approach had me back to teaching in just three weeks. This top-rated orthopedic center in Hollywood truly understands working families."
+            },
+            {
+              name: "Dr. Robert Chen",
+              role: "Emergency Physician, Memorial Regional Hospital Hollywood",
+              testimonial: "Dr. Katzman's clinical expertise exceeded my expectations for my herniated nucleus pulposus. I now confidently refer my patients to these experienced orthopedic surgeon specialists in Hollywood, FL because I've experienced their excellent care firsthand."
+            },
+            {
+              name: "Mark S.",
+              role: "Construction Supervisor, Pembroke Pines",
+              testimonial: "Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Hollywood got me back to work in one month."
+            },
+            {
+              name: "Maria L.",
+              role: "Nurse, Joe DiMaggio Children's Hospital",
+              testimonial: "As a healthcare professional myself, I was impressed by the exceptional orthopedic treatment in Hollywood FL. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless."
+            },
+            {
+              name: "Carlos R.",
+              role: "Miami-Dade Police Officer",
+              testimonial: "Being on the force requires peak physical condition. When I injured my lumbar spine, the professional orthopedic surgeon team in Hollywood Florida got me back to protecting our community in record time."
+            },
+            {
+              name: "Sarah M.",
+              role: "Parent from Aventura",
+              testimonial: "My teenage son needed specialized pediatric orthopedic care in Hollywood FL after a sports-related ACL injury. The team's expertise with young athletes was incredible - he's back on the field stronger than ever."
+            },
+            {
+              name: "Dr. Lisa K.",
+              role: "Physical Therapist, Broward Health",
+              testimonial: "When I needed urgent orthopedic care in Hollywood FL for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment exceeded my professional expectations."
+            }
+          ].map((t, idx) => (
+             <div className='w-120 h-80'>
+                <Testimonial
+                  key={t.name + idx}
+                  name={t.name}
+                  role={t.role}
+                  testimonial={t.testimonial}
+                />
+             </div>
+          ))}
         </Marquee>
       </div>
     )
@@ -252,7 +263,7 @@ export const clinics: ClinicsProps[] = [
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Palm Springs Patients Say</h3>
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4' >
           <Testimonial
             name="Maria G."
             role="Teacher, Palm Springs"
@@ -596,48 +607,59 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
         <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented clinical outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
-          <Testimonial
-            name="Jennifer T."
-            role="Teacher, Palm Beach County Schools"
-            testimonial="After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgery had me back in the classroom in just three weeks. This orthopedic center in Palm Beach Gardens truly understands the needs of working families."
-          />
-          <Testimonial
-            name="Dr. Robert Chen"
-            role="Emergency Physician, Jupiter Medical Center"
-            testimonial="Dr. Katzman's clinical expertise for my herniated nucleus pulposus exceeded all my expectations. I now confidently refer my own patients to these experienced orthopedic specialists in Palm Beach Gardens, FL, because I've experienced their excellent care firsthand."
-          />
-          <Testimonial
-            name="Mark S."
-            role="Construction Supervisor, Wellington"
-            testimonial="Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Palm Beach Gardens got me back to work in just one month."
-          />
-          <Testimonial
-            name="Maria L."
-            role="Nurse, Palm Beach Gardens Medical Center"
-            testimonial="As a healthcare professional, I was incredibly impressed by the exceptional orthopedic treatment in Palm Beach Gardens. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless."
-          />
-          <Testimonial
-            name="Carlos R."
-            role="Palm Beach County Sheriff's Deputy"
-            testimonial="Being in law enforcement demands peak physical condition. When I injured my lumbar spine, the professional orthopedic team in Palm Beach Gardens got me back to protecting our community in record time."
-          />
-          <Testimonial
-            name="Sarah M."
-            role="Parent from Jupiter"
-            testimonial="My teenage daughter needed specialized pediatric orthopedic care in Palm Beach Gardens after a gymnastics injury. The team's expertise with young athletes was incredible – she's back competing stronger than ever!"
-          />
-          <Testimonial
-            name="Dr. Lisa K."
-            role="Physical Therapist, Palm Beach Gardens"
-            testimonial="When I needed urgent orthopedic care in Palm Beach Gardens for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment surpassed my professional expectations."
-          />
-          <Testimonial
-            name="Michael R."
-            role="Golf Pro, PGA National"
-            testimonial="As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed chronic back pain. Dr. Katzman's expertise had me back on the course, pain-free, within a month."
-          />
-        </div>
+        <Marquee className='w-full md:px-22 [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]' pauseOnHover={true}>
+          {[
+            {
+              name: "Jennifer T.",
+              role: "Teacher, Palm Beach County Schools",
+              testimonial: "After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgery had me back in the classroom in just three weeks. This orthopedic center in Palm Beach Gardens truly understands the needs of working families."
+            },
+            {
+              name: "Dr. Robert Chen",
+              role: "Emergency Physician, Jupiter Medical Center",
+              testimonial: "Dr. Katzman's clinical expertise for my herniated nucleus pulposus exceeded all my expectations. I now confidently refer my own patients to these experienced orthopedic specialists in Palm Beach Gardens, FL, because I've experienced their excellent care firsthand."
+            },
+            {
+              name: "Mark S.",
+              role: "Construction Supervisor, Wellington",
+              testimonial: "Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Palm Beach Gardens got me back to work in just one month."
+            },
+            {
+              name: "Maria L.",
+              role: "Nurse, Palm Beach Gardens Medical Center",
+              testimonial: "As a healthcare professional, I was incredibly impressed by the exceptional orthopedic treatment in Palm Beach Gardens. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless."
+            },
+            {
+              name: "Carlos R.",
+              role: "Palm Beach County Sheriff's Deputy",
+              testimonial: "Being in law enforcement demands peak physical condition. When I injured my lumbar spine, the professional orthopedic team in Palm Beach Gardens got me back to protecting our community in record time."
+            },
+            {
+              name: "Sarah M.",
+              role: "Parent from Jupiter",
+              testimonial: "My teenage daughter needed specialized pediatric orthopedic care in Palm Beach Gardens after a gymnastics injury. The team's expertise with young athletes was incredible – she's back competing stronger than ever!"
+            },
+            {
+              name: "Dr. Lisa K.",
+              role: "Physical Therapist, Palm Beach Gardens",
+              testimonial: "When I needed urgent orthopedic care in Palm Beach Gardens for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment surpassed my professional expectations."
+            },
+            {
+              name: "Michael R.",
+              role: "Golf Pro, PGA National",
+              testimonial: "As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed chronic back pain. Dr. Katzman's expertise had me back on the course, pain-free, within a month."
+            }
+          ].map((t, idx) => (
+            <div className='w-120 h-80'>
+              <Testimonial
+                key={t.name + idx}
+                name={t.name}
+                role={t.role}
+                testimonial={t.testimonial}
+              />
+            </div>
+          ))}
+        </Marquee>
       </div>
     )
   },
