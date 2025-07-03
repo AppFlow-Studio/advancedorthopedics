@@ -16,6 +16,7 @@ export interface BlogPostProp {
     date : string
     metaTitle?: string
     metaDescription?: string
+    slug : string
     blog_info : {
         header : string, 
         body : string, 
@@ -40,20 +41,21 @@ function truncateString(str : string, maxLength = 172) {
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
   }
-export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id } : { BlogInfo : BlogPostProp, backgroundcolor : string, id : string}) {
+export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id, slug } : { BlogInfo : BlogPostProp, backgroundcolor : string, id : string, slug : string}) {
   const [ isHover, setIsHover ] = useState(false)
   return (
-    <article
+    <motion.article
     className={`w-full h-full bg-[${backgroundcolor}] rounded-[24px]`}
     whileHover={{
         background : 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)',
         scale: 1.01,
+        color : isHover ?  'white' : 'black',
     }}
     onMouseEnter={() => setIsHover(true)}
     onMouseLeave={() => setIsHover(false)}
     >
         {id && (
-            <Link className="flex flex-col p-4 space-y-[32px]" href={`/blogs/${BlogInfo.title.replace(/\s+/g, '-').toLowerCase()}`}>
+            <Link className="flex flex-col p-4 space-y-[32px]" href={`/blogs/${slug}`}>
                 <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden">
                     <Image src={BlogInfo.img} width={240} height={240} layout='responsive' alt="Mountain Spine & Orthopedics Logo" />
                 </div>
@@ -64,7 +66,6 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id }
                         style={{
                         fontFamily: "var(--font-reem-kufi)",
                         fontWeight: 500,
-                        color : isHover ?  'white' : 'black',
                         }}
                         className="text-2xl"
                         >{BlogInfo.title}</h3>
@@ -73,7 +74,7 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id }
                         style={{
                         fontFamily: "var(--font-inter)",
                         fontWeight: 400,
-                        color : isHover ? 'black' : '#5B5F67',
+                        color : isHover ? 'white' : '#5B5F67',
                         }}
                         className="text-md overflow-ellipsis"
                         >
@@ -105,6 +106,6 @@ export default function BlogPostCard({ BlogInfo, backgroundcolor = "white", id }
                 </div>
             </Link>
         )}
-    </article>
+    </motion.article>
   )
 }

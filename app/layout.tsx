@@ -8,6 +8,7 @@ import { GeolocationProvider } from "@/providers/geolocationcontext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { DelayedLocationPopup } from "@/components/delayedlocationpopup";
 import Script from "next/script";
+import TanstackProvider from "@/providers/tanstack";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -180,7 +181,9 @@ export default function RootLayout({
         <MapProvider>
           <GeolocationProvider>
             <NavBar />
-            {children}
+              <TanstackProvider>
+                {children}
+              </TanstackProvider>
             <Footer />
             <DelayedLocationPopup delayInSeconds={8} />
           </GeolocationProvider>

@@ -158,7 +158,7 @@ export default function Blogs() {
             <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-8 md:mt-[60px]  p-1 md:gap-[32px] overflow-hidden'>
                 {
                   blogs.map((item) => (
-                    <BlogPostCard BlogInfo={item.blog_info} key={item.id} backgroundcolor='white' id={item.id}/>
+                    <BlogPostCard BlogInfo={item.blog_info} key={item.id} backgroundcolor='white' id={item.id} slug={item.slug}/>
                   ))
                 }
             </div>

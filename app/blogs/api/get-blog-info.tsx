@@ -8,5 +8,6 @@ export async function GetBlogInfo(slug : string) {
     console.error(error);
     return null;
   }
+  console.log(data.blog_info);
   return data;
 }
