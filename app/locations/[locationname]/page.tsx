@@ -58,7 +58,7 @@ export default function LocationDetails(
                 </svg>
             ),
             title: 'Laser Spine & Radio',
-            body: <>Our <a href='/locations/hollywood-fl-orthopedics' className='text-[#022968] underline'>Orthopedic clinic</a> provides access to cutting-edge laser <a href='/treatments/hybrid-cervical-spine-surgery' className=' text-[#022968] underline'>spine procedures</a>. Our targeted treatments give great results with cutting-edge technology that helps {location.name.replace('Mountain Spine & Orthopedics', '').trim()} residents heal faster.</>
+            body: <>Our Orthopedic clinic provides access to cutting-edge laser spine procedures. Our targeted treatments give great results with cutting-edge technology that helps {location.name.replace('Mountain Spine & Orthopedics', '').trim()} residents heal faster.</>
         },
         {
             icon: () => (
@@ -67,7 +67,7 @@ export default function LocationDetails(
                 </svg>
             ),
             title: 'Band Aid Back Surgery',
-            body: <><a href='/' className='text-[#022968] underline'>Mountain Spine & Orthopedics</a> is one of the only providers of Band Aid Back Surgery, a revolutionary minimally-invasive technique that delivers exceptional results with faster recovery times.</>
+            body: <>Mountain Spine & Orthopedics is one of the only providers of Band Aid Back Surgery, a revolutionary minimally-invasive technique that delivers exceptional results with faster recovery times.</>
         },
         {
             icon: () => (
