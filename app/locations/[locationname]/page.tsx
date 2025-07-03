@@ -135,18 +135,14 @@ export default function LocationDetails(
                                         fontFamily: "var(--font-reem-kufi)",
                                         fontWeight: 500,
                                     }}
-                                    className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
+                                    className="text-white text-4xl sm:text-6xl xl:text-6xl text-shadow-sm md:mt-0 mt-16 "
                                 >
                                     Welcome to Mountain Spine & Orthopedics {location.name.replace('Mountain Spine & Orthopedics', '').trim()}
                                 </h1>
                             </div>
                         </SlidingDiv>
-                        <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mb-4">
-                            (
-                            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
-                            ) : (
-                            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
-                            )
+                        <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mt-4 ">
+                            <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
                         </SlidingDiv>
                         <SlidingDiv position="left" className="z-[2]">
                             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center mt-4">
@@ -162,7 +158,7 @@ export default function LocationDetails(
                             </div>
                         </SlidingDiv>
 
-                        <SlidingDiv position="left" className="z-[2]">
+                        <SlidingDiv position="left" className="z-[2] sm:block hidden">
                             <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
                                 <div className=""><BookAnAppoitmentButton /></div>
                                 <a href="tel:5612239959"
