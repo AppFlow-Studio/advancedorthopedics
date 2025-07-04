@@ -252,7 +252,7 @@ export default function LocationDetails(
                                     }}
                                     className=" text-lg"
                                 >
-                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why <a href='https://www.orlando.gov/Home' className='underline text-[#022968]'>Orlando</a> families choose us:
+                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why <a href='https://www.orlando.gov/Home' className='underline text-[#022968]'>Hollywood</a> families choose us:
                                 </p>
                             </div>
                         </Reveal>
@@ -346,26 +346,19 @@ export default function LocationDetails(
                 <div className=" mt-[60px] grid sm:grid-cols-3 grid-cols-1 xl:gap-x-[50px] sm:gap-x-10 space-y-8 sm:space-y-0  ">
                     <div className='sm:col-span-1'><DoctorCard doctor={Doctors[0]} /></div>
                     <div className='flex flex-col space-y-[32px] col-span-2'>
-                        <p
+                        <div
                             style={{
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 500,
                                 color: '#111315'
                             }}
                             className='xl:text-xl lg:text-md text-sm xl:w-[90%] self-center h-full xl:ml-20'
-                        >
-
-                            {location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) => (
-                                <React.Fragment key={index}>
-                                    {paragraph}
-                                    {index < array.length - 1 && (
-                                        <>
-                                            <br /><br />
-                                        </>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </p>
+                            dangerouslySetInnerHTML={{
+                                __html: location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) => 
+                                    paragraph + (index < array.length - 1 ? '<br /><br />' : '')
+                                ).join('')
+                            }}
+                        />
                     </div>
                 </div>
             </section>
