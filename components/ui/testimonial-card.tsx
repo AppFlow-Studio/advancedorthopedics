@@ -24,10 +24,6 @@ const Testimonial = React.forwardRef<HTMLDivElement, TestimonialProps>(
         )}
         {...props}
       >
-        <div className="absolute right-6 top-6 text-6xl font-serif text-muted-foreground/20">
-          "
-        </div>
-
         <div className="flex flex-col gap-4 justify-between h-full">
           {rating > 0 && (
             <div className="flex gap-1">

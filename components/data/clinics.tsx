@@ -127,7 +127,9 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
         <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented clinical outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
-        <Marquee className='w-full md:px-22 [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]' pauseOnHover={true}>
+        <Marquee duration={40} className='w-full md:px-22 sm:[mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]' pauseOnHover={true}
+        
+        >
           {[
             {
               name: "Jennifer T.",
@@ -165,7 +167,7 @@ export const clinics: ClinicsProps[] = [
               testimonial: "When I needed urgent orthopedic care in Hollywood FL for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment exceeded my professional expectations."
             }
           ].map((t, idx) => (
-             <div className='w-120 h-80'>
+             <div className='sm:w-120 w-100 h-80 '>
                 <Testimonial
                   key={t.name + idx}
                   name={t.name}
