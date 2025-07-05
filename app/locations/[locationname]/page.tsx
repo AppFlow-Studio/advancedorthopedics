@@ -135,18 +135,14 @@ export default function LocationDetails(
                                         fontFamily: "var(--font-reem-kufi)",
                                         fontWeight: 500,
                                     }}
-                                    className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
+                                    className="text-white text-4xl sm:text-6xl xl:text-6xl text-shadow-sm md:mt-0 mt-16 "
                                 >
                                     Welcome to Mountain Spine & Orthopedics {location.name.replace('Mountain Spine & Orthopedics', '').trim()}
                                 </h1>
                             </div>
                         </SlidingDiv>
-                        <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mb-4">
-                            (
-                            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
-                            ) : (
-                            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
-                            )
+                        <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mt-4 ">
+                            <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
                         </SlidingDiv>
                         <SlidingDiv position="left" className="z-[2]">
                             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center mt-4">
@@ -162,7 +158,7 @@ export default function LocationDetails(
                             </div>
                         </SlidingDiv>
 
-                        <SlidingDiv position="left" className="z-[2]">
+                        <SlidingDiv position="left" className="z-[2] sm:block hidden">
                             <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
                                 <div className=""><BookAnAppoitmentButton /></div>
                                 <a href="tel:5612239959"
@@ -256,7 +252,7 @@ export default function LocationDetails(
                                     }}
                                     className=" text-lg"
                                 >
-                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why <a href='https://www.orlando.gov/Home' className='underline text-[#022968]'>Orlando</a> families choose us:
+                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why <a href='https://www.orlando.gov/Home' className='underline text-[#022968]'>Hollywood</a> families choose us:
                                 </p>
                             </div>
                         </Reveal>
@@ -350,26 +346,19 @@ export default function LocationDetails(
                 <div className=" mt-[60px] grid sm:grid-cols-3 grid-cols-1 xl:gap-x-[50px] sm:gap-x-10 space-y-8 sm:space-y-0  ">
                     <div className='sm:col-span-1'><DoctorCard doctor={Doctors[0]} /></div>
                     <div className='flex flex-col space-y-[32px] col-span-2'>
-                        <p
+                        <div
                             style={{
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 500,
                                 color: '#111315'
                             }}
                             className='xl:text-xl lg:text-md text-sm xl:w-[90%] self-center h-full xl:ml-20'
-                        >
-
-                            {location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) => (
-                                <React.Fragment key={index}>
-                                    {paragraph}
-                                    {index < array.length - 1 && (
-                                        <>
-                                            <br /><br />
-                                        </>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </p>
+                            dangerouslySetInnerHTML={{
+                                __html: location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) => 
+                                    paragraph + (index < array.length - 1 ? '<br /><br />' : '')
+                                ).join('')
+                            }}
+                        />
                     </div>
                 </div>
             </section>

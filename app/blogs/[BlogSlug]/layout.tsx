@@ -27,7 +27,7 @@ export async function generateMetadata(
       url: `https://mountainspineorthopedics.com/blogs/${blog.slug}`,
       publishedTime: blog.created_at,
       modifiedTime: blog.modified_at,
-      authors: ["https://mountainspineorthopedics.com/about"],
+      authors: info.author,
       tags: info.tags,
       images: [
         {
