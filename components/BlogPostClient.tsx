@@ -48,34 +48,235 @@ export default function BlogDetails({
     )
   }
   const renderRichText = (text: string) => {
-    // Simple link parsing - in a real app, you'd use a proper rich text renderer
-    const linkRegex = /<a href="([^"]*)"[^>]*>([^<]*)<\/a>/g
-    const parts = text.split(linkRegex)
+    if (!text) return null;
 
-    return parts.map((part, index) => {
-      if (index % 3 === 1) {
-        // This is a URL
-        return null
-      } else if (index % 3 === 2) {
-        // This is link text
-        const url = parts[index - 1]
-        return (
-          <a
-            key={index}
-            href={url}
-            className="text-blue-600 hover:text-blue-800 underline !text-blue-600 !hover:text-blue-800"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#2563eb' }}
-          >
-            {part}
-          </a>
-        )
-      } else {
-        // Regular text
-        return <span key={index} dangerouslySetInnerHTML={{ __html: part }} />
+    // Create a temporary div to parse HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = text;
+
+    const processNode = (node: Node, key: string): React.ReactNode => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return node.textContent;
       }
-    })
+
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        const element = node as Element;
+        const tagName = element.tagName.toLowerCase();
+        const children = Array.from(element.childNodes).map((child, index) =>
+          processNode(child, `${key}-${index}`)
+        );
+
+        // Handle different HTML elements
+        switch (tagName) {
+          case 'a':
+            const href = element.getAttribute('href') || '';
+            const linkText = element.textContent || '';
+            return (
+              <a
+                key={key}
+                href={href}
+                className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#2563eb' }}
+              >
+                {linkText}
+              </a>
+            );
+
+          case 'strong':
+          case 'b':
+            return (
+              <strong key={key} className="font-bold">
+                {children}
+              </strong>
+            );
+
+          case 'em':
+          case 'i':
+            return (
+              <em key={key} className="italic">
+                {children}
+              </em>
+            );
+
+          case 'u':
+            return (
+              <u key={key} className="underline">
+                {children}
+              </u>
+            );
+
+          case 'br':
+            return <br key={key} />;
+
+          case 'p':
+            return (
+              <p key={key} className="mb-4">
+                {children}
+              </p>
+            );
+
+          case 'h1':
+            return (
+              <h1 key={key} className="text-3xl font-bold mb-4 text-[#022968]">
+                {children}
+              </h1>
+            );
+
+          case 'h2':
+            return (
+              <h2 key={key} className="text-2xl font-bold mb-3 text-[#022968]">
+                {children}
+              </h2>
+            );
+
+          case 'h3':
+            return (
+              <h3 key={key} className="text-xl font-bold mb-2 text-[#022968]">
+                {children}
+              </h3>
+            );
+
+          case 'h4':
+            return (
+              <h4 key={key} className="text-lg font-bold mb-2 text-[#022968]">
+                {children}
+              </h4>
+            );
+
+          case 'ul':
+            return (
+              <ul key={key} className="list-disc mb-4 space-y-1">
+                {children}
+              </ul>
+            );
+
+          case 'ol':
+            return (
+              <ol key={key} className="list-decimal list-inside mb-4 space-y-1">
+                {children}
+              </ol>
+            );
+
+          case 'li':
+            return (
+              <li key={key}>
+                {children}
+              </li>
+            );
+
+          case 'blockquote':
+            return (
+              <blockquote key={key} className="border-l-4 border-blue-500 pl-4 italic bg-gray-50 py-2 mb-4">
+                {children}
+              </blockquote>
+            );
+
+          case 'code':
+            return (
+              <code key={key} className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                {children}
+              </code>
+            );
+
+          case 'pre':
+            return (
+              <pre key={key} className="bg-gray-100 p-4 rounded overflow-x-auto text-sm font-mono mb-4">
+                {children}
+              </pre>
+            );
+
+          case 'mark':
+            return (
+              <mark key={key} className="bg-yellow-200 px-1 rounded">
+                {children}
+              </mark>
+            );
+
+          case 'small':
+            return (
+              <small key={key} className="text-sm text-gray-600">
+                {children}
+              </small>
+            );
+
+          case 'sub':
+            return <sub key={key}>{children}</sub>;
+
+          case 'sup':
+            return <sup key={key}>{children}</sup>;
+
+          case 'del':
+            return (
+              <del key={key} className="line-through text-gray-500">
+                {children}
+              </del>
+            );
+
+          case 'ins':
+            return (
+              <ins key={key} className="underline">
+                {children}
+              </ins>
+            );
+
+          case 'span':
+            // Handle span with custom styles
+            const style = element.getAttribute('style');
+            const className = element.getAttribute('class');
+            return (
+              <span key={key} style={style ? { ...parseInlineStyles(style) } : undefined} className={className || undefined}>
+                {children}
+              </span>
+            );
+
+          case 'div':
+            // Handle div with custom styles
+            const divStyle = element.getAttribute('style');
+            const divClassName = element.getAttribute('class');
+            return (
+              <div key={key} style={divStyle ? { ...parseInlineStyles(divStyle) } : undefined} className={divClassName || undefined}>
+                {children}
+              </div>
+            );
+
+          default:
+            // For any other tags, render as a span with the tag's content
+            return (
+              <span key={key}>
+                {children}
+              </span>
+            );
+        }
+      }
+
+      return null;
+    };
+
+    // Helper function to parse inline styles
+    const parseInlineStyles = (styleString: string): React.CSSProperties => {
+      const styles: React.CSSProperties = {};
+      const stylePairs = styleString.split(';');
+
+      stylePairs.forEach(pair => {
+        const [property, value] = pair.split(':').map(s => s.trim());
+        if (property && value) {
+          // Convert CSS property names to camelCase
+          const camelProperty = property.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+          (styles as any)[camelProperty] = value;
+        }
+      });
+
+      return styles;
+    };
+
+    // Process all child nodes
+    const processedNodes = Array.from(tempDiv.childNodes).map((node, index) =>
+      processNode(node, `node-${index}`)
+    );
+
+    return <>{processedNodes}</>;
   }
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -93,7 +294,7 @@ export default function BlogDetails({
                 <li aria-current="page">{blog_details.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 700 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl w-[80%]">{blog_details.blog_info.title}</TextAnimate>
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl w-[80%]">{blog_details.blog_info.title}</TextAnimate>
             <p style={{ fontWeight: 400, fontSize: "20px", lineHeight: "148%" }} className="text-white mt-4 w-[55%]">{blog_details.blog_info.desc}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {blog_details.blog_info.tags.map((tag: string, index: number) => (

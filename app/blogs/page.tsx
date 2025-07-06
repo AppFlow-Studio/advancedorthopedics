@@ -102,7 +102,7 @@ export default function Blogs() {
             </nav>
         </div>
         <div className= "px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] lg:w-[63%] xl:w-[55%]">
-            <h1 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 700 }} className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl lg:text-7xl">
+            <h1 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl ">
                 Spine Wellness Blog
             </h1>
         </div>
@@ -125,7 +125,7 @@ export default function Blogs() {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-[24px]'>
                 {
                     ServicesAndExpertise.map((item,index) => (
-                    <article className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] hover:text-white text-[#022968]" key={item.title}>
+                    <article className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] text-[#022968]" key={item.title}>
                         <div className="flex flex-row items-center justify-between">
                         <div className="rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
                             <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-lg self-center">0{index + 1}</span>
