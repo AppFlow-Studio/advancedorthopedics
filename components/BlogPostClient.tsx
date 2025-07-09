@@ -147,14 +147,14 @@ export default function BlogDetails({
 
           case 'ul':
             return (
-              <ul key={key} className="list-disc mb-4 space-y-1">
+              <ul key={key} className="list-disc ml-6  mb-4 space-y-1">
                 {children}
               </ul>
             );
 
           case 'ol':
             return (
-              <ol key={key} className="list-decimal list-inside mb-4 space-y-1">
+              <ol key={key} className="list-decimal ml-6 mx-auto  mb-4 space-y-1">
                 {children}
               </ol>
             );
