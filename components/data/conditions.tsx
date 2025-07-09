@@ -110,7 +110,7 @@ export const conditions: ConditionInfoProp[] = [
             "Patients suffering from persistent pain after a previous surgery require specialized care. The board-certified specialists at Mountain Spine & Orthopedics have extensive experience in diagnosing and treating Adjacent Segment Disease. Our Florida orthopedic practice provides complimentary MRI reviews and free second opinions to ensure an accurate diagnosis, exploring all non-surgical and minimally invasive options to restore your quality of life.",
         schedule:
             "If you've had spine surgery and are experiencing new or worsening symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Let us help you understand the cause of your pain with a complimentary MRI review and expert second opinion.",
-        slug: "adjacentsegmentdisease",
+        slug: "adjacent-segment-disease",
         keywords: [
             "adjacent segment disease",
             "failed back surgery Florida",
@@ -1488,7 +1488,7 @@ export const conditions: ConditionInfoProp[] = [
             "The orthopedic specialists at Mountain Spine & Orthopedics are leaders in diagnosing and treating rotator cuff tears. Our Florida shoulder experts provide a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We specialize in minimally invasive arthroscopic techniques that restore shoulder function with less pain and a quicker return to the activities you enjoy.",
         schedule:
             "If you are experiencing shoulder pain, weakness, or limited mobility, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to get a precise diagnosis and a personalized treatment plan.",
-        slug: "rotatorcufftear",
+        slug: "rotator-cuff-tear",
         keywords: [
             "rotator cuff tear",
             "shoulder pain treatment Florida",
@@ -2279,7 +2279,7 @@ export const conditions: ConditionInfoProp[] = [
             "At Mountain Spine & Orthopedics, our spine specialists are experts in diagnosing and treating facet joint pain. Serving patients across Florida, we provide precise diagnostic injections and advanced, minimally invasive treatments like radiofrequency ablation. With a complimentary MRI review and a free second opinion, we can identify the true source of your pain and offer lasting relief.",
         schedule:
             "Set up a consultation with Mountain Spine & Orthopedics today for your back or neck pain. Take advantage of our complimentary MRI review and free second opinion to see if facet joint disease is the cause and explore your treatment options.",
-        slug: "facetjointdisease",
+        slug: "facet-joint-disease",
         keywords: [
             "facet joint disease",
             "facet joint injection Florida",

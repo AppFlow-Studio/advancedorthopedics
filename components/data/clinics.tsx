@@ -37,24 +37,24 @@ export const clinics: ClinicsProps[] = [
     link: 'https://www.google.com/maps/place/3500+Tyler+St,+Hollywood,+FL+33021,+USA/@26.0113543,-80.1814945,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9abe7a8e924a9:0xf99f3efb0fd2eb8!8m2!3d26.0113495!4d-80.1789196!16s%2Fg%2F11b8v4qncd?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
     slug: 'hollywood-fl-orthopedics',
     paragraph: `
-    South Florida's most trusted spine and musculoskeletal care center, serving families since 2009.
+    South Florida's most trusted spine and musculoskeletal care center.
     [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier medical care that gets you back to work and play. We are the trusted orthopedic urgent care center in Hollywood, FL, and walk-in clinic for all your musculoskeletal needs.
-    [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified specialists recognized as the premier orthopedic surgeons in Hollywood, Florida, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of your pain to achieve lasting clinical results.
-    [PARAGRAPH BREAK]Inside our state-of-the-art orthopedic treatment center in Hollywood, FL, we utilize the latest diagnostic imaging technology and minimally invasive surgical techniques. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
+    [PARAGRAPH BREAK]Our team includes <a href='/about/meetourdoctors' className='underline text-[#0094E0]'>fellowship-trained, board-certified specialists</a> recognized as the premier <a href='/about/meetourdoctors' className='underline text-[#0094E0]'>orthopedic surgeons in Hollywood, Florida</a>, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including <a href='/area-of-speciality/degenerative-disc-disease' className='underline text-[#0094E0]'>degenerative disc disease</a>, <a href='/area-of-speciality/sciatica' className='underline text-[#0094E0]'>sciatica</a>, <a href='/area-of-speciality/herniated-disc' className='underline text-[#0094E0]'>herniated nucleus pulposus</a>, and <a href='/area-of-speciality/sports-injuries' className='underline text-[#0094E0]'>complex sports-related injuries</a>. Every treatment plan is highly individualized, ensuring we address the specific etiology of your pain to achieve lasting clinical results.
+    [PARAGRAPH BREAK]Inside our state-of-the-art orthopedic treatment center in Hollywood, FL, we utilize the latest diagnostic imaging technology and <a href='/treatments/minimally-invasive-surgery' className='underline text-[#0094E0]'>minimally invasive surgical techniques</a> and <a href='/treatments/laser-spine-surgery' className='underline text-[#0094E0]'>orthopedic laser spine surgery in Hollywood, FL</a>. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
     `,
     keywords: ['orthopedic walk-in clinic hollywood fl', 'orthopedic laser spine surgery hollywood fl', 'orthopedic urgent care hollywood fl', 'orthopedic doctor hollywood fl', 'orthopedic surgeon hollywood fl', 'pediatric orthopedic hollywood fl', 'orthopedic in hollywood fl', 'orthopedic surgeon in hollywood florida'],
     metaTitle: 'Hollywood FL Orthopedic Walk-In Clinic | Spine & Musculoskeletal Care',
-    metaDescription: "South Florida's leading orthopedic walk-in clinic in Hollywood, FL, specializing in spine and musculoskeletal care since 2009. Get expert treatment for back pain, sports injuries, and more. Same-day appointments available.",
+    metaDescription: "South Florida's leading orthopedic walk-in clinic in Hollywood, FL, specializing in spine and musculoskeletal care. Get expert treatment for <a href='https://mountainspineorthopedics.com/locations/hollywood-fl-orthopedics' className='underline text-[#0094E0]'>back pain</a>, <a href='https://mountainspineorthopedics.com/locations/hollywood-fl-orthopedics' className='underline text-[#0094E0]'>sports injuries</a>, and more. Same-day appointments available.",
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h2>
-        <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Hollywood orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+        <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Hollywood orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play. <a href='/about/meetourdoctors' className='underline text-[#0094E0]'>Meet Our Orthopedic Surgeons</a></p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Hollywood & Nearby Areas</h2>
-        <p className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat lumbar and cervical pain, cervical radiculopathy, herniated nucleus pulposus, degenerative disc disease, ACL tears and injuries, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p className='text-lg'><a href='/about/meetourdoctors' className='underline text-[#0094E0]'>Our board-certified orthopedic specialists in Hollywood, FL</a>, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. <a href='/about/meetourdoctors' className='underline text-[#0094E0]'>Our fellowship-trained specialists</a> successfully treat lumbar and <a href='/area-of-speciality/neck-pain' className='underline text-[#0094E0]'>cervical pain</a>, <a href='/area-of-speciality/radiculopathy' className='underline text-[#0094E0]'>cervical radiculopathy</a>, herniated nucleus pulposus, degenerative disc disease, <a href='/area-of-speciality/acl-tear' className='underline text-[#0094E0]'>ACL tears and injuries</a>, <a href='/area-of-speciality/rotator-cuff-tear' className='underline text-[#0094E0]'>rotator cuff pathology</a>, and <a href='/area-of-speciality/work-injury' className='underline text-[#0094E0]'>occupational injuries</a>. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -66,7 +66,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible medical facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Hollywood, specializing in athletic injuries</li>
+          <li>Sports medicine orthopedic specialists in Hollywood, specializing in <a href='/area-of-speciality/sports-injuries' className='underline text-[#0094E0]'>athletic injuries</a></li>
           <li>Specialized pediatric orthopedic services for children and adolescents</li>
         </ul>
       </div>
@@ -75,19 +75,21 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easily Accessible From Throughout South Florida:</h2>
         <ul className='list-disc pl-5 space-y-2'>
-          <li>Miami - 1 hour 15 minutes via I-95</li>
-          <li>Fort Lauderdale - 1 hour via I-95</li>
-          <li>West Palm Beach - 15 minutes via PGA Boulevard</li>
-          <li>Jupiter - 20 minutes via US-1</li>
-          <li>Wellington - 35 minutes via Forest Hill Boulevard</li>
-          <li>Boca Raton - 45 minutes via I-95</li>
+          <li>Miami - 25 minutes via I-95</li>
+          <li>Fort Lauderdale - 20 minutes via I-95</li>
+          <li>Miami International Airport - 40 minutes via I-95</li>
+          <li>Downtown Miami - 30 minutes via I-95</li>
+          <li>Aventura & Hallandale Beach - 10 minutes via US-1</li>
+          <li>Pembroke Pines - 15 minutes via Pines Boulevard</li>
+          <li>Davie - 12 minutes via State Road 84</li>
+          <li>Miramar - 18 minutes via Miramar Parkway</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-lg'>Central Florida Theme Park Access:</h3>
         <ul className='list-disc pl-5 space-y-2'>
-          <li>Disney World (Orlando) - 2 hours 50 minutes via Florida's Turnpike</li>
-          <li>Universal Studios (Orlando) - 2 hours 50 minutes via Florida's Turnpike</li>
-          <li>Orlando International Airport - 2 hours 45 minutes via Florida's Turnpike</li>
-          <li>Downtown Orlando - 2 hours 40 minutes via I-4</li>
+          <li>Disney World (Orlando) - 3.5 hours via Florida's Turnpike</li>
+          <li>Universal Studios (Orlando) - 3.5 hours via Florida's Turnpike</li>
+          <li>Orlando International Airport - 3.5 hours via Florida's Turnpike</li>
+          <li>Downtown Orlando - 3.5 hours via I-4</li>
         </ul>
       </div>
     ),
@@ -102,25 +104,25 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <div className='flex flex-col space-y-4'>
-            <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Treatment Options:</h3>
+            <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary <a href="/treatments/non-surgical" className="underline text-[#0094E0]">Non-Surgical Treatment Options</a>:</h3>
             <ul className='list-disc pl-5 space-y-2'>
               <li>Advanced Pain Management: <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural steroid injections</a>, <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>regenerative stem cell therapy</a>, <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>comprehensive pain management programs</a></li>
-              <li>Laser & Radiofrequency Treatments: State-of-the-art laser spine procedures and precisely targeted radiofrequency ablation treatments using the latest minimally invasive technology</li>
+              <li>Laser & Radiofrequency Treatments: State-of-the-art laser spine procedures and precisely targeted <a href="/treatments" className="underline text-[#0094E0]">radiofrequency ablation technology</a> using the latest minimally invasive technology</li>
               <li>Precision Injections: <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Image-guided facet joint procedures</a>, <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>targeted cortisone injections</a>, trigger point therapy interventions</li>
             </ul>
           </div>
           <div className='flex flex-col space-y-4'>
             <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
             <ul className='list-disc pl-5 space-y-2'>
-              <li>Band-Aid Back Surgery: Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and a quick return to work</li>
-              <li>Minimally Invasive Clinical Excellence: <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>artificial disc replacement procedures</a>, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a></li>
-              <li>Complex Specialized Procedures: <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF surgery</a>, <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level surgical procedures</li>
+              <li><a href="/treatments" className="underline text-[#0094E0]">Band-Aid Back Surgery</a>: Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and a quick return to work</li>
+              <li><a href="/treatments" className="underline text-[#0094E0]">minimally invasive surgical interventions</a>, <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>artificial disc replacement procedures</a>, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a></li>
+              <li>Complex Specialized Procedures: <a href="/treatments/acdf-surgery" className="underline text-[#0094E0]">ACDF surgery</a>, <a href="/treatments/revision-spinal-surgery" className="underline text-[#0094E0]">revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level surgical procedures</li>
             </ul>
           </div>
         </div>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl mt-6'>Exclusive advantages for patients in Greater Hollywood area:</h3>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-lg mt-6'>Exclusive advantages for patients in the Greater Hollywood area:</h3>
         <p className='text-lg'>Robotic-assisted minimally invasive procedures, computer-guided surgical navigation systems, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -259,7 +261,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Palm Springs' advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -368,7 +370,7 @@ export const clinics: ClinicsProps[] = [
         }} className=' font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
         <div className='flex flex-col space-y-2 list-disc pl-5'>
           <li>
-            <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at few locations. Tiny incisions that heal like band aids with exceptional results and faster recovery.
+            <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at few locations. Tiny incisions that heal like band-aids with exceptional results and faster recovery.
           </li>
 
           <li>
@@ -380,7 +382,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Orlando's advantage: Robotic-assisted minimally invasive procedures, computer-guided navigation, same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>,
     whatOurPatientsSay:
       <div className='flex flex-col space-y-4'>
@@ -486,7 +488,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Fort Pierce's advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -518,24 +520,25 @@ export const clinics: ClinicsProps[] = [
     link: 'https://www.google.com/maps/place/3355+Burns+Rd+STE+304,+Palm+Beach+Gardens,+FL+33410,+USA/@26.8308667,-80.0900594,17z/data=!3m1!4b1!4m6!3m5!1s0x88df2aae0744a403:0x1f342d8e4463fb50!8m2!3d26.8308619!4d-80.0874845!16s%2Fg%2F11gg6dh9yq?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
     slug: 'palm-beach-gardens-orthopedics',
     paragraph: `
-    South Florida's most trusted spine and musculoskeletal care center, serving families since 2009.
+    South Florida's most trusted spine and musculoskeletal care center.
     [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned clinical services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier clinical care that gets you back to work and play. We are the trusted choice for orthopedic urgent care near the Palm Beach Gardens facility and walk-in clinic for all your musculoskeletal needs.
-    [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified skilled orthopedic surgeons at the Palm Beach Gardens clinic, who are recognized for their technical surgical skill and patient-first clinical philosophy. We provide comprehensive, compassionate treatment for various pathological conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of your pain to achieve lasting clinical results.
-    [PARAGRAPH BREAK]Inside our state-of-the-art premier orthopedic facility in Palm Beach Gardens, FL location center, we utilize the latest diagnostic imaging technology and minimally invasive surgical techniques. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
+    [PARAGRAPH BREAK]Our team includes <a href="/about/meetourdoctors" className="underline text-[#0094E0]">fellowship-trained, board-certified skilled orthopedic surgeons</a> at the Palm Beach Gardens clinic, who are recognized for their technical surgical skill and patient-first clinical philosophy. We provide comprehensive, compassionate treatment for various pathological conditions, including <a href="/area-of-speciality/degenerative-disc-disease" className="underline text-[#0094E0]">degenerative disc disease</a>, <a href="/area-of-speciality/sciatica" className="underline text-[#0094E0]">sciatica</a>, <a href="/area-of-speciality/herniated-disc" className="underline text-[#0094E0]">herniated nucleus pulposus</a>, and <a href="/area-of-speciality/sports-injuries" className="underline text-[#0094E0]">complex sports-related injuries</a>. Every treatment plan is highly individualized, ensuring we address the specific etiology of your pain to achieve lasting clinical results.
+    [PARAGRAPH BREAK]Inside our state-of-the-art premier orthopedic facility in Palm Beach Gardens, FL location center, we utilize the latest diagnostic imaging technology and <a href="/treatments/minimally-invasive-surgery" className="underline text-[#0094E0]">minimally invasive surgical techniques</a> and <a href="/treatments/laser-spine-surgery" className="underline text-[#0094E0]">orthopedic laser spine surgery in Palm Beach Gardens, FL</a>. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
+    [PARAGRAPH BREAK]<a href="/locations/palm-beach-gardens-orthopedics" className="underline text-[#0094E0]">Book Your Appointment Today - Same-Day Availability</a> | <a href="/locations/palm-beach-gardens-orthopedics" className="underline text-[#0094E0]">Call for Same-Day Appointments</a> | <a href="/locations/palm-beach-gardens-orthopedics" className="underline text-[#0094E0]">Meet Our Complete Medical Team - Schedule Your Clinical Consultation</a>
     `,
     keywords: ['orthopedic walk-in clinic palm beach gardens fl', 'orthopedic laser spine surgery palm beach gardens fl', 'orthopedic urgent care palm beach gardens fl', 'orthopedic doctor palm beach gardens fl', 'orthopedic surgeon palm beach gardens fl', 'pediatric orthopedic bracing palm beach gardens fl', 'orthopedic in palm beach gardens fl', 'orthopedic surgeon in palm beach gardens florida'],
     metaTitle: 'Palm Beach Gardens Orthopedic & Spine Specialists | Mountain Spine & Orthopedics',
-    metaDescription: 'For comprehensive spine and orthopedic care in Palm Beach Gardens, FL, trust Mountain Spine & Orthopedics. Our highly skilled, fellowship-trained surgeons offer a full spectrum of services, from non-surgical treatments to advanced minimally invasive procedures.',
+    metaDescription: 'For comprehensive spine and orthopedic care in Palm Beach Gardens, FL, trust Mountain Spine & Orthopedics. Our highly skilled, <a href="/about/meetourdoctors" className="underline text-[#0094E0]">fellowship-trained surgeons</a> offer a full spectrum of services, from <a href="/treatments" className="underline text-[#0094E0]">non-surgical treatments</a> to <a href="/treatments/minimally-invasive-surgery" className="underline text-[#0094E0]">advanced minimally invasive procedures</a>.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
-        <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Palm Beach Gardens orthopedic center, Mountain Spine & Orthopedics brings expert clinical care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+        <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Palm Beach Gardens orthopedic center, Mountain Spine & Orthopedics brings expert clinical care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play. <a href="/about/meetourdoctors" className="underline text-[#0094E0]">Meet Our Orthopedic Surgeons</a></p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Palm Beach Gardens & Nearby Areas</h2>
-        <p className='text-lg'>Our board-certified orthopedic surgeons in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat lumbar and cervical pain, cervical radiculopathy, herniated nucleus pulposus, degenerative disc disease, ACL tears and injuries, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
+        <p className='text-lg'><a href="/about/meetourdoctors" className="underline text-[#0094E0]">Our board-certified orthopedic surgeons</a> in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat lumbar and <a href="/area-of-speciality/neck-pain" className="underline text-[#0094E0]">cervical pain</a>, <a href="/area-of-speciality" className="underline text-[#0094E0]">cervical radiculopathy</a>, herniated nucleus pulposus, degenerative disc disease, <a href="/area-of-speciality/acl-injury" className="underline text-[#0094E0]">ACL tears and injuries</a>, <a href="/area-of-speciality/rotator-cuff-tear" className="underline text-[#0094E0]">rotator cuff pathology</a>, and <a href="/area-of-speciality" className="underline text-[#0094E0]">occupational injuries</a>. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -547,7 +550,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking clinical staff for our diverse community</li>
           <li>Free parking and a wheelchair-accessible medical facility</li>
           <li>Most insurance plans are accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists throughout the Palm Beach Gardens region specialize in athletic injuries</li>
+          <li>Sports medicine orthopedic specialists throughout the Palm Beach Gardens region specialize in <a href="/area-of-speciality" className="underline text-[#0094E0]">athletic injuries</a></li>
           <li>Advanced pediatric orthopedic services at our Palm Beach Gardens center</li>
           <li>Specialized pediatric orthopedic bracing near the Palm Beach Gardens facility for growing children</li>
         </ul>
@@ -584,25 +587,25 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <div className='flex flex-col space-y-4'>
-            <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Treatment Options:</h3>
+            <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary <a href="/treatments/non-surgical" className="underline text-[#0094E0]">Non-Surgical Treatment Options</a>:</h3>
             <ul className='list-disc pl-5 space-y-2'>
               <li>Advanced Pain Management: <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural steroid injections</a>, <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>regenerative stem cell therapy</a>, <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>comprehensive pain management programs</a></li>
-              <li>Laser & Radiofrequency Treatments: State-of-the-art laser spine procedures and precisely targeted radiofrequency ablation treatments using the latest minimally invasive technology</li>
+              <li>Laser & Radiofrequency Treatments: State-of-the-art laser spine procedures and precisely targeted <a href="/treatments" className="underline text-[#0094E0]">radiofrequency ablation technology</a> using the latest minimally invasive technology</li>
               <li>Precision Injections: <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Image-guided facet joint procedures</a>, <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>targeted cortisone injections</a>, trigger point therapy interventions</li>
             </ul>
           </div>
           <div className='flex flex-col space-y-4'>
             <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
             <ul className='list-disc pl-5 space-y-2'>
-              <li>Band-Aid Back Surgery: Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and a quick return to work</li>
-              <li>Minimally Invasive Clinical Excellence: <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>artificial disc replacement procedures</a>, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a></li>
-              <li>Complex Specialized Procedures: <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF surgery</a>, <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level surgical procedures</li>
+              <li><a href="/treatments" className="underline text-[#0094E0]">Band-Aid Back Surgery</a>: Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and a quick return to work</li>
+              <li><a href="/treatments" className="underline text-[#0094E0]">minimally invasive surgical interventions</a>, <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>artificial disc replacement procedures</a>, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a></li>
+              <li>Complex Specialized Procedures: <a href="/treatments/acdf-surgery" className="underline text-[#0094E0]">ACDF surgery</a>, <a href="/treatments/revision-spinal-surgery" className="underline text-[#0094E0]">revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level surgical procedures</li>
             </ul>
           </div>
         </div>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-lg mt-6'>Exclusive advantages for patients in the Greater Palm Beach Gardens area:</h3>
         <p className='text-lg'>Robotic-assisted minimally invasive procedures, computer-guided surgical navigation systems, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
+        <a href="/locations/palm-beach-gardens-orthopedics" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -745,7 +748,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Miami Beach's advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -845,7 +848,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Boca Raton's advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Check Treatment Candidacy</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -952,7 +955,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Exclusive advantages for patients in Greater Altamonte Springs: Robotic-assisted minimally invasive procedures, computer-guided surgical navigation, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Schedule Your Free Consultation - Check Treatment Candidacy Today</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
@@ -1064,7 +1067,7 @@ export const clinics: ClinicsProps[] = [
           </li>
         </div>
         <p className='text-lg'>Exclusive advantages for patients in Greater Davenport: Robotic-assisted minimally invasive surgical procedures, computer-guided intraoperative navigation, same-day ambulatory surgery protocols, and accelerated rehabilitation programs. Most patients demonstrate optimal functional recovery within weeks.</p>
-        <a href='/find-care/candidacy-check' className='text-[#0094E0] underline'>Schedule Your Free Consultation - Check Treatment Candidacy Today</a>
+        <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Schedule Your Free Consultation - Check Treatment Candidacy Today</a>
       </div>
     ),
     whatOurPatientsSay: (
