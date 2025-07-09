@@ -1,5 +1,9 @@
+import { ReactNode } from 'react';
 import { GetBlogInfo } from '../api/get-blog-info'
 import type { Metadata, ResolvingMetadata } from "next";
+import { headers } from 'next/headers';
+import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata(
   { params }: { params: Promise<{ BlogSlug: string }> },
@@ -51,10 +55,41 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogLayout({
+export default async function BlogLayout({
   children,
+  params
 }: {
-  children: React.ReactNode
+  children: ReactNode,
+  params: { BlogSlug: string }
 }) {
-  return children;
+  const blog = await GetBlogInfo(params.BlogSlug);
+  if (!blog) return children;
+  const info = blog.blog_info;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": info.metaTitle || info.title,
+    "description": info.metaDescription || info.desc,
+    "image": info.img,
+    "author": {
+      "@type": "Person",
+      "name": info.author
+    },
+    "datePublished": blog.created_at,
+    "dateModified": blog.modified_at,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://mountainspineorthopedics.com/blogs/${blog.slug}`
+    },
+    "keywords": info.keywords?.join(", ") || undefined,
+    "articleSection": info.tags?.join(", ") || undefined
+  };
+  return (
+    <>
+      <head>
+        <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </head>
+      {children}
+    </>
+  );
 }

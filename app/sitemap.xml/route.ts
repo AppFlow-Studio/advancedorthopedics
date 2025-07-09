@@ -134,10 +134,10 @@ export async function GET() {
     .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
     .join('')}
 
-  // CORRECTED: Blog URLs generated from a title/slug field instead of a generic ID
+  // CORRECTED: Blog URLs generated from the blog.slug field to match actual blog URLs
   ${blogsData
-    .filter(blog => blog?.blog_info?.title)
-    .map(blog => generateUrlEntry(`/blogs/${slugify(blog.blog_info.title)}`, blog.modified_at, "monthly"))
+    .filter(blog => blog?.slug)
+    .map(blog => generateUrlEntry(`/blogs/${blog.slug}`, blog.modified_at, "monthly"))
     .join('')}
 </urlset>`;
 
