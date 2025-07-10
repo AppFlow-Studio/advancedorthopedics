@@ -549,7 +549,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
             }
         ],
         side_img: pinchednerveside,
-        slug: "neckandshoulderpaintreatments",
+        slug: "neck-and-shoulder-pain-treatment",
         keywords: [
             "neck pain treatment Florida",
             "shoulder pain specialist",

@@ -260,7 +260,7 @@ const NavBarLinks = [
           },
           {
             title: 'Neck and Shoulder Treatments',
-            href: '/area-of-pain/neck-and-shoulder-pain/neckandshoulderpaintreatments'
+            href: '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment'
           }
         ]
       },

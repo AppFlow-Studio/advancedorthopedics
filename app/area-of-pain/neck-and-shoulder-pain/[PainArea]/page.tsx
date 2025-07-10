@@ -18,7 +18,7 @@ export default async function PainArea({ params }: { params: { PainArea: string 
   const conditionSlug = resolvedParams.PainArea;
   let condition_details;
 
-  if (conditionSlug === 'neckandshoulderpaintreatments') {
+  if (conditionSlug === 'neck-and-shoulder-pain-treatment') {
     condition_details = (await import('@/components/data/painareatreatments')).PainAreaTreatments.find(
       (x) => x.slug === conditionSlug
     );
