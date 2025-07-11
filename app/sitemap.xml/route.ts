@@ -62,7 +62,7 @@ const NeckPainPages = [
   'degenerative-disc-disease',
   'arthritis',
   'pinched-nerve',
-  'neckandshoulderpaintreatments',
+  'neck-and-shoulder-pain-treatment',
 ];
 
 
