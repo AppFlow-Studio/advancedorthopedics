@@ -14,7 +14,7 @@ export async function generateMetadata(
   const conditionSlug = resolvedParams.PainArea;
   let data;
 
-  if (conditionSlug === "neckandshoulderpaintreatments") {
+  if (conditionSlug === "neck-and-shoulder-pain-treatment") {
     data = PainAreaTreatments.find((x) => x.slug === conditionSlug);
   } else {
     data = conditions.find((x) => x.slug === conditionSlug);

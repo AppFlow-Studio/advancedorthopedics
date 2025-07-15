@@ -23,7 +23,7 @@ export async function generateMetadata(
   return {
     title: info.metaTitle || `${info.title} | Mountain Spine & Orthopedics`,
     description: info.metaDescription || info.desc,
-    keywords: blog.keywords || [],
+    keywords: info.keywords || [],
     openGraph: {
       title: info.metaTitle || `${info.title} | Mountain Spine & Orthopedics`,
       description: info.metaDescription || info.desc,

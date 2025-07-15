@@ -328,6 +328,10 @@ export default function BlogDetails({
                 <div className="space-y-4">
                   {section.sub_stories.map((sub: any, subIdx: number) => (
                     <div key={subIdx} className="ml-4">
+                      {sub.img && (
+                        <div className='w-full h-100 relative rounded-2xl overflow-hidden mb-6'>
+                        <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
+                        </div>)}
                       <h3 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#022968] text-xl mb-1'>{sub.header}</h3>
                       <div className='text-[#5B5F67] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base'>{renderRichText(sub.body)}</div>
                     </div>

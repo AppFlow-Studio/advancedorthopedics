@@ -153,7 +153,7 @@ export default function LocationDetails(
                                     className="text-white text-lg lg:text-xl text-shadow-sm"
                                 >
                                     Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures.<br />
-                                    {location.region} most trusted spine and joint care center, serving Florida families since 2009.
+                                    {location.region} most trusted spine and joint care center, serving Florida families at their convenience.
                                 </p>
                             </div>
                         </SlidingDiv>
@@ -223,6 +223,7 @@ export default function LocationDetails(
                             </p>
 
                             <div className=" mt-[40px] xl:w-[50%] w-full md:w-fit"><BookAnAppoitmentButton /></div>
+                            {/* INTERNAL LINKS HERE */}
                         </div>
                     </div>
                 </Reveal>
@@ -252,8 +253,9 @@ export default function LocationDetails(
                                     }}
                                     className=" text-lg"
                                 >
-                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why <a href='https://www.orlando.gov/Home' className='underline text-[#022968]'>Hollywood</a> families choose us:
+                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why {location.region.split(',')[0]} families choose us:
                                 </p>
+                                {/* INTERNAL LINKS HERE */}
                             </div>
                         </Reveal>
 
@@ -364,12 +366,19 @@ export default function LocationDetails(
             </section>
             <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-8  h-full px-2 md:px-[40px]">
                 {location.specialists}
+                {/* INTERNAL LINKS HERE */}
                 {location.skilled}
+                {/* INTERNAL LINKS HERE */}
                 {location.whyChoose}
+                {/* INTERNAL LINKS HERE */}
                 {location.easyToReach}
+                {/* INTERNAL LINKS HERE */}
                 {location.nearby}
+                {/* INTERNAL LINKS HERE */}
                 {location.advancedTreatments}
+                {/* INTERNAL LINKS HERE */}
                 {location.whatOurPatientsSay}
+                {/* INTERNAL LINKS HERE */}
             </section>
             {/* <RatingsAndReviews /> */}
         </main>

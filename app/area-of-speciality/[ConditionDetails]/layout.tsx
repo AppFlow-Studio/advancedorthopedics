@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
+import { posthog } from "posthog-js";
 
 function capitalizeWords(str: string): string {
   return str.replace(/\b\w/g, l => l.toUpperCase());
@@ -135,6 +136,9 @@ export default function ConditionLayout({
     children: React.ReactNode;
     params: { ConditionDetails: string };
 }) {
+    posthog.capture("view_condition", {
+        condition: params.ConditionDetails
+    });
     return (
         <>
             <CombinedSchema params={params} />
