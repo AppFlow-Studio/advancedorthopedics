@@ -1,96 +1,75 @@
-'use client';
+import { notFound } from 'next/navigation';
+import { AllTreatments } from '@/components/data/treatments';
 import InjectFaqSchema from '@/components/InjectFaqSchema';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
-import { ConditionInfoProp } from '@/components/ConditionCard';
-import { AllTreatments, TreatmentsCardProp } from '@/components/data/treatments';
 import { ConsultationForm } from '@/components/ContactForm';
-import { Input } from '@/components/ui/input';
 import { Doctors } from '@/components/data/doctors';
 import DoctorCard from '@/components/DoctorCard';
-import Link from 'next/link';
-import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
-import { notFound, redirect } from 'next/navigation';
-export default function TreatmentDetails({
-    params,
-  }: {
-    params: Promise<{ TreatmentDetails : string }>
-  }) {
-// Unwrap the promise using React.use (the experimental hook)
-  const resolvedParams = React.use(params)
-  const conditionSlug = resolvedParams.TreatmentDetails
-  const treatment_details : TreatmentsCardProp | undefined = AllTreatments.find( x => x.slug === conditionSlug)
-   
-  // ✅ Add JSON-LD schema for MedicalProcedure, BIlal Addition
-  if (typeof window !== "undefined" && treatment_details) {
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "MedicalProcedure",
-      name: treatment_details.title,
-      description: treatment_details.body,
-      bodyLocation: treatment_details.conditions_treated,
-      howPerformed: treatment_details.procedure_info,
-      preparation: treatment_details.detail,
-      followup: treatment_details.recovery_info,
-      recognizingAuthority: {
-        "@type": "Organization",
-        name: "Mountain Spine and Orthopedics",
-        url: "https://mountainspineorthopedics.com"
-      },
-      provider: {
-        "@type": "MedicalOrganization",
-        name: "Mountain Spine and Orthopedics",
-        url: "https://mountainspineorthopedics.com"
-      }
-    };
-  
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.innerHTML = JSON.stringify(jsonLd);
-    document.head.appendChild(script);
-  }
-  // ✅ End of JSON-LD schema for MedicalProcedure, BIlal Addition
+import Link from 'next/link';
+import { conditions } from '@/components/data/conditions';
 
-  if (!treatment_details) {
+// Helper: Build a map of all condition/treatment titles to their slugs and type
+const conditionMap = Object.fromEntries(
+  conditions.map(c => [c.title.toLowerCase(), { slug: c.slug, type: 'condition' }])
+);
+const treatmentMap = Object.fromEntries(
+  AllTreatments.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
+);
+const allTitles = [
+  ...conditions.map(c => c.title),
+  ...AllTreatments.map(t => t.title)
+];
+
+function linkifyText(text, currentSlug) {
+  if (!text || typeof text !== 'string') return text;
+  let replaced = text;
+  // Sort titles by length descending to avoid partial matches
+  const sortedTitles = allTitles.slice().sort((a, b) => b.length - a.length);
+  sortedTitles.forEach(title => {
+    const lowerTitle = title.toLowerCase();
+    const cond = conditionMap[lowerTitle];
+    const treat = treatmentMap[lowerTitle];
+    const slug = cond ? cond.slug : treat ? treat.slug : null;
+    const type = cond ? 'condition' : treat ? 'treatment' : null;
+    if (!slug || slug === currentSlug) return;
+    // Only link if the title matches exactly as a whole word/phrase
+    const regex = new RegExp(`(?<![\w-])${title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}(?![\w-])`, 'g');
+    replaced = replaced.replace(regex, match => {
+      const href = type === 'condition' ? `/area-of-speciality/${slug}` : `/treatments/${slug}`;
+      return `<a href="${href}" class="underline text-[#022968]">${match}</a>`;
+    });
+  });
+  return replaced;
+}
+
+// Helper to render string or JSX/ReactNode fields
+function renderField(field: any, currentSlug: string) {
+  if (!field) return null;
+  if (typeof field === 'string') {
     return (
-      notFound()
-    )
+      <div
+        dangerouslySetInnerHTML={{ __html: linkifyText(field, currentSlug) }}
+      />
+    );
   }
+  if (React.isValidElement(field)) {
+    return field;
+  }
+  return null;
+}
 
-  const faqSchema = treatment_details
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: `What are the benefits of ${treatment_details.title}?`,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: treatment_details.benefits || "Relieves spine and joint pain.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: `What conditions does ${treatment_details.title} treat?`,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: treatment_details.conditions_treated || "Treats orthopedic and spinal conditions.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is the recovery process like?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: treatment_details.recovery_info || "Often includes physical therapy.",
-            },
-          },
-        ],
-      }
-    : null;
+export const dynamicParams = false;        // ⬅ 404 unknown slugs immediately
+
+export async function generateStaticParams() {
+  return AllTreatments.map(t => ({ TreatmentDetails: t.slug }));
+}
+
+export default function Page({ params }: { params: { TreatmentDetails: string } }) {
+  const treatment = AllTreatments.find(t => t.slug === params.TreatmentDetails);
+  if (!treatment) notFound();
 
   // Function to perform a Fisher-Yates shuffle on the array
   function shuffleArray<T>(array: T[]): T[] {
@@ -104,6 +83,39 @@ export default function TreatmentDetails({
   
   // Shuffle the Doctors array and then take the first two doctors
   const randomDoctors = shuffleArray(Doctors).slice(0, 2);    
+
+  const faqSchema = treatment
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: `What are the benefits of ${treatment.title}?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: treatment.benefits || "Relieves spine and joint pain.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: `What conditions does ${treatment.title} treat?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: treatment.conditions_treated || "Treats orthopedic and spinal conditions.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is the recovery process like?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: treatment.recovery_info || "Often includes physical therapy.",
+            },
+          },
+        ],
+      }
+    : null;
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -175,7 +187,7 @@ export default function TreatmentDetails({
               }}
               className="text-[#2358AC] sm:flex hidden"
               >
-                  {treatment_details.title}
+                  {treatment.title}
               </span>
           </div>
       </div>
@@ -187,19 +199,12 @@ export default function TreatmentDetails({
           }}
           className="text-[#022968] flex-wrap text-3xl md:text-6xl lg:text-7xl"
           >
-              {treatment_details.title}
+              {treatment.title}
           </h1>
       </div>
 
       <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
-          <p
-          style={{
-              fontWeight: 400,
-          }}
-          className="text-[#5B5F67] sm:text-xl text-sm"
-          >
-              {treatment_details.body}
-          </p>
+          {renderField(treatment.body, treatment.slug)}
       </div>
       </div>
       </section>
@@ -209,7 +214,7 @@ export default function TreatmentDetails({
               <ConsultationForm />
               <div className='mt-10'/>
               <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-                  <TreatmentsList currentTreatment={treatment_details.title} />
+                  <TreatmentsList currentTreatment={treatment.title} />
               </div>
 
               <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
@@ -243,18 +248,13 @@ export default function TreatmentDetails({
                             fontFamily : 'var(--font-reem-kufi)',
                             fontWeight : 500,
                           }}
-                        className='text-[#111315] sm:text-5xl text-3xl'
+                        className='text-[#111315] sm:text-5xl text-2xl'
                         >
-                        About {treatment_details.title}
+                        About {treatment.title}
                         </h2>
-                        <p
-                        style={{
-                            fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                        >
-                            {treatment_details.body}
-                        </p>
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.body, treatment.slug)}
+                        </div>
                     </div>
                     
                     {/* What are symptoms of */}
@@ -266,22 +266,17 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        What is {treatment_details.title}?
+                        What is {treatment.title}?
                         </h2>
-                        <p
-                        style={{
-                            fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                        >
-                            {treatment_details.detail}
-                        </p>
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.detail, treatment.slug)}
+                        </div>
                     </div>
                     
                   
                     <Image 
-                      src={treatment_details.inTxt_img || '/default-treatment.png'}  
-                      alt={treatment_details.title} 
+                      src={treatment.inTxt_img || '/default-treatment.png'}  
+                      alt={treatment.title} 
                       width={300} 
                       height={300} 
                       layout="responsive" 
@@ -296,16 +291,11 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        What does {treatment_details.title} look like?
+                        What does {treatment.title} look like?
                         </h2>
-                        <p
-                        style={{
-                            fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                        >
-                            {treatment_details.procedure_info}
-                        </p>
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.procedure_info, treatment.slug)}
+                        </div>
                     </div>
     
                     
@@ -318,16 +308,11 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        What Conditions does {treatment_details.title} Help Ease?
+                        What Conditions does {treatment.title} Help Ease?
                         </h2>
-                        <p
-                        style={{
-                            fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                        >
-                            {treatment_details.conditions_treated}
-                        </p>
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.conditions_treated, treatment.slug)}
+                        </div>
                     </div>
 
                     <div className=' flex flex-col space-y-[16px] '>
@@ -338,13 +323,12 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        Benefits of {treatment_details.title}
+                        Benefits of {treatment.title}
                         </h2>
-                        {typeof treatment_details.benefits === 'string' ? (
-                          <ul><li>{treatment_details.benefits}</li></ul>
-                        ) : (
-                          treatment_details.benefits
-                        )}
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.benefits, treatment.slug)}
+                            {typeof treatment.benefits !== 'string' && treatment.benefits}
+                        </div>
                     </div>
     
                     {/*  Why Choose Us */}
@@ -356,16 +340,11 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        Why Choose Mountain Spine & Orthopedics for {treatment_details.title}?
+                        Why Choose Mountain Spine & Orthopedics for {treatment.title}?
                         </h2>
-                        <p
-                        style={{
-                            fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                        >
-                            {treatment_details.why_choose_us}
-                        </p>
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.why_choose_us, treatment.slug)}
+                        </div>
                     </div>
                     
                     {/* Recovery Info */}
@@ -377,16 +356,11 @@ export default function TreatmentDetails({
                           }}
                         className='text-[#111315] text-2xl sm:text-4xl'
                         >
-                        What does post {treatment_details.title} recovery look like?
+                        What does post {treatment.title} recovery look like?
                         </h2>
-                        <p
-                        style={{
-                            fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                        >
-                            {treatment_details.recovery_info}
-                        </p>
+                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                            {renderField(treatment.recovery_info, treatment.slug)}
+                        </div>
                     </div>
   
   
@@ -401,14 +375,10 @@ export default function TreatmentDetails({
                           >
                           Schedule a Consultation Today
                       </h2>
-                      <p
-                       style={{
-                          fontWeight: 400,
-                        }}
-                        className="text-[#5B5F67] sm:text-xl text-sm"
-                      >
-                          {treatment_details.schedule}
-                      </p>
+                      <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                          {renderField(treatment.schedule, treatment.slug)}
+                          <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
+                      </div>
                   </div>
               </section>
 
@@ -437,5 +407,5 @@ export default function TreatmentDetails({
 
       </section>
   </main>
-)
+  );
 }

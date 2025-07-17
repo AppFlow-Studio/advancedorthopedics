@@ -12,7 +12,7 @@ const FootAnkleConditions = [
     "achilles-tendonitis",
     "flat-feet",
     "ankle-arthroscopy",
-    "hammertoes",
+            "hammer-toes",
     "ankle-replacement",
     "diabetic-foot-ulcers"
   ];

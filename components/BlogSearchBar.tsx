@@ -68,7 +68,7 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
   }
 
   // Handler for keyboard navigation
-  function handleKeyDown(e: KeyboardEvent<InputElement>) {
+  function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Escape') {
         setShow(false);
         return;

@@ -1,3 +1,6 @@
+import { Metadata, ResolvingMetadata } from 'next';
+import { clinics } from '@/components/data/clinics';
+
 function capitalizeWords(str: string): string {
   return str.replace(/\b\w/g, l => l.toUpperCase());
 }

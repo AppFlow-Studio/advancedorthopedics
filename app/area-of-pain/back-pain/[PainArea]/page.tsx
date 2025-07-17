@@ -15,19 +15,17 @@ function shuffleArray(array: any[]) {
   return newArray;
 }
 
-export default async function PainArea({ params }: { params: { PainArea: string } }) {
-  // If params ever becomes a Promise, this will future-proof it:
-  const resolvedParams = await params;
-  const conditionSlug = resolvedParams.PainArea;
+export default async function PainArea({ params }: { params: Promise<{ PainArea: string }> }) {
+  const { PainArea } = await params;
   let condition_details;
 
-  if (conditionSlug === 'backpaintreatmentoptions') {
+      if (PainArea === 'back-pain-treatment-options') {
     condition_details = (await import('@/components/data/painareatreatments')).PainAreaTreatments.find(
-      (x) => x.slug === conditionSlug
+      (x) => x.slug === PainArea
     );
   } else {
     condition_details = (await import('@/components/data/conditions')).conditions.find(
-      (x) => x.slug === conditionSlug
+      (x) => x.slug === PainArea
     );
   }
 

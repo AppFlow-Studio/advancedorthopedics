@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import { GetBlogInfo } from '../api/get-blog-info'
 import type { Metadata, ResolvingMetadata } from "next";
 import { headers } from 'next/headers';
-import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
+import StaticNav from "@/components/StaticNav.server";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ BlogSlug: string }> },
@@ -63,7 +63,7 @@ export default async function BlogLayout({
   params: { BlogSlug: string }
 }) {
   const blog = await GetBlogInfo(params.BlogSlug);
-  if (!blog) return children;
+  if (!blog) return notFound();
   const info = blog.blog_info;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -89,6 +89,7 @@ export default async function BlogLayout({
       <head>
         <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
+      <StaticNav />
       {children}
     </>
   );
