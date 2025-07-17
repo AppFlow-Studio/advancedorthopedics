@@ -83,7 +83,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal deformity",
         ],
         metaTitle:
-            "Adult Degenerative Scoliosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Adult Degenerative Scoliosis | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Adult degenerative scoliosis causes a sideways spinal curve and back pain. Our Florida spine specialists offer advanced diagnosis and minimally invasive care.",
     },
@@ -122,7 +122,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal degeneration",
         ],
         metaTitle:
-            "Adjacent Segment Disease | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Adjacent Segment Disease | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Pain after spine surgery may be Adjacent Segment Disease. Our Florida specialists diagnose and treat ASD with advanced non-surgical and revision surgery options.",
     },
@@ -242,8 +242,8 @@ export const conditions: ConditionInfoProp[] = [
                                 <br />
                                 At Mountain Spine & Orthopedics, our spine specialists will
                                 evaluate your condition and create a customized treatment plan
-                                to help you return to a pain-free, active lifestyle. You don’t
-                                have to live with back pain we’re here to help you find the
+                                to help you return to a pain-free, active lifestyle. You don't
+                                have to live with back pain we're here to help you find the
                                 right solution.
                             </p>
                             <OutlinedButton text="Find a Treatment" />
@@ -282,8 +282,8 @@ export const conditions: ConditionInfoProp[] = [
                                 injections or minimally invasive surgery may be recommended. At
                                 Mountain Spine & Orthopedics, our spine specialists will
                                 evaluate your condition and create a customized treatment plan
-                                to help you return to a pain-free, active lifestyle. You don’t
-                                have to live with back pain we’re here to help you find the
+                                to help you return to a pain-free, active lifestyle. You don't
+                                have to live with back pain we're here to help you find the
                                 right solution.
                             </p>
                             <GradientOverlayImage
@@ -317,7 +317,7 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#5B5F67] text-md sm:text-xl"
                             >
-                                If you’re experiencing symptoms of a lumbar herniated disc,
+                                If you're experiencing symptoms of a lumbar herniated disc,
                                 there are several treatment options available depending on the
                                 severity of your condition. If your pain is mild and manageable,
                                 starting with home care and guided physical therapy can often
@@ -342,7 +342,7 @@ export const conditions: ConditionInfoProp[] = [
                                 Every patient is different, which is why the team at Mountain
                                 Spine & Orthopedics develops personalized care plans using the
                                 most advanced and least invasive techniques available. Whether
-                                your condition is new or has been ongoing for years, we’re here
+                                your condition is new or has been ongoing for years, we're here
                                 to help you get back to living the life you love.
                             </p>
                         </div>
@@ -371,10 +371,10 @@ export const conditions: ConditionInfoProp[] = [
                             >
                                 Living with a lumbar herniated disc can affect every aspect of
                                 your day, from walking and sitting to sleeping and working. You
-                                don’t have to push through the pain. At Mountain Spine &
+                                don't have to push through the pain. At Mountain Spine &
                                 Orthopedics, our expert spine team is ready to help you regain
                                 control through innovative treatments and compassionate care.
-                                Whether you’re just beginning to feel discomfort or you’ve been
+                                Whether you're just beginning to feel discomfort or you've been
                                 suffering for some time, the first step toward recovery starts
                                 with a conversation.
                                 <br />
@@ -399,7 +399,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical back pain treatment",
         ],
         metaTitle:
-            "Lumbar Herniated Disc | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Lumbar Herniated Disc | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A lumbar herniated disc causes lower back pain and sciatica. Our Florida spine specialists offer expert diagnosis, MRI reviews, and advanced pain relief options.",
     },
@@ -628,7 +628,7 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#5B5F67] text-md sm:text-xl"
                             >
-                                If you’re experiencing persistent back or neck pain, don’t wait
+                                If you're experiencing persistent back or neck pain, don't wait
                                 to seek help. Degenerative Disc Disease is manageable with the
                                 right care plan and professional guidance. At Mountain Spine &
                                 Orthopedics, our experienced spine specialists are here to
@@ -637,7 +637,7 @@ export const conditions: ConditionInfoProp[] = [
                                 <br />
                                 <br />
                                 Call us today at (561) 223-9959 or fill out our online form to
-                                schedule your consultation. Let’s work together to get your
+                                schedule your consultation. Let's work together to get your
                                 spine and your life back on track.
                             </p>
                         </div>
@@ -658,7 +658,7 @@ export const conditions: ConditionInfoProp[] = [
             "disc degeneration",
         ],
         metaTitle:
-            "Degenerative Disc Disease | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Degenerative Disc Disease | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Degenerative Disc Disease causes chronic back or neck pain from disc wear. Our Florida specialists offer advanced non-surgical and surgical care for DDD.",
     },
@@ -749,10 +749,10 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#5B5F67] text-md sm:text-xl"
                             >
-                                If you’re experiencing any of these symptoms, it’s essential to
+                                If you're experiencing any of these symptoms, it's essential to
                                 get evaluated early. We offer a quick and easy spinal condition
                                 assessment tool to help gather information and determine if you
-                                may be a candidate for treatment. Don’t delay your recovery the
+                                may be a candidate for treatment. Don't delay your recovery the
                                 earlier we intervene, the better your outcome.
                             </p>
 
@@ -839,9 +839,9 @@ export const conditions: ConditionInfoProp[] = [
                                 cord, relieving pressure and reducing symptoms.
                                 <br />
                                 <br />
-                                The key benefit of this procedure is that it retains the neck’s
+                                The key benefit of this procedure is that it retains the neck's
                                 natural movement. Unlike fusion, which locks segments together,
-                                laminoplasty allows the bones to remain flexible. However, it’s
+                                laminoplasty allows the bones to remain flexible. However, it's
                                 important to note that while laminoplasty is excellent for
                                 relieving nerve-related symptoms like arm and leg pain or
                                 headaches, it is not intended to address central neck pain. For
@@ -905,7 +905,7 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#5B5F67] text-md sm:text-xl"
                             >
-                                If you’re experiencing symptoms like numbness, clumsiness, or
+                                If you're experiencing symptoms like numbness, clumsiness, or
                                 radiating pain in your arms or legs, you may have cervical
                                 spinal stenosis. Early treatment can significantly improve your
                                 outcome and prevent further neurological damage. At Mountain
@@ -934,7 +934,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical myelopathy",
         ],
         metaTitle:
-            "Cervical Spinal Stenosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Cervical Spinal Stenosis | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Cervical spinal stenosis narrows the neck's spinal canal, causing pain and numbness. Our Florida specialists offer advanced diagnosis and treatment options.",
     },
@@ -985,7 +985,7 @@ export const conditions: ConditionInfoProp[] = [
             "back pain specialist",
         ],
         metaTitle:
-            "Spondylolisthesis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Spondylolisthesis | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Spondylolisthesis causes vertebral slippage, back pain, and nerve compression. Our Florida spine specialists offer expert diagnosis and advanced treatment.",
     },
@@ -1083,10 +1083,10 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#5B5F67] text-md sm:text-xl"
                             >
-                                If you’re experiencing neck pain, numbness, or weakness in your
+                                If you're experiencing neck pain, numbness, or weakness in your
                                 upper limbs, you may be dealing with a herniated disc in your
                                 cervical spine. Our symptom checker tool is a quick and easy way
-                                to help determine if you’re showing signs of disc herniation and
+                                to help determine if you're showing signs of disc herniation and
                                 whether a treatment consultation is recommended.
                             </p>
 
@@ -1232,7 +1232,7 @@ export const conditions: ConditionInfoProp[] = [
                                 repetitive neck strain or heavy lifting. Trauma to the spine or
                                 poor posture while sitting or sleeping can also contribute.
                                 Herniated discs may present with a wide range of symptoms pain,
-                                numbness, tingling, and weakness in the arms or legs so it’s
+                                numbness, tingling, and weakness in the arms or legs so it's
                                 important to get evaluated by a medical professional if you
                                 suspect you may have this condition.
                             </p>
@@ -1758,7 +1758,7 @@ export const conditions: ConditionInfoProp[] = [
             "At Mountain Spine & Orthopedics, our board-certified spine specialists are dedicated to diagnosing and treating the underlying cause of your back pain. Our Florida clinics offer a complimentary MRI review and a free second opinion to ensure you receive an accurate diagnosis. We believe in a patient-focused approach, emphasizing non-surgical and minimally invasive options to help you achieve lasting relief.",
         schedule:
             "Arrange a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review and a free second opinion to understand the source of your back pain and begin your journey to relief.",
-        slug: "backpain",
+        slug: "back-pain",
         keywords: [
             "back pain",
             "lower back pain treatment Florida",
@@ -2198,7 +2198,7 @@ export const conditions: ConditionInfoProp[] = [
             "At Mountain Spine & Orthopedics, our specialists use advanced, image-guided techniques to deliver anti-inflammatory injections with the highest degree of precision. Patients across Florida trust our expertise for effective pain relief. With a complimentary MRI review and a free second opinion, we can determine if a targeted injection is the right solution for your pain.",
         schedule:
             "Explore targeted pain relief today by scheduling an appointment at Mountain Spine & Orthopedics. Our team will determine if anti-inflammatory injections align with your goals and craft a customized plan to get you moving pain-free again.",
-        slug: "antiinflammatoryinjections",
+        slug: "anti-inflammatory-injections",
         keywords: [
             "anti-inflammatory injection",
             "corticosteroid injection",
@@ -2237,7 +2237,7 @@ export const conditions: ConditionInfoProp[] = [
             "The fellowship-trained hip specialists at Mountain Spine & Orthopedics offer cutting-edge care for hip dysplasia. Our Florida-based practice is one of few that performs advanced joint preservation surgeries like the periacetabular osteotomy (PAO). With a complimentary MRI review and free second opinion, we can create a personalized plan to preserve your joint health and keep you moving pain-free.",
         schedule:
             "If hip pain or instability is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics. Benefit from a complimentary MRI review and a thorough second opinion to get answers and a personalized plan for managing your hip dysplasia.",
-        slug: "hipdysplasia",
+        slug: "hip-dysplasia",
         keywords: [
             "hip dysplasia",
             "adult hip dysplasia Florida",
@@ -3519,7 +3519,7 @@ export const conditions: ConditionInfoProp[] = [
             "If a previous spine surgery has failed to provide relief, you need a second opinion from true experts. The board-certified surgeons at Mountain Spine & Orthopedics specialize in diagnosing and treating Failed Back and Neck Surgery Syndrome. We provide patients across Florida with a complimentary, in-depth MRI review to guide you toward a clear plan to confront this challenging condition and regain control of your life.",
         schedule:
             "If spine surgery has failed to provide you with lasting relief, schedule a consultation with Mountain Spine & Orthopedics. Our specialists will conduct a complimentary MRI review and a thorough second opinion to help you find a new path to recovery.",
-        slug: "failedbackorfailenecksurgerysyndrome",
+        slug: "failed-back-surgery-syndrome",
         keywords: [
             "failed back surgery syndrome",
             "persistent pain after spine surgery",
@@ -4114,7 +4114,7 @@ export const conditions: ConditionInfoProp[] = [
             "The hip preservation specialists at Mountain Spine & Orthopedics are leaders in treating FAI. Our Florida-based surgeons use advanced hip arthroscopy techniques to correct impingement and repair labral tears, helping you return to your sport or active lifestyle. With a complimentary MRI review and free second opinion, we provide the expert guidance you need.",
         schedule:
             "Don’t let hip pain sideline your active lifestyle. Schedule a consultation with Mountain Spine & Orthopedics for a complimentary MRI review and an expert second opinion to resolve your hip impingement and reclaim full motion.",
-        slug: "hipimpingement",
+        slug: "hip-impingement",
         keywords: [
             "hip impingement",
             "femoroacetabular impingement (FAI)",
@@ -4153,7 +4153,7 @@ export const conditions: ConditionInfoProp[] = [
             "At Mountain Spine & Orthopedics, our sports medicine specialists are experts in the arthroscopic removal of loose bodies from the knee, shoulder, and ankle. Serving patients across Florida, we offer a complimentary MRI review and a free second opinion to confirm your diagnosis. Our minimally invasive approach ensures you can return to smooth, pain-free motion quickly.",
         schedule:
             "If sudden joint locking or sharp pain is disrupting your routine, schedule a consultation with Mountain Spine & Orthopedics. Benefit from a complimentary MRI review and a comprehensive second opinion to move forward with a clear plan to remove the loose bodies.",
-        slug: "loosebodies",
+        slug: "loose-bodies",
         keywords: [
             "loose bodies in knee",
             "joint locking and catching",
@@ -4327,7 +4327,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/sacard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/saartib.jpg",
         body: "Shoulder arthritis is a degenerative condition that involves the breakdown of joint cartilage, leading to chronic pain, stiffness, and loss of motion.",
-        detail: "Shoulder arthritis occurs when the smooth cartilage that covers the bones of the shoulder joint wears down, leading to pain, stiffness, and grinding. This degeneration can result from wear-and-tear (osteoarthritis), a past injury, or an inflammatory condition. At Mountain Spine & Orthopedics, our diagnosis includes a physical exam and advanced imaging to show joint space narrowing and bone spurs, which helps shape a personalized treatment strategy to restore motion and relieve pain.",
+        detail: "Shoulder arthritis occurs when the smooth cartilage that covers the bones of the shoulder joint wears down, leading to pain, stiffness, and grinding. This degeneration can result from wear-and-tear, a past injury, or an inflammatory condition. At Mountain Spine & Orthopedics, our diagnosis includes a physical exam and advanced imaging to show joint space narrowing and bone spurs, which helps shape a personalized treatment strategy to restore motion and relieve pain.",
         what_sym: "Symptoms include a deep, aching pain in the shoulder that worsens with activity and at night. Patients also experience stiffness, an audible grinding or clicking with movement, and a decreased ability to lift the arm or rotate the shoulder.",
         risk_fac:
             "Key risk factors include aging, a history of previous shoulder injuries or dislocations, chronic overuse (common in overhead athletes), and inflammatory autoimmune disorders like rheumatoid arthritis. A chronic, untreated rotator cuff tear can also lead to a specific type of arthritis.",
@@ -4455,7 +4455,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "Maintaining good posture, engaging in regular low-impact exercise, managing weight, and treating underlying conditions like arthritis or disc degeneration early can help slow the progression of bone spur formation.",
         why_choose_us: "At Mountain Spine & Orthopedics, our spine specialists are experts at treating symptomatic bone spurs. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize the full spectrum of non-surgical and minimally invasive surgical techniques to relieve your pain and restore mobility.",
         schedule: "If neck or back pain from bone spurs is impacting your life, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and an expert second opinion to move forward with a personalized care plan.",
-        slug: "spinalbonespurs",
+        slug: "spinal-bone-spurs",
         keywords: [
             "spinal bone spurs",
             "osteophytes treatment",
@@ -4484,7 +4484,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "Staying physically active, maintaining good posture, avoiding smoking, and treating other spinal conditions early can help reduce the risk or slow the progression of spinal stenosis.",
         why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating spinal stenosis. We provide patients throughout Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize advanced, minimally invasive surgical techniques designed to minimize downtime and maximize long-term relief.",
         schedule: "If you're experiencing back or neck pain, numbness, or difficulty walking, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to manage your spinal stenosis and regain mobility.",
-        slug: "spinalstenosis",
+        slug: "spinal-stenosis",
         keywords: [
             "spinal stenosis",
             "lumbar spinal stenosis Florida",
@@ -4513,7 +4513,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "Early detection in children and adolescents is key. For adults, maintaining strong core musculature, good bone health, and proper posture can help slow the progression or reduce the impact of degenerative spinal deformities.",
         why_choose_us: "Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across Florida, we offer a complimentary MRI or X-ray review and a free second opinion to create a plan that restores your natural alignment and balance.",
         schedule: "If you or a loved one is living with a spinal curvature, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary imaging review and a thorough second opinion to move forward with a plan to manage the deformity.",
-        slug: "spinedeformities",
+        slug: "spine-deformities",
         keywords: [
             "spine deformity",
             "scoliosis treatment Florida",
@@ -4561,7 +4561,7 @@ export const conditions: ConditionInfoProp[] = [
         tag: "Spine",
         card_img: "https://mountainspineortho.b-cdn.net/public/tnecard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tnearti.jpg",
-        body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation.",
+        body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation. Common causes include <Link href='/area-of-speciality/spinal-stenosis'>Spinal Stenosis</Link> and <Link href='/area-of-speciality/herniated-disc'>Herniated Disc</Link>.",
         detail: "Tingling and numbness in the extremities, also known as paresthesia, can signal a problem with a nerve. This may be caused by nerve root compression in the spine (radiculopathy), peripheral nerve entrapment like carpal tunnel syndrome, or systemic conditions such as diabetes. At Mountain Spine & Orthopedics, our diagnosis starts with a thorough neurologic exam, advanced imaging, and electrodiagnostic testing (EMG/NCS) to identify the precise nerve involved and determine the cause.",
         what_sym: "Symptoms include a 'pins and needles' sensation, a loss of feeling, burning, or prickling in the hands, arms, legs, or feet. This can be accompanied by weakness, clumsiness, or a feeling that the limbs are 'falling asleep.'",
         risk_fac: "Common risk factors include spinal issues like herniated discs and stenosis, as well as diabetes, repetitive motion injuries, autoimmune diseases, and vitamin deficiencies. A previous trauma can also lead to nerve-related symptoms.",
@@ -4571,7 +4571,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "Maintaining good posture, avoiding repetitive strain, managing blood sugar levels in the case of diabetes, and staying physically active can all help reduce the risk of developing nerve-related numbness and tingling.",
         why_choose_us: "At Mountain Spine & Orthopedics, our specialists are experts at getting to the root cause of numbness and tingling. We offer patients in Florida a comprehensive diagnostic workup, including a complimentary MRI review and a free second opinion. By identifying the exact source of your symptoms, we can provide the most effective treatment to restore healthy nerve function.",
         schedule: "If tingling or numbness is affecting your mobility or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to resolve your symptoms and restore healthy sensation.",
-        slug: "tinglingornumbnessinextremities",
+        slug: "tingling-or-numbness-in-extremities",
         keywords: [
             "tingling in hands and feet",
             "numbness in arms and legs",
@@ -4600,7 +4600,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "Patients can reduce their risk of herniation by maintaining good posture, practicing proper lifting techniques, engaging in regular core strengthening exercises, maintaining a healthy weight, and avoiding prolonged static positions.",
         why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating herniated discs. Our Florida clinics offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We prioritize non-surgical and minimally invasive options like microdiscectomy to help you recover faster and with less pain.",
         schedule: "If you are experiencing back or neck pain with radiating limb symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and a free second opinion to take the first step toward relief.",
-        slug: "herniateddisc",
+        slug: "herniated-disc",
         keywords: [
             "herniated disc",
             "herniated disc treatment Florida",
@@ -4629,7 +4629,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "While there is no cure for RA, early intervention can slow progression. Patients can improve outcomes by quitting smoking, maintaining a healthy weight, and engaging in low-impact exercises to preserve joint mobility. Diligent management of the disease with a specialist is crucial.",
         why_choose_us: "At Mountain Spine & Orthopedics, our specialists work as part of a multidisciplinary team to provide comprehensive management of rheumatoid arthritis. For patients across Florida, we offer expert diagnosis, including complimentary imaging reviews and free second opinions, and state-of-the-art treatment plans designed to control your RA and help you reclaim an active, pain-free life.",
         schedule: "If you are experiencing persistent joint pain, stiffness, or swelling, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin a personalized treatment plan.",
-        slug: "rheumatoidarthritis",
+        slug: "rheumatoid-arthritis",
         keywords: [
             "rheumatoid arthritis",
             "RA treatment Florida",
@@ -4658,7 +4658,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "To prevent tennis elbow, patients should use proper technique and equipment in sports, incorporate a thorough warm-up and stretching routine, perform regular forearm strengthening exercises, and maintain optimal workstation ergonomics.",
         why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in treating overuse injuries like tennis elbow. We provide patients across Florida with accurate diagnoses, often aided by a complimentary imaging review, and advanced, non-surgical treatments like PRP injections. Our goal is to relieve your pain and restore full, pain-free function.",
         schedule: "If you are experiencing persistent lateral elbow pain or weakness, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin an effective treatment plan.",
-        slug: "tenniselbow",
+        slug: "tennis-elbow",
         keywords: [
             "tennis elbow",
             "lateral epicondylitis",
@@ -5906,7 +5906,7 @@ export const conditions: ConditionInfoProp[] = [
         prevent: "The most effective way to prevent hammertoes is to wear properly fitting shoes with a wide toe box and low heels. Avoid shoes that squeeze the toes. If you have a predisposition to hammertoes, be particularly mindful of your footwear choices.",
         why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in correcting painful hammertoes. For patients in Florida, we offer a full range of treatments from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary consultation and a free second opinion, we can help you walk in comfort once again.",
         schedule: "If hammertoes are causing you discomfort or difficulty with shoes, it's time to explore your options. The specialists at Mountain Spine & Orthopedics are available for consultations to help you find the best path toward pain-free, functional toes.",
-        slug: "hammertoes",
+        slug: "hammer-toes",
         forum: [
             {
                 post: (

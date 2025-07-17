@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import StaticNav from "@/components/StaticNav.server";
 
 export const metadata: Metadata = {
     title: 'Orthopedic Conditions | Mountain Spine & Orthopedics',
@@ -31,5 +32,10 @@ export default function AreaOfSpecialityLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <StaticNav />
+      {children}
+    </>
+  );
 }

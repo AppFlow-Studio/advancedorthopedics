@@ -1,19 +1,37 @@
     // app/page.tsx
+    import { notFound } from 'next/navigation';
+    import { GetBlogInfo } from '@/app/blogs/api/get-blog-info';
+    import BlogPostClient from '@/components/BlogPostClient';
     import { QueryClient, dehydrate, HydrationBoundary } from '@tanstack/react-query';
-    import { GetBlogInfo } from '@/app/blogs/api/get-blog-info'; // Your data fetching function
-    import BlogPostClient from '@/components/BlogPostClient'; // Your Client Component
+    import { createClient } from '@/utils/supabase/server';
+    import { staticSupabase } from '@/utils/supabase/static';
 
-    export default async function PostsPage({params} : {params : Promise<{BlogSlug : string}>}) {
-      const {BlogSlug} = await params;
-      const queryClient = new QueryClient();
-      await queryClient.prefetchQuery({
-        queryKey: ['posts'],
-        queryFn: () => GetBlogInfo(BlogSlug),
-      });
+    export const dynamicParams = false;
+
+    // Helper to fetch all blog slugs from Supabase
+    async function GetAllBlogSlugs() {
+      const { data, error } = await staticSupabase.from('blogs').select('slug');
+      if (error) {
+        console.error(error);
+        return [];
+      }
+      return (data || []).map((row: { slug: string }) => ({ BlogSlug: row.slug }));
+    }
+
+    export async function generateStaticParams() {
+      return await GetAllBlogSlugs();
+    }
+
+    export default async function Page({ params }: { params: { BlogSlug: string } }) {
+      const blog = await GetBlogInfo(params.BlogSlug);
+      if (!blog) return notFound();
+
+      const qc = new QueryClient();
+      await qc.prefetchQuery({ queryKey: ['posts', params.BlogSlug], queryFn: () => blog });
 
       return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
-          <BlogPostClient params={BlogSlug} />
+        <HydrationBoundary state={dehydrate(qc)}>
+          <BlogPostClient params={params.BlogSlug} />
         </HydrationBoundary>
       );
     }

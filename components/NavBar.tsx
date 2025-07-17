@@ -230,7 +230,7 @@ const NavBarLinks = [
           },
           {
             title: 'Back Pain Treament Options',
-            href: '/area-of-pain/back-pain/backpaintreatmentoptions'
+            href: '/area-of-pain/back-pain/back-pain-treatment-options'
           }
         ]
       },
@@ -290,7 +290,7 @@ const NavBarLinks = [
           },
           {
             title: 'Hammertoes',
-            href: '/area-of-pain/foot-pain/hammertoes'
+            href: '/area-of-pain/foot-pain/hammer-toes'
           },
           {
             title: 'Diabetic Foot Ulcers',

@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { Doctors } from "@/components/data/doctors";
+import StaticNav from "@/components/StaticNav.server";
 
 function capitalizeWords(str: string): string {
     return str.replace(/\b\w/g, l => l.toUpperCase());
@@ -142,6 +143,7 @@ export default function DoctorLayout({
 }) {
     return (
         <>
+            <StaticNav />
             <CombinedSchema params={params} />
             {children}
         </>

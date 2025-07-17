@@ -326,7 +326,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
             }
         ],
         side_img: backpaintreatmentside,
-        slug: "backpaintreatmentoptions",
+        slug: "back-pain-treatment-options",
         tag: "Back Pain",
         keywords: [
             "back pain treatment Florida",

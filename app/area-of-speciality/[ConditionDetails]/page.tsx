@@ -15,6 +15,68 @@ import { TextAnimate } from '@/components/magicui/text-animate'
 import ConditionList from '@/components/ConditionsList'
 import Logo from '@/public/newlogo4.png'
 import { notFound } from 'next/navigation';
+import { AllTreatments } from '@/components/data/treatments';
+
+// Helper: Build a map of all condition/treatment titles to their slugs and type
+const conditionMap = Object.fromEntries(
+  conditions.map(c => [c.title.toLowerCase(), { slug: c.slug, type: 'condition' }])
+);
+const treatmentMap = Object.fromEntries(
+  AllTreatments.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
+);
+const allTitles = [
+  ...conditions.map(c => c.title),
+  ...AllTreatments.map(t => t.title)
+];
+
+function linkifyText(text: string, currentSlug: string) {
+  if (!text || typeof text !== 'string') return text;
+  let replaced = text;
+  // Sort titles by length descending to avoid partial matches
+  const sortedTitles = allTitles.slice().sort((a, b) => b.length - a.length);
+  sortedTitles.forEach(title => {
+    const lowerTitle = title.toLowerCase();
+    const cond = conditionMap[lowerTitle];
+    const treat = treatmentMap[lowerTitle];
+    const slug = cond ? cond.slug : treat ? treat.slug : null;
+    const type = cond ? 'condition' : treat ? 'treatment' : null;
+    if (!slug || slug === currentSlug) return;
+    // Only link if the title matches exactly as a whole word/phrase
+    const regex = new RegExp(`(?<![\\w-])${title.replace(/[-/\\^$*+?.()|[\\]{}]/g, '\\$&')}(?![\\w-])`, 'g');
+    replaced = replaced.replace(regex, match => {
+      const href = type === 'condition' ? `/area-of-speciality/${slug}` : `/treatments/${slug}`;
+      return `<a href="${href}" class="underline text-[#022968]">${match}</a>`;
+    });
+  });
+  return replaced;
+}
+
+function renderField(field: any, currentSlug: string) {
+  if (!field) return null;
+  
+  // If its astring, apply linkification and render as HTML
+  if (typeof field === 'string') {    return (
+      <p
+        style={{
+          fontFamily: "var(--font-inter)",
+          fontWeight: 400,
+        }}
+        className="text-[#5B5F67] sm:text-xl text-sm"
+        dangerouslySetInnerHTML={{
+          __html: linkifyText(field, currentSlug)
+        }}
+      />
+    );
+  }
+  
+  // If it's JSX/React element, render as-is
+  if (React.isValidElement(field)) {
+    return field;
+  }
+  
+  // If it's an object or other type, return null
+  return null;
+}
 
 export default function ConditionDetails({
     params,
@@ -117,9 +179,8 @@ export default function ConditionDetails({
                 fontWeight: 400,
             }}
             className="text-white text-shadow-sm sm:text-lg text-sm"
-            >
-                {condition_details.body}
-            </p>
+            dangerouslySetInnerHTML={{ __html: linkifyText(condition_details.body, condition_details.slug) }}
+            />
         </div>
         </div>
         </section>
@@ -165,15 +226,7 @@ export default function ConditionDetails({
                         >
                         About {condition_details.title}
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.detail}
-                        </p>
+                        {renderField(condition_details?.detail, condition_details.slug)}
                     </div>
                     
                     {/* What are symptoms of */}
@@ -187,28 +240,12 @@ export default function ConditionDetails({
                         >
                         What Are the Symptoms of {condition_details.title}?
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.what_sym}
-                        </p>
+                        {renderField(condition_details?.what_sym, condition_details.slug)}
                     </div>
                     
                     {/* Video */}
                     <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
-                    <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details.body}
-                     </p>
+                    {renderField(condition_details.body, condition_details.slug)}
                     
                     
                     {/* Are There Specific Risk Factors  */}
@@ -222,15 +259,7 @@ export default function ConditionDetails({
                         >
                         Are There Specific Risk Factors for {condition_details.title}?
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.risk_fac}
-                        </p>
+                        {renderField(condition_details?.risk_fac, condition_details.slug)}
                     </div>
     
                     {/*  Diagnosing */}
@@ -244,15 +273,7 @@ export default function ConditionDetails({
                         >
                         Diagnosing {condition_details.title}?
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.diagnose}
-                        </p>
+                        {renderField(condition_details?.diagnose, condition_details.slug)}
                     </div>
                     
                     {/* Treatment for  */}
@@ -266,15 +287,12 @@ export default function ConditionDetails({
                         >
                         Treatment for {condition_details.title}?
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.treatment}
-                        </p>
+                        {renderField(
+  condition_details?.slug === 'synovitis'
+    ? `Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue. For targeted relief, see our <Link href="/treatments/anti-inflammatory-injections-for-joint-and-spine-pain">Anti-Inflammatory Injections for Joint and Spine Pain</Link> and <Link href="/treatments/arthroscopic-knee-surgery">Arthroscopic Knee Surgery</Link>.`
+    : condition_details?.treatment,
+  condition_details.slug
+)}
                     </div>
     
                     {/* Does ... Cause Pain? */}
@@ -288,15 +306,7 @@ export default function ConditionDetails({
                         >
                         Does {condition_details.title} Cause Pain?
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.pain_info}
-                        </p>
+                        {renderField(condition_details?.pain_info, condition_details.slug)}
                     </div>
                     
                     {/* What Can Patients Do to Prevent It? */}
@@ -311,15 +321,7 @@ export default function ConditionDetails({
                         >
                         What Can Patients Do to Prevent It?
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.prevent}
-                        </p>
+                        {renderField(condition_details?.prevent, condition_details.slug)}
                     </div>
     
                     {/* Schedule a Consultation Today */}
@@ -333,15 +335,7 @@ export default function ConditionDetails({
                             >
                             Schedule a Consultation Today
                         </h2>
-                        <p
-                         style={{
-                            fontFamily : 'var(--font-inter)',
-                            fontWeight : 400,
-                          }}
-                          className='text-[#5B5F67] sm:text-xl text-sm'
-                        >
-                            {condition_details?.schedule}
-                        </p>
+                        {renderField(condition_details?.schedule, condition_details.slug)}
                     </div>
                 </section>
 

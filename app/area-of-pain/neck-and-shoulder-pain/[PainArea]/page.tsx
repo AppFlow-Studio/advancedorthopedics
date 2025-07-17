@@ -13,18 +13,17 @@ function shuffleArray(array: any[]) {
   return newArray;
 }
 
-export default async function PainArea({ params }: { params: { PainArea: string } }) {
-  const resolvedParams = await params;
-  const conditionSlug = resolvedParams.PainArea;
+export default async function PainArea({ params }: { params: Promise<{ PainArea: string }> }) {
+  const { PainArea } = await params;
   let condition_details;
 
-  if (conditionSlug === 'neck-and-shoulder-pain-treatment') {
+  if (PainArea === 'neck-and-shoulder-pain-treatment') {
     condition_details = (await import('@/components/data/painareatreatments')).PainAreaTreatments.find(
-      (x) => x.slug === conditionSlug
+      (x) => x.slug === PainArea
     );
   } else {
     condition_details = (await import('@/components/data/conditions')).conditions.find(
-      (x) => x.slug === conditionSlug
+      (x) => x.slug === PainArea
     );
   }
 

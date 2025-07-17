@@ -1,5 +1,7 @@
 import { Metadata, ResolvingMetadata } from "next";
 import { clinics } from "@/components/data/clinics";
+import StaticNav from "@/components/StaticNav.server";
+import OrphanLinksFooter from '@/components/OrphanLinksFooter';
 
 // This function dynamically generates metadata for each location page.
 export async function generateMetadata(
@@ -125,8 +127,10 @@ export default function LocationLayout({
 }) {
     return (
         <>
+            <StaticNav />
             <LocationJsonLdSchema params={params} />
             {children}
+            <OrphanLinksFooter /> {/* sr-only, zero visual impact */}
         </>
     );
 }

@@ -13,18 +13,17 @@ function shuffleArray(array: any[]) {
   return newArray;
 }
 
-export default async function FootPainArea({ params }: { params: { FootSlug: string } }) {
-  const resolvedParams = await params;
-  const conditionSlug = resolvedParams.FootSlug;
+export default async function FootPainArea({ params }: { params: Promise<{ FootSlug: string }> }) {
+  const { FootSlug } = await params;
   let condition_details;
 
-  if (conditionSlug === 'footpaintreatmentoptions') {
+  if (FootSlug === 'footpaintreatmentoptions') {
     condition_details = (await import('@/components/data/painareatreatments')).PainAreaTreatments.find(
-      (x) => x.slug === conditionSlug
+      (x) => x.slug === FootSlug
     );
   } else {
     condition_details = (await import('@/components/data/conditions')).conditions.find(
-      (x) => x.slug === conditionSlug
+      (x) => x.slug === FootSlug
     );
   }
 
