@@ -4,6 +4,8 @@ import { Doctors } from "@/components/data/doctors";
 import { conditions } from "@/components/data/conditions";
 import { AllTreatments } from "@/components/data/treatments";
 
+export const dynamic = 'force-static';
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 // Helper function to ensure valid slugs
@@ -39,7 +41,6 @@ function slugify(text: string): string {
 const FindCare = [
   "book-an-appointment",
   "find-a-doctor",
-  "second-opinion",
   "free-mri-review",
   "candidacy-check",
   "insurance-policy",
@@ -53,7 +54,7 @@ const BackPainPages =[
 'foraminal-stenosis',
 'sciatica',
 'coccydynia',
-'backpaintreatmentoptions'
+'back-pain-treatment-options'
 ]
 
 const NeckPainPages = [
@@ -71,7 +72,7 @@ const FootPainPages =[
   'plantar-fasciitis',
   'flat-feet',
   'ankle-arthroscopy',
-  'hammertoes',
+  'hammer-toes',
   'diabetic-foot-ulcers',
   'ankle-replacement'
 ]
@@ -116,6 +117,9 @@ export async function GET() {
     }
     return generateUrlEntry(`/find-care/${slug}`);
   }).join('')}
+
+  // Add /find-care/second-opinion with fresh ISO timestamp and priority 0.7
+  ${generateUrlEntry('/find-care/second-opinion', new Date().toISOString(), 'monthly', '0.7')}
 
   ${BackPainPages.map(slug => generateUrlEntry(`/area-of-pain/back-pain/${slug}`)).join('')}
   ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${slug}`)).join('')} 

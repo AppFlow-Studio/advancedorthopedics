@@ -27,7 +27,7 @@ export interface DoctorProp {
 export const Doctors: DoctorProp[] = [
     {
         img: Katzman,
-        slug: 'dr.scottkatzman',
+        slug: 'dr-scott-katzman',
         name: 'Dr. Scott Katzman',
         practice: 'Spine Orthopedic Surgeon',
         socials: '',
@@ -51,7 +51,7 @@ export const Doctors: DoctorProp[] = [
     },
     {
         img: David,
-        slug: 'dr.davidcowin',
+        slug: 'dr-david-cowin',
         name: 'Dr. David Cowin',
         practice: 'Orthopedic Surgeon',
         socials: '',
@@ -72,7 +72,7 @@ export const Doctors: DoctorProp[] = [
     },
     {
         img: Christopher,
-        slug: 'dr.christophermccarthy',
+        slug: 'dr-christopher-mccarthy',
         name: 'Dr. Christopher McCarthy',
         practice: 'Spine Orthopedic Surgeon',
         socials: '',
@@ -98,7 +98,7 @@ export const Doctors: DoctorProp[] = [
     },
     {
         img: Monica,
-        slug: 'dr.monicamcphail-pruitt',
+        slug: 'dr-monica-mcphail-pruitt',
         name: 'Dr. Monica McPhail-Pruitt',
         practice: 'Pain Management',
         socials: '',
@@ -124,7 +124,7 @@ export const Doctors: DoctorProp[] = [
     },
     {
         img: Douglas,
-        slug: 'dr.douglasslaughter',
+        slug: 'dr-douglas-slaughter',
         name: 'Dr. Douglas Slaughter',
         practice: 'Orthopedic Spine Surgeon',
         socials: '',

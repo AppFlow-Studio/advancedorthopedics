@@ -5,17 +5,17 @@ import React, { useState, useRef, useEffect, KeyboardEvent } from 'react'
 import { Search, X } from 'lucide-react'
 
 // *** IMPORTANT: Verify this path and type name ('Condition') ***
-import type { Condition } from '@/components/data/conditions'
+import type { ConditionInfoProp } from '@/components/data/conditions'
 
 interface Props {
-    conditions: Condition[]
-    onSelect: (condition: Condition) => void
+    conditions: ConditionInfoProp[]
+    onSelect: (condition: ConditionInfoProp) => void
     onClear: () => void // This prop MUST be provided by the parent
   }
 
 export default function ConditionsSearchBar({ conditions, onSelect, onClear }: Props) {
   const [query, setQuery] = useState('')
-  const [filtered, setFiltered] = useState<Condition[]>([])
+  const [filtered, setFiltered] = useState<ConditionInfoProp[]>([])
   const [show, setShow] = useState(false)
   const [active, setActive] = useState(-1)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -69,7 +69,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
   }
 
   // Handler for keyboard navigation
-  function handleKeyDown(e: KeyboardEvent<InputElement>) {
+  function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Escape') {
         setShow(false);
         return;
@@ -97,7 +97,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
   }
 
   // Handler for selecting an item
-  function select(item: Condition) {
+  function select(item: ConditionInfoProp) {
     setQuery(item.title);
     setShow(false);
     setFiltered([]);

@@ -5,6 +5,8 @@ import React from "react";
 
 // Import the list of all treatments
 import { AllTreatments } from "@/components/data/treatments";
+import StaticNav from "@/components/StaticNav.server";
+import OrphanLinksFooter from '@/components/OrphanLinksFooter';
 
 // Helper function to safely get the image source URL as a string
 const getImageSource = (image: string | StaticImageData | undefined): string => {
@@ -72,5 +74,12 @@ export async function generateMetadata(
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {/* Hidden crawler nav */}
+      <StaticNav />
+      {children}
+      <OrphanLinksFooter /> {/* sr-only, zero visual impact */}
+    </>
+  );
 }

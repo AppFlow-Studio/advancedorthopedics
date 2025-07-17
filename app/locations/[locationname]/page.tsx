@@ -1,4 +1,3 @@
-'use client'
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
@@ -13,7 +12,7 @@ import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
 import Image from 'next/image'
 import { Marquee } from '@/components/magicui/marquee'
-import { redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import Reveal from '@/components/RevealAnimation'
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 import HomeWhyAO from '@/public/HomeWhyAO-min.jpeg'
@@ -24,22 +23,22 @@ import SlidingDiv from '@/components/SlidingAnimation'
 import { DoctorContactForm } from '@/components/DoctorContactForm'
 import LocationLanding from '@/public/ConditionDetails.jpeg'
 
+export const dynamicParams = false;
+export async function generateStaticParams() {
+  return clinics.map(c => ({ locationname: c.slug }));
+}
 
-
-
-export default function LocationDetails(
+export default async function LocationDetails(
     {
         params,
     }: {
         params: Promise<{ locationname: string }>
     }
 ) {
-
-    const resolvedParams = React.use(params)
-    const locationslug = resolvedParams.locationname
-    let location = clinics.filter(x => x.slug == locationslug)[0]
+    const { locationname } = await params;
+    let location = clinics.filter(x => x.slug == locationname)[0]
     if (location === undefined) {
-        return redirect('/404')
+        return notFound();
     }
     const OurSpecialtyItems = [
         {
@@ -167,7 +166,7 @@ export default function LocationDetails(
                                     <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
                                     <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                                            <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0094E0" />
+                                            <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.3735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.10112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.16463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0094E0" />
                                         </svg>
                                     </div>
                                 </a>
@@ -253,7 +252,7 @@ export default function LocationDetails(
                                     }}
                                     className=" text-lg"
                                 >
-                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a>. We put patients first.  Here's why {location.region.split(',')[0]} families choose us:
+                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a> and a wide range of <a href='/area-of-speciality' className='underline text-[#022968]'>conditions</a> we treat. We put patients first.  Here's why {location.region.split(',')[0]} families choose us:
                                 </p>
                                 {/* INTERNAL LINKS HERE */}
                             </div>
@@ -347,7 +346,8 @@ export default function LocationDetails(
                 </div>
                 <div className=" mt-[60px] grid sm:grid-cols-3 grid-cols-1 xl:gap-x-[50px] sm:gap-x-10 space-y-8 sm:space-y-0  ">
                     <div className='sm:col-span-1'><DoctorCard doctor={Doctors[0]} /></div>
-                    <div className='flex flex-col space-y-[32px] col-span-2'>
+                    <div
+                        className='flex flex-col space-y-[32px] col-span-2'>
                         <div
                             style={{
                                 fontFamily: "var(--font-inter)",
@@ -356,9 +356,10 @@ export default function LocationDetails(
                             }}
                             className='xl:text-xl lg:text-md text-sm xl:w-[90%] self-center h-full xl:ml-20'
                             dangerouslySetInnerHTML={{
-                                __html: location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) => 
+                                __html: (location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) =>
                                     paragraph + (index < array.length - 1 ? '<br /><br />' : '')
-                                ).join('')
+                                ).join('') || '') +
+                                '<br /><br />Learn more about our <a href="/treatments/lumbar-fusion-surgery" class="underline text-[#022968]">Lumbar Fusion Surgery</a> for advanced spine care.'
                             }}
                         />
                     </div>

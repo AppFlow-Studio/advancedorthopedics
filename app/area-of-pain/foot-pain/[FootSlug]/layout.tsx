@@ -1,6 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
+import StaticNav from "@/components/StaticNav.server";
 
 function capitalizeWords(str: string): string {
   return str.replace(/\b\w/g, (l) => l.toUpperCase());
@@ -75,5 +76,10 @@ export default function FootPainAreaLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <StaticNav />
+      {children}
+    </>
+  );
 } 

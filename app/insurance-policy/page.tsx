@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import InsurancePolicyClient from './InsurancePolicyClient'
 // Remove 'use client' from this file.
 // Move all JSX and client logic to InsurancePolicyClient.tsx.

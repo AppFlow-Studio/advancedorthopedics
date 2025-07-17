@@ -1,6 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
+import StaticNav from "@/components/StaticNav.server";
 
 function capitalizeWords(str: string): string {
   return str.replace(/\b\w/g, (l) => l.toUpperCase());
@@ -14,7 +15,7 @@ export async function generateMetadata(
   const conditionSlug = resolvedParams.PainArea;
   let data;
 
-  if (conditionSlug === "backpaintreatmentoptions") {
+      if (conditionSlug === "back-pain-treatment-options") {
     data = PainAreaTreatments.find((x) => x.slug === conditionSlug);
   } else {
     data = conditions.find((x) => x.slug === conditionSlug);
@@ -74,5 +75,10 @@ export default function BackPainAreaLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <StaticNav />
+      {children}
+    </>
+  );
 } 

@@ -9,6 +9,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { DelayedLocationPopup } from "@/components/delayedlocationpopup";
 import Script from "next/script";
 import TanstackProvider from "@/providers/tanstack";
+import OrphanLinksFooter from "@/components/OrphanLinksFooter";
+import StaticNav from "@/components/StaticNav.server";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -178,16 +180,20 @@ export default function RootLayout({
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T57SB8NQ"
             height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe>
         </noscript>
+        <NavBar />
+        {/* Hidden crawler nav */}
+        <StaticNav />
         <MapProvider>
           <GeolocationProvider>
-            <NavBar />
-              <TanstackProvider>
-                {children}
-              </TanstackProvider>
+            <TanstackProvider>
+              {children}
+            </TanstackProvider>
             <Footer />
             <DelayedLocationPopup delayInSeconds={8} />
           </GeolocationProvider>
         </MapProvider>
+        {/* SEO crawlable links for orphan pages */}
+        <OrphanLinksFooter />
       </body>
     </html>
   );

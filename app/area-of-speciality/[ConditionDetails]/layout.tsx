@@ -1,6 +1,8 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { posthog } from "posthog-js";
+import StaticNav from "@/components/StaticNav.server";
+import OrphanLinksFooter from '@/components/OrphanLinksFooter';
 
 function capitalizeWords(str: string): string {
   return str.replace(/\b\w/g, l => l.toUpperCase());
@@ -141,8 +143,11 @@ export default function ConditionLayout({
     });
     return (
         <>
+            {/* Hidden crawler nav */}
+            <StaticNav />
             <CombinedSchema params={params} />
             {children}
+            <OrphanLinksFooter /> {/* sr-only, zero visual impact */}
         </>
     );
 }
