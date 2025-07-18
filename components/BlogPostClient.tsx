@@ -3,7 +3,6 @@ import React, { useEffect, useState, cache } from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
-import { BlogPosts } from '@/components/data/blogs'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -16,6 +15,7 @@ import { Badge } from '@/components/ui/badge'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import { Calendar, User } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query';
+import { GetBlogs } from '@/app/blogs/api/get-blogs'
 
 export default function BlogDetails({
   params,
@@ -26,6 +26,11 @@ export default function BlogDetails({
     queryKey: ['posts', params],
     queryFn: () => GetBlogInfo(params),
   });
+  const { data: recentPosts, isLoading: recentPostsLoading } = useQuery({
+    queryKey: ['recentPosts'],
+    queryFn: () => GetBlogs(),
+  });
+
   if (isLoading) {
     return (
       <main className="w-full h-screen flex items-center justify-center">
@@ -278,6 +283,7 @@ export default function BlogDetails({
 
     return <>{processedNodes}</>;
   }
+  console.log(recentPosts)
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
@@ -288,20 +294,20 @@ export default function BlogDetails({
             style={{ background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
           />
           <div className='px-6 xl:px-[80px] z-[2] mt-60 md:mt-[220px]'>
-            <nav aria-label="Breadcrumb" className="mb-4">
+            <nav aria-label="Breadcrumb" className="mb-4 xl:flex hidden">
               <ol className="flex space-x-2 text-[#022968]">
                 <li><a href="/blogs">Blogs</a> /</li>
                 <li aria-current="page">{blog_details.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl w-[80%]">{blog_details.blog_info.title}</TextAnimate>
-            <p style={{ fontWeight: 400, fontSize: "20px", lineHeight: "148%" }} className="text-white mt-4 w-[55%]">{blog_details.blog_info.desc}</p>
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full">{blog_details.blog_info.title}</TextAnimate>
+            <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-white mt-4 md:text-md text-sm xl:w-[55%] w-full">{blog_details.blog_info.desc}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {blog_details.blog_info.tags.map((tag: string, index: number) => (
                 <span key={index} className="bg-[#EFF5FF] text-[#022968] px-3 py-1 rounded-full text-sm">{tag}</span>
               ))}
             </div>
-            <div className="flex items-center gap-6 text-sm text-white mb-6">
+            <div className="flex items-center gap-6 mt-4 text-sm text-white mb-6">
               {blog_details.blog_info.author && (
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
@@ -330,7 +336,7 @@ export default function BlogDetails({
                     <div key={subIdx} className="ml-4">
                       {sub.img && (
                         <div className='w-full h-100 relative rounded-2xl overflow-hidden mb-6'>
-                        <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
+                          <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
                         </div>)}
                       <h3 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#022968] text-xl mb-1'>{sub.header}</h3>
                       <div className='text-[#5B5F67] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base'>{renderRichText(sub.body)}</div>
@@ -343,7 +349,18 @@ export default function BlogDetails({
         </article>
         <aside className='lg:w-[30%] w-full flex flex-col space-y-8'>
           <h2 className='text-[#022968] text-2xl font-bold mb-4'>Recent Posts</h2>
-          {/* Render recent posts here */}
+          <div className='grid grid-cols-1 gap-4'>
+            {
+            recentPosts?.slice(0, 3).map((post) => (
+              <BlogPostCard
+                key={post.id}
+                BlogInfo={post.blog_info}
+                backgroundcolor='white'
+                id={post.id}
+                slug={post.slug}
+              />
+            ))}
+          </div>
         </aside>
       </main>
 

@@ -252,7 +252,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         About {treatment.title}
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div
+                         style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.body, treatment.slug)}
                         </div>
                     </div>
@@ -268,7 +274,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         What is {treatment.title}?
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div 
+                         style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.detail, treatment.slug)}
                         </div>
                     </div>
@@ -293,7 +305,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         What does {treatment.title} look like?
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div 
+                         style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.procedure_info, treatment.slug)}
                         </div>
                     </div>
@@ -310,7 +328,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         What Conditions does {treatment.title} Help Ease?
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div
+                        style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.conditions_treated, treatment.slug)}
                         </div>
                     </div>
@@ -325,7 +349,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         Benefits of {treatment.title}
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div 
+                         style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.benefits, treatment.slug)}
                             {typeof treatment.benefits !== 'string' && treatment.benefits}
                         </div>
@@ -342,7 +372,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         Why Choose Mountain Spine & Orthopedics for {treatment.title}?
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div 
+                         style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.why_choose_us, treatment.slug)}
                         </div>
                     </div>
@@ -358,7 +394,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                         >
                         What does post {treatment.title} recovery look like?
                         </h2>
-                        <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                        <div 
+                         style={{
+                          fontFamily : 'var(--font-inter)',
+                          fontWeight : 400,
+                        }}
+                        className='text-[#5B5F67] sm:text-xl text-sm'
+                        >
                             {renderField(treatment.recovery_info, treatment.slug)}
                         </div>
                     </div>
@@ -375,7 +417,13 @@ export default function Page({ params }: { params: { TreatmentDetails: string } 
                           >
                           Schedule a Consultation Today
                       </h2>
-                      <div className="px-6 xl:px-[80px] w-[85%] lg:w-[62%] xl:w-[55%]">
+                      <div 
+                       style={{
+                        fontFamily : 'var(--font-inter)',
+                        fontWeight : 400,
+                      }}
+                      className='text-[#5B5F67] sm:text-xl text-sm'
+                      >
                           {renderField(treatment.schedule, treatment.slug)}
                           <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
                       </div>
