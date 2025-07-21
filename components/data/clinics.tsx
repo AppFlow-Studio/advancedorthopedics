@@ -48,7 +48,7 @@ export const clinics: ClinicsProps[] = [
     lng: -80.178874,
     address: '3500 Tyler St Hollywood, FL 33021',
     phone: '(754) 212-8736',
-    link: 'https://www.google.com/maps/place/3500+Tyler+St,+Hollywood,+FL+33021,+USA/@26.0113543,-80.1814945,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9abe7a8e924a9:0xf99f3efb0fd2eb8!8m2!3d26.0113495!4d-80.1789196!16s%2Fg%2F11b8v4qncd?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
+    link : 'https://g.co/kgs/z3Q7yBx',
     slug: 'hollywood-fl-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
@@ -212,57 +212,6 @@ export const clinics: ClinicsProps[] = [
             testimonial="My teenage son needed specialized pediatric orthopedic care in Hollywood FL after a sports-related ACL injury. The team's expertise with young athletes was incredible - he's back on the field stronger than ever."
           />
         </div>
-        {/* <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
-        <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented clinical outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
-        <Marquee duration={40} className='w-full md:px-22 sm:[mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]' pauseOnHover={true}
-        >
-          {[
-            {
-              name: "Jennifer T.",
-              role: "Teacher, Broward County Schools",
-              testimonial: "After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgical approach had me back to teaching in just three weeks. This top-rated orthopedic center in Hollywood truly understands working families."
-            },
-            {
-              name: "Dr. Robert Chen",
-              role: "Emergency Physician, Memorial Regional Hospital Hollywood",
-              testimonial: "Dr. Katzman's clinical expertise exceeded my expectations for my herniated nucleus pulposus. I now confidently refer my patients to these experienced orthopedic surgeon specialists in Hollywood, FL because I've experienced their excellent care firsthand."
-            },
-            {
-              name: "Mark S.",
-              role: "Construction Supervisor, Pembroke Pines",
-              testimonial: "Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Hollywood got me back to work in one month."
-            },
-            {
-              name: "Maria L.",
-              role: "Nurse, Joe DiMaggio Children's Hospital",
-              testimonial: "As a healthcare professional myself, I was impressed by the exceptional orthopedic treatment in Hollywood FL. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless."
-            },
-            {
-              name: "Carlos R.",
-              role: "Miami-Dade Police Officer",
-              testimonial: "Being on the force requires peak physical condition. When I injured my lumbar spine, the professional orthopedic surgeon team in Hollywood Florida got me back to protecting our community in record time."
-            },
-            {
-              name: "Sarah M.",
-              role: "Parent from Aventura",
-              testimonial: "My teenage son needed specialized pediatric orthopedic care in Hollywood FL after a sports-related ACL injury. The team's expertise with young athletes was incredible - he's back on the field stronger than ever."
-            },
-            {
-              name: "Dr. Lisa K.",
-              role: "Physical Therapist, Broward Health",
-              testimonial: "When I needed urgent orthopedic care in Hollywood FL for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment exceeded my professional expectations."
-            }
-          ].map((t, idx) => (
-             <div className='sm:w-120 w-100 h-80 '>
-                <Testimonial
-                  key={t.name + idx}
-                  name={t.name}
-                  role={t.role}
-                  testimonial={t.testimonial}
-                />
-             </div>
-          ))}
-        </Marquee> */}
       </div>
     )
   },
@@ -274,7 +223,7 @@ export const clinics: ClinicsProps[] = [
     lng: -81.374192,
     address: '652 Palm Springs Dr Altamonte Springs, FL 32701',
     phone: '(407) 565-7598',
-    link: 'https://maps.app.goo.gl/qtg72mbS8WFcSuxS7',
+    link : 'https://maps.app.goo.gl/PLXJnU1LYt19j1TX9',
     slug: 'palm-springs-orthopedics',
     paragraph: `
     For the residents of Palm Springs and the surrounding Palm Beach County communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
@@ -374,7 +323,7 @@ export const clinics: ClinicsProps[] = [
     lng: -81.4658519,
     address: '6150 Metrowest Blvd Suite 102 Orlando, FL 32835',
     phone: '(407) 960-1717',
-    link: 'https://www.google.com/maps/place/Orthopedic+%26+Laser+Spine+Surgery+(Orlando)/@28.5136111,-81.466257,15z/data=!4m6!3m5!1s0x88e77853a8dbc7bb:0x8835f4fad688eb5!8m2!3d28.5136111!4d-81.466257!16s%2Fg%2F1q6c8m48j?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
+    link : 'https://g.co/kgs/koPU6cZ',
     slug: 'orlando-orthopedics',
     paragraph: `
     Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center and walk-in clinic for all your needs.
@@ -512,7 +461,7 @@ export const clinics: ClinicsProps[] = [
     lat: 27.432531,
     lng: -80.344623,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
-    link: 'https://www.google.com/maps/place/2215+Nebraska+Ave+Suite+1C,+Fort+Pierce,+FL+34950/@27.4316576,-80.35092,17z/data=!3m1!4b1!4m6!3m5!1s0x88def196a676de3d:0xaac8af034db8a37a!8m2!3d27.4316576!4d-80.3483451!16s%2Fg%2F11wg616lbv?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D',
+    link : 'https://g.co/kgs/z3Q7yBx',
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
     paragraph: `
@@ -611,9 +560,9 @@ export const clinics: ClinicsProps[] = [
     region: 'Palm Beach Gardens, FL',
     lat: 26.8307353,
     lng: -80.0878284,
-    address: '652 Gardens Drive Palm Beach Gardens, FL 33410',
+    address: '3355 Burns Road Suite 304, FL 33410',
     phone: '(561) 556-1802',
-    link: 'https://www.google.com/maps/place/3355+Burns+Rd+STE+304,+Palm+Beach+Gardens,+FL+33410,+USA/@26.8308667,-80.0900594,17z/data=!3m1!4b1!4m6!3m5!1s0x88df2aae0744a403:0x1f342d8e4463fb50!8m2!3d26.8308619!4d-80.0874845!16s%2Fg%2F11gg6dh9yq?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
+    link : 'https://g.co/kgs/nzaxoVF',
     slug: 'palm-beach-gardens-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center, serving families
@@ -814,115 +763,6 @@ export const clinics: ClinicsProps[] = [
     )
   },
   {
-    id: 6,
-    name: 'Mountain Spine & Orthopedics Palm Beach Gardens',
-    region: 'Palm Beach Gardens, FL',
-    lat: 26.8307353,
-    lng: -80.0878284,
-    address: '652 Gardens Drive Palm Beach Gardens, FL 33410',
-    phone: '(561) 556-1802',
-    link: 'https://www.google.com/maps/place/3355+Burns+Rd+STE+304,+Palm+Beach+Gardens,+FL+33410,+USA/@26.8308667,-80.0900594,17z/data=!3m1!4b1!4m6!3m5!1s0x88df2aae0744a403:0x1f342d8e4463fb50!8m2!3d26.8308619!4d-80.0874845!16s%2Fg%2F11gg6dh9yq?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
-    slug: 'palm-beach-gardens-orthopedics',
-    paragraph: `
-    South Florida's most trusted spine and musculoskeletal care center, serving families
-    [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert orthopedic care, compassionate clinical service, and evidence-based results that make a difference. Your musculoskeletal mobility and overall well-being are our top priorities. Experience the clinical excellence that sets our orthopedic services apart in Palm Beach Gardens.
-    [PARAGRAPH BREAK]At Mountain Spine & Orthopedics, we provide exceptional clinical care using the latest treatments with a patient-centered approach. Here's why families throughout South Florida choose our leading advanced orthopedic care in the greater Palm Beach Gardens area.
-    `,
-    keywords: ['orthopedic walk-in clinic palm beach gardens fl', 'orthopedic laser spine surgery palm beach gardens fl', 'orthopedic urgent care palm beach gardens fl', 'orthopedic doctor palm beach gardens fl', 'orthopedic surgeon palm beach gardens fl', 'pediatric orthopedic bracing palm beach gardens fl', 'orthopedic in palm beach gardens fl', 'orthopedic surgeon in palm beach gardens florida'],
-    metaTitle: 'Palm Beach Gardens Orthopedic & Spine Specialists | Mountain Spine & Orthopedics',
-    metaDescription: 'For comprehensive spine and orthopedic care in Palm Beach Gardens, FL, trust Mountain Spine & Orthopedics. Our highly skilled, fellowship-trained surgeons offer a full spectrum of services, from non-surgical treatments to advanced minimally invasive procedures.',
-    specialists: (
-      <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Palm Beach Gardens Spine and Orthopedic Specialists</h2>
-        <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Palm Beach Gardens orthopedic center, Mountain Spine & Orthopedics brings expert clinical care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
-      </div>
-    ),
-    skilled: (
-      <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Palm Beach Gardens & Nearby Areas</h2>
-        <p className='text-lg'>Our board-certified orthopedic surgeons in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0094E0] underline">lumbar and cervical pain</Link>, <Link href="/treatments/neck-pain-treatment" className="text-[#0094E0] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/area-of-speciality/degenerative-disc-disease-surgery" className="text-[#0094E0] underline">degenerative disc disease</Link>, <Link href="/area-of-speciality/acl-injury" className="text-[#0094E0] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
-      </div>
-    ),
-    whyChoose: (
-      <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Over 15 years serving South Florida families with high patient satisfaction rates</li>
-          <li>Convenient same-day orthopedic appointments - no long waits</li>
-          <li>Bilingual Spanish-speaking clinical staff for our diverse community</li>
-          <li>Free parking and a wheelchair-accessible medical facility</li>
-          <li>Most insurance plans are accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists throughout the Palm Beach Gardens region specialize in athletic injuries</li>
-          <li>Advanced pediatric orthopedic services at our Palm Beach Gardens center. </li>
-          <li>Specialized pediatric orthopedic bracing near the Palm Beach Gardens facility for growing children</li>
-        </ul>
-      </div>
-    ),
-    easyToReach: (
-      <div className='flex flex-col space-y-[10px]'>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easily Accessible From Throughout South Florida:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li><span className='font-bold'>Miami</span> - 1 hour 15 minutes via I-95</li>
-          <li><span className='font-bold'>Fort Lauderdale</span> - 1 hour via I-95</li>
-          <li><span className='font-bold'>West Palm Beach</span> - 15 minutes via PGA Boulevard</li>
-          <li><span className='font-bold'>Jupiter</span> - 20 minutes via US-1</li>
-          <li><span className='font-bold'>Wellington</span> - 35 minutes via Forest Hill Boulevard</li>
-          <li><span className='font-bold'>Boca Raton</span> - 45 minutes via I-95</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Central Florida Theme Park Access:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li><span className='font-bold'>Disney World (Orlando)</span> - 2 hours 50 minutes via Florida's Turnpike</li>
-          <li><span className='font-bold'>Universal Studios (Orlando)</span> - 2 hours 50 minutes via Florida's Turnpike</li>
-          <li><span className='font-bold'>Orlando International Airport</span> - 2 hours 45 minutes via Florida's Turnpike</li>
-          <li><span className='font-bold'>Downtown Orlando</span> - 2 hours 40 minutes via I-4</li>
-        </ul>
-      </div>
-    ),
-    nearby: (
-      <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Palm Beach Gardens & Surrounding Communities</h3>
-        <p className='text-lg'>Our state-of-the-art orthopedic center in Palm Beach Gardens, FL, is perfectly positioned to serve Palm Beach Gardens, Jupiter, North Palm Beach, and Wellington residents who need expert spine care. We're easily accessible from I-95, PGA Boulevard, and major South Florida highways, making it simple for the local community to receive advanced treatment close to home.</p>
-      </div>
-    ),
-    advancedTreatments: (
-      <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
-        <p className='text-lg'>Our Palm Beach Gardens Orthopedic Center brings cutting-edge medical innovations to South Florida families with exclusive minimally invasive therapeutic procedures.</p>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Treatment Options:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li><span className='font-bold'>Advanced Pain Management:</span> <Link href="/treatments/epidural-steroid-injection" className="text-[#0094E0] underline">Epidural steroid injections</Link>, <Link href="/treatments/stem-cell-treatment" className="text-[#0094E0] underline">regenerative stem cell therapy</Link>, <Link href="/treatments/non-surgical-treatments-for-pain-management" className="text-[#0094E0] underline">comprehensive pain management programs</Link></li>
-          <li><span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art laser spine procedures and precisely targeted radiofrequency ablation treatments using the latest minimally invasive technology</li>
-          <li><span className='font-bold'>Precision Injections:</span> Image-guided facet joint procedures, targeted cortisone injections, trigger point therapy interventions</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li><span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and a quick return to work</li>
-          <li><span className='font-bold'>Minimally Invasive Clinical Excellence:</span> <Link href="/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0094E0] underline">Advanced endoscopic techniques</Link>, artificial disc replacement procedures, <Link href="/treatments/spinal-fusion" className="text-[#0094E0] underline">motion-preserving spinal fusion</Link></li>
-          <li><span className='font-bold'>Complex Specialized Procedures:</span> <Link href="/treatments/acdf-surgery" className="text-[#0094E0] underline">ACDF surgery</Link>, <Link href="/treatments/revision-spinal-surgery" className="text-[#0094E0] underline">revision spinal surgery</Link>, <Link href="/treatments/motion-preservation-spine-surgery" className="text-[#0094E0] underline">motion preservation techniques</Link>, multi-level surgical procedures</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive advantages for patients in the Greater Palm Beach Gardens area:</h3>
-        <p className='text-lg'>Robotic-assisted minimally invasive procedures, computer-guided surgical navigation systems, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
-        <p className='text-lg font-bold'><Link href="/find-care/candidacy-check" className="text-[#0094E0] underline">Schedule Your Free Clinical Consultation - Check Treatment Candidacy Today</Link></p>
-      </div>
-    ),
-    whatOurPatientsSay: (
-      <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h2>
-        <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented clinical outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
-          <Testimonial name="Jennifer T." role="Teacher, Palm Beach County Schools" testimonial="After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgery had me back in the classroom in just three weeks. This orthopedic center in Palm Beach Gardens truly understands the needs of working families." />
-          <Testimonial name="Dr. Robert Chen" role="Emergency Physician, Jupiter Medical Center" testimonial="Dr. Katzman's clinical expertise for my herniated nucleus pulposus exceeded all my expectations. I now confidently refer my own patients to these experienced orthopedic specialists in Palm Beach Gardens, FL, because I've experienced their excellent care firsthand." />
-          <Testimonial name="Mark S." role="Construction Supervisor, Wellington" testimonial="Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Palm Beach Gardens got me back to work in just one month." />
-          <Testimonial name="Maria L." role="Nurse, Palm Beach Gardens Medical Center" testimonial="As a healthcare professional, I was incredibly impressed by the exceptional orthopedic treatment in Palm Beach Gardens. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless." />
-          <Testimonial name="Carlos R." role="Palm Beach County Sheriff's Deputy" testimonial="Being in law enforcement demands peak physical condition. When I injured my lumbar spine, the professional orthopedic team in Palm Beach Gardens got me back to protecting our community in record time." />
-          <Testimonial name="Sarah M." role="Parent from Jupiter" testimonial="My teenage daughter needed specialized pediatric orthopedic care in Palm Beach Gardens after a gymnastics injury. The team's expertise with young athletes was incredible – she's back competing stronger than ever!" />
-          <Testimonial name="Dr. Lisa K." role="Physical Therapist, Palm Beach Gardens" testimonial="When I needed urgent orthopedic care in Palm Beach Gardens for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment surpassed my professional expectations." />
-          <Testimonial name="Michael R." role="Golf Pro, PGA National" testimonial="As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed chronic back pain. Dr. Katzman's expertise had me back on the course, pain-free, within a month." />
-        </div>
-      </div>
-    )
-  },
-  {
     id: 8,
     name: 'Mountain Spine & Orthopedics Boca Raton',
     region: 'Boca Raton, FL',
@@ -1027,7 +867,7 @@ export const clinics: ClinicsProps[] = [
     lng: -81.374701,
     address: '499 E Central Pkwy #130 Altamonte Springs, FL 32701',
     phone: '(407) 960-1717',
-    link: 'https://www.google.com/maps/place/499+E+Central+Pkwy+STE+130,+Altamonte+Springs,+FL+32701,+USA/@28.6701555,-81.3771552,17z/data=!3m1!4b1!4m6!3m5!1s0x88e77185be955555:0xef8b788f235fee85!8m2!3d28.6701508!4d-81.3745803!16s%2Fg%2F11qz9gt3k8?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
+    link : 'https://g.co/kgs/RHk8nQb',
     slug: 'altamonte-springs-orthopedics',
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center and walk-in clinic for all your needs.
