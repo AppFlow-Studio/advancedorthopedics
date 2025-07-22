@@ -37,6 +37,7 @@ export interface ClinicsProps {
   nearby?: React.ReactNode;
   advancedTreatments?: React.ReactNode;
   whatOurPatientsSay?: React.ReactNode;
+  ogImage: string;
 }
 
 export const clinics: ClinicsProps[] = [
@@ -213,7 +214,8 @@ export const clinics: ClinicsProps[] = [
           />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 3,
@@ -313,7 +315,8 @@ export const clinics: ClinicsProps[] = [
           />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 5,
@@ -452,7 +455,8 @@ export const clinics: ClinicsProps[] = [
           />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 9,
@@ -552,7 +556,8 @@ export const clinics: ClinicsProps[] = [
           />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 6,
@@ -666,7 +671,8 @@ export const clinics: ClinicsProps[] = [
                 <Testimonial name="Michael R." role="Golf Pro, PGA National" testimonial="As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed chronic back pain. Dr. Katzman's expertise had me back on the course, pain-free, within a month." />
             </div>
         </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 7,
@@ -760,7 +766,8 @@ export const clinics: ClinicsProps[] = [
           <Testimonial name="James T." role="Construction Supervisor, Miami Beach" testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month." />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 8,
@@ -857,7 +864,8 @@ export const clinics: ClinicsProps[] = [
           <Testimonial name="Robert T." role="Construction Supervisor, Delray Beach" testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The expert orthopedic surgeons' team got me back to work in one month." />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 1,
@@ -989,7 +997,8 @@ export const clinics: ClinicsProps[] = [
           />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
   {
     id: 2,
@@ -1119,7 +1128,8 @@ export const clinics: ClinicsProps[] = [
           />
         </div>
       </div>
-    )
+    ),
+    ogImage: "/newlogo4.png",
   },
 ];
 

@@ -61,5 +61,5 @@
 | https://mountainspineorthopedics.com/area-of-pain/back-pain/degenerativediscdisease | _add link / create page / 410_ |
 | https://mountainspineorthopedics.com/area-of-pain/back-pain/coccydynia | _add link / create page / 410_ |
 | https://mountainspineorthopedics.com/area-of-pain/back-pain/backpaintreatmentoptions | _add link / create page / 410_ |
-| https://mountainspineorthopedics.com/about/meetourdoctors/dr.monicamcphail-pruitt | _add link / create page / 410_ |
-| https://mountainspineorthopedics.com/about/meetourdoctors/dr.douglasslaughter | _add link / create page / 410_ |
+| https://mountainspineorthopedics.com/about/meetourdoctors/dr-monica-mcphail-pruitt | _add link / create page / 410_ |
+| https://mountainspineorthopedics.com/about/meetourdoctors/dr-douglas-slaughter | _add link / create page / 410_ |

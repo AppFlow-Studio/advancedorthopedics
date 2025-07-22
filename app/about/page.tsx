@@ -168,11 +168,16 @@ export const metadata: Metadata = {
     description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
     type: 'website',
     url: 'https://mountainspineorthopedics.com/about',
+    images: ['/AboutUsLanding.jpeg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
     description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
+    images: ['/AboutUsLanding.jpeg'],
+  },
+  alternates: {
+    canonical: 'https://mountainspineorthopedics.com/about',
   },
   keywords: [
     'about Mountain Spine & Orthopedics',

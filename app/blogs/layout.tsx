@@ -15,7 +15,7 @@ export const metadata = {
     description: 'Explore expert-written articles on spine health, orthopedic care, and pain management from Mountain Spine & Orthopedics. Stay informed and take control of your recovery journey.',
   },
   alternates: {
-    canonical: '/blogs',
+    canonical: 'https://mountainspineorthopedics.com/blogs',
   },
 };
 

@@ -15,6 +15,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
         body: "We offer a range of advanced back pain treatments, starting with non-surgical options like physical therapy and medication. When conservative care isn't enough, we provide minimally invasive procedures such as microdiscectomy, cervical discectomy, and artificial disc replacement to relieve nerve compression. For more complex cases, traditional surgeries like spinal fusion or laminectomy may be necessary. Our focus is on restoring mobility, reducing pain, and helping you get back to daily life with lasting relief.",
         metaTitle: "Back Pain Treatment Options - Mountain Spine & Orthopedics",
         metaDesc: "Explore our comprehensive back pain treatments, from non-surgical options to advanced minimally invasive procedures. Get personalized care for lasting relief.",
+        ogImage: "/backpaintreatment.png", // or another relevant imported image if available, else /newlogo4.png
         forum: [
             {
                 post: (
@@ -344,6 +345,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
 At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating a wide range of neck and shoulder conditions. From non-invasive therapies to advanced surgical solutions, we help patients regain motion, strength, and long-term comfort. If you're unsure about your current care plan, we also offer second opinions and customized treatment strategies.`,
         metaTitle: "Neck & Shoulder Treatment Options - Mountain Spine & Orthopedics",
         metaDesc: "Discover our comprehensive neck and shoulder pain treatments, from non-invasive therapies to advanced surgical solutions. Get personalized care for lasting relief.",
+        ogImage: "/pinchednerve.jpeg", // or another relevant imported image if available, else /newlogo4.png
         tag: "Neck & Shoulder Pain",
         forum: [
             {

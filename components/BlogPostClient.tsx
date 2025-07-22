@@ -36,7 +36,7 @@ export default function BlogDetails({
       <main className="w-full h-screen flex items-center justify-center">
         <div className="flex flex-col items-center space-y-4">
           <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-          <h1 className="text-xl font-medium text-gray-600">Loading blog details...</h1>
+          <h2 className="text-xl font-medium text-gray-600">Loading blog details...</h2>
         </div>
       </main>
     )
@@ -46,7 +46,7 @@ export default function BlogDetails({
     return (
       <main className="w-full h-screen flex items-center justify-center">
         <div className="flex flex-col items-center space-y-4">
-          <h1 className="text-2xl font-bold text-red-600">{error?.message || 'Blog not found or might have been deleted'}</h1>
+          <h2 className="text-2xl font-bold text-red-600">{error?.message || 'Blog not found or might have been deleted'}</h2>
           <p className="text-gray-600">Please check the URL or try again later</p>
         </div>
       </main>
@@ -124,9 +124,9 @@ export default function BlogDetails({
 
           case 'h1':
             return (
-              <h1 key={key} className="text-3xl font-bold mb-4 text-[#022968]">
+              <h2 key={key} className="text-3xl font-bold mb-4 text-[#022968]">
                 {children}
-              </h1>
+              </h2>
             );
 
           case 'h2':

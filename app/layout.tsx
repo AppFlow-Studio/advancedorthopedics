@@ -41,71 +41,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mountain Spine And Orthopedics",
-  description:
-    "Florida's trusted experts in spine and orthopedic care. Discover minimally invasive procedures, advanced pain management, and top-rated specialists.",
-  applicationName: "Mountain Spine & Orthopedics",
-  verification: {
-    google: "M4a0IB8-LOq1cLFtG4G6hYDMraxN6rNsFqk1614cVhY",
-  },
-  keywords: [
-    "Florida orthopedic specialist",
-    "spine surgery Florida",
-    "minimally invasive spine care",
-    "joint pain doctor Florida",
-    "neck and back pain treatment",
-    "sports injury doctor Florida",
-    "orthopedic clinic Florida",
-    "board certified orthopedic surgeons",
-    "scoliosis treatment Florida",
-    "Mountain Spine and Orthopedics",
-  ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: "index, follow",
-  },
+  metadataBase: new URL('https://mountainspineorthopedics.com'),
+  title: "Mountain Spine & Orthopedics",
+  description: "Florida's trusted experts in spine and joint care. Book today.",
   openGraph: {
-    url: "https://mountainspineorthopedics.com",
-    type: "website",
     title: "Mountain Spine & Orthopedics",
-    description: "Florida's trusted experts in spine and orthopedic care.",
+    description: "Florida's trusted experts in spine and joint care. Book today.",
+    url: "https://mountainspineorthopedics.com",
+    siteName: "Mountain Spine & Orthopedics",
+    type: "website",
+    locale: "en_US",
     images: [
       {
-        url: "https://mountainspineortho.b-cdn.net/Screenshot%202025-05-20%20at%2011.40.13%E2%80%AFAM.png",
+        url: "https://mountainspineorthopedics.com/newlogo4.png", // using actual logo in public folder
         width: 1200,
         height: 630,
-        alt: "Mountain Spine & Orthopedics Clinic",
+        alt: "Mountain Spine & Orthopedics",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mountain Spine & Orthopedics",
-    description: "Trusted Florida spine & orthopedic specialists.",
-    site: "@MountainSpineOrtho", // Replace if you have a Twitter/X handle
-    images: [
-      "https://mountainspineortho.b-cdn.net/Screenshot%202025-05-20%20at%2011.40.13%E2%80%AFAM.png",
-    ],
+    description: "Florida's trusted experts in spine and joint care. Book today.",
+    images: ["https://mountainspineorthopedics.com/newlogo4.png"], // same image as above
   },
   alternates: {
-    canonical: "https://mountainspineorthopedics.com",
+    canonical: 'https://mountainspineorthopedics.com/',
   },
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "icon", url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { rel: "icon", url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-  },
-  metadataBase: new URL("https://mountainspineorthopedics.com"),
 };
 
 const jsonLd = {

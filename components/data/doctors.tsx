@@ -22,6 +22,7 @@ export interface DoctorProp {
     metaTitle: string;
     metaDescription: string;
     keywords: string[];
+    ogImage: string;
 }
 
 export const Doctors: DoctorProp[] = [
@@ -48,6 +49,7 @@ export const Doctors: DoctorProp[] = [
         metaTitle: 'Dr. Scott Katzman | Minimally Invasive Spine Surgeon | Florida',
         metaDescription: 'Meet Dr. Scott Katzman, a leading orthopedic spine surgeon specializing in laser spine surgery and minimally invasive procedures. Schedule a consultation in Florida.',
         keywords: ["Dr. Scott Katzman", "laser spine surgery", "minimally invasive spine surgeon", "orthopedic surgeon Florida", "spinal disc replacement"],
+        ogImage: "/" + (Katzman?.src || "newlogo4.png"),
     },
     {
         img: David,
@@ -69,6 +71,7 @@ export const Doctors: DoctorProp[] = [
         metaTitle: 'Dr. David Cowin | Orthopedic Surgeon & Spine Specialist | Florida',
         metaDescription: 'Dr. David Cowin is a board-certified orthopedic surgeon specializing in joint reconstruction, sacroiliac fusion, and minimally invasive spine care in Florida.',
         keywords: ["Dr. David Cowin", "orthopedic surgeon", "SI joint fusion", "joint reconstruction", "Florida orthopedic doctor"],
+        ogImage: "/" + (David?.src || "newlogo4.png"),
     },
     {
         img: Christopher,
@@ -95,6 +98,7 @@ export const Doctors: DoctorProp[] = [
         metaTitle: 'Dr. Christopher McCarthy | Spine Surgeon (Ortho & Trauma) | FL',
         metaDescription: 'Meet Dr. Christopher McCarthy, an Ivy League-trained spine surgeon with dual expertise in orthopedics and emergency medicine. Specializing in complex spinal reconstruction.',
         keywords: ["Dr. Christopher McCarthy", "orthopedic spine surgeon", "spinal trauma specialist", "complex spine surgery", "Harvard trained doctor"],
+        ogImage: "/" + (Christopher?.src || "newlogo4.png"),
     },
     {
         img: Monica,
@@ -121,6 +125,7 @@ export const Doctors: DoctorProp[] = [
         metaTitle: 'Dr. Monica McPhail-Pruitt | Anesthesiology & Pain Management',
         metaDescription: 'Dr. Monica McPhail-Pruitt is a double board-certified pain management specialist ensuring safe and effective perioperative care for surgical patients.',
         keywords: ["Dr. Monica McPhail-Pruitt", "pain management specialist", "anesthesiologist", "perioperative care", "surgical pain relief"],
+        ogImage: "/" + (Monica?.src || "newlogo4.png"),
     },
     {
         img: Douglas,
@@ -148,5 +153,6 @@ export const Doctors: DoctorProp[] = [
         metaTitle: 'Dr. Douglas Slaughter | Orthopedic & Reconstructive Spine Surgeon',
         metaDescription: 'Dr. Douglas Slaughter, an award-winning orthopedic spine surgeon, offers expert minimally invasive and reconstructive spine surgery in Florida.',
         keywords: ["Dr. Douglas Slaughter", "reconstructive spine surgery", "top orthopedic surgeon", "minimally invasive spine surgeon"],
+        ogImage: "/" + (Douglas?.src || "newlogo4.png"),
     },
 ]

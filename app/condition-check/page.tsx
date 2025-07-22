@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: 'Use our free online condition check tool to describe your symptoms and receive a tailored assessment from our spine specialists. Fast, secure, and personalized.',
     images: ['/PatientFormsLanding.jpeg'],
   },
+  alternates: {
+    canonical: 'https://mountainspineorthopedics.com/condition-check',
+  },
 }
 
 const ConditionCheckSteps = [
