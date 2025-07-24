@@ -57,7 +57,14 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified specialists recognized as the premier orthopedic surgeons in Hollywood, Florida, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of your pain to achieve lasting clinical results.
     [PARAGRAPH BREAK]Inside our state-of-the-art orthopedic treatment center in Hollywood, FL, we utilize the latest diagnostic imaging technology and minimally invasive surgical techniques and orthopedic laser spine surgery in Hollywood, FL. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
     `,
-    keywords: ['orthopedic walk-in clinic hollywood fl', 'orthopedic laser spine surgery hollywood fl', 'orthopedic urgent care hollywood fl', 'orthopedic doctor hollywood fl', 'orthopedic surgeon hollywood fl', 'pediatric orthopedic hollywood fl', 'orthopedic in hollywood fl', 'orthopedic surgeon in hollywood florida'],
+    keywords: [
+      'orthopedic walk-in clinic hollywood fl', 'orthopedic laser spine surgery hollywood fl', 'orthopedic urgent care hollywood fl', 'orthopedic doctor hollywood fl', 'orthopedic surgeon hollywood fl', 'pediatric orthopedic hollywood fl', 'orthopedic in hollywood fl', 'orthopedic surgeon in hollywood florida',
+      'spine surgeon hollywood fl',
+      'anterior hip replacement surgeon hollywood fl',
+      'discectomy specialist hollywood fl',
+      'carpal tunnel release surgery hollywood fl',
+      'arthroscopic knee surgery hollywood fl',
+    ],
     metaTitle: 'Hollywood FL Orthopedic Walk-In Clinic | Spine & Musculoskeletal Care',
     metaDescription: "South Florida's leading orthopedic walk-in clinic in Hollywood, FL, specializing in spine and musculoskeletal care. Get expert treatment for back pain, sports injuries, and more. Same-day appointments available.",
     specialists: (
@@ -335,7 +342,16 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     Inside our state-of-the-art Orlando orthopedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando's expert team for spine and orthopedic health.
     `,
-    keywords: ['orlando orthopedic center', 'orlando orthopedic', 'orlando orthopedic center and walk-in clinic - lake nona', 'orlando orthopedic center orlando fl', 'orlando orthopedic lake nona', 'orlando orthopedic surgeons', 'orlando orthopedic center lake nona office', 'orlando orthopedic center lake nona', 'orlando spine and orthopedic specialists of central fl', 'orlando orthopedic center orthopedic injury walk-in clinic photos'],
+    keywords: [
+      'orlando orthopedic center', 'orlando orthopedic', 'orlando orthopedic center and walk-in clinic - lake nona', 'orlando orthopedic center orlando fl', 'orlando orthopedic lake nona', 'orlando orthopedic surgeons', 'orlando orthopedic center lake nona office', 'orlando orthopedic center lake nona', 'orlando spine and orthopedic specialists of central fl', 'orlando orthopedic center orthopedic injury walk-in clinic photos',
+      'best orthopedic surgeon orlando',
+      'best knee surgeon in orlando',
+      'spine surgeon orlando',
+      'knee replacement surgeon orlando',
+      'shoulder replacement surgeon orlando',
+      'orthopedic surgery center orlando',
+      'ACL surgery doctor orlando',
+    ],
     metaTitle: 'Orthopedic Center in Orlando & Walk-in Clinic in Central Florida',
     metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.',
     specialists:
@@ -465,99 +481,107 @@ export const clinics: ClinicsProps[] = [
     lat: 27.432531,
     lng: -80.344623,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
-    link : 'https://g.co/kgs/z3Q7yBx',
+    link: 'https://g.co/kgs/z3Q7yBx',
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
     paragraph: `
-    Mountain Spine & Orthopedics is proud to bring its legacy of excellence to Fort Pierce, offering residents along the Treasure Coast direct access to premier orthopedic doctors in Fort Pierce, FL. We are deeply committed to the health of the Fort Pierce community, helping our neighbors overcome the pain that keeps them from enjoying an active coastal lifestyle.
-    [PARAGRAPH BREAK]
-    Our Fort Pierce clinic is staffed by distinguished, board-certified orthopedic surgeons with advanced fellowship training in spine and orthopedic medicine. They treat a wide array of musculoskeletal issues with a compassionate, patient-centric approach, specializing in conditions from chronic spinal stenosis and degenerative disc disease to acute herniated discs and sports injuries. We focus on delivering precise diagnoses to build the foundation for an effective and lasting recovery.
-    [PARAGRAPH BREAK]
-    By pairing our expertise with the most advanced medical technology, we offer innovative, minimally invasive treatment options that set a new standard for orthopedic care in Fort Pierce, FL. Our goal is your complete and rapid recovery, facilitated by cutting-edge laser and endoscopic procedures designed for maximum effectiveness and minimal downtime. For comprehensive orthopedic care under one roof, the Fort Pierce community can confidently turn to Mountain Spine & Orthopedics.
-    `,
-    keywords: ['orthopedic fort pierce', 'fort pierce orthopedic', 'orthopedic doctors fort pierce', 'orthopedic physical therapy fort pierce', 'orthopedic fort pierce fl', 'orthopedic doctors in fort pierce fl', 'orthopedic surgeon fort pierce', 'orthopedic doctor fort pierce'],
-    metaTitle: 'Orthopedic Doctors in Fort Pierce, FL | Orthopedic Surgeons Near Me',
-    metaDescription: 'Find trusted Orthopedic Doctors in Fort Pierce, FL at Mountain Spine & Orthopedics. Our Orthopedic Surgeons offer expert care for pain, injuries, and recovery.',
+  Mountain Spine & Orthopedics in Fort Pierce offers top-tier orthopedic care to the Treasure Coast. Our local walk-in clinic gives patients fast access to spine specialists who diagnose and treat a wide range of orthopedic conditions with compassion, technology, and experience.
+  [PARAGRAPH BREAK]
+  Our Fort Pierce orthopedic clinic provides advanced treatment options including Band-Aid back surgery, laser spine procedures, endoscopic discectomies, and minimally invasive techniques. Patients benefit from a full continuum of care—orthopedic consultation, imaging, surgery, and physical therapy—all under one roof. Our Fort Pierce location supports faster recovery and better outcomes.
+  [PARAGRAPH BREAK]
+  Trust your care to orthopedic experts focused on helping Fort Pierce families return to active, pain-free lives.`,
+    keywords: [
+      'orthopedic fort pierce',
+      'fort pierce orthopedic',
+      'orthopedic doctors fort pierce',
+      'orthopedic physical therapy fort pierce',
+      'minimally invasive spine surgery fort pierce',
+      'laser back surgery fort pierce',
+      'sports injury doctor fort pierce',
+      'orthopedic walk-in clinic fort pierce',
+      'meniscus repair surgeon fort pierce',
+      'hand surgeon fort pierce',
+      'sciatica treatment fort pierce',
+    ],
+    metaTitle: 'Orthopedic Walk-In Clinic Fort Pierce, FL | Spine Doctors Near Me',
+    metaDescription: 'Visit our Fort Pierce orthopedic clinic for minimally invasive back pain treatments, physical therapy, and expert spine care. Walk-ins welcome. Schedule today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Fort Pierce Spine and Orthopedic Specialists of the Treasure Coast</h2>
-        <p className='text-lg'>Fort Pierce residents can get world-class spine care right here on the Treasure Coast. As your trusted Fort Pierce orthopedic center, we bring expert care to local families. We know life in the "Sunrise City" is about enjoying the outdoors, and our orthopedic doctor in Fort Pierce is here to help you get back to it.</p>
+        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
+        <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Fort Pierce orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Fort Pierce & Nearby Areas</h2>
-        <p className='text-lg'>Our orthopedic doctors in Fort Pierce, FL, are specially trained and certified, mixing medical skill with real care for patients. We treat <a href='/treatments/back-pain-treatment' className='text-[#0094E0] underline'>back pain</a>, <a href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0094E0] underline'>neck pain</a>, <a href='/area-of-speciality/degenerative-disc-disease-surgery' className='text-[#0094E0] underline'>disc problems</a>, <a href='/area-of-speciality/acl-injury' className='text-[#0094E0] underline'>ACL injuries</a>, and work injuries with personalized plans that can include orthopedic physical therapy in Fort Pierce.</p>
+        <p className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <a href="/treatments/back-pain-treatment" className="text-[#0094E0] underline">back pain</a>, <a href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0094E0] underline">neck pain</a>, herniated discs, <a href="/area-of-speciality/degenerative-disc-disease-surgery" className="text-[#0094E0] underline">degenerative disc disease</a>, <a href="/area-of-speciality/acl-injury" className="text-[#0094E0] underline">ACL injuries</a>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Why Fort Pierce Patients Choose Mountain Spine & Orthopedics:</h2>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Over 15 years serving Fort Pierce families</li>
-          <li>Same-day appointments available</li>
-          <li>Spanish-speaking staff</li>
-          <li>Free parking at our Fort Pierce orthopedic center.</li>
+          <li>Over 15 years serving Treasure Coast families with high patient satisfaction</li>
+          <li>Same-day appointments available for urgent problems - no long waits</li>
+          <li>Bilingual Spanish-speaking staff for our diverse community</li>
+          <li>Free parking and wheelchair-accessible facility</li>
+          <li>Most insurance plans accepted, including Workers' Compensation</li>
+          <li>Sports orthopedic specialists in Fort Pierce specializing in athletic injuries</li>
         </ul>
       </div>
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Easy to Reach:</h2>
-        <p className='text-lg'>• Lawnwood Regional Medical Center - 5 minutes • Indian River State College - 7 minutes • Downtown Fort Pierce - 10 minutes</p>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Easily Accessible From Throughout the Treasure Coast:</h3>
+        <ul className='text-lg list-disc pl-5 space-y-2'>
+          <li>Stuart - 15 minutes</li>
+          <li>Port St. Lucie - 10 minutes</li>
+          <li>Vero Beach - 25 minutes</li>
+          <li>Jensen Beach - 20 minutes</li>
+          <li>Sebastian - 30 minutes</li>
+          <li>Palm City - 20 minutes</li>
+        </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-xl'>Convenient for Port St. Lucie Residents</h2>
-        <p className='text-lg'>Our orthopedic clinic is perfectly located to serve Port St. Lucie residents needing expert spine care. We're a short drive away for any orthopedic care needs in Fort Pierce, FL.</p>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Convenient for Port St. Lucie Residents</h3>
+        <p className='text-lg'>Our orthopedic Fort Pierce center is perfectly positioned to serve Port St. Lucie residents who need expert spine care. We're easily accessible from US-1 and Okeechobee Road, making it simple for the Port St. Lucie community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>Advanced Orthopedic Treatment Technologies</h2>
-        <p className='text-lg'>Our Fort Pierce Orthopedic Center brings cutting-edge medical innovations to Treasure Coast families.</p>
+        <p className='text-lg'>Our Fort Pierce Orthopedic Center brings cutting-edge medical innovations to Treasure Coast families with exclusive minimally invasive procedures.</p>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
-        <div className='flex flex-col space-y-2 list-disc pl-5'>
-          <li>
-            <span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural Injections</a> | <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>Stem Cell Therapy</a> | <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>Pain Management Programs</a>
-          </li>
-          <li>
-            <span className='font-bold'>Precision Injections:</span> <a href='/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information' className='text-[#0094E0] underline'>Facet Joint Procedures</a> | <a href='/treatments/cortisone-injections-for-back-pain' className='text-[#0094E0] underline'>Cortisone Treatments</a>
-          </li>
-        </div>
+        <ul className='text-lg list-disc pl-5 space-y-2'>
+          <li><span className='font-bold'>Advanced Pain Relief:</span> <a href='/treatments/epidural-steroid-injection' className='text-[#0094E0] underline'>Epidural steroid injections</a>, <a href='/treatments/stem-cell-treatment' className='text-[#0094E0] underline'>regenerative stem cell therapy</a>, <a href='/treatments/non-surgical-treatments-for-pain-management' className='text-[#0094E0] underline'>comprehensive pain management programs</a></li>
+          <li><span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art laser spine procedures and precisely targeted radiofrequency treatments using the latest minimally invasive technology</li>
+          <li><span className='font-bold'>Precision Injections:</span> Image-guided facet joint procedures, targeted cortisone treatments, trigger point therapy</li>
+        </ul>
         <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
-        <div className='flex flex-col space-y-2 list-disc pl-5'>
-          <li><span className='font-bold'>Band-Aid Back Surgery</span></li>
-          <li>
-            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced Techniques</a> | <a href='/treatments/artificial-disc-replacement-surgery' className='text-[#0094E0] underline'>Disc Replacement</a> | <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>Spinal Fusion</a>
-          </li>
-          <li>
-            <span className='font-bold'>Complex Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF Surgery</a> | <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>Revision Surgery</a> | <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>Motion Preservation</a>
-          </li>
-        </div>
-        <p className='text-lg'>Fort Pierce's advantage: Robotic-assisted procedures, computer-guided navigation, and same-day outpatient techniques.</p>
-        <p className='text-lg'>Schedule Your Free Consultation - <a href="/find-care/candidacy-check" className="underline text-[#0094E0]">Check Treatment Candidacy Today</a></p>
+        <ul className='text-lg list-disc pl-5 space-y-2'>
+          <li><span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at select centers nationwide. Tiny incisions that heal like band-aids with high success rates and quick return to work</li>
+          <li><span className='font-bold'>Minimally Invasive Excellence:</span> <a href='/treatments/lumbar-microendoscopic-discectomy-surgery' className='text-[#0094E0] underline'>Advanced endoscopic techniques</a>, artificial disc replacement, <a href='/treatments/spinal-fusion' className='text-[#0094E0] underline'>motion-preserving spinal fusion</a></li>
+          <li><span className='font-bold'>Complex Specialized Procedures:</span> <a href='/treatments/acdf-surgery' className='text-[#0094E0] underline'>ACDF surgery</a>, <a href='/treatments/revision-spinal-surgery' className='text-[#0094E0] underline'>revision spinal surgery</a>, <a href='/treatments/motion-preservation-spine-surgery' className='text-[#0094E0] underline'>motion preservation techniques</a>, multi-level procedures</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-2xl'>Exclusive advantages for patients in Greater Fort Pierce:</h3>
+        <p className='text-lg'>Robotic-assisted minimally invasive procedures, computer-guided surgical navigation, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
+        <p className='text-lg font-bold'><a href="/find-care/candidacy-check" className="text-[#0094E0] underline">Schedule Your Free Consultation - Check Treatment Candidacy Today</a></p>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Fort Pierce Patients Say</h3>
+        <h3 style={{ fontFamily: "var(--font-reem-kufi)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
+        <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
-          <Testimonial
-            name="Tom W."
-            role="Fishing Charter Captain, Fort Pierce"
-            testimonial="Years on the water gave me a back that was shot. The orthopedic surgeon in Fort Pierce here understood my lifestyle and my need to get back to work. Their procedure was minimally invasive, and I was back running charters in record time."
-          />
-          <Testimonial
-            name="Brenda J."
-            role="Nurse, Port St. Lucie"
-            testimonial="As a healthcare worker, I knew I needed the best for my spinal stenosis. I did my research and chose this Fort Pierce orthopedic center. Dr. Katzman and his team were professional, caring, and their technology is top-notch."
-          />
+          <Testimonial name="Jennifer T." role="Teacher, St. Lucie County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This orthopedic center in Fort Pierce truly understands working families." />
+          <Testimonial name="Dr. Robert Chen" role="Emergency Physician, HCA Florida Lawnwood Hospital" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these orthopedic surgery specialists in Fort Pierce, FL because I've experienced their excellent care firsthand." />
+          <Testimonial name="Mark S." role="Construction Supervisor, Port St. Lucie" testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The sports orthopedic team in Fort Pierce got me back to work in one month." />
         </div>
       </div>
     ),
-    ogImage: "/newlogo4.png",
+    ogImage: "/newlogo4.png"
   },
   {
     id: 6,
@@ -574,7 +598,13 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert orthopedic care, compassionate clinical service, and evidence-based results that make a difference. Your musculoskeletal mobility and overall well-being are our top priorities. Experience the clinical excellence that sets our orthopedic services apart in Palm Beach Gardens.
     [PARAGRAPH BREAK]At Mountain Spine & Orthopedics, we provide exceptional clinical care using the latest treatments with a patient-centered approach. Here's why families throughout South Florida choose our leading advanced orthopedic care in the greater Palm Beach Gardens area.
     `,
-    keywords: ['orthopedic walk-in clinic palm beach gardens fl', 'orthopedic laser spine surgery palm beach gardens fl', 'orthopedic urgent care palm beach gardens fl', 'orthopedic doctor palm beach gardens fl', 'orthopedic surgeon palm beach gardens fl', 'pediatric orthopedic bracing palm beach gardens fl', 'orthopedic in palm beach gardens fl', 'orthopedic surgeon in palm beach gardens florida'],
+    keywords: [
+      'orthopedic walk-in clinic palm beach gardens fl', 'orthopedic laser spine surgery palm beach gardens fl', 'orthopedic urgent care palm beach gardens fl', 'orthopedic doctor palm beach gardens fl', 'orthopedic surgeon palm beach gardens fl', 'pediatric orthopedic bracing palm beach gardens fl', 'orthopedic in palm beach gardens fl', 'orthopedic surgeon in palm beach gardens florida',
+      'best shoulder surgeon palm beach gardens',
+      'laminectomy surgeon palm beach gardens',
+      'revision hip surgery palm beach gardens',
+      'partial knee replacement surgeon palm beach gardens',
+    ],
     metaTitle: 'Palm Beach Gardens Orthopedic & Spine Specialists | Mountain Spine & Orthopedics',
     metaDescription: 'For comprehensive spine and orthopedic care in Palm Beach Gardens, FL, trust Mountain Spine & Orthopedics. Our highly skilled, fellowship-trained surgeons offer a full spectrum of services, from non-surgical treatments to advanced minimally invasive procedures.',
     specialists: (
@@ -689,7 +719,15 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priorities. Experience the excellence that sets our Miami Beach orthopedic practice apart.
     [PARAGRAPH BREAK]At Mountain Spine & Orthopedics, we provide exceptional care using the latest treatments with a patient-first approach. Here's why families throughout South Florida choose us.
     `,
-    keywords: ['orthopedic walk-in clinic miami beach fl', 'orthopedic laser spine surgery miami beach fl', 'orthopedic urgent care miami beach fl', 'orthopedic doctor miami beach fl', 'orthopedic surgeon miami beach fl', 'pediatric orthopedic miami beach fl', 'orthopedic in miami beach fl', 'orthopedic surgeon in miami beach florida'],
+    keywords: [
+      'orthopedic walk-in clinic miami beach fl', 'orthopedic laser spine surgery miami beach fl', 'orthopedic urgent care miami beach fl', 'orthopedic doctor miami beach fl', 'orthopedic surgeon miami beach fl', 'pediatric orthopedic miami beach fl', 'orthopedic in miami beach fl', 'orthopedic surgeon in miami beach florida',
+      'minimally invasive spine surgery miami',
+      'top knee replacement surgeon miami',
+      'hip replacement surgeon miami beach',
+      'rotator cuff surgery specialist miami beach',
+      'cervical spine surgeon miami',
+      'orthopedic surgical associates miami',
+    ],
     metaTitle: 'Orthopedic Walk-In Clinic Miami Beach, FL | Spine & Joint Care',
     metaDescription: 'Get expert spine and joint care at Mountain Spine & Orthopedics in Miami Beach, FL. We offer same-day appointments, Band-Aid Back Surgery, and minimally invasive treatments for faster healing. Your mobility is our priority.',
     specialists: (
@@ -786,7 +824,16 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     By leveraging state-of-the-art diagnostic imaging and pioneering minimally invasive procedures, we offer a pathway to a faster, safer recovery. Our advanced laser and endoscopic techniques are designed to address the source of your pain with unmatched precision, minimizing your downtime. 
     `,
-    keywords: ['boca raton orthopedic group', 'orthopedic boca raton', 'best orthopedic doctor in boca raton', 'orthopedic doctors boca raton', 'orthopedic doctors in boca raton', 'boca orthopedic', 'orthopedic surgeon boca raton fl', 'pediatric orthopedic boca raton', 'orthopedic surgeon boca', 'orthopedic doctor boca raton', 'walk in orthopedic boca raton', 'spine and orthopedic center boca raton', 'orthopedic surgeon boca raton', 'orthopedic surgeons boca raton', 'orthopedic surgery associates boca raton', 'boca raton orthopedic', 'sports & orthopedic center boca raton'],
+    keywords: [
+      'boca raton orthopedic group', 'orthopedic boca raton', 'best orthopedic doctor in boca raton', 'orthopedic doctors boca raton', 'orthopedic doctors in boca raton', 'boca orthopedic', 'orthopedic surgeon boca raton fl', 'pediatric orthopedic boca raton', 'orthopedic surgeon boca', 'orthopedic doctor boca raton', 'walk in orthopedic boca raton', 'spine and orthopedic center boca raton', 'orthopedic surgeon boca raton', 'orthopedic surgeons boca raton', 'orthopedic surgery associates boca raton', 'boca raton orthopedic', 'sports & orthopedic center boca raton',
+      'top rated spine surgeon boca raton',
+      'best orthopedic surgeon boca raton',
+      'spine surgeon boca raton',
+      'spinal fusion surgeon boca raton',
+      'shoulder arthroscopy boca raton',
+      'total knee replacement surgeon boca raton',
+      'find an orthopedic surgeon boca raton',
+    ],
     metaTitle: 'Orthopedic Walk-In Clinic Boca Raton, FL | Spine & Joint Care',
     metaDescription: 'Get expert spine and joint care at Mountain Spine & Orthopedics in Boca Raton, FL. We offer same-day appointments, Band-Aid Back Surgery, and minimally invasive treatments for faster healing. Your mobility is our priority.',
     specialists: (
@@ -884,7 +931,10 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     Inside our state-of-the-art orthopedic center, we utilize the latest diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Central Florida's expert team for spine and orthopedic health.
     `,
-    keywords: ['orthopedic altamonte springs', 'altamonte springs sports orthopedic doctor', 'orthopedic-laser spine surgery altamonte springs fl', 'orthopedic surgery specialists altamonte springs florida', 'orthopedic surgery specialists altamonte springs fl', 'orthopedic surgeon fl altamonte springs', 'orthopedic altamonte springs fl', 'orthopedic doctors in altamonte springs fl', 'orthopedic walk-in clinic altamonte springs fl'],
+    keywords: [
+      'orthopedic altamonte springs', 'altamonte springs sports orthopedic doctor', 'orthopedic-laser spine surgery altamonte springs fl', 'orthopedic surgery specialists altamonte springs florida', 'orthopedic surgery specialists altamonte springs fl', 'orthopedic surgeon fl altamonte springs', 'orthopedic altamonte springs fl', 'orthopedic doctors in altamonte springs fl', 'orthopedic walk-in clinic altamonte springs fl',
+      'knee surgery specialist altamonte springs',
+    ],
     metaTitle: 'Orthopedic Walk-In Clinic in Altamonte Springs, FL',
     metaDescription: 'Looking for an Orthopedic Walk-In Clinic in Altamonte Springs, FL? Mountain Spine & Orthopedics offers expert spine and joint care, minimally invasive surgery, and same-day appointments.',
     specialists: (
