@@ -7,8 +7,19 @@ import FaqsSection from '@/components/FaqsSection'
 
 export const metadata: Metadata = {
   title: 'Spine Surgery FAQs | Mountain Spine & Orthopedics Florida',
-  description: 'Find answers to frequently asked questions about spine surgery, recovery, and treatment options at Mountain Spine & Orthopedics. Get informed before your visit.'
-}
+  description: 'Find answers to frequently asked questions about spine surgery, recovery, and treatment options at Mountain Spine & Orthopedics. Get informed before your visit.',
+  openGraph: {
+    title: 'Spine Surgery FAQs | Mountain Spine & Orthopedics Florida',
+    description: 'Find answers to frequently asked questions about spine surgery, recovery, and treatment options at Mountain Spine & Orthopedics. Get informed before your visit.',
+    images: ['/FAQs.jpeg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Spine Surgery FAQs | Mountain Spine & Orthopedics Florida',
+    description: 'Find answers to frequently asked questions about spine surgery, recovery, and treatment options at Mountain Spine & Orthopedics. Get informed before your visit.',
+    images: ['/FAQs.jpeg'],
+  },
+};
 
 const faqItems = [
   {

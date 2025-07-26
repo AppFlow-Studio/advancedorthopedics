@@ -29,6 +29,7 @@ export interface ConditionInfoProp {
     keywords?: string[];
     metaTitle?: string;
     metaDesc?: string;
+    ogImage?: string;
 }
 
 function truncateString(str : string, maxLength = 125) {

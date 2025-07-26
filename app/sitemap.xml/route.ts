@@ -48,13 +48,13 @@ const FindCare = [
 ];
 
 const BackPainPages =[
-"lower-back-pain",
-'degenerative-disc-disease',
-'lumbar-herniated-disc',
-'foraminal-stenosis',
-'sciatica',
-'coccydynia',
-'back-pain-treatment-options'
+  "lower-back-pain",
+  'degenerative-disc-disease',
+  'lumbar-herniated-disc',
+  'foraminal-stenosis',
+  'sciatica',
+  'coccydynia',
+  'back-pain-treatment-options' // Only the correct slug is present
 ]
 
 const NeckPainPages = [
@@ -106,6 +106,8 @@ export async function GET() {
   ${generateUrlEntry("/about/FAQs")}
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/privacy-policy")}
+  ${generateUrlEntry("/area-of-speciality")}
+  ${generateUrlEntry("/locations")}
   // --- Dynamic Pages from Data ---
 
   ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}

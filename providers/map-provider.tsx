@@ -19,8 +19,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
 
   //if(loadError) return <p>Encountered error while loading google maps</p>
 
-  if(!scriptLoaded) return 
+  if(!scriptLoaded) return null;
 
   // Return the children prop wrapped by this MapProvider component
-  return children;
+  return <>{children}</>;
 }
