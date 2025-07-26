@@ -8,9 +8,10 @@ export async function generateMetadata(
     { params }: { params: { locationname: string } },
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-
+    // Await params in case it's a Promise (Next.js 14+ dynamic route requirement)
+    const resolvedParams = await params;
     // Find the specific clinic data based on the URL slug
-    const location = clinics.find(clinic => clinic.slug === params.locationname);
+    const location = clinics.find(clinic => clinic.slug === resolvedParams.locationname);
 
     // If no matching location is found, return default metadata.
     if (!location) {
@@ -63,8 +64,9 @@ export async function generateMetadata(
 
 // --- SEO ENHANCEMENT: DYNAMIC JSON-LD SCHEMA FOR EACH CLINIC ---
 // This component generates a unique schema for each medical clinic location.
-const LocationJsonLdSchema = ({ params }: { params: { locationname: string } }) => {
-    const location = clinics.find(clinic => clinic.slug === params.locationname);
+const LocationJsonLdSchema = async ({ params }: { params: { locationname: string } }) => {
+    const resolvedParams = await params;
+    const location = clinics.find(clinic => clinic.slug === resolvedParams.locationname);
 
     if (!location) {
         return null;
@@ -115,7 +117,6 @@ const LocationJsonLdSchema = ({ params }: { params: { locationname: string } }) 
     );
   };
 
-
 // This is the layout component that will wrap the page.
 // We inject the JSON-LD schema here.
 export default function LocationLayout({
@@ -128,6 +129,8 @@ export default function LocationLayout({
     return (
         <>
             <StaticNav />
+            {/* Await the async LocationJsonLdSchema and render it */}
+            {/* @ts-expect-error Async Server Component */}
             <LocationJsonLdSchema params={params} />
             {children}
             <OrphanLinksFooter /> {/* sr-only, zero visual impact */}

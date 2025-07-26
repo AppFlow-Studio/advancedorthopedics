@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { CheckCircle, Mail, Users, Share2, Instagram } from "lucide-react"
 import Link from "next/link"
 

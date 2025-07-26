@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Privacy Policy | Mountain Spine & Orthopedics",
+  description: "Read our privacy policy to learn how Mountain Spine & Orthopedics protects your personal information and data online.",
+};
+
 export default function PrivacyPolicy() {
     return (
       <div className="mt-20 bg-white ">

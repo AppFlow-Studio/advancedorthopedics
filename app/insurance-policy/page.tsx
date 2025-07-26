@@ -3,7 +3,6 @@ import InsurancePolicyClient from './InsurancePolicyClient'
 // Remove 'use client' from this file.
 // Move all JSX and client logic to InsurancePolicyClient.tsx.
 // Keep only metadata and a default export that renders <InsurancePolicyClient />.
-// ... existing code ...
 
 export const generateMetadata = (): Metadata => ({
   title: 'Insurance Policy | Mountain Spine & Orthopedics',

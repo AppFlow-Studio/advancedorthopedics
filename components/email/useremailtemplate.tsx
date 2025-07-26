@@ -144,7 +144,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                       }}>
                         <span style={{
                           fontWeight: '500'
-                        }}>Phone:</span> {clinic.phone}
+                        }}>Phone:</span> (561) 223-9959
                       </p>
                       <p style={{
                         color: '#374151',

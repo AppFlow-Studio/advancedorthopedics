@@ -33,6 +33,10 @@ const nextConfig: NextConfig = {
     ]
   },
 
+  experimental: {
+    optimizeCss: true,
+  },
+
   async redirects() {
   return [
     // --- CLINIC SLUG REDIRECTS ---
@@ -74,6 +78,7 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-pain/neck-and-shoulder-pain/degenerativediscdisease","destination":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","permanent":true},
     {"source":"/area-of-pain/back-pain/lowerbackpain","destination":"/area-of-pain/back-pain/lower-back-pain","permanent":true},
     {"source":"/area-of-pain/back-pain/degenerativediscdisease","destination":"/area-of-pain/back-pain/degenerative-disc-disease","permanent":true},
+    {"source":"/area-of-pain/back-pain/backpaintreatmentoptions","destination":"/area-of-pain/back-pain/back-pain-treatment-options","permanent":true},
     
     // --- EXISTING AREA-OF-SPECIALITY REDIRECTS ---
     {"source":"/area-of-speciality/trochantericbursitis","destination":"/conditions/trochanteric-bursitis","permanent":true},
@@ -148,6 +153,11 @@ const nextConfig: NextConfig = {
 
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
+};
+
+nextConfig.generateBuildId = async () => {
+  // Use a timestamp or a random string for uniqueness
+  return `${Date.now()}`;
 };
 
 export default nextConfig;

@@ -1,3 +1,18 @@
+export const metadata = {
+  title: "Find a Doctor Near You | Mountain Spine",
+  description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+  openGraph: {
+    title: "Find a Doctor Near You | Mountain Spine",
+    description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+    images: ["/newlogo4.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Find a Doctor Near You | Mountain Spine",
+    description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+    images: ["/newlogo4.png"],
+  },
+};
 import React from 'react'
 import ContactUsSection from '@/components/ContactUsSection'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
