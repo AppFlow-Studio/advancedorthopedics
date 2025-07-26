@@ -99,11 +99,11 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
               <p style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-black text-3xl text-left w-full lg:mt-0 mt-4">{doctor_details.name}</p>
               <p style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }} className="text-[#54535C] text-lg mt-1">{doctor_details.practice}</p>
               <div className=' flex flex-row space-x-[16px] mt-2'>
-                {socials.map((item: any, index: number) => (
+                {/* {socials.map((item: any, index: number) => (
                   <Link href={item.link} target='_blank' className=' border border-[#EFF5FF] rounded-full px-[13px] py-[10px] items-center justify-center' key={index}>
                     <item.icon />
                   </Link>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
