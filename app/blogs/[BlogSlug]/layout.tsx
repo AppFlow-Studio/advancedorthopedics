@@ -4,6 +4,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
 import StaticNav from "@/components/StaticNav.server";
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ BlogSlug: string }> },
@@ -20,6 +22,9 @@ export async function generateMetadata(
   }
 
   const info = blog.blog_info;
+  const canonicalUrl = buildCanonical(`/blogs/${blog.slug}`);
+  const ogImage = getOgImageForPath('/blogs');
+  
   return {
     title: info.metaTitle || `${info.title} | Mountain Spine & Orthopedics`,
     description: info.metaDescription || info.desc,
@@ -28,16 +33,16 @@ export async function generateMetadata(
       title: info.metaTitle || `${info.title} | Mountain Spine & Orthopedics`,
       description: info.metaDescription || info.desc,
       type: "article",
-      url: `https://mountainspineorthopedics.com/blogs/${blog.slug}`,
+      url: canonicalUrl,
       publishedTime: blog.created_at,
       modifiedTime: blog.modified_at,
       authors: info.author,
       tags: info.tags,
       images: [
         {
-          url: info.img,
-          width: 1024,
-          height: 576,
+          url: ogImage,
+          width: 1200,
+          height: 630,
           alt: info.title,
           type: "image/png"
         }
@@ -47,10 +52,10 @@ export async function generateMetadata(
       card: "summary_large_image",
       title: info.metaTitle || info.title,
       description: info.metaDescription || info.desc,
-      images: [info.img],
+      images: [ogImage],
     },
     alternates: {
-      canonical: `https://mountainspineorthopedics.com/blogs/${blog.slug}`
+      canonical: canonicalUrl
     }
   };
 }

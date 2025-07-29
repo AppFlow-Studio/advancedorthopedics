@@ -1,36 +1,7 @@
 import Image from 'next/image'
 import PatientFormsLanding from '@/public/PatientFormsLanding.jpeg'
 import ContactUsSection from '@/components/ContactUsSection'
-import type { Metadata } from 'next'
 import ConditionCheckSection from '@/components/ConditionCheckSection'
-
-export const metadata: Metadata = {
-  title: 'Back & Neck Pain Condition Checker | Mountain Spine & Orthopedics',
-  description: 'Use our free online condition check tool to describe your symptoms and receive a tailored assessment from our spine specialists. Fast, secure, and personalized.',
-  openGraph: {
-    title: 'Back & Neck Pain Condition Checker | Mountain Spine & Orthopedics',
-    description: 'Use our free online condition check tool to describe your symptoms and receive a tailored assessment from our spine specialists. Fast, secure, and personalized.',
-    url: 'https://www.mountainspineortho.com/condition-check',
-    type: 'website',
-    images: [
-      {
-        url: '/PatientFormsLanding.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Doctor Diagnosing a Old Patient',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Back & Neck Pain Condition Checker | Mountain Spine & Orthopedics',
-    description: 'Use our free online condition check tool to describe your symptoms and receive a tailored assessment from our spine specialists. Fast, secure, and personalized.',
-    images: ['/PatientFormsLanding.jpeg'],
-  },
-  alternates: {
-    canonical: 'https://mountainspineorthopedics.com/condition-check',
-  },
-}
 
 const ConditionCheckSteps = [
   {

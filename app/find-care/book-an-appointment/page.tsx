@@ -12,10 +12,31 @@ import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { Marquee } from '@/components/magicui/marquee';
 import type { Metadata } from 'next'
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: 'Book Your Appointment | Mountain Spine & Orthopedics',
-  description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.'
+  description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.',
+  openGraph: {
+    title: 'Book Your Appointment | Mountain Spine & Orthopedics',
+    description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.',
+    url: buildCanonical('/find-care/book-an-appointment'),
+    images: [
+      {
+        url: getOgImageForPath('/find-care/book-an-appointment'),
+        width: 1200,
+        height: 630,
+        alt: 'Book an Appointment at Mountain Spine & Orthopedics',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book Your Appointment | Mountain Spine & Orthopedics',
+    description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.',
+    images: [getOgImageForPath('/find-care/book-an-appointment')],
+  },
 }
 
 export default function BookAnAppointment() {

@@ -2,6 +2,8 @@ import { Metadata, ResolvingMetadata } from "next";
 import { clinics } from "@/components/data/clinics";
 import StaticNav from "@/components/StaticNav.server";
 import OrphanLinksFooter from '@/components/OrphanLinksFooter';
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 // This function dynamically generates metadata for each location page.
 export async function generateMetadata(
@@ -21,28 +23,36 @@ export async function generateMetadata(
         };
     }
 
-    const locationUrl = `https://mountainspineorthopedics.com/locations/${location.slug}`;
+    const canonicalUrl = buildCanonical(`/locations/${location.slug}`);
+    const ogImage = getOgImageForPath('/locations');
 
+    // Extract city name from location data
+    const cityName = location.region.split(',')[0].trim();
+    
+    // Create consistent title format
+    const consistentTitle = `Orthopedic & Spine Care in ${cityName}, FL | Mountain Spine & Orthopedics`;
+    
+    // Create consistent description format
+    const consistentDescription = `Experience minimally invasive spine & orthopedic care in ${cityName}, FL—board-certified surgeons, on-site imaging, and same-day appointments at Mountain Spine & Orthopedics.`;
+    
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
     return {
-      metadataBase: new URL('https://mountainspineorthopedics.com'), // Important for resolving relative image paths
-      title: location.metaTitle,
-      description: location.metaDescription,
+      title: consistentTitle,
+      description: consistentDescription,
       keywords: location.keywords,
 
       alternates: {
-        canonical: locationUrl,
+        canonical: canonicalUrl,
       },
 
       openGraph: {
-        title: location.metaTitle,
-        description: location.metaDescription,
-        url: locationUrl,
+        title: consistentTitle,
+        description: consistentDescription,
+        url: canonicalUrl,
         siteName: 'Mountain Spine & Orthopedics',
-        // Assuming a generic OG image, but you could add a specific one per location in clinics.tsx
         images: [
           {
-            url: '/og-image-locations.jpg', // Place a relevant image in your /public folder
+            url: ogImage,
             width: 1200,
             height: 630,
             alt: `A view of the Mountain Spine & Orthopedics clinic in ${location.region}`,
@@ -54,10 +64,9 @@ export async function generateMetadata(
 
       twitter: {
         card: 'summary_large_image',
-        title: location.metaTitle,
-        description: location.metaDescription,
-        // Match the OpenGraph image
-        images: ['/og-image-locations.jpg'],
+        title: consistentTitle,
+        description: consistentDescription,
+        images: [ogImage],
       },
     };
 }
@@ -106,7 +115,7 @@ const LocationJsonLdSchema = async ({ params }: { params: { locationname: string
           'url': 'https://mountainspineorthopedics.com/'
       },
       // Add a generic image or create a location-specific one
-      'image': 'https://mountainspineorthopedics.com/og-image-locations.jpg',
+      'image': 'https://mountainspineorthopedics.com/locations_og.png',
     };
   
     return (

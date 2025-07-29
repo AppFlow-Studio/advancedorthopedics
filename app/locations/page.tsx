@@ -1,3 +1,6 @@
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
+
 export const metadata = {
   title: 'Florida Clinic Locations | Mountain Spine & Orthopedics',
   description: 'Find all Mountain Spine & Orthopedics clinic locations across Florida. Expert spine and joint care near you.',
@@ -26,13 +29,13 @@ export const metadata = {
   openGraph: {
     title: 'Florida Clinic Locations | Mountain Spine & Orthopedics',
     description: 'Find all Mountain Spine & Orthopedics clinic locations across Florida. Expert spine and joint care near you.',
-    url: 'https://mountainspineorthopedics.com/locations',
+    url: buildCanonical('/locations'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
     locale: 'en_US',
     images: [
       {
-        url: 'https://mountainspineorthopedics.com/newlogo4.png',
+        url: getOgImageForPath('/locations'),
         width: 1200,
         height: 630,
         alt: 'Mountain Spine & Orthopedics',
@@ -43,10 +46,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Florida Clinic Locations | Mountain Spine & Orthopedics',
     description: 'Find all Mountain Spine & Orthopedics clinic locations across Florida. Expert spine and joint care near you.',
-    images: ['https://mountainspineorthopedics.com/newlogo4.png'],
+    images: [getOgImageForPath('/locations')],
   },
   alternates: {
-    canonical: 'https://mountainspineorthopedics.com/locations',
+    canonical: buildCanonical('/locations'),
   },
 };
 
