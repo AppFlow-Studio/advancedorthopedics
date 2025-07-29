@@ -1,16 +1,27 @@
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
+
 export const metadata = {
   title: "Find a Doctor Near You | Mountain Spine",
   description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
   openGraph: {
     title: "Find a Doctor Near You | Mountain Spine",
     description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
-    images: ["/newlogo4.png"],
+    url: buildCanonical('/find-care/find-a-doctor'),
+    images: [
+      {
+        url: getOgImageForPath('/find-care'),
+        width: 1200,
+        height: 630,
+        alt: 'Find a Doctor at Mountain Spine & Orthopedics',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Find a Doctor Near You | Mountain Spine",
     description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
-    images: ["/newlogo4.png"],
+    images: [getOgImageForPath('/find-care')],
   },
 };
 import React from 'react'

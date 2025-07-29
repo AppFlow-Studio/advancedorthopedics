@@ -1,3 +1,6 @@
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
+
 export const metadata = {
   title: 'Free MRI Review | Mountain Spine & Orthopedics',
   description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
@@ -5,12 +8,21 @@ export const metadata = {
     title: 'Free MRI Review | Mountain Spine & Orthopedics',
     description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
     type: 'website',
-    url: 'https://mountainspineorthopedics.com/find-care/free-mri-review',
+    url: buildCanonical('/find-care/free-mri-review'),
+    images: [
+      {
+        url: getOgImageForPath('/find-care/free-mri-review'),
+        width: 1200,
+        height: 630,
+        alt: 'Free MRI Review at Mountain Spine & Orthopedics',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Free MRI Review | Mountain Spine & Orthopedics',
     description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
+    images: [getOgImageForPath('/find-care/free-mri-review')],
   },
   keywords: [
     'free MRI review',

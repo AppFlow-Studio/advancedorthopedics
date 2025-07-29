@@ -3,6 +3,8 @@ import { conditions } from "@/components/data/conditions";
 import { posthog } from "posthog-js";
 import StaticNav from "@/components/StaticNav.server";
 import OrphanLinksFooter from '@/components/OrphanLinksFooter';
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 function capitalizeWords(str: string): string {
   return str.replace(/\b\w/g, l => l.toUpperCase());
@@ -24,26 +26,24 @@ export async function generateMetadata(
         };
     }
 
-    // Ensure image URL is a string
-    const imageUrl = typeof condition.card_img === 'string' ? condition.card_img : condition.card_img?.src || '';
-    const conditionUrl = `https://mountainspineorthopedics.com/area-of-speciality/${condition.slug}`;
+    const canonicalUrl = buildCanonical(`/area-of-speciality/${condition.slug}`);
+    const ogImage = getOgImageForPath('/area-of-speciality');
 
     return {
-      metadataBase: new URL('https://mountainspineorthopedics.com'),
       title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
       description: condition.metaDesc || condition.body,
       keywords: condition.keywords || [condition.title, "orthopedic condition", "spine condition"],
       alternates: {
-        canonical: conditionUrl,
+        canonical: canonicalUrl,
       },
       openGraph: {
         title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
         description: condition.metaDesc || condition.body,
-        url: conditionUrl,
+        url: canonicalUrl,
         siteName: 'Mountain Spine & Orthopedics',
         type: "article",
         images: [{
-            url: imageUrl,
+            url: ogImage,
             width: 1200,
             height: 630,
             alt: `Illustration of ${condition.title}`,
@@ -53,7 +53,7 @@ export async function generateMetadata(
         card: "summary_large_image",
         title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
         description: condition.metaDesc || condition.body,
-        images: [imageUrl],
+        images: [ogImage],
       },
     };
 }
