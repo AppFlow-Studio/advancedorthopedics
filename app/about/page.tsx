@@ -9,6 +9,8 @@ import StarRating from '@/components/StarRating'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 export default function AboutUs() {
   return (
@@ -161,23 +163,31 @@ export default function AboutUs() {
 }
 
 export const metadata: Metadata = {
-  title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
-  description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
+  title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
+  description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to minimally invasive spine and joint care across Florida.',
   openGraph: {
-    title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
-    description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
+    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
+    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to minimally invasive spine and joint care across Florida.',
+    url: buildCanonical('/about'),
+    siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
-    url: 'https://mountainspineorthopedics.com/about',
-    images: ['/AboutUsLanding.jpeg'],
+    images: [
+      {
+        url: getOgImageForPath('/'),
+        width: 1200,
+        height: 630,
+        alt: 'Mountain Spine & Orthopedics team',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Mountain Spine & Orthopedics | Spine Experts in Florida',
-    description: "Meet the team behind Mountain Spine & Orthopedics—Florida's leaders in minimally invasive spine surgery and orthopedic care. Learn about our approach, credentials, and expert doctors.",
-    images: ['/AboutUsLanding.jpeg'],
+    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
+    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to minimally invasive spine and joint care across Florida.',
+    images: [getOgImageForPath('/')],
   },
   alternates: {
-    canonical: 'https://mountainspineorthopedics.com/about',
+    canonical: buildCanonical('/about'),
   },
   keywords: [
     'about Mountain Spine & Orthopedics',

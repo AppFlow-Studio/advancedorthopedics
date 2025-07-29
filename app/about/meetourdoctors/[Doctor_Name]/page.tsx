@@ -15,24 +15,7 @@ export async function generateStaticParams() {
   return Doctors.map(d => ({ Doctor_Name: d.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { Doctor_Name: string } }) {
-  const doctor = Doctors.find((d) => d.slug === params.Doctor_Name);
-  if (!doctor) return {};
-  const fullName = doctor.name.startsWith('Dr.') ? doctor.name : `Dr. ${doctor.name}`;
-  const specialty = doctor.practice;
-  return {
-    title: `${fullName} | Spine & Orthopedic Surgeon in Florida | Mountain Spine & Orthopedics`,
-    description: `Meet ${fullName}, a board-certified ${specialty} at Mountain Spine & Orthopedics. Expert in minimally invasive surgery and personalized spine and joint care. Locations across Florida.`,
-    openGraph: {
-      title: `${fullName} | Spine & Orthopedic Surgeon in Florida | Mountain Spine & Orthopedics`,
-      description: `Meet ${fullName}, a board-certified ${specialty} at Mountain Spine & Orthopedics. Expert in minimally invasive surgery and personalized spine and joint care. Locations across Florida.`
-    },
-    twitter: {
-      title: `${fullName} | Spine & Orthopedic Surgeon in Florida | Mountain Spine & Orthopedics`,
-      description: `Meet ${fullName}, a board-certified ${specialty} at Mountain Spine & Orthopedics. Expert in minimally invasive surgery and personalized spine and joint care. Locations across Florida.`
-    }
-  };
-}
+
 
 export default async function DoctorDetails({ params }: { params: Promise<{ Doctor_Name: string }> }) {
   const { Doctor_Name } = await params;
