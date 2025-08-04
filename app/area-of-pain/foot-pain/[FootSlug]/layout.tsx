@@ -6,7 +6,7 @@ import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
-  { params }: { params: { FootSlug: string } },
+  { params }: { params: Promise<{ FootSlug: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const resolvedParams = await params;

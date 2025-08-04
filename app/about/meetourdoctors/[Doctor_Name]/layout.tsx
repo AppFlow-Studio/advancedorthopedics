@@ -6,13 +6,14 @@ import { getOgImageForPath } from "@/lib/og";
 
 // Dynamically generate metadata for each doctor's page
 export async function generateMetadata(
-    { params }: { params: { Doctor_Name: string } },
+    { params }: { params: Promise<{ Doctor_Name: string }> },
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-    const doctor = Doctors.find((d) => d.slug === params.Doctor_Name);
+    const resolvedParams = await params;
+    const doctor = Doctors.find((d) => d.slug === resolvedParams.Doctor_Name);
 
     if (!doctor) {
-        const readableSlug = params.Doctor_Name.replace(/-/g, " ");
+        const readableSlug = resolvedParams.Doctor_Name.replace(/-/g, " ");
         return {
             title: `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`,
             description: "Learn about orthopedic care and treatments with our specialists in Florida."
@@ -20,7 +21,7 @@ export async function generateMetadata(
     }
     
     // Build the slug → name in Title-Case
-    const fullName = params.Doctor_Name.replace(/-/g, ' ')
+    const fullName = resolvedParams.Doctor_Name.replace(/-/g, ' ')
                       .replace(/\b\w/g, (l) => l.toUpperCase());
     
     // Title pattern (match brand guidelines)
@@ -33,10 +34,10 @@ export async function generateMetadata(
         title,
         description,
         alternates: { 
-            canonical: buildCanonical(`/about/meetourdoctors/${params.Doctor_Name}`) 
+            canonical: buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`) 
         },
         openGraph: {
-            url: buildCanonical(`/about/meetourdoctors/${params.Doctor_Name}`),
+            url: buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`),
             title,
             description,
             images: [getOgImageForPath('/about/meetourdoctors')],
@@ -51,8 +52,9 @@ export async function generateMetadata(
 }
 
 // --- SEO ENHANCEMENT: Combined JSON-LD Schema for Physician and Breadcrumbs ---
-const CombinedSchema = ({ params }: { params: { Doctor_Name: string } }) => {
-    const doctor = Doctors.find(d => d.slug === params.Doctor_Name);
+const CombinedSchema = async ({ params }: { params: Promise<{ Doctor_Name: string }> }) => {
+    const resolvedParams = await params;
+    const doctor = Doctors.find(d => d.slug === resolvedParams.Doctor_Name);
 
     if (!doctor) {
         return null;
@@ -112,7 +114,7 @@ const CombinedSchema = ({ params }: { params: { Doctor_Name: string } }) => {
     };
 
     return (
-        <>
+        <div>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
@@ -121,23 +123,23 @@ const CombinedSchema = ({ params }: { params: { Doctor_Name: string } }) => {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
-        </>
+        </div>
     );
 };
 
 
 // Main layout component to render the page and inject schemas
-export default function DoctorLayout({
+export default async function DoctorLayout({
     children,
     params,
 }: {
     children: React.ReactNode;
-    params: { Doctor_Name: string };
+    params: Promise<{ Doctor_Name: string }>;
 }) {
     return (
         <>
             <StaticNav />
-            <CombinedSchema params={params} />
+            {await CombinedSchema({ params })}
             {children}
         </>
     );

@@ -7,7 +7,7 @@ import { Minus, Plus } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import FAQsDocotorTestimony from '@/public/FAQsDoctorTestimony.png'
 
-export default function FAQsSection({header, faqItems} : { header : React.JSX.Element, faqItems : {question : string, answer : React.JSX.Element}[]}) {
+export default function FAQsSection({header, faqItems} : { header : React.ReactElement, faqItems : {question : string, answer : React.ReactElement}[]}) {
     const [openItem, setOpenItem] = useState<number>(0)
 
     const toggleItem = (index: number) => {

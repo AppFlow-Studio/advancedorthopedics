@@ -7,7 +7,7 @@ import { getOgImageForPath } from "@/lib/og";
 
 // This function dynamically generates metadata for each location page.
 export async function generateMetadata(
-    { params }: { params: { locationname: string } },
+    { params }: { params: Promise<{ locationname: string }> },
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     // Await params in case it's a Promise (Next.js 14+ dynamic route requirement)
@@ -73,7 +73,7 @@ export async function generateMetadata(
 
 // --- SEO ENHANCEMENT: DYNAMIC JSON-LD SCHEMA FOR EACH CLINIC ---
 // This component generates a unique schema for each medical clinic location.
-const LocationJsonLdSchema = async ({ params }: { params: { locationname: string } }) => {
+const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname: string }> }) => {
     const resolvedParams = await params;
     const location = clinics.find(clinic => clinic.slug === resolvedParams.locationname);
 
@@ -128,12 +128,12 @@ const LocationJsonLdSchema = async ({ params }: { params: { locationname: string
 
 // This is the layout component that will wrap the page.
 // We inject the JSON-LD schema here.
-export default function LocationLayout({
+export default async function LocationLayout({
     children,
     params,
 }: {
     children: React.ReactNode;
-    params: { locationname: string };
+    params: Promise<{ locationname: string }>;
 }) {
     return (
         <>

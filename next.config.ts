@@ -73,6 +73,8 @@ const nextConfig: NextConfig = {
     {"source":"/treatments/bunioncorrectionsurgery","destination":"/treatments/bunion-correction-surgery","permanent":true},
     {"source":"/treatments/arthroscopickneesurgery","destination":"/treatments/arthroscopic-knee-surgery","permanent":true},
     {"source":"/treatments/anti-inflammatory-injections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
+    {"source":"/treatments/botox-for-migraines-treatment","destination":"/treatments","permanent":true},
+    {"source":"/treatments/cancer-pain-treatment","destination":"/treatments","permanent":true},
     
     // --- EXISTING AREA-OF-PAIN REDIRECTS ---
     {"source":"/area-of-pain/neck-and-shoulder-pain/degenerativediscdisease","destination":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","permanent":true},

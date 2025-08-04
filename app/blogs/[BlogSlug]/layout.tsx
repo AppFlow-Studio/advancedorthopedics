@@ -65,9 +65,10 @@ export default async function BlogLayout({
   params
 }: {
   children: ReactNode,
-  params: { BlogSlug: string }
+  params: Promise<{ BlogSlug: string }>
 }) {
-  const blog = await GetBlogInfo(params.BlogSlug);
+  const resolvedParams = await params;
+  const blog = await GetBlogInfo(resolvedParams.BlogSlug);
   if (!blog) return notFound();
   const info = blog.blog_info;
   const jsonLd = {
@@ -91,9 +92,6 @@ export default async function BlogLayout({
   };
   return (
     <>
-      <head>
-        <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </head>
       <StaticNav />
       {children}
     </>

@@ -75,9 +75,9 @@ export default function BackPainAreaLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <StaticNav />
       {children}
-    </>
+    </div>
   );
 } 

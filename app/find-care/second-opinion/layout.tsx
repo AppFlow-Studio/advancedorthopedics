@@ -36,5 +36,5 @@ export default function SecondOpinionLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <div>{children}</div>;
 } 

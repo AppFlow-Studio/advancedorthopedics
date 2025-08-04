@@ -38,9 +38,9 @@ export default function AreaOfSpecialityLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <StaticNav />
       {children}
-    </>
+    </div>
   );
 }

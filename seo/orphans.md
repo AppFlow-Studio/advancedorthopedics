@@ -41,9 +41,9 @@
 | https://mountainspineorthopedics.com/treatments/cortisone-injections-for-back-pain | _add link / create page / 410_ |
 | https://mountainspineorthopedics.com/treatments/coccyx-nerve-ablation | _add link / create page / 410_ |
 | https://mountainspineorthopedics.com/treatments/cervical-disc-arthroplasty | _add link / create page / 410_ |
-| https://mountainspineorthopedics.com/treatments/cancer-pain-treatment | _add link / create page / 410_ |
+
 | https://mountainspineorthopedics.com/treatments/bunioncorrectionsurgery | _add link / create page / 410_ |
-| https://mountainspineorthopedics.com/treatments/botox-for-migraines-treatment | _add link / create page / 410_ |
+
 | https://mountainspineorthopedics.com/treatments/axial-fusion-surgery | _add link / create page / 410_ |
 | https://mountainspineorthopedics.com/treatments/artificial-disc-replacement-surgery | _add link / create page / 410_ |
 | https://mountainspineorthopedics.com/treatments/arthroscopickneesurgery | _add link / create page / 410_ |

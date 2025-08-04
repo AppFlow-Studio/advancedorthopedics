@@ -30,7 +30,6 @@ const TARGET_URLS = [
   "/treatments/anterior-cervical-corpectomy-and-fusion",
   "/treatments/lumbar-laminectomy-surgery",
   "/treatments/lumbar-microdiscectomy-surgery",
-  "/treatments/botox-for-migraines-treatment",
   "/treatments/oblique-lumbar-interbody-fusion",
   "/treatments/coccyx-nerve-ablation",
   "/about/meetourdoctors/dr-douglas-slaughter",
@@ -42,7 +41,7 @@ const TARGET_URLS = [
   "/area-of-pain/back-pain/backpaintreatmentoptions",
   "/treatments/motion-preservation-spine-surgery",
   "/area-of-speciality/rheumatoid-arthritis",
-  "/treatments/cancer-pain-treatment",
+
   "/treatments/lumbar-fusion-surgery",
   "/treatments/hip-arthroscopy-treatment",
   "/treatments/aging-management",

@@ -67,8 +67,9 @@ export async function generateStaticParams() {
   return AllTreatments.map(t => ({ TreatmentDetails: t.slug }));
 }
 
-export default function Page({ params }: { params: { TreatmentDetails: string } }) {
-  const treatment = AllTreatments.find(t => t.slug === params.TreatmentDetails);
+export default async function Page({ params }: { params: Promise<{ TreatmentDetails: string }> }) {
+  const resolvedParams = await params;
+  const treatment = AllTreatments.find(t => t.slug === resolvedParams.TreatmentDetails);
   if (!treatment) notFound();
 
   // Function to perform a Fisher-Yates shuffle on the array

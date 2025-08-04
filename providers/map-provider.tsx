@@ -22,5 +22,5 @@ export function MapProvider({ children }: { children: ReactNode }) {
   if(!scriptLoaded) return null;
 
   // Return the children prop wrapped by this MapProvider component
-  return <>{children}</>;
+  return <div>{children}</div>;
 }
