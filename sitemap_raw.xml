@@ -295,298 +295,298 @@
     <priority>0.8</priority>
   </url>
 
-  // CORRECTED: Only generating the canonical /area-of-speciality/ URLs to avoid duplicate content
+  // CORRECTED: Only generating the canonical /area-of-specialty/ URLs to avoid duplicate content
   
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/adult-degenerative-scoliosis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/adult-degenerative-scoliosis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/adjacent-segment-disease</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/lumbar-herniated-disc</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/lumbar-herniated-disc</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/degenerative-disc-disease</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/cervical-spinal-stenosis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/cervical-spinal-stenosis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/spondylolisthesis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/spondylolisthesis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/cervical-herniated-disc</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/cervical-herniated-disc</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/spinal-compression-fractures</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/spinal-compression-fractures</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/kyphosis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/kyphosis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/osteoarthritis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/rotator-cuff-tear</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/rotator-cuff-tear</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/acl-injury</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/acl-injury</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/labral-tears</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/labral-tears</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/torn-meniscus</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/torn-meniscus</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/sacroiliac-joint-dysfunction</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/sacroiliac-joint-dysfunction</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/trochanteric-bursitis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/trochanteric-bursitis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/carpal-tunnel-syndrome</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/carpal-tunnel-syndrome</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/back-pain</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/back-pain</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/bulging-disc</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/bulging-disc</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/pinched-nerve</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/pinched-nerve</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/cervical-deformities</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/cervical-deformities</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/disc-tear</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/disc-tear</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/anti-inflammatory-injections</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/anti-inflammatory-injections</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/hipdysplasia</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/hipdysplasia</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/facet-joint-disease</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/facet-joint-disease</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/arthritis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/arthritis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/lower-back-pain</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/lower-back-pain</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/sciatica</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/sciatica</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/coccydynia</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/coccydynia</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/failed-back-surgery-syndrome</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/failed-back-surgery-syndrome</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/foraminal-stenosis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/foraminal-stenosis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/hip-impingement</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/hip-impingement</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/loose-bodies</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/loose-bodies</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/spinal-bone-spurs</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/spinal-bone-spurs</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/spinal-stenosis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/spinal-stenosis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/spine-deformities</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/spine-deformities</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/tingling-or-numbness-in-extremities</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/tingling-or-numbness-in-extremities</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/herniated-disc</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/herniated-disc</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/rheumatoid-arthritis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/rheumatoid-arthritis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/tenniselbow</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/tenniselbow</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/plantar-fasciitis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/plantar-fasciitis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/bursitis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/bursitis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/bunions-hallux-valgus</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/bunions-hallux-valgus</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/achilles-tendonitis</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/achilles-tendonitis</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/flat-feet</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/flat-feet</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/ankle-arthroscopy</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/ankle-arthroscopy</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/hammertoes</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/hammertoes</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/diabetic-foot-ulcers</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/diabetic-foot-ulcers</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mountainspineorthopedics.com/area-of-speciality/ankle-replacement</loc>
+    <loc>https://mountainspineorthopedics.com/area-of-specialty/ankle-replacement</loc>
     <lastmod>2025-07-15T23:30:37.253Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>

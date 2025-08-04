@@ -19,7 +19,7 @@ for (const url of lines) {
   let dest = url
     .replace('https://www.', base)        // www → bare
     .replace('/treatments/faqs', '/find-care/candidacy-check')
-    .replace('/area-of-speciality/', '/conditions/')
+    .replace('/area-of-specialty/', '/conditions/')
     .replace('triggerfingerrelease',      'trigger-finger-release')
     .replace('totalkneereplacement',      'total-knee-replacement')
     .replace('tlifsurgery',               'understanding-tlif-surgery')

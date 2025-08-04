@@ -1,4 +1,4 @@
-// app/area-of-speciality/page.tsx
+// app/area-of-specialty/page.tsx
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
@@ -17,7 +17,7 @@ import { AnimatedList } from '@/components/magicui/animated-list' // Assuming co
 import { TextAnimate } from '@/components/magicui/text-animate' // Assuming component exists
 import { useSearchParams } from 'next/navigation'
 
-export default function AreaOfSpeciality() {
+export default function AreaOfSpecialty() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9);
   const [data, setData] = useState<ConditionInfoProp[]>(conditions);
@@ -257,6 +257,14 @@ export default function AreaOfSpeciality() {
               />
             </div>
           </div>
+        </div>
+
+        {/* SEO-Friendly Visually Hidden Content */}
+        <div className="sr-only">
+          <h2>Comprehensive Guide to Orthopedic and Spine Conditions</h2>
+          <p>
+            At Mountain Spine & Orthopedics, we specialize in diagnosing and treating a wide range of musculoskeletal conditions. From common issues like sciatica and rotator cuff tears to complex spinal deformities, our board-certified specialists are dedicated to providing personalized care. Explore the conditions we treat to learn more about symptoms, causes, and the advanced, minimally invasive treatment options we offer.
+          </p>
         </div>
 
         {/* Grid for displaying condition cards */}

@@ -107,7 +107,7 @@ export async function GET() {
   ${generateUrlEntry("/about/FAQs")}
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/privacy-policy")}
-  ${generateUrlEntry("/area-of-speciality")}
+  ${generateUrlEntry("/area-of-specialty")}
   ${generateUrlEntry("/locations")}
   // --- Dynamic Pages from Data ---
 
@@ -132,9 +132,9 @@ export async function GET() {
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
     .join('')}
 
-  // CORRECTED: Only generating the canonical /area-of-speciality/ URLs to avoid duplicate content
+  // CORRECTED: Only generating the canonical /area-of-specialty/ URLs to avoid duplicate content
   ${conditions.filter(condition => isValidSlug(condition.slug))
-    .map(condition => generateUrlEntry(`/area-of-speciality/${condition.slug}`))
+    .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
     .join('')}
 
   ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))

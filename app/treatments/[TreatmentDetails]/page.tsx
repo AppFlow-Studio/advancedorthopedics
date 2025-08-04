@@ -38,7 +38,7 @@ function linkifyText(text, currentSlug) {
     // Only link if the title matches exactly as a whole word/phrase
     const regex = new RegExp(`(?<![\w-])${title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}(?![\w-])`, 'g');
     replaced = replaced.replace(regex, match => {
-      const href = type === 'condition' ? `/area-of-speciality/${slug}` : `/treatments/${slug}`;
+      const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
       return `<a href="${href}" class="underline text-[#022968]">${match}</a>`;
     });
   });

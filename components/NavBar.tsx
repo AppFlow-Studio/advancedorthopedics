@@ -51,23 +51,19 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
           borderColor: pathname.includes(screen) && screen != '/' ? 'white' : ''
         }}
       >
-        <Link href={href}
+        <span
+          style={{
+            fontFamily: "var(--font-reem-kufi)",
+            fontWeight: 500,
+            fontSize: "16px",
+            lineHeight: "24px",
+            letterSpacing: "0.02em",
+          }}
         >
-          <span
-            style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-              fontSize: "16px",
-              lineHeight: "24px",
-              letterSpacing: "0.02em",
-            }}
-          >
-            {title}
-          </span>
-        </Link>
+          {title}
+        </span>
       </NavigationMenuTrigger>
       <NavigationMenuContent
-
         className=" absolute "
         style={{
           background: 'rgba(239, 245, 255, 0.50)',
@@ -78,58 +74,67 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
       >
         <ul className=' flex flex-col'>
           {
-            sublinks.map((link) => {
+            sublinks.map((link, linkIndex) => {
               return (
-                <NavigationMenuLink key={link.title} href={link.title == 'Florida' ? '#' : link.href} className='w-full'>
-                  {
-                    link.subLinks.length == 0 ?
-                      <span
-                        style={{
-                          fontFamily: "var(--font-reem-kufi)",
-                          fontWeight: 400,
-                        }}
-                      >{link.title}
-                      </span>
-                      :
-                      <HoverCard>
-                        <HoverCardTrigger>
+                <li key={`${link.title}-${linkIndex}`}>
+                  {link.subLinks.length == 0 ? (
+                    <NavigationMenuLink asChild>
+                      <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2'>
+                        <span
+                          style={{
+                            fontFamily: "var(--font-reem-kufi)",
+                            fontWeight: 400,
+                          }}
+                        >
+                          {link.title}
+                        </span>
+                      </Link>
+                    </NavigationMenuLink>
+                  ) : (
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <button className="w-full text-left px-4 py-2">
                           <span
                             style={{
                               fontFamily: "var(--font-reem-kufi)",
                               fontWeight: 400,
                             }}
-                          >{link.title}
+                          >
+                            {link.title}
                           </span>
-                        </HoverCardTrigger>
-                        <HoverCardContent side='right'
-                          sideOffset={18}
-                          align="start"
-                          popover='auto'
-                          className="flex flex-col p-0 w-max justify-center"
-                          style={{
-                            background: 'rgba(239, 245, 255, 0.50)',
-                            border: '1px solid white',
-                            borderRadius: '8px',
-                            backdropFilter: 'blur(10px)'
-                          }}
-                        >
-                          {
-                            link.subLinks.map((sub_link) => (
-                              <NavigationMenuLink className='' href={sub_link.href}>
+                        </button>
+                      </HoverCardTrigger>
+                      <HoverCardContent side='right'
+                        sideOffset={18}
+                        align="start"
+                        className="flex flex-col p-0 w-max justify-center"
+                        style={{
+                          background: 'rgba(239, 245, 255, 0.50)',
+                          border: '1px solid white',
+                          borderRadius: '8px',
+                          backdropFilter: 'blur(10px)'
+                        }}
+                      >
+                        {
+                          link.subLinks.map((sub_link, subIndex) => (
+                            <NavigationMenuLink key={`${sub_link.title}-${subIndex}`} asChild>
+                              <Link href={sub_link.href} className="block px-4 py-2">
                                 <span
                                   style={{
                                     fontFamily: "var(--font-reem-kufi)",
                                     fontWeight: 400,
                                   }}
-                                >{sub_link.title}
+                                >
+                                  {sub_link.title}
                                 </span>
-                              </NavigationMenuLink>
-                            ))
-                          }
-                        </HoverCardContent>
-                      </HoverCard>
-                  }
-                </NavigationMenuLink>
+                              </Link>
+                            </NavigationMenuLink>
+                          ))
+                        }
+                      </HoverCardContent>
+                    </HoverCard>
+                  )}
+                </li>
               )
             })
           }
@@ -196,13 +201,13 @@ const NavBarLinks = [
     ]
   },
   {
-    href: '/area-of-speciality',
-    screen: '/area-of-speciality',
-    title: 'AREA OF SPECIALITY',
+    href: '/area-of-specialty',
+screen: '/area-of-specialty',
+            title: 'AREA OF SPECIALTY',
     subLinks: [
       {
         title: 'Back Pain',
-        href: `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
+        href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
         subLinks: [
           {
             title: 'Lower Back Pain',
@@ -236,7 +241,7 @@ const NavBarLinks = [
       },
       {
         title: 'Neck & Shoulder Pain',
-        href: `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
+        href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
         subLinks: [
           {
             title: 'Cervical Spinal Stenosis',
@@ -266,7 +271,7 @@ const NavBarLinks = [
       },
       {
         title: 'Foot & Ankle',
-        href: `/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
+        href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
         subLinks: [
           {
             title: 'Bunions',
@@ -304,7 +309,7 @@ const NavBarLinks = [
       },
       {
         title: 'View All Conditions',
-        href: '/area-of-speciality',
+        href: '/area-of-specialty',
         subLinks: []
       },
       {

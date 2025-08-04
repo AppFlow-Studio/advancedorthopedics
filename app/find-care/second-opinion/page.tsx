@@ -30,7 +30,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'When should I seek a second opinion?',
         answer : (
             <p>
-                You should consider a second opinion if you have been diagnosed with a complex condition, if surgery has been recommended, or if you feel uncertain about your current treatment plan. It is especially important for conditions like <a href="/area-of-speciality/failed-back-surgery-syndrome" className="text-blue-600 hover:underline">Failed Back Surgery Syndrome</a>, scoliosis, or when considering a major procedure like a <a href="/treatments/spinal-fusion" className="text-blue-600 hover:underline">spinal fusion</a>.
+                You should consider a second opinion if you have been diagnosed with a complex condition, if surgery has been recommended, or if you feel uncertain about your current treatment plan. It is especially important for conditions like <a href="/area-of-specialty/failed-back-surgery-syndrome" className="text-blue-600 hover:underline">Failed Back Surgery Syndrome</a>, scoliosis, or when considering a major procedure like a <a href="/treatments/spinal-fusion" className="text-blue-600 hover:underline">spinal fusion</a>.
             </p>
         )
     },

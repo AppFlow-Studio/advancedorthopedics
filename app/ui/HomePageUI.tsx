@@ -205,7 +205,7 @@ export default function HomePageUI() {
               {
                 ServicesAndExpertise.map((item) => (
                   <Link
-                    href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
+                    href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
                     key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl items-center justify-center hover:cursor-pointer `} onClick={() => setSelectedService(item.title)}>
                     <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] " />
                     <span className={`text-[#5B5F67]`}>{item.title}</span>
@@ -241,7 +241,7 @@ export default function HomePageUI() {
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
             {
               ServicesAndExpertise.map((item, index) => (
-                <Link href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} `}`} key={item.title}
+                <Link href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} `}`} key={item.title}
                   onClick={() => setSelectedService(item.title)}
                 >
                   <div className=" flex flex-row items-center justify-between">

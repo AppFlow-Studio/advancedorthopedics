@@ -11,7 +11,7 @@ const OG_IMAGE_MAP: Record<string, string> = {
   '/find-care/book-an-appointment':      '/Appointment_og.png',
   '/find-care':                          '/default_og.png',
 
-  '/area-of-speciality':                 '/conditions_og.png',   // master list
+  '/area-of-specialty':                 '/conditions_og.png',   // master list
   '/area-of-pain':                       '/conditions_og.png',   // sub-folders
   '/treatments':                         '/treatments_og.png',
   '/about/meetourdoctors':               '/doctors_og.png',

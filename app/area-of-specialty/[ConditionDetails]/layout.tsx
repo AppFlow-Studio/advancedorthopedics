@@ -26,8 +26,8 @@ export async function generateMetadata(
         };
     }
 
-    const canonicalUrl = buildCanonical(`/area-of-speciality/${condition.slug}`);
-    const ogImage = getOgImageForPath('/area-of-speciality');
+    const canonicalUrl = buildCanonical(`/area-of-specialty/${condition.slug}`);
+    const ogImage = getOgImageForPath('/area-of-specialty');
 
     return {
       title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
@@ -67,7 +67,7 @@ const CombinedSchema = async ({ params }: { params: Promise<{ ConditionDetails: 
         return null;
     }
     
-    const conditionUrl = `https://mountainspineorthopedics.com/area-of-speciality/${condition.slug}`;
+    const conditionUrl = `https://mountainspineorthopedics.com/area-of-specialty/${condition.slug}`;
     const imageUrl = typeof condition.card_img === 'string' ? condition.card_img : condition.card_img?.src || '';
 
     // Schema for the specific medical condition page
@@ -103,8 +103,8 @@ const CombinedSchema = async ({ params }: { params: Promise<{ ConditionDetails: 
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Area of Speciality",
-                "item": "https://mountainspineorthopedics.com/area-of-speciality" 
+                "name": "Area of Specialty",
+                "item": "https://mountainspineorthopedics.com/area-of-specialty" 
             },
             {
                 "@type": "ListItem",

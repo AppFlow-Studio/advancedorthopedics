@@ -39,6 +39,13 @@ const nextConfig: NextConfig = {
 
   async redirects() {
   return [
+    // --- TYPO FIX: area-of-speciality → area-of-specialty ---
+    {"source":"/area-of-speciality","destination":"/area-of-specialty","permanent":true},
+    {"source":"/area-of-speciality/:slug*","destination":"/area-of-specialty/:slug*","permanent":true},
+    
+    // --- ANTI-INFLAMMATORY INJECTIONS CONDITION TO TREATMENT REDIRECT ---
+    {"source":"/area-of-specialty/anti-inflammatory-injections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
+    
     // --- CLINIC SLUG REDIRECTS ---
     {"source":"/locations/palm-spring-orthopedics","destination":"/locations/palm-springs-orthopedics","permanent":true},
     
@@ -83,26 +90,26 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-pain/back-pain/backpaintreatmentoptions","destination":"/area-of-pain/back-pain/back-pain-treatment-options","permanent":true},
     
     // --- EXISTING AREA-OF-SPECIALITY REDIRECTS ---
-    {"source":"/area-of-speciality/trochantericbursitis","destination":"/conditions/trochanteric-bursitis","permanent":true},
-    {"source":"/area-of-speciality/tornmeniscus","destination":"/conditions/torn-meniscus","permanent":true},
-    {"source":"/area-of-speciality/snappinghipsydrome","destination":"/conditions/snapping-hip-syndrome","permanent":true},
-    {"source":"/area-of-speciality/shouldertendonitis","destination":"/conditions/shoulder-tendonitis","permanent":true},
-    {"source":"/area-of-speciality/sacroiliacjointdysfunction","destination":"/conditions/sacroiliac-joint-dysfunction","permanent":true},
-    {"source":"/area-of-speciality/rotatorcufftear","destination":"/conditions/rotator-cuff-tear","permanent":true},
-    {"source":"/area-of-speciality/neckpain","destination":"/conditions/neck-pain","permanent":true},
-    {"source":"/area-of-speciality/labraltears","destination":"/conditions/labral-tears","permanent":true},
-    {"source":"/area-of-speciality/facetjointdisease","destination":"/conditions/facet-joint-disease","permanent":true},
-    {"source":"/area-of-speciality/degenerativediscdisease","destination":"/conditions/degenerative-disc-disease","permanent":true},
-    {"source":"/area-of-speciality/cervicalspinalstenosis","destination":"/conditions/cervical-spinal-stenosis","permanent":true},
-    {"source":"/area-of-speciality/carpaltunnelsyndrome","destination":"/conditions/carpal-tunnel-syndrome","permanent":true},
-    {"source":"/area-of-speciality/bulgingdisc","destination":"/conditions/bulging-disc","permanent":true},
-    {"source":"/area-of-speciality/adultdegenerativescoliosis","destination":"/conditions/adult-degenerative-scoliosis","permanent":true},
-    {"source":"/area-of-speciality/adjacentsegmentdisease","destination":"/conditions/adjacent-segment-disease","permanent":true},
-    {"source":"/area-of-speciality/acl-tear","destination":"/conditions/acl-tear","permanent":true},
-    {"source":"/area-of-speciality/radiculopathy","destination":"/conditions/radiculopathy","permanent":true},
-    {"source":"/area-of-speciality/work-injury","destination":"/conditions/work-injury","permanent":true},
-    {"source":"/conditions/herniated-disc","destination":"/area-of-speciality/herniated-disc","permanent":true},
-    {"source":"/area-of-speciality/sports-injuries","destination":"/conditions/sports-injuries","permanent":true},
+    {"source":"/area-of-specialty/trochantericbursitis","destination":"/conditions/trochanteric-bursitis","permanent":true},
+    {"source":"/area-of-specialty/tornmeniscus","destination":"/conditions/torn-meniscus","permanent":true},
+    {"source":"/area-of-specialty/snappinghipsydrome","destination":"/conditions/snapping-hip-syndrome","permanent":true},
+    {"source":"/area-of-specialty/shouldertendonitis","destination":"/conditions/shoulder-tendonitis","permanent":true},
+    {"source":"/area-of-specialty/sacroiliacjointdysfunction","destination":"/conditions/sacroiliac-joint-dysfunction","permanent":true},
+    {"source":"/area-of-specialty/rotatorcufftear","destination":"/conditions/rotator-cuff-tear","permanent":true},
+    {"source":"/area-of-specialty/neckpain","destination":"/conditions/neck-pain","permanent":true},
+    {"source":"/area-of-specialty/labraltears","destination":"/conditions/labral-tears","permanent":true},
+    {"source":"/area-of-specialty/facetjointdisease","destination":"/conditions/facet-joint-disease","permanent":true},
+    {"source":"/area-of-specialty/degenerativediscdisease","destination":"/conditions/degenerative-disc-disease","permanent":true},
+    {"source":"/area-of-specialty/cervicalspinalstenosis","destination":"/conditions/cervical-spinal-stenosis","permanent":true},
+    {"source":"/area-of-specialty/carpaltunnelsyndrome","destination":"/conditions/carpal-tunnel-syndrome","permanent":true},
+    {"source":"/area-of-specialty/bulgingdisc","destination":"/conditions/bulging-disc","permanent":true},
+    {"source":"/area-of-specialty/adultdegenerativescoliosis","destination":"/conditions/adult-degenerative-scoliosis","permanent":true},
+    {"source":"/area-of-specialty/adjacentsegmentdisease","destination":"/conditions/adjacent-segment-disease","permanent":true},
+    {"source":"/area-of-specialty/acl-tear","destination":"/conditions/acl-tear","permanent":true},
+    {"source":"/area-of-specialty/radiculopathy","destination":"/conditions/radiculopathy","permanent":true},
+    {"source":"/area-of-specialty/work-injury","destination":"/conditions/work-injury","permanent":true},
+    {"source":"/conditions/herniated-disc","destination":"/area-of-specialty/herniated-disc","permanent":true},
+    {"source":"/area-of-specialty/sports-injuries","destination":"/conditions/sports-injuries","permanent":true},
     
     // --- EXISTING TREATMENT ALIAS REDIRECTS ---
     {"source":"/treatments/laser-spine-surgery","destination":"/treatments/endoscopic-laser-spine-surgery","permanent":true},
@@ -116,19 +123,19 @@ const nextConfig: NextConfig = {
     {"source":"/about/meetourdoctors/dr.christophermccarthy","destination":"/about/meetourdoctors/dr-christopher-mccarthy","permanent":true},
     {"source":"/about/meetourdoctors/dr.davidcowin","destination":"/about/meetourdoctors/dr-david-cowin","permanent":true},
     {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors/dr-scott-katzman","permanent":true},
-    // area-of-speciality old camel → kebab
-    {"source":"/area-of-speciality/antiinflammatoryinjections","destination":"/area-of-speciality/anti-inflammatory-injections","permanent":true},
-    {"source":"/area-of-speciality/backpain","destination":"/area-of-speciality/back-pain","permanent":true},
-    {"source":"/area-of-speciality/failedbackorfailenecksurgerysyndrome","destination":"/area-of-speciality/failed-back-surgery-syndrome","permanent":true},
-    {"source":"/area-of-speciality/hipimpingement","destination":"/area-of-speciality/hip-impingement","permanent":true},
-    {"source":"/area-of-speciality/spinalbonespurs","destination":"/area-of-speciality/spinal-bone-spurs","permanent":true},
-    {"source":"/area-of-speciality/spinalstenosis","destination":"/area-of-speciality/spinal-stenosis","permanent":true},
-    {"source":"/area-of-speciality/spinedeformities","destination":"/area-of-speciality/spine-deformities","permanent":true},
-    {"source":"/area-of-speciality/tinglingornumbnessinextremities","destination":"/area-of-speciality/tingling-or-numbness-in-extremities","permanent":true},
-    {"source":"/area-of-speciality/herniateddisc","destination":"/area-of-speciality/herniated-disc","permanent":true},
-    {"source":"/area-of-speciality/rheumatoidarthritis","destination":"/area-of-speciality/rheumatoid-arthritis","permanent":true},
-    {"source":"/area-of-speciality/tenniselbow","destination":"/area-of-speciality/tennis-elbow","permanent":true},
-    {"source":"/area-of-speciality/loosebodies","destination":"/area-of-speciality/loose-bodies","permanent":true},
+    // area-of-specialty old camel → kebab
+    {"source":"/area-of-specialty/antiinflammatoryinjections","destination":"/area-of-specialty/anti-inflammatory-injections","permanent":true},
+    {"source":"/area-of-specialty/backpain","destination":"/area-of-specialty/back-pain","permanent":true},
+    {"source":"/area-of-specialty/failedbackorfailenecksurgerysyndrome","destination":"/area-of-specialty/failed-back-surgery-syndrome","permanent":true},
+    {"source":"/area-of-specialty/hipimpingement","destination":"/area-of-specialty/hip-impingement","permanent":true},
+    {"source":"/area-of-specialty/spinalbonespurs","destination":"/area-of-specialty/spinal-bone-spurs","permanent":true},
+    {"source":"/area-of-specialty/spinalstenosis","destination":"/area-of-specialty/spinal-stenosis","permanent":true},
+    {"source":"/area-of-specialty/spinedeformities","destination":"/area-of-specialty/spine-deformities","permanent":true},
+    {"source":"/area-of-specialty/tinglingornumbnessinextremities","destination":"/area-of-specialty/tingling-or-numbness-in-extremities","permanent":true},
+    {"source":"/area-of-specialty/herniateddisc","destination":"/area-of-specialty/herniated-disc","permanent":true},
+    {"source":"/area-of-specialty/rheumatoidarthritis","destination":"/area-of-specialty/rheumatoid-arthritis","permanent":true},
+    {"source":"/area-of-specialty/tenniselbow","destination":"/area-of-specialty/tennis-elbow","permanent":true},
+    {"source":"/area-of-specialty/loosebodies","destination":"/area-of-specialty/loose-bodies","permanent":true},
     // treatments camel/dot variants
     {"source":"/treatments/totalkneereplacement","destination":"/treatments/total-knee-replacement","permanent":true},
     {"source":"/treatments/rotatorcuffrepair","destination":"/treatments/rotator-cuff-repair-surgery","permanent":true},

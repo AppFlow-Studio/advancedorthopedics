@@ -53,7 +53,7 @@ export async function generateMetadata(
       url: buildCanonical(path),
       images: [
         {
-          url: getOgImageForPath('/area-of-speciality'),
+          url: getOgImageForPath('/area-of-specialty'),
           width: 1200,
           height: 630,
           alt: data.title,
@@ -64,7 +64,7 @@ export async function generateMetadata(
       card: "summary_large_image",
       title,
       description,
-      images: [getOgImageForPath('/area-of-speciality')],
+      images: [getOgImageForPath('/area-of-specialty')],
     },
   };
 }

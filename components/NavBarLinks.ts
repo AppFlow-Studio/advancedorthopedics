@@ -32,8 +32,8 @@ export const NavBarLinks = [
     label: 'Patient Forms',
   },
   {
-    href: '/area-of-speciality',
-    label: 'Area of Speciality',
+    href: '/area-of-specialty',
+    label: 'Area of Specialty',
   },
   {
     href: '/treatments',

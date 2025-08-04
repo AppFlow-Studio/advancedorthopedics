@@ -12,10 +12,14 @@ export async function generateMetadata(
   const resolvedParams = await params;
   const conditionSlug = resolvedParams.PainArea;
   let data;
+  let isSpecialTreatmentPage = false; // Flag to track the page type
 
+  // Check if the slug is our special case from PainAreaTreatments
   if (conditionSlug === "back-pain-treatment-options") {
     data = PainAreaTreatments.find((x) => x.slug === conditionSlug);
+    isSpecialTreatmentPage = true; // Set the flag to true
   } else {
+    // Otherwise, find it in the main conditions data
     data = conditions.find((x) => x.slug === conditionSlug);
   }
 
@@ -36,24 +40,31 @@ export async function generateMetadata(
   // Description
   const description = `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`;
   
-  // Canonical & OG
-  const path = `/area-of-pain/back-pain/${conditionSlug}`;
+  // *** NEW CONDITIONAL CANONICAL LOGIC ***
+  let canonicalPath;
+  if (isSpecialTreatmentPage) {
+    // If it's the special treatment options page, it is its own canonical version.
+    canonicalPath = `/area-of-pain/back-pain/${conditionSlug}`;
+  } else {
+    // For all other regular conditions, the canonical version is under /area-of-specialty/
+canonicalPath = `/area-of-specialty/${conditionSlug}`;
+  }
 
   return {
     title,
     description,
     keywords: data.keywords || [],
     alternates: { 
-      canonical: buildCanonical(path) 
+      canonical: buildCanonical(canonicalPath) // Use the correct canonical path
     },
     openGraph: {
       title,
       description,
       type: "article",
-      url: buildCanonical(path),
+      url: buildCanonical(canonicalPath), // Also update the Open Graph URL
       images: [
         {
-          url: getOgImageForPath('/area-of-speciality'),
+          url: getOgImageForPath('/area-of-specialty'),
           width: 1200,
           height: 630,
           alt: data.title,
@@ -64,7 +75,7 @@ export async function generateMetadata(
       card: "summary_large_image",
       title,
       description,
-      images: [getOgImageForPath('/area-of-speciality')],
+      images: [getOgImageForPath('/area-of-specialty')],
     },
   };
 }
