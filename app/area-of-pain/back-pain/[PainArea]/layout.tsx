@@ -2,10 +2,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
 import StaticNav from "@/components/StaticNav.server";
-
-function capitalizeWords(str: string): string {
-  return str.replace(/\b\w/g, (l) => l.toUpperCase());
-}
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
   { params }: { params: { PainArea: string } },
@@ -14,58 +12,70 @@ export async function generateMetadata(
   const resolvedParams = await params;
   const conditionSlug = resolvedParams.PainArea;
   let data;
+  let isSpecialTreatmentPage = false; // Flag to track the page type
 
-      if (conditionSlug === "back-pain-treatment-options") {
+  // Check if the slug is our special case from PainAreaTreatments
+  if (conditionSlug === "back-pain-treatment-options") {
     data = PainAreaTreatments.find((x) => x.slug === conditionSlug);
+    isSpecialTreatmentPage = true; // Set the flag to true
   } else {
+    // Otherwise, find it in the main conditions data
     data = conditions.find((x) => x.slug === conditionSlug);
   }
 
   if (!data) {
     const readableSlug = conditionSlug.replace(/-/g, " ");
     return {
-      title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+      title: `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`,
       description: "Learn about orthopedic care and treatments.",
     };
   }
 
-  const painAreaUrl = `https://mountainspineorthopedics.com/area-of-pain/back-pain/${data.slug}`;
+  // Compute pain area in Title-Case
+  const painArea = conditionSlug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
   
-  const imageUrl =
-    typeof data.card_img === "string"
-      ? data.card_img
-      : (data.card_img as any)?.src || (data as any).img?.src || "";
+  // Title pattern
+  const title = data.metaTitle ?? `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`;
+  
+  // Description
+  const description = `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`;
+  
+  // *** NEW CONDITIONAL CANONICAL LOGIC ***
+  let canonicalPath;
+  if (isSpecialTreatmentPage) {
+    // If it's the special treatment options page, it is its own canonical version.
+    canonicalPath = `/area-of-pain/back-pain/${conditionSlug}`;
+  } else {
+    // For all other regular conditions, the canonical version is under /area-of-specialty/
+canonicalPath = `/area-of-specialty/${conditionSlug}`;
+  }
 
   return {
-    metadataBase: new URL("https://mountainspineorthopedics.com"),
-    title: data.metaTitle || `${capitalizeWords(data.title)} | Mountain Spine & Orthopedics`,
-    description: data.metaDesc || data.body,
+    title,
+    description,
     keywords: data.keywords || [],
-
+    alternates: { 
+      canonical: buildCanonical(canonicalPath) // Use the correct canonical path
+    },
     openGraph: {
-      title: data.metaTitle || data.title,
-      description: data.metaDesc || data.body,
+      title,
+      description,
       type: "article",
-      url: painAreaUrl,
+      url: buildCanonical(canonicalPath), // Also update the Open Graph URL
       images: [
         {
-          url: imageUrl,
+          url: getOgImageForPath('/area-of-specialty'),
           width: 1200,
           height: 630,
           alt: data.title,
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
-      title: data.metaTitle || data.title,
-      description: data.metaDesc || data.body,
-      images: [imageUrl],
-    },
-
-    alternates: {
-      canonical: painAreaUrl,
+      title,
+      description,
+      images: [getOgImageForPath('/area-of-specialty')],
     },
   };
 }
@@ -76,9 +86,9 @@ export default function BackPainAreaLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <StaticNav />
       {children}
-    </>
+    </div>
   );
 } 

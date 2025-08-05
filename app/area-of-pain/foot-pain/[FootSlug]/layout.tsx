@@ -2,13 +2,11 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
 import StaticNav from "@/components/StaticNav.server";
-
-function capitalizeWords(str: string): string {
-  return str.replace(/\b\w/g, (l) => l.toUpperCase());
-}
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
-  { params }: { params: { FootSlug: string } },
+  { params }: { params: Promise<{ FootSlug: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const resolvedParams = await params;
@@ -24,49 +22,49 @@ export async function generateMetadata(
   if (!data) {
     const readableSlug = conditionSlug.replace(/-/g, " ");
     return {
-      title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+      title: `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`,
       description: "Learn about orthopedic care and treatments.",
     };
   }
 
-  const painAreaUrl = `https://mountainspineorthopedics.com/area-of-pain/foot-pain/${data.slug}`;
-  const imageUrl =
-    typeof data.card_img === "string"
-      ? data.card_img
-      : (data.card_img as any)?.src ||
-        (data as any).img?.src ||
-        "https://mountainspineorthopedics.com/default-image.png";
+  // Compute pain area in Title-Case
+  const painArea = conditionSlug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  
+  // Title pattern
+  const title = data.metaTitle ?? `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`;
+  
+  // Description
+  const description = `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`;
+  
+  // Canonical & OG
+  const path = `/area-of-pain/foot-pain/${conditionSlug}`;
 
   return {
-    metadataBase: new URL("https://mountainspineorthopedics.com"),
-    title: data.metaTitle || `${capitalizeWords(data.title)} | Mountain Spine & Orthopedics`,
-    description: data.metaDesc || data.body,
+    title,
+    description,
     keywords: data.keywords || [],
-
+    alternates: { 
+      canonical: buildCanonical(path) 
+    },
     openGraph: {
-      title: data.metaTitle || data.title,
-      description: data.metaDesc || data.body,
+      title,
+      description,
       type: "article",
-      url: painAreaUrl,
+      url: buildCanonical(path),
       images: [
         {
-          url: imageUrl,
+          url: getOgImageForPath('/area-of-specialty'),
           width: 1200,
           height: 630,
           alt: data.title,
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
-      title: data.metaTitle || data.title,
-      description: data.metaDesc || data.body,
-      images: [imageUrl],
-    },
-
-    alternates: {
-      canonical: painAreaUrl,
+      title,
+      description,
+      images: [getOgImageForPath('/area-of-specialty')],
     },
   };
 }

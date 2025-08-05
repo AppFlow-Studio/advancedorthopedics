@@ -3,6 +3,7 @@ import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
 import { conditions } from "@/components/data/conditions";
 import { AllTreatments } from "@/components/data/treatments";
+import { buildCanonical } from "@/lib/seo";
 
 export const dynamic = 'force-static';
 
@@ -20,7 +21,7 @@ function isValidSlug(slug: string | undefined | null): boolean {
 function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
   return `
   <url>
-    <loc>${baseUrl}${path}</loc>
+    <loc>${buildCanonical(path)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -106,7 +107,7 @@ export async function GET() {
   ${generateUrlEntry("/about/FAQs")}
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/privacy-policy")}
-  ${generateUrlEntry("/area-of-speciality")}
+  ${generateUrlEntry("/area-of-specialty")}
   ${generateUrlEntry("/locations")}
   // --- Dynamic Pages from Data ---
 
@@ -131,9 +132,9 @@ export async function GET() {
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
     .join('')}
 
-  // CORRECTED: Only generating the canonical /area-of-speciality/ URLs to avoid duplicate content
+  // CORRECTED: Only generating the canonical /area-of-specialty/ URLs to avoid duplicate content
   ${conditions.filter(condition => isValidSlug(condition.slug))
-    .map(condition => generateUrlEntry(`/area-of-speciality/${condition.slug}`))
+    .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
     .join('')}
 
   ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))

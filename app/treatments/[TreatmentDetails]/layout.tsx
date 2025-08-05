@@ -7,6 +7,8 @@ import React from "react";
 import { AllTreatments } from "@/components/data/treatments";
 import StaticNav from "@/components/StaticNav.server";
 import OrphanLinksFooter from '@/components/OrphanLinksFooter';
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 // Helper function to safely get the image source URL as a string
 const getImageSource = (image: string | StaticImageData | undefined): string => {
@@ -20,30 +22,30 @@ function capitalizeWords(str: string): string {
 
 // This function dynamically generates metadata for each treatment page
 export async function generateMetadata(
-  { params }: { params: { TreatmentDetails: string } },
+  { params }: { params: Promise<{ TreatmentDetails: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const resolvedParams = await params;
   const treatment = AllTreatments.find(
-    (treatment) => treatment.slug === params.TreatmentDetails
+    (treatment) => treatment.slug === resolvedParams.TreatmentDetails
   );
 
   if (!treatment) {
-    const readableSlug = params.TreatmentDetails.replace(/-/g, " ");
+    const readableSlug = resolvedParams.TreatmentDetails.replace(/-/g, " ");
     return {
       title: "Treatment Not Found | Mountain Spine & Orthopedics",
       description: "Learn about orthopedic care and treatments with our specialists in Florida."
     };
   }
 
-  const imageSource = getImageSource(treatment.card_img);
-  const treatmentUrl = `https://mountainspineorthopedics.com/treatments/${treatment.slug}`;
+  const canonicalUrl = buildCanonical(`/treatments/${treatment.slug}`);
+  const ogImage = getOgImageForPath('/treatments');
 
   // Robust, trimmed, non-empty title/description
   const title = (treatment.metaTitle && treatment.metaTitle.trim()) || `${treatment.title} | Mountain Spine & Orthopedics`;
-  const description = (treatment.metaDesc && treatment.metaDesc.trim()) || (treatment.detail && treatment.detail.trim()) || (treatment.body && treatment.body.slice(0, 160).trim()) || `Learn about ${treatment.title}, offered by our specialists at Mountain Spine & Orthopedics.`;
+  const description = (treatment.metaDesc && treatment.metaDesc.trim()) || (treatment.detail && typeof treatment.detail === 'string' && treatment.detail.trim()) || (treatment.body && treatment.body.slice(0, 160).trim()) || `Learn about ${treatment.title}, offered by our specialists at Mountain Spine & Orthopedics.`;
 
   return {
-    metadataBase: new URL('https://mountainspineorthopedics.com'),
     title,
     description,
     keywords: treatment.keywords || [treatment.title, "orthopedic treatment", "spine surgery"],
@@ -51,10 +53,10 @@ export async function generateMetadata(
       title,
       description,
       type: "article",
-      url: treatmentUrl,
+      url: canonicalUrl,
       images: [
         {
-          url: imageSource,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: treatment.title,
@@ -65,10 +67,10 @@ export async function generateMetadata(
       card: "summary_large_image",
       title,
       description,
-      images: [imageSource],
+      images: [ogImage],
     },
     alternates: {
-      canonical: treatmentUrl,
+      canonical: canonicalUrl,
     },
   };
 }

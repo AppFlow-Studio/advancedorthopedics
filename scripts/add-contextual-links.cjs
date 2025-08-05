@@ -7,15 +7,15 @@ const path = require('path');
 const prettier = require('prettier');
 
 const TARGET_URLS = [
-  "/area-of-speciality/tingling-or-numbness-in-extremities",
-  "/area-of-speciality/synovitis",
-  "/area-of-speciality/hip-impingement",
-  "/area-of-speciality/spinal-stenosis",
-  "/area-of-speciality/kyphosis",
-  "/area-of-speciality/failed-back-surgery-syndrome",
-  "/area-of-speciality/spinal-bone-spurs",
-  "/area-of-speciality/herniated-disc",
-  "/area-of-speciality/foraminal-stenosis",
+  "/area-of-specialty/tingling-or-numbness-in-extremities",
+  "/area-of-specialty/synovitis",
+  "/area-of-specialty/hip-impingement",
+  "/area-of-specialty/spinal-stenosis",
+  "/area-of-specialty/kyphosis",
+  "/area-of-specialty/failed-back-surgery-syndrome",
+  "/area-of-specialty/spinal-bone-spurs",
+  "/area-of-specialty/herniated-disc",
+  "/area-of-specialty/foraminal-stenosis",
   "/treatments/hybrid-lumbar-spine-surgery",
   "/about/meetourdoctors/dr-monica-mcphail-pruitt",
   "/treatments/cortisone-injections-for-back-pain",
@@ -23,26 +23,25 @@ const TARGET_URLS = [
   "/treatments/percutaneous-carpal-tunnel-release",
   "/area-of-pain/back-pain/foraminal-stenosis",
   "/treatments/lumbar-microendoscopic-discectomy-surgery",
-  "/area-of-speciality/spine-deformities",
+  "/area-of-specialty/spine-deformities",
   "/treatments/non-surgical-treatments-for-pain-management",
   "/treatments/cervical-disc-arthroplasty",
   "/treatments/posterior-cervical-fusion-surgery",
   "/treatments/anterior-cervical-corpectomy-and-fusion",
   "/treatments/lumbar-laminectomy-surgery",
   "/treatments/lumbar-microdiscectomy-surgery",
-  "/treatments/botox-for-migraines-treatment",
   "/treatments/oblique-lumbar-interbody-fusion",
   "/treatments/coccyx-nerve-ablation",
   "/about/meetourdoctors/dr-douglas-slaughter",
   "/treatments/percutaneous-discectomy",
-  "/area-of-speciality/back-pain",
+  "/area-of-specialty/back-pain",
   "/treatments/artificial-disc-replacement-surgery",
   "/treatments/epidural-steroid-injection",
   "/treatments/facet-ablation-rhizotomy-treatment",
   "/area-of-pain/back-pain/backpaintreatmentoptions",
   "/treatments/motion-preservation-spine-surgery",
-  "/area-of-speciality/rheumatoid-arthritis",
-  "/treatments/cancer-pain-treatment",
+  "/area-of-specialty/rheumatoid-arthritis",
+
   "/treatments/lumbar-fusion-surgery",
   "/treatments/hip-arthroscopy-treatment",
   "/treatments/aging-management",
@@ -55,13 +54,13 @@ const TARGET_URLS = [
   "/treatments/endoscopic-foraminotomy-surgery",
   "/treatments/multilevel-degenerative-disc-disease-surgery",
   "/area-of-pain/back-pain/coccydynia",
-  "/area-of-speciality/arthritis",
-  "/area-of-speciality/coccydynia",
-  "/area-of-speciality/anti-inflammatory-injections",
-  "/area-of-speciality/loose-bodies",
-  "/area-of-speciality/spondylolisthesis",
-  "/area-of-speciality/osteoarthritis",
-  "/area-of-speciality/adjacent-segment-disease"
+  "/area-of-specialty/arthritis",
+  "/area-of-specialty/coccydynia",
+  "/area-of-specialty/anti-inflammatory-injections",
+  "/area-of-specialty/loose-bodies",
+  "/area-of-specialty/spondylolisthesis",
+  "/area-of-specialty/osteoarthritis",
+  "/area-of-specialty/adjacent-segment-disease"
 ];
 
 const ROOTS = [
@@ -94,7 +93,7 @@ function extractSlugTitleMap() {
       const title = match[1].trim();
       const slug = match[2].trim();
       if (file.includes('conditions')) {
-        map['/area-of-speciality/' + slug] = title;
+        map['/area-of-specialty/' + slug] = title;
       } else if (file.includes('treatments')) {
         map['/treatments/' + slug] = title;
       }
@@ -133,7 +132,7 @@ function fileContainsTargetLink(content, selfUrl) {
 }
 
 function getSlugFromPath(filePath) {
-  // Try to infer a slug from the file path (e.g. app/area-of-speciality/kyphosis/page.tsx)
+  // Try to infer a slug from the file path (e.g. app/area-of-specialty/kyphosis/page.tsx)
   const parts = filePath.split(path.sep);
   let slug = null;
   for (let i = parts.length - 1; i >= 0; i--) {

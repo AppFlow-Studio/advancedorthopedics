@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 // Data Imports from the centralized file
 import {
@@ -32,33 +34,33 @@ import HomeInteractiveAnatomy from '@/components/HomeInteractiveAnatomy.client';
 import HomeStatisticsBar from '@/components/HomeStatisticsBar.client';
 import HomePainToProgress from '@/components/HomePainToProgress.client';
 
-// Image Asset Imports
-import AAOS from '../public/AAOS.png';
-import ACP from '../public/ACP.png';
-import AOA from '../public/AOA.png';
-import NASS from '../public/NASS.png';
-import Serpent from '../public/Serpent.png';
-import SMIS from '../public/SMIS.png';
-import HomeWhyAO from '../public/HomeWhyAO-min.jpeg';
-import MRI1 from '../public/MRI1.png';
-import MRI2 from '../public/MRI2.png';
-import MRI3 from '../public/MRI3.png';
+// Image Asset Imports - Using CDN URLs since local files don't exist
+const AAOS = 'https://mountainspineortho.b-cdn.net/public/AAOS.png';
+const ACP = 'https://mountainspineortho.b-cdn.net/public/ACP.png';
+const AOA = 'https://mountainspineortho.b-cdn.net/public/AOA.png';
+const NASS = 'https://mountainspineortho.b-cdn.net/public/NASS.png';
+const Serpent = 'https://mountainspineortho.b-cdn.net/public/Serpent.png';
+const SMIS = 'https://mountainspineortho.b-cdn.net/public/SMIS.png';
+const HomeWhyAO = 'https://mountainspineortho.b-cdn.net/public/HomeWhyAO-min.jpeg';
+const MRI1 = 'https://mountainspineortho.b-cdn.net/public/MRI1.png';
+const MRI2 = 'https://mountainspineortho.b-cdn.net/public/MRI2.png';
+const MRI3 = 'https://mountainspineortho.b-cdn.net/public/MRI3.png';
 
 // ✅ Server-Rendered Metadata for Homepage SEO (This part is correct)
 export const metadata: Metadata = {
   title: 'Mountain Spine & Orthopedics | Top Florida Spine & Joint Pain Specialists',
   description: 'Trusted orthopedic and spine care across Florida. Experts in minimally invasive surgery, arthritis, and joint pain relief. Book your free MRI review or second opinion today.',
   alternates: {
-    canonical: 'https://mountainspineorthopedics.com/',
+    canonical: buildCanonical('/'),
   },
   openGraph: {
     title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
     description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
-    url: 'https://mountainspineorthopedics.com/',
+    url: buildCanonical('/'),
     siteName: 'Mountain Spine & Orthopedics',
     images: [
       {
-        url: 'https://mountainspineorthopedics.com/og-image-homepage.jpg',
+        url: getOgImageForPath('/'),
         width: 1200,
         height: 630,
         alt: 'Patient and doctor consultation at Mountain Spine & Orthopedics Florida clinic.',
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
     description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
-    images: ['https://mountainspineorthopedics.com/og-image-homepage.jpg'],
+    images: [getOgImageForPath('/')],
   },
   keywords: [
     "minimally invasive spine surgery Florida",
@@ -174,11 +176,11 @@ export default function Home() {
               <div className="sm:grid hidden grid-cols-2 gap-[10px] mt-[40px]">
                 {ServicesAndExpertise.map((item) => (
                   <Link
-                    href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
+                    href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
                     key={item.title} 
                     className="flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl items-center justify-center hover:cursor-pointer"
                   >
-                    <Image src={item.img} alt={item.title} className="h-[22px] w-[22px]" />
+                    <Image src={item.img} alt={item.title} width={22} height={22} className="h-[22px] w-[22px]" />
                     <span className="text-[#5B5F67]">{item.title}</span>
                   </Link>
                 ))}
@@ -211,7 +213,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
               {ServicesAndExpertise.map((item, index) => (
                 <Link 
-                  href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} 
+                  href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} 
                   className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'}`}`} 
                   key={item.title}
                 >
@@ -229,7 +231,7 @@ export default function Home() {
                     </div>
 
                     <div className={`sm:bg-[#EFF5FF] ${index % 2 === 1 ? 'bg-[#E5F6FF]' : 'bg-[#EFF5FF]'} rounded-full border border-[#EFF5FF] py-3 px-6`}>
-                      <Image src={item.img} alt={item.title} className="h-[22px] w-[22px]" />
+                      <Image src={item.img} alt={item.title} width={22} height={22} className="h-[22px] w-[22px]" />
                     </div>
                   </div>
 
@@ -293,7 +295,7 @@ export default function Home() {
           </Reveal>
           <div className="flex xl:flex-row flex-col w-full gap-[32px] xl:items-stretch">
             <div className="xl:w-[50%] w-full rounded-[20px] overflow-hidden">
-              <Image src={HomeWhyAO} className="w-full h-full md:aspect-video aspect-square object-cover" alt="Doctor Diagnosing Patient" />
+                              <Image src={HomeWhyAO} width={1440} height={1000} className="w-full h-full md:aspect-video aspect-square object-cover" alt="Doctor Diagnosing Patient" />
             </div>
             <div className="xl:w-[50%] w-full flex flex-col space-y-[32px]">
               <Reveal className="w-full" width="100%">
@@ -311,7 +313,7 @@ export default function Home() {
                   {OurSpecialtyItems.map((item, index) => (
                     <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6`}>
                       <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px]">
-                        <item.icon />
+                        {item.icon()}
                       </div>
                       <h4 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#022968' }} className="text-xl">
                         {item.title}
@@ -400,7 +402,7 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-x-[16px]">
                   {[MRI1, MRI2, MRI3].map((item, index) => (
                     <div key={index}>
-                      <Image src={item} className="w-full h-full aspect-square rounded-[12px]" alt="Image of an MRI Bone Scan" />
+                      <Image src={item} width={300} height={300} className="w-full h-full aspect-square rounded-[12px]" alt="Image of an MRI Bone Scan" />
                     </div>
                   ))}
                 </div>
@@ -418,7 +420,7 @@ export default function Home() {
                   {Amenities.map((item, index) => (
                     <div className="flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
                       <div className="bg-white rounded-[12px] aspect-square flex items-center justify-center p-[8px]">
-                        <item.icon />
+                        {item.icon()}
                       </div>
                       <div>
                         <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-sm text-[#022968]">

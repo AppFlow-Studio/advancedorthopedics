@@ -5,7 +5,7 @@ import { conditions } from './data/conditions';
 function slugToTitle(slug: string) {
   const treat = AllTreatments.find(t => `/treatments/${t.slug}` === slug);
   if (treat) return treat.title;
-  const cond = conditions.find(c => `/area-of-speciality/${c.slug}` === slug);
+  const cond = conditions.find(c => `/area-of-specialty/${c.slug}` === slug);
   if (cond) return cond.title;
   const last = slug.split('/').filter(Boolean).pop() || '';
   return last.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());

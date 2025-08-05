@@ -1,31 +1,36 @@
-import type { Metadata } from 'next';
+import type { Metadata } from 'next'
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 import StaticNav from "@/components/StaticNav.server";
 
-export const metadata = {
-    title: 'Orthopedic Treatments | Mountain Spine & Orthopedics',
-    description: 'Discover advanced orthopedic and spine treatments at Mountain Spine & Orthopedics. Learn about minimally invasive procedures, pain management, and recovery options.',
-    openGraph: {
-      title: 'Orthopedic Treatments | Mountain Spine & Orthopedics',
-      description: 'Discover advanced orthopedic and spine treatments at Mountain Spine & Orthopedics. Learn about minimally invasive procedures, pain management, and recovery options.',
-      type: 'website',
-      url: 'https://mountainspineorthopedics.com/treatments',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Orthopedic Treatments | Mountain Spine & Orthopedics',
-      description: 'Discover advanced orthopedic and spine treatments at Mountain Spine & Orthopedics. Learn about minimally invasive procedures, pain management, and recovery options.',
-    },
-    keywords: [
-      'orthopedic treatments',
-      'spine surgery',
-      'pain management',
-      'minimally invasive procedures',
-      'joint replacement',
-      'orthopedic care Florida',
-      'Mountain Spine & Orthopedics',
-      'treatment options'
-    ]
-  };
+export const metadata: Metadata = {
+  title: 'Orthopedic Treatments & Procedures | Mountain Spine & Orthopedics',
+  description: 'Explore our comprehensive range of minimally invasive orthopedic treatments and spine procedures. From pain management to advanced surgical techniques.',
+  openGraph: {
+    title: 'Orthopedic Treatments & Procedures | Mountain Spine & Orthopedics',
+    description: 'Explore our comprehensive range of minimally invasive orthopedic treatments and spine procedures. From pain management to advanced surgical techniques.',
+    url: buildCanonical('/treatments'),
+    siteName: 'Mountain Spine & Orthopedics',
+    type: 'website',
+    images: [
+      {
+        url: getOgImageForPath('/treatments'),
+        width: 1200,
+        height: 630,
+        alt: 'Orthopedic treatments and procedures',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Orthopedic Treatments & Procedures | Mountain Spine & Orthopedics',
+    description: 'Explore our comprehensive range of minimally invasive orthopedic treatments and spine procedures. From pain management to advanced surgical techniques.',
+    images: [getOgImageForPath('/treatments')],
+  },
+  alternates: {
+    canonical: buildCanonical('/treatments'),
+  },
+}
 
 export default function TreatmentsLayout({
   children,
@@ -33,9 +38,9 @@ export default function TreatmentsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <StaticNav />
       {children}
-    </>
+    </div>
   );
 }

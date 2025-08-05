@@ -194,7 +194,7 @@ export default async function LocationDetails(
                 </div>
 
             </section>
-            {/* Our Speciality */}
+            {/* Our Specialty */}
             <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
                 <Reveal className="w-full" width="100%">
                     <div className=" flex xl:flex-row space-x-[60px] flex-col xl:space-y-0 space-y-8 w-full">
@@ -252,7 +252,7 @@ export default async function LocationDetails(
                                     }}
                                     className=" text-lg"
                                 >
-                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a> and a wide range of <a href='/area-of-speciality' className='underline text-[#022968]'>conditions</a> we treat. We put patients first.  Here's why {location.region.split(',')[0]} families choose us:
+                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#022968]'>treatments</a> and a wide range of <a href='/area-of-specialty' className='underline text-[#022968]'>conditions</a> we treat. We put patients first.  Here's why {location.region.split(',')[0]} families choose us:
                                 </p>
                                 {/* INTERNAL LINKS HERE */}
                             </div>

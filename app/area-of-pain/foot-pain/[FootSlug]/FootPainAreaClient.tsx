@@ -45,7 +45,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors }: { condi
                 }}
                 className="sm:text-md text-xs text-[#111315]"
               >
-                Area of Speciality 
+                Area of Specialty 
               </span>
       
               <span

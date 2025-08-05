@@ -22,11 +22,11 @@ for (const url of txt){
      continue;
   }
 
-  // AREA-OF-SPECIALITY → CONDITIONS
-  if (/\/area-of-speciality\//.test(clean)){
+  // area-of-specialty → CONDITIONS
+  if (/\/area-of-specialty\//.test(clean)){
      const conditionSlug = clean.split('/').pop().replace(/[^a-zA-Z0-9-]/g,'').toLowerCase();
      redirects.push({
-       source: `/area-of-speciality/${conditionSlug}`,
+       source: `/area-of-specialty/${conditionSlug}`,
        destination: `/conditions/${conditionSlug}`,
        permanent: true
      });
