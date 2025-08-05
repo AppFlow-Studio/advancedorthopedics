@@ -3,6 +3,7 @@ import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
 import { conditions } from "@/components/data/conditions";
 import { AllTreatments } from "@/components/data/treatments";
+import { buildCanonical } from "@/lib/seo";
 
 export const dynamic = 'force-static';
 
@@ -20,7 +21,7 @@ function isValidSlug(slug: string | undefined | null): boolean {
 function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
   return `
   <url>
-    <loc>${baseUrl}${path}</loc>
+    <loc>${buildCanonical(path)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>

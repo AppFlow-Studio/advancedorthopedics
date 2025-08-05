@@ -11,6 +11,8 @@ import Script from "next/script";
 import TanstackProvider from "@/providers/tanstack";
 import OrphanLinksFooter from "@/components/OrphanLinksFooter";
 import StaticNav from "@/components/StaticNav.server";
+import { buildCanonical } from "@/lib/seo";
+import { getOgImageForPath } from "@/lib/og";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -40,36 +42,41 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://mountainspineorthopedics.com'),
-  title: "Mountain Spine & Orthopedics",
-  description: "Florida's trusted experts in spine and joint care. Book today.",
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  const url = buildCanonical('/');
+  const ogImage = getOgImageForPath('/');
+
+  return {
+    metadataBase: new URL(process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://mountainspineorthopedics.com'),
     title: "Mountain Spine & Orthopedics",
     description: "Florida's trusted experts in spine and joint care. Book today.",
-    url: "https://mountainspineorthopedics.com",
-    siteName: "Mountain Spine & Orthopedics",
-    type: "website",
-    locale: "en_US",
-    images: [
-      {
-        url: "https://mountainspineorthopedics.com/newlogo4.png", // using actual logo in public folder
-        width: 1200,
-        height: 630,
-        alt: "Mountain Spine & Orthopedics",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Mountain Spine & Orthopedics",
-    description: "Florida's trusted experts in spine and joint care. Book today.",
-    images: ["https://mountainspineorthopedics.com/newlogo4.png"], // same image as above
-  },
-  alternates: {
-    canonical: 'https://mountainspineorthopedics.com/',
-  },
-};
+    openGraph: {
+      title: "Mountain Spine & Orthopedics",
+      description: "Florida's trusted experts in spine and joint care. Book today.",
+      url: url,
+      siteName: "Mountain Spine & Orthopedics",
+      type: "website",
+      locale: "en_US",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: "Mountain Spine & Orthopedics",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Mountain Spine & Orthopedics",
+      description: "Florida's trusted experts in spine and joint care. Book today.",
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",

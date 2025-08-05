@@ -15,33 +15,7 @@ import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
 import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { Marquee } from '@/components/magicui/marquee';
-import { Metadata } from 'next';
 
-export const generateMetadata = (): Metadata => ({
-  title: 'Second Opinion | Mountain Spine & Orthopedics',
-  description: 'Get a virtual second opinion from board-certified orthopedic spine specialists. Convenient, secure, and expert review of your diagnosis and treatment plan.',
-  openGraph: {
-    title: 'Second Opinion | Mountain Spine & Orthopedics',
-    description: 'Get a virtual second opinion from board-certified orthopedic spine specialists. Convenient, secure, and expert review of your diagnosis and treatment plan.',
-    url: '/find-care/second-opinion',
-    siteName: 'Mountain Spine & Orthopedics',
-    type: 'website',
-    images: [
-      {
-        url: '/OrthoDoctors.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Board-certified orthopedic spine specialists',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Second Opinion | Mountain Spine & Orthopedics',
-    description: 'Get a virtual second opinion from board-certified orthopedic spine specialists. Convenient, secure, and expert review of your diagnosis and treatment plan.',
-    images: ['/OrthoDoctors.jpeg'],
-  },
-});
 
 const faqItems : {question : string, answer : React.JSX.Element}[] = [
     {
