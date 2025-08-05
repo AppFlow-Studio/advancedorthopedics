@@ -32,7 +32,7 @@ const faqItems = [
           painful alternative.
         </p>
         <p>
-          Mountain Spine & Orthopedics has developed a specialized minimally invasive technique that reduces recovery time and pain following surgery by using tiny incisions and preserving the muscles and tissue surrounding your spine. The results are longer lasting and more effective than traditional surgery. Recovery is significantly faster, often allowing patients to return to work within just a few days.
+          Minimally invasive surgery is a modern approach that uses smaller incisions and specialized instruments to treat spinal conditions. Unlike traditional open surgery, it preserves the muscles and tissues surrounding your spine. At Mountain Spine & Orthopedics, procedures like our <a href="/treatments/endoscopic-discectomy-surgery" className="text-blue-600 hover:underline">endoscopic discectomy</a> result in less pain, a significantly faster recovery, and more effective, long-lasting outcomes. Many of our patients return to work and daily activities within just a few days.
         </p>
       </>
     ),
@@ -42,8 +42,7 @@ const faqItems = [
     answer: (
       <p>
         Our surgeons have over 20 years of combined experience in minimally invasive spine surgery. Each surgeon is
-        board-certified and fellowship-trained, specializing in the latest techniques and technologies for spine care.
-        They have successfully performed thousands of procedures with excellent patient outcomes.
+        board-certified and fellowship-trained, specializing in the latest techniques. You can learn more about their extensive credentials on our <a href="/find-care/find-a-doctor" className="text-blue-600 hover:underline">Find a Doctor page</a>. They have successfully performed thousands of procedures with excellent patient outcomes.
       </p>
     ),
   },
@@ -62,8 +61,8 @@ const faqItems = [
     question: "What non-surgical alternatives do you offer?",
     answer: (
       <p>
-        We offer a comprehensive range of non-surgical treatments including pain management
-        injections, medication management and lifestyle modification programs. Our
+        We offer a comprehensive range of <a href="/treatments/non-surgical-treatments-for-pain-management" className="text-blue-600 hover:underline">non-surgical treatments</a>, including pain management
+        injections like <a href="/treatments/epidural-steroid-injection" className="text-blue-600 hover:underline">epidural steroid injections</a>, medication management and lifestyle modification programs. Our
         team believes in exploring all conservative treatment options before considering surgical intervention.
       </p>
     ),
@@ -72,10 +71,8 @@ const faqItems = [
     question: "How do I begin the process of finding a treatment with Mountain Spine & Orthopedics?",
     answer: (
       <p>
-        The process begins with scheduling an initial consultation with one of our spine specialists. During this
-        appointment, we'll review your medical history, perform a physical examination, and discuss any imaging
-        studies you may have. Based on this assessment, we'll develop a personalized treatment plan tailored to your
-        specific condition and needs.
+        The process begins with scheduling an initial consultation. During this
+        appointment, we'll review your medical history, perform an exam, and discuss your imaging. A great first step is to submit your records through our <a href="/find-care/free-mri-review" className="text-blue-600 hover:underline">Free MRI Review tool</a>. Based on this, we'll develop a personalized treatment plan tailored to your needs.
       </p>
     ),
   },
@@ -83,10 +80,8 @@ const faqItems = [
     question: "How do I know which treatment is the right one for me?",
     answer: (
       <p>
-        Determining the right treatment involves a collaborative decision-making process between you and your care
-        team. We consider factors such as your specific diagnosis, symptom severity, previous treatments, overall
-        health, and personal goals. We'll thoroughly explain all available options, including their benefits and
-        risks, to help you make an informed decision about your care.
+        Determining the right treatment is a collaborative decision between you and your care
+        team. We consider your diagnosis, symptoms, previous treatments, and personal goals. We recommend getting a <a href="/find-care/second-opinion" className="text-blue-600 hover:underline">second opinion</a> to feel fully confident. We'll thoroughly explain all options to help you make an informed decision.
       </p>
     ),
   },
@@ -95,9 +90,8 @@ const faqItems = [
     answer: (
       <p>
         Most spine surgeries are covered by insurance when deemed medically necessary. Our dedicated insurance
-        specialists will work directly with your insurance provider to verify coverage, obtain necessary
-        authorizations, and explain any out-of-pocket costs before proceeding with treatment. We accept most major
-        insurance plans and can discuss payment options for any uncovered services.
+        specialists will work directly with your provider to verify coverage and obtain authorizations. We accept most major
+        insurance plans; please see our <a href="/insurance-policy" className="text-blue-600 hover:underline">insurance policy page</a> for more details.
       </p>
     ),
   },

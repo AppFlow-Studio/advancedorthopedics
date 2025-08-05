@@ -44,7 +44,7 @@ function linkifyText(text: string, currentSlug: string) {
     // Only link if the title matches exactly as a whole word/phrase
     const regex = new RegExp(`(?<![\\w-])${title.replace(/[-/\\^$*+?.()|[\\]{}]/g, '\\$&')}(?![\\w-])`, 'g');
     replaced = replaced.replace(regex, match => {
-      const href = type === 'condition' ? `/area-of-speciality/${slug}` : `/treatments/${slug}`;
+      const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
       return `<a href="${href}" class="underline text-[#022968]">${match}</a>`;
     });
   });
@@ -336,6 +336,7 @@ export default function ConditionDetails({
                             Schedule a Consultation Today
                         </h2>
                         {renderField(condition_details?.schedule, condition_details.slug)}
+                        <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
                     </div>
                 </section>
 

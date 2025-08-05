@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
     description: 'Comprehensive guide to orthopedic conditions, spine disorders, and joint problems. Expert diagnosis and treatment options from board-certified specialists.',
-    url: buildCanonical('/area-of-speciality'),
+    url: buildCanonical('/area-of-specialty'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
     images: [
       {
-        url: getOgImageForPath('/area-of-speciality'),
+        url: getOgImageForPath('/area-of-specialty'),
         width: 1200,
         height: 630,
         alt: 'Orthopedic conditions and treatments',
@@ -25,22 +25,22 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
     description: 'Comprehensive guide to orthopedic conditions, spine disorders, and joint problems. Expert diagnosis and treatment options from board-certified specialists.',
-    images: [getOgImageForPath('/area-of-speciality')],
+    images: [getOgImageForPath('/area-of-specialty')],
   },
   alternates: {
-    canonical: buildCanonical('/area-of-speciality'),
+    canonical: buildCanonical('/area-of-specialty'),
   },
 }
 
-export default function AreaOfSpecialityLayout({
+export default function AreaOfSpecialtyLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <StaticNav />
       {children}
-    </>
+    </div>
   );
 }

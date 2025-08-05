@@ -7,7 +7,7 @@ const INVALID = new Set(invalidContent.split(/\r?\n/).filter(Boolean).map(u => u
 // canonical slug helpers
 function fixSlug(path) {
   return path
-    .replace(/^\/area-of-speciality\//, '/conditions/')
+    .replace(/^\/area-of-specialty\//, '/conditions/')
     .replace('/treatments/faqs', '/find-care/candidacy-check')
     .replace('triggerfingerrelease', 'trigger-finger-release')
     .replace('totalkneereplacement', 'total-knee-replacement')

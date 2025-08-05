@@ -944,7 +944,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/adtcard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/sdtarti.jpg",
         body: "Spondylolisthesis is a spinal condition where one vertebra slips forward over the one below it, often causing lower back pain and nerve compression.",
-        detail: "Spondylolisthesis occurs when a vertebra slips out of place, typically in the lower back, and moves forward over the vertebra beneath it. This misalignment can compress spinal nerves, leading to persistent lower back pain, sciatica, and difficulty walking or standing. The condition can result from spinal degeneration, stress fractures (common in athletes), trauma, or congenital defects. At Mountain Spine & Orthopedics, our evaluation includes advanced imaging to determine the type and grade of slippage and guide treatment.",
+        detail: "Spondylolisthesis occurs when a vertebra slips out of place, typically in the lower back, and moves forward over the vertebra beneath it. This misalignment can compress spinal nerves, leading to persistent lower back pain, <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>, and difficulty walking or standing. The condition can result from spinal degeneration, stress fractures (common in athletes), trauma, or congenital defects. At Mountain Spine & Orthopedics, our evaluation includes advanced imaging to determine the type and grade of slippage and guide treatment.",
         what_sym: "Common symptoms include persistent lower back pain that may radiate into the buttocks or legs (sciatica), tight hamstrings, and numbness, tingling, or weakness in the legs. Some people have trouble standing or walking for long periods.",
         risk_fac:
             "Repetitive spinal stress, such as from gymnastics or football, significantly increases the risk. Other factors include spinal arthritis, a genetic predisposition, congenital spinal anomalies, previous spine trauma, and the natural aging process.",
@@ -964,7 +964,7 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Non-surgical care is the first line of treatment and may include physical therapy to strengthen and stabilize the core, anti-inflammatory medications, and image-guided injections to reduce nerve inflammation. If conservative care fails or the slippage progresses, surgical options like decompression and spinal fusion are considered. At our practice, we use minimally invasive techniques to achieve long-term spinal stability while reducing recovery time.",
+            "Non-surgical care is the first line of treatment and may include physical therapy to strengthen and stabilize the core, anti-inflammatory medications, and <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">image-guided injections</a> to reduce nerve inflammation. If conservative care fails or the slippage progresses, surgical options like decompression and <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">spinal fusion</a> are considered. At our practice, we use minimally invasive techniques to achieve long-term spinal stability while reducing recovery time.",
         pain_info:
             "The pain associated with spondylolisthesis often stems from both mechanical instability of the spine and direct nerve compression. It may increase with activities like standing, walking, or bending backward. Our integrated treatment approach targets both the pain and its underlying structural source to provide long-lasting relief.",
         prevent:
@@ -2175,44 +2175,6 @@ export const conditions: ConditionInfoProp[] = [
             "Disc Tear | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "An annular disc tear can cause sharp, localized back or neck pain. Our Florida spine specialists offer accurate MRI diagnosis and advanced, non-surgical care.",
-    },
-    {
-        title: "Anti Inflammatory Injections",
-        tag: "Spine",
-        card_img: "https://mountainspineortho.b-cdn.net/public/aiicard.jpeg",
-        inTxt_img: "https://mountainspineortho.b-cdn.net/public/aiitxt.jpg",
-        body: "Anti-inflammatory injections deliver potent medication directly to an inflamed joint or spinal nerve, providing rapid and targeted pain relief.",
-        detail: "Anti-inflammatory injections, such as corticosteroid or biologic agents, are used to deliver powerful medication directly to the source of pain, such as an inflamed joint, tendon, or compressed spinal nerve. This targeted approach bathes irritated tissues in high concentrations of therapeutic agents, rapidly reducing pain while limiting systemic side effects. At Mountain Spine & Orthopedics, every injection is planned after a detailed consultation and imaging review to ensure maximum precision and relief.",
-        what_sym: "This is a treatment, not a condition. Patients who benefit from these injections typically suffer from localized pain, swelling, and reduced range of motion due to conditions like arthritis, bursitis, tendonitis, or nerve compression (sciatica). The goal of the injection is to achieve rapid pain relief and easier participation in rehabilitative exercise.",
-        risk_fac:
-            "While generally safe, injections may be modified for patients with uncontrolled diabetes, bleeding disorders, or active infections. Our specialists carefully screen each patient to adjust dosage or technique, safeguarding overall health and ensuring the best possible outcome.",
-        diagnose:
-            "Our team reviews your medical history, performs a focused physical exam, and analyzes complimentary imaging (MRI or ultrasound) to precisely map the inflammation. When necessary, a diagnostic local anesthetic injection may be used to confirm the pain generator before administering the anti-inflammatory medication, ensuring the treatment is accurately targeted.",
-        treatment:
-            "The procedure is performed in our office under sterile conditions, using live imaging (ultrasound or fluoroscopy) for pinpoint accuracy. Most patients report only mild pressure during the injection and can resume light activities the same day. The anti-inflammatory effect typically begins within 24 to 72 hours and can provide relief for weeks or even months.",
-        pain_info:
-            "The injection itself may cause mild, short-lived discomfort at the injection site. The primary goal is to significantly reduce the underlying inflammatory pain from your condition, allowing you to engage more effectively in physical therapy and long-term healing.",
-        prevent:
-            "While injections quell acute inflammation, long-term relief comes from addressing the root cause of the problem. Our specialists integrate injections with physical therapy, core strengthening, and ergonomic guidance to reduce future flare-ups and prolong the benefits of the treatment.",
-        why_choose_us:
-            "At Mountain Spine & Orthopedics, our specialists use advanced, image-guided techniques to deliver anti-inflammatory injections with the highest degree of precision. Patients across Florida trust our expertise for effective pain relief. With a complimentary MRI review and a free second opinion, we can determine if a targeted injection is the right solution for your pain.",
-        schedule:
-            "Explore targeted pain relief today by scheduling an appointment at Mountain Spine & Orthopedics. Our team will determine if anti-inflammatory injections align with your goals and craft a customized plan to get you moving pain-free again.",
-        slug: "anti-inflammatory-injections",
-        keywords: [
-            "anti-inflammatory injection",
-            "corticosteroid injection",
-            "epidural steroid injection Florida",
-            "joint injection",
-            "bursitis injection",
-            "tendonitis injection",
-            "sciatica pain relief",
-            "image-guided injection",
-        ],
-        metaTitle:
-            "Anti Inflammatory Injections | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
-        metaDesc:
-            "Find pain relief with anti-inflammatory injections. Our Florida specialists offer image-guided steroid injections for arthritis, sciatica, and joint pain.",
     },
     {
         title: "Hip Dysplasia",
@@ -3542,14 +3504,14 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/ForaminalSarti.png",
         body: "Foraminal stenosis is a narrowing of the spinal openings where nerves exit, which can 'pinch' the nerves and cause radiating pain.",
-        detail: "Foraminal stenosis occurs when the small openings (foramina) on each side of your spine, through which nerve roots exit the spinal canal, become narrowed. This narrowing is often due to degenerative changes like bone spurs or herniated discs, and it can compress or 'pinch' the exiting nerve root. This leads to symptoms along that nerve's pathway. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a detailed neurological exam to precisely identify the location of the stenosis and create an effective treatment plan.",
+        detail: "Foraminal stenosis occurs when the small openings (foramina) on each side of your spine, through which nerve roots exit the spinal canal, become narrowed. This narrowing is often due to degenerative changes like bone spurs or <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a>, and it can compress or 'pinch' the exiting nerve root. This leads to symptoms along that nerve's pathway. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a detailed neurological exam to precisely identify the location of the stenosis and create an effective treatment plan.",
         what_sym: "Symptoms depend on the location of the pinched nerve and can include radiating pain (sciatica in the leg or radiculopathy in the arm), numbness, tingling, burning sensations, or muscle weakness in the affected limb.",
         risk_fac:
             "Age is the primary risk factor, as degenerative changes accumulate over time. Other factors include a genetic predisposition to disc degeneration or arthritis, previous spinal injury, occupations involving heavy lifting, and obesity.",
         diagnose:
             "Diagnosis involves a thorough clinical evaluation to assess symptoms, reflexes, and muscle strength. Imaging is crucial; we offer a complimentary MRI review to get a detailed view of the nerves and soft tissues, while a CT scan can excel at showing bone structure. These tools help us create a tailored treatment plan targeting the specific compressed nerve.",
         treatment:
-            "Initial treatment is typically conservative, focusing on physical therapy, anti-inflammatory medications, and epidural steroid injections to reduce inflammation around the nerve. If symptoms persist or there is significant weakness, our expert surgeons at Mountain Spine & Orthopedics may recommend a minimally invasive surgical option like foraminotomy to decompress the nerve.",
+            "Initial treatment is typically conservative, focusing on physical therapy, anti-inflammatory medications, and <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce inflammation around the nerve. If symptoms persist or there is significant weakness, our expert surgeons at Mountain Spine & Orthopedics may recommend a minimally invasive surgical option like <a href=\"/treatments/endoscopic-foraminotomy-surgery\" class=\"text-blue-600 hover:underline\">foraminotomy</a> to decompress the nerve.",
         pain_info:
             "Pain from foraminal stenosis often follows a specific nerve path (a dermatome). Lumbar stenosis typically causes leg pain (sciatica), while cervical stenosis causes arm pain. The pain can range from a dull ache to sharp, shooting sensations. Our team focuses on identifying the exact nerve involved to deliver targeted, effective relief.",
         prevent:
@@ -4533,11 +4495,11 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/syncard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/synarti.jpg",
         body: "Synovitis is the inflammation of the synovial membrane that lines a joint, which causes pain, swelling, and stiffness.",
-        detail: "Synovitis is the inflammation of the synovial membrane, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like rheumatoid arthritis. The resulting pain, swelling, and excess fluid can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.",
+        detail: "Synovitis is the inflammation of the synovial membrane, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like <a href=\"/area-of-specialty/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">rheumatoid arthritis</a>. The resulting pain, swelling, and excess fluid can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.",
         what_sym: "Key symptoms include joint pain, visible swelling, warmth over the affected joint, tenderness, and a reduced range of motion. When caused by an inflammatory condition, synovitis may affect multiple joints and worsen with inactivity.",
         risk_fac: "Autoimmune diseases such as rheumatoid arthritis or lupus are major risk factors. Other causes include overuse injuries, joint trauma, infections, and metabolic conditions like gout.",
         diagnose: "Our specialists use complimentary MRI and diagnostic ultrasound to assess synovial thickening and fluid buildup. If an underlying condition is suspected, blood tests may be ordered. For definitive diagnosis, a joint aspiration may be performed to analyze the synovial fluid for signs of crystals, infection, or inflammation.",
-        treatment: "Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue.",
+        treatment: "Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and <a href=\"/treatments/anti-inflammatory-injections\" class=\"text-blue-600 hover:underline\">corticosteroid injections</a> are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an <a href=\"/treatments/arthroscopic-knee-surgery\" class=\"text-blue-600 hover:underline\">arthroscopic synovectomy</a> may be recommended to remove the inflamed tissue.",
         pain_info: "The pain from synovitis is typically a dull, aching sensation but can intensify with activity or prolonged immobility. Our integrated approach aims to reduce the inflammation, protect the joint surfaces from further damage, and restore comfortable function.",
         prevent: "Prevention focuses on managing any underlying autoimmune or metabolic disorders, avoiding joint overuse, maintaining a healthy weight, and using proper biomechanics during physical activity to reduce stress on the joints.",
         why_choose_us: "At Mountain Spine & Orthopedics, our specialists are skilled at diagnosing the cause of synovitis, whether it's in the knee, shoulder, or another joint. For patients in Florida, we offer a complimentary MRI review and free second opinion to ensure an accurate diagnosis. Our goal is to reduce your joint inflammation and prevent long-term joint damage.",
@@ -4561,7 +4523,7 @@ export const conditions: ConditionInfoProp[] = [
         tag: "Spine",
         card_img: "https://mountainspineortho.b-cdn.net/public/tnecard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tnearti.jpg",
-        body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation. Common causes include <Link href='/area-of-speciality/spinal-stenosis'>Spinal Stenosis</Link> and <Link href='/area-of-speciality/herniated-disc'>Herniated Disc</Link>.",
+        body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation. Common causes include <Link href='/area-of-specialty/spinal-stenosis'>Spinal Stenosis</Link> and <Link href='/area-of-specialty/herniated-disc'>Herniated Disc</Link>.",
         detail: "Tingling and numbness in the extremities, also known as paresthesia, can signal a problem with a nerve. This may be caused by nerve root compression in the spine (radiculopathy), peripheral nerve entrapment like carpal tunnel syndrome, or systemic conditions such as diabetes. At Mountain Spine & Orthopedics, our diagnosis starts with a thorough neurologic exam, advanced imaging, and electrodiagnostic testing (EMG/NCS) to identify the precise nerve involved and determine the cause.",
         what_sym: "Symptoms include a 'pins and needles' sensation, a loss of feeling, burning, or prickling in the hands, arms, legs, or feet. This can be accompanied by weakness, clumsiness, or a feeling that the limbs are 'falling asleep.'",
         risk_fac: "Common risk factors include spinal issues like herniated discs and stenosis, as well as diabetes, repetitive motion injuries, autoimmune diseases, and vitamin deficiencies. A previous trauma can also lead to nerve-related symptoms.",

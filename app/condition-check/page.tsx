@@ -147,7 +147,7 @@ export default function ConditionChecker() {
                         fontWeight: 500,
                     }}
                     className='text-[#5B5F67] text-lg md:text-xl'>
-                        Mountain Spine & Orthopedics offers a free condition check tool to help you understand the source of <a href="/area-of-speciality?data=%7B%22tags%22%3A%5B%22Lower+Spine%22%5D%7D" className='text-[#022968] underline'>your back pain.</a> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
+                        Mountain Spine & Orthopedics offers a free condition check tool to help you understand the source of <a href="/area-of-specialty?data=%7B%22tags%22%3A%5B%22Lower+Spine%22%5D%7D" className='text-[#022968] underline'>your back pain.</a> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
                         <br /><br/>
                         To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Orthopedics spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn’t conclusive and you need to<a href="#contact-us-section" className='text-[#022968] underline'> be further evaluated by an Mountain Spine & Orthopedics specialist</a> at one of our clinics.
                    </h1>

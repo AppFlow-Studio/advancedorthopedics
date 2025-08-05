@@ -12,22 +12,22 @@ function capitalizeWords(str: string): string {
 
 // This function dynamically generates metadata for each condition page.
 export async function generateMetadata(
-    { params }: { params: { ConditionDetails: string } },
+    { params }: { params: Promise<{ ConditionDetails: string }> },
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-
-    const condition = conditions.find(c => c.slug === params.ConditionDetails);
+    const resolvedParams = await params;
+    const condition = conditions.find(c => c.slug === resolvedParams.ConditionDetails);
 
     if (!condition) {
-        const readableSlug = params.ConditionDetails.replace(/-/g, " ");
+        const readableSlug = resolvedParams.ConditionDetails.replace(/-/g, " ");
         return {
             title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
             description: "Learn about orthopedic care and treatments with our specialists in Florida."
         };
     }
 
-    const canonicalUrl = buildCanonical(`/area-of-speciality/${condition.slug}`);
-    const ogImage = getOgImageForPath('/area-of-speciality');
+    const canonicalUrl = buildCanonical(`/area-of-specialty/${condition.slug}`);
+    const ogImage = getOgImageForPath('/area-of-specialty');
 
     return {
       title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
@@ -59,14 +59,15 @@ export async function generateMetadata(
 }
 
 // --- SEO ENHANCEMENT: Combined JSON-LD Schema Component ---
-const CombinedSchema = ({ params }: { params: { ConditionDetails: string } }) => {
-    const condition = conditions.find(c => c.slug === params.ConditionDetails);
+const CombinedSchema = async ({ params }: { params: Promise<{ ConditionDetails: string }> }) => {
+    const resolvedParams = await params;
+    const condition = conditions.find(c => c.slug === resolvedParams.ConditionDetails);
 
     if (!condition) {
         return null;
     }
     
-    const conditionUrl = `https://mountainspineorthopedics.com/area-of-speciality/${condition.slug}`;
+    const conditionUrl = `https://mountainspineorthopedics.com/area-of-specialty/${condition.slug}`;
     const imageUrl = typeof condition.card_img === 'string' ? condition.card_img : condition.card_img?.src || '';
 
     // Schema for the specific medical condition page
@@ -102,8 +103,8 @@ const CombinedSchema = ({ params }: { params: { ConditionDetails: string } }) =>
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Area of Speciality",
-                "item": "https://mountainspineorthopedics.com/area-of-speciality" 
+                "name": "Area of Specialty",
+                "item": "https://mountainspineorthopedics.com/area-of-specialty" 
             },
             {
                 "@type": "ListItem",
@@ -116,7 +117,7 @@ const CombinedSchema = ({ params }: { params: { ConditionDetails: string } }) =>
 
     // Render both schemas
     return (
-        <>
+        <div>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalPageSchema) }}
@@ -125,27 +126,28 @@ const CombinedSchema = ({ params }: { params: { ConditionDetails: string } }) =>
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
-        </>
+        </div>
     );
 };
 
 
 // Main layout component that injects the schemas and renders the page
-export default function ConditionLayout({
+export default async function ConditionLayout({
     children,
     params
 }: {
     children: React.ReactNode;
-    params: { ConditionDetails: string };
+    params: Promise<{ ConditionDetails: string }>;
 }) {
+    const resolvedParams = await params;
     posthog.capture("view_condition", {
-        condition: params.ConditionDetails
+        condition: resolvedParams.ConditionDetails
     });
     return (
         <>
             {/* Hidden crawler nav */}
             <StaticNav />
-            <CombinedSchema params={params} />
+            {await CombinedSchema({ params })}
             {children}
             <OrphanLinksFooter /> {/* sr-only, zero visual impact */}
         </>

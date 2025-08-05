@@ -22,8 +22,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'What is a second opinion?',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
-                <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
+                A second opinion is a crucial step in your healthcare journey where you ask another expert specialist to review your diagnosis and proposed treatment plan. It ensures you have all the information needed to make a confident decision, confirming the diagnosis is correct and that you are aware of all possible treatment options, including the most advanced <a href="/treatments/surgical-treatments" className="text-blue-600 hover:underline">minimally invasive procedures</a> available.
             </p>
         )
     },
@@ -31,8 +30,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'When should I seek a second opinion?',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
-                <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
+                You should consider a second opinion if you have been diagnosed with a complex condition, if surgery has been recommended, or if you feel uncertain about your current treatment plan. It is especially important for conditions like <a href="/area-of-specialty/failed-back-surgery-syndrome" className="text-blue-600 hover:underline">Failed Back Surgery Syndrome</a>, scoliosis, or when considering a major procedure like a <a href="/treatments/spinal-fusion" className="text-blue-600 hover:underline">spinal fusion</a>.
             </p>
         )
     },
@@ -40,8 +38,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'What does a second opinion cost?',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
-                <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
+                Many insurance plans cover the cost of a second opinion, especially when surgery is recommended. We recommend checking with your provider about your specific coverage. For more details on navigating costs, you can review our <a href="/insurance-policy" className="text-blue-600 hover:underline">insurance information page</a> or read our blog post about <a href="/blogs/orthopedic-visit-cost-without-insurance" className="text-blue-600 hover:underline">costs without insurance</a>.
             </p>
         )
     },
@@ -49,8 +46,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'Which patients benefit most from a second opinion?',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
-                <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
+                Patients who have been told they need a complex surgery, such as a <a href="/treatments/multilevel-degenerative-disc-disease-surgery" className="text-blue-600 hover:underline">multilevel fusion</a> or <a href="/treatments/revision-spinal-surgery" className="text-blue-600 hover:underline">revision surgery</a>, benefit greatly. Additionally, patients whose symptoms have not improved with initial treatments or those who have received a rare diagnosis should seek a second opinion to ensure all avenues have been explored.
             </p>
         )
     },
@@ -58,8 +54,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
         question : 'Will my current doctor be offended if I get a second opinion?',
         answer : (
             <p>
-                A second opinion from Orthopedic & Laser Spine Surgery can ensure that you receive the most effective treatment plan. Our experienced spine and orthopedic specialists provide valuable insights into your medical condition. 
-                <br/><br/>A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
+                Not at all. Seeking a second opinion is a standard and respected part of the medical process. Most doctors welcome a second opinion as it either confirms their diagnosis and builds patient confidence, or provides new insights that can lead to a better outcome. It is a collaborative part of ensuring the best possible care for you.
             </p>
         )
     }
@@ -67,7 +62,7 @@ const faqItems : {question : string, answer : React.JSX.Element}[] = [
 
 const Testimonial = (
     <p>
-        While virtual care isn't a complete substitute for face-to-face consultations, it is an exceptional method for obtaining second opinions. A virtual second opinion from Orthopedic & Laser Spine Surgery helps you make an informed decision about your medical treatment from the comfort of your home.<br/><br/>For patients who live far from major medical centers or have difficulties traveling, our Virtual Second Opinion service provides easy access to comprehensive evaluations by leading spine and orthopedic specialists. Already have an MRI? Use our Free MRI Review tool to let our doctors review it for free.`
+        A virtual second opinion from Mountain Spine & Orthopedics helps you make an informed decision about your medical treatment from the comfort of your home. For patients who live far away or have difficulty traveling, our service provides direct access to leading spine and orthopedic specialists like <a href="/about/meetourdoctors/dr-scott-katzman" className="text-blue-600 hover:underline">Dr. Katzman</a> and <a href="/about/meetourdoctors/dr-david-cowin" className="text-blue-600 hover:underline">Dr. Cowin</a>. Already have an MRI? Use our <a href="/find-care/free-mri-review" className="text-blue-600 hover:underline">Free MRI Review tool</a> to let our doctors review it free of charge. Ready to talk? <a href="/find-care/book-an-appointment" className="text-blue-600 hover:underline">Book an appointment</a> to discuss your options.
     </p>
 )
 

@@ -176,7 +176,7 @@ export default function Home() {
               <div className="sm:grid hidden grid-cols-2 gap-[10px] mt-[40px]">
                 {ServicesAndExpertise.map((item) => (
                   <Link
-                    href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
+                    href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
                     key={item.title} 
                     className="flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl items-center justify-center hover:cursor-pointer"
                   >
@@ -213,7 +213,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
               {ServicesAndExpertise.map((item, index) => (
                 <Link 
-                  href={`/area-of-speciality?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} 
+                  href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} 
                   className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'}`}`} 
                   key={item.title}
                 >

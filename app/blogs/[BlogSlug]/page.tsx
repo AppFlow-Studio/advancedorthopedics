@@ -22,16 +22,17 @@
       return await GetAllBlogSlugs();
     }
 
-    export default async function Page({ params }: { params: { BlogSlug: string } }) {
-      const blog = await GetBlogInfo(params.BlogSlug);
-      if (!blog) return notFound();
+    export default async function Page({ params }: { params: Promise<{ BlogSlug: string }> }) {
+  const resolvedParams = await params;
+  const blog = await GetBlogInfo(resolvedParams.BlogSlug);
+  if (!blog) return notFound();
 
-      const qc = new QueryClient();
-      await qc.prefetchQuery({ queryKey: ['posts', params.BlogSlug], queryFn: () => blog });
+  const qc = new QueryClient();
+  await qc.prefetchQuery({ queryKey: ['posts', resolvedParams.BlogSlug], queryFn: () => blog });
 
-      return (
-        <HydrationBoundary state={dehydrate(qc)}>
-          <BlogPostClient params={params.BlogSlug} />
-        </HydrationBoundary>
-      );
-    }
+  return (
+    <HydrationBoundary state={dehydrate(qc)}>
+      <BlogPostClient params={resolvedParams.BlogSlug} />
+    </HydrationBoundary>
+  );
+}
