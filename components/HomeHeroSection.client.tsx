@@ -52,6 +52,7 @@ export default function HomeHeroSection() {
       <Image 
         src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} 
         priority={true} 
+        fetchPriority="high"
         layout='fill' 
         className="h-full absolute top-0 object-cover object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" 
         alt="Doctor Diagnosing a Old Patient" 

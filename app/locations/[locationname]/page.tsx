@@ -82,7 +82,7 @@ export default async function LocationDetails(
     return (
         <main className='w-full flex-col items-center justify-center bg-white h-full'>
             <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
-                <Image src={LocationLanding} priority={true} layout='fill' className="h-full absolute top-0 object-cover object-center sm:object-center self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
+                <Image src={LocationLanding} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover object-center sm:object-center self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
                 <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
                     style={{
                         background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',

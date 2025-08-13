@@ -89,7 +89,7 @@ export default function ConditionChecker() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Landing Section */}
       <section className="w-full h-full flex flex-col relative overflow-hidden" aria-labelledby="condition-check-heading">
-        <Image src={PatientFormsLanding} className="h-full absolute top-0 object-cover object-center self-end w-full " alt="Doctor Diagnosing a Old Patient" priority />
+        <Image src={PatientFormsLanding} className="h-full absolute top-0 object-cover object-center self-end w-full " alt="Doctor Diagnosing a Old Patient" priority fetchPriority="high" />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
           <div className="md:w-[80%] w-full h-full absolute left-0 top-0" style={{ background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }} />
           <nav aria-label="Breadcrumb" className="px-6 lg:px-[80px] z-[2] mt-[220px]">

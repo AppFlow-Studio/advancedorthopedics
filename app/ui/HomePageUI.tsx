@@ -88,7 +88,7 @@ export default function HomePageUI() {
           }}
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
-        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
+                        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
         <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
           style={{
             background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',

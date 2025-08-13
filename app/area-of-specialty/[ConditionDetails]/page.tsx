@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
@@ -78,14 +77,18 @@ function renderField(field: any, currentSlug: string) {
   return null;
 }
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return conditions.map(c => ({ ConditionDetails: c.slug }));
+}
+
 export default function ConditionDetails({
     params,
   }: {
-    params: Promise<{ ConditionDetails : string }>
+    params: { ConditionDetails : string }
   }) {
-// Unwrap the promise using React.use (the experimental hook)
-  const resolvedParams = React.use(params)
-  const conditionSlug = resolvedParams.ConditionDetails
+  const conditionSlug = params.ConditionDetails
   const condition_details = conditions.find( (x: ConditionInfoProp) => x.slug === conditionSlug)
   if (!condition_details) {
     return (
