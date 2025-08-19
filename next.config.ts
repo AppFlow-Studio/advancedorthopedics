@@ -27,10 +27,6 @@ const nextConfig: NextConfig = {
         hostname: 'mountainspineortho.b-cdn.net',
         pathname: '/**',
       }
-    ],
-    domains: [
-      'originui.com',
-      'mountainspineortho.b-cdn.net'
     ]
   },
 
