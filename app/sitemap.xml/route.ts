@@ -101,19 +101,15 @@ export async function GET() {
 
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  // --- Static Pages ---
   ${generateUrlEntry("/")}
   ${generateUrlEntry("/about")}
-  ${generateUrlEntry("/about/FAQs")}
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/privacy-policy")}
   ${generateUrlEntry("/area-of-specialty")}
   ${generateUrlEntry("/locations")}
-  // --- Dynamic Pages from Data ---
 
   ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
   
-  // CORRECTED: Logic to handle the two special-case URLs for insurance and patient forms
   ${FindCare.map(slug => {
     if (slug === 'insurance-policy' || slug === 'patient-forms') {
       return generateUrlEntry(`/${slug}`);
@@ -121,7 +117,6 @@ export async function GET() {
     return generateUrlEntry(`/find-care/${slug}`);
   }).join('')}
 
-  // Add /find-care/second-opinion with fresh ISO timestamp and priority 0.7
   ${generateUrlEntry('/find-care/second-opinion', new Date().toISOString(), 'monthly', '0.7')}
 
   ${BackPainPages.map(slug => generateUrlEntry(`/area-of-pain/back-pain/${slug}`)).join('')}
@@ -132,7 +127,6 @@ export async function GET() {
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
     .join('')}
 
-  // CORRECTED: Only generating the canonical /area-of-specialty/ URLs to avoid duplicate content
   ${conditions.filter(condition => isValidSlug(condition.slug))
     .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
     .join('')}
@@ -141,7 +135,6 @@ export async function GET() {
     .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
     .join('')}
 
-  // CORRECTED: Blog URLs generated from the blog.slug field to match actual blog URLs
   ${blogsData
     .filter(blog => blog?.slug)
     .map(blog => generateUrlEntry(`/blogs/${blog.slug}`, blog.modified_at, "monthly"))
