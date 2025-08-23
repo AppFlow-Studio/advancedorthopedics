@@ -15,6 +15,7 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
+import Reveal from './RevealAnimation';
 
 export default function HomeHeroSection() {
   const [hasMounted, setHasMounted] = useState(false);
@@ -84,11 +85,11 @@ export default function HomeHeroSection() {
               </h1>
             </div>
           </SlidingDiv>
-          <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mb-4">
-            <div className="rounded-2xl bg-[rgba(255,255,255,0.50)]">
+          <div className="z-[2] sm:hidden block px-4 mb-4">
+            <div className="rounded-2xl">
               <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
             </div>
-          </SlidingDiv>
+          </div>
           <SlidingDiv position="left" className="z-[2]">
             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
               <p
@@ -124,12 +125,13 @@ export default function HomeHeroSection() {
 
         <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] mb-20">
           <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto">
+
             <DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" />
           </div>
         </div>
       </div>
 
-      <div className="w-full flex flex-row items-center justify-evenly py-20 "
+      <div className="w-full flex flex-row items-center justify-evenly pb-10 "
       >
         {hasMounted && dimensions.width > 0 && (
           <div className="w-full">

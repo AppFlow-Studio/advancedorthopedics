@@ -136,8 +136,8 @@ export default function ServicesAndExpertiseSection() {
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute left-1 top-1/2 -translate-y-1/2 z-10" />
-                            <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute right-1 top-1/2 -translate-y-1/2 z-10" />
+                            <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute left-1 -bottom-0  z-10" />
+                            <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute right-1 -bottom-0  z-10" />
                         </Carousel>
 
                         {/* Dynamic Progress Indicators */}

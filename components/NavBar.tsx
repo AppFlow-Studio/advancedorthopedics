@@ -29,57 +29,95 @@ import {
 } from "@/components/ui/hover-card"
 import { clinics } from './data/clinics';
 import { SidebarNavItem } from './SidebarNavItem';
+import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight } from 'lucide-react';
 
-function NavLink({ href, title, screen, pathname, sublinks }: { href: string; title: string, screen: string, pathname: string, sublinks: { title: string, href: string, subLinks: { title: string, href: string }[] }[] }) {
+function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
+  href: string;
+  title: string,
+  screen: string,
+  pathname: string,
+  sublinks: {
+    title: string,
+    href: string,
+    short_desc: string,
+    subLinks: {
+      title: string,
+      href: string,
+      short_desc: string,
+      icon: React.ComponentType<any>
+    }[],
+    icon: React.ComponentType<any>
+  }[],
+  short_desc: string
+}) {
   const [isOpen, setIsOpen] = React.useState(false);
-
-  const handleMouseEnter = () => {
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
+  const [selectedSubLink, setSelectedSubLink] = React.useState<{
+    title: string,
+    href: string,
+    short_desc: string,
+    subLinks: {
+      title: string,
+      href: string,
+      short_desc: string,
+      icon: React.ComponentType<any>
+    }[],
+    icon: React.ComponentType<any>
+  } | null>(null);
 
   return (
-    <NavigationMenuItem className='relative'>
+    <NavigationMenuItem>
       <NavigationMenuTrigger
-        className={`${pathname.includes(screen) && screen != '/' ? "text-[#022968] rounded-[24px] bg-[rgba(239,245,255,1)] backdrop-blur-[50px] px-[22px] py-[11px] font-[500px] border" : "text-black font-[400px]"} hover:text-[#022968] transition-colors text-[16px] text-center bg-[rgba(239,245,255,0)]`}
-        style={{
-          border: 1,
-          borderStyle: pathname.includes(screen) && screen != '/' ? 'solid' : 'none',
-          borderColor: pathname.includes(screen) && screen != '/' ? 'white' : ''
-        }}
+        className={`${pathname === screen ? 'text-[#0094E0]' : 'text-[#022968]'} hover:text-[#0094E0] bg-transparent border transition-colors duration-300`}
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <Link
-          href={href}
-          style={{
-            fontFamily: "var(--font-public-sans)",
-            fontWeight: 500, fontSize: "16px",
-            lineHeight: "24px",
-            letterSpacing: "0.02em",
-          }}
-        >
-          {title}
-        </Link>
+        {title}
       </NavigationMenuTrigger>
-      <NavigationMenuContent
-        className=" absolute "
+      <NavigationMenuContent className='grid gap-2 md:w-[400px] lg:max-w-200 lg:w-fit lg:grid-cols-[.8fr_1fr]'
         style={{
           background: 'rgba(239, 245, 255, 0.50)',
           border: '1px solid white',
           borderRadius: '8px',
-          backdropFilter: 'blur(10px)'
+          backdropFilter: 'blur(20px)'
         }}
       >
-        <ul className=' flex flex-col'>
+        <ul className='flex flex-col w-100'>
           {
             sublinks.map((link, linkIndex) => {
+              const IconComponent = link.icon;
               return (
                 <li key={`${link.title}-${linkIndex}`}>
                   {link.subLinks.length == 0 ? (
-                    <NavigationMenuLink asChild>
-                      <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2'>
+                    <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
+                      <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                        <div className='flex flex-row items-center gap-x-4'>
+                          <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                            <IconComponent className='w-8 h-8 text-[#022968]' />
+                          </div>
+                          <div className='flex flex-col gap-y-2'>
+                            <span
+                              style={{
+                                fontFamily: "var(--font-public-sans)",
+                                fontWeight: 400,
+                              }}
+                            >
+                              {link.title}
+                            </span>
+                            <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                          </div>
+                        </div>
+                        <ChevronRight className='w-4 h-4 text-[#022968]' />
+                      </Link>
+                    </NavigationMenuLink>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
+                      onMouseEnter={() => setSelectedSubLink(link)}
+                    >
+                      <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                        <IconComponent className='w-4 h-4 text-[#022968]' />
+                      </div>
+                      <div className='flex flex-col gap-y-2'>
                         <span
                           style={{
                             fontFamily: "var(--font-public-sans)",
@@ -88,57 +126,69 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                         >
                           {link.title}
                         </span>
-                      </Link>
-                    </NavigationMenuLink>
-                  ) : (
-                    <HoverCard>
-                      <HoverCardTrigger asChild>
-                        <button className="w-full text-left px-4 py-2">
-                          <span
-                            style={{
-                              fontFamily: "var(--font-public-sans)",
-                              fontWeight: 400,
-                            }}
-                          >
-                            {link.title}
-                          </span>
-                        </button>
-                      </HoverCardTrigger>
-                      <HoverCardContent side='right'
-                        sideOffset={18}
-                        align="start"
-                        className="flex flex-col p-0 w-max justify-center"
-                        style={{
-                          background: 'rgba(239, 245, 255, 0.50)',
-                          border: '1px solid white',
-                          borderRadius: '8px',
-                          backdropFilter: 'blur(10px)'
-                        }}
-                      >
-                        {
-                          link.subLinks.map((sub_link, subIndex) => (
-                            <NavigationMenuLink key={`${sub_link.title}-${subIndex}`} asChild>
-                              <Link href={sub_link.href} className="block px-4 py-2">
-                                <span
-                                  style={{
-                                    fontFamily: "var(--font-public-sans)",
-                                    fontWeight: 400,
-                                  }}
-                                >
-                                  {sub_link.title}
-                                </span>
-                              </Link>
-                            </NavigationMenuLink>
-                          ))
-                        }
-                      </HoverCardContent>
-                    </HoverCard>
+                        <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                      </div>
+                    </Link>
                   )}
                 </li>
               )
             })
           }
         </ul>
+
+        {/* Right Panel for Nested SubLinks */}
+        {selectedSubLink && (
+          <div className='flex flex-col p-4 border-l lg:w-100'>
+            {/* Header */}
+            <div className='flex flex-row items-center gap-x-3 mb-4 pb-3 border-b'>
+              <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                <selectedSubLink.icon className='w-6 h-6 text-[#022968]' />
+              </div>
+              <div className='flex flex-col'>
+                <span
+                  style={{
+                    fontFamily: "var(--font-public-sans)",
+                    fontWeight: 600,
+                  }}
+                  className='text-[#022968]'
+                >
+                  {selectedSubLink.title}
+                </span>
+                <span className='text-sm text-gray-500'>{selectedSubLink.short_desc}</span>
+              </div>
+            </div>
+
+            {/* SubLinks */}
+            <div className='flex flex-col gap-y-2'>
+              {selectedSubLink.subLinks.map((subLink, subIndex) => {
+                const SubIconComponent = subLink.icon;
+                return (
+                  <NavigationMenuLink key={`${subLink.title}-${subIndex}`} asChild>
+                    <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200">
+                      <div className='flex flex-row items-center gap-x-3'>
+                        <div className='p-1.5 rounded-xl border aspect-square flex items-center justify-center'>
+                          <SubIconComponent className='w-4 h-4 text-[#022968]' />
+                        </div>
+                        <div className='flex flex-col'>
+                          <span
+                            style={{
+                              fontFamily: "var(--font-public-sans)",
+                              fontWeight: 400,
+                            }}
+                            className='text-[#022968]'
+                          >
+                            {subLink.title}
+                          </span>
+                          <span className='text-xs text-gray-500'>{subLink.short_desc}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  </NavigationMenuLink>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </NavigationMenuContent>
     </NavigationMenuItem>
   )
@@ -150,10 +200,14 @@ const NavBarLinks = [
     href: '/',
     screen: '/',
     title: 'HOME',
+    short_desc: 'Welcome to our practice',
+    icon: House,
     subLinks: [
       {
         title: 'Condition Check',
         href: '/condition-check',
+        short_desc: 'Check your symptoms',
+        icon: Stethoscope,
         subLinks: []
       },
     ]
@@ -162,40 +216,56 @@ const NavBarLinks = [
     href: '/find-care/book-an-appointment',
     screen: '/find-care',
     title: 'FIND CARE',
+    short_desc: 'Get the care you need',
+    icon: Heart,
     subLinks: [
       {
         title: 'Book An Appointment',
         href: '/find-care/book-an-appointment',
+        short_desc: 'Schedule your visit',
+        icon: Calendar,
         subLinks: []
       },
       {
         title: 'Find A Doctor',
         href: '/find-care/find-a-doctor',
+        short_desc: 'Meet our specialists',
+        icon: User,
         subLinks: []
       },
       {
         title: 'Get a Second Opinion',
         href: '/find-care/second-opinion',
+        short_desc: 'Expert second opinion',
+        icon: Eye,
         subLinks: []
       },
       {
         title: 'Get a Free MRI Review',
         href: '/find-care/free-mri-review',
+        short_desc: 'Free MRI analysis',
+        icon: Scan,
         subLinks: []
       },
       {
         title: 'Treatment Candidacy',
         href: '/find-care/candidacy-check',
+        short_desc: 'Check if you qualify',
+        icon: CheckCircle,
         subLinks: []
       },
       {
         title: 'Insurance Policy',
         href: '/insurance-policy',
+        short_desc: 'Insurance information',
+        icon: Shield,
         subLinks: []
       },
       {
         title: 'Patient Forms',
         href: '/patient-forms',
+        short_desc: 'Download forms',
+        icon: LucideFileText,
         subLinks: []
       }
     ]
@@ -204,117 +274,171 @@ const NavBarLinks = [
     href: '/area-of-specialty',
     screen: '/area-of-specialty',
     title: 'AREA OF SPECIALTY',
+    short_desc: 'Our treatment specialties',
+    icon: Target,
     subLinks: [
       {
         title: 'Back Pain',
         href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
+        short_desc: 'Spine and back care',
+        icon: Activity,
         subLinks: [
           {
             title: 'Lower Back Pain',
-            href: '/area-of-pain/back-pain/lower-back-pain'
+            href: '/area-of-pain/back-pain/lower-back-pain',
+            short_desc: 'Lower back treatment',
+            icon: Zap,
           },
           {
             title: 'Degenerative Disc Disease',
-            href: '/area-of-pain/back-pain/degenerative-disc-disease'
+            href: '/area-of-pain/back-pain/degenerative-disc-disease',
+            short_desc: 'Disc degeneration care',
+            icon: Circle,
           },
           {
             title: 'Lumbar Herniated Disc',
-            href: '/area-of-pain/back-pain/lumbar-herniated-disc'
+            href: '/area-of-pain/back-pain/lumbar-herniated-disc',
+            short_desc: 'Herniated disc treatment',
+            icon: AlertCircle,
           },
           {
             title: 'Foraminal Stenosis',
-            href: '/area-of-pain/back-pain/foraminal-stenosis'
+            href: '/area-of-pain/back-pain/foraminal-stenosis',
+            short_desc: 'Nerve compression relief',
+            icon: Minus,
           },
           {
             title: 'Sciatica',
-            href: '/area-of-pain/back-pain/sciatica'
+            href: '/area-of-pain/back-pain/sciatica',
+            short_desc: 'Sciatic nerve pain',
+            icon: Zap,
           },
           {
             title: 'Coccydynia',
-            href: '/area-of-pain/back-pain/coccydynia'
+            href: '/area-of-pain/back-pain/coccydynia',
+            short_desc: 'Tailbone pain relief',
+            icon: Triangle,
           },
           {
             title: 'Back Pain Treament Options',
-            href: '/area-of-pain/back-pain/back-pain-treatment-options'
+            href: '/area-of-pain/back-pain/back-pain-treatment-options',
+            short_desc: 'Treatment solutions',
+            icon: Settings,
           }
         ]
       },
       {
         title: 'Neck & Shoulder Pain',
         href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
+        short_desc: 'Neck and shoulder care',
+        icon: Headphones,
         subLinks: [
           {
             title: 'Cervical Spinal Stenosis',
-            href: '/area-of-pain/neck-and-shoulder-pain/cervical-spinal-stenosis'
+            href: '/area-of-pain/neck-and-shoulder-pain/cervical-spinal-stenosis',
+            short_desc: 'Neck stenosis treatment',
+            icon: Minus,
           },
           {
             title: 'Cervical Herniated Disc',
-            href: '/area-of-pain/neck-and-shoulder-pain/cervical-herniated-disc'
+            href: '/area-of-pain/neck-and-shoulder-pain/cervical-herniated-disc',
+            short_desc: 'Neck disc herniation',
+            icon: AlertCircle,
           },
           {
             title: 'Degenerative Disc Disease',
-            href: '/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease'
+            href: '/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease',
+            short_desc: 'Neck disc degeneration',
+            icon: Circle,
           },
           {
             title: 'Arthritis',
-            href: '/area-of-pain/neck-and-shoulder-pain/arthritis'
+            href: '/area-of-pain/neck-and-shoulder-pain/arthritis',
+            short_desc: 'Arthritis management',
+            icon: Bone,
           },
           {
             title: 'Pinched Nerve',
-            href: '/area-of-pain/neck-and-shoulder-pain/pinched-nerve'
+            href: '/area-of-pain/neck-and-shoulder-pain/pinched-nerve',
+            short_desc: 'Nerve compression relief',
+            icon: Zap,
           },
           {
             title: 'Neck and Shoulder Treatments',
-            href: '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment'
+            href: '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment',
+            short_desc: 'Treatment options',
+            icon: Settings,
           }
         ]
       },
       {
         title: 'Foot & Ankle',
         href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
+        short_desc: 'Foot and ankle care',
+        icon: Footprints,
         subLinks: [
           {
             title: 'Bunions',
-            href: '/area-of-pain/foot-pain/bunions-hallux-valgus'
+            href: '/area-of-pain/foot-pain/bunions-hallux-valgus',
+            short_desc: 'Bunion treatment',
+            icon: Circle,
           },
           {
             title: 'Plantar Fasciitis',
-            href: '/area-of-pain/foot-pain/plantar-fasciitis'
+            href: '/area-of-pain/foot-pain/plantar-fasciitis',
+            short_desc: 'Heel pain relief',
+            icon: Zap,
           },
           {
             title: 'Achilles Tendonitis',
-            href: '/area-of-pain/foot-pain/achilles-tendonitis'
+            href: '/area-of-pain/foot-pain/achilles-tendonitis',
+            short_desc: 'Achilles tendon care',
+            icon: Activity,
           },
           {
             title: 'Flat Feet',
-            href: '/area-of-pain/foot-pain/flat-feet'
+            href: '/area-of-pain/foot-pain/flat-feet',
+            short_desc: 'Flat feet correction',
+            icon: Footprints,
           },
           {
             title: 'Ankle Arthroscopy',
-            href: '/area-of-pain/foot-pain/ankle-arthroscopy'
+            href: '/area-of-pain/foot-pain/ankle-arthroscopy',
+            short_desc: 'Minimally invasive surgery',
+            icon: Scissors,
           },
           {
             title: 'Hammertoes',
-            href: '/area-of-pain/foot-pain/hammer-toes'
+            href: '/area-of-pain/foot-pain/hammer-toes',
+            short_desc: 'Toe deformity correction',
+            icon: Circle,
           },
           {
             title: 'Diabetic Foot Ulcers',
-            href: '/area-of-pain/foot-pain/diabetic-foot-ulcers'
+            href: '/area-of-pain/foot-pain/diabetic-foot-ulcers',
+            short_desc: 'Diabetic foot care',
+            icon: Droplet,
           },
           {
             title: 'Ankle Replacement',
-            href: '/area-of-pain/foot-pain/ankle-replacement'
+            href: '/area-of-pain/foot-pain/ankle-replacement',
+            short_desc: 'Joint replacement surgery',
+            icon: Settings,
           }
         ]
       },
       {
         title: 'View All Conditions',
         href: '/area-of-specialty',
+        short_desc: 'Browse all conditions',
+        icon: List,
         subLinks: []
       },
       {
         title: 'View All Treatments',
         href: '/treatments',
+        short_desc: 'All treatment options',
+        icon: Settings,
         subLinks: []
       }
 
@@ -324,25 +448,35 @@ const NavBarLinks = [
     href: '/about',
     screen: '/about',
     title: 'ABOUT',
+    short_desc: 'Learn about our practice',
+    icon: Info,
     subLinks: [
       {
         title: 'About Mountain Spine',
         href: '/about',
+        short_desc: 'Our story and mission',
+        icon: Building,
         subLinks: []
       },
       {
         title: 'Meet our Doctors',
         href: '/about/meetourdoctors',
+        short_desc: 'Our expert physicians',
+        icon: Users,
         subLinks: []
       },
       {
         title: 'FAQs',
         href: '/about/FAQs',
+        short_desc: 'Frequently asked questions',
+        icon: HelpCircle,
         subLinks: []
       },
       {
         title: "Blogs",
         href: '/blogs',
+        short_desc: 'Health and wellness articles',
+        icon: FileText,
         subLinks: []
       }
     ]
@@ -351,10 +485,14 @@ const NavBarLinks = [
     href: '/locations',
     screen: '/locations',
     title: 'LOCATION',
+    short_desc: 'Find our locations',
+    icon: MapPin,
     subLinks: clinics.map((clinic) => {
       return {
         title: clinic.name.split('Mountain Spine & Orthopedics')[1],
         href: `/locations/${clinic.slug}`,
+        short_desc: 'Visit our clinic',
+        icon: Building,
         subLinks: []
       }
     })
@@ -407,7 +545,7 @@ export default function NavBar() {
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? 'bg-gray-300/50 backdrop-blur-[80px] ' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? '' : 'bg-transparent'}`}>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
           <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '>
             <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] lg:w-auto w-10 h-10  " />
@@ -427,10 +565,10 @@ export default function NavBar() {
 
           <NavigationMenu className="space-x-8 text-[16px] font-semibold items-center justify-center z-1 xl:flex hidden" viewport={false}>
 
-            <NavigationMenuList>
+            <NavigationMenuList className=''>
               {
                 NavBarLinks.map((link, index) => (
-                  <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} pathname={pathname} />
+                  <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} short_desc={link.short_desc} pathname={pathname} />
                 ))
               }
             </NavigationMenuList>
