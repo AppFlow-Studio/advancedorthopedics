@@ -16,9 +16,8 @@ export default function HomeInteractiveAnatomy() {
         <div className="flex flex-col space-y-[16px]">
           <h2
             style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-              color: '#022968',
+              fontFamily: "var(--font-public-sans)",
+              fontWeight: 500, color: '#022968',
               lineHeight: 1.3
             }}
             className="text-5xl sm:text-6xl text-center"
@@ -27,9 +26,8 @@ export default function HomeInteractiveAnatomy() {
           </h2>
           <p
             style={{
-              fontFamily: "var(--font-reem-kufi)",
-              fontWeight: 500,
-              color: '#5B5F67',
+              fontFamily: "var(--font-public-sans)",
+              fontWeight: 500, color: '#5B5F67',
               lineHeight: 1.3
             }}
             className="text-xl text-center lg:w-[60%] self-center"
@@ -42,9 +40,8 @@ export default function HomeInteractiveAnatomy() {
           <div className="xl:py-24 z-20 xl:max-w-[30%] xl:w-[20%] w-full">
             <h3
               style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-                color: '#022968',
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 500, color: '#022968',
               }}
               className="text-2xl xl:text-start text-center"
             >
@@ -53,9 +50,9 @@ export default function HomeInteractiveAnatomy() {
 
             <div className="space-y-[20px] flex flex-col mt-[24px]">
               {selectedOrthoCondition.treatment_categories.map((item, index) => (
-                <Link 
-                  key={index} 
-                  href={`/treatments/${item.slug}`} 
+                <Link
+                  key={index}
+                  href={`/treatments/${item.slug}`}
                   className="px-[28px] py-[14px] hover:bg-[#e8f0ff] bg-white rounded-[62px] hover:cursor-pointer hover:scale-[1.01] text-center"
                 >
                   <p className="font-[500] text-black text-lg">{item.name}</p>
@@ -160,9 +157,8 @@ export default function HomeInteractiveAnatomy() {
               once
               as="h3"
               style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-                color: '#022968',
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 500, color: '#022968',
               }}
               className="xl:text-2xl lg:text-3xl"
             >
@@ -181,7 +177,7 @@ export default function HomeInteractiveAnatomy() {
                 once
                 as="span"
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
+                  fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
               >

@@ -88,7 +88,7 @@ export default function HomePageUI() {
           }}
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
-                        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
+        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
         <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
           style={{
             background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
@@ -101,7 +101,7 @@ export default function HomePageUI() {
               <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]  ">
                 <h1
                   style={{
-                    fontFamily: "var(--font-reem-kufi)",
+                    fontFamily: "var(--font-public-sans)",
                     fontWeight: 500,
                   }}
                   className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
@@ -178,9 +178,8 @@ export default function HomePageUI() {
             <div className=" bg-white rounded-[32px] px-[14px] py-[7px] w-fit ">
               <p
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  background: 'linear-gradient(270deg, #D4ABE5 0%, #9596EC 100%)',
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500, background: 'linear-gradient(270deg, #D4ABE5 0%, #9596EC 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
@@ -193,9 +192,8 @@ export default function HomePageUI() {
             <div className="mt-[12px]">
               <h2
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  color: '#022968',
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500, color: '#022968',
                 }}
                 className="text-5xl text-left"
               >Services & Expertise</h2>
@@ -218,9 +216,8 @@ export default function HomePageUI() {
             <div className="">
               <p
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  color: 'black',
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500, color: 'black',
                   lineHeight: 1.5
                 }}
                 className="md:px-6 sm:text-2xl text-lg"
@@ -248,7 +245,7 @@ export default function HomePageUI() {
                     <div className=" rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
                       <span
                         style={{
-                          fontFamily: "var(--font-reem-kufi)",
+                          fontFamily: "var(--font-public-sans)",
                           fontWeight: 500,
                         }}
                         className={`text-lg self-center text-[#022968]`}
@@ -262,7 +259,7 @@ export default function HomePageUI() {
                   <div className=" flex flex-col space-y-[16px]">
                     <h3
                       style={{
-                        fontFamily: "var(--font-reem-kufi)",
+                        fontFamily: "var(--font-public-sans)",
                         fontWeight: 500,
                       }}
                       className={`text-3xl  'text-[#022968]`}
@@ -270,7 +267,7 @@ export default function HomePageUI() {
 
                     <p
                       style={{
-                        fontFamily: "var(--font-reem-kufi)",
+                        fontFamily: "var(--font-public-sans)",
                         fontWeight: 500,
                       }}
                       className={`text-lg  text-[#022967]`}
@@ -296,9 +293,8 @@ export default function HomePageUI() {
           <div className=" flex flex-col space-y-[16px]">
             <h2
               style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-                color: '#022968',
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 500, color: '#022968',
                 lineHeight: 1.3
               }}
               className="text-5xl sm:text-6xl text-center"
@@ -307,9 +303,8 @@ export default function HomePageUI() {
             </h2>
             <p
               style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-                color: '#5B5F67',
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 500, color: '#5B5F67',
                 lineHeight: 1.3
               }}
               className="text-xl text-center lg:w-[60%] self-center"
@@ -322,9 +317,8 @@ export default function HomePageUI() {
             <div className=" xl:py-24  z-20 xl:max-w-[30%] xl:w-[20%] w-full">
               <h3
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  color: '#022968',
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500, color: '#022968',
                 }}
                 className=" text-2xl  xl:text-start text-center"
               >
@@ -438,9 +432,8 @@ export default function HomePageUI() {
                 once
                 as="h3"
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  color: '#022968',
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500, color: '#022968',
                 }}
                 className=" xl:text-2xl lg:text-3xl">
                 {selectedOrthoCondition.area_procedures.title}
@@ -458,7 +451,7 @@ export default function HomePageUI() {
                   once
                   as="span"
                   style={{
-                    fontFamily: "var(--font-reem-kufi)",
+                    fontFamily: "var(--font-public-sans)",
                     fontWeight: 500,
                   }}
                 >{selectedOrthoCondition.view_all_treatments.text}</TextAnimate>
@@ -475,11 +468,11 @@ export default function HomePageUI() {
       <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
         <Reveal className="w-full" width="100%">
           <div className="flex xl:flex-row space-x-[60px] flex-col xl:space-y-0 space-y-8 w-full">
-            <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#111315' }} className="text-6xl w-[100%]">
+            <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#111315' }} className="text-6xl w-[100%]">
               Why Choose<br /> Mountain Spine & Orthopedics
             </h2>
             <div>
-              <p style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400, color: '#5B5F67' }} className="text-lg ">
+              <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400, color: '#5B5F67' }} className="text-lg ">
                 Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
               </p>
               <div className="mt-[40px] xl:w-[50%] w-full md:w-fit"><BookAnAppoitmentButton /></div>
@@ -491,8 +484,8 @@ export default function HomePageUI() {
           <div className="xl:w-[50%] w-full flex flex-col space-y-[32px] ">
             <Reveal className="w-full" width="100%">
               <div className="flex flex-col w-full space-y-[16px]">
-                <h3 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#111315' }} className="text-4xl">Our Specialty</h3>
-                <p style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#5B5F67' }} className="text-lg">
+                <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#111315' }} className="text-4xl">Our Specialty</h3>
+                <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#5B5F67' }} className="text-lg">
                   At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here's why we stand out:
                 </p>
               </div>
@@ -502,7 +495,7 @@ export default function HomePageUI() {
                 {OurSpecialtyItems.map((item, index) => (
                   <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6`}>
                     <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] "><item.icon /></div>
-                    <h4 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#022968' }} className="text-xl">{item.title}</h4>
+                    <h4 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#022968' }} className="text-xl">{item.title}</h4>
                     <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67' }} className="text-md">{item.body}</p>
                   </div>
                 ))}
@@ -517,10 +510,10 @@ export default function HomePageUI() {
         <div className="w-full max-w-[1440px] flex flex-col space-y-10 md:space-y-0 md:flex-row mx-auto px-[40px] items-center justify-evenly overflow-hidden">
           {Testimonials.map((item) => (
             <div className="flex flex-col space-y-[12px] p-[18px] max-h-[190px] lg:h-[190px] items-center justify-center" key={item.desc}>
-              <strong style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-white lg:text-6xl md:text-4xl text-6xl">
+              <strong style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-white lg:text-6xl md:text-4xl text-6xl">
                 <NumberTicker value={item.value} className="text-white" />{item.stat}
               </strong>
-              <p style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-white text-xl md:text-lg text-center lg:text-start">{item.desc}</p>
+              <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-white text-xl md:text-lg text-center lg:text-start">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -533,7 +526,7 @@ export default function HomePageUI() {
       <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
         <div className="flex md:flex-row flex-col">
           <div className="flex flex-col space-y-[24px] md:w-[50%] w-full">
-            <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-black text-5xl text-left w-full">Meet Our Experts</h2>
+            <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-black text-5xl text-left w-full">Meet Our Experts</h2>
             <p style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }} className="text-[#54535C] md:w-[50%] w-full">Highly skilled and compassionate professionals ready to care for you</p>
           </div>
           <div className="md:w-[50%] flex items-center md:justify-end w-full md:mt-0 mt-4">
@@ -552,7 +545,7 @@ export default function HomePageUI() {
       <section className="w-full max-w-[1440px] flex xl:flex-row flex-col py-[50px] h-full px-2 md:px-[40px] space-x-[32px]">
         <div className="rounded-[24px] bg-[#FAFAFA] p-[24px] flex flex-col xl:w-[50%] w-full h-full">
           <div className="flex flex-col space-y-[24px]">
-            <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: 'black' }} className="text-5xl ">Top Florida Clinic Free Second Opinion & MRI Reading</h2>
+            <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black' }} className="text-5xl ">Top Florida Clinic Free Second Opinion & MRI Reading</h2>
             <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67', lineHeight: 1.5 }} className="">
               <span className="text-[#0094E0]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0094E0]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
             </p>
@@ -572,7 +565,7 @@ export default function HomePageUI() {
           <div className="flex flex-col space-y-[38px] w-full">
             <div className="bg-[#EFF5FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%]">
               <div className="flex flex-col space-y-[8px] ">
-                <h3 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="text-2xl ">Complimentary MRI Reading</h3>
+                <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="text-2xl ">Complimentary MRI Reading</h3>
                 <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67' }} className="lg">Get a free MRI reading from our experts to tailor your treatment plan.</p>
               </div>
               <div className="grid grid-cols-3 gap-x-[16px]">
@@ -585,7 +578,7 @@ export default function HomePageUI() {
             </div>
             <div className="bg-[#E5F6FF] w-full rounded-[24px] p-4 md:p-[24px] space-y-[24px] h-[50%] items-center justify-center">
               <div className="flex flex-col space-y-[8px] items-center justify-center md:mt-10">
-                <h3 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="md:text-2xl text-4xl text-center">Complimentary Amenities</h3>
+                <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="md:text-2xl text-4xl text-center">Complimentary Amenities</h3>
                 <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67' }} className="w-[65%] text-center">Enjoy Complimentary Amenities: Free Car Service, Refreshments & WiFi</p>
               </div>
               <div className="flex flex-row gap-x-[16px] items-center justify-center">
@@ -595,7 +588,7 @@ export default function HomePageUI() {
                       <item.icon />
                     </div>
                     <div>
-                      <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-sm text-[#022968]">{item.title}</span>
+                      <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-sm text-[#022968]">{item.title}</span>
                     </div>
                   </motion.div>
                 ))}
@@ -617,9 +610,8 @@ export default function HomePageUI() {
             <div className=" bg-white px-[14px] py-[7px] flex items-center justify-center max-w-[150px] rounded-[62px] self-center">
               <p
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 500,
-                  background: 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)',
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500, background: 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
@@ -632,7 +624,7 @@ export default function HomePageUI() {
             <div>
               <h2
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
+                  fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
                 className="text-5xl text-black mt-[20px]"
@@ -643,7 +635,7 @@ export default function HomePageUI() {
             <div className="flex items-center justify-center">
               <p
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
+                  fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
                 className="text-lg text-[#5B5F67] mt-[20px] text-center w-full md:w-[55%] self-center"
@@ -672,9 +664,8 @@ export default function HomePageUI() {
                           <div className="flex flex-col space-y-[16px]">
                             <h3
                               style={{
-                                fontFamily: "var(--font-reem-kufi)",
-                                fontWeight: 500,
-                                color: '#022968',
+                                fontFamily: "var(--font-public-sans)",
+                                fontWeight: 500, color: '#022968',
                               }}
                               className="text-xl"
                             >
@@ -682,9 +673,8 @@ export default function HomePageUI() {
                             </h3>
                             <p
                               style={{
-                                fontFamily: "var(--font-reem-kufi)",
-                                fontWeight: 500,
-                                color: '#5B5F67',
+                                fontFamily: "var(--font-public-sans)",
+                                fontWeight: 500, color: '#5B5F67',
                               }}
                               className="text-lg"
                             >

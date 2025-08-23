@@ -42,45 +42,42 @@ export const metadata: Metadata = {
 export default function BookAnAppointment() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-        <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-          <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-              <TextAnimate animation="blurInUp" by="word" once
-              style={{
-                fontFamily : 'var(--font-reem-kufi)',
-                fontWeight : 500,
-              }}
-              className='text-[#022968] text-3xl md:text-6xl'
-              >
-                Book an Appointment
-              </TextAnimate>
-              <p
-              style={{
-                fontFamily : 'var(--font-reem-kufi)',
-                fontWeight : 500,
-              }}
-              className='text-white md:text-xl text-lg mt-2'
-              >
-                Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
-              </p>
-          </div>
-        </section>
-        <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white"/>
-        <div className="w-full flex flex-row items-center justify-evenly bg-white py-20 "
-          style={{
-            background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)',
-          }}
+      <section className=' bg-[#6FC2ED] w-full flex flex-row'>
+        <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
+          <TextAnimate animation="blurInUp" by="word" once
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className='text-[#022968] text-3xl md:text-6xl'
           >
-
-            <Marquee pauseOnHover className='w-full' >
-              {
-                [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                  <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-                ))
-              }   
-            </Marquee>
-            
+            Book an Appointment
+          </TextAnimate>
+          <p
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className='text-white md:text-xl text-lg mt-2'
+          >
+            Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
+          </p>
         </div>
-        <RatingsAndReviews />
+      </section>
+      <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
+      <div className="w-full flex flex-row items-center justify-evenly py-20 "
+      >
+
+        <Marquee pauseOnHover className='w-full' >
+          {
+            [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+              <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+            ))
+          }
+        </Marquee>
+
+      </div>
+      <RatingsAndReviews />
     </main>
   )
 }

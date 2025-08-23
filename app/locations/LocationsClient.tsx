@@ -1,114 +1,338 @@
-"use client";
+'use client'
+
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { MapPin, Phone, Clock, Building2 } from 'lucide-react'
+import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
-import ContactUsSection from '@/components/ContactUsSection'
 import { TextAnimate } from '@/components/magicui/text-animate'
-import RatingsAndReviews from '@/components/RatingsAndReviews'
-import React, { useState } from 'react'
-import AAOS from '@/public/AAOS.png';
-import ACP from '@/public/ACP.png';
-import AOA from '@/public/AOA.png';
-import NASS from '@/public/NASS.png';
-import Serpent from '@/public/Serpent.png';
-import SMIS from '@/public/SMIS.png';
-import Image from 'next/image'
-import { Marquee } from '@/components/magicui/marquee'
-import { clinics, ClinicsProps } from '@/components/data/clinics';
+import Link from 'next/link'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel"
 
-export default function LocationsClient() {
-  const [selectedLocation, setSelectedLocation] = useState<ClinicsProps | undefined>(undefined);
-  return (
-      <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-            <section className=' bg-[#6FC2ED] w-full flex flex-row' id="Locations">
-              <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-                  <TextAnimate animation="blurInUp" by="character" once
-                  style={{
-                    fontFamily : 'var(--font-reem-kufi)',
-                    fontWeight : 500,
-    
-                  }}
-                  className='text-[#022968] text-6xl'
-                  >
-                   Locations
-                  </TextAnimate>
-                  <p
-                  style={{
-                    fontFamily : 'var(--font-reem-kufi)',
-                    fontWeight : 500,
-    
-                  }}
-                  className='text-white text-xl'
-                  >
-                    Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 Locations and an Ambulatory Surgery Center. 
-                  </p>
-              </div>
-            </section>
+interface LocationsClientProps {
+  selectedLocation?: any
+  setSelectedLocation: (location: any) => void
+}
 
-            <ClinicsMap startingClinic={selectedLocation}/>
-              
-            <div className='w-full flex flex-col px-6 lg:px-[80px] items-center justify-center bg-white py-[30px] '>
-              <div className='max-w-[1440px] w-full flex flex-row items-center justify-start'>
-                <h1 className='text-[#022968] text-7xl font-bold'
-                style={{
-                  fontFamily : 'var(--font-reem-kufi)',
-                  fontWeight : 500,
-                }}
-                >
-                  All Our Locations 
-                </h1>
-              </div>
+export default function LocationsClient({ selectedLocation, setSelectedLocation }: LocationsClientProps) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [hasMounted, setHasMounted] = useState(false)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
 
-              <div className='w-full grid lg:grid-cols-2 grid-cols-1 gap-8 items-center justify-center mt-14 mb-10'>
-               {
-                clinics.map((item, index) => (
-                  <div key={index} className='w-full flex flex-row items-center bg-[#6FC2ED] justify-center p-4 rounded-3xl group hover:cursor-pointer'
-                  onClick={() => {
-                    setSelectedLocation(item)
-                    const goToSection = () => {
-                      const section = document.getElementById('Locations');
-                      if (section) {
-                        section.scrollIntoView({ block : 'start', behavior: 'smooth' });
-                      }
-                    }
-                    goToSection()
-                  }}
-                  >
-                    <div className=' rounded-2xl p-2 w-full flex flex-row items-center justify-evenly   bg-[rgba(247,247,247,0.20)] overflow-ellipsis group-hover:bg-[rgba(247,247,247,0.70)] transition-all duration-300 ease-in-out'
-                    >
-                      <div className='group-hover:scale-[1.2] transition-all duration-300 ease-in-out'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M13.0193 11.9844C13.0768 11.275 13.2616 10.601 13.5512 9.98438H6V12.466L10 15.4967V42.0152H38V15.5319L42.5 12.5012V9.98438H24.4488C24.7384 10.601 24.9232 11.275 24.9807 11.9844H39.687L36 14.4676V40.0152H12V14.5029L8.67616 11.9844H13.0193Z" fill="white"/>
-                          <path fillRule="evenodd" clipRule="evenodd" d="M10 13.75L7.5 10.5H13.25L16.5 17H21L24.5 10.5H41L38 14.5V41H34V24H26V41H10V13.75ZM14 24H21V31H14V24Z" fill="white"/>
-                          <path d="M6 41C6 41.5523 6.44772 42 7 42H41C41.5523 42 42 41.5523 42 41C42 40.4477 41.5523 40 41 40H7C6.44772 40 6 40.4477 6 41Z" fill="white"/>
-                          <path fillRule="evenodd" clipRule="evenodd" d="M25 12C25 15.3137 22.3137 18 19 18C15.6863 18 13 15.3137 13 12C13 8.68629 15.6863 6 19 6C22.3137 6 25 8.68629 25 12ZM20 9V11H22V13H20V15H18V13H16V11H18V9H20Z" fill="white"/>
-                        </svg>
-                      </div>
-                      <h2 className='text-[#022968] text-2xl text-center group-hover:font-bold transition-all duration-300 ease-in-out '>
-                        {item.name}
-                      </h2>
-                      <div/>
-                    </div>
-                  </div>
-                ))
-               }
-              </div>
-            </div>
+  useEffect(() => {
+    setHasMounted(true)
+    // Calculate initial dimensions
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
 
-            <div className="z-[2] w-full flex flex-row items-center justify-evenly bg-white py-[80px] "
-            style={{
-                background : 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
-            }}
+    // Initial calculation
+    updateDimensions()
+
+    // Add resize listener
+    window.addEventListener('resize', updateDimensions)
+
+    // Cleanup
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+  }, [api])
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const hoverVariants = {
+    hover: {
+      y: -8,
+      scale: 1.02,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  // Location Card Component
+  const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
+    <motion.div
+      key={index}
+      variants={isMobile ? undefined : itemVariants}
+      whileHover={isMobile ? undefined : "hover"}
+      onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+      onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+      onClick={() => {
+        setSelectedLocation(clinic)
+        const goToSection = () => {
+          const section = document.getElementById('Locations')
+          if (section) {
+            section.scrollIntoView({ block: 'start', behavior: 'smooth' })
+          }
+        }
+        goToSection()
+      }}
+      className="group cursor-pointer h-full"
+    >
+      <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-4 right-4 w-16 h-16 bg-[#0094E0] rounded-full"></div>
+          <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#022968] rounded-full"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6">
+            <motion.div
+              animate={hoveredIndex === index ? { rotate: 360 } : { rotate: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-12 h-12 bg-[#0094E0] rounded-2xl flex items-center justify-center shadow-lg"
             >
-              <Marquee pauseOnHover className="w-full" >
-                {
-                  [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                    <Image key={index} src={item} alt="Logo" className=" lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]" draggable={false}/>
-                  ))
-                }
-              </Marquee>
+              <Building2 className="w-6 h-6 text-white" />
+            </motion.div>
+            <div className="text-right">
+              <span className="text-sm font-medium text-[#0094E0] bg-white/80 px-3 py-1 rounded-full">
+                {clinic.region || 'Florida'}
+              </span>
             </div>
-            <RatingsAndReviews />
-            <ContactUsSection />
-        
-        </main>
+          </div>
+
+          {/* Clinic Name */}
+          <h3 className="text-2xl font-bold text-[#022968] mb-4 group-hover:text-[#0094E0] transition-colors duration-300">
+            {clinic.name}
+          </h3>
+
+          {/* Address */}
+          <div className="flex items-start space-x-3 mb-4">
+            <MapPin className="w-5 h-5 text-[#0094E0] mt-0.5 flex-shrink-0" />
+            <p className="text-[#5B5F67] text-sm leading-relaxed">
+              {clinic.address || '123 Medical Center Dr, Suite 100'}
+            </p>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-center space-x-3 mb-4">
+            <Phone className="w-5 h-5 text-[#0094E0] flex-shrink-0" />
+            <a
+              href="tel:(561) 223-9959"
+              className="text-[#022968] font-medium hover:text-[#0094E0] transition-colors duration-300"
+            >
+              (561) 223-9959
+            </a>
+          </div>
+
+          {/* Hours */}
+          <div className="flex items-start space-x-3 mb-6">
+            <Clock className="w-5 h-5 text-[#0094E0] mt-0.5 flex-shrink-0" />
+            <div className="text-[#5B5F67] text-sm">
+              <p className="font-medium">Monday - Saturday</p>
+              <p>8:00 AM - 8:00 PM</p>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <motion.div
+            variants={isMobile ? undefined : hoverVariants}
+            className="mt-auto"
+          >
+            <Link href={`/locations/${clinic.slug}`}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <span className="text-[#022968] font-semibold">View Details</span>
+                  <motion.div
+                    animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <svg className="w-5 h-5 text-[#0094E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </motion.div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0094E0]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+      </div>
+    </motion.div>
+  )
+
+  return (
+    <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10'>
+      <section className=' bg-[#6FC2ED] w-full flex flex-row' id="Locations">
+        <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
+          <TextAnimate animation="blurInUp" by="character" once
+            style={{
+              fontFamily: 'var(--font-reem-kufi)',
+              fontWeight: 500,
+
+            }}
+            className='text-[#022968] text-6xl'
+          >
+            Locations
+          </TextAnimate>
+          <p
+            style={{
+              fontFamily: 'var(--font-reem-kufi)',
+              fontWeight: 500,
+
+            }}
+            className='text-white text-xl'
+          >
+            Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 Locations and an Ambulatory Surgery Center.
+          </p>
+        </div>
+      </section>
+
+      <ClinicsMap startingClinic={selectedLocation} />
+      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-6xl font-bold text-[#022968] my-6">
+            Our Locations
+          </h1>
+          <p className="text-lg md:text-xl text-[#5B5F67] max-w-3xl mx-auto">
+            Visit any of our state-of-the-art facilities across Florida for expert orthopedic care and personalized treatment.
+          </p>
+        </motion.div>
+
+        {/* Mobile Carousel - Only visible on mobile */}
+        <div className="block md:hidden mb-16">
+          {hasMounted && dimensions.width > 0 && (
+            <div className="w-full">
+              <Carousel
+                setApi={setApi}
+                className="w-full"
+                opts={{
+                  align: "center",
+                  fontWeight: false,
+                  containScroll: "trimSnaps",
+                }}
+              >
+                <CarouselContent>
+                  {clinics.map((clinic, index) => (
+                    <CarouselItem key={index} className="basis-full py-6">
+                      <LocationCard clinic={clinic} index={index} isMobile={true} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
+                <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
+              </Carousel>
+
+              {/* Dynamic Progress Indicators */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {clinics.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => api?.scrollTo(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
+                      ? 'bg-[#0094E0] w-6'
+                      : 'bg-[#0094E0]/30 hover:bg-[#0094E0]/50'
+                      }`}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Bento Box Grid - Only visible on desktop */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 px-6 lg:px-8"
+        >
+          {clinics.map((clinic, index) => (
+            <LocationCard key={index} clinic={clinic} index={index} />
+          ))}
+        </motion.div>
+
+        {/* Additional Info Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="bg-gradient-to-r from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-8 md:p-12 border border-white/50 shadow-lg"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#0094E0] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Clock className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#022968] mb-2">Extended Hours</h3>
+              <p className="text-[#5B5F67]">Open 6 days a week until 8 PM for your convenience</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#0094E0] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Phone className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#022968] mb-2">Same Phone Number</h3>
+              <p className="text-[#5B5F67]">Call (561) 223-9959 for all locations</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#0094E0] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <MapPin className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#022968] mb-2">Multiple Locations</h3>
+              <p className="text-[#5B5F67]">Serving communities across Florida</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </main>
   )
 } 

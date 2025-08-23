@@ -20,8 +20,8 @@ const defaultMapOptions = {
   tilt: 0,
   gestureHandling: 'auto',
   mapTypeId: 'satellite',
-  mapTypeControl: false, 
-  streetViewControl: false, 
+  mapTypeControl: false,
+  streetViewControl: false,
   fullscreenControl: false,
   disableDefaultUI: true
 };
@@ -29,38 +29,38 @@ const defaultMapOptions = {
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-export default function ClinicsMap({ startingClinic } :  {
-  startingClinic? : {id : number, name : string, lat : number, lng : number, address : string}, 
+export default function ClinicsMap({ startingClinic }: {
+  startingClinic?: { id: number, name: string, lat: number, lng: number, address: string },
 }) {
 
-  const {location} = useGeolocation();
-   // Optional: State to hold map instance
-   const [map, setMap] = useState(null);
-   const [ selectedClinc, setSeletecedClinic ] = useState<{id : number, name : string, lat : number, lng : number, address : string} | undefined>(startingClinic ? startingClinic : undefined)
-  
-   const [ mapCenter, setMapCenter ] = useState(startingClinic ? {lat: startingClinic.lat , lng: startingClinic.lng} : { lat: 28.670213, lng: -81.374701 })
-   const isInitialMount = useRef(true); // <-- Add this ref, initially true
-   useEffect(() => {
-    if( startingClinic ){
-      setSeletecedClinic(startingClinic)
-      setMapCenter({lat: startingClinic.lat , lng: startingClinic.lng})
-    }
-   }, [startingClinic])
-   const onLoad = useCallback(function callback(mapInstance) {
-     // You can save the map instance if you need to interact with it
-     setMap(mapInstance);
-     // Example: Adjust bounds to fit markers after load (optional)
-     // const bounds = new window.google.maps.LatLngBounds();
-     // clinics.forEach(({ lat, lng }) => bounds.extend({ lat, lng }));
-     // mapInstance.fitBounds(bounds);
-   }, []);
- 
-   const onUnmount = useCallback(function callback(mapInstance) {
-     setMap(null);
-   }, []);
+  const { location } = useGeolocation();
+  // Optional: State to hold map instance
+  const [map, setMap] = useState(null);
+  const [selectedClinc, setSeletecedClinic] = useState<{ id: number, name: string, lat: number, lng: number, address: string } | undefined>(startingClinic ? startingClinic : undefined)
 
-   // Cache for generated selected icons to avoid recalculating SVG/URI/Icon object repeatedly
-   const selectedIconCache = {};
+  const [mapCenter, setMapCenter] = useState(startingClinic ? { lat: startingClinic.lat, lng: startingClinic.lng } : { lat: 28.670213, lng: -81.374701 })
+  const isInitialMount = useRef(true); // <-- Add this ref, initially true
+  useEffect(() => {
+    if (startingClinic) {
+      setSeletecedClinic(startingClinic)
+      setMapCenter({ lat: startingClinic.lat, lng: startingClinic.lng })
+    }
+  }, [startingClinic])
+  const onLoad = useCallback(function callback(mapInstance) {
+    // You can save the map instance if you need to interact with it
+    setMap(mapInstance);
+    // Example: Adjust bounds to fit markers after load (optional)
+    // const bounds = new window.google.maps.LatLngBounds();
+    // clinics.forEach(({ lat, lng }) => bounds.extend({ lat, lng }));
+    // mapInstance.fitBounds(bounds);
+  }, []);
+
+  const onUnmount = useCallback(function callback(mapInstance) {
+    setMap(null);
+  }, []);
+
+  // Cache for generated selected icons to avoid recalculating SVG/URI/Icon object repeatedly
+  const selectedIconCache = {};
 
   // --- Function to generate the SELECTED marker SVG ---
   const createSelectedIcon = (clinicName) => {
@@ -133,9 +133,9 @@ export default function ClinicsMap({ startingClinic } :  {
     selectedIconCache[clinicName] = iconObject;
     return iconObject;
   };
-   
 
-   const defaultSvg = `
+
+  const defaultSvg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="32" viewBox="0 0 48 32" fill="none">
       <rect x="0" y="0" width="48" height="32" rx="16" fill="white"/>
       <g transform="translate(16, 5)">
@@ -154,44 +154,44 @@ export default function ClinicsMap({ startingClinic } :  {
 
   // --- Marker Click Handler ---
   const handleMarkerClick = (clinicName) => {
-    if( clinicName.name == selectedClinc?.name ){
+    if (clinicName.name == selectedClinc?.name) {
       setSeletecedClinic(undefined)
-    }else{
+    } else {
       setSeletecedClinic(clinicName); // Update state with the ID of the clicked clinic
     }
- };
+  };
 
- const handleMapOverlayClick = (clinicName) => {
-  if( clinicName.name == selectedClinc?.name ){
-    setSeletecedClinic(undefined)
-  }else{
-    setMapCenter({lat : clinicName.lat, lng : clinicName.lng })
-    setSeletecedClinic(clinicName); // Update state with the ID of the clicked clinic
-  }
-};
-const handleClinicChange = (name: string) => {
-  const clinic = clinics.find(c => c.name === name);
-  
-  if (clinic) {
-    setSeletecedClinic(clinic);
-    setMapCenter({ lat: clinic.lat, lng: clinic.lng });
-  }
-};
+  const handleMapOverlayClick = (clinicName) => {
+    if (clinicName.name == selectedClinc?.name) {
+      setSeletecedClinic(undefined)
+    } else {
+      setMapCenter({ lat: clinicName.lat, lng: clinicName.lng })
+      setSeletecedClinic(clinicName); // Update state with the ID of the clicked clinic
+    }
+  };
+  const handleClinicChange = (name: string) => {
+    const clinic = clinics.find(c => c.name === name);
+
+    if (clinic) {
+      setSeletecedClinic(clinic);
+      setMapCenter({ lat: clinic.lat, lng: clinic.lng });
+    }
+  };
   useEffect(() => {
-    if( !startingClinic ) {setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google))}
-  }, [location,startingClinic])
+    if (!startingClinic) { setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google)) }
+  }, [location, startingClinic])
 
   useEffect(() => {
-    if( location ) {
+    if (location) {
       const nearestClinic = findNearestClinicNameGoogle(clinics, location, window.google)
       setSeletecedClinic(nearestClinic)
-      const defaultMapCenter = { lat : nearestClinic?.lat, lng : nearestClinic?.lng} 
+      const defaultMapCenter = { lat: nearestClinic?.lat, lng: nearestClinic?.lng }
       setMapCenter(defaultMapCenter)
     }
   }, [location])
   useEffect(() => {
-    if( isInitialMount.current && selectedClinc && !startingClinic  ){
-      const defaultMapCenter = { lat : selectedClinc?.lat, lng : selectedClinc?.lng} 
+    if (isInitialMount.current && selectedClinc && !startingClinic) {
+      const defaultMapCenter = { lat: selectedClinc?.lat, lng: selectedClinc?.lng }
       setMapCenter(defaultMapCenter)
       isInitialMount.current = false
     }
@@ -202,7 +202,7 @@ const handleClinicChange = (name: string) => {
       <div className="max-w-[1440px] w-full  px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
-        <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange}/>
+        <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange} />
 
         {/* The Google Map */}
         <GoogleMap
@@ -212,7 +212,7 @@ const handleClinicChange = (name: string) => {
           options={defaultMapOptions}
           onLoad={onLoad}
           onUnmount={onUnmount}
-          
+
         >
           {/* Render Markers Inside */}
           {clinics.map((clinic) => {
@@ -231,7 +231,7 @@ const handleClinicChange = (name: string) => {
                 icon={iconToUse} // Apply the determined icon
                 title={clinic.name}
                 onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
-                // Optional: Lower zIndex for non-selected markers if overlap is an issue
+              // Optional: Lower zIndex for non-selected markers if overlap is an issue
               />
             );
           })}
@@ -243,58 +243,58 @@ const handleClinicChange = (name: string) => {
 
 
 const DropdownIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 6l4 4 4-4H4z"/>
-    </svg>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 6l4 4 4-4H4z" />
+  </svg>
 );
 
 
-function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic : {id : number, name : string, lat : number, lng : number, address : string, link : string}, handleMarkerClick : (name : string) => void }) {
-  const {location, onSetLocation} = useGeolocation();
+function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic: { id: number, name: string, lat: number, lng: number, address: string, link: string }, handleMarkerClick: (name: string) => void }) {
+  const { location, onSetLocation } = useGeolocation();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   //const [open, setOpen] = useState(false);
   const AllowLocation = () => {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-              onSetLocation({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-                error: null,
-              });
-            },
-            (error) => {
-              onSetLocation({
-                latitude: null,
-                longitude: null,
-                error: error.message,
-              });
-            },
-            {
-              enableHighAccuracy: false,
-              timeout: 20000,
-              maximumAge: 1000,
-            }
-          );
-    
-        } else {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          onSetLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            error: null,
+          });
+        },
+        (error) => {
           onSetLocation({
             latitude: null,
             longitude: null,
-            error: 'Geolocation is not supported by this browser.',
+            error: error.message,
           });
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 20000,
+          maximumAge: 1000,
         }
+      );
+
+    } else {
+      onSetLocation({
+        latitude: null,
+        longitude: null,
+        error: 'Geolocation is not supported by this browser.',
+      });
+    }
   }
   return (
     <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
       <div >
-        <h2 
-        style={{
-          fontFamily: "var(--font-reem-kufi)",
-          fontWeight: 400,
-        }}
-        className="text-2xl font-semibold text-[#5B5F67]">
+        <h2
+          style={{
+            fontFamily: "var(--font-public-sans)",
+            fontWeight: 400,
+          }}
+          className="text-2xl font-semibold text-[#5B5F67]">
           Find your Clinic
         </h2>
         {
@@ -305,49 +305,49 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
           )
         }
       </div>
-      
-      <div  className=' flex flex-row space-x-[20px] w-full overflow-hidden'>
-          <Select
+
+      <div className=' flex flex-row space-x-[20px] w-full overflow-hidden'>
+        <Select
           value={selectedClinic?.name}
           onValueChange={handleMarkerClick}
-          >
-            <SelectTrigger className='w-[100%]'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">
-                <path fillRule="evenodd" clipRule="evenodd" d="M1.43803 4.51411C2.54766 1.84586 5.20376 0.145508 8.0004 0.145508C10.797 0.145508 13.4531 1.84586 14.5628 4.51411C15.5945 6.9951 15.0349 9.11414 13.8763 10.9193C12.9197 12.4098 11.5194 13.7368 10.2738 14.9171L10.2734 14.9174L10.2728 14.9181L10.2722 14.9186C10.0521 15.1272 9.83691 15.3311 9.62984 15.5306C9.19228 15.952 8.60795 16.1872 8.0004 16.1872C7.39285 16.1872 6.80856 15.952 6.371 15.5306L6.3695 15.5292C6.15009 15.3166 5.92129 15.099 5.68711 14.8762L5.68706 14.8762C4.45467 13.704 3.07333 12.3902 2.12659 10.9184C0.966597 9.11507 0.405005 6.99816 1.43803 4.51411ZM5.24992 7.24967C5.24992 5.73089 6.48114 4.49967 7.99992 4.49967C9.5187 4.49967 10.7499 5.73089 10.7499 7.24967C10.7499 8.76846 9.5187 9.99967 7.99992 9.99967C6.48114 9.99967 5.24992 8.76846 5.24992 7.24967ZM3.41274 17.0193C3.37008 16.5527 2.97769 16.1872 2.49992 16.1872C1.99366 16.1872 1.58325 16.5976 1.58325 17.1038C1.58325 17.7582 1.98195 18.2357 2.36474 18.5374C2.75787 18.8472 3.26992 19.0862 3.82096 19.2698C4.93261 19.6404 6.41003 19.8538 7.99992 19.8538C9.58981 19.8538 11.0672 19.6404 12.1789 19.2698C12.7299 19.0862 13.242 18.8472 13.6351 18.5374C14.0179 18.2357 14.4166 17.7582 14.4166 17.1038C14.4166 16.5976 14.0062 16.1872 13.4999 16.1872C13.0222 16.1872 12.6298 16.5527 12.5871 17.0193C12.5712 17.0367 12.5442 17.0629 12.5003 17.0975C12.3368 17.2264 12.0434 17.3825 11.5991 17.5306C10.7202 17.8236 9.44759 18.0205 7.99992 18.0205C6.55224 18.0205 5.27966 17.8236 4.40071 17.5306C3.95644 17.3825 3.66303 17.2264 3.49953 17.0975C3.45562 17.0629 3.4286 17.0367 3.41274 17.0193Z" fill="#838890"/>
-              </svg>
-              <span
+        >
+          <SelectTrigger className='w-[100%]'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">
+              <path fillRule="evenodd" clipRule="evenodd" d="M1.43803 4.51411C2.54766 1.84586 5.20376 0.145508 8.0004 0.145508C10.797 0.145508 13.4531 1.84586 14.5628 4.51411C15.5945 6.9951 15.0349 9.11414 13.8763 10.9193C12.9197 12.4098 11.5194 13.7368 10.2738 14.9171L10.2734 14.9174L10.2728 14.9181L10.2722 14.9186C10.0521 15.1272 9.83691 15.3311 9.62984 15.5306C9.19228 15.952 8.60795 16.1872 8.0004 16.1872C7.39285 16.1872 6.80856 15.952 6.371 15.5306L6.3695 15.5292C6.15009 15.3166 5.92129 15.099 5.68711 14.8762L5.68706 14.8762C4.45467 13.704 3.07333 12.3902 2.12659 10.9184C0.966597 9.11507 0.405005 6.99816 1.43803 4.51411ZM5.24992 7.24967C5.24992 5.73089 6.48114 4.49967 7.99992 4.49967C9.5187 4.49967 10.7499 5.73089 10.7499 7.24967C10.7499 8.76846 9.5187 9.99967 7.99992 9.99967C6.48114 9.99967 5.24992 8.76846 5.24992 7.24967ZM3.41274 17.0193C3.37008 16.5527 2.97769 16.1872 2.49992 16.1872C1.99366 16.1872 1.58325 16.5976 1.58325 17.1038C1.58325 17.7582 1.98195 18.2357 2.36474 18.5374C2.75787 18.8472 3.26992 19.0862 3.82096 19.2698C4.93261 19.6404 6.41003 19.8538 7.99992 19.8538C9.58981 19.8538 11.0672 19.6404 12.1789 19.2698C12.7299 19.0862 13.242 18.8472 13.6351 18.5374C14.0179 18.2357 14.4166 17.7582 14.4166 17.1038C14.4166 16.5976 14.0062 16.1872 13.4999 16.1872C13.0222 16.1872 12.6298 16.5527 12.5871 17.0193C12.5712 17.0367 12.5442 17.0629 12.5003 17.0975C12.3368 17.2264 12.0434 17.3825 11.5991 17.5306C10.7202 17.8236 9.44759 18.0205 7.99992 18.0205C6.55224 18.0205 5.27966 17.8236 4.40071 17.5306C3.95644 17.3825 3.66303 17.2264 3.49953 17.0975C3.45562 17.0629 3.4286 17.0367 3.41274 17.0193Z" fill="#838890" />
+            </svg>
+            <span
               style={{
-                fontFamily : '(--var-inter)',
+                fontFamily: '(--var-inter)',
               }}
               className=' text-[#2358AC] text-md font-[500] overflow-ellipsis w-full'
-              >
-                {selectedClinic?.name}
-              </span>
-            </SelectTrigger>
-            <SelectContent>
-              {
-                clinics.filter(x => x.name != selectedClinic?.name).map((clinic) => (
-                  <SelectItem key={clinic.name} value={clinic.name}>
-                    {clinic.name}
-                  </SelectItem>
-                ))
-              }
-            </SelectContent>
-          </Select>
+            >
+              {selectedClinic?.name}
+            </span>
+          </SelectTrigger>
+          <SelectContent>
+            {
+              clinics.filter(x => x.name != selectedClinic?.name).map((clinic) => (
+                <SelectItem key={clinic.name} value={clinic.name}>
+                  {clinic.name}
+                </SelectItem>
+              ))
+            }
+          </SelectContent>
+        </Select>
       </div>
 
       <Link href={selectedClinic?.link || '/locations'} className='shadow-2xl p-1 rounded-md w-full items-center justify-center border flex'>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M18.5 21.5L12.5 6.5M21.5 4.5L2.5 8.5" stroke="#7E869E" strokeOpacity="0.25"/>
-          <path d="M2.5 5.7C2.5 4.57989 2.5 4.01984 2.71799 3.59202C2.90973 3.21569 3.21569 2.90973 3.59202 2.71799C4.01984 2.5 4.5799 2.5 5.7 2.5H18.3C19.4201 2.5 19.9802 2.5 20.408 2.71799C20.7843 2.90973 21.0903 3.21569 21.282 3.59202C21.5 4.01984 21.5 4.5799 21.5 5.7V18.3C21.5 19.4201 21.5 19.9802 21.282 20.408C21.0903 20.7843 20.7843 21.0903 20.408 21.282C19.9802 21.5 19.4201 21.5 18.3 21.5H5.7C4.57989 21.5 4.01984 21.5 3.59202 21.282C3.21569 21.0903 2.90973 20.7843 2.71799 20.408C2.5 19.9802 2.5 19.4201 2.5 18.3V5.7Z" stroke="#222222" strokeLinecap="round"/>
-          <path d="M12.5 15.0294C12.5 17.1878 10.3603 18.704 9.42687 19.2628C9.16233 19.4211 8.83767 19.4211 8.57313 19.2628C7.63974 18.704 5.5 17.1878 5.5 15.0294C5.5 12.9118 7.19587 11.5 9 11.5C10.8667 11.5 12.5 12.9118 12.5 15.0294Z" stroke="#222222"/>
-          <circle cx="9" cy="15" r="1" fill="#222222"/>
+          <path d="M18.5 21.5L12.5 6.5M21.5 4.5L2.5 8.5" stroke="#7E869E" strokeOpacity="0.25" />
+          <path d="M2.5 5.7C2.5 4.57989 2.5 4.01984 2.71799 3.59202C2.90973 3.21569 3.21569 2.90973 3.59202 2.71799C4.01984 2.5 4.5799 2.5 5.7 2.5H18.3C19.4201 2.5 19.9802 2.5 20.408 2.71799C20.7843 2.90973 21.0903 3.21569 21.282 3.59202C21.5 4.01984 21.5 4.5799 21.5 5.7V18.3C21.5 19.4201 21.5 19.9802 21.282 20.408C21.0903 20.7843 20.7843 21.0903 20.408 21.282C19.9802 21.5 19.4201 21.5 18.3 21.5H5.7C4.57989 21.5 4.01984 21.5 3.59202 21.282C3.21569 21.0903 2.90973 20.7843 2.71799 20.408C2.5 19.9802 2.5 19.4201 2.5 18.3V5.7Z" stroke="#222222" strokeLinecap="round" />
+          <path d="M12.5 15.0294C12.5 17.1878 10.3603 18.704 9.42687 19.2628C9.16233 19.4211 8.83767 19.4211 8.57313 19.2628C7.63974 18.704 5.5 17.1878 5.5 15.0294C5.5 12.9118 7.19587 11.5 9 11.5C10.8667 11.5 12.5 12.9118 12.5 15.0294Z" stroke="#222222" />
+          <circle cx="9" cy="15" r="1" fill="#222222" />
         </svg>
-        <p 
-        style={{
-          fontFamily : '(--var-inter)',
-        }}
-        className=' text-center text-sm font-[500] overflow-ellipsis w-full underline'>{selectedClinic?.address}</p>
+        <p
+          style={{
+            fontFamily: '(--var-inter)',
+          }}
+          className=' text-center text-sm font-[500] overflow-ellipsis w-full underline'>{selectedClinic?.address}</p>
       </Link>
 
     </div>
@@ -358,7 +358,7 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick} : { selectedClinic 
 
 function findNearestClinicNameGoogle(clinics, userLocation, google) {
   // Check if geometry library is loaded
-  if( !userLocation ) {return clinics[0]}
+  if (!userLocation) { return clinics[0] }
   if (!google || !google.maps || !google.maps.geometry || !google.maps.geometry.spherical) {
     console.error("Google Maps API or geometry library not loaded.");
     return null;
@@ -374,10 +374,10 @@ function findNearestClinicNameGoogle(clinics, userLocation, google) {
   const userLatLng = new google.maps.LatLng(userLocation.latitude, userLocation.longitude);
 
   for (const clinic of clinics) {
-     // Ensure clinic has valid coordinates
+    // Ensure clinic has valid coordinates
     if (typeof clinic.lat !== 'number' || typeof clinic.lng !== 'number') {
-        console.warn(`Skipping clinic with invalid coordinates: ${clinic.name}`);
-        continue;
+      console.warn(`Skipping clinic with invalid coordinates: ${clinic.name}`);
+      continue;
     }
     // Create LatLng object for clinic location
     const clinicLatLng = new google.maps.LatLng(clinic.lat, clinic.lng);
@@ -390,6 +390,6 @@ function findNearestClinicNameGoogle(clinics, userLocation, google) {
       nearestClinic = clinic;
     }
   }
-  console.log('Nearest Clinic',nearestClinic)
+  console.log('Nearest Clinic', nearestClinic)
   return nearestClinic ? nearestClinic : null;
 }

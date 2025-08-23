@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Reem_Kufi, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Reem_Kufi, Inter, Sora, Lato, Public_Sans } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -30,6 +30,24 @@ const ReemKufi = Reem_Kufi({
   variable: "--font-reem-kufi",
   weight: ["500"],
   subsets: ["latin"],
+});
+
+const sora = Sora({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-public-sans",
+});
+
+const lato = Lato({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-public-sans",
+});
+
+const publicSans = Public_Sans({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-public-sans",
 });
 
 const geistSans = Geist({
@@ -145,7 +163,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} antialiased overscroll-none `}
+        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} ${sora.variable} ${publicSans.variable} antialiased overscroll-none `}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

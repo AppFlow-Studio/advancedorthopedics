@@ -105,7 +105,7 @@ export default function Blogs() {
                         </nav>
                     </div>
                     <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] lg:w-[63%] xl:w-[55%]">
-                        <h1 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl ">
+                        <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl ">
                             Spine Wellness Blog
                         </h1>
                     </div>
@@ -131,7 +131,7 @@ export default function Blogs() {
                             <article className="flex flex-col p-4 rounded-[24px] space-y-[24px] bg-[#FAFAFA] text-[#022968]" key={item.title}>
                                 <div className="flex flex-row items-center justify-between">
                                     <div className="rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
-                                        <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-lg self-center">0{index + 1}</span>
+                                        <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-lg self-center">0{index + 1}</span>
                                     </div>
 
                                     <div className="bg-[#EFF5FF] rounded-full border border-[#EFF5FF] py-3 px-6"><item.icon /></div>
@@ -139,7 +139,7 @@ export default function Blogs() {
                                 </div>
 
                                 <div className="flex flex-col space-y-[16px]">
-                                    <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-2xl">{item.title}</h2>
+                                    <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-2xl">{item.title}</h2>
                                 </div>
 
                                 <div >
@@ -153,7 +153,7 @@ export default function Blogs() {
 
             <section className='w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px] md:order-2  '>
                 <div className='space-y-[16px] flex flex-col lg:flex-row justify-between'>
-                    <h2 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#111315] text-5xl'>Our Latest Blogs</h2>
+                    <h2 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] text-5xl'>Our Latest Blogs</h2>
 
                     <div className="md:w-[25%] lg:w-[35%] w-full md:mt-0 mt-4"><BlogSearchBar onSelect={handleConditionSelect} onClear={handleSearchClear} blogs={blogs} /></div>
                 </div>
@@ -193,7 +193,7 @@ export default function Blogs() {
                                 initial={{ y: 10, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.2 }}
-                                style={{ fontFamily: 'var(--font-reem-kufi)' }}
+                                style={{ fontFamily: 'var(--font-public-sans)' }}
                             >
                                 No blogs found
                             </motion.h3>

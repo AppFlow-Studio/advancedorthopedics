@@ -102,26 +102,26 @@ export default function FAQs() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
-        <div 
+        <div
           style={{ background: 'white', filter: 'blur(30px)' }}
           className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={FAQsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-10 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={FAQsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-10 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-80">
           <div className="md:w-[565px] h-full absolute left-0 top-0 w-full"
-            style={{ background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
+            style={{ background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
           />
           <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
-              style={{ background : 'rgba(255, 255, 255, 0.50)' }}
+              style={{ background: 'rgba(255, 255, 255, 0.50)' }}
             >
-              <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968]">About</span>
-              <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968]">/</span>
-              <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#2358AC]">FAQ's</span>
+              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968]">About</span>
+              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968]">/</span>
+              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#2358AC]">FAQ's</span>
             </div>
           </div>
           <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[58%] pb-20">
-            <h1 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 700 }} className="text-[#022968] text-3xl sm:text-5xl md:text-6xl">
+            <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#022968] text-3xl sm:text-5xl md:text-6xl">
               Frequently Asked Questions – Mountain Spine & Orthopedics
             </h1>
           </div>
@@ -137,9 +137,9 @@ export default function FAQs() {
       {/* Testimonial/Closing Section */}
       <section className=' xl:mt-[80px] py-[50px] max-w-[1440px]  px-6 xl:px-[80px] w-full max-h-[680px] lg:h-[680px]'>
         <div className=' h-full w-full rounded-[40px] bg-[#EDEEE9] p-8 xl:p-[80px] relative border overflow-clip'>
-          <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' md:flex hidden absolute -bottom-8 left-[40%] w-[75%] z-20'/>
-          <p 
-            style={{ fontFamily : 'var(--font-reem-kufi)', fontWeight : 500 }}
+          <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' md:flex hidden absolute -bottom-8 left-[40%] w-[75%] z-20' />
+          <p
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
             className=' text-[#5B5F67] md:w-[55%] w-full text-xl md:text-2xl'
           >
             At Mountain Spine & Orthopedics, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. We believe in equipping you with the knowledge needed to make an informed and confident decision about your spine care. View some of our commonly-asked questions.

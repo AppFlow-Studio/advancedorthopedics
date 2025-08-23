@@ -33,6 +33,8 @@ import HomeHeroSection from '@/components/HomeHeroSection.client';
 import HomeInteractiveAnatomy from '@/components/HomeInteractiveAnatomy.client';
 import HomeStatisticsBar from '@/components/HomeStatisticsBar.client';
 import HomePainToProgress from '@/components/HomePainToProgress.client';
+import OurSpecialtySection from '@/components/OurSpecialtySection.client'
+import ServicesAndExpertiseSection from '@/components/ServicesAndExpertiseSection.client'
 
 // Image Asset Imports - Using CDN URLs since local files don't exist
 const AAOS = 'https://mountainspineortho.b-cdn.net/public/AAOS.png';
@@ -147,9 +149,8 @@ export default function Home() {
               <div className="bg-white rounded-[32px] px-[14px] py-[7px] w-fit">
                 <p
                   style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    background: 'linear-gradient(270deg, #D4ABE5 0%, #9596EC 100%)',
+                    fontFamily: "var(--font-public-sans)",
+                    fontWeight: 500, background: 'linear-gradient(270deg, #D4ABE5 0%, #9596EC 100%)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
@@ -163,9 +164,8 @@ export default function Home() {
               <div className="mt-[12px]">
                 <h2
                   style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color: '#022968',
+                    fontFamily: "var(--font-public-sans)",
+                    fontWeight: 500, color: '#022968',
                   }}
                   className="text-5xl text-left"
                 >
@@ -177,7 +177,7 @@ export default function Home() {
                 {ServicesAndExpertise.map((item) => (
                   <Link
                     href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
-                    key={item.title} 
+                    key={item.title}
                     className="flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#EFF5FF] rounded-2xl items-center justify-center hover:cursor-pointer"
                   >
                     <Image src={item.img} alt={item.title} width={22} height={22} className="h-[22px] w-[22px]" />
@@ -190,9 +190,8 @@ export default function Home() {
               <div className="">
                 <p
                   style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 500,
-                    color: 'black',
+                    fontFamily: "var(--font-public-sans)",
+                    fontWeight: 500, color: 'black',
                     lineHeight: 1.5
                   }}
                   className="md:px-6 sm:text-2xl text-lg"
@@ -210,66 +209,7 @@ export default function Home() {
           </div>
 
           <Reveal className="w-full" width="100%">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
-              {ServicesAndExpertise.map((item, index) => (
-                <Link 
-                  href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} 
-                  className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'}`}`} 
-                  key={item.title}
-                >
-                  <div className="flex flex-row items-center justify-between">
-                    <div className="rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
-                      <span
-                        style={{
-                          fontFamily: "var(--font-reem-kufi)",
-                          fontWeight: 500,
-                        }}
-                        className="text-lg self-center text-[#022968]"
-                      >
-                        0{index + 1}
-                      </span>
-                    </div>
-
-                    <div className={`sm:bg-[#EFF5FF] ${index % 2 === 1 ? 'bg-[#E5F6FF]' : 'bg-[#EFF5FF]'} rounded-full border border-[#EFF5FF] py-3 px-6`}>
-                      <Image src={item.img} alt={item.title} width={22} height={22} className="h-[22px] w-[22px]" />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col space-y-[16px]">
-                    <h3
-                      style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 500,
-                      }}
-                      className="text-3xl text-[#022968]"
-                    >
-                      {item.title}
-                    </h3>
-
-                    <p
-                      style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 500,
-                      }}
-                      className="text-lg text-[#022967]"
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="w-full max-h-[240px] h-full relative">
-                    <Image 
-                      src={item.anatomy} 
-                      alt={item.title} 
-                      height={240} 
-                      width={240} 
-                      layout="responsive" 
-                      className="w-full sm:flex hidden max-h-[240px] h-full object-cover aspect-square rounded-[24px] lg:h-[240px]" 
-                    />
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <ServicesAndExpertiseSection />
           </Reveal>
         </section>
 
@@ -280,11 +220,11 @@ export default function Home() {
         <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
           <Reveal className="w-full" width="100%">
             <div className="flex xl:flex-row space-x-[60px] flex-col xl:space-y-0 space-y-8 w-full">
-              <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#111315' }} className="text-6xl w-[100%]">
+              <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#111315' }} className="text-6xl w-[100%]">
                 Why Choose<br /> Mountain Spine & Orthopedics
               </h2>
               <div>
-                <p style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400, color: '#5B5F67' }} className="text-lg">
+                <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400, color: '#5B5F67' }} className="text-lg">
                   Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
                 </p>
                 <div className="mt-[40px] xl:w-[50%] w-full md:w-fit">
@@ -295,36 +235,20 @@ export default function Home() {
           </Reveal>
           <div className="flex xl:flex-row flex-col w-full gap-[32px] xl:items-stretch">
             <div className="xl:w-[50%] w-full rounded-[20px] overflow-hidden">
-                              <Image src={HomeWhyAO} width={1440} height={1000} className="w-full h-full md:aspect-video aspect-square object-cover" alt="Doctor Diagnosing Patient" />
+              <Image src={HomeWhyAO} width={1440} height={1000} className="w-full h-full md:aspect-video aspect-square object-cover" alt="Doctor Diagnosing Patient" />
             </div>
             <div className="xl:w-[50%] w-full flex flex-col space-y-[32px]">
               <Reveal className="w-full" width="100%">
                 <div className="flex flex-col w-full space-y-[16px]">
-                  <h3 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#111315' }} className="text-4xl">
+                  <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#111315' }} className="text-4xl">
                     Our Specialty
                   </h3>
-                                  <p style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#5B5F67' }} className="text-lg">
-                  At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here's why we stand out:
-                </p>
+                  <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#5B5F67' }} className="text-lg">
+                    At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here's why we stand out:
+                  </p>
                 </div>
               </Reveal>
-              <Reveal className="w-full" width="100%">
-                <div className="grid grid-cols-1 md:grid-cols-2 rounded-[20px] overflow-hidden w-full">
-                  {OurSpecialtyItems.map((item, index) => (
-                    <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6`}>
-                      <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px]">
-                        {item.icon()}
-                      </div>
-                      <h4 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: '#022968' }} className="text-xl">
-                        {item.title}
-                      </h4>
-                      <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67' }} className="text-md">
-                        {item.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
+              <Reveal className="w-full" width="100%"><OurSpecialtySection /></Reveal>
             </div>
           </div>
         </section>
@@ -339,7 +263,7 @@ export default function Home() {
         <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
           <div className="flex md:flex-row flex-col">
             <div className="flex flex-col space-y-[24px] md:w-[50%] w-full">
-              <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-black text-5xl text-left w-full">
+              <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-black text-5xl text-left w-full">
                 Meet Our Experts
               </h2>
               <p style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }} className="text-[#54535C] md:w-[50%] w-full">
@@ -355,7 +279,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="mt-[60px] grid xl:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-[32px]">
+          <div className="mt-[60px] grid xl:grid-cols-3 items-stretch grid-cols-1 md:grid-cols-2 gap-[32px]">
             {Doctors.slice(0, 3).map((item) => (<DoctorCard key={item.name} doctor={item} />))}
           </div>
         </section>
@@ -364,7 +288,7 @@ export default function Home() {
         <section className="w-full max-w-[1440px] flex xl:flex-row flex-col py-[50px] h-full px-2 md:px-[40px] space-x-[32px]">
           <div className="rounded-[24px] bg-[#FAFAFA] p-[24px] flex flex-col xl:w-[50%] w-full h-full">
             <div className="flex flex-col space-y-[24px]">
-              <h2 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: 'black' }} className="text-5xl">
+              <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black' }} className="text-5xl">
                 Top Florida Clinic Free Second Opinion & MRI Reading
               </h2>
               <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67', lineHeight: 1.5 }} className="">
@@ -392,7 +316,7 @@ export default function Home() {
             <div className="flex flex-col space-y-[38px] w-full">
               <div className="bg-[#EFF5FF] w-full rounded-[24px] p-[24px] space-y-[24px] h-[50%]">
                 <div className="flex flex-col space-y-[8px]">
-                  <h3 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="text-2xl">
+                  <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="text-2xl">
                     Complimentary MRI Reading
                   </h3>
                   <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67' }} className="lg">
@@ -409,21 +333,22 @@ export default function Home() {
               </div>
               <div className="bg-[#E5F6FF] w-full rounded-[24px] p-4 md:p-[24px] space-y-[24px] h-[50%] items-center justify-center">
                 <div className="flex flex-col space-y-[8px] items-center justify-center md:mt-10">
-                  <h3 style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="md:text-2xl text-4xl text-center">
+                  <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="md:text-2xl text-4xl text-center">
                     Complimentary Amenities
                   </h3>
                   <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#5B5F67' }} className="w-[65%] text-center">
                     Enjoy Complimentary Amenities: Free Car Service, Refreshments & WiFi
                   </p>
                 </div>
-                <div className="flex flex-row gap-x-[16px] items-center justify-center">
+
+                <div className="flex flex-row gap-x-8 items-center justify-center">
                   {Amenities.map((item, index) => (
-                    <div className="flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
+                    <div className="flex flex-col space-y-[12px] max-w-[88px] aspect-square lg:p-[8px] p-0 items-center justify-center" key={item.title}>
                       <div className="bg-white rounded-[12px] aspect-square flex items-center justify-center p-[8px]">
                         {item.icon()}
                       </div>
                       <div>
-                        <span style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 500 }} className="text-sm text-[#022968]">
+                        <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-sm text-[#022968]">
                           {item.title}
                         </span>
                       </div>

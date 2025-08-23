@@ -158,7 +158,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -214,7 +214,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -256,7 +256,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -302,7 +302,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -354,7 +354,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -446,7 +446,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -503,7 +503,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -543,7 +543,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -576,7 +576,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -613,7 +613,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -710,7 +710,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -766,7 +766,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -815,7 +815,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -857,7 +857,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -889,7 +889,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1038,7 +1038,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1100,7 +1100,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1135,7 +1135,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1169,7 +1169,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1211,7 +1211,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1245,7 +1245,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1281,7 +1281,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -1842,7 +1842,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -1902,7 +1902,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -1970,7 +1970,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2008,7 +2008,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2048,7 +2048,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2286,7 +2286,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2343,7 +2343,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2402,7 +2402,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2441,7 +2441,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2476,7 +2476,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -2556,7 +2556,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2614,7 +2614,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2652,7 +2652,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2686,7 +2686,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2720,7 +2720,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2796,7 +2796,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2854,7 +2854,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2893,7 +2893,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -2977,7 +2977,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3053,7 +3053,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3110,7 +3110,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl"
@@ -3147,7 +3147,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3184,7 +3184,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3234,7 +3234,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3277,7 +3277,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3328,7 +3328,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3412,7 +3412,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3527,7 +3527,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3589,7 +3589,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl" // Adjusted size for secondary heading
@@ -3634,7 +3634,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3702,7 +3702,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3781,7 +3781,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3851,7 +3851,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -3918,7 +3918,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4006,7 +4006,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4656,7 +4656,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4700,7 +4700,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px] w-full ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4749,7 +4749,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4782,7 +4782,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4823,7 +4823,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4918,7 +4918,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -4959,7 +4959,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5001,7 +5001,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5034,7 +5034,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5073,7 +5073,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5141,7 +5141,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5184,7 +5184,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5238,7 +5238,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5287,7 +5287,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5342,7 +5342,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5410,7 +5410,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5455,7 +5455,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5496,7 +5496,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5534,7 +5534,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5578,7 +5578,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5647,7 +5647,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5693,7 +5693,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5733,7 +5733,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5769,7 +5769,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5805,7 +5805,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5875,7 +5875,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5918,7 +5918,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5957,7 +5957,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -5988,7 +5988,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6029,7 +6029,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6099,7 +6099,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6139,7 +6139,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6176,7 +6176,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6207,7 +6207,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6248,7 +6248,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6317,7 +6317,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6360,7 +6360,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[40px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6399,7 +6399,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6431,7 +6431,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"
@@ -6470,7 +6470,7 @@ export const conditions: ConditionInfoProp[] = [
                     <div className="flex flex-col space-y-[16px]">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] sm:text-4xl text-3xl"

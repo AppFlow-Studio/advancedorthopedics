@@ -22,7 +22,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl">
@@ -66,7 +66,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl">
@@ -98,7 +98,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -129,7 +129,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -168,7 +168,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -198,7 +198,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -229,7 +229,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -305,7 +305,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -353,7 +353,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl">
@@ -405,7 +405,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-2xl">
@@ -444,7 +444,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -476,7 +476,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">
@@ -528,7 +528,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                     <div className=" flex flex-col space-y-[16px] ">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-[#111315] text-4xl">

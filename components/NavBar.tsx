@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Logo from "../public/newlogo4.png"
 import { usePathname } from 'next/navigation';
@@ -51,17 +51,17 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
           borderColor: pathname.includes(screen) && screen != '/' ? 'white' : ''
         }}
       >
-        <span
+        <Link
+          href={href}
           style={{
-            fontFamily: "var(--font-reem-kufi)",
-            fontWeight: 500,
-            fontSize: "16px",
+            fontFamily: "var(--font-public-sans)",
+            fontWeight: 500, fontSize: "16px",
             lineHeight: "24px",
             letterSpacing: "0.02em",
           }}
         >
           {title}
-        </span>
+        </Link>
       </NavigationMenuTrigger>
       <NavigationMenuContent
         className=" absolute "
@@ -82,7 +82,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                       <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2'>
                         <span
                           style={{
-                            fontFamily: "var(--font-reem-kufi)",
+                            fontFamily: "var(--font-public-sans)",
                             fontWeight: 400,
                           }}
                         >
@@ -96,7 +96,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                         <button className="w-full text-left px-4 py-2">
                           <span
                             style={{
-                              fontFamily: "var(--font-reem-kufi)",
+                              fontFamily: "var(--font-public-sans)",
                               fontWeight: 400,
                             }}
                           >
@@ -121,7 +121,7 @@ function NavLink({ href, title, screen, pathname, sublinks }: { href: string; ti
                               <Link href={sub_link.href} className="block px-4 py-2">
                                 <span
                                   style={{
-                                    fontFamily: "var(--font-reem-kufi)",
+                                    fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                   }}
                                 >
@@ -202,8 +202,8 @@ const NavBarLinks = [
   },
   {
     href: '/area-of-specialty',
-screen: '/area-of-specialty',
-            title: 'AREA OF SPECIALTY',
+    screen: '/area-of-specialty',
+    title: 'AREA OF SPECIALTY',
     subLinks: [
       {
         title: 'Back Pain',
@@ -351,18 +351,13 @@ screen: '/area-of-specialty',
     href: '/locations',
     screen: '/locations',
     title: 'LOCATION',
-    subLinks: [
-      {
-        title: "Florida",
-        href: '/#',
-        subLinks: clinics.map((clinic) => {
-          return {
-            title: clinic.name,
-            href: `/locations/${clinic.slug}`
-          }
-        })
+    subLinks: clinics.map((clinic) => {
+      return {
+        title: clinic.name.split('Mountain Spine & Orthopedics')[1],
+        href: `/locations/${clinic.slug}`,
+        subLinks: []
       }
-    ]
+    })
   },
 
 ]
@@ -396,19 +391,30 @@ const HamburgerIcon = ({ open, ...props }: { open: boolean } & React.SVGProps<SV
 export default function NavBar() {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <-- State for sidebar
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
     <>
-      <header className='fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] backdrop-blur-3xl '>
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? 'bg-gray-300/50 backdrop-blur-[80px] ' : 'bg-transparent'}`}>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
           <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '>
             <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] lg:w-auto w-10 h-10  " />
             <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet' />
             <div className="flex flex-col text-white"
               style={{
-                fontFamily: "var(--font-reem-kufi)",
+                fontFamily: "var(--font-public-sans)",
                 fontSize: "16px",
                 lineHeight: "24px",
                 letterSpacing: "0.02em",
@@ -460,8 +466,6 @@ export default function NavBar() {
               </svg>
             </div>
           </a>
-
-
 
         </nav>
       </header>

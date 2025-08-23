@@ -44,33 +44,38 @@ export default function HomeHeroSection() {
     <section className="w-full h-full flex flex-col relative overflow-hidden justify-between">
       <div
         style={{
-          background: 'white',
           filter: 'blur(30px)'
         }}
         className="w-full h-[120px] absolute top-0 z-[1]"
       />
-      <Image 
-        src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} 
-        priority={true} 
+      <Image
+        src={'/herosectionimg.jpg'}
+        priority={true}
         fetchPriority="high"
-        layout='fill' 
-        className="h-full absolute top-0 object-cover object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" 
-        alt="Doctor Diagnosing a Old Patient" 
+        layout='fill'
+        className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+        alt="Doctor Diagnosing a Old Patient"
       />
-      <div 
-        className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+      <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
         style={{
-          background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
+          background: 'linear-gradient(180deg, rgba(0, 148, 224, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
         }}
       />
+      {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
 
-      <div className="w-full h-full flex flex-row relative overflow-hidden justify-between">
-        <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 xl:py-8 relative xl:pb-[160px]">
+      <div className="w-full h-full flex flex-row relative overflow-hidden justify-between  xl:pb-[160px]">
+        <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 xl:py-8 relative">
           <SlidingDiv position="left" className="z-[2] sm:mt-30 mt-16">
             <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]">
               <h1
                 style={{
-                  fontFamily: "var(--font-reem-kufi)",
+                  fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
                 className="text-white text-5xl sm:text-6xl xl:text-6xl text-shadow-sm"
@@ -102,7 +107,7 @@ export default function HomeHeroSection() {
               <div className="">
                 <BookAnAppoitmentButton />
               </div>
-              <a 
+              <a
                 href="tel:5612239959"
                 className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden px-[32px] py-[16px] rounded-[62px] relative items-center justify-center md:justify-between bg-[white] text-[#0094E0] w-full md:w-fit font-[500] text-[14px]"
               >
@@ -117,18 +122,14 @@ export default function HomeHeroSection() {
           </SlidingDiv>
         </div>
 
-        <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32">
-          <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto">
-            <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" />
+        <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] mb-20">
+          <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto">
+            <DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" />
           </div>
         </div>
       </div>
 
-      <div 
-        className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute xl:bottom-0 xl:left-0 xl:right-0 bg-white py-12 pt-[32px] pb-[50px]"
-        style={{
-          background: 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
-        }}
+      <div className="w-full flex flex-row items-center justify-evenly py-20 "
       >
         {hasMounted && dimensions.width > 0 && (
           <div className="w-full">

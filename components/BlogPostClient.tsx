@@ -300,7 +300,7 @@ export default function BlogDetails({
                 <li aria-current="page">{blog_details.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-reem-kufi)", fontWeight: 400 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full">{blog_details.blog_info.title}</TextAnimate>
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full">{blog_details.blog_info.title}</TextAnimate>
             <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-white mt-4 md:text-md text-sm xl:w-[55%] w-full">{blog_details.blog_info.desc}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {blog_details.blog_info.tags.map((tag: string, index: number) => (
@@ -328,7 +328,7 @@ export default function BlogDetails({
         <article className='lg:w-[70%] w-full flex flex-col space-y-[60px] rounded-[24px]'>
           {blog_details.blog_info.blog_info.map((section: any, idx: number) => (
             <section key={idx} className="mb-8">
-              <h2 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
+              <h2 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
               <div className='text-[#5B5F67] text-lg mb-4'>{renderRichText(section.body)}</div>
               {section.sub_stories && section.sub_stories.length > 0 && (
                 <div className="space-y-4">
@@ -338,7 +338,7 @@ export default function BlogDetails({
                         <div className='w-full h-100 relative rounded-2xl overflow-hidden mb-6'>
                           <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
                         </div>)}
-                      <h3 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className='text-[#022968] text-xl mb-1'>{sub.header}</h3>
+                      <h3 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#022968] text-xl mb-1'>{sub.header}</h3>
                       <div className='text-[#5B5F67] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base'>{renderRichText(sub.body)}</div>
                     </div>
                   ))}
@@ -351,15 +351,15 @@ export default function BlogDetails({
           <h2 className='text-[#022968] text-2xl font-bold mb-4'>Recent Posts</h2>
           <div className='grid grid-cols-1 gap-4'>
             {
-            recentPosts?.slice(0, 3).map((post) => (
-              <BlogPostCard
-                key={post.id}
-                BlogInfo={post.blog_info}
-                backgroundcolor='white'
-                id={post.id}
-                slug={post.slug}
-              />
-            ))}
+              recentPosts?.slice(0, 3).map((post) => (
+                <BlogPostCard
+                  key={post.id}
+                  BlogInfo={post.blog_info}
+                  backgroundcolor='white'
+                  id={post.id}
+                  slug={post.slug}
+                />
+              ))}
           </div>
         </aside>
       </main>

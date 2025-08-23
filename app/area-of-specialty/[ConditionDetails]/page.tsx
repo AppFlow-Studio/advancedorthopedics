@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
-import {conditions} from '@/components/data/conditions'
+import { conditions } from '@/components/data/conditions'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -52,9 +52,10 @@ function linkifyText(text: string, currentSlug: string) {
 
 function renderField(field: any, currentSlug: string) {
   if (!field) return null;
-  
+
   // If its astring, apply linkification and render as HTML
-  if (typeof field === 'string') {    return (
+  if (typeof field === 'string') {
+    return (
       <p
         style={{
           fontFamily: "var(--font-inter)",
@@ -67,12 +68,12 @@ function renderField(field: any, currentSlug: string) {
       />
     );
   }
-  
+
   // If it's JSX/React element, render as-is
   if (React.isValidElement(field)) {
     return field;
   }
-  
+
   // If it's an object or other type, return null
   return null;
 }
@@ -84,288 +85,288 @@ export async function generateStaticParams() {
 }
 
 export default function ConditionDetails({
-    params,
-  }: {
-    params: { ConditionDetails : string }
-  }) {
+  params,
+}: {
+  params: { ConditionDetails: string }
+}) {
   const conditionSlug = params.ConditionDetails
-  const condition_details = conditions.find( (x: ConditionInfoProp) => x.slug === conditionSlug)
+  const condition_details = conditions.find((x: ConditionInfoProp) => x.slug === conditionSlug)
   if (!condition_details) {
     return (
       notFound()
     )
   }
   // Function to perform a Fisher-Yates shuffle on the array
-    function shuffleArray(array: any[]) {
-        const newArray = [...array]; // Clone the array
-        for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
-        }
-        return newArray;
+  function shuffleArray(array: any[]) {
+    const newArray = [...array]; // Clone the array
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
     }
-    
-    // Shuffle the Doctors array and then take the first two doctors
-    const randomDoctors = shuffleArray(Doctors).slice(0, 2);    
+    return newArray;
+  }
+
+  // Shuffle the Doctors array and then take the first two doctors
+  const randomDoctors = shuffleArray(Doctors).slice(0, 2);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-        {/* Landing */}
-        <section className="w-full h-full flex flex-col relative overflow-hidden" >
-        <div 
-        style={{
-        background: 'white',
-        filter: 'blur(30px)'
-        }}
-        className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
+      {/* Landing */}
+      <section className="w-full h-full flex flex-col relative overflow-hidden" >
+        <div
+          style={{
+            background: 'white',
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
         />
-        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full lg:pr-0 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient"/>
+        <Image src={ConditionDetialsLanding} className=" max-h-[945px] h-full absolute top-0 object-cover object-top pt-16 self-end w-full lg:pr-0 lg:pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
 
         <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
-            <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
+          <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
             style={{
-            background : 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
+              background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
-            />
+          />
 
-<div className=' px-6 xl:px-[80px] z-[2]'>
+          <div className=' px-6 xl:px-[80px] z-[2]'>
             <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
-            style={{
-                background : 'rgba(255, 255, 255, 0.50)'
-            }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.50)'
+              }}
             >
-                <h1
+              <h1
                 style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 400,
                 }}
                 className="text-[#022968]"
-                >
-                    Condition
-                </h1>
-    
-                <h1
+              >
+                Condition
+              </h1>
+
+              <h1
                 style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 400,
                 }}
                 className="text-[#022968]"
-                >
-                    /
-                </h1>
-    
-                <h1
+              >
+                /
+              </h1>
+
+              <h1
                 style={{
-                    fontFamily: "var(--font-reem-kufi)",
-                    fontWeight: 400,
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 400,
                 }}
                 className="text-[#2358AC]"
-                >
-                    Condition Details
-                </h1>
+              >
+                Condition Details
+              </h1>
             </div>
-        </div>
-        <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
+          </div>
+          <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
             <h1
               style={{
-                  fontFamily: "var(--font-reem-kufi)",
-                  fontWeight: 400,
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 400,
               }}
               className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
-                {condition_details.title}
+              {condition_details.title}
             </h1>
-        </div>
+          </div>
 
-        <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[55%] pb-8">
+          <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[55%] pb-8">
             <p
-            style={{
+              style={{
                 fontWeight: 400,
-            }}
-            className="text-white text-shadow-sm sm:text-lg text-sm"
-            dangerouslySetInnerHTML={{ __html: linkifyText(condition_details.body, condition_details.slug) }}
+              }}
+              className="text-white text-shadow-sm sm:text-lg text-sm"
+              dangerouslySetInnerHTML={{ __html: linkifyText(condition_details.body, condition_details.slug) }}
             />
+          </div>
         </div>
+      </section>
+
+      <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
+          <DoctorContactForm backgroundcolor={'#FAFAFA'} />
+          <div className='mt-10' />
+          <ConditionList currentCondition={condition_details.title} />
+
+          <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
+            <h2
+              style={{
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 400,
+              }}
+              className="text-[#111315] text-5xl"
+            >
+              Meet our Doctors
+            </h2>
+            <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
+              {
+                randomDoctors.map((doctor) => (
+                  <DoctorCard doctor={doctor} key={doctor.name} />
+                ))
+              }
+            </div>
+          </section>
+
         </div>
-        </section>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
-            <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
-                <DoctorContactForm backgroundcolor={'#FAFAFA'}/>
-                <div className='mt-10'/>
-                <ConditionList currentCondition={condition_details.title} />
 
-                <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
-                    <h2
-                    style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 400,
-                    }}
-                    className="text-[#111315] text-5xl"
-                    >
-                        Meet our Doctors
-                    </h2>
-                    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
-                        {
-                            randomDoctors.map((doctor) => (
-                                <DoctorCard doctor={doctor} key={doctor.name} />
-                            ))
-                        }
-                    </div>
-                </section>
-
+        <div className=' w-full lg:w-[70%] lg:order-2 order-1  flex flex-col space-y-[60px] lg:mt-0 mt-6 rounded-[24px] '>
+          <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
+            {/* Detail */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-5xl text-2xl'
+              >
+                About {condition_details.title}
+              </h2>
+              {renderField(condition_details?.detail, condition_details.slug)}
             </div>
 
-
-            <div className=' w-full lg:w-[70%] lg:order-2 order-1  flex flex-col space-y-[60px] lg:mt-0 mt-6 rounded-[24px] '>
-                <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
-                    {/* Detail */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                        <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-5xl text-2xl'
-                        >
-                        About {condition_details.title}
-                        </h2>
-                        {renderField(condition_details?.detail, condition_details.slug)}
-                    </div>
-                    
-                    {/* What are symptoms of */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                        <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-4xl text-2xl'
-                        >
-                        What Are the Symptoms of {condition_details.title}?
-                        </h2>
-                        {renderField(condition_details?.what_sym, condition_details.slug)}
-                    </div>
-                    
-                    {/* Video */}
-                    <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
-                    {renderField(condition_details.body, condition_details.slug)}
-                    
-                    
-                    {/* Are There Specific Risk Factors  */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-4xl text-2xl'
-                        >
-                        Are There Specific Risk Factors for {condition_details.title}?
-                        </h2>
-                        {renderField(condition_details?.risk_fac, condition_details.slug)}
-                    </div>
-    
-                    {/*  Diagnosing */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-4xl text-2xl'
-                        >
-                        Diagnosing {condition_details.title}?
-                        </h2>
-                        {renderField(condition_details?.diagnose, condition_details.slug)}
-                    </div>
-                    
-                    {/* Treatment for  */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-4xl text-2xl'
-                        >
-                        Treatment for {condition_details.title}?
-                        </h2>
-                        {renderField(
-  condition_details?.slug === 'synovitis'
-    ? `Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue. For targeted relief, see our <Link href="/treatments/anti-inflammatory-injections-for-joint-and-spine-pain">Anti-Inflammatory Injections for Joint and Spine Pain</Link> and <Link href="/treatments/arthroscopic-knee-surgery">Arthroscopic Knee Surgery</Link>.`
-    : condition_details?.treatment,
-  condition_details.slug
-)}
-                    </div>
-    
-                    {/* Does ... Cause Pain? */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-4xl text-2xl'
-                        >
-                        Does {condition_details.title} Cause Pain?
-                        </h2>
-                        {renderField(condition_details?.pain_info, condition_details.slug)}
-                    </div>
-                    
-                    {/* What Can Patients Do to Prevent It? */}
-    
-                    <div className=' flex flex-col space-y-[16px] '>
-                    <h2
-                        style={{
-                            fontFamily : 'var(--font-reem-kufi)',
-                            fontWeight : 500,
-                          }}
-                        className='text-[#111315] sm:text-4xl text-2xl'
-                        >
-                        What Can Patients Do to Prevent It?
-                        </h2>
-                        {renderField(condition_details?.prevent, condition_details.slug)}
-                    </div>
-    
-                    {/* Schedule a Consultation Today */}
-                    <div className=' flex flex-col space-y-[16px] '>
-                        <h2
-                            style={{
-                                fontFamily : 'var(--font-reem-kufi)',
-                                fontWeight : 500,
-                            }}
-                            className='text-[#111315] sm:text-4xl text-2xl'
-                            >
-                            Schedule a Consultation Today
-                        </h2>
-                        {renderField(condition_details?.schedule, condition_details.slug)}
-                        <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
-                    </div>
-                </section>
-
-                <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden '>
-                    <h2
-                    style={{
-                        fontFamily: "var(--font-reem-kufi)",
-                        fontWeight: 400,
-                    }}
-                    className="text-[#111315] text-5xl"
-                    >
-                        Meet our Doctors
-                    </h2>
-                    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px]'>
-                        {
-                            randomDoctors.map((doctor) => (
-                                <DoctorCard doctor={doctor} key={doctor.name} />
-                            ))
-                        }
-                    </div>
-                </section>
-            <div>
-
-                </div>
+            {/* What are symptoms of */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                What Are the Symptoms of {condition_details.title}?
+              </h2>
+              {renderField(condition_details?.what_sym, condition_details.slug)}
             </div>
-        </section>
+
+            {/* Video */}
+            <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
+            {renderField(condition_details.body, condition_details.slug)}
+
+
+            {/* Are There Specific Risk Factors  */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                Are There Specific Risk Factors for {condition_details.title}?
+              </h2>
+              {renderField(condition_details?.risk_fac, condition_details.slug)}
+            </div>
+
+            {/*  Diagnosing */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                Diagnosing {condition_details.title}?
+              </h2>
+              {renderField(condition_details?.diagnose, condition_details.slug)}
+            </div>
+
+            {/* Treatment for  */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                Treatment for {condition_details.title}?
+              </h2>
+              {renderField(
+                condition_details?.slug === 'synovitis'
+                  ? `Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue. For targeted relief, see our <Link href="/treatments/anti-inflammatory-injections-for-joint-and-spine-pain">Anti-Inflammatory Injections for Joint and Spine Pain</Link> and <Link href="/treatments/arthroscopic-knee-surgery">Arthroscopic Knee Surgery</Link>.`
+                  : condition_details?.treatment,
+                condition_details.slug
+              )}
+            </div>
+
+            {/* Does ... Cause Pain? */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                Does {condition_details.title} Cause Pain?
+              </h2>
+              {renderField(condition_details?.pain_info, condition_details.slug)}
+            </div>
+
+            {/* What Can Patients Do to Prevent It? */}
+
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                What Can Patients Do to Prevent It?
+              </h2>
+              {renderField(condition_details?.prevent, condition_details.slug)}
+            </div>
+
+            {/* Schedule a Consultation Today */}
+            <div className=' flex flex-col space-y-[16px] '>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 500,
+                }}
+                className='text-[#111315] sm:text-4xl text-2xl'
+              >
+                Schedule a Consultation Today
+              </h2>
+              {renderField(condition_details?.schedule, condition_details.slug)}
+              <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
+            </div>
+          </section>
+
+          <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden '>
+            <h2
+              style={{
+                fontFamily: "var(--font-public-sans)",
+                fontWeight: 400,
+              }}
+              className="text-[#111315] text-5xl"
+            >
+              Meet our Doctors
+            </h2>
+            <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px]'>
+              {
+                randomDoctors.map((doctor) => (
+                  <DoctorCard doctor={doctor} key={doctor.name} />
+                ))
+              }
+            </div>
+          </section>
+          <div>
+
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

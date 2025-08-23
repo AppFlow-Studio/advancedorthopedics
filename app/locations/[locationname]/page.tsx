@@ -25,7 +25,7 @@ import LocationLanding from '@/public/ConditionDetails.jpeg'
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
-  return clinics.map(c => ({ locationname: c.slug }));
+    return clinics.map(c => ({ locationname: c.slug }));
 }
 
 export default async function LocationDetails(
@@ -80,12 +80,20 @@ export default async function LocationDetails(
         },
     ]
     return (
-        <main className='w-full flex-col items-center justify-center bg-white h-full'>
+        <main className='w-full flex-col items-center justify-center h-full'>
             <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
-                <Image src={LocationLanding} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover object-center sm:object-center self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
-                <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+                <Image
+                    src={'/herosectionimg.jpg'}
+                    priority={true}
+                    fetchPriority="high"
+                    layout='fill'
+                    className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+                    alt="Doctor Diagnosing a Old Patient"
+                />
+                <div
+                    className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
                     style={{
-                        background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
+                        background: 'linear-gradient(180deg, rgba(0, 148, 224, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
                     }}
                 />
 
@@ -102,7 +110,7 @@ export default async function LocationDetails(
                                 >
                                     <span
                                         style={{
-                                            fontFamily: "var(--font-reem-kufi)",
+                                            fontFamily: "var(--font-public-sans)",
                                             fontWeight: 400,
                                         }}
                                         className="text-[#111315]"
@@ -112,7 +120,7 @@ export default async function LocationDetails(
 
                                     <span
                                         style={{
-                                            fontFamily: "var(--font-reem-kufi)",
+                                            fontFamily: "var(--font-public-sans)",
                                             fontWeight: 400,
                                         }}
                                         className="text-[#111315]"
@@ -121,7 +129,7 @@ export default async function LocationDetails(
                                     </span>
                                     <span
                                         style={{
-                                            fontFamily: "var(--font-reem-kufi)",
+                                            fontFamily: "var(--font-public-sans)",
                                             fontWeight: 400,
                                         }}
                                         className="text-[#2258AC]"
@@ -131,7 +139,7 @@ export default async function LocationDetails(
                                 </div>
                                 <h1
                                     style={{
-                                        fontFamily: "var(--font-reem-kufi)",
+                                        fontFamily: "var(--font-public-sans)",
                                         fontWeight: 500,
                                     }}
                                     className="text-white text-4xl sm:text-6xl xl:text-6xl text-shadow-sm md:mt-0 mt-16 "
@@ -140,9 +148,11 @@ export default async function LocationDetails(
                                 </h1>
                             </div>
                         </SlidingDiv>
+
                         <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mt-4 ">
-                            <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
+                            <div className="xl:w-[65%] w-[95%] rounded-3xl mx-auto"><DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" /></div>
                         </SlidingDiv>
+                        
                         <SlidingDiv position="left" className="z-[2]">
                             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center mt-4">
                                 <p
@@ -175,14 +185,13 @@ export default async function LocationDetails(
                     </div>
 
                     <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >
-                        <div className="xl:w-[65%] w-[95%] rounded-2xl bg-[rgba(255,255,255,0.50)] mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
+                        <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
                     </div>
                 </div>
 
-                <div className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute xl:bottom-0 xl:left-0 xl:right-0 bg-white py-12 pt-[32px] pb-[50px]"
-                    style={{
-                        background: 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
-                    }}
+                <div
+                    className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute xl:bottom-0 xl:left-0 xl:right-0 py-12 pt-[32px] pb-[50px]"
+
                 >
                     <Marquee pauseOnHover className="w-full" >
                         {
@@ -195,14 +204,13 @@ export default async function LocationDetails(
 
             </section>
             {/* Our Specialty */}
-            <section className=" w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
+            <section className=" w-full flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
                 <Reveal className="w-full" width="100%">
                     <div className=" flex xl:flex-row space-x-[60px] flex-col xl:space-y-0 space-y-8 w-full">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
-                                fontWeight: 500,
-                                color: '#111315'
+                                fontFamily: "var(--font-public-sans)",
+                                fontWeight: 500, color: '#111315'
                             }}
                             className=" text-6xl w-[100%]"
                         >
@@ -212,7 +220,7 @@ export default async function LocationDetails(
                         <div>
                             <p
                                 style={{
-                                    fontFamily: "var(--font-reem-kufi)",
+                                    fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                     color: '#5B5F67'
                                 }}
@@ -235,9 +243,8 @@ export default async function LocationDetails(
                             <div className=" flex flex-col w-full space-y-[16px]">
                                 <h3
                                     style={{
-                                        fontFamily: "var(--font-reem-kufi)",
-                                        fontWeight: 500,
-                                        color: '#111315'
+                                        fontFamily: "var(--font-public-sans)",
+                                        fontWeight: 500, color: '#111315'
                                     }}
                                     className=" text-4xl"
                                 >
@@ -246,9 +253,8 @@ export default async function LocationDetails(
 
                                 <p
                                     style={{
-                                        fontFamily: "var(--font-reem-kufi)",
-                                        fontWeight: 500,
-                                        color: '#5B5F67'
+                                        fontFamily: "var(--font-public-sans)",
+                                        fontWeight: 500, color: '#5B5F67'
                                     }}
                                     className=" text-lg"
                                 >
@@ -268,17 +274,15 @@ export default async function LocationDetails(
                                             </div>
                                             <h4
                                                 style={{
-                                                    fontFamily: "var(--font-reem-kufi)",
-                                                    fontWeight: 500,
-                                                    color: '#022968'
+                                                    fontFamily: "var(--font-public-sans)",
+                                                    fontWeight: 500, color: '#022968'
                                                 }}
                                                 className=" text-xl"
                                             >{item.title}</h4>
                                             <p
                                                 style={{
                                                     fontFamily: "var(--font-inter)",
-                                                    fontWeight: 500,
-                                                    color: '#5B5F67'
+                                                    fontWeight: 500, color: '#5B5F67'
                                                 }}
                                                 className="text-md"
                                             >{item.body}</p>
@@ -292,10 +296,8 @@ export default async function LocationDetails(
                 </div>
             </section>
             <ClinicsMap startingClinic={location} />
-            <div className="z-[2] w-full flex flex-row items-center justify-evenly bg-white py-[80px]"
-                style={{
-                    background: 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)'
-                }}
+            <div className="z-[2] w-full flex flex-row items-center justify-evenly py-[80px]"
+                
             >
                 <Marquee pauseOnHover className='w-full' >
                     {
@@ -311,7 +313,7 @@ export default async function LocationDetails(
                     <div className=" flex flex-col space-y-[24px] lg:w-[50%] w-full">
                         <h2
                             style={{
-                                fontFamily: "var(--font-reem-kufi)",
+                                fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
                             className="text-black text-5xl text-left w-full"
@@ -351,15 +353,14 @@ export default async function LocationDetails(
                         <div
                             style={{
                                 fontFamily: "var(--font-inter)",
-                                fontWeight: 500,
-                                color: '#111315'
+                                fontWeight: 500, color: '#111315'
                             }}
                             className='xl:text-xl lg:text-md text-sm xl:w-[90%] self-center h-full xl:ml-20'
                             dangerouslySetInnerHTML={{
                                 __html: (location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) =>
                                     paragraph + (index < array.length - 1 ? '<br /><br />' : '')
                                 ).join('') || '') +
-                                '<br /><br />Learn more about our <a href="/treatments/lumbar-fusion-surgery" class="underline text-[#022968]">Lumbar Fusion Surgery</a> for advanced spine care.'
+                                    '<br /><br />Learn more about our <a href="/treatments/lumbar-fusion-surgery" class="underline text-[#022968]">Lumbar Fusion Surgery</a> for advanced spine care.'
                             }}
                         />
                     </div>

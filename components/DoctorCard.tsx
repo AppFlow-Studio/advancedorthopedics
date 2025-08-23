@@ -25,35 +25,40 @@ export const socials = [
 
 export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
   return (
-    <div className='w-full h-full xl:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] group relative'>
+    <div className='w-full h-full flex flex-col rounded-[16px] overflow-hidden group relative'>
       {/* Card content */}
-      <div className='relative z-10 flex flex-col space-y-[16px] flex-grow'>
+      <div className='relative z-10 space-y-[24px]  flex flex-col h-full'>
         <Link
           href={`/about/meetourdoctors/${doctor.slug}`}
           aria-label={`View profile for ${doctor.name}`}
-          className='block'>
+          className='block flex-grow'>
           <Image src={doctor.img} alt={doctor.name} className='w-full object-cover object-top xl:max-h-[400px] aspect-square rounded-[16px] bg-gray-500 xl:h-[400px]' draggable={false} />
-          <div className='flex flex-col space-y-[16px]'>
-            <h3
-              style={{
-                fontFamily: "var(--font-reem-kufi)",
-                fontWeight: 500,
-              }}
-              className="text-black text-3xl text-left w-full"
-            >{doctor.name}</h3>
-            <h4
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 400,
-              }}
-              className="text-[#54535C] "
-            >
-              {doctor.practice}
-            </h4>
+          <div className='flex flex-col space-y-[4px] mt-[16px] flex-grow'>
+            <div className='space-y-[10px] flex flex-col'>
+              <h3
+                style={{
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 500,
+                }}
+                className="text-black text-3xl text-left w-full"
+              >{doctor.name}</h3>
+              <h4
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 400,
+                }}
+                className="text-[#54535C] "
+              >
+                {doctor.practice}
+              </h4>
+            </div>
+            <p className='text-[#54535C] text-sm flex-grow'>
+              {doctor?.short_bio}
+            </p>
           </div>
         </Link>
         {/* Social icons row */}
-        <div className='flex flex-row space-x-[16px] z-20 relative'>
+        {/* <div className='flex flex-row space-x-[16px] z-20 relative'>
           {
             socials.map((item, index) => (
               <Link href={item.link} target='_blank' className='border border-[#EFF5FF] rounded-full lg:px-[13px] lg:py-[10px] px-[10px] py-[8px] items-center justify-center hover:cursor-pointer' key={index}>
@@ -61,7 +66,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
               </Link>
             ))
           }
-        </div>
+        </div> */}
         <Link
           href={`/about/meetourdoctors/${doctor.slug}`}
           className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px] w-full mt-auto">

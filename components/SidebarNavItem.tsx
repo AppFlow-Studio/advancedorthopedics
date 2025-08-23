@@ -37,11 +37,12 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0 }: Side
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value={uniqueAccordionItemId} className="border-b-0">
                         <AccordionTrigger
+                         
                             style={{ paddingLeft: paddingLeftValue }}
                             // Adjust styling based on level if needed (e.g., text size)
                             className={`py-2  rounded-md text-base font-medium text-gray-700 text-left hover:bg-gray-100 hover:text-gray-900 hover:no-underline data-[state=open]:bg-gray-50 w-full`}
                         >
-                            <span className="truncate">{item.title}</span> {/* Add truncate if titles get long */}
+                            <Link href={item.href || '#'} onClick={closeSidebar} className="truncate w-[50%]">{item.title}</Link> {/* Add truncate if titles get long */}
                         </AccordionTrigger>
                         <AccordionContent className="pt-1 pb-0"> {/* No base padding needed, handled by recursive calls */}
                             <ul className="flex flex-col space-y-1">
