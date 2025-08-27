@@ -79,10 +79,11 @@ export default function HomeHeroSection() {
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
-                className="text-[#252932] text-5xl sm:text-6xl xl:text-6xl sm:text-left text-center"
+                className="text-[#252932] text-5xl sm:text-6xl xl:text-6xl sm:text-left sm:block hidden text-center"
               >
                 Welcome to<br /> Mountain <br /> Spine & Orthopedics
               </h1>
+             
             </div>
           </SlidingDiv>
           <div className="z-[2] sm:hidden block px-4 mb-4">
@@ -104,7 +105,7 @@ export default function HomeHeroSection() {
           </SlidingDiv>
 
           <SlidingDiv position="left" className="z-[2]">
-            <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
+            <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row sm:block hidden flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
               <div className="">
                 <BookAnAppoitmentButton />
               </div>
