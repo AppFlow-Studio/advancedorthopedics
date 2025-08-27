@@ -137,7 +137,7 @@ export default function Treatments() {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(
-        <button key={i} onClick={() => paginate(i)} className={` h-[40px] hover:cursor-pointer w-[40px] flex items-center  justify-center ${i == currentPage ? 'rounded-full bg-[#FAFAFA] text-[#022968] ' : 'text-[#5B5F67]'}`}>
+        <button key={i} onClick={() => paginate(i)} className={` h-[40px] hover:cursor-pointer w-[40px] flex items-center  justify-center ${i == currentPage ? 'rounded-full bg-[#FAFAFA] text-[#252932] ' : 'text-[#424959]'}`}>
           <span
             style={{
               fontFamily: 'var(--font-public-sans)',
@@ -195,7 +195,7 @@ export default function Treatments() {
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
               }}
-              className="text-[#022968] text-3xl md:text-6xl lg:text-7xl"
+              className="text-[#252932] text-3xl md:text-6xl lg:text-7xl"
             >
               Treatments
             </TextAnimate>
@@ -233,7 +233,7 @@ export default function Treatments() {
               fontFamily: 'var(--font-inter)',
               fontWeight: 500,
             }}
-            className='text-[#5B5F67] sm:text-xl text-md sm:w-[75%] '
+            className='text-[#424959] sm:text-xl text-md sm:w-[75%] '
           >
             Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
           </p>
@@ -255,7 +255,7 @@ export default function Treatments() {
               fontFamily: 'var(--font-inter)',
               fontWeight: 500,
             }}
-            className='text-[#5B5F67] sm:text-xl text-sm sm:w-[75%] w-full'
+            className='text-[#424959] sm:text-xl text-sm sm:w-[75%] w-full'
           >
             Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
             <br /><br />
@@ -355,7 +355,7 @@ export default function Treatments() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="currentColor"> {/* Changed fill */}
                   <path d="M5.2929 11.7071C5.68342 12.0976 6.31659 12.0976 6.70711 11.7071C7.09763 11.3166 7.09763 10.6834 6.7071 10.2929L3.41419 7L17 7C17.5523 7 18 6.55228 18 6C18 5.44771 17.5523 5 17 5L3.41423 5L6.70707 1.7071C7.09759 1.31657 7.09759 0.683409 6.70706 0.292888C6.31653 -0.0976335 5.68337 -0.0976287 5.29285 0.292899L0.298225 5.2876C0.27977 5.30578 0.262016 5.32468 0.245012 5.34424C0.177454 5.42185 0.123865 5.50741 0.0842495 5.59762C0.0304489 5.71989 0.000417697 5.85497 3.81444e-06 5.99702L0 6C2.69961e-10 6.00309 1.3352e-05 6.00617 4.19625e-05 6.00925C0.00118257 6.13503 0.0255413 6.25525 0.0690403 6.36586C0.117815 6.49017 0.192434 6.60669 0.292896 6.70715L5.2929 11.7071Z" /> {/* Removed fill attribute, inherits */}
                 </svg>
-                <span style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }} className='text-[#5B5F67]'>
+                <span style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }} className='text-[#424959]'>
                   Previous
                 </span>
               </button>

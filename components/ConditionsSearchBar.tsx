@@ -8,10 +8,10 @@ import { Search, X } from 'lucide-react'
 import type { ConditionInfoProp } from '@/components/data/conditions'
 
 interface Props {
-    conditions: ConditionInfoProp[]
-    onSelect: (condition: ConditionInfoProp) => void
-    onClear: () => void // This prop MUST be provided by the parent
-  }
+  conditions: ConditionInfoProp[]
+  onSelect: (condition: ConditionInfoProp) => void
+  onClear: () => void // This prop MUST be provided by the parent
+}
 
 export default function ConditionsSearchBar({ conditions, onSelect, onClear }: Props) {
   const [query, setQuery] = useState('')
@@ -71,8 +71,8 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
   // Handler for keyboard navigation
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Escape') {
-        setShow(false);
-        return;
+      setShow(false);
+      return;
     }
     if (!show || filtered.length === 0) return;
 
@@ -102,26 +102,26 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
     setShow(false);
     setFiltered([]);
     setActive(-1);
-     // Check if onSelect is actually a function before calling (optional safeguard)
-     if (typeof onSelect === 'function') {
-        onSelect(item);
-     } else {
-       console.error("ConditionsSearchBar: onSelect prop is not a function!");
-     }
+    // Check if onSelect is actually a function before calling (optional safeguard)
+    if (typeof onSelect === 'function') {
+      onSelect(item);
+    } else {
+      console.error("ConditionsSearchBar: onSelect prop is not a function!");
+    }
   }
 
   // Handler for the clear button
   function handleClearClick() {
-      setQuery('');
-      setShow(false);
-      setFiltered([]);
-      setActive(-1);
-       // Check if onClear is actually a function before calling (optional safeguard)
-       if (typeof onClear === 'function') {
-        onClear();
-      } else {
-        console.error("ConditionsSearchBar: onClear prop is not a function!");
-      }
+    setQuery('');
+    setShow(false);
+    setFiltered([]);
+    setActive(-1);
+    // Check if onClear is actually a function before calling (optional safeguard)
+    if (typeof onClear === 'function') {
+      onClear();
+    } else {
+      console.error("ConditionsSearchBar: onClear prop is not a function!");
+    }
   }
 
   return (
@@ -136,7 +136,7 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
         onFocus={() => { if (query.trim()) { setShow(true); } }}
         onKeyDown={handleKeyDown}
         placeholder="Search Name or Keyword"
-        className="w-full h-12 pl-12 pr-10 py-2 rounded-lg bg-[#EFF5FF] placeholder-gray-500 text-gray-900 outline-none border border-transparent focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+        className="w-full h-12 pl-12 pr-10 py-2 rounded-lg bg-[#FAFAFA] placeholder-gray-500 text-gray-900 outline-none border border-transparent focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
         autoComplete="off"
       />
       {query && (
@@ -157,9 +157,8 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
               key={item.slug}
               onMouseDown={(e) => { e.preventDefault(); select(item); }}
               onMouseEnter={() => setActive(idx)}
-              className={`px-6 py-2 cursor-pointer text-sm text-gray-700 ${
-                idx === active ? 'bg-blue-100' : 'hover:bg-gray-100'
-              }`}
+              className={`px-6 py-2 cursor-pointer text-sm text-gray-700 ${idx === active ? 'bg-blue-100' : 'hover:bg-gray-100'
+                }`}
             >
               {item.title}
             </li>
@@ -167,8 +166,8 @@ export default function ConditionsSearchBar({ conditions, onSelect, onClear }: P
         </ul>
       )}
       {show && query.trim() && filtered.length === 0 && (
-         <div className="absolute z-20 mt-1 w-full px-6 py-3 bg-white border border-gray-200 rounded-md shadow-lg text-sm text-gray-500">
-            No conditions found matching "{query}".
+        <div className="absolute z-20 mt-1 w-full px-6 py-3 bg-white border border-gray-200 rounded-md shadow-lg text-sm text-gray-500">
+          No conditions found matching "{query}".
         </div>
       )}
     </div>

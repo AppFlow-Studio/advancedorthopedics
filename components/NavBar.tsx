@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Logo from "../public/newlogo4.png"
+import Logo from "../public/bluemountainspinelogo2.png"
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { cn } from "@/lib/utils"
@@ -30,6 +30,7 @@ import {
 import { clinics } from './data/clinics';
 import { SidebarNavItem } from './SidebarNavItem';
 import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion'
 
 function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
   href: string;
@@ -64,22 +65,36 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
     icon: React.ComponentType<any>
   } | null>(null);
 
+  // Check if current pathname matches the main screen or any of its sublinks
+  const isActive = pathname === screen ||
+    sublinks.some(link =>
+      pathname === link.href ||
+      link.subLinks.some(subLink => pathname === subLink.href)
+    );
+
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger
-        className={`${pathname === screen ? 'text-[#0094E0]' : 'text-[#022968]'} hover:text-[#0094E0] bg-transparent border transition-colors duration-300`}
-        onClick={() => setIsOpen(!isOpen)}
+        className={`${isActive
+          ? 'text-[#0A50EC] border-white border-1 px-4 py-2 rounded-full shadow-sm'
+          : 'text-black hover:text-[#0A50EC] bg-transparent border-0'
+          } transition-all duration-300 font-semibold hover:bg-transparent`}
+
+        style={{
+          backdropFilter: isActive ? 'blur(50px)' : 'blur(0px)'
+        }}
       >
-        {title}
+        <Link href={href}>{title}</Link>
       </NavigationMenuTrigger>
       <NavigationMenuContent className='grid gap-2 md:w-[400px] lg:max-w-200 lg:w-fit lg:grid-cols-[.8fr_1fr]'
         style={{
           background: 'rgba(239, 245, 255, 0.50)',
           border: '1px solid white',
           borderRadius: '8px',
-          backdropFilter: 'blur(20px)'
+          backdropFilter: 'blur(30px)'
         }}
       >
+
         <ul className='flex flex-col w-100'>
           {
             sublinks.map((link, linkIndex) => {
@@ -91,9 +106,9 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
                       <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
                         <div className='flex flex-row items-center gap-x-4'>
                           <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                            <IconComponent className='w-8 h-8 text-[#022968]' />
+                            <IconComponent className='w-8 h-8 text-[#252932]' />
                           </div>
-                          <div className='flex flex-col gap-y-2'>
+                          <div className='flex flex-col gap-y-0'>
                             <span
                               style={{
                                 fontFamily: "var(--font-public-sans)",
@@ -102,10 +117,10 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
                             >
                               {link.title}
                             </span>
-                            <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                            <span className='text-xs text-gray-500'>{link.short_desc}</span>
                           </div>
                         </div>
-                        <ChevronRight className='w-4 h-4 text-[#022968]' />
+                        <ChevronRight className='w-4 h-4 text-[#252932]' />
                       </Link>
                     </NavigationMenuLink>
                   ) : (
@@ -115,7 +130,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
                       onMouseEnter={() => setSelectedSubLink(link)}
                     >
                       <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                        <IconComponent className='w-4 h-4 text-[#022968]' />
+                        <IconComponent className='w-4 h-4 text-[#252932]' />
                       </div>
                       <div className='flex flex-col gap-y-2'>
                         <span
@@ -142,7 +157,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
             {/* Header */}
             <div className='flex flex-row items-center gap-x-3 mb-4 pb-3 border-b'>
               <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                <selectedSubLink.icon className='w-6 h-6 text-[#022968]' />
+                <selectedSubLink.icon className='w-6 h-6 text-[#252932]' />
               </div>
               <div className='flex flex-col'>
                 <span
@@ -150,7 +165,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
                     fontFamily: "var(--font-public-sans)",
                     fontWeight: 600,
                   }}
-                  className='text-[#022968]'
+                  className='text-[#252932]'
                 >
                   {selectedSubLink.title}
                 </span>
@@ -167,7 +182,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
                     <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200">
                       <div className='flex flex-row items-center gap-x-3'>
                         <div className='p-1.5 rounded-xl border aspect-square flex items-center justify-center'>
-                          <SubIconComponent className='w-4 h-4 text-[#022968]' />
+                          <SubIconComponent className='w-4 h-4 text-[#252932]' />
                         </div>
                         <div className='flex flex-col'>
                           <span
@@ -175,7 +190,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
                               fontFamily: "var(--font-public-sans)",
                               fontWeight: 400,
                             }}
-                            className='text-[#022968]'
+                            className='text-[#252932]'
                           >
                             {subLink.title}
                           </span>
@@ -501,35 +516,52 @@ const NavBarLinks = [
 ]
 
 const HamburgerIcon = ({ open, ...props }: { open: boolean } & React.SVGProps<SVGSVGElement>) => (
-  <svg
+  <motion.svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"
-    width="28" // Increased size slightly
+    width="28"
     height="28"
-    viewBox="0 0 22 22"
+    viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor" // Use currentColor to inherit text color
+    stroke="currentColor"
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    {open ? (
-      <> {/* X icon */}
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </>
-    ) : (
-      <> {/* Hamburger icon */}
-        <path d="M20.333 17.2913C20.816 17.2915 21.2078 17.6833 21.208 18.1663C21.208 18.6495 20.8161 19.0411 20.333 19.0413H1.66602C1.18277 19.0413 0.791016 18.6496 0.791016 18.1663C0.791191 17.6832 1.18287 17.2913 1.66602 17.2913H20.333ZM20.333 9.12531C20.8161 9.12548 21.208 9.51716 21.208 10.0003C21.2078 10.4833 20.816 10.8751 20.333 10.8753H1.66602C1.18288 10.8753 0.791192 10.4834 0.791016 10.0003C0.791016 9.51706 1.18277 9.12531 1.66602 9.12531H20.333ZM13.333 0.958313C13.8161 0.958488 14.208 1.35017 14.208 1.83331C14.208 2.31645 13.8161 2.70814 13.333 2.70831H1.66602C1.18277 2.70831 0.791016 2.31656 0.791016 1.83331C0.791016 1.35006 1.18277 0.958313 1.66602 0.958313H13.333Z" fill="#4CC2FF" />
-      </>
-    )}
-  </svg>
+    <motion.line x1="4" y1="6" x2="20" y2="6" animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} />
+    <motion.line x1="4" y1="12" x2="20" y2="12" animate={open ? { opacity: 0 } : { opacity: 1 }} transition={{ duration: 0.15 }} />
+    <motion.line x1="4" y1="18" x2="20" y2="18" animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} />
+  </motion.svg>
 );
 
 export default function NavBar() {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <-- State for sidebar
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // iOS-like sidebar animation variants
+  const sidebarVariants = {
+    hidden: { x: 56, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 260, damping: 30, mass: 0.9 }
+    },
+    exit: { x: 56, opacity: 0, transition: { duration: 0.2 } }
+  } as const
+
+  const listVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.05 }
+    }
+  } as const
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 14 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+  } as const
 
   useEffect(() => {
     const handleScroll = () => {
@@ -545,12 +577,12 @@ export default function NavBar() {
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? '' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? 'backdrop-blur-3xl bg-white/50 pb-3' : 'bg-transparent'}`}>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
           <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '>
-            <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] lg:w-auto w-10 h-10  " />
-            <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet' />
-            <div className="flex flex-col text-white"
+            <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[40px] object-cover lg:h-[40px] lg:w-auto w-20 h-10  " />
+            <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-[#0A50EC] to-transparnet' />
+            <div className="flex flex-col text-[#0A50EC]"
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontSize: "16px",
@@ -558,8 +590,8 @@ export default function NavBar() {
                 letterSpacing: "0.02em",
               }}
             >
-              <span className="md:text-lg text-mdfont-[600]">MOUNTAIN</span>
-              <span className="font-[600] text-xs"> SPINE & ORTHOPEDICS</span>
+              <span className="md:text-2xl text-md font-[700]">MOUNTAIN</span>
+              <span className="font-[700] text-xs"> SPINE & ORTHOPEDICS</span>
             </div>
           </Link>
 
@@ -576,7 +608,7 @@ export default function NavBar() {
           </NavigationMenu>
 
           <button
-            className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 ml-6  bg-white rounded-xl backdrop-blur-3xl ${isSidebarOpen ? 'hidden' : ''}`}   //ml-auto pushes it right if space allows
+            className={`xl:hidden text-[#0A50EC] flex p-2 z-50 ml-6  bg-white rounded-xl backdrop-blur-3xl`}   //ml-auto pushes it right if space allows
             onClick={toggleSidebar}
             aria-label="Toggle menu"
             aria-expanded={isSidebarOpen}
@@ -586,7 +618,7 @@ export default function NavBar() {
           </button>
 
           <a href="tel:5612239959"
-            className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  h-[40px] px-[20px] rounded-[62px] relative z-50 items-center justify-between bg-[#022968] text-white text-[14px] font-semibold hover:cursor-pointer`}
+            className={` ${isSidebarOpen ? 'hidden' : 'sm:flex hidden'} group  h-[40px] px-[20px] rounded-[62px] relative z-50 items-center justify-between bg-[#0A50EC] text-white text-[14px] font-semibold hover:cursor-pointer`}
             onClick={() => {
               if (typeof window !== "undefined" && window.dataLayer) {
                 window.dataLayer.push({
@@ -600,7 +632,7 @@ export default function NavBar() {
             <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
             <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF" />
+                <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#FAFAFA" />
               </svg>
             </div>
           </a>
@@ -609,70 +641,85 @@ export default function NavBar() {
       </header>
 
       {/* Overlay (Visible when sidebar is open, below xl) */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/60 z-30 xl:hidden" // Semi-transparent black
-          onClick={closeSidebar} // Close sidebar when overlay is clicked
-          aria-hidden="true"
-        />
-      )}
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div
+            key="sidebar-overlay"
+            className="fixed inset-0 z-30 xl:hidden backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={closeSidebar}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
 
 
       {/* Sidebar Container */}
-      <aside
-        id="mobile-sidebar" // ID for aria-controls
-        className={`fixed top-0 right-0 h-full w-full md:w-[65%] bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full' // Slide in/out from right
-          }`}
-        aria-hidden={!isSidebarOpen} // Hide from screen readers when closed
-      >
-        <div className="p-6">
-          <button
-            className={`xl:hidden text-[#4CC2FF] flex p-2 z-50 mt-20 ml-auto bg-white rounded-xl backdrop-blur-3xl`}   //ml-auto pushes it right if space allows
-            onClick={toggleSidebar}
-            aria-label="Toggle menu"
-            aria-expanded={isSidebarOpen}
-            aria-controls="mobile-sidebar"  //Should match sidebar id
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.aside
+            key="mobile-sidebar"
+            id="mobile-sidebar"
+            className={`fixed top-0 left-0 right-0 h-full w-full bg-white rounded-b-2xl z-40 xl:hidden`}
+            initial={{ y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
+            transition={{ type: 'spring', stiffness: 280, damping: 30 }}
+            aria-hidden={!isSidebarOpen}
           >
-            <HamburgerIcon open={isSidebarOpen} />
-          </button>
-        </div>
+            
 
-        {/* Sidebar Navigation Links */}
-        <nav className="mt-16 flex flex-col space-y-4 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]">
-          {NavBarLinks.map((link, index) => {
-            return (
-              <SidebarNavItem
-                key={`top-level-${index}`}
-                item={link}
-                pathname={pathname}
-                closeSidebar={closeSidebar}
-                level={0} // Start top-level items at level 0
-              />
-            )
-          })
-          }
-          {/* Optional: Add Contact Us button in sidebar */}
-          <a href="tel:5612239959"
-            className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#022968] text-white text-[14px] font-semibold"
-            onClick={() => {
-              if (typeof window !== "undefined" && window.dataLayer) {
-                window.dataLayer.push({
-                  event: 'call_click',
-                  phone_number: '5612239959',
-                  location: 'NavBar'
-                });
-              }
-            }}
-          >
-            <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
-            <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF" />
-              </svg>
-            </div>
-          </a>
-        </nav>
-      </aside>
+            {/* Sidebar Navigation Links */}
+            <motion.nav
+              className="pt-26 flex flex-col space-y-4 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]"
+              variants={listVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {NavBarLinks.map((link, index) => {
+                return (
+                  <motion.div key={`top-level-${index}`} variants={itemVariants}>
+                    <SidebarNavItem
+                      item={link}
+                      pathname={pathname}
+                      closeSidebar={closeSidebar}
+                      level={0}
+                    />
+                  </motion.div>
+                )
+              })}
+              {/* Optional: Add Contact Us button in sidebar */}
+              <motion.a
+                variants={itemVariants}
+                href="tel:5612239959"
+                className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#0A50EC] text-white text-[14px] font-semibold"
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'call_click',
+                      phone_number: '5612239959',
+                      location: 'NavBar'
+                    });
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <p className=' group-hover:scale-[1.1] transition-all duration-300 ease-in-out'>Contact Us</p>
+                <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+                    <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#FAFAFA" />
+                  </svg>
+                </div>
+              </motion.a>
+            </motion.nav>
+          </motion.aside>
+        )}
+      </AnimatePresence>
     </>
   )
 }

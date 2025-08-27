@@ -49,7 +49,7 @@ export default function BookAnAppointment() {
               fontFamily: 'var(--font-public-sans)',
               fontWeight: 500,
             }}
-            className='text-[#022968] text-3xl md:text-6xl'
+            className='text-[#252932] text-3xl md:text-6xl'
           >
             Book an Appointment
           </TextAnimate>

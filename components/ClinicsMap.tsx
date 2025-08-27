@@ -98,7 +98,7 @@ export default function ClinicsMap({ startingClinic }: {
     const svgString = `
       <svg xmlns="http://www.w3.org/2000/svg" width="${internalSvgWidth}" height="${internalSvgHeight}" viewBox="0 0 ${internalSvgWidth} ${internalSvgHeight}">
         {/* Background fills the internal viewBox */}
-        <rect x="0" y="0" width="${internalSvgWidth}" height="${internalSvgHeight}" rx="${internalSvgHeight / 2}" fill="#022968"/>
+        <rect x="0" y="0" width="${internalSvgWidth}" height="${internalSvgHeight}" rx="${internalSvgHeight / 2}" fill="#252932"/>
         {/* Icon positioned using internal padding */}
         <g transform="translate(${internalPaddingX / 5}, ${internalPaddingY / 1.2}) scale(1.5)">
           {/* Render icon using its internal base size */}
@@ -294,7 +294,7 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic:
             fontFamily: "var(--font-public-sans)",
             fontWeight: 400,
           }}
-          className="text-2xl font-semibold text-[#5B5F67]">
+          className="text-2xl font-semibold text-[#424959]">
           Find your Clinic
         </h2>
         {

@@ -95,7 +95,7 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
               }}
-              className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+              className="text-[#252932] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
               {condition_details.title}
             </TextAnimate>
@@ -142,7 +142,7 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {condition_details?.detail}
               </div>

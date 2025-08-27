@@ -36,7 +36,7 @@ export default function MeetOurDoctors() {
           <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] md:w-[60%] lg:w-[45%] xl:w-[56%]">
             <h1
               style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
-              className="text-[#022968] lg:text-7xl md:text-5xl text-4xl"
+              className="text-[#252932] lg:text-7xl md:text-5xl text-4xl"
             >
               Meet Our Doctors
             </h1>
@@ -55,7 +55,7 @@ export default function MeetOurDoctors() {
 
           <div className=' mt-[40px]  px-6 xl:px-[80px] pb-8'>
             <Link href={'/condition-check'}
-              className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] w-fit text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
+              className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] w-fit text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
             >
               <h1
                 style={{

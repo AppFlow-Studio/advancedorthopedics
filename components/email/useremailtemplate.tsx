@@ -56,7 +56,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
               fontSize: textSizes['2xl'].fontSize, /* text-2xl */
               lineHeight: textSizes['2xl'].lineHeight,
               fontWeight: '700', /* font-bold */
-              color: '#0094E0', /* text-[#0094E0] */
+              color: '#0A50EC', /* text-[#0A50EC] */
               marginBottom: '16px' /* mb-4 */
             }}>Thank You for Your Submission</h1>
 
@@ -70,14 +70,14 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
             {/* Info Box */}
             <div style={{
               backgroundColor: '#f9fafb', /* bg-gray-50 */
-              borderLeft: '4px solid #0094E0', /* border-l-4 border-[#0094E0] */
+              borderLeft: '4px solid #0A50EC', /* border-l-4 border-[#0A50EC] */
               padding: '16px', /* p-4 */
               borderRadius: '4px', /* Tailwind's default rounded is slightly different from rounded-md, etc. p-4 often comes with rounded. Assuming it's a small radius */
               marginBottom: '24px' /* mb-6 */
             }}>
               <h3 style={{
                 fontWeight: '700', /* font-bold */
-                color: '#0094E0', /* text-[#0094E0] */
+                color: '#0A50EC', /* text-[#0A50EC] */
                 marginBottom: '8px' /* mb-2 */
               }}>What Happens Next:</h3>
               <p style={{ color: '#374151', marginBottom: '4px' }}>1. Our team is reviewing your information</p> {/* text-gray-700 mb-1 */}
@@ -87,7 +87,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
 
             <p style={{ color: '#374151', marginBottom: '24px' }}> {/* text-gray-700 mb-6 */}
               If you need immediate assistance, please call our main office at{" "}
-              <span style={{ color: '#0094E0', fontWeight: '500' }}><a href="tel:5612239959">(561) 223-9959</a></span>. {/* text-[#0094E0] font-medium */}
+              <span style={{ color: '#0A50EC', fontWeight: '500' }}><a href="tel:5612239959">(561) 223-9959</a></span>. {/* text-[#0A50EC] font-medium */}
             </p>
 
             <hr style={{ borderColor: '#e5e7eb', marginTop: '24px', marginBottom: '24px' }} /> {/* border-gray-200 my-6 */}
@@ -99,7 +99,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                 <h3 style={{
                   fontSize: '20px', /* text-xl equivalent */
                   fontWeight: '700', /* font-bold */
-                  color: '#0094E0',
+                  color: '#0A50EC',
                   marginBottom: '12px',
                   display: 'flex',
                   alignItems: 'center'
@@ -169,7 +169,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                 }}>
                   <h1 style={{
                     fontWeight: '700', /* font-medium */
-                    color: '#0094E0',
+                    color: '#0A50EC',
                     fontSize: textSizes['lg'].fontSize,
                     textDecoration: 'underline'
                   }}>View All 8 Locations</h1>
@@ -198,13 +198,13 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
               marginBottom: '12px' /* mb-3 -- note: space-x-4 handled by individual link margins */
             }}>
               {/* space-x-4: Apply margin to links. For email, better to wrap each in a span or apply directly. */}
-              <a href="https://mountainspineorthopedics.com" style={{ color: '#0094E0', textDecoration: 'underline', marginRight: '8px' }}>{/* text-[#0094E0] hover:underline. For half of space-x-4 (16px / 2) */}
+              <a href="https://mountainspineorthopedics.com" style={{ color: '#0A50EC', textDecoration: 'underline', marginRight: '8px' }}>{/* text-[#0A50EC] hover:underline. For half of space-x-4 (16px / 2) */}
                 Website
               </a>
-              <a href="https://mountainspineorthopedics.com/locations" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}> {/* for space-x-4 */}
+              <a href="https://mountainspineorthopedics.com/locations" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}> {/* for space-x-4 */}
                 Locations
               </a>
-              <a href="tel:5612239959" style={{ color: '#0094E0', textDecoration: 'underline', marginLeft: '8px' }}> {/* for half of space-x-4 */}
+              <a href="tel:5612239959" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px' }}> {/* for half of space-x-4 */}
                 Contact Us
               </a>
             </div>

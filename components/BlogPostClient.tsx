@@ -124,28 +124,28 @@ export default function BlogDetails({
 
           case 'h1':
             return (
-              <h2 key={key} className="text-3xl font-bold mb-4 text-[#022968]">
+              <h2 key={key} className="text-3xl font-bold mb-4 text-[#252932]">
                 {children}
               </h2>
             );
 
           case 'h2':
             return (
-              <h2 key={key} className="text-2xl font-bold mb-3 text-[#022968]">
+              <h2 key={key} className="text-2xl font-bold mb-3 text-[#252932]">
                 {children}
               </h2>
             );
 
           case 'h3':
             return (
-              <h3 key={key} className="text-xl font-bold mb-2 text-[#022968]">
+              <h3 key={key} className="text-xl font-bold mb-2 text-[#252932]">
                 {children}
               </h3>
             );
 
           case 'h4':
             return (
-              <h4 key={key} className="text-lg font-bold mb-2 text-[#022968]">
+              <h4 key={key} className="text-lg font-bold mb-2 text-[#252932]">
                 {children}
               </h4>
             );
@@ -295,16 +295,16 @@ export default function BlogDetails({
           />
           <div className='px-6 xl:px-[80px] z-[2] mt-60 md:mt-[220px]'>
             <nav aria-label="Breadcrumb" className="mb-4 xl:flex hidden">
-              <ol className="flex space-x-2 text-[#022968]">
+              <ol className="flex space-x-2 text-[#252932]">
                 <li><a href="/blogs">Blogs</a> /</li>
                 <li aria-current="page">{blog_details.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full">{blog_details.blog_info.title}</TextAnimate>
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full">{blog_details.blog_info.title}</TextAnimate>
             <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-white mt-4 md:text-md text-sm xl:w-[55%] w-full">{blog_details.blog_info.desc}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {blog_details.blog_info.tags.map((tag: string, index: number) => (
-                <span key={index} className="bg-[#EFF5FF] text-[#022968] px-3 py-1 rounded-full text-sm">{tag}</span>
+                <span key={index} className="bg-[#FAFAFA] text-[#252932] px-3 py-1 rounded-full text-sm">{tag}</span>
               ))}
             </div>
             <div className="flex items-center gap-6 mt-4 text-sm text-white mb-6">
@@ -329,7 +329,7 @@ export default function BlogDetails({
           {blog_details.blog_info.blog_info.map((section: any, idx: number) => (
             <section key={idx} className="mb-8">
               <h2 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
-              <div className='text-[#5B5F67] text-lg mb-4'>{renderRichText(section.body)}</div>
+              <div className='text-[#424959] text-lg mb-4'>{renderRichText(section.body)}</div>
               {section.sub_stories && section.sub_stories.length > 0 && (
                 <div className="space-y-4">
                   {section.sub_stories.map((sub: any, subIdx: number) => (
@@ -338,8 +338,8 @@ export default function BlogDetails({
                         <div className='w-full h-100 relative rounded-2xl overflow-hidden mb-6'>
                           <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
                         </div>)}
-                      <h3 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#022968] text-xl mb-1'>{sub.header}</h3>
-                      <div className='text-[#5B5F67] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base'>{renderRichText(sub.body)}</div>
+                      <h3 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#252932] text-xl mb-1'>{sub.header}</h3>
+                      <div className='text-[#424959] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base'>{renderRichText(sub.body)}</div>
                     </div>
                   ))}
                 </div>
@@ -348,7 +348,7 @@ export default function BlogDetails({
           ))}
         </article>
         <aside className='lg:w-[30%] w-full flex flex-col space-y-8'>
-          <h2 className='text-[#022968] text-2xl font-bold mb-4'>Recent Posts</h2>
+          <h2 className='text-[#252932] text-2xl font-bold mb-4'>Recent Posts</h2>
           <div className='grid grid-cols-1 gap-4'>
             {
               recentPosts?.slice(0, 3).map((post) => (

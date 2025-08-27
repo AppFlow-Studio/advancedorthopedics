@@ -34,7 +34,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl"
+                                className="text-[#424959] text-xl"
                             >
                                 At Mountain Spine & Orthopedics, we specialize in personalized back pain care, starting with conservative options like physical therapy, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
                             </p>
@@ -50,7 +50,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl"
+                                className="text-[#424959] text-xl"
                             >
                                 If you're struggling with persistent or worsening back pain, our team is here to help. Use our quick and easy condition checker to determine whether you may be a candidate for evaluation or treatment.
                             </p>
@@ -78,7 +78,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl list-disc pl-6 space-y-2"
+                                className="text-[#424959] text-xl list-disc pl-6 space-y-2"
                             >
                                 <li>Transforaminal Lumbar Interbody Fusion (TLIF): Stabilizes the spine by removing a damaged disc and inserting a bone graft or spacer, relieving nerve pressure.</li>
                                 <li>Lumbar Laminectomy: Removes a portion of vertebral bone (lamina) to decompress nerves, often used to treat spinal stenosis.</li>
@@ -110,7 +110,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">Not all back pain requires surgery. Many patients respond well to non-invasive treatment options such as:</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Steroid Injections: Reduce inflammation and provide temporary relief.</li>
@@ -141,7 +141,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">Chronic back pain is defined as pain lasting 12 weeks or longer, even after the initial cause has been treated. It can be caused by:</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Herniated or Bulging Discs: Disc material presses on nerve roots, causing inflammation and pain.</li>
@@ -180,7 +180,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">You should consult a spine specialist if you notice:</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Persistent Pain: Lasting more than a few weeks</li>
@@ -210,7 +210,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">A healthy lifestyle plays a key role in preventing chronic back pain. Here's what we recommend:</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Exercise Regularly: Strengthen your core and improve flexibility</li>
@@ -241,7 +241,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">What's the recovery time for minimally invasive back surgery?</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Most patients recover faster than with traditional surgery returning to activity within weeks.</li>
@@ -253,7 +253,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">Are minimally invasive surgeries effective?</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Yes, they offer the same or better outcomes with less pain and faster recovery.</li>
@@ -265,7 +265,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">Will I need physical therapy after surgery?</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>In most cases, yes PT helps strengthen muscles and improve mobility.</li>
@@ -277,7 +277,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">What are the risks of spinal surgery?</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Risks are low, especially with minimally invasive techniques, but may include infection or incomplete relief.</li>
@@ -289,7 +289,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">Can physical activity worsen my back pain?</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Not if done correctly. Guided exercise helps reduce pain over time and prevent reinjury.</li>
@@ -317,7 +317,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 Living with chronic back pain can be exhausting—but you don't have to do it alone. At Mountain Spine & Orthopedics, our team specializes in advanced, minimally invasive techniques and personalized recovery plans to help you get back to doing what you love.<br /><br />
                                 Call us today at (866) 272-9271 or fill out our online form to schedule your consultation. Relief may be closer than you think.
                             </div>
@@ -365,7 +365,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl"
+                                className="text-[#424959] text-xl"
                             >
                                 <p className="mb-4">We take a comprehensive approach to neck and shoulder care, beginning with a detailed evaluation and diagnosis. Treatments may include:</p>
                                 <ul className="list-disc pl-6 space-y-2">
@@ -389,7 +389,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl"
+                                className="text-[#424959] text-xl"
                             >
                                 If you're struggling with persistent or worsening neck or shoulder pain, our team is here to help. Use our quick and easy condition checker to see if you're a candidate for treatment.
                             </div>
@@ -417,7 +417,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl"
+                                className="text-[#424959] text-xl"
                             >
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Cervical Discectomy & Fusion: Removes a damaged disc in the neck and fuses the vertebrae to relieve nerve pressure</li>
@@ -456,7 +456,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4">Many patients experience relief from conservative treatments without the need for surgery. Common non-invasive options include:</p>
                                 <ul className="list-disc pl-6 space-y-2">
                                     <li>Targeted physical therapy to stretch and strengthen key muscles</li>
@@ -488,7 +488,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4"><span className="text-black">Do I need surgery for chronic neck or shoulder pain?</span></p>
                                 Not necessarily. Many conditions can be treated effectively with physical therapy, medications, or injections.
                             </div>
@@ -497,7 +497,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4"><span className="text-black">When should I see a specialist?</span></p>
                                 If your pain has lasted more than a few weeks or is interfering with daily activities, it's time to consult a physician.
                             </div>
@@ -506,7 +506,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4"><span className="text-black">Are there long-term risks if I delay treatment?</span></p>
                                 Prolonged nerve compression or joint damage can lead to permanent issues, so early care is best.
                             </div>
@@ -515,7 +515,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 <p className="mb-4"><span className="text-black">Will I need physical therapy after surgery?</span></p>
                                 In most cases, yes. Physical therapy helps improve range of motion and strengthen supporting muscles.
                             </div>
@@ -540,7 +540,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-xl">
+                                className="text-[#424959] text-xl">
                                 Living with chronic pain in your neck or shoulders can limit your ability to enjoy everyday activities. At Mountain Spine & Orthopedics, our expert team is here to help you find lasting relief. We take the time to understand your condition, explain all your options, and create a treatment plan tailored to your goals.<br /><br />
                                 Call us today at (561) 223-9959 or fill out our online consultation form to get started. Relief may be closer than you think.
                             </div>

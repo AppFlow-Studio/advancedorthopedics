@@ -62,8 +62,8 @@ export default function HomePainToProgress() {
       >
         {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-[#0094E0] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#022968] rounded-full blur-3xl"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 bg-[#0A50EC] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#252932] rounded-full blur-3xl"></div>
         </div>
 
         <div className="w-full flex items-center justify-center flex-col relative z-10">
@@ -77,7 +77,7 @@ export default function HomePainToProgress() {
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500,
-                background: 'linear-gradient(177deg, #022968 -13.59%, #0094E0 109.86%)',
+                background: 'linear-gradient(177deg, #252932 -13.59%, #0A50EC 109.86%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
@@ -113,7 +113,7 @@ export default function HomePainToProgress() {
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500,
               }}
-              className="text-lg text-[#5B5F67] mt-[20px] text-center w-full md:w-[55%] self-center"
+              className="text-lg text-[#424959] mt-[20px] text-center w-full md:w-[55%] self-center"
             >
               Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results
               that make a difference. Your mobility and well-being are our top priority!
@@ -155,7 +155,7 @@ export default function HomePainToProgress() {
                             style={{
                               fontFamily: "var(--font-public-sans)",
                               fontWeight: 600,
-                              color: '#022968',
+                              color: '#252932',
                             }}
                             className="text-xl"
                           >
@@ -165,7 +165,7 @@ export default function HomePainToProgress() {
                             style={{
                               fontFamily: "var(--font-public-sans)",
                               fontWeight: 400,
-                              color: '#5B5F67',
+                              color: '#424959',
                             }}
                             className="text-base leading-relaxed"
                           >
@@ -176,24 +176,24 @@ export default function HomePainToProgress() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
-                <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
+                <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
+                <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
               </Carousel>
-
-              {/* Custom Progress Indicators */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {Array.from({ length: 3 }).map((_, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => api?.scrollTo(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
-                      ? 'bg-[#0094E0] w-6'
-                      : 'bg-[#0094E0]/30 hover:bg-[#0094E0]/50'
-                      }`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  />
-                ))}
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <motion.button
+                      key={index}
+                      onClick={() => api?.scrollTo(index)}
+                      className={`h-2 rounded-full transition-all duration-300 ${index === current
+                        ? 'bg-[#0A50EC] w-6'
+                        : 'bg-[#0A50EC]/30 w-2 hover:bg-[#0A50EC]/50'
+                        }`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           )}

@@ -48,14 +48,14 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
     // Reusing the HTML structure and styling from the selected code
     <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6', color: '#333', margin: '0 auto', border: '1px solid #ddd', borderRadius: '8px', height: '100%', overflow: 'hidden' }}>
       {/* Header Section */}
-      <div style={{ backgroundColor: '#0094E0', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
+      <div style={{ backgroundColor: '#0A50EC', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
         <img src="https://mountainspineortho.b-cdn.net/newlogo4.png" alt="Mountain Spine & Orthopedic Center" style={{ width: '100px', marginRight: '15px' }} />
         <h1 style={{ fontSize: '24px', color: 'white', margin: '0' }}>Mountain Spine & Orthopedics</h1>
       </div>
 
       {/* Body Section */}
       <div style={{ padding: '20px 30px' }}>
-        <h2 style={{ color: '#022968', fontSize: '20px' }}>Treatment Candidacy Information Received</h2>
+        <h2 style={{ color: '#252932', fontSize: '20px' }}>Treatment Candidacy Information Received</h2>
         <p style={{ color: 'black' }}>Dear {fullName},</p>
         <p style={{ color: 'black' }}>
           Thank you for submitting your information to Mountain Spine & Orthopedics. Our team is dedicated to helping you find the best path forward.
@@ -65,7 +65,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
         </p>
 
         {/* Submitted Information Table for Treatment Candidacy */}
-        <h3 style={{ color: '#022968', fontSize: '18px', margin: '20px 0 10px 0', fontWeight: 'bold' }}>Summary of Your Submitted Information:</h3>
+        <h3 style={{ color: '#252932', fontSize: '18px', margin: '20px 0 10px 0', fontWeight: 'bold' }}>Summary of Your Submitted Information:</h3>
         <table style={{ width: '100%', borderCollapse: 'collapse', margin: '0 0 20px 0' }}>
           <tbody>
             {/* Personal Details */}
@@ -90,7 +90,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
 
             {/* Health & Condition Details (Step 1 from schema) */}
             <tr style={{ borderBottom: '1px solid #eee' }}>
-              <td colSpan={2} style={{ padding: '10px 0', fontWeight: 'bold', color: '#022968', backgroundColor: '#f0f8ff' }}>Health & Condition</td>
+              <td colSpan={2} style={{ padding: '10px 0', fontWeight: 'bold', color: '#252932', backgroundColor: '#f0f8ff' }}>Health & Condition</td>
             </tr>
             <tr style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Primary Condition/Concern:</td>
@@ -111,7 +111,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
 
             {/* Diagnosis & Test Details (Step 2 from schema) */}
             <tr style={{ borderBottom: '1px solid #eee' }}>
-              <td colSpan={2} style={{ padding: '10px 0', fontWeight: 'bold', color: '#022968', backgroundColor: '#f0f8ff' }}>Diagnosis & Testing</td>
+              <td colSpan={2} style={{ padding: '10px 0', fontWeight: 'bold', color: '#252932', backgroundColor: '#f0f8ff' }}>Diagnosis & Testing</td>
             </tr>
             <tr style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Recent Diagnosis Method:</td>
@@ -132,7 +132,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
             {insurance_type && (
               <>
                 <tr style={{ borderBottom: '1px solid #eee' }}>
-                  <td colSpan={2} style={{ padding: '10px 0', fontWeight: 'bold', color: '#022968', backgroundColor: '#f0f8ff' }}>Insurance Information</td>
+                  <td colSpan={2} style={{ padding: '10px 0', fontWeight: 'bold', color: '#252932', backgroundColor: '#f0f8ff' }}>Insurance Information</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #eee' }}>
                   <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Insurance Type:</td>
@@ -146,7 +146,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
         {/* Comments Section */}
         {comments && (
           <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-            <h3 style={{ color: '#022968', fontSize: '18px', margin: '0 0 10px 0', fontWeight: 'bold' }}>Additional Comments/Details:</h3>
+            <h3 style={{ color: '#252932', fontSize: '18px', margin: '0 0 10px 0', fontWeight: 'bold' }}>Additional Comments/Details:</h3>
             <div style={{ maxHeight: '150px', maxWidth: '100%', overflowY: 'scroll', padding: '10px', border: '1px solid #eee', borderRadius: '4px', backgroundColor: '#f9f9f9', color: '#333' }}>
               {comments}
             </div>
@@ -157,7 +157,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
           Our team will reach out to you as soon as possible using the contact details you provided.
         </p>
         <p style={{ color: 'black' }}>
-          If you have any immediate questions or need to provide further information, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email.
+          If you have any immediate questions or need to provide further information, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0A50EC' }}>(561) 223-9959</a> or reply to this email.
         </p>
         <p style={{ marginTop: '30px', color: 'black' }}>
           Sincerely,
@@ -171,7 +171,7 @@ export const TreatmentCandidacyEmailTemplate: React.FC<Readonly<TreatmentCandida
         <p style={{ margin: '0' }}>Mountain Spine & Orthopedics</p>
         <p style={{ margin: '0' }}>123 Healthway Drive, Mountain City, MC 54321</p>
         <p style={{ margin: '0' }}>
-          <a href="https://mountainspineorthopedics.com" style={{ color: '#0094E0' }}>www.mountainspineorthopedics.com</a>
+          <a href="https://mountainspineorthopedics.com" style={{ color: '#0A50EC' }}>www.mountainspineorthopedics.com</a>
         </p>
       </div>
     </div>

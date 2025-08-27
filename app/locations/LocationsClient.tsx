@@ -116,8 +116,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
       <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-4 right-4 w-16 h-16 bg-[#0094E0] rounded-full"></div>
-          <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#022968] rounded-full"></div>
+          <div className="absolute top-4 right-4 w-16 h-16 bg-[#0A50EC] rounded-full"></div>
+          <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#252932] rounded-full"></div>
         </div>
 
         {/* Content */}
@@ -127,36 +127,36 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             <motion.div
               animate={hoveredIndex === index ? { rotate: 360 } : { rotate: 0 }}
               transition={{ duration: 0.6 }}
-              className="w-12 h-12 bg-[#0094E0] rounded-2xl flex items-center justify-center shadow-lg"
+              className="w-12 h-12 bg-[#0A50EC] rounded-2xl flex items-center justify-center shadow-lg"
             >
               <Building2 className="w-6 h-6 text-white" />
             </motion.div>
             <div className="text-right">
-              <span className="text-sm font-medium text-[#0094E0] bg-white/80 px-3 py-1 rounded-full">
+              <span className="text-sm font-medium text-[#0A50EC] bg-white/80 px-3 py-1 rounded-full">
                 {clinic.region || 'Florida'}
               </span>
             </div>
           </div>
 
           {/* Clinic Name */}
-          <h3 className="text-2xl font-bold text-[#022968] mb-4 group-hover:text-[#0094E0] transition-colors duration-300">
+          <h3 className="text-2xl font-bold text-[#252932] mb-4 group-hover:text-[#0A50EC] transition-colors duration-300">
             {clinic.name}
           </h3>
 
           {/* Address */}
           <div className="flex items-start space-x-3 mb-4">
-            <MapPin className="w-5 h-5 text-[#0094E0] mt-0.5 flex-shrink-0" />
-            <p className="text-[#5B5F67] text-sm leading-relaxed">
+            <MapPin className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" />
+            <p className="text-[#424959] text-sm leading-relaxed">
               {clinic.address || '123 Medical Center Dr, Suite 100'}
             </p>
           </div>
 
           {/* Phone */}
           <div className="flex items-center space-x-3 mb-4">
-            <Phone className="w-5 h-5 text-[#0094E0] flex-shrink-0" />
+            <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" />
             <a
               href="tel:(561) 223-9959"
-              className="text-[#022968] font-medium hover:text-[#0094E0] transition-colors duration-300"
+              className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300"
             >
               (561) 223-9959
             </a>
@@ -164,8 +164,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
 
           {/* Hours */}
           <div className="flex items-start space-x-3 mb-6">
-            <Clock className="w-5 h-5 text-[#0094E0] mt-0.5 flex-shrink-0" />
-            <div className="text-[#5B5F67] text-sm">
+            <Clock className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" />
+            <div className="text-[#424959] text-sm">
               <p className="font-medium">Monday - Saturday</p>
               <p>8:00 AM - 8:00 PM</p>
             </div>
@@ -179,12 +179,12 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             <Link href={`/locations/${clinic.slug}`}>
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center justify-between">
-                  <span className="text-[#022968] font-semibold">View Details</span>
+                  <span className="text-[#252932] font-semibold">View Details</span>
                   <motion.div
                     animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg className="w-5 h-5 text-[#0094E0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-[#0A50EC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </motion.div>
@@ -195,7 +195,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
         </div>
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0094E0]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
       </div>
     </motion.div>
   )
@@ -210,7 +210,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               fontWeight: 500,
 
             }}
-            className='text-[#022968] text-6xl'
+            className='text-[#252932] text-6xl'
           >
             Locations
           </TextAnimate>
@@ -236,10 +236,10 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-[#022968] my-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#252932] my-6">
             Our Locations
           </h1>
-          <p className="text-lg md:text-xl text-[#5B5F67] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[#424959] max-w-3xl mx-auto">
             Visit any of our state-of-the-art facilities across Florida for expert orthopedic care and personalized treatment.
           </p>
         </motion.div>
@@ -264,8 +264,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
-                <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
+                <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
+                <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
               </Carousel>
 
               {/* Dynamic Progress Indicators */}
@@ -275,8 +275,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                     key={index}
                     onClick={() => api?.scrollTo(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
-                      ? 'bg-[#0094E0] w-6'
-                      : 'bg-[#0094E0]/30 hover:bg-[#0094E0]/50'
+                      ? 'bg-[#0A50EC] w-6'
+                      : 'bg-[#0A50EC]/30 hover:bg-[#0A50EC]/50'
                       }`}
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
@@ -308,27 +308,27 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#0094E0] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-[#0A50EC] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Clock className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#022968] mb-2">Extended Hours</h3>
-              <p className="text-[#5B5F67]">Open 6 days a week until 8 PM for your convenience</p>
+              <h3 className="text-xl font-bold text-[#252932] mb-2">Extended Hours</h3>
+              <p className="text-[#424959]">Open 6 days a week until 8 PM for your convenience</p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#0094E0] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-[#0A50EC] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Phone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#022968] mb-2">Same Phone Number</h3>
-              <p className="text-[#5B5F67]">Call (561) 223-9959 for all locations</p>
+              <h3 className="text-xl font-bold text-[#252932] mb-2">Same Phone Number</h3>
+              <p className="text-[#424959]">Call (561) 223-9959 for all locations</p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#0094E0] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-[#0A50EC] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#022968] mb-2">Multiple Locations</h3>
-              <p className="text-[#5B5F67]">Serving communities across Florida</p>
+              <h3 className="text-xl font-bold text-[#252932] mb-2">Multiple Locations</h3>
+              <p className="text-[#424959]">Serving communities across Florida</p>
             </div>
           </div>
         </motion.div>

@@ -101,11 +101,11 @@ export default function ConditionCheckSection({
     }
   }
   return (
-    <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#EFF5FF] py-[50px] px-6 lg:px-[80px]' aria-label="Condition Check Form">
+    <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA] py-[50px] px-6 lg:px-[80px]' aria-label="Condition Check Form">
       <div className=' flex flex-row md:space-x-[20px] items-center justify-center max-w-[1440px]' role="list" aria-label="Condition Check Steps">
         {steps.map((step, index) => (
           <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index} role="listitem">
-            <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ConditionStep == index + 1 ? ' bg-[#0094E0] text-white ' : 'bg-[#EFF1F4] text-[#0094E0] md:flex hidden'}`}>
+            <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${ConditionStep == index + 1 ? ' bg-[#0A50EC] text-white ' : 'bg-[#EFF1F4] text-[#0A50EC] md:flex hidden'}`}>
               <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className=' text-lg'>{index + 1}</span>
             </div>
             <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className={`text-black text-xl ${ConditionStep == index + 1 ? 'flex' : ' lg:flex hidden'}`}>{step.step}</span>
@@ -120,13 +120,13 @@ export default function ConditionCheckSection({
         ))}
       </div>
       <motion.div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] overflow-hidden' layout transition={{ duration: 0.3, ease: "easeInOut" }}>
-        <div className=' bg-[#022968] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
+        <div className=' bg-[#252932] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
           <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-white text-3xl text-center self-center" id="condition-check-step-title">
             Step {ConditionStep}: {steps[ConditionStep - 1].step}
           </h2>
         </div>
         <div className='bg-white p-[16px] space-y-[24px] flex flex-col w-full'>
-          <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#5B5F67] text-lg text-left w-full">
+          <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#424959] text-lg text-left w-full">
             {steps[ConditionStep - 1].caption}
           </p>
           {ConditionStep == 3 ? (
@@ -143,7 +143,7 @@ export default function ConditionCheckSection({
                       fontFamily: "var(--font-public-sans)",
                       fontWeight: 500,
                     }}
-                    className="text-[#5B5F67] text-lg text-left w-full"
+                    className="text-[#424959] text-lg text-left w-full"
                   >
                     {item}
                   </h1>
@@ -195,7 +195,7 @@ export default function ConditionCheckSection({
                                       // CheckMark Box
                                       isChecked ?
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                          <path fillRule="evenodd" clipRule="evenodd" d="M10.0523 0.603516C12.0608 0.603516 13.6383 0.603521 14.8694 0.769438C16.1317 0.939021 17.1327 1.29378 17.9192 2.08028C18.7057 2.86678 19.0604 3.86776 19.23 5.13001C19.3959 6.36109 19.3959 7.93868 19.3959 9.94709V10.0516C19.3959 12.06 19.3959 13.6376 19.23 14.8687C19.0604 16.1309 18.7057 17.1319 17.9192 17.9184C17.1327 18.7049 16.1317 19.0597 14.8694 19.2293C13.6383 19.3952 12.0608 19.3952 10.0523 19.3952H9.94783C7.93941 19.3952 6.36182 19.3952 5.13074 19.2293C3.86849 19.0597 2.86751 18.7049 2.08101 17.9184C1.29451 17.1319 0.939753 16.1309 0.77017 14.8687C0.604253 13.6376 0.604248 12.06 0.604248 10.0516V9.94709C0.604248 7.93868 0.604253 6.36109 0.77017 5.13001C0.939753 3.86776 1.29451 2.86678 2.08101 2.08028C2.86751 1.29378 3.86849 0.939021 5.13074 0.769438C6.36182 0.603521 7.93941 0.603516 9.94783 0.603516H10.0523ZM14.4716 6.35101C14.7145 6.7956 14.5513 7.35294 14.1068 7.59585C12.85 8.28335 11.6693 9.72252 10.7673 11.1021C10.3283 11.7749 9.97534 12.4019 9.73334 12.8593C9.61234 13.0885 9.51976 13.2737 9.45742 13.4011L9.36759 13.589C9.22551 13.8988 8.92392 14.1042 8.58384 14.1234C8.24375 14.1418 7.92199 13.9703 7.74691 13.6788C7.46182 13.2022 7.00992 12.7677 6.59009 12.4359C6.38659 12.2745 6.20324 12.148 6.07216 12.0618L5.87875 11.9418C5.43967 11.6906 5.28659 11.1305 5.53776 10.6914C5.788 10.2514 6.34808 10.0984 6.78808 10.3495L7.07684 10.5283C7.24368 10.6383 7.47283 10.7968 7.72674 10.9976C7.92199 11.1516 8.13926 11.3368 8.35834 11.5494C8.59392 11.1268 8.88815 10.6273 9.23282 10.1002C10.1651 8.67294 11.5511 6.90376 13.2267 5.9871C13.6713 5.74418 14.2287 5.90734 14.4716 6.35101Z" fill="#022968" />
+                                          <path fillRule="evenodd" clipRule="evenodd" d="M10.0523 0.603516C12.0608 0.603516 13.6383 0.603521 14.8694 0.769438C16.1317 0.939021 17.1327 1.29378 17.9192 2.08028C18.7057 2.86678 19.0604 3.86776 19.23 5.13001C19.3959 6.36109 19.3959 7.93868 19.3959 9.94709V10.0516C19.3959 12.06 19.3959 13.6376 19.23 14.8687C19.0604 16.1309 18.7057 17.1319 17.9192 17.9184C17.1327 18.7049 16.1317 19.0597 14.8694 19.2293C13.6383 19.3952 12.0608 19.3952 10.0523 19.3952H9.94783C7.93941 19.3952 6.36182 19.3952 5.13074 19.2293C3.86849 19.0597 2.86751 18.7049 2.08101 17.9184C1.29451 17.1319 0.939753 16.1309 0.77017 14.8687C0.604253 13.6376 0.604248 12.06 0.604248 10.0516V9.94709C0.604248 7.93868 0.604253 6.36109 0.77017 5.13001C0.939753 3.86776 1.29451 2.86678 2.08101 2.08028C2.86751 1.29378 3.86849 0.939021 5.13074 0.769438C6.36182 0.603521 7.93941 0.603516 9.94783 0.603516H10.0523ZM14.4716 6.35101C14.7145 6.7956 14.5513 7.35294 14.1068 7.59585C12.85 8.28335 11.6693 9.72252 10.7673 11.1021C10.3283 11.7749 9.97534 12.4019 9.73334 12.8593C9.61234 13.0885 9.51976 13.2737 9.45742 13.4011L9.36759 13.589C9.22551 13.8988 8.92392 14.1042 8.58384 14.1234C8.24375 14.1418 7.92199 13.9703 7.74691 13.6788C7.46182 13.2022 7.00992 12.7677 6.59009 12.4359C6.38659 12.2745 6.20324 12.148 6.07216 12.0618L5.87875 11.9418C5.43967 11.6906 5.28659 11.1305 5.53776 10.6914C5.788 10.2514 6.34808 10.0984 6.78808 10.3495L7.07684 10.5283C7.24368 10.6383 7.47283 10.7968 7.72674 10.9976C7.92199 11.1516 8.13926 11.3368 8.35834 11.5494C8.59392 11.1268 8.88815 10.6273 9.23282 10.1002C10.1651 8.67294 11.5511 6.90376 13.2267 5.9871C13.6713 5.74418 14.2287 5.90734 14.4716 6.35101Z" fill="#252932" />
                                         </svg>
                                         :
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -210,7 +210,7 @@ export default function ConditionCheckSection({
                                       fontFamily: "var(--font-public-sans)",
                                       fontWeight: 500,
                                     }}
-                                    className="text-[#5B5F67] text-lg text-left w-full"
+                                    className="text-[#424959] text-lg text-left w-full"
                                   >
                                     {option}
                                   </h1>
@@ -236,7 +236,7 @@ export default function ConditionCheckSection({
                             </SelectContent>
                           </Select>
                         ) : question.control === 'comments' ? (
-                          <Textarea placeholder={question.question} className="min-h-[200px] text-lg resize-none border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
+                          <Textarea placeholder={question.question} className="min-h-[200px] text-lg resize-none border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
                         ) : question.control === 'email_optout' ? (
                           <div className=' flex flex-row items-center justify-start space-x-[12px] w-full hover:cursor-pointer'
                             onClick={() => field.onChange(field.value == 'false' ? 'true' : 'false')}
@@ -244,7 +244,7 @@ export default function ConditionCheckSection({
                             {
                               field.value == 'true' ?
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                  <path fillRule="evenodd" clipRule="evenodd" d="M10.0526 0.604126C12.061 0.604126 13.6386 0.604131 14.8697 0.770048C16.1319 0.939631 17.1329 1.29439 17.9194 2.08089C18.7059 2.86739 19.0607 3.86837 19.2302 5.13062C19.3962 6.3617 19.3962 7.93929 19.3962 9.9477V10.0522C19.3962 12.0606 19.3962 13.6382 19.2302 14.8693C19.0607 16.1316 18.7059 17.1325 17.9194 17.919C17.1329 18.7055 16.1319 19.0603 14.8697 19.2299C13.6386 19.3958 12.061 19.3958 10.0526 19.3958H9.94807C7.93965 19.3958 6.36207 19.3958 5.13098 19.2299C3.86873 19.0603 2.86775 18.7055 2.08125 17.919C1.29475 17.1325 0.939998 16.1316 0.770414 14.8693C0.604498 13.6382 0.604492 12.0606 0.604492 10.0522V9.9477C0.604492 7.93929 0.604498 6.3617 0.770414 5.13062C0.939998 3.86837 1.29475 2.86739 2.08125 2.08089C2.86775 1.29439 3.86873 0.939631 5.13098 0.770048C6.36207 0.604131 7.93965 0.604126 9.94807 0.604126H10.0526ZM14.4718 6.35162C14.7147 6.79621 14.5516 7.35355 14.107 7.59646C12.8502 8.28396 11.6696 9.72313 10.7676 11.1027C10.3285 11.7755 9.97558 12.4025 9.73358 12.86C9.61259 13.0891 9.52 13.2743 9.45767 13.4017L9.36784 13.5896C9.22575 13.8995 8.92416 14.1048 8.58408 14.124C8.244 14.1424 7.92224 13.971 7.74715 13.6795C7.46207 13.2028 7.01016 12.7683 6.59033 12.4365C6.38683 12.2751 6.20348 12.1486 6.0724 12.0625L5.879 11.9424C5.43991 11.6912 5.28683 11.1311 5.538 10.692C5.78825 10.252 6.34832 10.099 6.78832 10.3501L7.07709 10.5289C7.24392 10.6389 7.47307 10.7975 7.72699 10.9982C7.92224 11.1522 8.1395 11.3374 8.35858 11.55C8.59417 11.1275 8.8884 10.6279 9.23307 10.1008C10.1653 8.67355 11.5513 6.90438 13.227 5.98771C13.6716 5.74479 14.2289 5.90796 14.4718 6.35162Z" fill="#022968" />
+                                  <path fillRule="evenodd" clipRule="evenodd" d="M10.0526 0.604126C12.061 0.604126 13.6386 0.604131 14.8697 0.770048C16.1319 0.939631 17.1329 1.29439 17.9194 2.08089C18.7059 2.86739 19.0607 3.86837 19.2302 5.13062C19.3962 6.3617 19.3962 7.93929 19.3962 9.9477V10.0522C19.3962 12.0606 19.3962 13.6382 19.2302 14.8693C19.0607 16.1316 18.7059 17.1325 17.9194 17.919C17.1329 18.7055 16.1319 19.0603 14.8697 19.2299C13.6386 19.3958 12.061 19.3958 10.0526 19.3958H9.94807C7.93965 19.3958 6.36207 19.3958 5.13098 19.2299C3.86873 19.0603 2.86775 18.7055 2.08125 17.919C1.29475 17.1325 0.939998 16.1316 0.770414 14.8693C0.604498 13.6382 0.604492 12.0606 0.604492 10.0522V9.9477C0.604492 7.93929 0.604498 6.3617 0.770414 5.13062C0.939998 3.86837 1.29475 2.86739 2.08125 2.08089C2.86775 1.29439 3.86873 0.939631 5.13098 0.770048C6.36207 0.604131 7.93965 0.604126 9.94807 0.604126H10.0526ZM14.4718 6.35162C14.7147 6.79621 14.5516 7.35355 14.107 7.59646C12.8502 8.28396 11.6696 9.72313 10.7676 11.1027C10.3285 11.7755 9.97558 12.4025 9.73358 12.86C9.61259 13.0891 9.52 13.2743 9.45767 13.4017L9.36784 13.5896C9.22575 13.8995 8.92416 14.1048 8.58408 14.124C8.244 14.1424 7.92224 13.971 7.74715 13.6795C7.46207 13.2028 7.01016 12.7683 6.59033 12.4365C6.38683 12.2751 6.20348 12.1486 6.0724 12.0625L5.879 11.9424C5.43991 11.6912 5.28683 11.1311 5.538 10.692C5.78825 10.252 6.34832 10.099 6.78832 10.3501L7.07709 10.5289C7.24392 10.6389 7.47307 10.7975 7.72699 10.9982C7.92224 11.1522 8.1395 11.3374 8.35858 11.55C8.59417 11.1275 8.8884 10.6279 9.23307 10.1008C10.1653 8.67355 11.5513 6.90438 13.227 5.98771C13.6716 5.74479 14.2289 5.90796 14.4718 6.35162Z" fill="#252932" />
                                 </svg>
                                 :
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -254,7 +254,7 @@ export default function ConditionCheckSection({
                             <h1>I don’t want to receive occasional emails from Orthopedic and Laser Spine Surgery.</h1>
                           </div>
                         ) : (
-                          <Input placeholder={question.question} className="h-12 text-lg border-[#DCDEE1] bg-[#EFF5FF]" {...field} />
+                          <Input placeholder={question.question} className="h-12 text-lg border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
                         )}
                       </FormControl>
                       <FormMessage />
@@ -270,7 +270,7 @@ export default function ConditionCheckSection({
             <button
               type="button"
               onClick={() => setConditionStep(ConditionStep - 1)}
-              className=" max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[white] text-[#022968] border border-[#022968] text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
+              className=" max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[white] text-[#252932] border border-[#252932] text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
             >
               <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Back</span>
             </button>
@@ -285,7 +285,7 @@ export default function ConditionCheckSection({
                 ConditionForm.handleSubmit(onSubmit)()
               }
             }}
-            className={`self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold justify-center items-center ${disabled ? "hover:cursor-not-allowed bg-[#022968]" : 'hover:cursor-pointer'}`}
+            className={`self-end max-h-[56px] w-fit h-full px-[32px] py-[16px] space-x-[10px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold justify-center items-center ${disabled ? "hover:cursor-not-allowed bg-[#252932]" : 'hover:cursor-pointer'}`}
           >
             {ConditionStep != steps.length ? (
               <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Next</span>
@@ -349,7 +349,7 @@ export default function ConditionCheckSection({
                   }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M12.1194 0.95737C11.4704 0.416553 10.5277 0.416554 9.87875 0.957371L7.72754 2.75005L4.49907 2.75005C3.53258 2.75005 2.74908 3.53355 2.74907 4.50005L2.74907 7.72851L0.956394 9.87973C0.415578 10.5287 0.415577 11.4714 0.956394 12.1204L2.74907 14.2716L2.74908 17.5001C2.74908 18.4666 3.53258 19.2501 4.49908 19.2501L7.72754 19.25L9.87875 21.0427C10.5277 21.5835 11.4704 21.5835 12.1194 21.0427L14.2706 19.25H17.4991C18.4656 19.25 19.2491 18.4665 19.2491 17.5L19.2491 14.2716L21.0417 12.1204C21.5826 11.4714 21.5826 10.5287 21.0418 9.87973L19.2491 7.72851L19.2491 4.50005C19.2491 3.53355 18.4656 2.75005 17.4991 2.75005L14.2706 2.75005L12.1194 0.95737ZM14.4611 9.38694C14.9509 9.13182 15.1412 8.52792 14.8861 8.03809C14.6309 7.54826 14.027 7.35799 13.5372 7.61311C12.1092 8.35684 10.9442 9.7806 10.1744 10.9032C10.1078 11.0004 10.0434 11.0964 9.98137 11.1907C9.84153 11.4033 9.71366 11.6073 9.59878 11.7971C9.51302 11.7245 9.42957 11.6575 9.35034 11.5963C9.32499 11.5767 9.30008 11.5577 9.27566 11.5393C9.06035 11.3772 8.86673 11.2494 8.72532 11.1612C8.65433 11.1169 8.59572 11.0821 8.55316 11.0575C8.53187 11.0451 8.51453 11.0353 8.50161 11.0281L8.48557 11.0191L8.48012 11.0161L8.47806 11.015L8.47644 11.0141C7.99113 10.7505 7.38401 10.9303 7.1204 11.4156C6.85685 11.9008 7.03677 12.5079 7.52183 12.7716L7.52391 12.7728L7.55058 12.788C7.576 12.8028 7.61582 12.8263 7.6667 12.8581C7.76905 12.9219 7.91292 13.0168 8.07261 13.1371C8.40619 13.3882 8.74611 13.7036 8.9523 14.0319C9.14601 14.3403 9.4921 14.519 9.85574 14.4984C10.2193 14.4778 10.543 14.2609 10.7007 13.9328L10.7032 13.9276L10.7159 13.9018C10.7276 13.878 10.746 13.8413 10.7707 13.7932C10.8202 13.6969 10.8947 13.5553 10.992 13.3804C11.187 13.0294 11.4706 12.5494 11.8239 12.0343C12.5541 10.9694 13.489 9.89321 14.4611 9.38694Z" fill="#E5F6FF" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M12.1194 0.95737C11.4704 0.416553 10.5277 0.416554 9.87875 0.957371L7.72754 2.75005L4.49907 2.75005C3.53258 2.75005 2.74908 3.53355 2.74907 4.50005L2.74907 7.72851L0.956394 9.87973C0.415578 10.5287 0.415577 11.4714 0.956394 12.1204L2.74907 14.2716L2.74908 17.5001C2.74908 18.4666 3.53258 19.2501 4.49908 19.2501L7.72754 19.25L9.87875 21.0427C10.5277 21.5835 11.4704 21.5835 12.1194 21.0427L14.2706 19.25H17.4991C18.4656 19.25 19.2491 18.4665 19.2491 17.5L19.2491 14.2716L21.0417 12.1204C21.5826 11.4714 21.5826 10.5287 21.0418 9.87973L19.2491 7.72851L19.2491 4.50005C19.2491 3.53355 18.4656 2.75005 17.4991 2.75005L14.2706 2.75005L12.1194 0.95737ZM14.4611 9.38694C14.9509 9.13182 15.1412 8.52792 14.8861 8.03809C14.6309 7.54826 14.027 7.35799 13.5372 7.61311C12.1092 8.35684 10.9442 9.7806 10.1744 10.9032C10.1078 11.0004 10.0434 11.0964 9.98137 11.1907C9.84153 11.4033 9.71366 11.6073 9.59878 11.7971C9.51302 11.7245 9.42957 11.6575 9.35034 11.5963C9.32499 11.5767 9.30008 11.5577 9.27566 11.5393C9.06035 11.3772 8.86673 11.2494 8.72532 11.1612C8.65433 11.1169 8.59572 11.0821 8.55316 11.0575C8.53187 11.0451 8.51453 11.0353 8.50161 11.0281L8.48557 11.0191L8.48012 11.0161L8.47806 11.015L8.47644 11.0141C7.99113 10.7505 7.38401 10.9303 7.1204 11.4156C6.85685 11.9008 7.03677 12.5079 7.52183 12.7716L7.52391 12.7728L7.55058 12.788C7.576 12.8028 7.61582 12.8263 7.6667 12.8581C7.76905 12.9219 7.91292 13.0168 8.07261 13.1371C8.40619 13.3882 8.74611 13.7036 8.9523 14.0319C9.14601 14.3403 9.4921 14.519 9.85574 14.4984C10.2193 14.4778 10.543 14.2609 10.7007 13.9328L10.7032 13.9276L10.7159 13.9018C10.7276 13.878 10.746 13.8413 10.7707 13.7932C10.8202 13.6969 10.8947 13.5553 10.992 13.3804C11.187 13.0294 11.4706 12.5494 11.8239 12.0343C12.5541 10.9694 13.489 9.89321 14.4611 9.38694Z" fill="#FAFAFA" />
                   </svg>
                 </motion.div>
               </motion.div>
@@ -360,7 +360,7 @@ export default function ConditionCheckSection({
             </div>
             <button
               onClick={() => setAppointmentConfirm(false)}
-              className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0094E0] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+              className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
             >
               <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Done</span>
             </button>

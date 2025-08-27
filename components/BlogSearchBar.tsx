@@ -5,12 +5,12 @@ import React, { useState, useRef, useEffect, KeyboardEvent } from 'react'
 import { Search, X } from 'lucide-react'
 
 // *** IMPORTANT: Verify this path and type name ('Condition') ***
-import {BlogPostProp, supabaseBlogPostProp} from '@/components/BlogPostCard'
+import { BlogPostProp, supabaseBlogPostProp } from '@/components/BlogPostCard'
 interface Props {
-    blogs: supabaseBlogPostProp[]
-    onSelect: (blog: supabaseBlogPostProp) => void
-    onClear: () => void // This prop MUST be provided by the parent
-  }
+  blogs: supabaseBlogPostProp[]
+  onSelect: (blog: supabaseBlogPostProp) => void
+  onClear: () => void // This prop MUST be provided by the parent
+}
 
 export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
   const [query, setQuery] = useState('')
@@ -70,8 +70,8 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
   // Handler for keyboard navigation
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Escape') {
-        setShow(false);
-        return;
+      setShow(false);
+      return;
     }
     if (!show || filtered.length === 0) return;
 
@@ -101,26 +101,26 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
     setShow(false);
     setFiltered([]);
     setActive(-1);
-     // Check if onSelect is actually a function before calling (optional safeguard)
-     if (typeof onSelect === 'function') {
-        onSelect(item);
-     } else {
-       console.error("BlogSearchBar: onSelect prop is not a function!");
-     }
+    // Check if onSelect is actually a function before calling (optional safeguard)
+    if (typeof onSelect === 'function') {
+      onSelect(item);
+    } else {
+      console.error("BlogSearchBar: onSelect prop is not a function!");
+    }
   }
 
   // Handler for the clear button
   function handleClearClick() {
-      setQuery('');
-      setShow(false);
-      setFiltered([]);
-      setActive(-1);
-       // Check if onClear is actually a function before calling (optional safeguard)
-       if (typeof onClear === 'function') {
-        onClear();
-      } else {
-        console.error("BlogSearchBar: onClear prop is not a function!");
-      }
+    setQuery('');
+    setShow(false);
+    setFiltered([]);
+    setActive(-1);
+    // Check if onClear is actually a function before calling (optional safeguard)
+    if (typeof onClear === 'function') {
+      onClear();
+    } else {
+      console.error("BlogSearchBar: onClear prop is not a function!");
+    }
   }
 
   return (
@@ -135,7 +135,7 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
         onFocus={() => { if (query.trim()) { setShow(true); } }}
         onKeyDown={handleKeyDown}
         placeholder="Search Name or Keyword"
-        className="w-full h-12 pl-12 pr-10 py-2 rounded-[62px] bg-[#EFF5FF] placeholder-gray-500 text-gray-900 outline-none border border-transparent focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+        className="w-full h-12 pl-12 pr-10 py-2 rounded-[62px] bg-[#FAFAFA] placeholder-gray-500 text-gray-900 outline-none border border-transparent focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
         autoComplete="off"
       />
       {query && (
@@ -156,9 +156,8 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
               key={item.id}
               onMouseDown={(e) => { e.preventDefault(); select(item); }}
               onMouseEnter={() => setActive(idx)}
-              className={`px-6 py-2 cursor-pointer text-sm text-gray-700 ${
-                idx === active ? 'bg-blue-100' : 'hover:bg-gray-100'
-              }`}
+              className={`px-6 py-2 cursor-pointer text-sm text-gray-700 ${idx === active ? 'bg-blue-100' : 'hover:bg-gray-100'
+                }`}
             >
               {item.blog_info.title}
             </li>
@@ -166,8 +165,8 @@ export default function BlogSearchBar({ blogs, onSelect, onClear }: Props) {
         </ul>
       )}
       {show && query.trim() && filtered.length === 0 && (
-         <div className="absolute z-20 mt-1 w-full px-6 py-3 bg-white border border-gray-200 rounded-md shadow-lg text-sm text-gray-500">
-            No blogs found matching "{query}".
+        <div className="absolute z-20 mt-1 w-full px-6 py-3 bg-white border border-gray-200 rounded-md shadow-lg text-sm text-gray-500">
+          No blogs found matching "{query}".
         </div>
       )}
     </div>

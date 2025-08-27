@@ -39,7 +39,7 @@ function linkifyText(text, currentSlug) {
     const regex = new RegExp(`(?<![\w-])${title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}(?![\w-])`, 'g');
     replaced = replaced.replace(regex, match => {
       const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
-      return `<a href="${href}" class="underline text-[#022968]">${match}</a>`;
+      return `<a href="${href}" class="underline text-[#252932]">${match}</a>`;
     });
   });
   return replaced;
@@ -150,7 +150,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="text-[#022968]"
+                className="text-[#252932]"
               >
                 Treatment
               </span>
@@ -159,7 +159,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="text-[#022968]"
+                className="text-[#252932]"
               >
                 /
               </span>
@@ -177,7 +177,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="text-[#022968] sm:flex hidden"
+                className="text-[#252932] sm:flex hidden"
               >
                 /
               </span>
@@ -198,7 +198,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
               }}
-              className="text-[#022968] flex-wrap text-3xl md:text-6xl lg:text-7xl"
+              className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl"
             >
               {treatment.title}
             </h1>
@@ -258,7 +258,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.body, treatment.slug)}
               </div>
@@ -280,7 +280,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.detail, treatment.slug)}
               </div>
@@ -293,7 +293,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               width={300}
               height={300}
               layout="responsive"
-              className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video"
+              className="w-full h-full object-cover object-center rounded-[24px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden aspect-video"
             />
 
             <div className=' flex flex-col space-y-[16px] '>
@@ -311,7 +311,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.procedure_info, treatment.slug)}
               </div>
@@ -334,7 +334,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.conditions_treated, treatment.slug)}
               </div>
@@ -355,7 +355,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.benefits, treatment.slug)}
                 {typeof treatment.benefits !== 'string' && treatment.benefits}
@@ -378,7 +378,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.why_choose_us, treatment.slug)}
               </div>
@@ -400,7 +400,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.recovery_info, treatment.slug)}
               </div>
@@ -423,7 +423,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className='text-[#5B5F67] sm:text-xl text-sm'
+                className='text-[#424959] sm:text-xl text-sm'
               >
                 {renderField(treatment.schedule, treatment.slug)}
                 <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>

@@ -47,7 +47,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           <h2
             style={{
               fontFamily: "var(--font-public-sans)",
-              fontWeight: 500, color: '#022968',
+              fontWeight: 500, color: '#252932',
             }}
             className="text-5xl w-[90%]"
           >
@@ -58,7 +58,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           <p
             style={{
               fontFamily: "var(--font-public-sans)",
-              fontWeight: 500, color: '#5B5F67',
+              fontWeight: 500, color: '#424959',
             }}
             className="text-lg mt-[24px]"
           >
@@ -73,7 +73,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           <h3
             style={{
               fontFamily: "var(--font-public-sans)",
-              fontWeight: 500, color: '#022968',
+              fontWeight: 500, color: '#252932',
             }}
             className="text-5xl text-center"
           >
@@ -83,7 +83,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
           <p
             style={{
               fontFamily: "var(--font-public-sans)",
-              fontWeight: 500, color: '#5B5F67',
+              fontWeight: 500, color: '#424959',
             }}
             className="text-lg mt-[24px] text-center w-[60%]"
           >

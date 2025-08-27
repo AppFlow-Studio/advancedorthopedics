@@ -42,14 +42,14 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     // Using the HTML structure provided by the user in the latest query
     <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6', color: '#333', margin: '0 auto', border: '1px solid #ddd', borderRadius: '8px', height: '100%', overflow: 'hidden' }}>
       {/* Header Section */}
-      <div style={{ backgroundColor: '#0094E0', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
+      <div style={{ backgroundColor: '#0A50EC', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
         <img src="https://mountainspineortho.b-cdn.net/newlogo4.png" alt="Mountain Spine & Orthopedic Center" style={{ width: '100px', marginRight: '15px' }} /> {/* Added marginRight for spacing */}
         <h1 style={{ fontSize: '24px', color: 'white', margin: '0' }}>Mountain Spine & Orthopedics</h1> {/* Added margin: 0 to h1 */}
       </div>
 
       {/* Body Section */}
       <div style={{ padding: '20px 30px' }}>
-        <h2 style={{ color: '#022968', fontSize: '20px' }}>Your Free MRI Review Request is Confirmed!</h2>
+        <h2 style={{ color: '#252932', fontSize: '20px' }}>Your Free MRI Review Request is Confirmed!</h2>
         <p style={{ color: 'black' }}>Dear {fullName},</p>
         <p style={{ color: 'black' }}>
           Thank you for submitting your information for a Free MRI Review with Mountain Spine & Orthopedics! We're a leading spine and orthopedic center, and our specialists are looking forward to reviewing your case.
@@ -60,7 +60,7 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         </p>
 
         {/* Submitted Information Table for MRI Review */}
-        <h3 style={{ color: '#022968', fontSize: '18px', margin: '20px 0 10px 0', fontWeight: 'bold' }}>Summary of Your Information:</h3>
+        <h3 style={{ color: '#252932', fontSize: '18px', margin: '20px 0 10px 0', fontWeight: 'bold' }}>Summary of Your Information:</h3>
         <table style={{ width: '100%', borderCollapse: 'collapse', margin: '0 0 20px 0' }}>
           <tbody>
             <tr style={{ borderBottom: '1px solid #eee' }}>
@@ -117,7 +117,7 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         {/* Comments Section (formerly Consultation Reason) */}
         {comments && (
           <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-            <h3 style={{ color: '#022968', fontSize: '18px', margin: '0 0 10px 0', fontWeight: 'bold' }}>Additional Comments/Details:</h3>
+            <h3 style={{ color: '#252932', fontSize: '18px', margin: '0 0 10px 0', fontWeight: 'bold' }}>Additional Comments/Details:</h3>
             <div style={{ maxHeight: '150px', maxWidth: '100%', overflowY: 'scroll', padding: '10px', border: '1px solid #eee', borderRadius: '4px', backgroundColor: '#f9f9f9', color: '#333' }}>
               {comments}
             </div>
@@ -128,7 +128,7 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
           We will do our best to reach you during your preferred contact time of <strong>{bestTime}</strong>, using the contact details you provided.
         </p>
         <p style={{ color: 'black' }}>
-          If you have any immediate questions, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0094E0' }}>(561) 223-9959</a> or reply to this email.
+          If you have any immediate questions, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0A50EC' }}>(561) 223-9959</a> or reply to this email.
         </p>
         <p style={{ marginTop: '30px', color: 'black' }}>
           Sincerely,
@@ -142,7 +142,7 @@ export const MRIEmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         <p style={{ margin: '0' }}>Mountain Spine & Orthopedics</p>
         <p style={{ margin: '0' }}>123 Healthway Drive, Mountain City, MC 54321</p>
         <p style={{ margin: '0' }}>
-          <a href="https://mountainspineorthopedics.com" style={{ color: '#0094E0' }}>www.mountainspineorthopedics.com</a>
+          <a href="https://mountainspineorthopedics.com" style={{ color: '#0A50EC' }}>www.mountainspineorthopedics.com</a>
         </p>
       </div>
     </div>

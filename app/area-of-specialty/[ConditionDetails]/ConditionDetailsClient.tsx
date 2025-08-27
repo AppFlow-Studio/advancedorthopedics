@@ -64,7 +64,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#022968]"
+                                className="text-[#252932]"
                             >
                                 Condition
                             </span>
@@ -74,7 +74,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#022968]"
+                                className="text-[#252932]"
                             >
                                 /
                             </span>
@@ -96,7 +96,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                 fontFamily: "var(--font-public-sans)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                            className="text-[#252932] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
                         >
                             {condition.title}
                         </h1>
@@ -161,7 +161,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.detail}
                             </p>
@@ -183,7 +183,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.what_sym}
                             </p>
@@ -196,7 +196,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                 fontFamily: 'var(--font-inter)',
                                 fontWeight: 400,
                             }}
-                            className='text-[#5B5F67] sm:text-xl text-sm'
+                            className='text-[#424959] sm:text-xl text-sm'
                         >
                             {condition.body}
                         </p>
@@ -218,7 +218,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.risk_fac}
                             </p>
@@ -240,7 +240,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.diagnose}
                             </p>
@@ -262,7 +262,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.treatment}
                             </p>
@@ -284,7 +284,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.pain_info}
                             </p>
@@ -307,7 +307,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.prevent}
                             </p>
@@ -329,7 +329,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
-                                className='text-[#5B5F67] sm:text-xl text-sm'
+                                className='text-[#424959] sm:text-xl text-sm'
                             >
                                 {condition?.schedule}
                             </p>

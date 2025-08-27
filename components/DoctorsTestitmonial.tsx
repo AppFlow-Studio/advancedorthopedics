@@ -13,7 +13,7 @@ export default function DoctorsTestitmonial(
                         fontFamily: 'var(--font-public-sans)',
                         fontWeight: 500,
                     }}
-                    className=' text-[#5B5F67] md:w-[55%] w-full text-xl md:text-2xl'
+                    className=' text-[#424959] md:w-[55%] w-full text-xl md:text-2xl'
                 >
                     {testimonial}
                 </blockquote>

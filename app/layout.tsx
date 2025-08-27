@@ -191,6 +191,6 @@ export default function RootLayout({
 
 
 // Base Colors
-// Main: #0094E0
+// Main: #0A50EC
 // Secondary: #FFFF
-// Third: #022968
+// Third: #252932

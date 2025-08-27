@@ -42,7 +42,7 @@ export default function FAQsSection({ header, faqItems }: { header: React.ReactE
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
                                     }}
-                                    className={`${openItem === index ? 'text-black' : 'text-[#5B5F67]'} text-2xl`}
+                                    className={`${openItem === index ? 'text-black' : 'text-[#424959]'} text-2xl`}
                                 >{item.question}</span>
                                 <motion.div initial={false} animate={{ rotate: openItem === index ? 0 : 0 }}>
                                     {openItem === index ? (

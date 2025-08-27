@@ -127,7 +127,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                     fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#022968]"
+                                className="text-[#252932]"
                             >
                                 Treatment
                             </span>
@@ -136,7 +136,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                     fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#022968]"
+                                className="text-[#252932]"
                             >
                                 /
                             </span>
@@ -154,7 +154,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                     fontFamily: "var(--font-public-sans)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#022968] sm:flex hidden"
+                                className="text-[#252932] sm:flex hidden"
                             >
                                 /
                             </span>
@@ -175,7 +175,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 fontFamily: "var(--font-public-sans)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#022968] flex-wrap text-3xl md:text-6xl lg:text-7xl"
+                            className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl"
                         >
                             {treatment.title}
                         </h1>
@@ -186,7 +186,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                             style={{
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] sm:text-xl text-sm"
+                            className="text-[#424959] sm:text-xl text-sm"
                         >
                             {treatment.body}
                         </p>
@@ -241,7 +241,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.body}
                             </p>
@@ -262,7 +262,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.detail}
                             </p>
@@ -275,7 +275,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                             width={300}
                             height={300}
                             layout="responsive"
-                            className="w-full h-full object-cover object-center rounded-[24px] bg-[#EFF5FF] items-center justify-center flex overflow-hidden aspect-video"
+                            className="w-full h-full object-cover object-center rounded-[24px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden aspect-video"
                         />
 
                         <div className=' flex flex-col space-y-[16px] '>
@@ -292,7 +292,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.procedure_info}
                             </p>
@@ -314,7 +314,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.conditions_treated}
                             </p>
@@ -352,7 +352,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.why_choose_us}
                             </p>
@@ -373,7 +373,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.recovery_info}
                             </p>
@@ -395,7 +395,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 style={{
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] sm:text-xl text-sm"
+                                className="text-[#424959] sm:text-xl text-sm"
                             >
                                 {treatment.schedule}
                             </p>

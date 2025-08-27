@@ -25,7 +25,7 @@ export const socials = [
 
 export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
   return (
-    <div className='w-full h-full flex flex-col rounded-[16px] overflow-hidden group relative'>
+    <div className='w-full h-full flex flex-col border border-gray-200 rounded-[16px] overflow-hidden group relative'>
       {/* Card content */}
       <div className='relative z-10 space-y-[24px]  flex flex-col h-full'>
         <Link
@@ -33,7 +33,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
           aria-label={`View profile for ${doctor.name}`}
           className='block flex-grow'>
           <Image src={doctor.img} alt={doctor.name} className='w-full object-cover object-top xl:max-h-[400px] aspect-square rounded-[16px] bg-gray-500 xl:h-[400px]' draggable={false} />
-          <div className='flex flex-col space-y-[4px] mt-[16px] flex-grow'>
+          <div className='flex flex-col space-y-[4px] mt-[16px] flex-grow sm:px-4 px-2'>
             <div className='space-y-[10px] flex flex-col'>
               <h3
                 style={{
@@ -61,28 +61,30 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
         {/* <div className='flex flex-row space-x-[16px] z-20 relative'>
           {
             socials.map((item, index) => (
-              <Link href={item.link} target='_blank' className='border border-[#EFF5FF] rounded-full lg:px-[13px] lg:py-[10px] px-[10px] py-[8px] items-center justify-center hover:cursor-pointer' key={index}>
+              <Link href={item.link} target='_blank' className='border border-[#FAFAFA] rounded-full lg:px-[13px] lg:py-[10px] px-[10px] py-[8px] items-center justify-center hover:cursor-pointer' key={index}>
                 <item.icon />
               </Link>
             ))
           }
         </div> */}
-        <Link
-          href={`/about/meetourdoctors/${doctor.slug}`}
-          className="bg-white border hover:cursor-pointer border-[#022968] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px] w-full mt-auto">
-          <span
-            style={{
-              fontFamily: "var(--font-inter)",
-              fontWeight: 400,
-            }}
-            className="text-[#022968]"
-          >View details</span>
-          <div className=' group-hover:translate-x-2 transition-transform '>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11" viewBox="0 0 18 11" fill="none">
-              <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 9.79314 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#022968" />
-            </svg>
-          </div>
-        </Link>
+        <div className='sm:p-4 p-2'>
+          <Link
+            href={`/about/meetourdoctors/${doctor.slug}`}
+            className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px] w-full mt-auto">
+            <span
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#252932]"
+            >View details</span>
+            <div className=' group-hover:translate-x-2 transition-transform '>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11" viewBox="0 0 18 11" fill="none">
+                <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 9.79314 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#252932" />
+              </svg>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   )

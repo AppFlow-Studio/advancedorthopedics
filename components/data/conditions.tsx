@@ -171,7 +171,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Signs of a lumbar herniated disc often start gradually but may
                                 worsen over time if not treated. The most common symptom is a
@@ -194,7 +194,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If these symptoms sound familiar, you may be suffering from a
                                 lumbar herniated disc. Mountain Spine & Orthopedics offers a
@@ -227,7 +227,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 The right treatment for a lumbar herniated disc depends on how
                                 severe your symptoms are and how much they impact your daily
@@ -269,7 +269,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 The right treatment for a lumbar herniated disc depends on how
                                 severe your symptoms are and how much they impact your daily
@@ -315,7 +315,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you're experiencing symptoms of a lumbar herniated disc,
                                 there are several treatment options available depending on the
@@ -367,7 +367,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Living with a lumbar herniated disc can affect every aspect of
                                 your day, from walking and sitting to sleeping and working. You
@@ -459,7 +459,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Degenerative Disc Disease is a spinal condition caused by
                                 age-related breakdown of the discs that cushion the vertebrae.
@@ -482,7 +482,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 To diagnose DDD, our specialists begin with a full medical
                                 history and physical exam, followed by advanced imaging such as
@@ -516,7 +516,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Symptoms vary depending on the location and severity of the disc
                                 degeneration. Common signs include chronic lower back or neck
@@ -556,7 +556,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 You may be at higher risk for DDD if you are over the age of 40,
                                 smoke, or lead a sedentary lifestyle. A history of spinal
@@ -589,7 +589,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 At Mountain Spine & Orthopedics, we create personalized
                                 treatment plans tailored to your condition and lifestyle.
@@ -626,7 +626,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you're experiencing persistent back or neck pain, don't wait
                                 to seek help. Degenerative Disc Disease is manageable with the
@@ -724,7 +724,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Cervical spinal stenosis can cause a variety of symptoms
                                 depending on the severity and levels affected. Common signs
@@ -747,7 +747,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you're experiencing any of these symptoms, it's essential to
                                 get evaluated early. We offer a quick and easy spinal condition
@@ -780,7 +780,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 At Mountain Spine & Orthopedics, we specialize in procedures
                                 that relieve spinal cord compression while preserving motion.
@@ -829,7 +829,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Cervical laminoplasty is a motion-preserving surgery done
                                 through the back of the neck. During the procedure, the muscles
@@ -871,7 +871,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Most patients recover quickly after cervical laminoplasty. Many
                                 go home the next day, and in some cases, it may be performed on
@@ -903,7 +903,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you're experiencing symptoms like numbness, clumsiness, or
                                 radiating pain in your arms or legs, you may have cervical
@@ -1051,7 +1051,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 A herniated cervical disc occurs when one of the discs in the
                                 neck region (cervical spine) becomes damaged. These discs are
@@ -1081,7 +1081,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you're experiencing neck pain, numbness, or weakness in your
                                 upper limbs, you may be dealing with a herniated disc in your
@@ -1113,7 +1113,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Diagnosing a herniated disc begins with a medical history review
                                 and physical examination. Your doctor may recommend imaging
@@ -1148,7 +1148,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 In the early stages of a cervical disc herniation, pain can
                                 often be managed with rest, ice, heat therapy, and
@@ -1182,7 +1182,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Cervical disc herniation can occur suddenly due to trauma or
                                 gradually as part of the aging process. The most common cause is
@@ -1224,7 +1224,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Several factors can increase your risk of developing a cervical
                                 herniated disc. These include being overweight, smoking, living
@@ -1258,7 +1258,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Treatment for a herniated disc depends on the severity of the
                                 condition and the patient’s overall health. Mild cases often
@@ -1294,7 +1294,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Cervical herniated discs can significantly impact your daily
                                 life but you don’t have to manage the pain alone. Whether you're
@@ -1855,7 +1855,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 A pinched nerve occurs when soft tissue or bone compresses a
                                 nearby nerve root, interrupting its ability to transmit signals
@@ -1883,7 +1883,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Many patients report that pinched nerve pain worsens with
                                 movement or after long periods of sitting. Some also experience
@@ -1915,7 +1915,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Symptoms of a pinched nerve depend on where the nerve is
                                 compressed, but common warning signs include:
@@ -1925,7 +1925,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>A sharp or burning pain radiating into the arms or legs</li>
                                 <li>Numbness or tingling in the affected limb</li>
@@ -1945,7 +1945,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Pinched nerve symptoms can come and go or be constant, depending
                                 on the cause. If left untreated, nerve compression may lead to
@@ -1983,7 +1983,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Several spinal conditions can lead to pinched nerves. Herniated
                                 discs are one of the most common causes. When the soft inner
@@ -2021,7 +2021,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 A pinched nerve doesn’t have to control your life. With early
                                 intervention and the right treatment strategy, most patients
@@ -2061,7 +2061,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you’re living with shooting pain, numbness, or tingling that
                                 just won’t go away, it may be time to speak with a spine
@@ -2299,7 +2299,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Arthritis refers to inflammation of one or more joints. It’s not
                                 a single disease but a broad term used to describe over 100
@@ -2326,7 +2326,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Many patients describe arthritis as a dull, aching pain that
                                 worsens with activity or after periods of rest. Understanding
@@ -2356,7 +2356,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>
                                     Joint stiffness, especially in the morning or after inactivity
@@ -2378,7 +2378,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 In more advanced stages, arthritis can lead to joint deformity,
                                 loss of function, and reduced ability to perform everyday
@@ -2415,7 +2415,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 There are several major types of arthritis that affect people of
                                 all ages. Osteoarthritis is the most common and is caused by
@@ -2454,7 +2454,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Arthritis may be a chronic condition, but that doesn’t mean it
                                 has to control your life. With the right treatment plan, it’s
@@ -2489,7 +2489,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you’re living with persistent joint pain, stiffness, or
                                 swelling, don’t wait to get the help you need. Arthritis is a
@@ -2569,7 +2569,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Lower back conditions can present in many ways, including
                                 radiating pain, stiffness, numbness, or tingling that travels
@@ -2594,7 +2594,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Even if your pain seems manageable, it’s important not to ignore
                                 it. Small symptoms can be early warning signs of more serious
@@ -2627,7 +2627,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 The only way to determine the right treatment is through an
                                 accurate diagnosis. Our specialists use a variety of advanced
@@ -2665,7 +2665,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Surgery is not always necessary for lower back pain. In fact,
                                 many patients experience significant relief through
@@ -2699,7 +2699,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 The most effective way to prevent lower back pain is by
                                 maintaining a healthy lifestyle. Carrying excess weight places
@@ -2733,7 +2733,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you’re experiencing persistent lower back pain, numbness, or
                                 radiating leg symptoms, it may be time to speak with a spine
@@ -2809,7 +2809,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Sciatica symptoms usually affect only one side of the body, most
                                 commonly the lower back and leg. They often intensify while
@@ -2836,7 +2836,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you suspect you may be experiencing sciatica, we offer a
                                 quick and easy condition checker. This tool gathers key
@@ -2867,7 +2867,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Most cases of sciatica respond well to conservative treatment,
                                 especially when the underlying condition compressing the sciatic
@@ -2906,7 +2906,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Sciatica treatments vary depending on nerve involvement and
                                 symptom severity. Our team offers both non-surgical and
@@ -2928,7 +2928,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Stretching exercises improve mobility and flexibility.
                                 Chiropractic care eases pressure on the spine. Medications
@@ -2949,7 +2949,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Foraminotomy relieves pressure by enlarging the foramen.
                                 <br />
@@ -2991,7 +2991,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you suspect you’re experiencing sciatica, don’t wait to seek
                                 help. Our team at Mountain Spine & Orthopedics specializes in
@@ -3066,7 +3066,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Coccydynia is the medical term for inflammation or injury to the
                                 coccyx (tailbone), located at the bottom of the spine. Pain may
@@ -3093,7 +3093,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If you're experiencing symptoms like tailbone pain that worsens
                                 when sitting or during bowel movements, you may be dealing with
@@ -3123,7 +3123,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Diagnosing coccydynia typically starts with a physical
                                 examination and discussion of your symptoms and medical
@@ -3160,7 +3160,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 In early cases, coccydynia can be managed with non-surgical
                                 treatment. This includes using a wedge or donut-shaped cushion
@@ -3197,7 +3197,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Coccydynia can result from both sudden trauma and long-term
                                 strain. Common causes include:
@@ -3207,7 +3207,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li> Falls or direct impact to the tailbone</li>
                                 <li> Prolonged sitting on hard or unstable surfaces</li>
@@ -3247,7 +3247,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Several factors increase the risk of developing coccydynia,
                                 including being:
@@ -3257,7 +3257,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>Female (due to childbirth)</li>
                                 <li> Obese or underweight (both affect sitting posture)</li>
@@ -3290,7 +3290,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Treatment depends on how long you’ve had symptoms and how severe
                                 the pain is. Common treatments include:
@@ -3300,7 +3300,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>Cushions and posture correction</li>
                                 <li>Anti-inflammatory medications</li>
@@ -3312,7 +3312,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 In rare cases, a coccygectomy (surgical removal of the coccyx)
                                 may be considered. At Mountain Spine & Orthopedics, we specialize
@@ -3351,7 +3351,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Tailbone pain in pregnancy is common and usually caused by the
                                 hormone relaxin, which loosens pelvic joints. Using supportive
@@ -3374,7 +3374,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 For many, gentle walking can reduce tailbone pressure. But if
                                 there’s a fracture or joint instability, walking may worsen the
@@ -3397,7 +3397,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Avoid sleeping flat on your back. Instead, sleep on your side
                                 with a pillow between your knees. This position minimizes
@@ -3426,7 +3426,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Tailbone pain doesn’t have to interfere with your life. At
                                 Mountain Spine & Orthopedics, our expert team offers effective,
@@ -3540,7 +3540,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Foraminal stenosis is a specific type of spinal stenosis where
                                 the openings between your spinal bones (vertebrae), called the
@@ -3571,7 +3571,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Common causes include age-related wear and tear like bone spurs
                                 (bony growths), bulging or herniated discs pushing into the
@@ -3602,7 +3602,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Diagnosing foraminal stenosis accurately requires a combination
                                 of understanding your symptoms and using advanced imaging. Our
@@ -3647,7 +3647,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 The goal of managing foraminal stenosis pain is to reduce nerve
                                 compression and inflammation. Conservative, non-surgical
@@ -3658,7 +3658,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>
                                     <b>Activity Modification:</b> Avoiding activities that worsen
@@ -3686,7 +3686,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 If these methods don't provide adequate relief, or if there is
                                 progressive weakness, surgical options might be considered. Our
@@ -3715,7 +3715,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Foraminal stenosis is most often caused by the natural aging
                                 process and degenerative changes in the spine. As we age,
@@ -3726,7 +3726,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>
                                     <b>Bone Spurs (Osteophytes):</b> The body may grow extra bone
@@ -3759,7 +3759,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Less common causes include spinal injuries, tumors, or cysts.
                                 Understanding the specific cause is key to choosing the right
@@ -3794,7 +3794,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 While anyone can develop foraminal stenosis, certain factors
                                 increase your risk:
@@ -3804,7 +3804,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>
                                     <b>Age:</b> It's most common in individuals over 50 due to
@@ -3837,7 +3837,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Being aware of these factors can help in early recognition and
                                 management.
@@ -3864,7 +3864,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Treatment for foraminal stenosis aims to relieve nerve pressure
                                 and reduce symptoms. The approach depends on symptom severity
@@ -3875,7 +3875,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl list-disc list-inside"
+                                className="text-[#424959] text-md sm:text-xl list-disc list-inside"
                             >
                                 <li>
                                     <b>Foraminotomy:</b> A minimally invasive procedure where bone
@@ -3899,7 +3899,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 At Mountain Spine Orthopedics, our surgeons specialize in
                                 minimally invasive techniques whenever possible. These
@@ -3940,7 +3940,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 While often manageable with conservative care, severe or
                                 progressive foraminal stenosis can lead to chronic pain,
@@ -3964,7 +3964,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 The underlying structural narrowing (like bone spurs or
                                 thickened ligaments) typically does not resolve on its own.
@@ -3987,7 +3987,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Activities that worsen your specific symptoms should generally
                                 be avoided or modified. This often includes high-impact
@@ -4019,7 +4019,7 @@ export const conditions: ConditionInfoProp[] = [
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 400,
                                 }}
-                                className="text-[#5B5F67] text-md sm:text-xl"
+                                className="text-[#424959] text-md sm:text-xl"
                             >
                                 Radiating nerve pain, numbness, or weakness shouldn't limit
                                 your life. The expert team at Mountain Spine Orthopedics offers
@@ -4668,7 +4668,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Plantar Fasciitis is a degenerative inflammatory condition of the
                             plantar fascia. Repetitive overload causes tiny tears at the
@@ -4712,7 +4712,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
@@ -4761,7 +4761,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Early stage – intermittent heel pain that flares after new
                             activities or long days on the feet. Progressive stage – daily pain,
@@ -4794,7 +4794,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Initial therapy focuses on reducing inflammation and restoring
                             flexibility. Key components include doctor guided stretching,
@@ -4835,7 +4835,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Persistent heel pain should not sideline your lifestyle. Early
                             professional intervention can stop Plantar Fasciitis from
@@ -4930,7 +4930,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             A bunion is a structural misalignment of the first
                             metatarsophalangeal joint where the first metatarsal bone deviates
@@ -4971,7 +4971,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Most patients first notice a visible bump and intermittent
                             soreness at the base of the big toe. With time, persistent joint
@@ -5013,7 +5013,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Bunion progression typically follows a predictable path. In the
                             mild stage, the joint angle deviates slightly, and discomfort
@@ -5046,7 +5046,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Many bunions respond well to conservative management when
                             addressed early. Wider toe-box shoes, silicone separators worn at
@@ -5085,7 +5085,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Persistent foot pain, swelling, and visible toe deviation do not
                             have to define your day-to-day life. Early, expert-guided
@@ -5153,7 +5153,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Achilles Tendonitis is a degenerative inflammatory condition
                             resulting from cumulative overload. Two primary patterns occur:
@@ -5196,7 +5196,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
@@ -5250,7 +5250,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             <ol className="list-decimal list-inside space-y-2">
                                 <li>
@@ -5299,7 +5299,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
@@ -5354,7 +5354,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Heel or calf pain that lingers more than a few days deserves
                             expert evaluation early treatment preserves tendon integrity and
@@ -5422,7 +5422,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Flat feet fall into three broad categories. Flexible flat feet
                             maintain an arch when the foot is off the ground but flatten under
@@ -5467,7 +5467,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Typical signs include tired, aching feet after prolonged
                             standing, persistent pain or swelling along the inner ankle and
@@ -5508,7 +5508,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Flat foot deformity generally advances through four recognizable
                             stages. In Stage I the posterior tibial tendon is inflamed but
@@ -5546,7 +5546,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Early care focuses on non surgical measures. Custom molded
                             orthotics or ankle foot braces cradle the arch and limit
@@ -5590,7 +5590,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Foot fatigue, arch pain, or ankle instability do not have to limit
                             your daily life. Early expert evaluation can halt flat foot
@@ -5659,7 +5659,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Ankle arthroscopy uses a rigid fiber optic scope connected to a
                             digital camera and light source to visualize the interior of the
@@ -5705,7 +5705,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Patients considered for ankle arthroscopy usually report ongoing
                             deep ankle pain that fails to improve with rest, physical
@@ -5745,7 +5745,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Most ankle problems begin with an acute injury such as a sprain
                             or fracture that heals incompletely, leaving residual scar tissue,
@@ -5781,7 +5781,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Not every ankle problem requires surgery, so we exhaust
                             nonsurgical measures first, including targeted physical therapy,
@@ -5817,7 +5817,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Persistent ankle pain, swelling, or instability should not
                             compromise your lifestyle. Early expert intervention can prevent
@@ -5887,7 +5887,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Hammertoes most often affect the second third or fourth toes and
                             can be either flexible or rigid. In the flexible stage you can
@@ -5930,7 +5930,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Early signs include a noticeable upward bump at the middle of the
                             toe, redness or irritation on the top of the joint, and soreness
@@ -5969,7 +5969,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Stage one involves a flexible deformity with occasional discomfort
                             that improves after removing tight shoes. Stage two brings semi
@@ -6000,7 +6000,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Conservative management aims to reduce pressure and restore tendon
                             balance. Wider toe box shoes with soft uppers prevent rubbing
@@ -6041,7 +6041,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Do not let painful hammertoes dictate your footwear choices or
                             limit your mobility. Early expert evaluation can stop the
@@ -6111,7 +6111,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Diabetic ulcers are classified as chronic full thickness wounds
                             that penetrate through the dermis. Most appear beneath the
@@ -6151,7 +6151,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Early signs include a persistent redness or callus that feels
                             slightly moist, a foul odor from bacterial colonization, or
@@ -6188,7 +6188,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Stage one involves a flexible deformity with occasional discomfort
                             that improves after removing tight shoes. Stage two brings semi
@@ -6219,7 +6219,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Comprehensive care begins with aggressive offloading using total
                             contact casts, removable walkers, or custom orthotics that
@@ -6260,7 +6260,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             A diabetic foot ulcer should never be ignored. Prompt specialized
                             care prevents infection, shortens healing time, and safeguards
@@ -6329,7 +6329,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Ankle replacement involves two main steps. First the surgeon
                             removes the diseased joint surfaces and any osteophytes or bone
@@ -6372,7 +6372,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Candidates for ankle replacement usually experience constant deep
                             ankle pain that interferes with walking work and sleep. Swelling
@@ -6411,7 +6411,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Ankle arthritis begins with intermittent soreness after vigorous
                             activity then progresses to daily pain morning stiffness and
@@ -6443,7 +6443,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             The procedure is performed under regional or general anesthesia
                             and usually requires a hospital stay of one night. A well padded
@@ -6482,7 +6482,7 @@ export const conditions: ConditionInfoProp[] = [
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-[#5B5F67] text-md sm:text-xl"
+                            className="text-[#424959] text-md sm:text-xl"
                         >
                             Persistent ankle pain and stiffness do not have to dictate your
                             pace of life. Early expert evaluation can determine whether total

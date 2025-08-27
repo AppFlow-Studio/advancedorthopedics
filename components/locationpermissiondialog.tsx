@@ -38,7 +38,7 @@ export function LocationPermissionDialog({ onLocationGranted, onLocationDenied }
     setLoading(true)
     setError(null)
 
-    
+
     if (!navigator.geolocation) {
       setError("Geolocation is not supported by your browser")
       setLoading(false)
@@ -85,12 +85,12 @@ export function LocationPermissionDialog({ onLocationGranted, onLocationDenied }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-md border-[#0094E0]">
+      <DialogContent className="sm:max-w-md border-[#0A50EC]">
         <DialogHeader>
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#0094E0]">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#0A50EC]">
             <MapPin className="h-8 w-8 text-white" />
           </div>
-          <DialogTitle className="text-center text-xl font-bold text-[#0094E0] mt-4">
+          <DialogTitle className="text-center text-xl font-bold text-[#0A50EC] mt-4">
             Find Your Nearest Clinic
           </DialogTitle>
           <DialogDescription className="text-center">
@@ -120,7 +120,7 @@ export function LocationPermissionDialog({ onLocationGranted, onLocationDenied }
           <Button
             type="button"
             onClick={requestLocation}
-            className="bg-[#0094E0] text-white hover:bg-[#0094E0]/90"
+            className="bg-[#0A50EC] text-white hover:bg-[#0A50EC]/90"
             disabled={loading}
           >
             {loading ? (

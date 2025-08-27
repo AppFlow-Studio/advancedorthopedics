@@ -30,7 +30,7 @@ export default function DoctorProfileClient({ doctor }: { doctor: DoctorProp }) 
             <nav aria-label="Breadcrumb" className="mt-6 mb-2">
               <ol className="flex flex-row flex-wrap gap-2 text-sm text-[#2358AC]">
                 <li><a href="/about/meetourdoctors">Doctors</a> /</li>
-                <li aria-current="page" className="text-[#022968] font-semibold">{doctor.name}</li>
+                <li aria-current="page" className="text-[#252932] font-semibold">{doctor.name}</li>
               </ol>
             </nav>
             {/* Main Heading (now <p> for visual, not <h1>) */}
@@ -38,7 +38,7 @@ export default function DoctorProfileClient({ doctor }: { doctor: DoctorProp }) 
             <p style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }} className="text-[#54535C] text-lg mt-1">{doctor.practice}</p>
             <div className=' flex flex-row space-x-[16px] mt-2'>
               {socials.map((item: any, index: number) => (
-                <Link href={item.link} target='_blank' className=' border border-[#EFF5FF] rounded-full px-[13px] py-[10px] items-center justify-center' key={index}>
+                <Link href={item.link} target='_blank' className=' border border-[#FAFAFA] rounded-full px-[13px] py-[10px] items-center justify-center' key={index}>
                   <item.icon />
                 </Link>
               ))}

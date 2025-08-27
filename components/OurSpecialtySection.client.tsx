@@ -52,7 +52,10 @@ export default function OurSpecialtySection() {
     const SpecialtyItem = ({ item, index, isMobile = false }: { item: any, index: number, isMobile?: boolean }) => (
         <motion.div
             key={index}
-            className={`flex flex-col space-y-[16px] h-full ${index == 1 || index == 2 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'} p-6 rounded-[20px]`}
+            className={`flex flex-col space-y-[16px] h-full bg-[#FAFAFA] p-6 rounded-[20px]
+                ${index == 0 ? 'border-r-[#F5F5F5] border-b-[#F5F5F5] border-l-0 border-t-0 border rounded-r-none rounded-b-none' : index == 1 ? 'border-l-[#F5F5F5] border-b-[#F5F5F5] border-r-0 border-t-0 border rounded-l-none rounded-b-none' : index == 2 ? 'border-r-[#F5F5F5] border-t-[#F5F5F5] border-l-0 border-b-0 border rounded-r-none rounded-t-none' : 'border-l-[#F5F5F5] border-t-[#F5F5F5] border-r-0 border-b-0 border rounded-l-none rounded-t-none'
+                }
+                `}
         >
             <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px]">
                 {item.icon()}
@@ -61,7 +64,7 @@ export default function OurSpecialtySection() {
                 style={{
                     fontFamily: "var(--font-public-sans)",
                     fontWeight: 500,
-                    color: '#022968'
+                    color: '#252932'
                 }}
                 className="text-xl"
             >
@@ -71,7 +74,7 @@ export default function OurSpecialtySection() {
                 style={{
                     fontFamily: "var(--font-inter)",
                     fontWeight: 500,
-                    color: '#5B5F67'
+                    color: '#424959'
                 }}
                 className="text-md flex-grow"
             >
@@ -102,24 +105,25 @@ export default function OurSpecialtySection() {
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-1 bottom-0 -translate-y-1/2 z-10" />
-                            <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-1 bottom-1/2 -translate-y-1/2 z-10" />
+                            <div className="mt-4 flex items-center justify-center gap-3">
+                                <CarouselPrevious className="static translate-x-0 translate-y-0 relative bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 w-8 h-8" />
+                                <div className="flex items-center gap-2">
+                                    {OurSpecialtyItems.map((_, index) => (
+                                        <motion.button
+                                            key={index}
+                                            onClick={() => api?.scrollTo(index)}
+                                            className={`h-2 rounded-full transition-all duration-300 ${index === current
+                                                ? 'bg-[#0A50EC] w-6'
+                                                : 'bg-[#0A50EC]/30 hover:bg-[#0A50EC]/50'
+                                                }`}
+                                            whileTap={{ scale: 0.9 }}
+                                        />
+                                    ))}
+                                </div>
+                                <CarouselNext className="static translate-x-0 translate-y-0 relative bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 w-8 h-8" />
+                            </div>
                         </Carousel>
 
-                        {/* Dynamic Progress Indicators */}
-                        <div className="flex justify-center mt-6 space-x-2">
-                            {OurSpecialtyItems.map((_, index) => (
-                                <motion.button
-                                    key={index}
-                                    onClick={() => api?.scrollTo(index)}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
-                                        ? 'bg-[#0094E0] w-6'
-                                        : 'bg-[#0094E0]/30 hover:bg-[#0094E0]/50'
-                                        }`}
-                                    whileTap={{ scale: 0.9 }}
-                                />
-                            ))}
-                        </div>
                     </div>
                 )}
             </div>

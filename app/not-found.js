@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button"
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0094E0] text-white p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0A50EC] text-white p-4">
       <div className="container flex max-w-md flex-col items-center justify-center space-y-8 text-center">
         <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white">
-          <Bone className="h-12 w-12 text-[#0094E0]" />
+          <Bone className="h-12 w-12 text-[#0A50EC]" />
         </div>
 
         <h1 className="text-6xl font-bold">Oops!</h1>
@@ -24,7 +24,7 @@ export default function NotFound() {
           </div>
         </div>
 
-        <Button asChild className="mt-8 bg-white text-[#0094E0] hover:bg-white/90">
+        <Button asChild className="mt-8 bg-white text-[#0A50EC] hover:bg-white/90">
           <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Home

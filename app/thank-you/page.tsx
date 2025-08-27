@@ -16,16 +16,16 @@ export default function ThankYouPage() {
             {/* Left Side - Text Content */}
             <div className="space-y-8">
               <div className="flex items-center gap-3 mb-6">
-                <CheckCircle className="h-12 w-12 text-[#0094E0]" />
+                <CheckCircle className="h-12 w-12 text-[#0A50EC]" />
                 <div>
-                  <h1 className="text-3xl md:text-5xl font-bold text-[#022968]">Thank You!</h1>
+                  <h1 className="text-3xl md:text-5xl font-bold text-[#252932]">Thank You!</h1>
                   <p className="text-lg text-gray-600">Appointment Request Received</p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-semibold text-[#022968] mb-4">
+                  <h2 className="text-2xl font-semibold text-[#252932] mb-4">
                     Thank you for choosing Mountain Spine and Orthopedics
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed">
@@ -36,12 +36,12 @@ export default function ThankYouPage() {
                 </div>
 
 
-                <Card className="border-l-[#0094E0] bg-[#0094E0]/10">
+                <Card className="border-l-[#0A50EC] bg-[#0A50EC]/10">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
-                      <Mail className="h-12 w-12 text-[#0094E0] mt-1" />
+                      <Mail className="h-12 w-12 text-[#0A50EC] mt-1" />
                       <div>
-                        <h3 className="font-semibold text-[#022968] mb-2">What's Next?</h3>
+                        <h3 className="font-semibold text-[#252932] mb-2">What's Next?</h3>
                         <p className="text-gray-700">
                           Please look out for a confirmation email in your inbox with your appointment details. Our team
                           will contact you ASAP to confirm your appointment time.
@@ -51,19 +51,19 @@ export default function ThankYouPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-l-[#022968] bg-[#022968]/10">
+                <Card className="border-l-[#252932] bg-[#252932]/10">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
-                      <Users className="h-12 w-12 text-[#022968] mt-1" />
+                      <Users className="h-12 w-12 text-[#252932] mt-1" />
                       <div>
-                        <h3 className="font-semibold text-[#022968] mb-2">Spread the Word</h3>
+                        <h3 className="font-semibold text-[#252932] mb-2">Spread the Word</h3>
                         <p className="text-gray-700 mb-4">
                           If you're satisfied with our service, please refer us to your friends and family. Your
                           referrals help us continue providing excellent orthopedic care to our patients.
                         </p>
                         {/* <Button
                           variant="outline"
-                          className="text-[#022968] border-[#022968]/30 hover:bg-[#022968]/10 bg-transparent"
+                          className="text-[#252932] border-[#252932]/30 hover:bg-[#252932]/10 bg-transparent"
                         >
                           <Share2 className="h-4 w-4 mr-2" />
                           Share with Friends
@@ -74,14 +74,14 @@ export default function ThankYouPage() {
                 </Card>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-[#022968]">Stay Connected</h3>
+                  <h3 className="text-xl font-semibold text-[#252932]">Stay Connected</h3>
                   <p className="text-gray-700">
                     Follow us on social media for health tips, updates, and community events.
                   </p>
                   <div className="flex gap-4">
                     <Link
                       href="#"
-                      className="flex items-center justify-center w-12 h-12 bg-[#0094E0] text-white rounded-full hover:bg-[#022968] transition-colors"
+                      className="flex items-center justify-center w-12 h-12 bg-[#0A50EC] text-white rounded-full hover:bg-[#252932] transition-colors"
                       aria-label="Facebook"
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export default function ThankYouPage() {
                     </Link>
                     {/* <Link
                       href="#"
-                      className="flex items-center justify-center w-12 h-12 bg-[#0094E0] text-white rounded-full hover:bg-[#022968] transition-colors"
+                      className="flex items-center justify-center w-12 h-12 bg-[#0A50EC] text-white rounded-full hover:bg-[#252932] transition-colors"
                       aria-label="Twitter"
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -99,14 +99,14 @@ export default function ThankYouPage() {
                     </Link> */}
                     <Link
                       href="#"
-                      className="flex items-center justify-center w-12 h-12 bg-[#0094E0] text-white rounded-full hover:bg-[#022968] transition-colors"
+                      className="flex items-center justify-center w-12 h-12 bg-[#0A50EC] text-white rounded-full hover:bg-[#252932] transition-colors"
                       aria-label="Instagram"
                     >
                       <Instagram className="h-6 w-6" />
                     </Link>
                     {/* <Link
                       href="#"
-                      className="flex items-center justify-center w-12 h-12 bg-[#0094E0] text-white rounded-full hover:bg-[#022968] transition-colors"
+                      className="flex items-center justify-center w-12 h-12 bg-[#0A50EC] text-white rounded-full hover:bg-[#252932] transition-colors"
                       aria-label="LinkedIn"
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -115,8 +115,8 @@ export default function ThankYouPage() {
                     </Link> */}
                   </div>
                 </div>
-                <div className="pt-6 border-t border-[#022968]/20">
-                  <Button asChild className="bg-[#0094E0] hover:bg-[#022968]">
+                <div className="pt-6 border-t border-[#252932]/20">
+                  <Button asChild className="bg-[#0A50EC] hover:bg-[#252932]">
                     <Link href="/">Return to Homepage</Link>
                   </Button>
                 </div>

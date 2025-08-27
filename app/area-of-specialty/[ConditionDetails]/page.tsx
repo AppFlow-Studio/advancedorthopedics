@@ -44,7 +44,7 @@ function linkifyText(text: string, currentSlug: string) {
     const regex = new RegExp(`(?<![\\w-])${title.replace(/[-/\\^$*+?.()|[\\]{}]/g, '\\$&')}(?![\\w-])`, 'g');
     replaced = replaced.replace(regex, match => {
       const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
-      return `<a href="${href}" class="underline text-[#022968]">${match}</a>`;
+      return `<a href="${href}" class="underline text-[#252932]">${match}</a>`;
     });
   });
   return replaced;
@@ -61,7 +61,7 @@ function renderField(field: any, currentSlug: string) {
           fontFamily: "var(--font-inter)",
           fontWeight: 400,
         }}
-        className="text-[#5B5F67] sm:text-xl text-sm"
+        className="text-[#424959] sm:text-xl text-sm"
         dangerouslySetInnerHTML={{
           __html: linkifyText(field, currentSlug)
         }}
@@ -139,7 +139,7 @@ export default function ConditionDetails({
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="text-[#022968]"
+                className="text-[#252932]"
               >
                 Condition
               </h1>
@@ -149,7 +149,7 @@ export default function ConditionDetails({
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="text-[#022968]"
+                className="text-[#252932]"
               >
                 /
               </h1>
@@ -171,7 +171,7 @@ export default function ConditionDetails({
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
               }}
-              className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+              className="text-[#252932] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
               {condition_details.title}
             </h1>

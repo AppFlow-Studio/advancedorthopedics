@@ -58,23 +58,23 @@ export default function ServicesAndExpertiseSection() {
         >
             <Link
                 href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
-                className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer h-full ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#EFF5FF]' : 'bg-[#E5F6FF]'}`}`}
+                className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer h-full ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#FAFAFA]' : 'bg-[#FAFAFA]'}`}`}
             >
                 <div className="flex flex-row items-center justify-between">
-                    <div className="rounded-full border border-[#EFF5FF] h-12 w-12 items-center justify-center flex">
+                    <div className="rounded-full border border-[#FAFAFA] h-12 w-12 items-center justify-center flex">
                         <span
                             style={{
                                 fontFamily: "var(--font-public-sans)",
                                 fontWeight: 500,
                             }}
-                            className="text-lg self-center text-[#022968]"
+                            className="text-lg self-center text-[#252932]"
                         >
                             0{index + 1}
                         </span>
                     </div>
 
-                    <div className={`sm:bg-[#EFF5FF] ${index % 2 === 1 ? 'bg-[#E5F6FF]' : 'bg-[#EFF5FF]'} rounded-full border border-[#EFF5FF] py-3 px-6`}>
-                        <Image src={item.img} alt={item.title} width={22} height={22} className="h-[22px] w-[22px]" />
+                    <div className={`sm:bg-[#EEEFF1] ${index % 2 === 1 ? '' : ''} rounded-full h-10 border border-[#FAFAFA] py-6 px-4 flex items-center justify-center`}>
+                        <Image src={item.img} alt={item.title} width={18} height={18} className="" />
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@ export default function ServicesAndExpertiseSection() {
                             fontFamily: "var(--font-public-sans)",
                             fontWeight: 500,
                         }}
-                        className="text-3xl text-[#022968]"
+                        className="text-3xl text-[#252932]"
                     >
                         {item.title}
                     </h3>
@@ -94,7 +94,7 @@ export default function ServicesAndExpertiseSection() {
                             fontFamily: "var(--font-public-sans)",
                             fontWeight: 500,
                         }}
-                        className="text-lg text-[#022967] flex-grow"
+                        className="text-lg text-[#424959] flex-grow"
                     >
                         {item.desc}
                     </p>
@@ -136,24 +136,25 @@ export default function ServicesAndExpertiseSection() {
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute left-1 -bottom-0  z-10" />
-                            <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0094E0]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute right-1 -bottom-0  z-10" />
+                            <div className="mt-4 flex items-center justify-center gap-3">
+                                <CarouselPrevious className="static translate-x-0 translate-y-0 relative bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 w-8 h-8" />
+                                <div className="flex items-center gap-2">
+                                    {ServicesAndExpertise.map((_, index) => (
+                                        <motion.button
+                                            key={index}
+                                            onClick={() => api?.scrollTo(index)}
+                                            className={`h-2 rounded-full transition-all duration-300 ${index === current
+                                                ? 'bg-[#0A50EC] w-6'
+                                                : 'bg-[#0A50EC]/30 w-2 hover:bg-[#0A50EC]/50'
+                                                }`}
+                                            whileTap={{ scale: 0.9 }}
+                                        />
+                                    ))}
+                                </div>
+                                <CarouselNext className="static translate-x-0 translate-y-0 relative bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 w-8 h-8" />
+                            </div>
                         </Carousel>
 
-                        {/* Dynamic Progress Indicators */}
-                        <div className="flex justify-center mt-6 space-x-2">
-                            {ServicesAndExpertise.map((_, index) => (
-                                <motion.button
-                                    key={index}
-                                    onClick={() => api?.scrollTo(index)}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
-                                        ? 'bg-[#0094E0] w-6'
-                                        : 'bg-[#0094E0]/30 hover:bg-[#0094E0]/50'
-                                        }`}
-                                    whileTap={{ scale: 0.9 }}
-                                />
-                            ))}
-                        </div>
                     </div>
                 )}
             </div>

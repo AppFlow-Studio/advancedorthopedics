@@ -115,13 +115,13 @@ export default function FAQs() {
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
               style={{ background: 'rgba(255, 255, 255, 0.50)' }}
             >
-              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968]">About</span>
-              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#022968]">/</span>
+              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932]">About</span>
+              <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932]">/</span>
               <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#2358AC]">FAQ's</span>
             </div>
           </div>
           <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[58%] pb-20">
-            <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#022968] text-3xl sm:text-5xl md:text-6xl">
+            <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#252932] text-3xl sm:text-5xl md:text-6xl">
               Frequently Asked Questions – Mountain Spine & Orthopedics
             </h1>
           </div>
@@ -140,7 +140,7 @@ export default function FAQs() {
           <Image src={FAQsDocotorTestimony} alt='Happy Female Doctor' className=' md:flex hidden absolute -bottom-8 left-[40%] w-[75%] z-20' />
           <p
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className=' text-[#5B5F67] md:w-[55%] w-full text-xl md:text-2xl'
+            className=' text-[#424959] md:w-[55%] w-full text-xl md:text-2xl'
           >
             At Mountain Spine & Orthopedics, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. We believe in equipping you with the knowledge needed to make an informed and confident decision about your spine care. View some of our commonly-asked questions.
           </p>
