@@ -9,12 +9,14 @@ import type { BlogPostProp } from './BlogPostCard'
 type Props = {
     blog: BlogPostProp
     slug: string
+    onClick?: () => void
 }
 
-export default function NavCompactBlogCard({ blog, slug }: Props) {
+export default function NavCompactBlogCard({ blog, slug, onClick }: Props) {
     return (
         <Link
             href={`/blogs/${slug}`}
+            onClick={onClick}
             className="group block w-full rounded-2xl overflow-hidden border border-black/10 bg-white hover:shadow-md transition-shadow duration-200"
         >
             {/* Image */}

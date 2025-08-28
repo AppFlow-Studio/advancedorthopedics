@@ -104,7 +104,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
       >
         {
           title == 'FIND CARE' ? (
-            <div className='w-200 flex flex-row gap-x-5'>
+            <div className='w-200 flex flex-row justify-between gap-x-5'>
               <div className='grid grid-cols-2 gap-0 w-130'>
                 <div className="col-span-2 px-4 py-3 mb-2">
                   <h3
@@ -181,13 +181,13 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                 }
               </div>
               <div className='w-60'>
-                <PromoOverlayCard className="max-w-60" />
+                <PromoOverlayCard className="max-w-60" link="/area-of-specialty/spinal-stenosis" />
               </div>
             </div>
           ) :
             title == 'AREA OF SPECIALTY' ? (
-              <div className='w-200 flex flex-row gap-x-4'>
-                <div className='w-fit space-y-4'>
+              <div className='w-200 flex flex-row '>
+                <div className='w-fit flex flex-col justify-center items-center space-y-4 px-1'>
                   <ul className='flex flex-col w-100'>
                     {
                       sublinks.map((link, linkIndex) => {
@@ -246,10 +246,11 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                     }
                   </ul>
                   <PromoOverlayCard
-                    className="max-w-100"
+                    className="max-w-100 w-100"
                     imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
                     title="Lower Back Pain?"
                     subtitle="Meet with our world-class surgeons today"
+                    link={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
                   />
                 </div>
 
@@ -442,6 +443,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                     imageUrl="/centralflorida.png"
                     title="Serving Florida"
                     subtitle="20+ Years of Orthopedic Care for Florida."
+                    link="/locations"
                   />
                 </div>
               )

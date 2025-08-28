@@ -82,6 +82,12 @@ export default async function LocationDetails(
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
             <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
+                <div
+                    style={{
+                        filter: 'blur(30px)'
+                    }}
+                    className="w-full h-[120px] absolute top-0 z-[1]"
+                />
                 <Image
                     src={'/herosectionimg.jpg'}
                     priority={true}
@@ -93,7 +99,7 @@ export default async function LocationDetails(
                 <div
                     className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
                     style={{
-                        background: 'linear-gradient(180deg, rgba(0, 148, 224, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+                        background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
                     }}
                 />
 

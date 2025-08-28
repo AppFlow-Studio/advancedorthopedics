@@ -62,42 +62,7 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                         </Link> {/* Add truncate if titles get long */}
                     </AccordionTrigger>
                     <AccordionContent className="pt-1 pb-0 "> {/* No base padding needed, handled by recursive calls */}
-                        {
-                            item.title == 'FIND CARE' ? (
-                                <div className='w-full flex items-center justify-center px-6 py-4'>
-                                    <PromoOverlayCard
-                                        className="max-h-30 h-30 w-full" /></div>
-                            )
-                                : item.title == 'AREA OF SPECIALTY' ? (
-                                    <div className='w-full flex items-center justify-center px-6 py-4'>
-                                        <PromoOverlayCard
-                                            className="max-h-30 h-30 w-full"
-                                            imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
-                                            title="Lower Back Pain?"
-                                            subtitle="Meet with our world-class surgeons today"
-                                        /></div>
-                                )
-                                    : item.title == 'LOCATION' ? (
-                                        <div className='w-full flex items-center justify-center px-6 py-4'>
-                                            <PromoOverlayCard
-                                                className="max-h-30 h-30 w-full"
-                                                imageUrl="/centralflorida.png"
-                                                title="Serving Florida"
-                                                subtitle="20+ Years of Orthopedic Care for Florida."
-                                            />
-                                        </div>
-                                    )
-                                        : item.title == 'ABOUT' ? (
-                                            <div className='w-full flex items-center justify-center px-6 py-4'>
-                                                {latestBlog && (
-                                                    <div className='w-70'>
-                                                        <NavCompactBlogCard blog={latestBlog.blog_info} slug={latestBlog.slug} />
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ) : null
 
-                        }
                         <ul className="flex flex-col space-y-1">
                             {/* Recursive call for sublinks */}
                             {item.subLinks!.map((sublink, subIndex) => (
@@ -110,6 +75,48 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                                 />
                             ))}
                         </ul>
+                        {
+                            item.title == 'FIND CARE' ? (
+                                <div className='w-full flex items-center justify-center px-6 py-4'>
+                                    <PromoOverlayCard
+                                        link="/area-of-specialty/spinal-stenosis"
+                                        onClick={closeSidebar}
+                                        className="max-h-30 h-30 w-full sm:max-h-100 sm:h-fit" /></div>
+                            )
+                                : item.title == 'AREA OF SPECIALTY' ? (
+                                    <div className='w-full flex items-center justify-center px-6 py-4'>
+                                        <PromoOverlayCard
+                                            onClick={closeSidebar}
+                                            className="max-h-30 h-30 w-full sm:max-h-100 sm:h-fit"
+                                            imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
+                                            title="Lower Back Pain?"
+                                            subtitle="Meet with our world-class surgeons today"
+                                            link={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
+
+                                        /></div>
+                                )
+                                    : item.title == 'LOCATION' ? (
+                                        <div className='w-full flex items-center justify-center px-6 py-4'>
+                                            <PromoOverlayCard
+                                                onClick={closeSidebar}
+                                                className="max-h-30 h-30 w-full sm:max-h-100 sm:h-fit"
+                                                imageUrl="/centralflorida.png"
+                                                title="Serving Florida"
+                                                subtitle="20+ Years of Orthopedic Care for Florida."
+                                            />
+                                        </div>
+                                    )
+                                        : item.title == 'ABOUT' ? (
+                                            <div className='w-full flex items-center justify-center sm:justify-start px-6 py-4'>
+                                                {latestBlog && (
+                                                    <div className='w-70'>
+                                                        <NavCompactBlogCard blog={latestBlog.blog_info} slug={latestBlog.slug} onClick={closeSidebar} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ) : null
+
+                        }
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
