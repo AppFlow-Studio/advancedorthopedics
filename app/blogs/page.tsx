@@ -87,36 +87,54 @@ export default function Blogs() {
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             {/* Landing */}
             <section className=" w-full h-full flex flex-col relative overflow-hidden order-first" >
-                <Image src={BlogsLanding} className=" lg:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
-
-                <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-                    <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
-                        style={{
-                            background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
-                        }}
-                    />
-
-                    <div className='  px-6 xl:px-[80px] z-[2]'>
-                        <nav aria-label="Breadcrumb" className='xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]' style={{ background: 'rgba(255, 255, 255, 0.50)' }}>
+                <div
+                    style={{
+                        filter: 'blur(30px)'
+                    }}
+                    className="w-full h-[120px] absolute top-0 z-[1]"
+                />
+                <Image
+                    src={'/herosectionimg.jpg'}
+                    priority={true}
+                    fetchPriority="high"
+                    layout='fill'
+                    className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+                    alt="Doctor Diagnosing a Old Patient"
+                />
+                <div
+                    className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+                    style={{
+                        background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+                    }}
+                />
+                {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+                <div className="z-[1] flex flex-col w-full h-full text-left relative sm:pt-60 sm:pb-20 pt-30 pb-0">
+                    <div className='  px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
+                        <nav aria-label="Breadcrumb" className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]' style={{ background: 'rgba(255, 255, 255, 0.50)' }}>
                             <ol className="flex space-x-2 text-[#252932]">
                                 <li><a href="/about">About</a> /</li>
-                                <li><a href="/blogs">Blogs</a></li>
+                                <li><a href="/blogs" className='text-[#2358AC]'>Blogs</a></li>
                             </ol>
                         </nav>
                     </div>
-                    <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] lg:w-[63%] xl:w-[55%]">
-                        <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] md:w-[70%] lg:w-[80%] text-3xl sm:text-6xl ">
+                    <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center text-center mt-[12px] w-full">
+                        <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-3xl sm:text-6xl ">
                             Spine Wellness Blog
                         </h1>
                     </div>
 
-                    <div className="z-[2]  px-6 xl:px-[80px] mt-[24px] w-full sm:w-[70%] lg:w-[45%] pb-8">
+                    <div className="z-[2]  px-6 xl:px-[80px] mt-[24px] w-full pb-8">
                         <p
                             style={{
                                 fontFamily: "var(--font-inter)",
                                 fontWeight: 400,
                             }}
-                            className="text-white text-shadow-sm text-lg sm:text-2xl"
+                            className="text-[#424959] text-lg sm:text-xl text-center"
                         >
                             Get the latest news, updates and insights into spinal surgery and minimally invasive treatments
                         </p>

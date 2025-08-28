@@ -142,7 +142,7 @@ export default async function LocationDetails(
                                         fontFamily: "var(--font-public-sans)",
                                         fontWeight: 500,
                                     }}
-                                    className="text-white text-4xl sm:text-6xl xl:text-6xl text-shadow-sm md:mt-0 mt-16 "
+                                    className="text-[#252932] text-3xl sm:text-6xl xl:text-6xl text-shadow-sm md:mt-0 mt-16 "
                                 >
                                     Welcome to Mountain Spine & Orthopedics {location.name.replace('Mountain Spine & Orthopedics', '').trim()}
                                 </h1>
@@ -159,7 +159,7 @@ export default async function LocationDetails(
                                     style={{
                                         fontWeight: 400,
                                     }}
-                                    className="text-white text-lg lg:text-xl text-shadow-sm"
+                                    className="text-[#424959] text-lg lg:text-xl "
                                 >
                                     Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures.<br />
                                     {location.region} most trusted spine and joint care center, serving Florida families at their convenience.
@@ -167,7 +167,7 @@ export default async function LocationDetails(
                             </div>
                         </SlidingDiv>
 
-                        <SlidingDiv position="left" className="z-[2] sm:block hidden">
+                        <div className="z-[2] sm:block hidden">
                             <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
                                 <div className=""><BookAnAppoitmentButton /></div>
                                 <a href="tel:5612239959"
@@ -181,7 +181,7 @@ export default async function LocationDetails(
                                     </div>
                                 </a>
                             </div>
-                        </SlidingDiv>
+                        </div>
                     </div>
 
                     <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >

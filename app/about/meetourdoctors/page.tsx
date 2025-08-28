@@ -24,38 +24,57 @@ export default function MeetOurDoctors() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={'https://mountainspineortho.b-cdn.net/public/MeetOurDoctorsLanding.jpeg'} fill className="h-full absolute top-0 object-cover  object-center md:object-top self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Doctor Diagnosing a Old Patient"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-left relative sm:pt-60 sm:pb-20 pt-30 pb-0">
 
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-50">
-          <div className="md:w-[565px] h-full absolute left-0 top-0 w-[95%]"
-            style={{
-              background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
-            }}
-          />
-
-          <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[220px] md:w-[60%] lg:w-[45%] xl:w-[56%]">
+          <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center text-center w-full">
             <h1
               style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
-              className="text-[#252932] lg:text-7xl md:text-5xl text-4xl"
+              className="text-[#252932] lg:text-7xl md:text-5xl text-4xl text-center"
             >
               Meet Our Doctors
             </h1>
           </div>
 
-          <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[50%]">
+          <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full">
             <p
               style={{
                 fontWeight: 400,
               }}
-              className="text-white text-shadow-sm text-xl lg:text-2xl"
+              className="text-[#424959] text-xl lg:text-2xl text-center"
             >
               Not sure which spine condition you might have?<br className=' xl:flex hidden' />{' '}Find out with our 2-minute Condition Checker.
             </p>
           </div>
 
-          <div className=' mt-[40px]  px-6 xl:px-[80px] pb-8'>
+          <div className=' mt-[40px]  px-6 xl:px-[80px] pb-8 w-full flex items-center justify-center'>
             <Link href={'/condition-check'}
-              className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] w-fit text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
+              className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-transparent border border-[#0A50EC] w-fit text-[#0A50EC] text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
             >
               <h1
                 style={{

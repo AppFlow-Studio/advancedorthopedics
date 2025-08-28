@@ -38,27 +38,53 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={Landing} className="lg:max-h-[945px] h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-30 md:pt-50">
-          <div className="w-[565px] h-full absolute left-0 top-0"
-            style={{ background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
-          />
-          <div className='px-6 xl:px-[80px] z-[2]'>
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Doctor Diagnosing a Old Patient"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-left relative sm:pt-60 sm:pb-20 pt-30 pb-0">
+          <div className='px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
             {/* Breadcrumbs */}
-            <nav aria-label="Breadcrumb" className="mt-[220px] mb-2">
+            <nav className="px-[20px] py-[10px] z-[2] w-fit rounded-full flex items-center justify-center"
+              style={{
+                background: 'rgba(255, 255, 255, 0.50)'
+              }}
+            >
               <ol className="flex flex-row flex-wrap gap-2 text-lg text-[#2358AC]">
                 <li><a href="/about/meetourdoctors">Doctors</a> /</li>
                 <li aria-current="page" className="text-[#252932] font-semibold">{doctor_details.name}</li>
               </ol>
             </nav>
           </div>
-          <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
-            <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#252932] lg:text-7xl md:text-5xl text-4xl">
+          <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center text-center mt-[12px] w-full">
+            <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#252932] lg:text-7xl md:text-5xl text-4xl text-center">
               {doctor_details.name}
             </h1>
           </div>
-          <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
-            <p style={{ fontWeight: 400 }} className="text-white text-shadow-sm text-md lg:text-2xl">
+          <div className="z-[2] px-6 xl:px-[80px] mt-8 w-full md:w-[70%] self-center pb-8 ">
+            <p style={{ fontWeight: 400 }} className="text-[#424959] text-md lg:text-xl text-center">
               {doctor_details.desc}
             </p>
           </div>

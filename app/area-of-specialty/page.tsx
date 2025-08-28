@@ -134,22 +134,38 @@ export default function AreaOfSpecialty() {
       <section className="w-full h-full flex flex-col relative overflow-hidden">
 
         <div
-          style={{ background: 'white', filter: 'blur(30px)' }}
+          style={{
+            filter: 'blur(30px)'
+          }}
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
         <Image
-          src={'https://mountainspineortho.b-cdn.net/public/AreaOfSpecLanding.jpeg'}
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
           alt="Doctor Diagnosing a Old Patient"
-          fill
-          className=" h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full"
         />
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-          <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-left relative sm:pt-60 sm:pb-20 pt-30 pb-0">
+          {/* <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
             style={{
               background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
             }}
-          />
-          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start lg:mt-60  md:mt-[220px] w-full lg:w-[55%]">
+          /> */}
+          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center w-full ">
             <TextAnimate
               animation="blurInUp"
               by="word"
@@ -160,29 +176,30 @@ export default function AreaOfSpecialty() {
               }}
               className="text-[#252932]  text-4xl sm:text-6xl xl:text-6xl "
             >
-              Conditions
+              CONDITIONS
             </TextAnimate>
           </div>
-          <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[50%]">
+          <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-full  items-center justify-center">
             <p
               style={{ fontWeight: 400, lineHeight: '148%' }}
-              className="text-shadow-sm text-white text-xl lg:text-2xl"
+              className="text-shadow-sm text-[#424959] sm:text-xl lg:text-2xl w-full  text-center"
             >
               Not sure which spine condition you might have?
               <br className='md:flex hidden' />{' '}
               Find out with our 2-minute Condition Checker.
             </p>
           </div>
-          <div className=" mt-[40px] px-6 xl:px-[80px] z-[2] w-fit pb-6">
+          <div className=" mt-[40px] px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center pb-6">
             <Link
               href="/condition-check"
-              className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer"
+              className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] flex border border-[#0A50EC] bg-transparent text-[#0A50EC] text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer"
             >
               <span
                 style={{
                   fontFamily: 'var(--font-public-sans)',
-                  fontWeight: 500, fontSize: '16px',
+                  fontWeight: 500,
                 }}
+                className='text-sm sm:text-base'
               >
                 Condition Checker
               </span>

@@ -6,20 +6,25 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"; // Adjust import path
+import PromoOverlayCard from './PromoOverlayCard';
+import NavCompactBlogCard from './NavCompactBlogCard';
 
 // Define types for props
 interface SidebarNavItemProps {
-  item: {
-    title: string;
-    href?: string;
-    subLinks?: SidebarNavItemProps['item'][];
-  };
-  pathname: string;
-  closeSidebar: () => void;
-  level?: number;
+    item: {
+        title: string;
+        href?: string;
+        short_desc?: string;
+        icon?: React.ComponentType<any>;
+        subLinks?: SidebarNavItemProps['item'][];
+    };
+    pathname: string;
+    closeSidebar: () => void;
+    level?: number;
+    latestBlog?: any;
 }
 
-export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0 }: SidebarNavItemProps) => {
+export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latestBlog }: SidebarNavItemProps) => {
     const hasSublinks = item.subLinks && item.subLinks.length > 0;
 
     // Calculate indentation based on nesting level
@@ -34,32 +39,80 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0 }: Side
         // This allows multiple items at the same level to be open if you change type="multiple" below.
         // For strict one-item-open-per-level, more complex state management outside would be needed.
         return (
-                <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value={uniqueAccordionItemId} className="border-b-0">
-                        <AccordionTrigger
-                         
-                            style={{ paddingLeft: paddingLeftValue }}
-                            // Adjust styling based on level if needed (e.g., text size)
-                            className={`py-2  rounded-md text-base font-medium text-gray-700 text-left hover:bg-gray-100 hover:text-gray-900 hover:no-underline data-[state=open]:bg-gray-50 w-full`}
-                        >
-                            <Link href={item.href || '#'} onClick={closeSidebar} className="truncate w-[50%]">{item.title}</Link> {/* Add truncate if titles get long */}
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-1 pb-0"> {/* No base padding needed, handled by recursive calls */}
-                            <ul className="flex flex-col space-y-1">
-                                {/* Recursive call for sublinks */}
-                                {item.subLinks!.map((sublink, subIndex) => (
-                                    <SidebarNavItem
-                                        key={`${uniqueAccordionItemId}-sub-${subIndex}`}
-                                        item={sublink}
-                                        pathname={pathname}
-                                        closeSidebar={closeSidebar}
-                                        level={level + 1} // Increment level for indentation
-                                    />
-                                ))}
-                            </ul>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+            <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value={uniqueAccordionItemId} className="border-b-0">
+                    <AccordionTrigger
+
+                        style={{ paddingLeft: paddingLeftValue }}
+                        // Adjust styling based on level if needed (e.g., text size)
+                        className={`py-2  rounded-md text-base font-medium text-gray-700 text-left hover:bg-gray-100 hover:text-gray-900 hover:no-underline data-[state=open]:bg-gray-50 w-full`}
+                    >
+                        <Link href={item.href || '#'} onClick={closeSidebar} className="flex w-fit items-center gap-3">
+                            {item.icon && (
+                                <span className="p-2 rounded-xl border aspect-square flex items-center justify-center">
+                                    {(() => { const Icon = item.icon!; return <Icon className='w-4 h-4 text-[#252932]' /> })()}
+                                </span>
+                            )}
+                            <span className="flex flex-col items-start min-w-0">
+                                <span className="truncate">{item.title}</span>
+                                {item.short_desc && (
+                                    <span className="text-xs text-gray-500 truncate">{item.short_desc}</span>
+                                )}
+                            </span>
+                        </Link> {/* Add truncate if titles get long */}
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-1 pb-0 "> {/* No base padding needed, handled by recursive calls */}
+                        {
+                            item.title == 'FIND CARE' ? (
+                                <div className='w-full flex items-center justify-center px-6 py-4'>
+                                    <PromoOverlayCard
+                                        className="max-h-30 h-30 w-full" /></div>
+                            )
+                                : item.title == 'AREA OF SPECIALTY' ? (
+                                    <div className='w-full flex items-center justify-center px-6 py-4'>
+                                        <PromoOverlayCard
+                                            className="max-h-30 h-30 w-full"
+                                            imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
+                                            title="Lower Back Pain?"
+                                            subtitle="Meet with our world-class surgeons today"
+                                        /></div>
+                                )
+                                    : item.title == 'LOCATION' ? (
+                                        <div className='w-full flex items-center justify-center px-6 py-4'>
+                                            <PromoOverlayCard
+                                                className="max-h-30 h-30 w-full"
+                                                imageUrl="/centralflorida.png"
+                                                title="Serving Florida"
+                                                subtitle="20+ Years of Orthopedic Care for Florida."
+                                            />
+                                        </div>
+                                    )
+                                        : item.title == 'ABOUT' ? (
+                                            <div className='w-full flex items-center justify-center px-6 py-4'>
+                                                {latestBlog && (
+                                                    <div className='w-70'>
+                                                        <NavCompactBlogCard blog={latestBlog.blog_info} slug={latestBlog.slug} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ) : null
+
+                        }
+                        <ul className="flex flex-col space-y-1">
+                            {/* Recursive call for sublinks */}
+                            {item.subLinks!.map((sublink, subIndex) => (
+                                <SidebarNavItem
+                                    key={`${uniqueAccordionItemId}-sub-${subIndex}`}
+                                    item={sublink}
+                                    pathname={pathname}
+                                    closeSidebar={closeSidebar}
+                                    level={level + 1} // Increment level for indentation
+                                />
+                            ))}
+                        </ul>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
         );
     } else {
         // --- Render simple Link for items without sublinks ---
@@ -68,15 +121,23 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0 }: Side
                 <Link
                     href={item.href || '#'} // Provide a fallback href
                     style={{ paddingLeft: paddingLeftValue }} // Apply indentation
-                    // Adjust text size based on level if desired
-                    className={`block w-full py-2 rounded-md text-base text-left font-medium hover:no-underline ${
-                        pathname === item.href
-                            ? 'bg-blue-50 text-blue-700' // Active style
-                            : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' // Default style
-                    }`}
+                    className={`flex w-full py-2 rounded-md text-base text-left font-medium items-center gap-3 hover:no-underline ${pathname === item.href
+                        ? 'bg-blue-50 text-blue-700'
+                        : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                        }`}
                     onClick={closeSidebar}
                 >
-                     <span className="truncate">{item.title}</span>
+                    {item.icon && (
+                        <span className="p-2 rounded-xl border aspect-square flex items-center justify-center">
+                            {(() => { const Icon = item.icon!; return <Icon className='w-4 h-4 text-[#252932]' /> })()}
+                        </span>
+                    )}
+                    <span className="flex flex-col items-start min-w-0">
+                        <span className="truncate">{item.title}</span>
+                        {item.short_desc && (
+                            <span className="text-xs text-gray-500 truncate">{item.short_desc}</span>
+                        )}
+                    </span>
                 </Link>
             </li>
         );

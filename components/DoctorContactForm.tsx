@@ -63,7 +63,6 @@ interface DoctorContactFormProp {
     buttonText?: string
 }
 export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment' }: DoctorContactFormProp) {
-    console.log('DoctorContactForm rendered', { header });
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)

@@ -103,15 +103,33 @@ export default function FAQs() {
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div
-          style={{ background: 'white', filter: 'blur(30px)' }}
-          className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
         />
-        <Image src={FAQsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-top pt-10 self-end w-full xl:pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-80">
-          <div className="md:w-[565px] h-full absolute left-0 top-0 w-full"
-            style={{ background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
-          />
-          <div className=' px-6 xl:px-[80px] z-[2]'>
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Doctor Diagnosing a Old Patient"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-center items-center justify-center relative sm:pt-60 sm:pb-20 pt-30 pb-0">
+          <div className=' px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
               style={{ background: 'rgba(255, 255, 255, 0.50)' }}
             >
@@ -120,7 +138,7 @@ export default function FAQs() {
               <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#2358AC]">FAQ's</span>
             </div>
           </div>
-          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[58%] pb-20">
+          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] md:w-[71%] xl:w-[70%] pb-20">
             <h1 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#252932] text-3xl sm:text-5xl md:text-6xl">
               Frequently Asked Questions – Mountain Spine & Orthopedics
             </h1>

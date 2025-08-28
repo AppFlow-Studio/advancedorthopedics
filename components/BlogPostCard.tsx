@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Avatars } from './ui/avatar'
-import DoctorsAvatar from './ui/doctorsavatar'
-import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 export interface BlogPostProp {

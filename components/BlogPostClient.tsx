@@ -288,26 +288,48 @@ export default function BlogDetails({
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
-        <Image src={blog_details.blog_info.img} fill className=" h-full absolute top-0 object-cover object-center pt-0 self-end w-full md:pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
-        <div className="z-[1] flex flex-col w-full h-full text-left relative md:pt-20 lg:pt-40 ">
-          <div className="lg:w-[90%] w-full h-full absolute left-0 top-0"
-            style={{ background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
-          />
-          <div className='px-6 xl:px-[80px] z-[2] mt-60 md:mt-[220px]'>
-            <nav aria-label="Breadcrumb" className="mb-4 xl:flex hidden">
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Doctor Diagnosing a Old Patient"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-center relative sm:pt-60 sm:pb-20 pt-30 pb-0">
+          <div className='px-6 xl:px-[80px] z-[2] w-full flex flex-col space-y-4 items-center justify-center'>
+            <nav aria-label="Breadcrumb" className="mb-4 xl:flex hidden bg-white/50 rounded-full px-4 py-2 w-fit">
               <ol className="flex space-x-2 text-[#252932]">
                 <li><a href="/blogs">Blogs</a> /</li>
                 <li aria-current="page">{blog_details.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full">{blog_details.blog_info.title}</TextAnimate>
-            <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-white mt-4 md:text-md text-sm xl:w-[55%] w-full">{blog_details.blog_info.desc}</p>
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full text-center self-center">{blog_details.blog_info.title}</TextAnimate>
+            <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-[#424959] mt-4 md:text-md text-sm xl:w-[55%] w-full text-center self-center">{blog_details.blog_info.desc}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {blog_details.blog_info.tags.map((tag: string, index: number) => (
-                <span key={index} className="bg-[#FAFAFA] text-[#252932] px-3 py-1 rounded-full text-sm">{tag}</span>
+                <span key={index} className="bg-[#FAFAFA] text-[#424959] px-3 py-1 rounded-full text-sm">{tag}</span>
               ))}
             </div>
-            <div className="flex items-center gap-6 mt-4 text-sm text-white mb-6">
+            <div className="flex items-center gap-6 mt-4 text-sm text-[#] mb-6">
               {blog_details.blog_info.author && (
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />

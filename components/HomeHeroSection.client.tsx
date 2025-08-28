@@ -105,7 +105,7 @@ export default function HomeHeroSection() {
           </SlidingDiv>
 
           <SlidingDiv position="left" className="z-[2]">
-            <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row sm:block hidden flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
+            <div className="xl:px-[80px] px-8 my-[24px] xl:w-full md:flex-row sm:flex hidden flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
               <div className="">
                 <BookAnAppoitmentButton />
               </div>

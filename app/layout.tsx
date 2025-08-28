@@ -170,20 +170,20 @@ export default function RootLayout({
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T57SB8NQ"
             height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe>
         </noscript>
-        <NavBar />
-        {/* Hidden crawler nav */}
-        <StaticNav />
-        <MapProvider>
-          <GeolocationProvider>
-            <TanstackProvider>
+        <TanstackProvider>
+          <NavBar />
+          {/* Hidden crawler nav */}
+          <StaticNav />
+          <MapProvider>
+            <GeolocationProvider>
               {children}
-            </TanstackProvider>
-            <Footer />
-            <DelayedLocationPopup delayInSeconds={8} />
-          </GeolocationProvider>
-        </MapProvider>
-        {/* SEO crawlable links for orphan pages */}
-        <OrphanLinksFooter />
+              <Footer />
+              <DelayedLocationPopup delayInSeconds={8} />
+            </GeolocationProvider>
+          </MapProvider>
+          {/* SEO crawlable links for orphan pages */}
+          <OrphanLinksFooter />
+        </TanstackProvider>
       </body>
     </html>
   );

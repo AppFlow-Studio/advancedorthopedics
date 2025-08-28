@@ -28,11 +28,15 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { clinics } from './data/clinics';
+import { GetLatestBlog } from "@/app/blogs/api/get-blogs";
 import { SidebarNavItem } from './SidebarNavItem';
 import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion'
+import PromoOverlayCard from './PromoOverlayCard';
+import { useQuery } from '@tanstack/react-query';
+import NavCompactBlogCard from './NavCompactBlogCard';
 
-function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
+function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBlog }: {
   href: string;
   title: string,
   screen: string,
@@ -49,7 +53,8 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
     }[],
     icon: React.ComponentType<any>
   }[],
-  short_desc: string
+  short_desc: string,
+  latestBlog?: any
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedSubLink, setSelectedSubLink] = React.useState<{
@@ -63,7 +68,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
       icon: React.ComponentType<any>
     }[],
     icon: React.ComponentType<any>
-  } | null>(null);
+  } | null>(NavBarLinks[2].subLinks[0]);
 
   // Check if current pathname matches the main screen or any of its sublinks
   const isActive = pathname === screen ||
@@ -73,7 +78,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
     );
 
   return (
-    <NavigationMenuItem>
+    <NavigationMenuItem className=''>
       <NavigationMenuTrigger
         className={`${isActive
           ? 'text-[#0A50EC] border-white border-1 px-4 py-2 rounded-full shadow-sm'
@@ -86,7 +91,10 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
       >
         <Link href={href}>{title}</Link>
       </NavigationMenuTrigger>
-      <NavigationMenuContent className='grid gap-2 md:w-[400px] lg:max-w-200 lg:w-fit lg:grid-cols-[.8fr_1fr]'
+
+      <NavigationMenuContent
+        // grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]
+        className='flex flex-row gap-x-4 items-start self-start '
         style={{
           background: 'rgba(239, 245, 255, 0.50)',
           border: '1px solid white',
@@ -94,116 +102,410 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc }: {
           backdropFilter: 'blur(30px)'
         }}
       >
-
-        <ul className='flex flex-col w-100'>
-          {
-            sublinks.map((link, linkIndex) => {
-              const IconComponent = link.icon;
-              return (
-                <li key={`${link.title}-${linkIndex}`}>
-                  {link.subLinks.length == 0 ? (
-                    <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
-                      <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
-                        <div className='flex flex-row items-center gap-x-4'>
-                          <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                            <IconComponent className='w-8 h-8 text-[#252932]' />
-                          </div>
-                          <div className='flex flex-col gap-y-0'>
-                            <span
-                              style={{
-                                fontFamily: "var(--font-public-sans)",
-                                fontWeight: 400,
-                              }}
-                            >
-                              {link.title}
-                            </span>
-                            <span className='text-xs text-gray-500'>{link.short_desc}</span>
-                          </div>
-                        </div>
-                        <ChevronRight className='w-4 h-4 text-[#252932]' />
-                      </Link>
-                    </NavigationMenuLink>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
-                      onMouseEnter={() => setSelectedSubLink(link)}
-                    >
-                      <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                        <IconComponent className='w-4 h-4 text-[#252932]' />
+        {
+          title == 'FIND CARE' ? (
+            <div className='w-200 flex flex-row gap-x-5'>
+              <div className='grid grid-cols-2 gap-0 w-130'>
+                <div className="col-span-2 px-4 py-3 mb-2">
+                  <h3
+                    className="text-lg font-semibold text-[#0A50EC] tracking-wide"
+                    style={{
+                      fontFamily: "var(--font-public-sans)",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    Find the Care You Need
+                  </h3>
+                  <p
+                    className="text-sm text-[#424959] mt-1"
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    Explore our specialties and discover the right treatment for you.
+                  </p>
+                </div>
+                {
+                  sublinks.map((link, linkIndex) => {
+                    const IconComponent = link.icon;
+                    return (
+                      <div key={`${link.title}-${linkIndex}`} className='h-fit gap-0'>
+                        {link.subLinks.length == 0 ? (
+                          <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4 '>
+                            <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                              <div className='flex flex-row items-center gap-x-4'>
+                                <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                  <IconComponent className='w-8 h-8 text-[#252932]' />
+                                </div>
+                                <div className='flex flex-col gap-y-0'>
+                                  <span
+                                    style={{
+                                      fontFamily: "var(--font-public-sans)",
+                                      fontWeight: 400,
+                                    }}
+                                  >
+                                    {link.title}
+                                  </span>
+                                  <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                                </div>
+                              </div>
+                              <ChevronRight className='w-4 h-4 text-[#252932]' />
+                            </Link>
+                          </NavigationMenuLink>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
+                            onMouseEnter={() => setSelectedSubLink(link)}
+                          >
+                            <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                              <IconComponent className='w-4 h-4 text-[#252932]' />
+                            </div>
+                            <div className='flex flex-col gap-y-2'>
+                              <span
+                                style={{
+                                  fontFamily: "var(--font-public-sans)",
+                                  fontWeight: 400,
+                                }}
+                              >
+                                {link.title}
+                              </span>
+                              <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                            </div>
+                          </Link>
+                        )}
                       </div>
-                      <div className='flex flex-col gap-y-2'>
+                    )
+                  })
+                }
+              </div>
+              <div className='w-60'>
+                <PromoOverlayCard className="max-w-60" />
+              </div>
+            </div>
+          ) :
+            title == 'AREA OF SPECIALTY' ? (
+              <div className='w-200 flex flex-row gap-x-4'>
+                <div className='w-fit space-y-4'>
+                  <ul className='flex flex-col w-100'>
+                    {
+                      sublinks.map((link, linkIndex) => {
+                        const IconComponent = link.icon;
+
+
+                        return (
+                          <li key={`${link.title}-${linkIndex}`}>
+                            {link.subLinks.length == 0 ? (
+                              <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4 '>
+                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                  <div className='flex flex-row items-center gap-x-4'>
+                                    <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                      <IconComponent className='w-8 h-8 text-[#252932]' />
+                                    </div>
+                                    <div className='flex flex-col gap-y-0'>
+                                      <span
+                                        style={{
+                                          fontFamily: "var(--font-public-sans)",
+                                          fontWeight: 400,
+                                        }}
+                                      >
+                                        {link.title}
+                                      </span>
+                                      <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                                    </div>
+                                  </div>
+                                  <ChevronRight className='w-4 h-4 text-[#252932]' />
+                                </Link>
+                              </NavigationMenuLink>
+                            ) : (
+                              <Link
+                                href={link.href}
+                                className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
+                                onMouseEnter={() => setSelectedSubLink(link)}
+                              >
+                                <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                  <IconComponent className='w-4 h-4 text-[#252932]' />
+                                </div>
+                                <div className='flex flex-col gap-y-2'>
+                                  <span
+                                    style={{
+                                      fontFamily: "var(--font-public-sans)",
+                                      fontWeight: 400,
+                                    }}
+                                  >
+                                    {link.title}
+                                  </span>
+                                  <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                                </div>
+                              </Link>
+                            )}
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                  <PromoOverlayCard
+                    className="max-w-100"
+                    imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
+                    title="Lower Back Pain?"
+                    subtitle="Meet with our world-class surgeons today"
+                  />
+                </div>
+
+                {selectedSubLink && (
+                  <div className='flex flex-col p-4 border-l lg:w-100'>
+                    {/* Header */}
+                    <div className='flex flex-row items-center gap-x-3 mb-4 pb-3 border-b'>
+                      <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                        <selectedSubLink.icon className='w-6 h-6 text-[#252932]' />
+                      </div>
+                      <div className='flex flex-col'>
                         <span
                           style={{
                             fontFamily: "var(--font-public-sans)",
-                            fontWeight: 400,
+                            fontWeight: 600,
                           }}
+                          className='text-[#252932]'
                         >
-                          {link.title}
+                          {selectedSubLink.title}
                         </span>
-                        <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                        <span className='text-sm text-gray-500'>{selectedSubLink.short_desc}</span>
                       </div>
-                    </Link>
+                    </div>
+
+                    {/* SubLinks */}
+                    <div className='flex flex-col gap-y-2'>
+                      {selectedSubLink.subLinks.map((subLink, subIndex) => {
+                        const SubIconComponent = subLink.icon;
+                        return (
+                          <NavigationMenuLink key={`${subLink.title}-${subIndex}`} asChild>
+                            <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200">
+                              <div className='flex flex-row items-center gap-x-3'>
+                                <div className='p-1.5 rounded-xl border aspect-square flex items-center justify-center'>
+                                  <SubIconComponent className='w-4 h-4 text-[#252932]' />
+                                </div>
+                                <div className='flex flex-col'>
+                                  <span
+                                    style={{
+                                      fontFamily: "var(--font-public-sans)",
+                                      fontWeight: 400,
+                                    }}
+                                    className='text-[#252932]'
+                                  >
+                                    {subLink.title}
+                                  </span>
+                                  <span className='text-xs text-gray-500'>{subLink.short_desc}</span>
+                                </div>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) :
+              title == 'ABOUT' ? (
+                <div className='w-fit space-y-4 flex-row flex gap-x-4'>
+                  <ul className='flex flex-col w-100'>
+                    {
+                      sublinks.map((link, linkIndex) => {
+                        const IconComponent = link.icon;
+
+
+                        return (
+                          <li key={`${link.title}-${linkIndex}`}>
+                            {link.subLinks.length == 0 && (
+                              <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
+                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                  <div className='flex flex-row items-center gap-x-4'>
+                                    <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                      <IconComponent className='w-8 h-8 text-[#252932]' />
+                                    </div>
+                                    <div className='flex flex-col gap-y-0'>
+                                      <span
+                                        style={{
+                                          fontFamily: "var(--font-public-sans)",
+                                          fontWeight: 400,
+                                        }}
+                                      >
+                                        {link.title}
+                                      </span>
+                                      <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                                    </div>
+                                  </div>
+                                  <ChevronRight className='w-4 h-4 text-[#252932]' />
+                                </Link>
+                              </NavigationMenuLink>
+                            )
+                              // : (
+                              //   <Link
+                              //     href={link.href}
+                              //     className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
+                              //     onMouseEnter={() => setSelectedSubLink(link)}
+                              //   >
+                              //     <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                              //       <IconComponent className='w-4 h-4 text-[#252932]' />
+                              //     </div>
+                              //     <div className='flex flex-col gap-y-2'>
+                              //       <span
+                              //         style={{
+                              //           fontFamily: "var(--font-public-sans)",
+                              //           fontWeight: 400,
+                              //         }}
+                              //       >
+                              //         {link.title}
+                              //       </span>
+                              //       <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                              //     </div>
+                              //   </Link>
+                              // )
+                            }
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                  {latestBlog && (
+                    <div className='w-70'>
+                      <NavCompactBlogCard blog={latestBlog.blog_info} slug={latestBlog.slug} />
+                    </div>
                   )}
-                </li>
+                  {/* <PromoOverlayCard
+                    className="max-w-100"
+                    imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
+                    title="Lower Back Pain?"
+                    subtitle="Meet with our world-class surgeons today"
+                  /> */}
+                </div>
+              ) : title == 'LOCATION' ? (
+                <div className=' flex flex-row gap-x-4 w-200'>
+                  <ul className='grid grid-cols-2 gap-x-4 w-130 left-0'>
+                    {
+                      sublinks.map((link, linkIndex) => {
+                        const IconComponent = link.icon;
+                        return (
+                          <li key={`${link.title}-${linkIndex}`}>
+                            {link.subLinks.length == 0 ? (
+                              <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
+                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                  <div className='flex flex-row items-center gap-x-4'>
+                                    <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                      <IconComponent className='w-8 h-8 text-[#252932]' />
+                                    </div>
+                                    <div className='flex flex-col gap-y-0'>
+                                      <span
+                                        style={{
+                                          fontFamily: "var(--font-public-sans)",
+                                          fontWeight: 400,
+                                        }}
+                                      >
+                                        {link.title}
+                                      </span>
+                                      <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                                    </div>
+                                  </div>
+                                  <ChevronRight className='w-4 h-4 text-[#252932]' />
+                                </Link>
+                              </NavigationMenuLink>
+                            ) : (
+                              <Link
+                                href={link.href}
+                                className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
+                                onMouseEnter={() => setSelectedSubLink(link)}
+                              >
+                                <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                  <IconComponent className='w-4 h-4 text-[#252932]' />
+                                </div>
+                                <div className='flex flex-col gap-y-2'>
+                                  <span
+                                    style={{
+                                      fontFamily: "var(--font-public-sans)",
+                                      fontWeight: 400,
+                                    }}
+                                  >
+                                    {link.title}
+                                  </span>
+                                  <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                                </div>
+                              </Link>
+                            )}
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                  <PromoOverlayCard
+                    className="max-w-70 w-70"
+                    imageUrl="/centralflorida.png"
+                    title="Serving Florida"
+                    subtitle="20+ Years of Orthopedic Care for Florida."
+                  />
+                </div>
               )
-            })
-          }
-        </ul>
+                :
+                (
+                  <ul className='flex flex-col w-100 left-0  border border-red-500'>
+                    {
+                      sublinks.map((link, linkIndex) => {
+                        const IconComponent = link.icon;
+                        return (
+                          <li key={`${link.title}-${linkIndex}`}>
+                            {link.subLinks.length == 0 ? (
+                              <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
+                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                  <div className='flex flex-row items-center gap-x-4'>
+                                    <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                      <IconComponent className='w-8 h-8 text-[#252932]' />
+                                    </div>
+                                    <div className='flex flex-col gap-y-0'>
+                                      <span
+                                        style={{
+                                          fontFamily: "var(--font-public-sans)",
+                                          fontWeight: 400,
+                                        }}
+                                      >
+                                        {link.title}
+                                      </span>
+                                      <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                                    </div>
+                                  </div>
+                                  <ChevronRight className='w-4 h-4 text-[#252932]' />
+                                </Link>
+                              </NavigationMenuLink>
+                            ) : (
+                              <Link
+                                href={link.href}
+                                className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
+                                onMouseEnter={() => setSelectedSubLink(link)}
+                              >
+                                <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                  <IconComponent className='w-4 h-4 text-[#252932]' />
+                                </div>
+                                <div className='flex flex-col gap-y-2'>
+                                  <span
+                                    style={{
+                                      fontFamily: "var(--font-public-sans)",
+                                      fontWeight: 400,
+                                    }}
+                                  >
+                                    {link.title}
+                                  </span>
+                                  <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                                </div>
+                              </Link>
+                            )}
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                )
+        }
 
-        {/* Right Panel for Nested SubLinks */}
-        {selectedSubLink && (
-          <div className='flex flex-col p-4 border-l lg:w-100'>
-            {/* Header */}
-            <div className='flex flex-row items-center gap-x-3 mb-4 pb-3 border-b'>
-              <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                <selectedSubLink.icon className='w-6 h-6 text-[#252932]' />
-              </div>
-              <div className='flex flex-col'>
-                <span
-                  style={{
-                    fontFamily: "var(--font-public-sans)",
-                    fontWeight: 600,
-                  }}
-                  className='text-[#252932]'
-                >
-                  {selectedSubLink.title}
-                </span>
-                <span className='text-sm text-gray-500'>{selectedSubLink.short_desc}</span>
-              </div>
-            </div>
 
-            {/* SubLinks */}
-            <div className='flex flex-col gap-y-2'>
-              {selectedSubLink.subLinks.map((subLink, subIndex) => {
-                const SubIconComponent = subLink.icon;
-                return (
-                  <NavigationMenuLink key={`${subLink.title}-${subIndex}`} asChild>
-                    <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200">
-                      <div className='flex flex-row items-center gap-x-3'>
-                        <div className='p-1.5 rounded-xl border aspect-square flex items-center justify-center'>
-                          <SubIconComponent className='w-4 h-4 text-[#252932]' />
-                        </div>
-                        <div className='flex flex-col'>
-                          <span
-                            style={{
-                              fontFamily: "var(--font-public-sans)",
-                              fontWeight: 400,
-                            }}
-                            className='text-[#252932]'
-                          >
-                            {subLink.title}
-                          </span>
-                          <span className='text-xs text-gray-500'>{subLink.short_desc}</span>
-                        </div>
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </NavigationMenuContent>
     </NavigationMenuItem>
   )
@@ -249,14 +551,14 @@ const NavBarLinks = [
         subLinks: []
       },
       {
-        title: 'Get a Second Opinion',
+        title: 'Second Opinion',
         href: '/find-care/second-opinion',
         short_desc: 'Expert second opinion',
         icon: Eye,
         subLinks: []
       },
       {
-        title: 'Get a Free MRI Review',
+        title: 'Free MRI Review',
         href: '/find-care/free-mri-review',
         short_desc: 'Free MRI analysis',
         icon: Scan,
@@ -515,9 +817,8 @@ const NavBarLinks = [
 
 ]
 
-const HamburgerIcon = ({ open, ...props }: { open: boolean } & React.SVGProps<SVGSVGElement>) => (
+const HamburgerIcon = ({ open }: { open: boolean }) => (
   <motion.svg
-    {...props}
     xmlns="http://www.w3.org/2000/svg"
     width="28"
     height="28"
@@ -536,6 +837,10 @@ const HamburgerIcon = ({ open, ...props }: { open: boolean } & React.SVGProps<SV
 
 export default function NavBar() {
   const pathname = usePathname();
+  const { data: latestBlog } = useQuery({
+    queryKey: ["latest-blog"],
+    queryFn: GetLatestBlog,
+  });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <-- State for sidebar
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -577,7 +882,7 @@ export default function NavBar() {
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? 'backdrop-blur-3xl bg-white/50 pb-3' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? ' bg-white' : 'bg-transparent'}`}>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
           <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '>
             <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[40px] object-cover lg:h-[40px] lg:w-auto w-20 h-10  " />
@@ -595,12 +900,12 @@ export default function NavBar() {
             </div>
           </Link>
 
-          <NavigationMenu className="space-x-8 text-[16px] font-semibold items-center justify-center z-1 xl:flex hidden" viewport={false}>
+          <NavigationMenu className="space-x-8 text-[16px] font-semibold items-center justify-center z-60 xl:flex hidden" >
 
-            <NavigationMenuList className=''>
+            <NavigationMenuList className=' '>
               {
                 NavBarLinks.map((link, index) => (
-                  <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} short_desc={link.short_desc} pathname={pathname} />
+                  <NavLink key={index} screen={link.screen} href={link.href} sublinks={link.subLinks} title={link.title} short_desc={link.short_desc} pathname={pathname} latestBlog={latestBlog} />
                 ))
               }
             </NavigationMenuList>
@@ -663,18 +968,19 @@ export default function NavBar() {
           <motion.aside
             key="mobile-sidebar"
             id="mobile-sidebar"
-            className={`fixed top-0 left-0 right-0 h-full w-full bg-white rounded-b-2xl z-40 xl:hidden`}
+            className={`fixed top-0 left-0 right-0 h-full w-full bg-white rounded-b-2xl  z-40 xl:hidden overflow-y-auto overscroll-contain`}
+            style={{ WebkitOverflowScrolling: 'touch' as any }}
             initial={{ y: '-100%' }}
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ type: 'spring', stiffness: 280, damping: 30 }}
             aria-hidden={!isSidebarOpen}
           >
-            
+
 
             {/* Sidebar Navigation Links */}
             <motion.nav
-              className="pt-26 flex flex-col space-y-4 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]"
+              className="pt-26 flex flex-col space-y-4 px-6 pb-6 overflow-y-auto"
               variants={listVariants}
               initial="hidden"
               animate="visible"
@@ -688,6 +994,7 @@ export default function NavBar() {
                       pathname={pathname}
                       closeSidebar={closeSidebar}
                       level={0}
+                      latestBlog={latestBlog}
                     />
                   </motion.div>
                 )

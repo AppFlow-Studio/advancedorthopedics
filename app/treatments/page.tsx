@@ -175,21 +175,32 @@ export default function Treatments() {
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div
           style={{
-            background: 'white',
             filter: 'blur(30px)'
           }}
-          className="w-full h-[120px] absolute top-0 z-[1]" // Removed border for clarity
+          className="w-full h-[120px] absolute top-0 z-[1]"
         />
-        <Image src={'https://mountainspineortho.b-cdn.net/public/AreaOfSpecLanding.jpeg'} fill className="max-h-[945px] h-full absolute top-0 md:object-cover object-cover object-center pt-16 w-full" alt="Doctor Diagnosing a Old Patient" />
-
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60 lg:pt-120">
-          <div className="lg:w-[60%] w-[95%] h-full absolute left-0 top-0"
-            style={{
-              background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
-            }}
-          />
-
-          <div className=" px-6  xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start w-[55%]">
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Doctor Diagnosing a Old Patient"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-left relative sm:pt-60 sm:pb-20 pt-30 pb-0">
+          <div className=" px-6  xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center text-center w-full">
             <TextAnimate animation="blurInUp" by="word" once
               style={{
                 fontFamily: "var(--font-public-sans)",
@@ -201,12 +212,12 @@ export default function Treatments() {
             </TextAnimate>
           </div>
 
-          <div className="z-[2]  px-6  xl:px-[80px] mt-[24px] sm:w-[50%] pb-8">
+          <div className="z-[2]  px-6  xl:px-[80px] mt-[24px] w-full pb-8">
             <p
               style={{
                 fontWeight: 400,
               }}
-              className="text-white text-shadow-sm text-md sm:text-lg md:text-xl"
+              className="text-[#424959] text-md sm:text-lg md:text-xl text-center"
             >
               Explore our comprehensive range of treatments or use the search below to find specific options.
             </p>

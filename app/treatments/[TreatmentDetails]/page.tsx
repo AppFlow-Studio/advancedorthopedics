@@ -125,21 +125,33 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
       <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div
           style={{
-            background: 'white',
             filter: 'blur(30px)'
           }}
-          className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
+          className="w-full h-[120px] absolute top-0 z-[1]"
         />
-        <Image src={ConditionDetialsLanding} fill className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Doctor Diagnosing a Old Patient"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        {/* <div
+        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
+        style={{
+          background: '#5FBBEC',
+        }}
+      /> */}
+        <div className="z-[1] flex flex-col w-full h-full text-left relative pb-20">
 
-        <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
-          <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
-            style={{
-              background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
-            }}
-          />
-
-          <div className='px-6 xl:px-[80px] z-[2]'>
+          <div className='px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
             <div className=' mt-[220px] text-xs md:text-md flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
               style={{
                 background: 'rgba(255, 255, 255, 0.50)'
@@ -192,19 +204,19 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               </span>
             </div>
           </div>
-          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row items-center justify-start mt-[12px] lg:w-[50%]">
+          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row items-center justify-center mt-[12px] lg:w-full">
             <h1
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
               }}
-              className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl"
+              className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl text-center"
             >
               {treatment.title}
             </h1>
           </div>
 
-          <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full md:w-[70%] lg:w-[55%] pb-8">
+          <div className="z-[2] px-10 xl:px-[80px] mt-[24px] self-center text-center lg:w-[70%] w-full pb-8">
             {renderField(treatment.body, treatment.slug)}
           </div>
         </div>
