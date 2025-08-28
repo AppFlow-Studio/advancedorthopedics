@@ -94,7 +94,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
 
       <NavigationMenuContent
         // grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]
-        className='flex flex-row gap-x-4 items-start self-start '
+        className='flex flex-row border gap-x-4 items-start self-start '
         style={{
           background: 'rgba(239, 245, 255, 0.50)',
           border: '1px solid white',
@@ -447,7 +447,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
               )
                 :
                 (
-                  <ul className='flex flex-col w-100 left-0  border border-red-500'>
+                  <ul className='flex flex-col w-200 left-0 self-start'>
                     {
                       sublinks.map((link, linkIndex) => {
                         const IconComponent = link.icon;
