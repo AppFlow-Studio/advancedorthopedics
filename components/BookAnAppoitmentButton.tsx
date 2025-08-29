@@ -140,46 +140,14 @@ export default function BookAnAppoitmentButton({
                     </button>
                 </DialogTrigger>
 
-                <DialogContent className=' md:h-fit overflow-y-scroll h-[60%] p-0 bg-transparent border-0 rounded-3xl'>
-                    <div className='relative w-full h-full p-6 overflow-hidden'>
-                        {/* SVG Filter Definition */}
-                        <svg style={{ display: 'none' }}>
-                            <filter id="displacementFilter">
-                                <feTurbulence
-                                    type="turbulence"
-                                    baseFrequency="0.01"
-                                    numOctaves="2"
-                                    result="turbulence"
-                                />
-                                <feDisplacementMap
-                                    in="SourceGraphic"
-                                    in2="turbulence"
-                                    scale="200"
-                                    xChannelSelector="R"
-                                    yChannelSelector="G"
-                                />
-                            </filter>
-                        </svg>
+                <DialogContent className=" rounded-[20px] p-[32px] sm:h-fit sm:max-h-fit max-h-150 overflow-y-auto" >
+                    <Form {...form}>
+                        <form className="space-y-8">
 
-                        {/* Liquid Glass Background */}
-                        <div
-                            className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden"
-                            style={{
-                                filter: 'drop-shadow(-8px -10px 46px #0000005f)',
-                                backdropFilter: 'brightness(1.1) blur(2px)',
 
-                                border: '1px solid rgba(255, 255, 255, 0.2)',
-                            }}
-                        >
-                            <div
-                                className="absolute inset-0 rounded-3xl"
-                                style={{
-                                    boxShadow: 'inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)',
-                                }}
-                            />
-                        </div>
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full relative">
+                            <div className="w-full  space-y-6"
+                            >
+
                                 {/* Name Fields */}
                                 <div className="grid grid-cols-1  gap-6">
                                     <FormField
@@ -188,9 +156,9 @@ export default function BookAnAppoitmentButton({
 
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel className="text-sm text-[white] font-semibold ">Full Name</FormLabel>
+                                                <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
+                                                    <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -212,13 +180,13 @@ export default function BookAnAppoitmentButton({
                                                             fontFamily: 'var(--font-public-sans)',
                                                             fontWeight: 500,
                                                         }}
-                                                        className='text-[white] text-md'
+                                                        className='text-[#111315] text-md'
                                                     >
                                                         Email Address
                                                     </span>
                                                 </FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Enter your email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
+                                                    <Input placeholder="Enter your email" startIcon={Mail} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -236,14 +204,14 @@ export default function BookAnAppoitmentButton({
                                                             fontFamily: 'var(--font-public-sans)',
                                                             fontWeight: 500,
                                                         }}
-                                                        className='text-[white] text-md'
+                                                        className='text-[#111315] text-md'
                                                     >
                                                         Phone Number
                                                     </span>
 
                                                 </FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="+1 0123456789" startIcon={Phone} className="h-12 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                    <Input placeholder="+1 0123456789" startIcon={Phone} className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -262,7 +230,7 @@ export default function BookAnAppoitmentButton({
                                                         fontFamily: 'var(--font-public-sans)',
                                                         fontWeight: 500,
                                                     }}
-                                                    className='text-[white] text-md'
+                                                    className='text-[#111315] text-md'
                                                 >
                                                     Best Time To Contact
                                                 </span>
@@ -270,9 +238,9 @@ export default function BookAnAppoitmentButton({
                                             <FormControl>
                                                 <Select onValueChange={field.onChange} value={field.value} >
                                                     <SelectTrigger
-                                                        className="w-full h-12 px-6 bg-[#f0f5ff]  border rounded-sm"
+                                                        className="w-full h-10 px-6 bg-[#f0f5ff]  border rounded-sm"
                                                     >
-                                                        <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-12 text-lg data-[placeholder]:text-red-500" />
+                                                        <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-10 text-lg data-[placeholder]:text-red-500" />
                                                     </SelectTrigger>
                                                     <SelectContent>
                                                         <SelectGroup>
@@ -294,7 +262,7 @@ export default function BookAnAppoitmentButton({
                                     name="reason"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="text-sm text-[white] font-semibold">Consultation Reason</FormLabel>
+                                            <FormLabel className="text-sm text-[#111315] font-semibold">Consultation Reason</FormLabel>
                                             <FormControl>
                                                 <Textarea placeholder="Consultation Reason" className="min-h-[200px] text-lg resize-none  border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
                                             </FormControl>
@@ -304,9 +272,11 @@ export default function BookAnAppoitmentButton({
                                 />
 
                                 <button
-                                    type="submit"
-                                    className={`w-full self-center flex items-center justify-center transition-all duration-300`}
+                                    className="w-full self-center flex items-center justify-center"
                                     disabled={disabled}
+                                    onClick={
+                                        form.handleSubmit(onSubmit, () => { console.log('error') })
+                                    }
                                 >
                                     {disabled ? (
                                         <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#252932] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
@@ -318,20 +288,20 @@ export default function BookAnAppoitmentButton({
                                     )}
                                 </button>
 
-                                <div className='relative z-10'>
+                                <div>
                                     <p
                                         style={{
                                             fontFamily: 'var(--font-public-sans)',
                                             fontWeight: 500,
                                         }}
-                                        className='text-[white] text-md'
+                                        className='text-[#838890] text-md'
                                     >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
                                 </div>
-                            </form>
-                        </Form>
-                    </div>
+                            </div>
+                        </form>
+                    </Form>
                 </DialogContent>
-            </Dialog>
+            </Dialog >
             <Dialog open={openAppointmentConfirm} onOpenChange={() => setAppointmentConfirm(!openAppointmentConfirm)} >
                 <DialogContent className=" rounded-[20px] p-[32px]" >
                     <DialogTitle>

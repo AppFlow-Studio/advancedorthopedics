@@ -275,7 +275,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                         <div className="w-full self-center flex items-center justify-center" onClick={() => setOpenContactForm(true)}><BookAnAppointmentClient buttonText={buttonText} /></div>
 
                         <Dialog open={openContactForm} onOpenChange={() => setOpenContactForm(false)}>
-                            <DialogContent className=" rounded-[20px] p-[32px] " >
+                            <DialogContent className=" rounded-[20px] p-[32px] sm:h-fit sm:max-h-fit max-h-150 overflow-y-auto" >
                                 <DialogTitle >
                                     <p
                                         style={{
