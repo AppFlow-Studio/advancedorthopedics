@@ -884,7 +884,7 @@ export default function NavBar() {
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] transition-all duration-200 ${isScrolled ? ' bg-white' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-10 py-1 rounded-b-xl max-h-[128px] lg:h-[60px] sm:bg-transparent bg-white transition-all duration-200 ${isScrolled ? ' bg-white' : 'bg-transparent'}`}>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-2 z-[1]">
           <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '>
             <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[40px] object-cover lg:h-[40px] lg:w-auto w-20 h-10  " />

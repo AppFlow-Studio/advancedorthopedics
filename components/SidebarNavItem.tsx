@@ -81,13 +81,13 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                                     <PromoOverlayCard
                                         link="/area-of-specialty/spinal-stenosis"
                                         onClick={closeSidebar}
-                                        className="max-h-30 h-30 w-full sm:max-h-100 sm:h-fit" /></div>
+                                        className="max-h-40 h-40 w-full sm:max-h-100 sm:h-fit" /></div>
                             )
                                 : item.title == 'AREA OF SPECIALTY' ? (
                                     <div className='w-full flex items-center justify-center px-6 py-4'>
                                         <PromoOverlayCard
                                             onClick={closeSidebar}
-                                            className="max-h-30 h-30 w-full sm:max-h-100 sm:h-fit"
+                                            className="max-h-40 h-40 w-full sm:max-h-100 sm:h-fit"
                                             imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
                                             title="Lower Back Pain?"
                                             subtitle="Meet with our world-class surgeons today"
@@ -99,7 +99,7 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                                         <div className='w-full flex items-center justify-center px-6 py-4'>
                                             <PromoOverlayCard
                                                 onClick={closeSidebar}
-                                                className="max-h-30 h-30 w-full sm:max-h-100 sm:h-fit"
+                                                className="max-h-40 h-40 w-full sm:max-h-100 sm:h-fit"
                                                 imageUrl="/centralflorida.png"
                                                 title="Serving Florida"
                                                 subtitle="20+ Years of Orthopedic Care for Florida."

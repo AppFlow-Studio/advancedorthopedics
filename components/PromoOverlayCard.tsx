@@ -35,7 +35,7 @@ export default function PromoOverlayCard({
                 }}
             >
                 {/* Image */}
-                <div className="relative w-full h-full sm:h-[280px] md:h-[360px]">
+                <div className="relative w-full h-40 sm:h-[280px] md:h-[360px]">
                     <Image
                         src={imageUrl}
                         alt={title}
