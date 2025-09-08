@@ -30,19 +30,10 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
           padding: '16px'
         }}>
           {/* Logo Header */}
-          <div style={{ textAlign: 'start', marginBottom: '24px' }}> {/* text-center mb-6 */}
-            <img
-              src="https://mountainspineortho.b-cdn.net/mso.png"
-              alt="Mountain Spine & Orthopedics"
-              style={{
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                width: '100%',
-                height: '300px',
-                objectFit: 'fill',
-                borderRadius: '8px'
-              }}
-            />
+          <div style={{ backgroundColor: '#0A50EC', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
+            {/* Logo added as per user's updated code */}
+            <img src="https://mountainspineortho.b-cdn.net/newlogo4.png" alt="Mountain Spine & Orthopedic Center" style={{ width: '100px' }} />
+            <h1 style={{ fontSize: '24px', color: 'white' }}>Mountain Spine & Orthopedics</h1>
           </div>
 
           {/* Main Content */}

@@ -131,7 +131,7 @@ export default function AreaOfSpecialty() {
   return (
     <main className="w-full flex flex-col items-center justify-center bg-white h-full">
       {/* Landing Section */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden">
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
 
         <div
           style={{

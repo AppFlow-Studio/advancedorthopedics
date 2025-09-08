@@ -92,7 +92,7 @@ export default function InsurancePolicyClient() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden" >
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <Image src={InsuranceLanding} className=" h-full absolute top-0 object-cover object-center self-end w-full" alt="Doctor Diagnosing a Old Patient" />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-32 md:pt-60">
           <div className="lg:w-[60%] h-full absolute left-0 top-0 md:w-[85%] w-full"

@@ -42,7 +42,7 @@ export default function HomeHeroSection() {
   }, []);
 
   return (
-    <section className="w-full h-full flex flex-col relative overflow-hidden justify-between">
+    <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] justify-between [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
       <div
         style={{
           filter: 'blur(30px)'
@@ -83,7 +83,7 @@ export default function HomeHeroSection() {
               >
                 Welcome to<br /> Mountain <br /> Spine & Orthopedics
               </h1>
-             
+
             </div>
           </SlidingDiv>
           <div className="z-[2] sm:hidden block px-4 mb-4">

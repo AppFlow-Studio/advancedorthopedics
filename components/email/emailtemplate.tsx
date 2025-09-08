@@ -5,7 +5,11 @@ interface EmailTemplateProps {
   email: string,
   phone: string,
   reason: string,
-  bestTime: string
+  bestTime: string,
+  has_attorney?: string,
+  injury_type?: string,
+  pain_level?: string,
+  location?: string,
 }
 
 
@@ -16,6 +20,10 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   phone,
   reason,
   bestTime,
+  has_attorney,
+  injury_type,
+  pain_level,
+  location,
 }) => (
   <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6', color: '#333', margin: '0 auto', border: '1px solid #ddd', borderRadius: '8px', height: '100%' }}>
     {/* Header Section - Updated to primary color #252932 */}
@@ -53,6 +61,30 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
             <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Best Contact Phone:</td>
             <td style={{ padding: '10px 0' }}>{phone}</td>
           </tr>
+          {has_attorney && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Has Attorney:</td>
+            <td style={{ padding: '10px 0' }}>{has_attorney}</td>
+          </tr>
+          )}
+          {injury_type && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Injury Type:</td>
+            <td style={{ padding: '10px 0' }}>{injury_type}</td>
+          </tr>
+          )}
+          {pain_level && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Pain Level:</td>
+            <td style={{ padding: '10px 0' }}>{pain_level}</td>
+          </tr>
+          )}
+          {location && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Preferred Location:</td>
+            <td style={{ padding: '10px 0' }}>{location}</td>
+          </tr>
+          )}
         </tbody>
       </table>
 

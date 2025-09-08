@@ -80,7 +80,7 @@ export default function HomePageUI() {
 
   return (
     <main className=" w-full flex flex-col items-center justify-center bg-white h-full" >
-      <section className="w-full h-full flex flex-col relative overflow-hidden  justify-between" >
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]  justify-between" >
         <div
           style={{
             background: 'white',

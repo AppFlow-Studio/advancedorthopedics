@@ -172,7 +172,7 @@ export default function Treatments() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing Section (no changes) */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden" >
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
           style={{
             filter: 'blur(30px)'
@@ -226,7 +226,7 @@ export default function Treatments() {
       </section>
 
       {/* Tell us Your Story Section (no changes) */}
-      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
+      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
         {/* ... (rest of your "Tell us Your Story" section code) ... */}
         <div className=' flex flex-col space-y-[16px] '>
           <h2
@@ -277,7 +277,7 @@ export default function Treatments() {
 
 
       {/* Treatments List Section */}
-      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8 ' id="treatments-section">
+      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8 ' id="treatments-section">
         <div className='flex flex-col lg:flex-row justify-between lg:items-center lg:space-y-0 space-y-4'>
           <h2
             style={{

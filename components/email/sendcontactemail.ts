@@ -7,15 +7,20 @@ import { TreatmentCandidacyEmailTemplate } from './candidemailtemplate';
 import { ConditionCheckEmailTemplate } from './conditioncheckemailtemplate';
 import { UserEmailTemplate } from './useremailtemplate';
 const resend = new Resend(process.env.RESEND_API_KEY);
-
+import { createClient } from '@/utils/supabase/server';
 export async function sendUserEmail(formData : {name : string, email : string, phone : string}) {
 
     try {
+        const supabase = await createClient();
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
             to: [formData.email],
             subject: 'Thank you for contacting Mountain Spine & Orthopedics',
             react: await UserEmailTemplate({name : formData.name, email : formData.email, phone : formData.phone}),
+        });
+        await supabase.from('forms').insert({
+            patient_email: formData.email,
+            patient_name: formData.name,
         });
         return data;
     } catch (error) {
@@ -24,13 +29,13 @@ export async function sendUserEmail(formData : {name : string, email : string, p
     }
 }
 
-export async function sendContactEmail(formData : {name : string, email : string, phone : string, reason : string, bestTime : string}) {
+export async function sendContactEmail(formData : {name : string, email : string, phone : string, reason : string, bestTime : string, has_attorney? : string | undefined, injury_type? : string | undefined, pain_level? : string | undefined, location? : string | undefined}) {
     try {
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
             to: ['info@mountainspineorthopedics.com'],
             subject: 'New Contact Form Submission',
-            react: await EmailTemplate({name : formData.name, email : formData.email, phone : formData.phone, reason : formData.reason, bestTime : formData.bestTime}),
+            react: await EmailTemplate({name : formData.name, email : formData.email, phone : formData.phone, reason : formData.reason, bestTime : formData.bestTime, has_attorney : formData.has_attorney, injury_type : formData.injury_type, pain_level : formData.pain_level, location : formData.location}),
         });
         return data;
     } catch (error) {

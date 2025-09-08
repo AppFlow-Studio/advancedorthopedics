@@ -191,7 +191,7 @@ export default function CandidacyCheckClient() {
           </p>
         </div>
       </section>
-      <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA] py-[50px] px-6 xl:px-[80px]'>
+      <section className='w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] bg-[#FAFAFA] py-[50px] px-6 xl:px-[80px]'>
         <div className='z-[2] flex w-full'>
           <nav className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-6'
             style={{

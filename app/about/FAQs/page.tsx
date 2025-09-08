@@ -101,7 +101,7 @@ export default function FAQs() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden" >
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
           style={{
             filter: 'blur(30px)'

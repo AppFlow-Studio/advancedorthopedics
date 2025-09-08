@@ -101,7 +101,7 @@ export default function ConditionCheckSection({
     }
   }
   return (
-    <section className='w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA] py-[50px] px-6 lg:px-[80px]' aria-label="Condition Check Form">
+    <section className='w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] bg-[#FAFAFA] py-[50px] px-6 lg:px-[80px]' aria-label="Condition Check Form">
       <div className=' flex flex-row md:space-x-[20px] items-center justify-center max-w-[1440px]' role="list" aria-label="Condition Check Steps">
         {steps.map((step, index) => (
           <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index} role="listitem">

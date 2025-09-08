@@ -88,7 +88,7 @@ export default function ConditionChecker() {
       {/* JSON-LD Breadcrumb Schema */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Landing Section */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden" aria-labelledby="condition-check-heading">
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-labelledby="condition-check-heading">
         <div
           style={{
             filter: 'blur(30px)'

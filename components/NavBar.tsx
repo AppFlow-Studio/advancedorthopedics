@@ -30,7 +30,7 @@ import {
 import { clinics } from './data/clinics';
 import { GetLatestBlog } from "@/app/blogs/api/get-blogs";
 import { SidebarNavItem } from './SidebarNavItem';
-import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight } from 'lucide-react';
+import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight, Car, CarFront } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion'
 import PromoOverlayCard from './PromoOverlayCard';
 import { useQuery } from '@tanstack/react-query';
@@ -816,6 +816,29 @@ const NavBarLinks = [
       }
     })
   },
+  {
+    href: '/injuries',
+    screen: '/injuries',
+    title: 'INJURIES',
+    short_desc: 'Learn about our injuries',
+    icon: Activity,
+    subLinks: [
+      {
+        title: 'Slip and Fall',
+        href: '/injuries/slip-and-fall',
+        short_desc: 'Learn about how to handle slip and fall injuries',
+        icon: Footprints,
+        subLinks: []
+      },
+      {
+        title: 'Car Accident',
+        href: '/injuries/car-accident',
+        short_desc: 'Learn about how to handle car accident injuries',
+        icon: CarFront,
+        subLinks: []
+      }
+    ]
+  }
 
 ]
 

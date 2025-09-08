@@ -22,7 +22,7 @@ export default function PatientForms() {
     return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
             {/* Landing */}
-            <section className=" w-full h-full flex flex-col relative overflow-hidden" >
+            <section className=" w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
                 <Image src={PatientFormsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
 
                 <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
