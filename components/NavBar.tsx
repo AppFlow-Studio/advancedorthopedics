@@ -816,29 +816,29 @@ const NavBarLinks = [
       }
     })
   },
-  {
-    href: '/injuries',
-    screen: '/injuries',
-    title: 'INJURIES',
-    short_desc: 'Learn about our injuries',
-    icon: Activity,
-    subLinks: [
-      {
-        title: 'Slip and Fall',
-        href: '/injuries/slip-and-fall',
-        short_desc: 'Learn about how to handle slip and fall injuries',
-        icon: Footprints,
-        subLinks: []
-      },
-      {
-        title: 'Car Accident',
-        href: '/injuries/car-accident',
-        short_desc: 'Learn about how to handle car accident injuries',
-        icon: CarFront,
-        subLinks: []
-      }
-    ]
-  }
+  // {
+  //   href: '/injuries',
+  //   screen: '/injuries',
+  //   title: 'INJURIES',
+  //   short_desc: 'Learn about our injuries',
+  //   icon: Activity,
+  //   subLinks: [
+  //     {
+  //       title: 'Slip and Fall',
+  //       href: '/injuries/slip-and-fall',
+  //       short_desc: 'Learn about how to handle slip and fall injuries',
+  //       icon: Footprints,
+  //       subLinks: []
+  //     },
+  //     {
+  //       title: 'Car Accident',
+  //       href: '/injuries/car-accident',
+  //       short_desc: 'Learn about how to handle car accident injuries',
+  //       icon: CarFront,
+  //       subLinks: []
+  //     }
+  //   ]
+  // }
 
 ]
 
