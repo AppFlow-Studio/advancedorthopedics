@@ -18,6 +18,9 @@ import { getOgImageForPath } from "@/lib/og";
 export const metadata: Metadata = {
   title: 'Book Your Appointment | Mountain Spine & Orthopedics',
   description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.',
+  alternates: {
+    canonical: buildCanonical('/find-care/book-an-appointment'),
+  },
   openGraph: {
     title: 'Book Your Appointment | Mountain Spine & Orthopedics',
     description: 'Schedule your orthopedic consultation today. Our patient advocates are ready to help you book an in-person or virtual visit with our Florida specialists.',

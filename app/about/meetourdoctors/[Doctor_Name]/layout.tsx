@@ -14,9 +14,13 @@ export async function generateMetadata(
 
     if (!doctor) {
         const readableSlug = resolvedParams.Doctor_Name.replace(/-/g, " ");
+        const canonicalUrl = buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`);
         return {
             title: `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`,
-            description: "Learn about orthopedic care and treatments with our specialists in Florida."
+            description: "Learn about orthopedic care and treatments with our specialists in Florida.",
+            alternates: {
+                canonical: canonicalUrl,
+            },
         };
     }
     

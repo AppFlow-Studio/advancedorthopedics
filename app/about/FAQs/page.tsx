@@ -4,13 +4,18 @@ import FAQsLanding from '@/public/FAQs.jpeg'
 import FAQsDocotorTestimony from '@/public/FAQsDoctorTestimony.png'
 import type { Metadata } from 'next'
 import FaqsSection from '@/components/FaqsSection'
+import { buildCanonical } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Spine Surgery FAQs | Mountain Spine & Orthopedics Florida',
   description: 'Find answers to frequently asked questions about spine surgery, recovery, and treatment options at Mountain Spine & Orthopedics. Get informed before your visit.',
+  alternates: {
+    canonical: buildCanonical('/about/faqs'),
+  },
   openGraph: {
     title: 'Spine Surgery FAQs | Mountain Spine & Orthopedics Florida',
     description: 'Find answers to frequently asked questions about spine surgery, recovery, and treatment options at Mountain Spine & Orthopedics. Get informed before your visit.',
+    url: buildCanonical('/about/faqs'),
     images: ['/FAQs.jpeg'],
   },
   twitter: {

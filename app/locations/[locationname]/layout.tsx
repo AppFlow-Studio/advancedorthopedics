@@ -17,9 +17,13 @@ export async function generateMetadata(
 
     // If no matching location is found, return default metadata.
     if (!location) {
+        const canonicalUrl = buildCanonical(`/locations/${resolvedParams.locationname}`);
         return {
             title: 'Location Not Found | Mountain Spine & Orthopedics',
             description: 'The requested location could not be found. Please check the URL or navigate to our locations page to find a clinic.',
+            alternates: {
+                canonical: canonicalUrl,
+            },
         };
     }
 

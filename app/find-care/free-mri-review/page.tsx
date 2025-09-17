@@ -4,6 +4,9 @@ import { getOgImageForPath } from "@/lib/og";
 export const metadata = {
   title: 'Free MRI Review | Mountain Spine & Orthopedics',
   description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
+  alternates: {
+    canonical: buildCanonical('/find-care/free-mri-review'),
+  },
   openGraph: {
     title: 'Free MRI Review | Mountain Spine & Orthopedics',
     description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',

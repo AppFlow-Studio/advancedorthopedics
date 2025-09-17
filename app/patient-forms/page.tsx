@@ -5,12 +5,18 @@ import Image from 'next/image'
 import ContactUsSection from '@/components/ContactUsSection'
 import { TextAnimate } from '@/components/magicui/text-animate'
 
+import { buildCanonical } from '@/lib/seo';
+
 export const metadata = {
     title: 'Patient Forms | Mountain Spine & Orthopedics',
     description: 'Access new patient packets and forms for Mountain Spine & Orthopedics. Download, complete, and bring or fax to streamline your visit.',
+    alternates: {
+        canonical: buildCanonical('/patient-forms'),
+    },
     openGraph: {
         title: 'Patient Forms | Mountain Spine & Orthopedics',
         description: 'Access new patient packets and forms for Mountain Spine & Orthopedics. Download, complete, and bring or fax to streamline your visit.',
+        url: buildCanonical('/patient-forms'),
     },
     twitter: {
         title: 'Patient Forms | Mountain Spine & Orthopedics',
