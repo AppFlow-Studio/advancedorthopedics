@@ -147,14 +147,14 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                         <div className="w-full flex flex-col space-y-6">
                             {/* Name Fields */}
                             <div className="grid grid-cols-1 space-y-6">
-                                {header && <h4
+                                {header && <h2
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
                                     }}
                                     className='text-[#111315] text-2xl'>
                                     {header}
-                                </h4>}
+                                </h2>}
                                 <FormField
                                     control={form.control}
                                     name="name"

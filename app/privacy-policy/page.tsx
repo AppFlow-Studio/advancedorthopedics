@@ -1,6 +1,16 @@
+import { buildCanonical } from '@/lib/seo';
+
 export const metadata = {
   title: "Privacy Policy | Mountain Spine & Orthopedics",
   description: "Read our privacy policy to learn how Mountain Spine & Orthopedics protects your personal information and data online.",
+  alternates: {
+    canonical: buildCanonical('/privacy-policy'),
+  },
+  openGraph: {
+    title: "Privacy Policy | Mountain Spine & Orthopedics",
+    description: "Read our privacy policy to learn how Mountain Spine & Orthopedics protects your personal information and data online.",
+    url: buildCanonical('/privacy-policy'),
+  },
 };
 
 export default function PrivacyPolicy() {

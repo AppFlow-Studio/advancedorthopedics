@@ -20,9 +20,13 @@ export async function generateMetadata(
 
     if (!condition) {
         const readableSlug = resolvedParams.ConditionDetails.replace(/-/g, " ");
+        const canonicalUrl = buildCanonical(`/area-of-specialty/${resolvedParams.ConditionDetails}`);
         return {
             title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
-            description: "Learn about orthopedic care and treatments with our specialists in Florida."
+            description: "Learn about orthopedic care and treatments with our specialists in Florida.",
+            alternates: {
+                canonical: canonicalUrl,
+            },
         };
     }
 

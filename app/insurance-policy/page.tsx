@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { buildCanonical } from '@/lib/seo';
 import InsurancePolicyClient from './InsurancePolicyClient'
 // Remove 'use client' from this file.
 // Move all JSX and client logic to InsurancePolicyClient.tsx.
@@ -7,10 +8,13 @@ import InsurancePolicyClient from './InsurancePolicyClient'
 export const generateMetadata = (): Metadata => ({
   title: 'Insurance Policy | Mountain Spine & Orthopedics',
   description: 'Learn about insurance coverage options for spine surgery at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
+  alternates: {
+    canonical: buildCanonical('/insurance-policy'),
+  },
   openGraph: {
     title: 'Insurance Policy | Mountain Spine & Orthopedics',
     description: 'Learn about insurance coverage options for spine surgery at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
-    url: '/insurance-policy',
+    url: buildCanonical('/insurance-policy'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
     images: [

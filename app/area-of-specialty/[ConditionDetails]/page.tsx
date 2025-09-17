@@ -146,7 +146,7 @@ export default function ConditionDetails({
                 background: 'rgba(255, 255, 255, 0.50)'
               }}
             >
-              <h1
+              <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
@@ -154,9 +154,9 @@ export default function ConditionDetails({
                 className="text-[#252932]"
               >
                 Condition
-              </h1>
+              </span>
 
-              <h1
+              <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
@@ -164,9 +164,9 @@ export default function ConditionDetails({
                 className="text-[#252932]"
               >
                 /
-              </h1>
+              </span>
 
-              <h1
+              <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
@@ -174,7 +174,7 @@ export default function ConditionDetails({
                 className="text-[#2358AC]"
               >
                 Condition Details
-              </h1>
+              </span>
             </div>
           </div>
           <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center mt-[12px] w-full">

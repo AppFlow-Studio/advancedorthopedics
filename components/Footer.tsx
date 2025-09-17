@@ -183,15 +183,6 @@ export default function Footer() {
                     >
                         Privacy Policy
                     </Link>
-                    <span
-                        style={{
-                            fontFamily: 'var(--font-public-sans)',
-                            fontWeight: 400,
-                            color: '#5E96F0'
-                        }}
-                    >
-                        Sitemap
-                    </span>
                 </div>
             </div>
         </main>

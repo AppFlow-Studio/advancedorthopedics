@@ -15,9 +15,13 @@ export async function generateMetadata(
   const blog = await GetBlogInfo(resolvedParams.BlogSlug);
 
   if (!blog) {
+    const canonicalUrl = buildCanonical(`/blogs/${resolvedParams.BlogSlug}`);
     return {
       title: "Blog Not Found | Mountain Spine & Orthopedics",
       description: "This blog post may have been deleted or is not available.",
+      alternates: {
+        canonical: canonicalUrl,
+      },
     };
   }
 

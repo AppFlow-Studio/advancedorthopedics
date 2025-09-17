@@ -32,9 +32,13 @@ export async function generateMetadata(
 
   if (!treatment) {
     const readableSlug = resolvedParams.TreatmentDetails.replace(/-/g, " ");
+    const canonicalUrl = buildCanonical(`/treatments/${resolvedParams.TreatmentDetails}`);
     return {
       title: "Treatment Not Found | Mountain Spine & Orthopedics",
-      description: "Learn about orthopedic care and treatments with our specialists in Florida."
+      description: "Learn about orthopedic care and treatments with our specialists in Florida.",
+      alternates: {
+        canonical: canonicalUrl,
+      },
     };
   }
 

@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /_next/*
-Disallow: /_next/static/media/*
+Allow: /_next/
+Allow: /_next/static/
 Sitemap: https://mountainspineorthopedics.com/sitemap.xml

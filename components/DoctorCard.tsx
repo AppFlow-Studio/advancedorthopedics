@@ -42,7 +42,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
                 }}
                 className="text-black text-3xl text-left w-full"
               >{doctor.name}</h3>
-              <h4
+              <h3
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontWeight: 400,
@@ -50,7 +50,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
                 className="text-[#54535C] "
               >
                 {doctor.practice}
-              </h4>
+              </h3>
             </div>
             <p className='text-[#54535C] text-sm flex-grow'>
               {doctor?.short_bio}

@@ -4,6 +4,9 @@ import { getOgImageForPath } from "@/lib/og";
 export const metadata = {
   title: "Find a Doctor Near You | Mountain Spine",
   description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+  alternates: {
+    canonical: buildCanonical('/find-care/find-a-doctor'),
+  },
   openGraph: {
     title: "Find a Doctor Near You | Mountain Spine",
     description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
