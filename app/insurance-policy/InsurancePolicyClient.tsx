@@ -120,7 +120,7 @@ export default function InsurancePolicyClient() {
               style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
               className="text-white text-xl lg:text-2xl text-shadow-sm"
             >
-              We accept a wide variety of spine surgery insurance coverage to help as many patients as possible throughout Florida.
+              We accept a wide variety of orthopedic care insurance coverage to help as many patients as possible throughout Florida.
             </p>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function InsurancePolicyClient() {
           <div className=" rounded-[24px] bg-[#FAFAFA] p-10 flex flex-col col-span-2">
             <div className="">
               <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black', lineHeight: 1.5 }} className="md:px-6 md:text-xl text-md">
-                Our collaborative team of Florida spine surgeons and medical professionals provides cutting-edge research, technology, and treatments for pain management and minimally invasive surgery. We offer comprehensive "concierge" services that include both non-surgical, conservative methods and gentle, minimally invasive procedures performed through incisions smaller than a postage stamp. By integrating advanced technology with a patient-centered approach, we ensure the best possible outcomes for our patients.
+                Our collaborative team of Florida spine surgeons and medical professionals provides cutting-edge research, technology, and treatments for pain management and comprehensive orthopedic care. We offer comprehensive "concierge" services that include both non-surgical, conservative methods and advanced orthopedic procedures performed with precision and care. By integrating advanced technology with a patient-centered approach, we ensure the best possible outcomes for our patients.
               </p>
             </div>
             <div className=" mt-[40px] w-fit ">

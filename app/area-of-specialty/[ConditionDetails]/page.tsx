@@ -84,12 +84,13 @@ export async function generateStaticParams() {
   return conditions.map(c => ({ ConditionDetails: c.slug }));
 }
 
-export default function ConditionDetails({
+export default async function ConditionDetails({
   params,
 }: {
-  params: { ConditionDetails: string }
+  params: Promise<{ ConditionDetails: string }>
 }) {
-  const conditionSlug = params.ConditionDetails
+  const { ConditionDetails } = await params;
+  const conditionSlug = ConditionDetails;
   const condition_details = conditions.find((x: ConditionInfoProp) => x.slug === conditionSlug)
   if (!condition_details) {
     return (

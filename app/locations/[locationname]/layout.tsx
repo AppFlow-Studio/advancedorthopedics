@@ -34,10 +34,10 @@ export async function generateMetadata(
     const cityName = location.region.split(',')[0].trim();
     
     // Create consistent title format
-    const consistentTitle = `Orthopedic & Spine Care in ${cityName}, FL | Mountain Spine & Orthopedics`;
+    const consistentTitle = `Mountain Spine & Orthopedics in ${cityName}, FL | Official Site`;
     
     // Create consistent description format
-    const consistentDescription = `Experience minimally invasive spine & orthopedic care in ${cityName}, FL—board-certified surgeons, on-site imaging, and same-day appointments at Mountain Spine & Orthopedics.`;
+    const consistentDescription = `Trusted orthopedic care in ${cityName}, FL—board-certified surgeons, compassionate staff, and convenient appointments at Mountain Spine & Orthopedics.`;
     
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
     return {

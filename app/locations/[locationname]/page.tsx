@@ -56,8 +56,8 @@ export default async function LocationDetails(
                     <path d="M7.157 2.207c0.066 2.004 1.454 3.117 4.221 3.55 2.345 0.368 4.46 0.181 5.151 -1.829C17.874 0.01 14.681 0.985 11.915 0.55S7.051 -1.013 7.157 2.207m0.831 8.23c0.257 1.497 1.652 2.355 3.786 2.297 2.135 -0.059 3.728 -0.892 3.949 -2.507 0.409 -2.988 -1.946 -1.832 -4.08 -1.774 -2.136 0.059 -4.161 -0.952 -3.655 1.984m2.778 6.852c0.424 1.117 1.587 1.589 3.159 1.253 1.569 -0.335 2.656 -0.856 2.568 -2.129 -0.159 -2.357 -1.713 -1.616 -3.283 -1.279 -1.571 0.333 -3.272 -0.039 -2.444 2.155m1.348 5.221c0.123 0.943 0.939 1.5 2.215 1.49 1.279 -0.011 2.248 -0.515 2.412 -1.525 0.308 -1.871 -1.123 -1.175 -2.4 -1.165 -1.28 0.01 -2.47 -0.65 -2.227 1.2" fill="#0A50EC" strokeWidth="1"></path>
                 </svg>
             ),
-            title: 'Laser Spine & Radio',
-            body: <>Our Orthopedic clinic provides access to cutting-edge laser spine procedures. Our targeted treatments give great results with cutting-edge technology that helps {location.name.replace('Mountain Spine & Orthopedics', '').trim()} residents heal faster.</>
+            title: 'Advanced Spine Care',
+            body: <>Our Orthopedic clinic provides access to advanced spine care technology. Our comprehensive treatments give great results with cutting-edge technology that helps {location.name.replace('Mountain Spine & Orthopedics', '').trim()} residents heal faster.</>
         },
         {
             icon: () => (
@@ -65,8 +65,8 @@ export default async function LocationDetails(
                     <path fillRule="evenodd" clipRule="evenodd" d="M7.02299 3.376C7.03911 3.15406 7.06365 2.97295 7.09643 2.82372C7.15781 2.54433 7.23372 2.44399 7.27636 2.40136C7.31899 2.35872 7.41933 2.28281 7.69872 2.22143C7.98944 2.15756 8.40114 2.125 9 2.125H13C13.5989 2.125 14.0106 2.15756 14.3013 2.22143C14.5807 2.28281 14.681 2.35872 14.7236 2.40136C14.7663 2.44399 14.8422 2.54433 14.9036 2.82372C14.9364 2.97295 14.9609 3.15406 14.977 3.376C14.6818 3.37499 14.3738 3.375 14.0527 3.375H14.0527H14.0527H7.94732H7.94731H7.9473C7.62618 3.375 7.31821 3.37499 7.02299 3.376ZM5.01648 3.41956C5.03581 3.05074 5.07429 2.70741 5.14301 2.39459C5.25632 1.8788 5.46503 1.38426 5.86214 0.987143C6.25926 0.59003 6.7538 0.381319 7.26959 0.268009C7.77406 0.157186 8.35786 0.125 9 0.125H13C13.6421 0.125 14.2259 0.157186 14.7304 0.268009C15.2462 0.381319 15.7407 0.59003 16.1379 0.987143C16.535 1.38426 16.7437 1.8788 16.857 2.39459C16.9257 2.70741 16.9642 3.05074 16.9835 3.41956C17.325 3.43802 17.6415 3.46412 17.9342 3.50102C18.9621 3.63057 19.8113 3.90463 20.4878 4.5389C21.1712 5.1796 21.4729 5.99471 21.6143 6.98061C21.75 7.92738 21.75 9.13186 21.75 10.6289V10.6289V10.6289V10.6289V12.6211V12.6211V12.6211V12.6211C21.75 14.1181 21.75 15.3226 21.6143 16.2694C21.4729 17.2553 21.1712 18.0704 20.4878 18.7111C19.8113 19.3454 18.9621 19.6194 17.9342 19.749C16.9342 19.875 15.6579 19.875 14.0527 19.875H7.94733C6.3421 19.875 5.06579 19.875 4.06576 19.749C3.03794 19.6194 2.18873 19.3454 1.51217 18.7111C0.828766 18.0704 0.527127 17.2553 0.385739 16.2694C0.249962 15.3226 0.249979 14.1181 0.250001 12.6211V12.6211V12.6211V12.6211V10.6289V10.6289V10.6289V10.6289C0.249979 9.13188 0.249962 7.92739 0.385739 6.98061C0.527127 5.99471 0.828765 5.1796 1.51217 4.5389C2.18873 3.90463 3.03794 3.63057 4.06576 3.50102C4.35855 3.46412 4.67501 3.43802 5.01648 3.41956ZM11 7.625C11.5523 7.625 12 8.07272 12 8.625V10.625H14C14.5523 10.625 15 11.0727 15 11.625C15 12.1773 14.5523 12.625 14 12.625H12V14.625C12 15.1773 11.5523 15.625 11 15.625C10.4477 15.625 10 15.1773 10 14.625V12.625H8C7.44772 12.625 7 12.1773 7 11.625C7 11.0727 7.44772 10.625 8 10.625H10V8.625C10 8.07272 10.4477 7.625 11 7.625Z" fill="#0A50EC" />
                 </svg>
             ),
-            title: 'Band Aid Back Surgery',
-            body: <>Mountain Spine & Orthopedics is one of the only providers of Band Aid Back Surgery, a revolutionary minimally-invasive technique that delivers exceptional results with faster recovery times.</>
+            title: 'Comprehensive Care',
+            body: 'We specialize in comprehensive orthopedic care that focuses on patient comfort, reduced recovery time, and helping you get back to your life faster with less pain and improved mobility.'
         },
         {
             icon: () => (
@@ -75,8 +75,8 @@ export default async function LocationDetails(
                 </svg>
 
             ),
-            title: 'Minimally Invasive',
-            body: 'We specialize in minimally invasive treatments that minimize tissue damage, reduce recovery time, and help you get back to your life faster with less pain and scarring.'
+            title: 'Patient-Centered Approach',
+            body: 'We specialize in patient-centered orthopedic care that focuses on comfort, reduced recovery time, and helping you get back to your life faster with less pain and improved mobility.'
         },
     ]
     return (
@@ -167,7 +167,7 @@ export default async function LocationDetails(
                                     }}
                                     className="text-[#424959] text-lg lg:text-xl "
                                 >
-                                    Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures.<br />
+                                    Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver comprehensive orthopedic care.<br />
                                     {location.region} most trusted spine and joint care center, serving Florida families at their convenience.
                                 </p>
                             </div>
@@ -366,7 +366,7 @@ export default async function LocationDetails(
                                 __html: (location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) =>
                                     paragraph + (index < array.length - 1 ? '<br /><br />' : '')
                                 ).join('') || '') +
-                                    '<br /><br />Learn more about our <a href="/treatments/lumbar-fusion-surgery" class="underline text-[#252932]">Lumbar Fusion Surgery</a> for advanced spine care.'
+                                    '<br /><br />Learn more about our comprehensive <a href="/treatments" class="underline text-[#252932]">orthopedic treatments</a> for advanced spine care.'
                             }}
                         />
                     </div>

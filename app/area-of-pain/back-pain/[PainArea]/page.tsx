@@ -1,4 +1,5 @@
 import { conditions } from '@/components/data/conditions'
+import { conditions as painconditions } from '@/components/data/painconditions'
 import { Doctors } from '@/components/data/doctors'
 import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { notFound } from 'next/navigation'
@@ -18,15 +19,18 @@ function shuffleArray(array: any[]) {
 export default async function PainArea({ params }: { params: Promise<{ PainArea: string }> }) {
   const { PainArea } = await params;
   let condition_details;
+  let specialtySlugs: string[] = [];
 
-      if (PainArea === 'back-pain-treatment-options') {
+  if (PainArea === 'back-pain-treatment-options') {
     condition_details = (await import('@/components/data/painareatreatments')).PainAreaTreatments.find(
       (x) => x.slug === PainArea
     );
   } else {
-    condition_details = (await import('@/components/data/conditions')).conditions.find(
-      (x) => x.slug === PainArea
-    );
+    // Prefer painconditions for pain pages, fallback to conditions
+    condition_details = painconditions.find((x) => x.slug === PainArea);
+    if (!condition_details) {
+      condition_details = conditions.find((x) => x.slug === PainArea);
+    }
   }
 
   if (!condition_details) {
@@ -34,10 +38,13 @@ export default async function PainArea({ params }: { params: Promise<{ PainArea:
     return notFound();
   }
 
+  // Get specialty slugs for cross-linking
+  specialtySlugs = conditions.map(x => x.slug);
+
   // Select two random doctors to display on the page.
   const randomDoctors = shuffleArray(Doctors).slice(0, 2);
 
   // Render the client component with the fetched data.
   // This server component does not render any JSX itself.
-  return <PainAreaClient condition_details={condition_details} randomDoctors={randomDoctors} />;
+  return <PainAreaClient condition_details={condition_details} randomDoctors={randomDoctors} specialtySlugs={specialtySlugs} />;
 }
