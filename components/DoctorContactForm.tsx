@@ -139,12 +139,9 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             {/* Content */}
             <div className="relative z-10">
                 <Form {...form}>
-                    <form className="space-y-8">
-
-
-
+                    <form className="sm:space-y-8 space-y-4">
                         {/* Contact Fields */}
-                        <div className="w-full flex flex-col space-y-6">
+                        <div className="w-full flex flex-col sm:space-y-6 space-y-4">
                             {/* Name Fields */}
                             <div className="grid grid-cols-1 space-y-6">
                                 {header && <h2
@@ -166,14 +163,14 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                         fontFamily: 'var(--font-public-sans)',
                                                         fontWeight: 500,
                                                     }}
-                                                    className='text-[#111315] text-md'
+                                                    className='text-[#111315] sm:text-md text-sm'
                                                 >
                                                     Name
                                                 </span>
                                             </FormLabel>
                                             <FormControl>
                                                 <div className=" flex  ">
-                                                    <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                    <Input placeholder="Name" startIcon={User} className="sm:h-12 h-10 text-lg border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
                                                 </div>
                                             </FormControl>
                                             <FormMessage />
@@ -193,14 +190,14 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     fontFamily: 'var(--font-public-sans)',
                                                     fontWeight: 500,
                                                 }}
-                                                className='text-[#111315] text-md'
+                                                className='text-[#111315] sm:text-md text-sm'
                                             >
                                                 Email
                                             </span>
                                         </FormLabel>
                                         <FormControl>
                                             <div className=" flex  ">
-                                                <Input placeholder="Example@gmail.com" startIcon={Mail} className="h-12 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                <Input placeholder="Example@gmail.com" startIcon={Mail} className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -219,14 +216,14 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     fontFamily: 'var(--font-public-sans)',
                                                     fontWeight: 500,
                                                 }}
-                                                className='text-[#111315] text-md'
+                                                className='text-[#111315] sm:text-md text-sm'
                                             >
                                                 Phone Number
                                             </span>
                                         </FormLabel>
                                         <FormControl>
                                             <div className=" flex  ">
-                                                <Input placeholder="+1 0123456789" startIcon={Phone} className="h-12 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                <Input placeholder="+1 0123456789" startIcon={Phone} className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -245,7 +242,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     fontFamily: 'var(--font-public-sans)',
                                                     fontWeight: 500,
                                                 }}
-                                                className='text-[#111315] text-md'
+                                                className='text-[#111315] sm:text-md text-sm'
                                             >
                                                 Best Time To Contact
                                             </span>
@@ -253,9 +250,9 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                         <FormControl>
                                             <Select onValueChange={field.onChange} value={field.value} >
                                                 <SelectTrigger
-                                                    className="w-full !h-12 px-6 bg-[#f0f5ff]  border rounded-sm"
+                                                    className="w-full !sm:h-12 h-10 px-6 bg-[#f0f5ff]  border rounded-sm"
                                                 >
-                                                    <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-12 text-lg data-[placeholder]:text-red-500" />
+                                                    <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] sm:h-12 h-10 text-lg data-[placeholder]:text-red-500" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                     <SelectGroup>
@@ -322,7 +319,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                 fontFamily: 'var(--font-public-sans)',
                                                                 fontWeight: 500,
                                                             }}
-                                                            className='text-[#111315] text-md'
+                                                            className='text-[#111315] sm:text-md text-sm'
                                                         >
                                                             Email Address
                                                         </span>
@@ -346,7 +343,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                 fontFamily: 'var(--font-public-sans)',
                                                                 fontWeight: 500,
                                                             }}
-                                                            className='text-[#111315] text-md'
+                                                            className='text-[#111315] sm:text-md text-sm'
                                                         >
                                                             Phone Number
                                                         </span>
@@ -372,7 +369,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                             fontFamily: 'var(--font-public-sans)',
                                                             fontWeight: 500,
                                                         }}
-                                                        className='text-[#111315] text-md'
+                                                        className='text-[#111315] sm:text-md text-sm'
                                                     >
                                                         Best Time To Contact
                                                     </span>
@@ -436,7 +433,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                 fontFamily: 'var(--font-public-sans)',
                                                 fontWeight: 500,
                                             }}
-                                            className='text-[#838890] text-md'
+                                            className='text-[#838890] sm:text-md text-sm'
                                         >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
                                     </div>
                                 </div>
@@ -524,7 +521,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                     fontFamily: 'var(--font-public-sans)',
                                     fontWeight: 500,
                                 }}
-                                className='text-[#838890] text-md text-center'
+                                className='text-[#838890] sm:text-md text-sm text-center'
                             >
                                 You're one step closer to a pain-free life!<br />
                                 Please check your email for details. Our team will contact you shortly.<br />
