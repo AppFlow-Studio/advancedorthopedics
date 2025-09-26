@@ -8,9 +8,6 @@ import DoctorCard from '@/components/DoctorCard'
 import StarRating from '@/components/StarRating'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Link from 'next/link'
-import type { Metadata } from 'next'
-import { buildCanonical } from "@/lib/seo";
-import { getOgImageForPath } from "@/lib/og";
 
 export default function AboutUs() {
   return (
@@ -196,41 +193,3 @@ export default function AboutUs() {
   )
 }
 
-export const metadata: Metadata = {
-  title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
-  description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida.',
-  openGraph: {
-    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
-    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida.',
-    url: buildCanonical('/about'),
-    siteName: 'Mountain Spine & Orthopedics',
-    type: 'website',
-    images: [
-      {
-        url: getOgImageForPath('/'),
-        width: 1200,
-        height: 630,
-        alt: 'Mountain Spine & Orthopedics team',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
-    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida.',
-    images: [getOgImageForPath('/')],
-  },
-  alternates: {
-    canonical: buildCanonical('/about'),
-  },
-  keywords: [
-    'about Mountain Spine & Orthopedics',
-    'spine experts Florida',
-    'orthopedic care team',
-    'comprehensive spine surgery',
-    'orthopedic doctors Florida',
-    'spine specialists',
-    'orthopedic credentials',
-    'Florida orthopedic team'
-  ]
-}

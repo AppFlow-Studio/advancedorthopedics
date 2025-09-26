@@ -3,7 +3,7 @@ import { conditions } from "@/components/data/conditions";
 import { conditions as painconditions } from "@/components/data/painconditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
 import StaticNav from "@/components/StaticNav.server";
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
@@ -68,10 +68,10 @@ export async function generateMetadata(
   const painArea = conditionSlug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
   
   // Title pattern - prefer data.metaTitle if available
-  const title = data.metaTitle ?? `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`;
+  const title = safeTitle(data.metaTitle, `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`);
   
   // Description - prefer data.metaDesc if available
-  const description = data.metaDesc ?? `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`;
+  const description = safeDescription(data.metaDesc, `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`);
 
   return {
     title,

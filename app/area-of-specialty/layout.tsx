@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import StaticNav from "@/components/StaticNav.server";
 
@@ -39,6 +39,8 @@ export default function AreaOfSpecialtyLayout({
 }) {
   return (
     <div>
+      <h1 className={srOnly}>Orthopedic Conditions & Treatments</h1>
+      <h2 className={srOnly}>Comprehensive Care Guide</h2>
       <StaticNav />
       {children}
     </div>

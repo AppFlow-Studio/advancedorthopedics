@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import StaticNav from "@/components/StaticNav.server";
 
@@ -39,6 +39,8 @@ export default function TreatmentsLayout({
 }) {
   return (
     <div>
+      <h1 className={srOnly}>Orthopedic Treatments & Procedures</h1>
+      <h2 className={srOnly}>Minimally Invasive Care Options</h2>
       <StaticNav />
       {children}
     </div>
