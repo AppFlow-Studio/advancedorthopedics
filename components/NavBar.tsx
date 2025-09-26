@@ -622,19 +622,19 @@ const NavBarLinks = [
           },
           {
             title: 'Foraminal Stenosis',
-            href: '/area-of-pain/back-pain/foraminal-stenosis',
+            href: '/area-of-pain/back-pain/foraminal-stenosis-back-pain',
             short_desc: 'Nerve compression relief',
             icon: Minus,
           },
           {
             title: 'Sciatica',
-            href: '/area-of-pain/back-pain/sciatica',
+            href: '/area-of-pain/back-pain/sciatica-nerve-pain',
             short_desc: 'Sciatic nerve pain',
             icon: Zap,
           },
           {
             title: 'Coccydynia',
-            href: '/area-of-pain/back-pain/coccydynia',
+            href: '/area-of-pain/back-pain/tailbone-pain-coccydynia',
             short_desc: 'Tailbone pain relief',
             icon: Triangle,
           },
@@ -654,13 +654,13 @@ const NavBarLinks = [
         subLinks: [
           {
             title: 'Cervical Spinal Stenosis',
-            href: '/area-of-pain/neck-and-shoulder-pain/cervical-spinal-stenosis',
+            href: '/area-of-pain/neck-and-shoulder-pain/neck-spinal-stenosis',
             short_desc: 'Neck stenosis treatment',
             icon: Minus,
           },
           {
             title: 'Cervical Herniated Disc',
-            href: '/area-of-pain/neck-and-shoulder-pain/cervical-herniated-disc',
+            href: '/area-of-pain/neck-and-shoulder-pain/neck-herniated-disc',
             short_desc: 'Neck disc herniation',
             icon: AlertCircle,
           },
@@ -672,13 +672,13 @@ const NavBarLinks = [
           },
           {
             title: 'Arthritis',
-            href: '/area-of-pain/neck-and-shoulder-pain/arthritis',
+            href: '/area-of-pain/neck-and-shoulder-pain/neck-shoulder-arthritis-pain',
             short_desc: 'Arthritis management',
             icon: Bone,
           },
           {
             title: 'Pinched Nerve',
-            href: '/area-of-pain/neck-and-shoulder-pain/pinched-nerve',
+            href: '/area-of-pain/neck-and-shoulder-pain/pinched-nerve-neck-shoulder',
             short_desc: 'Nerve compression relief',
             icon: Zap,
           },
@@ -698,49 +698,49 @@ const NavBarLinks = [
         subLinks: [
           {
             title: 'Bunions',
-            href: '/area-of-pain/foot-pain/bunions-hallux-valgus',
+            href: '/area-of-pain/foot-pain/bunion-pain-hallux-valgus',
             short_desc: 'Bunion treatment',
             icon: Circle,
           },
           {
             title: 'Plantar Fasciitis',
-            href: '/area-of-pain/foot-pain/plantar-fasciitis',
+            href: '/area-of-pain/foot-pain/heel-pain-plantar-fasciitis',
             short_desc: 'Heel pain relief',
             icon: Zap,
           },
           {
             title: 'Achilles Tendonitis',
-            href: '/area-of-pain/foot-pain/achilles-tendonitis',
+            href: '/area-of-pain/foot-pain/achilles-tendon-pain',
             short_desc: 'Achilles tendon care',
             icon: Activity,
           },
           {
             title: 'Flat Feet',
-            href: '/area-of-pain/foot-pain/flat-feet',
+            href: '/area-of-pain/foot-pain/flat-feet-pain',
             short_desc: 'Flat feet correction',
             icon: Footprints,
           },
           {
             title: 'Ankle Arthroscopy',
-            href: '/area-of-pain/foot-pain/ankle-arthroscopy',
+            href: '/area-of-pain/foot-pain/ankle-arthroscopy-recovery-pain',
             short_desc: 'Minimally invasive surgery',
             icon: Scissors,
           },
           {
             title: 'Hammertoes',
-            href: '/area-of-pain/foot-pain/hammer-toes',
+            href: '/area-of-pain/foot-pain/hammertoes-foot-pain',
             short_desc: 'Toe deformity correction',
             icon: Circle,
           },
           {
             title: 'Diabetic Foot Ulcers',
-            href: '/area-of-pain/foot-pain/diabetic-foot-ulcers',
+            href: '/area-of-pain/foot-pain/diabetic-foot-ulcer-care',
             short_desc: 'Diabetic foot care',
             icon: Droplet,
           },
           {
             title: 'Ankle Replacement',
-            href: '/area-of-pain/foot-pain/ankle-replacement',
+            href: '/area-of-pain/foot-pain/ankle-replacement-surgery-pain',
             short_desc: 'Joint replacement surgery',
             icon: Settings,
           }

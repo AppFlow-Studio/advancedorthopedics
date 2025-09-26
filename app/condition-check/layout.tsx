@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export const metadata: Metadata = {
@@ -37,5 +37,11 @@ export default function ConditionCheckLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <h1 className={srOnly}>Orthopedic Condition Checker</h1>
+      <h2 className={srOnly}>Quick Assessment Tool</h2>
+      {children}
+    </div>
+  );
 } 

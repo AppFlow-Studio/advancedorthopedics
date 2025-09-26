@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "total": 1,
+    "successful": 1,
+    "failed": 0,
+    "missingCanonical": 0,
+    "missingTitle": 0,
+    "missingMeta": 0,
+    "missingH1": 0,
+    "missingH2": 0,
+    "ssrVsCsrIssues": 0,
+    "localhostOutlinks": 0
+  },
+  "timestamp": "2025-09-25T22:50:53.946Z",
+  "results": [
+    {
+      "url": "http://localhost:3000/privacy-policy",
+      "http_status": 200,
+      "ssr_title": "Privacy Policy | Mountain Spine & Orthopedics",
+      "ssr_title_len": 45,
+      "ssr_meta_desc": "Mountain Spine & Orthopedics privacy policy. Learn how we protect your personal information and medical data in accordance with HIPAA regulations.",
+      "ssr_meta_desc_len": 146,
+      "ssr_canonical": "https://mountainspineorthopedics.com/privacy-policy",
+      "ssr_h1": "Privacy Policy",
+      "ssr_h2_count": 9,
+      "ssr_schema_types": "MedicalOrganization",
+      "csr_title": "Privacy Policy | Mountain Spine & Orthopedics",
+      "csr_meta_desc": "Mountain Spine & Orthopedics privacy policy. Learn how we protect your personal information and medical data in accordance with HIPAA regulations.",
+      "csr_meta_desc_len": 146,
+      "csr_canonical": "https://mountainspineorthopedics.com/privacy-policy",
+      "csr_h1": "Privacy Policy",
+      "csr_h2_count": 9,
+      "csr_schema_types": "MedicalOrganization",
+      "canonical_ok": true,
+      "title_ok": true,
+      "meta_ok": true,
+      "h1_ok": true,
+      "h2_ok": true,
+      "ssr_vs_csr_warnings": "",
+      "outlinks_localhost_count": 0,
+      "notes": ""
+    }
+  ]
+}

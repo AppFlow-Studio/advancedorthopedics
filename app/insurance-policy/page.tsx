@@ -7,13 +7,13 @@ import InsurancePolicyClient from './InsurancePolicyClient'
 
 export const generateMetadata = (): Metadata => ({
   title: 'Insurance Policy | Mountain Spine & Orthopedics',
-  description: 'Learn about insurance coverage options for spine surgery at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
+  description: 'Learn about insurance coverage options for orthopedic care at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
   alternates: {
     canonical: buildCanonical('/insurance-policy'),
   },
   openGraph: {
     title: 'Insurance Policy | Mountain Spine & Orthopedics',
-    description: 'Learn about insurance coverage options for spine surgery at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
+    description: 'Learn about insurance coverage options for orthopedic care at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
     url: buildCanonical('/insurance-policy'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
@@ -29,7 +29,7 @@ export const generateMetadata = (): Metadata => ({
   twitter: {
     card: 'summary_large_image',
     title: 'Insurance Policy | Mountain Spine & Orthopedics',
-    description: 'Learn about insurance coverage options for spine surgery at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
+    description: 'Learn about insurance coverage options for orthopedic care at Mountain Spine & Orthopedics. We accept a wide range of flexible, comprehensive insurance providers to help patients throughout Florida.',
     images: ['/InsuranceLanding.png'],
   },
 })

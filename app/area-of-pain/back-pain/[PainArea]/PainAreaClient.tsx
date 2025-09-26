@@ -1,19 +1,109 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
 import DoctorCard from '@/components/DoctorCard';
 import { DoctorContactForm } from '@/components/DoctorContactForm';
 import { BackPainDropdown } from '@/components/back-pain-dropdown';
 import { TextAnimate } from '@/components/magicui/text-animate';
+import { PhoneText } from '@/components/PhoneText';
+import { PhoneCTA } from '@/components/PhoneCTA';
 
-export function PainAreaClient({ condition_details, randomDoctors }: { condition_details: any, randomDoctors: any[] }) {
+// Helper to resolve specialty slug for cross-linking
+const SPECIALTY_MAP: Record<string, string> = {
+  'lumbar-degenerative-disc-disease': 'degenerative-disc-disease',
+  'cervical-degenerative-disc-disease': 'degenerative-disc-disease',
+  'foraminal-stenosis-back-pain': 'foraminal-stenosis',
+  'sciatica-nerve-pain': 'sciatica',
+  'tailbone-pain-coccydynia': 'coccydynia',
+};
+
+function resolveSpecialtySlug(painSlug: string, allSpecialtySlugs: string[]): string | null {
+  const mapped = SPECIALTY_MAP[painSlug];
+  if (mapped && allSpecialtySlugs.includes(mapped)) return mapped;
+  return allSpecialtySlugs.includes(painSlug) ? painSlug : null;
+}
+
+function stripTags(html: string | React.ReactNode): string {
+  if (typeof html !== 'string') return '';
+  return html.replace(/<[^>]*>/g, '');
+}
+
+function buildFaq(condition: any) {
+  const faqs: Array<{q: string, a: string}> = [];
+  
+  if (condition.what_sym) {
+    faqs.push({
+      q: `What are the symptoms of ${condition.title}?`,
+      a: stripTags(condition.what_sym)
+    });
+  }
+  
+  if (condition.treatment) {
+    faqs.push({
+      q: `How is ${condition.title} treated?`,
+      a: stripTags(condition.treatment)
+    });
+  }
+  
+  if (condition.diagnose) {
+    faqs.push({
+      q: `How is ${condition.title} diagnosed?`,
+      a: stripTags(condition.diagnose)
+    });
+  }
+  
+  if (condition.prevent) {
+    faqs.push({
+      q: `Can I prevent ${condition.title}?`,
+      a: stripTags(condition.prevent)
+    });
+  }
+  
+  return faqs.slice(0, 4);
+}
+
+export function PainAreaClient({ condition_details, randomDoctors, specialtySlugs = [] }: { condition_details: any, randomDoctors: any[], specialtySlugs?: string[] }) {
   if (!condition_details) {
     return null;
   }
 
+  // Build FAQ JSON-LD
+  const faqs = buildFaq(condition_details);
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(({q, a}) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": a
+      }
+    }))
+  };
+
+  // Resolve specialty slug for cross-link
+  const specialtySlug = resolveSpecialtySlug(condition_details.slug, specialtySlugs);
+
+  // Generate dynamic alt text for hero image
+  const heroAltText = `Illustration representing ${condition_details.title} treatment in Florida`;
+
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      {/* Screen reader only H1 */}
+      <h1 className="sr-only">{condition_details?.title ?? condition_details?.name}</h1>
+      
+      {/* FAQ JSON-LD Script */}
+      {faqs.length > 0 && (
+        <Script 
+          id={`faq-${condition_details.slug}`} 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} 
+        />
+      )}
+
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
@@ -28,7 +118,7 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt={heroAltText}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -57,9 +147,8 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
                 }}
                 className="sm:text-md text-xs text-[#111315]"
               >
-                Area of Specialty
+                Area of Pain
               </span>
-
               <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
@@ -69,7 +158,6 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
               >
                 /
               </span>
-
               <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
@@ -79,7 +167,6 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
               >
                 Back Pain
               </span>
-
               <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
@@ -89,7 +176,6 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
               >
                 /
               </span>
-
               <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
@@ -113,6 +199,25 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
             </TextAnimate>
           </div>
 
+          {/* Cross-link to specialty page */}
+          {specialtySlug && (
+            <div className="z-[2] px-6 xl:px-[80px] mt-[16px] w-full flex justify-center">
+              <a 
+                href={`/area-of-specialty/${specialtySlug}`}
+                className="inline-flex items-center px-4 py-2 rounded-lg border border-[#2358AC] bg-white/80 hover:bg-[#2358AC] hover:text-white text-[#2358AC] transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md"
+                style={{ fontFamily: "var(--font-inter)" }}
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Learn medical details
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          )}
+
           <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[70%] w-full self-center pb-8">
             <p
               style={{
@@ -121,7 +226,7 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
               }}
               className="text-[#424959] sm:text-lg text-sm text-center"
             >
-              {condition_details.body}
+              <PhoneText text={condition_details.body} trackLocation="Back Pain Hero Section" />
             </p>
           </div>
         </div>
@@ -156,19 +261,29 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
                 }}
                 className='text-[#424959] sm:text-xl text-sm'
               >
-                {condition_details?.detail}
+                <PhoneText text={condition_details?.detail} trackLocation="Back Pain Detail Section" />
               </div>
             </div>
 
             {
               condition_details.forum?.map((item: any, index: number) => (
                 <React.Fragment key={index}>
-                  {item.post}
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h3 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] sm:text-4xl text-xl'>
+                      {item.heading}
+                    </h3>
+                    <div style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }} className='text-[#424959] sm:text-xl text-sm'>
+                      <PhoneText text={item.post} trackLocation="Back Pain Forum Section" />
+                    </div>
+                  </div>
                 </React.Fragment>
               ))
             }
 
           </section>
+
+          {/* Phone CTA Section */}
+          <PhoneCTA />
 
           <section className='bg-white space-y-[40px] '>
             <h2
@@ -194,4 +309,4 @@ export function PainAreaClient({ condition_details, randomDoctors }: { condition
       </section>
     </main>
   );
-} 
+}

@@ -8,9 +8,6 @@ import DoctorCard from '@/components/DoctorCard'
 import StarRating from '@/components/StarRating'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Link from 'next/link'
-import type { Metadata } from 'next'
-import { buildCanonical } from "@/lib/seo";
-import { getOgImageForPath } from "@/lib/og";
 
 export default function AboutUs() {
   return (
@@ -83,7 +80,7 @@ export default function AboutUs() {
               }}
               className="text-[#424959] text-sm sm:text-lg md:text-xl text-center"
             >
-              Mountain Spine & Orthopedics is dedicated to delivering minimally invasive laser spine surgeries to eliminate the pain, discomfort, and dysfunction of numerous conditions of the neck and back.
+              Mountain Spine & Orthopedics is dedicated to delivering comprehensive orthopedic care to eliminate the pain, discomfort, and dysfunction of numerous conditions of the neck and back.
             </p>
           </div>
         </div>
@@ -112,7 +109,7 @@ export default function AboutUs() {
             }}
             className='text-[#00031A] md:text-6xl text-center text-3xl sm:text-5xl '
           >
-            Leading Experts in Minimally Invasive Spine Surgery & Pain Management
+            Leading Experts in Comprehensive Spine Care & Pain Management
           </h2>
         </div>
 
@@ -124,11 +121,11 @@ export default function AboutUs() {
             }}
             className='text-[#424959] text-lg sm:text-xl text-center'
           >
-            Our award-winning team of FL spine surgeons and medical staff offer the latest in research, technology, and treatments for pain management and minimally invasive surgery.<span className='text-black font-[600]'> Our comprehensive "concierge" services range from non-surgical, conservative methods to gentle, minimally invasive surgeries performed through incisions that are smaller than a postage stamp.</span>
+            Our award-winning team of FL spine surgeons and medical staff offer the latest in research, technology, and treatments for pain management and comprehensive orthopedic care.<span className='text-black font-[600]'> Our comprehensive "concierge" services range from non-surgical, conservative methods to advanced orthopedic procedures performed with precision and care.</span>
             <br /><br />
-            Our spine surgeons are dedicated to achieving the best results for every patient with the least invasive approach possible using state-of-the-art equipment and procedures to promote faster recovery times that allow you to return to normal activities much sooner. We offer expert diagnosis and treatment for pain and dysfunction caused by deformity, degenerative disc disease, trauma, and failed neck or back surgeries.<span className='text-black font-[600]'>Mountain Spine & Orthopedics operate in the most efficient ways to provide a safe environment and deliver the most effective surgical services to patients in Florida.</span> When it comes to spine-related issues, Mountain Spine & Orthopedics offers the treatment and care you deserve and expect. Regardless of the cause, our experienced team is ready to help.
+            Our spine surgeons are dedicated to achieving the best results for every patient with the most appropriate approach possible using state-of-the-art equipment and procedures to promote faster recovery times that allow you to return to normal activities much sooner. We offer expert diagnosis and treatment for pain and dysfunction caused by deformity, degenerative disc disease, trauma, and failed neck or back surgeries.<span className='text-black font-[600]'>Mountain Spine & Orthopedics operate in the most efficient ways to provide a safe environment and deliver the most effective medical services to patients in Florida.</span> When it comes to spine-related issues, Mountain Spine & Orthopedics offers the treatment and care you deserve and expect. Regardless of the cause, our experienced team is ready to help.
             <br /><br />
-            Our experienced and board-certified neurologists, neurosurgeons, orthopedic specialists, and physicians work together to treat specific spine and back disorders using minimally invasive techniques. We combine advanced technology with a patient-centered approach to ensure our patients get the best possible outcomes.
+            Our experienced and board-certified neurologists, neurosurgeons, orthopedic specialists, and physicians work together to treat specific spine and back disorders using comprehensive techniques. We combine advanced technology with a patient-centered approach to ensure our patients get the best possible outcomes.
           </p>
         </div>
 
@@ -196,41 +193,3 @@ export default function AboutUs() {
   )
 }
 
-export const metadata: Metadata = {
-  title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
-  description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to minimally invasive spine and joint care across Florida.',
-  openGraph: {
-    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
-    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to minimally invasive spine and joint care across Florida.',
-    url: buildCanonical('/about'),
-    siteName: 'Mountain Spine & Orthopedics',
-    type: 'website',
-    images: [
-      {
-        url: getOgImageForPath('/'),
-        width: 1200,
-        height: 630,
-        alt: 'Mountain Spine & Orthopedics team',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
-    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to minimally invasive spine and joint care across Florida.',
-    images: [getOgImageForPath('/')],
-  },
-  alternates: {
-    canonical: buildCanonical('/about'),
-  },
-  keywords: [
-    'about Mountain Spine & Orthopedics',
-    'spine experts Florida',
-    'orthopedic care team',
-    'minimally invasive spine surgery',
-    'orthopedic doctors Florida',
-    'spine specialists',
-    'orthopedic credentials',
-    'Florida orthopedic team'
-  ]
-}
