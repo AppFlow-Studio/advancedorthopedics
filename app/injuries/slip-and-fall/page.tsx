@@ -11,7 +11,7 @@ import Image from "next/image"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import RatingsAndReviews from "@/components/RatingsAndReviews"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
-import { Star, Shield, Clock, MapPin, Phone, Calendar, AlertTriangle, CheckCircle, Award, FileText } from "lucide-react"
+import { Star, Shield, Clock, MapPin, Phone, Calendar, AlertTriangle, CheckCircle, Award, FileText, Stethoscope } from "lucide-react"
 import { LeadCaptureForm } from "./lead-capture-form"
 import insurance1 from '@/public/insurance(1).png'
 import insurance2 from '@/public/insurance(2).png'
@@ -43,7 +43,7 @@ const siteData = {
         { name: "UnitedHealthcare", logo: "/logos/uhc.svg" },
         { name: "Blue Cross Blue Shield", logo: "/logos/bcbs.svg" },
     ],
-    citiesPill: "Altamonte Springs • Hollywood • Fort Pierce • Davenport • Orlando",
+    citiesPill: "Altamonte Springs • Hollywood • Fort Pierce • Davenport • Orlando • West Palm Beach • Boca Raton ",
     injuries: [
         {
             title: "Wrist fracture",
@@ -283,7 +283,8 @@ export default function SlipAndFall() {
         },
         {
             image: insurance3,
-            name: 'Aetna'
+            name: 'Aetna',
+            height: 60,
         },
         {
             image: insurance5,
@@ -295,17 +296,19 @@ export default function SlipAndFall() {
         },
         {
             image: insurance6,
-            name: 'Bright Health Group'
+            name: 'Bright Health Group',
+            height: 80,
         },
         {
             image: insurance7,
-            name: 'PPO'
+            name: 'PPO',
+            height: 120,
+
         },
     ]
 
     return (
         <main className="w-full flex flex-col items-center justify-center bg-white h-full">
-
             {/* Hero Section */}
             <section className="w-full h-full  py-26 flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
                 <div
@@ -481,7 +484,7 @@ export default function SlipAndFall() {
                             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                                 <MapPin className="w-6 h-6 text-primary" />
                             </div>
-                            <h3 className="font-semibold text-gray-900">5 Locations</h3>
+                            <h3 className="font-semibold text-gray-900">9 Locations</h3>
                             <p className="text-gray-600">{siteData.citiesPill}</p>
                         </div>
                     </div>
@@ -511,17 +514,20 @@ export default function SlipAndFall() {
                         {siteData.injuries.map((injury, index) => (
                             <Card
                                 key={index}
-                                className="medical-shadow hover:medical-shadow-lg transition-shadow"
+                                className="medical-shadow hover:medical-shadow-lg hover:shadow-lg transition-shadow cursor-pointer"
                                 data-anim="injury-card"
                             >
-                                <CardHeader>
-                                    <CardTitle className="text-lg">{injury.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-gray-600 mb-4">{injury.blurb}</p>
-                                    <Button variant="outline" size="sm" asChild>
-                                        <Link href={injury.link}>Learn More</Link>
-                                    </Button>
+                                <CardContent className="flex flex-row  items-center justify-center gap-y-3">
+                                    <div className="p-3 bg-blue-50 rounded-lg">
+                                        <Stethoscope className="h-6 w-6 text-[#0A84FF]" />
+                                    </div>
+                                    <div className=" flex flex-col ml-6">
+                                        <section className="text-lg font-semiboldgroup-hover:text-[#0A84FF] transition-colors">{injury.title}</section>
+                                        <p className="text-gray-600">{injury.blurb}</p>
+                                        {/* <Button variant="outline" size="sm" asChild>
+                                            <Link href={injury.link}>Learn More</Link>
+                                        </Button> */}
+                                    </div>
                                 </CardContent>
                             </Card>
                         ))}
@@ -546,7 +552,7 @@ export default function SlipAndFall() {
                                 </TabsList>
 
                                 <TabsContent value="evaluation" className="space-y-4">
-                                    <div className="space-y-4">
+                                    <div className="space-y-4 mt-4">
                                         <div className="flex items-start space-x-3">
                                             <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                                             <div>
@@ -572,7 +578,7 @@ export default function SlipAndFall() {
                                 </TabsContent>
 
                                 <TabsContent value="treatment" className="space-y-4">
-                                    <div className="space-y-4">
+                                    <div className="space-y-4 mt-4">
                                         <div className="flex items-start space-x-3">
                                             <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                                             <div>
@@ -598,7 +604,7 @@ export default function SlipAndFall() {
                                 </TabsContent>
 
                                 <TabsContent value="recovery" className="space-y-4">
-                                    <div className="space-y-4">
+                                    <div className="space-y-4 mt-4">
                                         <div className="flex items-start space-x-3">
                                             <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                                             <div>
@@ -652,6 +658,8 @@ export default function SlipAndFall() {
             {/* Meet Our Experts */}
             <div className="py-16"><InjuryDoctorsSection /></div>
 
+            <LocationsPicker />
+
             {/* FAQ Section */}
             <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="faq">
                 <div className="w-full max-w-4xl mx-auto">
@@ -676,45 +684,35 @@ export default function SlipAndFall() {
             {/* Insurance & Locations */}
             <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="insurance-locations">
                 <div className="w-full">
-                    <div className="grid lg:grid-cols-2 gap-12">
-                        <div>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Insurance Accepted</h2>
-                            <div className="grid grid-cols-2 gap-4 mb-6">
-                                {siteData.insurers.map((insurer, index) => (
-                                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg">
-                                        <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center">
-                                            <Shield className="w-4 h-4 text-gray-600" />
+                    <div className="w-full gap-12">
+                        <div className="flex flex-col items-center justify-center gap-y-2">
+                            {/* Insurer logos marquee */}
+                            <div className="overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
+                                <Marquee
+                                    className="flex items-center gap-6 grayscale opacity-60"
+                                >
+                                    {insuranceCarriers.map((insurer, i) => (
+                                        <div key={i} className="flex-shrink-0">
+                                            <Image
+                                                src={insurer.image}
+                                                alt={`${insurer.name} insurance accepted`}
+                                                height={insurer.height || 100}
+                                                className="object-cover"
+                                            />
                                         </div>
-                                        <span className="font-medium text-gray-900">{insurer.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                            <p className="text-gray-600">Don't see your insurance? Call us at (555) 012-3456 to verify coverage.</p>
-                        </div>
+                                    ))}
 
-                        <div>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Locations</h2>
-                            <div className="space-y-4">
-                                {siteData.citiesPill.split(" • ").map((city, index) => (
-                                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg">
-                                        <MapPin className="w-5 h-5 text-primary" />
-                                        <div>
-                                            <h3 className="font-medium text-gray-900">{city}</h3>
-                                            <p className="text-sm text-gray-600">Same-day appointments available</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                </Marquee>
+
                             </div>
-                            <Button variant="outline" className="mt-4 bg-transparent" asChild>
-                                <Link href="/locations">View All Locations</Link>
-                            </Button>
+                            <p className="text-gray-600">Don't see your insurance? Call us at <a href="tel:5612239959" className="text-[#0A50EC] hover:underline">(561) 223-9959</a> to verify coverage.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Final CTA */}
-            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
+            <section className="w-full flex flex-col py-[50px] h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
                 <div className="w-full max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold mb-4 text-balance">Don't Wait - Get Expert Care Today</h2>
                     <p className="text-xl mb-8 text-blue-100 text-pretty">
@@ -723,13 +721,12 @@ export default function SlipAndFall() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" variant="secondary" asChild data-cta="final-book">
+                        {/* <Button size="lg" variant="secondary" asChild data-cta="final-book">
                             <Link href="/book?reason=slip-and-fall">
                                 <Calendar className="w-5 h-5 mr-2" />
                                 Schedule Evaluation
                             </Link>
-                        </Button>
-
+                        </Button> */}
                         <Button
                             size="lg"
                             variant="outline"
@@ -737,9 +734,10 @@ export default function SlipAndFall() {
                             asChild
                             data-cta="final-call"
                         >
-                            <a href="tel:+1-555-0123">
+                            <a href="tel:5612239959"
+                            >
                                 <Phone className="w-5 h-5 mr-2" />
-                                Call (555) 012-3456
+                                Call (561) 223-9959
                             </a>
                         </Button>
                     </div>

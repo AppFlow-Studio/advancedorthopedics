@@ -16,6 +16,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
@@ -58,6 +59,7 @@ import { clinics } from "@/components/data/clinics"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import LocationsPicker from "@/components/LocationsPicker"
+import { LawyerContactForm } from "@/components/LawyerContactForm"
 // Seed data
 const data = {
     insurers: [
@@ -451,7 +453,7 @@ export default function CarAccidentPage() {
                                         <div className="flex items-center gap-1">
                                             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                                             <span className="font-medium">{data.starRating}</span>
-                                            
+
                                         </div>
                                     </div>
 
@@ -510,9 +512,7 @@ export default function CarAccidentPage() {
 
                             <div className="relative">
                                 <motion.div
-                                    initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.4, duration: 0.6 }}
+
                                     className="relative overflow-hidden rounded-2xl"
                                 >
                                     <CarAccidentLeadCaptureForm />
@@ -547,7 +547,7 @@ export default function CarAccidentPage() {
                     </MotionSection>
 
                     {/* Quick Triage Stepper */}
-                    <MotionSection className="bg-white py-16" data-section="triage">
+                    {/* <MotionSection className="bg-white py-16" data-section="triage">
                         <div className="container mx-auto px-4">
                             <div className="max-w-2xl mx-auto">
                                 <motion.h2
@@ -737,7 +737,6 @@ export default function CarAccidentPage() {
                                         )}
                                     </AnimatePresence>
 
-                                    {/* Progress indicators */}
                                     <div className="flex justify-center gap-2 mt-6">
                                         {[1, 2, 3, 4].map((stepNum) => (
                                             <motion.div
@@ -757,7 +756,7 @@ export default function CarAccidentPage() {
                                 </p>
                             </div>
                         </div>
-                    </MotionSection>
+                    </MotionSection> */}
 
                     {/* What to Do Right Now */}
                     <MotionSection className="py-16" data-section="what-now">
@@ -900,10 +899,10 @@ export default function CarAccidentPage() {
                                                         {injury.title}
                                                     </h3>
                                                     <p className="text-sm text-gray-600 mb-3">{injury.blurb}</p>
-                                                    <div className="flex items-center gap-2 text-[#0A84FF] text-sm font-medium">
+                                                    {/* <div className="flex items-center gap-2 text-[#0A84FF] text-sm font-medium">
                                                         <span>Learn more</span>
                                                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </Card>
@@ -914,7 +913,7 @@ export default function CarAccidentPage() {
                     </MotionSection>
 
                     {/* When to Go to ER */}
-                    <MotionSection className="py-16" data-section="er-redflags">
+                    {/* <MotionSection className="py-16" data-section="er-redflags">
                         <div className="container mx-auto px-4">
                             <div className="max-w-4xl mx-auto">
                                 <motion.div
@@ -973,7 +972,7 @@ export default function CarAccidentPage() {
                                 </motion.div>
                             </div>
                         </div>
-                    </MotionSection>
+                    </MotionSection> */}
 
                     {/* Treatment Path */}
                     <MotionSection className="bg-gray-50 py-16" data-section="treatment">
@@ -1102,14 +1101,14 @@ export default function CarAccidentPage() {
 
                                         <motion.div
                                             animate={{
-                                                background: `linear-gradient(90deg, #0A84FF ${(timelineWeek[0] / 12) * 100}%, #E5E7EB ${(timelineWeek[0] / 12) * 100}%)`,
+                                                background: `linear-gradient(90deg, #0A84FF ${(timelineWeek[0] / 3) * 100}%, #E5E7EB ${(timelineWeek[0] / 3) * 100}%)`,
                                             }}
                                             className="relative"
                                         >
                                             <Slider
                                                 value={timelineWeek}
                                                 onValueChange={setTimelineWeek}
-                                                max={12}
+                                                max={3}
                                                 min={1}
                                                 step={1}
                                                 className="w-full"
@@ -1117,9 +1116,9 @@ export default function CarAccidentPage() {
                                         </motion.div>
 
                                         <div className="flex justify-between text-sm text-gray-500">
-                                            <span>Week 1</span>
-                                            <span>Week 6</span>
-                                            <span>Week 12+</span>
+                                            <span>Acute Phase</span>
+                                            <span>Recovery Phase</span>
+                                            <span>Maintenance Phase</span>
                                         </div>
 
                                         <AnimatePresence mode="wait">
@@ -1131,7 +1130,7 @@ export default function CarAccidentPage() {
                                                 transition={{ duration: 0.2 }}
                                                 className="bg-blue-50 p-6 rounded-lg"
                                             >
-                                                {timelineWeek[0] <= 2 && (
+                                                {timelineWeek[0] === 1 && (
                                                     <div>
                                                         <h4 className="font-semibold mb-2">Acute Phase (Weeks 1-2)</h4>
                                                         <p className="text-gray-600 mb-3">
@@ -1145,7 +1144,7 @@ export default function CarAccidentPage() {
                                                     </div>
                                                 )}
 
-                                                {timelineWeek[0] > 2 && timelineWeek[0] <= 6 && (
+                                                {timelineWeek[0] === 2 && (
                                                     <div>
                                                         <h4 className="font-semibold mb-2">Recovery Phase (Weeks 3-6)</h4>
                                                         <p className="text-gray-600 mb-3">
@@ -1160,7 +1159,7 @@ export default function CarAccidentPage() {
                                                     </div>
                                                 )}
 
-                                                {timelineWeek[0] > 6 && (
+                                                {timelineWeek[0] === 3 && (
                                                     <div>
                                                         <h4 className="font-semibold mb-2">Maintenance Phase (Weeks 6+)</h4>
                                                         <p className="text-gray-600 mb-3">
@@ -1200,7 +1199,7 @@ export default function CarAccidentPage() {
                             </motion.h2>
 
                             <div className="max-w-3xl mx-auto">
-                                <div className="mb-6">
+                                {/* <div className="mb-6">
                                     <div className="relative">
                                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                                         <Input
@@ -1210,7 +1209,7 @@ export default function CarAccidentPage() {
                                             className="pl-10"
                                         />
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <Accordion type="single" collapsible className="space-y-4">
                                     {filteredFaqs.map((faq, i) => (
@@ -1322,37 +1321,37 @@ export default function CarAccidentPage() {
                                                 exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
                                                 transition={{ duration: 0.2 }}
                                             >
-                                                <Card className="p-6">
+                                                {/* <Card className="p-6">
                                                     <h3 className="text-xl font-semibold mb-4">Attorney Coordination Form</h3>
                                                     <form className="space-y-4">
                                                         <div className="grid md:grid-cols-2 gap-4">
-                                                            <div>
+                                                            <div className="flex flex-col gap-2">
                                                                 <Label htmlFor="firm-name">Law Firm Name</Label>
                                                                 <Input id="firm-name" placeholder="Enter firm name" />
                                                             </div>
-                                                            <div>
+                                                            <div className="flex flex-col gap-2">
                                                                 <Label htmlFor="direct-line">Direct Line</Label>
                                                                 <Input id="direct-line" type="tel" placeholder="(555) 123-4567" />
                                                             </div>
                                                         </div>
 
-                                                        <div>
+                                                        <div className="flex flex-col gap-2">
                                                             <Label htmlFor="secure-email">Secure Email</Label>
                                                             <Input id="secure-email" type="email" placeholder="attorney@lawfirm.com" />
                                                         </div>
 
                                                         <div className="grid md:grid-cols-2 gap-4">
-                                                            <div>
+                                                            <div className="flex flex-col gap-2">
                                                                 <Label htmlFor="patient-name">Patient Name</Label>
                                                                 <Input id="patient-name" placeholder="Full legal name" />
                                                             </div>
-                                                            <div>
+                                                            <div className="flex flex-col gap-2">
                                                                 <Label htmlFor="patient-dob">Patient DOB</Label>
                                                                 <Input id="patient-dob" type="date" />
                                                             </div>
                                                         </div>
 
-                                                        <div className="flex items-center space-x-2">
+                                                        <div className="flex items-center space-x-2 flex-col gap-2">
                                                             <input type="checkbox" id="consent" className="rounded" />
                                                             <Label htmlFor="consent" className="text-sm">
                                                                 Patient has provided written consent for medical record sharing
@@ -1367,7 +1366,9 @@ export default function CarAccidentPage() {
                                                             Submit Coordination Request
                                                         </Button>
                                                     </form>
-                                                </Card>
+                                                </Card> */}
+                                                <LawyerContactForm
+                                                />
                                             </motion.div>
                                         </TabsContent>
                                     </AnimatePresence>
@@ -1380,23 +1381,7 @@ export default function CarAccidentPage() {
                     <MotionSection className="bg-[#0A84FF] text-white py-16" data-section="final-cta">
                         <div className="container mx-auto px-4 text-center">
                             <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                animate={{
-                                    backgroundImage: shouldReduceMotion
-                                        ? "linear-gradient(90deg, #ffffff 0%, #ffffff 100%)"
-                                        : [
-                                            "linear-gradient(90deg, #ffffff 0%, #ffffff 100%)",
-                                            "linear-gradient(90deg, #ffffff 0%, #e0f2ff 50%, #ffffff 100%)",
-                                            "linear-gradient(90deg, #ffffff 0%, #ffffff 100%)",
-                                        ],
-                                }}
-                                transition={{
-                                    duration: shouldReduceMotion ? 0 : 8,
-                                    repeat: shouldReduceMotion ? 0 : Number.POSITIVE_INFINITY,
-                                }}
+
                                 className="text-4xl font-bold mb-6 bg-clip-text"
                             >
                                 Book your visit now or send your MRI for a free review
@@ -1417,7 +1402,7 @@ export default function CarAccidentPage() {
                                     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
                                     visible: { opacity: 1, y: 0 },
                                 }}
-                                className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto"
+                                className="flex flex-col sm:flex-row gap-4 justify-center w-full mx-auto max-w-5xl self-center items-center"
                             >
                                 <motion.div
                                     whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
@@ -1431,26 +1416,21 @@ export default function CarAccidentPage() {
                                         },
                                     }}
                                 >
-                                    <Button size="lg" variant="secondary" className="flex-1" data-cta="final-book">
-                                        Book Appointment
-                                    </Button>
+                                    <BookAnAppoitmentButton className="w-full" />
                                 </motion.div>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="flex-1 border-white text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
-                                    data-cta="final-mri"
+                                <Link
+                                    href="/find-care/free-mri-review"
+                                    className="w-fit border-white h-14 border rounded-full hover:cursor-pointer items-center justify-center px-[32px] py-[16px] text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
+
                                 >
                                     Free MRI Review
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="flex-1 border-white text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
-                                    data-cta="final-text"
+                                </Link>
+                                <a
+                                    href="sms:5612239959"
+                                    className="w-fit h-14 group flex-row hover:cursor-pointer border rounded-full items-center justify-center px-[32px] py-[16px] border-white text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
                                 >
                                     Text Us
-                                </Button>
+                                </a>
                             </motion.div>
                         </div>
                     </MotionSection>
