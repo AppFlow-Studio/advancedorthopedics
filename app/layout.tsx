@@ -17,7 +17,7 @@ import { getOgImageForPath } from "@/lib/og";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#61BCEC",
+  themeColor: "#ffffff",
   colorScheme: "light dark",
 };
 

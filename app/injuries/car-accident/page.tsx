@@ -60,6 +60,16 @@ import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import LocationsPicker from "@/components/LocationsPicker"
 import { LawyerContactForm } from "@/components/LawyerContactForm"
+import Reveal from "@/components/RevealAnimation"
+import TreatmentPathCarousel from "@/components/TreatmentPathCarousel"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselPrevious,
+    CarouselNext,
+    type CarouselApi,
+} from "@/components/ui/carousel"
 // Seed data
 const data = {
     insurers: [
@@ -250,14 +260,7 @@ function MotionSection({
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                duration: 0.4,
-                ease: "easeOut",
-                ...(stagger && {
-                    delayChildren: 0.1,
-                    staggerChildren: 0.06,
-                }),
-            },
+
         },
     }
 
@@ -319,6 +322,23 @@ export default function CarAccidentPage() {
     const [faqSearch, setFaqSearch] = useState("")
     const [timelineWeek, setTimelineWeek] = useState([2])
     const [attorneyTab, setAttorneyTab] = useState("patients")
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+    const [hasMounted, setHasMounted] = useState(false)
+
+    useEffect(() => {
+        setHasMounted(true)
+    }, [])
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap())
+        })
+    }, [api])
 
     // Filter FAQs based on search
     const filteredFaqs = data.faqs.filter(
@@ -360,67 +380,66 @@ export default function CarAccidentPage() {
 
     return (
         <section className="w-full max-w-8xl mx-auto">
-            <LazyMotion features={domAnimation} >
-                <div className="min-h-screen bg-white w-full overflow-x-hidden">
-                    {/* Hero Section */}
-                    <MotionSection className="lg:px-[60px] px-4 pb-20 pt-40 relative [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" data-section="hero">
-                        <div
-                            style={{
-                                filter: 'blur(30px)'
-                            }}
-                            className="w-full h-[120px] absolute top-0 z-[1]"
-                        />
-                        <Image
-                            src={'/herosectionimg.jpg'}
-                            priority={true}
-                            fetchPriority="high"
-                            layout='fill'
-                            className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-                            alt="Doctor Diagnosing a Old Patient"
-                        />
-                        <div
-                            className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
-                            style={{
-                                background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
-                            }}
-                        />
+            <div className="min-h-screen bg-white w-full overflow-x-hidden">
+                {/* Hero Section */}
+                <section className="lg:px-[60px] px-4 sm:pb-20 sm:pt-40 pt-32 relative [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" data-section="hero">
+                    <div
+                        style={{
+                            filter: 'blur(30px)'
+                        }}
+                        className="w-full h-[120px] absolute top-0 z-[1]"
+                    />
+                    <Image
+                        src={'/herosectionimg.jpg'}
+                        priority={true}
+                        fetchPriority="high"
+                        layout='fill'
+                        className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+                        alt="Doctor Diagnosing a Old Patient"
+                    />
+                    <div
+                        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+                        style={{
+                            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+                        }}
+                    />
 
-                        <div className="grid lg:grid-cols-2 gap-12 items-center relative z-[2]">
-                            <div className="space-y-6">
-                                <motion.h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                                    {"Car Accident Orthopedic Care in Florida".split(" ").map((word, i) => (
-                                        <motion.span
-                                            key={i}
-                                            custom={i}
-                                            variants={wordVariants}
-                                            initial="hidden"
-                                            animate="visible"
-                                            className="inline-block mr-2"
-                                        >
-                                            {word}
-                                        </motion.span>
-                                    ))}
-                                </motion.h1>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center relative z-[2]">
+                        <div className="space-y-6">
+                            <motion.h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                                {"Car Accident Orthopedic Care in Florida".split(" ").map((word, i) => (
+                                    <motion.span
+                                        key={i}
+                                        custom={i}
+                                        variants={wordVariants}
+                                        initial="hidden"
+                                        animate="visible"
+                                        className="inline-block mr-2"
+                                    >
+                                        {word}
+                                    </motion.span>
+                                ))}
+                            </motion.h1>
 
-                                <motion.p
-                                    initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3, duration: 0.4 }}
-                                    className="text-xl text-gray-600 leading-relaxed"
-                                >
-                                    Same-week appointments for neck, back, shoulder, knee, and wrist injuries. Most insurances accepted.
-                                </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3, duration: 0.4 }}
+                                className="text-xl text-gray-600 leading-relaxed"
+                            >
+                                Same-week appointments for neck, back, shoulder, knee, and wrist injuries. Most insurances accepted.
+                            </motion.p>
 
-                                <motion.div
-                                    initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5, duration: 0.4 }}
-                                    className="flex flex-col sm:flex-row gap-4"
-                                >
-                                    <motion.div variants={buttonVariants} whileHover="hover">
-                                        <BookAnAppoitmentButton bordered className="h-10" />
-                                    </motion.div>
-                                    {/* <motion.div variants={buttonVariants} whileHover="hover">
+                            <motion.div
+                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.4 }}
+                                className="flex flex-col sm:flex-row gap-4"
+                            >
+                                <motion.div variants={buttonVariants} whileHover="hover">
+                                    <BookAnAppoitmentButton bordered className="h-10" />
+                                </motion.div>
+                                {/* <motion.div variants={buttonVariants} whileHover="hover">
                                         <Button variant="outline" size="lg" data-cta="hero-mri">
                                             Free MRI review
                                         </Button>
@@ -430,8 +449,8 @@ export default function CarAccidentPage() {
                                             Text us
                                         </Button>
                                     </motion.div> */}
-                                </motion.div>
-                                {/* 
+                            </motion.div>
+                            {/* 
                                     <motion.p
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -441,24 +460,24 @@ export default function CarAccidentPage() {
                                         Choose your nearest location and time in under sixty seconds
                                     </motion.p> */}
 
-                                {/* Trust indicators */}
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.9, duration: 0.4 }}
-                                    className="space-y-4"
-                                >
-                                    <div className="flex items-center gap-4 text-sm text-gray-600">
-                                        <span>We work closely with attorneys for records and scheduling</span>
-                                        <div className="flex items-center gap-1">
-                                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                                            <span className="font-medium">{data.starRating}</span>
+                            {/* Trust indicators */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.9, duration: 0.4 }}
+                                className="space-y-4"
+                            >
+                                <div className="flex items-center gap-4 text-sm text-gray-600">
+                                    <span>We work closely with attorneys for records and scheduling</span>
+                                    <div className="flex items-center gap-1">
+                                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                                        <span className="font-medium">{data.starRating}</span>
 
-                                        </div>
                                     </div>
+                                </div>
 
-                                    {/* Insurer logos marquee */}
-                                    {/* <div className="overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
+                                {/* Insurer logos marquee */}
+                                {/* <div className="overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
                                         <Marquee
                                             className="flex items-center gap-6 grayscale opacity-60"
                                         >
@@ -507,47 +526,46 @@ export default function CarAccidentPage() {
                                             <strong>Attorney-friendly:</strong> We work closely with attorneys and provide detailed medical documentation for your case.
                                         </AlertDescription>
                                     </Alert> */}
-                                </motion.div>
-                            </div>
-
-                            <div className="relative">
-                                <motion.div
-
-                                    className="relative overflow-hidden rounded-2xl"
-                                >
-                                    <CarAccidentLeadCaptureForm />
-                                    <motion.div
-                                        animate={{
-                                            background: shouldReduceMotion
-                                                ? "linear-gradient(45deg, rgba(10,132,255,0.1) 0%, rgba(10,132,255,0.05) 100%)"
-                                                : [
-                                                    "linear-gradient(45deg, rgba(10,132,255,0.1) 0%, rgba(10,132,255,0.05) 100%)",
-                                                    "linear-gradient(45deg, rgba(10,132,255,0.05) 0%, rgba(10,132,255,0.1) 100%)",
-                                                    "linear-gradient(45deg, rgba(10,132,255,0.1) 0%, rgba(10,132,255,0.05) 100%)",
-                                                ],
-                                        }}
-                                        transition={{
-                                            duration: shouldReduceMotion ? 0 : 8,
-                                            repeat: shouldReduceMotion ? 0 : Number.POSITIVE_INFINITY,
-                                        }}
-                                        className="absolute inset-0"
-                                    />
-                                </motion.div>
-                            </div>
+                            </motion.div>
                         </div>
 
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.2, duration: 0.4 }}
-                            className="mt-8 text-xs text-gray-500 text-center"
-                        >
-                            If you have emergency symptoms, call 911 or go to the nearest ER.
-                        </motion.div>
-                    </MotionSection>
+                        <div className="relative">
+                            <motion.div
+                                className="relative overflow-hidden rounded-2xl"
+                            >
+                                <CarAccidentLeadCaptureForm />
+                                <motion.div
+                                    animate={{
+                                        background: shouldReduceMotion
+                                            ? "linear-gradient(45deg, rgba(10,132,255,0.1) 0%, rgba(10,132,255,0.05) 100%)"
+                                            : [
+                                                "linear-gradient(45deg, rgba(10,132,255,0.1) 0%, rgba(10,132,255,0.05) 100%)",
+                                                "linear-gradient(45deg, rgba(10,132,255,0.05) 0%, rgba(10,132,255,0.1) 100%)",
+                                                "linear-gradient(45deg, rgba(10,132,255,0.1) 0%, rgba(10,132,255,0.05) 100%)",
+                                            ],
+                                    }}
+                                    transition={{
+                                        duration: shouldReduceMotion ? 0 : 8,
+                                        repeat: shouldReduceMotion ? 0 : Number.POSITIVE_INFINITY,
+                                    }}
+                                    className="absolute inset-0"
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
 
-                    {/* Quick Triage Stepper */}
-                    {/* <MotionSection className="bg-white py-16" data-section="triage">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.2, duration: 0.4 }}
+                        className="mt-8 text-xs text-gray-500 text-center"
+                    >
+                        If you have emergency symptoms, call 911 or go to the nearest ER.
+                    </motion.div>
+                </section>
+
+                {/* Quick Triage Stepper */}
+                {/* <MotionSection className="bg-white sm:py-16 py-8" data-section="triage">
                         <div className="container mx-auto px-4">
                             <div className="max-w-2xl mx-auto">
                                 <motion.h2
@@ -758,162 +776,223 @@ export default function CarAccidentPage() {
                         </div>
                     </MotionSection> */}
 
-                    {/* What to Do Right Now */}
-                    <MotionSection className="py-16" data-section="what-now">
-                        <div className="container mx-auto px-4">
-                            <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-3xl font-bold text-center mb-12"
-                            >
-                                What to Do Right Now
-                            </motion.h2>
+                {/* What to Do Right Now */}
+                <Reveal width="100%" className="sm:sm:py-16 py-8" data-section="what-now">
+                    <div className="container mx-auto px-4">
+                        <motion.h2
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-3xl font-bold text-center mb-12"
+                        >
+                            What to Do Right Now
+                        </motion.h2>
 
-                            <div className="max-w-4xl mx-auto">
-                                <Tabs defaultValue="first24" className="w-full">
-                                    <TabsList className="grid w-full grid-cols-2">
-                                        <TabsTrigger value="first24">First twenty-four hours</TabsTrigger>
-                                        <TabsTrigger value="beforevisit">Before your visit</TabsTrigger>
-                                    </TabsList>
+                        <div className="max-w-4xl mx-auto">
+                            <Tabs defaultValue="first24" className="w-full">
+                                <TabsList className="grid w-full grid-cols-2">
+                                    <TabsTrigger value="first24">First twenty-four hours</TabsTrigger>
+                                    <TabsTrigger value="beforevisit">Before your visit</TabsTrigger>
+                                </TabsList>
 
-                                    <AnimatePresence mode="wait">
-                                        <TabsContent value="first24" className="mt-6">
-                                            <motion.div
-                                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
-                                                transition={{ duration: 0.2 }}
-                                            >
-                                                <Card className="p-6">
-                                                    <div className="space-y-4">
-                                                        {[
-                                                            "Move gently within comfort - don't stay completely still",
-                                                            "Ice for 15-20 minutes every 2-3 hours for the first 48 hours",
-                                                            "Take over-the-counter pain relievers as directed on package",
-                                                            "Avoid heat for the first 2 days",
-                                                            "Sleep with extra pillow support if needed",
-                                                            "Document your symptoms and pain levels",
-                                                        ].map((item, i) => (
-                                                            <motion.div
-                                                                key={i}
-                                                                initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
-                                                                animate={{ opacity: 1, x: 0 }}
-                                                                transition={{ delay: i * 0.1, duration: 0.3 }}
-                                                                className="flex items-start gap-3"
-                                                            >
-                                                                <motion.div whileHover={{ scale: shouldReduceMotion ? 1 : 1.1 }} className="mt-1">
-                                                                    <CheckCircle className="h-5 w-5 text-green-500" />
-                                                                </motion.div>
-                                                                <span>{item}</span>
+                                <AnimatePresence mode="wait">
+                                    <TabsContent value="first24" className="mt-6">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <Card className="p-6">
+                                                <div className="space-y-4">
+                                                    {[
+                                                        "Move gently within comfort - don't stay completely still",
+                                                        "Ice for 15-20 minutes every 2-3 hours for the first 48 hours",
+                                                        "Take over-the-counter pain relievers as directed on package",
+                                                        "Avoid heat for the first 2 days",
+                                                        "Sleep with extra pillow support if needed",
+                                                        "Document your symptoms and pain levels",
+                                                    ].map((item, i) => (
+                                                        <motion.div
+                                                            key={i}
+                                                            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            transition={{ delay: i * 0.1, duration: 0.3 }}
+                                                            className="flex items-start gap-3"
+                                                        >
+                                                            <motion.div whileHover={{ scale: shouldReduceMotion ? 1 : 1.1 }} className="mt-1">
+                                                                <CheckCircle className="h-5 w-5 text-green-500" />
                                                             </motion.div>
-                                                        ))}
-                                                    </div>
-                                                </Card>
-                                            </motion.div>
-                                        </TabsContent>
-
-                                        <TabsContent value="beforevisit" className="mt-6">
-                                            <motion.div
-                                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
-                                                transition={{ duration: 0.2 }}
-                                            >
-                                                <Card className="p-6">
-                                                    <div className="space-y-4">
-                                                        {[
-                                                            "Bring crash details (police report, photos if safe to take)",
-                                                            "List all current medications and supplements",
-                                                            "Gather any prior imaging (X-rays, MRIs) from other providers",
-                                                            "Bring insurance cards and photo ID",
-                                                            "Write down attorney contact information if you have one",
-                                                            "Note specific activities that worsen or improve your pain",
-                                                        ].map((item, i) => (
-                                                            <motion.div
-                                                                key={i}
-                                                                initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
-                                                                animate={{ opacity: 1, x: 0 }}
-                                                                transition={{ delay: i * 0.1, duration: 0.3 }}
-                                                                className="flex items-start gap-3"
-                                                            >
-                                                                <motion.div whileHover={{ scale: shouldReduceMotion ? 1 : 1.1 }} className="mt-1">
-                                                                    <FileText className="h-5 w-5 text-blue-500" />
-                                                                </motion.div>
-                                                                <span>{item}</span>
-                                                            </motion.div>
-                                                        ))}
-                                                    </div>
-                                                </Card>
-                                            </motion.div>
-                                        </TabsContent>
-                                    </AnimatePresence>
-                                </Tabs>
-                            </div>
-                        </div>
-                    </MotionSection>
-
-                    {/* Common Injuries Grid */}
-                    <MotionSection className="bg-gray-50 py-16" data-section="injuries">
-                        <div className="container mx-auto px-4">
-                            <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-3xl font-bold text-center mb-12"
-                            >
-                                Common Car Accident Injuries
-                            </motion.h2>
-
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                                {data.injuries.map((injury, i) => (
-                                    <motion.div
-                                        key={injury.slug}
-                                        variants={{
-                                            hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                            visible: {
-                                                opacity: 1,
-                                                y: 0,
-                                                transition: { delay: i * 0.02 },
-                                            },
-                                        }}
-                                        whileHover={{
-                                            y: shouldReduceMotion ? 0 : -4,
-                                            rotateX: shouldReduceMotion ? 0 : 1,
-                                            rotateY: shouldReduceMotion ? 0 : 1,
-                                        }}
-                                        className="group"
-                                    >
-                                        <Card className="h-full p-6 hover:shadow-lg transition-shadow cursor-pointer">
-                                            <div className="flex items-start gap-4">
-                                                <motion.div
-                                                    whileHover={{ rotate: shouldReduceMotion ? 0 : 4 }}
-                                                    className="p-3 bg-blue-50 rounded-lg"
-                                                >
-                                                    <Activity className="h-6 w-6 text-[#0A84FF]" />
-                                                </motion.div>
-                                                <div className="flex-1">
-                                                    <h3 className="font-semibold mb-2 group-hover:text-[#0A84FF] transition-colors">
-                                                        {injury.title}
-                                                    </h3>
-                                                    <p className="text-sm text-gray-600 mb-3">{injury.blurb}</p>
-                                                    {/* <div className="flex items-center gap-2 text-[#0A84FF] text-sm font-medium">
-                                                        <span>Learn more</span>
-                                                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                                    </div> */}
+                                                            <span>{item}</span>
+                                                        </motion.div>
+                                                    ))}
                                                 </div>
-                                            </div>
-                                        </Card>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </MotionSection>
+                                            </Card>
+                                        </motion.div>
+                                    </TabsContent>
 
-                    {/* When to Go to ER */}
-                    {/* <MotionSection className="py-16" data-section="er-redflags">
+                                    <TabsContent value="beforevisit" className="mt-6">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <Card className="p-6">
+                                                <div className="space-y-4">
+                                                    {[
+                                                        "Bring crash details (police report, photos if safe to take)",
+                                                        "List all current medications and supplements",
+                                                        "Gather any prior imaging (X-rays, MRIs) from other providers",
+                                                        "Bring insurance cards and photo ID",
+                                                        "Write down attorney contact information if you have one",
+                                                        "Note specific activities that worsen or improve your pain",
+                                                    ].map((item, i) => (
+                                                        <motion.div
+                                                            key={i}
+                                                            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            transition={{ delay: i * 0.1, duration: 0.3 }}
+                                                            className="flex items-start gap-3"
+                                                        >
+                                                            <motion.div whileHover={{ scale: shouldReduceMotion ? 1 : 1.1 }} className="mt-1">
+                                                                <FileText className="h-5 w-5 text-blue-500" />
+                                                            </motion.div>
+                                                            <span>{item}</span>
+                                                        </motion.div>
+                                                    ))}
+                                                </div>
+                                            </Card>
+                                        </motion.div>
+                                    </TabsContent>
+                                </AnimatePresence>
+                            </Tabs>
+                        </div>
+                    </div>
+                </Reveal>
+
+                {/* Common Injuries Grid */}
+                <Reveal width="100%" className="bg-gray-50 sm:py-16 py-8" data-section="injuries">
+                    <div className="container mx-auto px-4">
+                        <motion.h2
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-3xl font-bold text-center mb-12"
+                        >
+                            Common Car Accident Injuries
+                        </motion.h2>
+
+                        {/* Mobile Carousel - Only visible on mobile */}
+                        <div className="block md:hidden mb-8">
+                            {hasMounted && (
+                                <div className="w-full">
+                                    <Carousel
+                                        setApi={setApi}
+                                        className="w-full"
+                                        opts={{
+                                            align: "center",
+                                            containScroll: "trimSnaps",
+                                        }}
+                                    >
+                                        <CarouselContent>
+                                            {data.injuries.map((injury, index) => (
+                                                <CarouselItem key={injury.slug} className="basis-full py-6">
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ delay: index * 0.1 }}
+                                                        className="group"
+                                                    >
+                                                        <Card className="h-full p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                                                            <div className="flex items-start gap-4">
+                                                                <motion.div
+                                                                    whileHover={{ rotate: shouldReduceMotion ? 0 : 4 }}
+                                                                    className="p-3 bg-blue-50 rounded-lg"
+                                                                >
+                                                                    <Activity className="h-6 w-6 text-[#0A84FF]" />
+                                                                </motion.div>
+                                                                <div className="flex-1">
+                                                                    <h3 className="font-semibold mb-2 group-hover:text-[#0A84FF] transition-colors">
+                                                                        {injury.title}
+                                                                    </h3>
+                                                                    <p className="text-sm text-gray-600 mb-3">{injury.blurb}</p>
+                                                                </div>
+                                                            </div>
+                                                        </Card>
+                                                    </motion.div>
+                                                </CarouselItem>
+                                            ))}
+                                        </CarouselContent>
+                                        <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0A84FF]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-4 top-1/2 -translate-y-1/2" />
+                                        <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0A84FF]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-4 top-1/2 -translate-y-1/2" />
+                                    </Carousel>
+
+                                    {/* Dynamic Progress Indicators */}
+                                    <div className="flex justify-center mt-6 space-x-2">
+                                        {data.injuries.map((_, index) => (
+                                            <motion.button
+                                                key={index}
+                                                onClick={() => api?.scrollTo(index)}
+                                                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
+                                                    ? 'bg-[#0A84FF] w-6'
+                                                    : 'bg-[#0A84FF]/30 hover:bg-[#0A84FF]/50'
+                                                    }`}
+                                                whileHover={{ scale: 1.2 }}
+                                                whileTap={{ scale: 0.9 }}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Desktop Grid - Only visible on desktop */}
+                        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                            {data.injuries.map((injury, i) => (
+                                <motion.div
+                                    key={injury.slug}
+                                    variants={{
+                                        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                        visible: {
+                                            opacity: 1,
+                                            y: 0,
+                                            transition: { delay: i * 0.02 },
+                                        },
+                                    }}
+                                    whileHover={{
+                                        y: shouldReduceMotion ? 0 : -4,
+                                        rotateX: shouldReduceMotion ? 0 : 1,
+                                        rotateY: shouldReduceMotion ? 0 : 1,
+                                    }}
+                                    className="group"
+                                >
+                                    <Card className="h-full p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div className="flex items-start gap-4">
+                                            <motion.div
+                                                whileHover={{ rotate: shouldReduceMotion ? 0 : 4 }}
+                                                className="p-3 bg-blue-50 rounded-lg"
+                                            >
+                                                <Activity className="h-6 w-6 text-[#0A84FF]" />
+                                            </motion.div>
+                                            <div className="flex-1">
+                                                <h3 className="font-semibold mb-2 group-hover:text-[#0A84FF] transition-colors">
+                                                    {injury.title}
+                                                </h3>
+                                                <p className="text-sm text-gray-600 mb-3">{injury.blurb}</p>
+                                            </div>
+                                        </div>
+                                    </Card>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </Reveal>
+
+                {/* When to Go to ER */}
+                {/* <MotionSection className="sm:py-16 py-8" data-section="er-redflags">
                         <div className="container mx-auto px-4">
                             <div className="max-w-4xl mx-auto">
                                 <motion.div
@@ -974,232 +1053,146 @@ export default function CarAccidentPage() {
                         </div>
                     </MotionSection> */}
 
-                    {/* Treatment Path */}
-                    <MotionSection className="bg-gray-50 py-16" data-section="treatment">
-                        <div className="container mx-auto px-4">
-                            <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-3xl font-bold text-center mb-12"
-                            >
-                                Your Treatment Path
-                            </motion.h2>
+                {/* Treatment Path */}
+                <Reveal width="100%" className="bg-gray-50 sm:py-16 py-8" data-section="treatment">
+                    <div className="container mx-auto px-4">
+                        <motion.h2
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-3xl font-bold text-center mb-12"
+                        >
+                            Your Treatment Path
+                        </motion.h2>
 
-                            <div className="max-w-6xl mx-auto">
-                                <div className="grid md:grid-cols-4 gap-6">
-                                    {[
-                                        {
-                                            phase: "Relief",
-                                            icon: Heart,
-                                            color: "red",
-                                            description: "Immediate pain management and inflammation control",
-                                            treatments: ["Pain medication", "Ice/heat therapy", "Gentle movement", "Rest guidance"],
-                                        },
-                                        {
-                                            phase: "Restore",
-                                            icon: Activity,
-                                            color: "blue",
-                                            description: "Rebuild strength and mobility safely",
-                                            treatments: ["Physical therapy", "Targeted exercises", "Manual therapy", "Progress tracking"],
-                                        },
-                                        {
-                                            phase: "Protect",
-                                            icon: Shield,
-                                            color: "green",
-                                            description: "Prevent re-injury and future problems",
-                                            treatments: ["Ergonomic training", "Body mechanics", "Strengthening", "Education"],
-                                        },
-                                        {
-                                            phase: "Perform",
-                                            icon: Target,
-                                            color: "purple",
-                                            description: "Return to full activities and sports",
-                                            treatments: [
-                                                "Sport-specific training",
-                                                "Advanced exercises",
-                                                "Performance optimization",
-                                                "Maintenance plan",
-                                            ],
-                                        },
-                                    ].map((phase, i) => (
+                        <div className="max-w-6xl mx-auto">
+                            <TreatmentPathCarousel shouldReduceMotion={shouldReduceMotion ?? false} />
+                        </div>
+                    </div>
+                </Reveal>
+
+                {/* Recovery Timeline */}
+                <Reveal width="100%" className="sm:py-16 py-8" data-section="timeline">
+                    <div className="container mx-auto px-4">
+                        <motion.h2
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-3xl font-bold text-center mb-12"
+                        >
+                            Recovery Timeline
+                        </motion.h2>
+
+                        <div className="max-w-4xl mx-auto">
+                            <Card className="sm:p-8 p-6">
+                                <div className="space-y-6">
+                                    <div className="text-center">
+                                        <Label className="text-lg font-medium">Week {timelineWeek[0]}</Label>
+                                    </div>
+
+                                    <motion.div
+                                        animate={{
+                                            background: `linear-gradient(90deg, #0A84FF ${(timelineWeek[0] / 3) * 100}%, #E5E7EB ${(timelineWeek[0] / 3) * 100}%)`,
+                                        }}
+                                        className="relative"
+                                    >
+                                        <Slider
+                                            value={timelineWeek}
+                                            onValueChange={setTimelineWeek}
+                                            max={3}
+                                            min={1}
+                                            step={1}
+                                            className="w-full"
+                                        />
+                                    </motion.div>
+
+                                    <div className="flex justify-between sm:text-sm text-xs text-gray-500">
+                                        <span>Acute Phase</span>
+                                        <span>Recovery Phase</span>
+                                        <span>Maintenance Phase</span>
+                                    </div>
+
+                                    <AnimatePresence mode="wait">
                                         <motion.div
-                                            key={phase.phase}
-                                            variants={{
-                                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
-                                                visible: {
-                                                    opacity: 1,
-                                                    y: 0,
-                                                    transition: { delay: i * 0.1 },
-                                                },
-                                            }}
-                                            className="relative"
+                                            key={timelineWeek[0]}
+                                            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="bg-blue-50 p-6 rounded-lg"
                                         >
-                                            <Card className="h-full p-6 text-center">
-                                                <motion.div
-                                                    whileHover={{ scale: shouldReduceMotion ? 1 : 1.1 }}
-                                                    className={`w-16 h-16 mx-auto mb-4 rounded-full bg-${phase.color}-100 flex items-center justify-center`}
-                                                >
-                                                    <phase.icon className={`h-8 w-8 text-${phase.color}-600`} />
-                                                </motion.div>
-
-                                                <h3 className="text-xl font-semibold mb-2">{phase.phase}</h3>
-                                                <p className="text-gray-600 text-sm mb-4">{phase.description}</p>
-
-                                                <div className="space-y-2">
-                                                    {phase.treatments.map((treatment, j) => (
-                                                        <motion.div
-                                                            key={j}
-                                                            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
-                                                            animate={{ opacity: 1, x: 0 }}
-                                                            transition={{ delay: i * 0.1 + j * 0.05 }}
-                                                            className="text-sm text-gray-500 flex items-center gap-2"
-                                                        >
-                                                            <CheckCircle className="h-3 w-3 text-green-500" />
-                                                            <span>{treatment}</span>
-                                                        </motion.div>
-                                                    ))}
+                                            {timelineWeek[0] === 1 && (
+                                                <div>
+                                                    <h4 className="font-semibold mb-2">Acute Phase (Weeks 1-2)</h4>
+                                                    <p className="text-gray-600 mb-3">
+                                                        Focus on pain management and gentle movement. Most patients see significant improvement.
+                                                    </p>
+                                                    <div className="space-y-1 text-sm">
+                                                        <div>• Driving: Wait until you can turn your head without pain</div>
+                                                        <div>• Work: Desk work often possible with breaks and ergonomic setup</div>
+                                                        <div>• Exercise: Gentle walking and prescribed movements only</div>
+                                                    </div>
                                                 </div>
-                                            </Card>
+                                            )}
 
-                                            {/* Progress line */}
-                                            {i < 3 && (
-                                                <motion.div
-                                                    initial={{ scaleX: 0 }}
-                                                    animate={{ scaleX: 1 }}
-                                                    transition={{ delay: i * 0.2, duration: 0.5 }}
-                                                    className="hidden md:block absolute top-1/2 right-0 w-3 h-0.5 bg-gray-300 transform -translate-y-1/2 origin-left"
-                                                />
+                                            {timelineWeek[0] === 2 && (
+                                                <div>
+                                                    <h4 className="font-semibold mb-2">Recovery Phase (Weeks 3-6)</h4>
+                                                    <p className="text-gray-600 mb-3">
+                                                        Progressive strengthening and return to normal activities. Most patients return to full
+                                                        function.
+                                                    </p>
+                                                    <div className="space-y-1 text-sm">
+                                                        <div>• Driving: Usually cleared for normal driving</div>
+                                                        <div>• Work: Full return to work activities expected</div>
+                                                        <div>• Exercise: Gradual return to gym and recreational activities</div>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {timelineWeek[0] === 3 && (
+                                                <div>
+                                                    <h4 className="font-semibold mb-2">Maintenance Phase (Weeks 6+)</h4>
+                                                    <p className="text-gray-600 mb-3">
+                                                        Focus on preventing re-injury and optimizing long-term function. Return to sports and
+                                                        high-level activities.
+                                                    </p>
+                                                    <div className="space-y-1 text-sm">
+                                                        <div>• Driving: Full clearance for all driving activities</div>
+                                                        <div>• Work: No restrictions for most occupations</div>
+                                                        <div>• Exercise: Return to sports and high-impact activities</div>
+                                                    </div>
+                                                </div>
                                             )}
                                         </motion.div>
-                                    ))}
+                                    </AnimatePresence>
                                 </div>
-                            </div>
+                            </Card>
                         </div>
-                    </MotionSection>
+                    </div>
+                </Reveal>
 
-                    {/* Recovery Timeline */}
-                    <MotionSection className="py-16" data-section="timeline">
-                        <div className="container mx-auto px-4">
-                            <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-3xl font-bold text-center mb-12"
-                            >
-                                Recovery Timeline
-                            </motion.h2>
+                <div className="sm:py-16 py-8"><InjuryDoctorsSection /></div>
 
-                            <div className="max-w-4xl mx-auto">
-                                <Card className="p-8">
-                                    <div className="space-y-6">
-                                        <div className="text-center">
-                                            <Label className="text-lg font-medium">Week {timelineWeek[0]}</Label>
-                                        </div>
+                <LocationsPicker />
 
-                                        <motion.div
-                                            animate={{
-                                                background: `linear-gradient(90deg, #0A84FF ${(timelineWeek[0] / 3) * 100}%, #E5E7EB ${(timelineWeek[0] / 3) * 100}%)`,
-                                            }}
-                                            className="relative"
-                                        >
-                                            <Slider
-                                                value={timelineWeek}
-                                                onValueChange={setTimelineWeek}
-                                                max={3}
-                                                min={1}
-                                                step={1}
-                                                className="w-full"
-                                            />
-                                        </motion.div>
+                {/* FAQs */}
+                <Reveal width="100%" className="bg-gray-50 sm:py-16 py-8" data-section="faqs">
+                    <div className="container mx-auto px-4">
+                        <motion.h2
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-3xl font-bold text-center mb-12"
+                        >
+                            Car Accident FAQs
+                        </motion.h2>
 
-                                        <div className="flex justify-between text-sm text-gray-500">
-                                            <span>Acute Phase</span>
-                                            <span>Recovery Phase</span>
-                                            <span>Maintenance Phase</span>
-                                        </div>
-
-                                        <AnimatePresence mode="wait">
-                                            <motion.div
-                                                key={timelineWeek[0]}
-                                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
-                                                transition={{ duration: 0.2 }}
-                                                className="bg-blue-50 p-6 rounded-lg"
-                                            >
-                                                {timelineWeek[0] === 1 && (
-                                                    <div>
-                                                        <h4 className="font-semibold mb-2">Acute Phase (Weeks 1-2)</h4>
-                                                        <p className="text-gray-600 mb-3">
-                                                            Focus on pain management and gentle movement. Most patients see significant improvement.
-                                                        </p>
-                                                        <div className="space-y-1 text-sm">
-                                                            <div>• Driving: Wait until you can turn your head without pain</div>
-                                                            <div>• Work: Desk work often possible with breaks and ergonomic setup</div>
-                                                            <div>• Exercise: Gentle walking and prescribed movements only</div>
-                                                        </div>
-                                                    </div>
-                                                )}
-
-                                                {timelineWeek[0] === 2 && (
-                                                    <div>
-                                                        <h4 className="font-semibold mb-2">Recovery Phase (Weeks 3-6)</h4>
-                                                        <p className="text-gray-600 mb-3">
-                                                            Progressive strengthening and return to normal activities. Most patients return to full
-                                                            function.
-                                                        </p>
-                                                        <div className="space-y-1 text-sm">
-                                                            <div>• Driving: Usually cleared for normal driving</div>
-                                                            <div>• Work: Full return to work activities expected</div>
-                                                            <div>• Exercise: Gradual return to gym and recreational activities</div>
-                                                        </div>
-                                                    </div>
-                                                )}
-
-                                                {timelineWeek[0] === 3 && (
-                                                    <div>
-                                                        <h4 className="font-semibold mb-2">Maintenance Phase (Weeks 6+)</h4>
-                                                        <p className="text-gray-600 mb-3">
-                                                            Focus on preventing re-injury and optimizing long-term function. Return to sports and
-                                                            high-level activities.
-                                                        </p>
-                                                        <div className="space-y-1 text-sm">
-                                                            <div>• Driving: Full clearance for all driving activities</div>
-                                                            <div>• Work: No restrictions for most occupations</div>
-                                                            <div>• Exercise: Return to sports and high-impact activities</div>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </motion.div>
-                                        </AnimatePresence>
-                                    </div>
-                                </Card>
-                            </div>
-                        </div>
-                    </MotionSection>
-
-                    <div className="py-16"><InjuryDoctorsSection /></div>
-
-                    <LocationsPicker />
-
-                    {/* FAQs */}
-                    <MotionSection className="bg-gray-50 py-16" data-section="faqs">
-                        <div className="container mx-auto px-4">
-                            <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-3xl font-bold text-center mb-12"
-                            >
-                                Car Accident FAQs
-                            </motion.h2>
-
-                            <div className="max-w-3xl mx-auto">
-                                {/* <div className="mb-6">
+                        <div className="max-w-3xl mx-auto">
+                            {/* <div className="mb-6">
                                     <div className="relative">
                                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                                         <Input
@@ -1211,117 +1204,117 @@ export default function CarAccidentPage() {
                                     </div>
                                 </div> */}
 
-                                <Accordion type="single" collapsible className="space-y-4">
-                                    {filteredFaqs.map((faq, i) => (
-                                        <motion.div
-                                            key={i}
-                                            variants={{
-                                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 10 },
-                                                visible: {
-                                                    opacity: 1,
-                                                    y: 0,
-                                                    transition: { delay: i * 0.05 },
-                                                },
-                                            }}
-                                        >
-                                            <AccordionItem value={`item-${i}`} className="bg-white rounded-lg px-6">
-                                                <AccordionTrigger className="text-left hover:no-underline">
-                                                    <span
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: faqSearch
-                                                                ? faq.q.replace(new RegExp(faqSearch, "gi"), `<mark class="bg-yellow-100">$&</mark>`)
-                                                                : faq.q,
-                                                        }}
-                                                    />
-                                                </AccordionTrigger>
-                                                <AccordionContent className="text-gray-600">
-                                                    <span
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: faqSearch
-                                                                ? faq.a.replace(new RegExp(faqSearch, "gi"), `<mark class="bg-yellow-100">$&</mark>`)
-                                                                : faq.a,
-                                                        }}
-                                                    />
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                        </motion.div>
-                                    ))}
-                                </Accordion>
-
-                                {filteredFaqs.length === 0 && (
+                            <Accordion type="single" collapsible className="space-y-4">
+                                {filteredFaqs.map((faq, i) => (
                                     <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="text-center py-8 text-gray-500"
+                                        key={i}
+                                        variants={{
+                                            hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 10 },
+                                            visible: {
+                                                opacity: 1,
+                                                y: 0,
+                                                transition: { delay: i * 0.05 },
+                                            },
+                                        }}
                                     >
-                                        No FAQs found matching "{faqSearch}"
+                                        <AccordionItem value={`item-${i}`} className="bg-white rounded-lg px-6">
+                                            <AccordionTrigger className="text-left hover:no-underline">
+                                                <span
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: faqSearch
+                                                            ? faq.q.replace(new RegExp(faqSearch, "gi"), `<mark class="bg-yellow-100">$&</mark>`)
+                                                            : faq.q,
+                                                    }}
+                                                />
+                                            </AccordionTrigger>
+                                            <AccordionContent className="text-gray-600">
+                                                <span
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: faqSearch
+                                                            ? faq.a.replace(new RegExp(faqSearch, "gi"), `<mark class="bg-yellow-100">$&</mark>`)
+                                                            : faq.a,
+                                                    }}
+                                                />
+                                            </AccordionContent>
+                                        </AccordionItem>
                                     </motion.div>
-                                )}
-                            </div>
+                                ))}
+                            </Accordion>
+
+                            {filteredFaqs.length === 0 && (
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    className="text-center py-8 text-gray-500"
+                                >
+                                    No FAQs found matching "{faqSearch}"
+                                </motion.div>
+                            )}
                         </div>
-                    </MotionSection>
+                    </div>
+                </Reveal>
 
-                    {/* Attorney Collaboration */}
-                    <MotionSection className="py-16" data-section="attorney">
-                        <div className="container mx-auto px-4">
-                            <motion.h2
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-3xl font-bold text-center mb-12"
-                            >
-                                Attorney Collaboration & Documentation
-                            </motion.h2>
+                {/* Attorney Collaboration */}
+                <Reveal width="100%" className="sm:py-16 py-8" data-section="attorney">
+                    <div className="container mx-auto px-4">
+                        <motion.h2
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-3xl font-bold text-center mb-12"
+                        >
+                            Attorney Collaboration & Documentation
+                        </motion.h2>
 
-                            <div className="max-w-4xl mx-auto">
-                                <Tabs value={attorneyTab} onValueChange={setAttorneyTab}>
-                                    <TabsList className="grid w-full grid-cols-2">
-                                        <TabsTrigger value="patients">For Patients</TabsTrigger>
-                                        <TabsTrigger value="attorneys">For Attorneys</TabsTrigger>
-                                    </TabsList>
+                        <div className="max-w-4xl mx-auto">
+                            <Tabs value={attorneyTab} onValueChange={setAttorneyTab}>
+                                <TabsList className="grid w-full grid-cols-2">
+                                    <TabsTrigger value="patients">For Patients</TabsTrigger>
+                                    <TabsTrigger value="attorneys">For Attorneys</TabsTrigger>
+                                </TabsList>
 
-                                    <AnimatePresence mode="wait">
-                                        <TabsContent value="patients" className="mt-6">
-                                            <motion.div
-                                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
-                                                transition={{ duration: 0.2 }}
-                                            >
-                                                <Card className="p-6">
-                                                    <h3 className="text-xl font-semibold mb-4">Working with Your Attorney</h3>
-                                                    <div className="space-y-4 text-gray-600">
-                                                        <p>
-                                                            We understand that car accidents often involve legal proceedings. We work closely with
-                                                            attorneys to ensure you receive the care you need while maintaining proper documentation.
-                                                        </p>
-                                                        <div className="bg-blue-50 p-4 rounded-lg">
-                                                            <h4 className="font-medium text-blue-900 mb-2">What we provide:</h4>
-                                                            <ul className="space-y-1 text-blue-800 text-sm">
-                                                                <li>• Detailed medical records and reports</li>
-                                                                <li>• Prompt scheduling coordination</li>
-                                                                <li>• Independent medical examinations when requested</li>
-                                                                <li>• Clear documentation of treatment necessity</li>
-                                                            </ul>
-                                                        </div>
-                                                        <p className="text-sm text-gray-500">
-                                                            <strong>Important:</strong> Our medical judgment remains independent. We treat based on
-                                                            clinical need, not legal strategy.
-                                                        </p>
+                                <AnimatePresence mode="wait">
+                                    <TabsContent value="patients" className="mt-6">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <Card className="p-6">
+                                                <h3 className="text-xl font-semibold mb-4">Working with Your Attorney</h3>
+                                                <div className="space-y-4 text-gray-600">
+                                                    <p>
+                                                        We understand that car accidents often involve legal proceedings. We work closely with
+                                                        attorneys to ensure you receive the care you need while maintaining proper documentation.
+                                                    </p>
+                                                    <div className="bg-blue-50 p-4 rounded-lg">
+                                                        <h4 className="font-medium text-blue-900 mb-2">What we provide:</h4>
+                                                        <ul className="space-y-1 text-blue-800 text-sm">
+                                                            <li>• Detailed medical records and reports</li>
+                                                            <li>• Prompt scheduling coordination</li>
+                                                            <li>• Independent medical examinations when requested</li>
+                                                            <li>• Clear documentation of treatment necessity</li>
+                                                        </ul>
                                                     </div>
-                                                </Card>
-                                            </motion.div>
-                                        </TabsContent>
+                                                    <p className="text-sm text-gray-500">
+                                                        <strong>Important:</strong> Our medical judgment remains independent. We treat based on
+                                                        clinical need, not legal strategy.
+                                                    </p>
+                                                </div>
+                                            </Card>
+                                        </motion.div>
+                                    </TabsContent>
 
-                                        <TabsContent value="attorneys" className="mt-6">
-                                            <motion.div
-                                                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
-                                                transition={{ duration: 0.2 }}
-                                            >
-                                                {/* <Card className="p-6">
+                                    <TabsContent value="attorneys" className="mt-6">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -10 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            {/* <Card className="p-6">
                                                     <h3 className="text-xl font-semibold mb-4">Attorney Coordination Form</h3>
                                                     <form className="space-y-4">
                                                         <div className="grid md:grid-cols-2 gap-4">
@@ -1367,80 +1360,80 @@ export default function CarAccidentPage() {
                                                         </Button>
                                                     </form>
                                                 </Card> */}
-                                                <LawyerContactForm
-                                                />
-                                            </motion.div>
-                                        </TabsContent>
-                                    </AnimatePresence>
-                                </Tabs>
-                            </div>
+                                            <LawyerContactForm
+                                            />
+                                        </motion.div>
+                                    </TabsContent>
+                                </AnimatePresence>
+                            </Tabs>
                         </div>
-                    </MotionSection>
+                    </div>
+                </Reveal>
 
-                    {/* Final CTA */}
-                    <MotionSection className="bg-[#0A84FF] text-white py-16" data-section="final-cta">
-                        <div className="container mx-auto px-4 text-center">
-                            <motion.h2
+                {/* Final CTA */}
+                <Reveal width="100%" className="bg-[#0A84FF] text-white sm:py-16 py-8" data-section="final-cta">
+                    <div className="container mx-auto px-4 text-center">
+                        <motion.h2
 
-                                className="text-4xl font-bold mb-6 bg-clip-text"
-                            >
-                                Book your visit now or send your MRI for a free review
-                            </motion.h2>
+                            className="text-4xl font-bold mb-6 bg-clip-text"
+                        >
+                            Book your visit now or send your MRI for a free review
+                        </motion.h2>
 
-                            <motion.p
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                className="text-xl mb-8 text-blue-100"
-                            >
-                                Most insurances accepted. Same-week access. HIPAA-safe texting.
-                            </motion.p>
+                        <motion.p
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="text-xl mb-8 text-blue-100"
+                        >
+                            Most insurances accepted. Same-week access. HIPAA-safe texting.
+                        </motion.p>
 
+                        <motion.div
+                            variants={{
+                                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            className="flex flex-col sm:flex-row gap-4 justify-center w-full mx-auto max-w-5xl self-center items-center"
+                        >
                             <motion.div
-                                variants={{
-                                    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-                                    visible: { opacity: 1, y: 0 },
+                                whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
+                                animate={{
+                                    scale: shouldReduceMotion ? 1 : [1, 1.02, 1],
+                                    transition: {
+                                        delay: 5,
+                                        duration: 0.6,
+                                        repeat: shouldReduceMotion ? 0 : Number.POSITIVE_INFINITY,
+                                        repeatDelay: 10,
+                                    },
                                 }}
-                                className="flex flex-col sm:flex-row gap-4 justify-center w-full mx-auto max-w-5xl self-center items-center"
                             >
-                                <motion.div
-                                    whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
-                                    animate={{
-                                        scale: shouldReduceMotion ? 1 : [1, 1.02, 1],
-                                        transition: {
-                                            delay: 5,
-                                            duration: 0.6,
-                                            repeat: shouldReduceMotion ? 0 : Number.POSITIVE_INFINITY,
-                                            repeatDelay: 10,
-                                        },
-                                    }}
-                                >
-                                    <BookAnAppoitmentButton className="w-full" />
-                                </motion.div>
-                                <Link
-                                    href="/find-care/free-mri-review"
-                                    className="w-fit border-white h-14 border rounded-full hover:cursor-pointer items-center justify-center px-[32px] py-[16px] text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
-
-                                >
-                                    Free MRI Review
-                                </Link>
-                                <a
-                                    href="sms:5612239959"
-                                    className="w-fit h-14 group flex-row hover:cursor-pointer border rounded-full items-center justify-center px-[32px] py-[16px] border-white text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
-                                >
-                                    Text Us
-                                </a>
+                                <BookAnAppoitmentButton className="w-full" />
                             </motion.div>
-                        </div>
-                    </MotionSection>
+                            <Link
+                                href="/find-care/free-mri-review"
+                                className="w-fit border-white h-14 border rounded-full hover:cursor-pointer items-center justify-center px-[32px] py-[16px] text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
+
+                            >
+                                Free MRI Review
+                            </Link>
+                            <a
+                                href="sms:5612239959"
+                                className="w-fit h-14 group flex-row hover:cursor-pointer border rounded-full items-center justify-center px-[32px] py-[16px] border-white text-white hover:bg-white hover:text-[#0A84FF] bg-transparent"
+                            >
+                                Text Us
+                            </a>
+                        </motion.div>
+                    </div>
+                </Reveal>
 
 
-                    {/* Sticky Mobile Footer */}
-                    {/* <StickyMobileFooter /> */}
+                {/* Sticky Mobile Footer */}
+                {/* <StickyMobileFooter /> */}
 
-                    {/* JSON-LD Schema */}
-                    {/* <script
+                {/* JSON-LD Schema */}
+                {/* <script
                             type="application/ld+json"
                             dangerouslySetInnerHTML={{
                                 __html: JSON.stringify({
@@ -1487,8 +1480,7 @@ export default function CarAccidentPage() {
                                 }),
                             }}
                         /> */}
-                </div>
-            </LazyMotion>
+            </div>
         </section>
     )
 }

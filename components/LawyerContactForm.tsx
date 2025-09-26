@@ -257,7 +257,7 @@ export function LawyerContactForm() {
                                     <FormItem>
                                         <FormLabel className="text-sm text-[#838890] font-semibold">Law Firm Name</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Law Firm Name" startIcon={Building} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                            <Input placeholder="Law Firm Name" startIcon={Building} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -270,7 +270,7 @@ export function LawyerContactForm() {
                                     <FormItem>
                                         <FormLabel className="text-sm text-[#838890] font-semibold">Attorney Name</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Attorney Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                            <Input placeholder="Attorney Name" startIcon={User} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -285,7 +285,7 @@ export function LawyerContactForm() {
                                 <FormItem>
                                     <FormLabel className="text-sm text-[#838890] font-semibold">Attorney Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="attorney@lawfirm.com" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                        <Input placeholder="attorney@lawfirm.com" startIcon={Mail} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -299,7 +299,7 @@ export function LawyerContactForm() {
                                 <FormItem>
                                     <FormLabel className="text-sm text-[#838890] font-semibold">Attorney Phone</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="+1 0123456789" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                        <Input placeholder="+1 0123456789" startIcon={Phone} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -319,7 +319,7 @@ export function LawyerContactForm() {
 
                 {/* Step 2: Dialog with client details and case info */}
                 <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-                    <DialogContent className="rounded-[20px] p-[24px] sm:p-[32px] min-w-3xl w-full max-h-[90vh] overflow-y-auto">
+                    <DialogContent className="rounded-[20px] p-4 sm:p-[32px] sm:min-w-3xl w-full max-h-[90vh] overflow-y-auto">
                         <DialogTitle>
                             <h4 className='text-[#111315] text-2xl' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}>
                                 Complete Attorney Coordination Request
@@ -332,28 +332,28 @@ export function LawyerContactForm() {
                                     <FormField control={form.control} name="firmName" render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Law Firm Name</FormLabel>
-                                            <FormControl><Input startIcon={Building} {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                            <FormControl><Input startIcon={Building} {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )} />
                                     <FormField control={form.control} name="attorneyName" render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Attorney Name</FormLabel>
-                                            <FormControl><Input startIcon={User} {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                            <FormControl><Input startIcon={User} {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )} />
                                     <FormField control={form.control} name="email" render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Attorney Email</FormLabel>
-                                            <FormControl><Input startIcon={Mail} type="email" {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                            <FormControl><Input startIcon={Mail} type="email" {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )} />
                                     <FormField control={form.control} name="phone" render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Attorney Phone</FormLabel>
-                                            <FormControl><Input startIcon={Phone} {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                            <FormControl><Input startIcon={Phone} {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )} />
@@ -363,7 +363,7 @@ export function LawyerContactForm() {
                                 <FormField control={form.control} name="barNumber" render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Bar Number (Optional)</FormLabel>
-                                        <FormControl><Input placeholder="Bar Number" {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                        <FormControl><Input placeholder="Bar Number" {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )} />
@@ -373,7 +373,7 @@ export function LawyerContactForm() {
                                     <FormItem>
                                         <FormLabel>Practice Areas</FormLabel>
                                         <Select onValueChange={field.onChange} value={field.value}>
-                                            <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select practice areas" className="h-12 text-lg" /></SelectTrigger>
+                                            <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select practice areas" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                             <SelectContent>
                                                 {practiceAreas.map((area) => (<SelectItem key={area} value={area}>{area}</SelectItem>))}
                                             </SelectContent>
@@ -389,21 +389,21 @@ export function LawyerContactForm() {
                                         <FormField control={form.control} name="clientName" render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Client Name</FormLabel>
-                                                <FormControl><Input startIcon={User} {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                                <FormControl><Input startIcon={User} {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                                 <FormMessage />
                                             </FormItem>
                                         )} />
                                         <FormField control={form.control} name="clientEmail" render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Client Email</FormLabel>
-                                                <FormControl><Input startIcon={Mail} type="email" {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                                <FormControl><Input startIcon={Mail} type="email" {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                                 <FormMessage />
                                             </FormItem>
                                         )} />
                                         <FormField control={form.control} name="clientPhone" render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Client Phone</FormLabel>
-                                                <FormControl><Input startIcon={Phone} {...field} className="h-12 text-lg border-[#DCDEE1]" /></FormControl>
+                                                <FormControl><Input startIcon={Phone} {...field} className="sm:h-12 h-10 text-lg border-[#DCDEE1]" /></FormControl>
                                                 <FormMessage />
                                             </FormItem>
                                         )} />
@@ -411,7 +411,7 @@ export function LawyerContactForm() {
                                             <FormItem>
                                                 <FormLabel>Accident Date</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="When did accident occur?" className="h-12 text-lg" /></SelectTrigger>
+                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="When did accident occur?" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                     <SelectContent>
                                                         {accidentDates.map((date) => (<SelectItem key={date} value={date}>{date}</SelectItem>))}
                                                     </SelectContent>
@@ -429,7 +429,7 @@ export function LawyerContactForm() {
                                         <FormItem className="flex flex-col">
                                             <FormLabel>Case Type</FormLabel>
                                             <Select onValueChange={field.onChange} value={field.value}>
-                                                <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select case type" className="h-12 text-lg" /></SelectTrigger>
+                                                <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select case type" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                 <SelectContent>
                                                     {caseTypes.map((type) => (<SelectItem key={type} value={type}>{type}</SelectItem>))}
                                                 </SelectContent>
@@ -453,7 +453,7 @@ export function LawyerContactForm() {
                                             <FormItem className="flex flex-col">
                                                 <FormLabel>Urgency Level</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select urgency" className="h-12 text-lg" /></SelectTrigger>
+                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select urgency" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                     <SelectContent>
                                                         <SelectItem value="urgent">Urgent (Same day)</SelectItem>
                                                         <SelectItem value="high">High (This week)</SelectItem>
@@ -468,7 +468,7 @@ export function LawyerContactForm() {
                                             <FormItem className="flex flex-col">
                                                 <FormLabel>Preferred Location</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select location" className="h-12 text-lg" /></SelectTrigger>
+                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select location" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                     <SelectContent>
                                                         {locations.map((loc) => (<SelectItem key={loc} value={loc}>{loc}</SelectItem>))}
                                                     </SelectContent>

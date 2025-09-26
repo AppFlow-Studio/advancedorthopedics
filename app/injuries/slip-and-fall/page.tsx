@@ -13,6 +13,7 @@ import RatingsAndReviews from "@/components/RatingsAndReviews"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
 import { Star, Shield, Clock, MapPin, Phone, Calendar, AlertTriangle, CheckCircle, Award, FileText, Stethoscope } from "lucide-react"
 import { LeadCaptureForm } from "./lead-capture-form"
+import InjuriesCarousel from "@/components/InjuriesCarousel"
 import insurance1 from '@/public/insurance(1).png'
 import insurance2 from '@/public/insurance(2).png'
 import insurance3 from '@/public/insurance(3).png'
@@ -308,9 +309,9 @@ export default function SlipAndFall() {
     ]
 
     return (
-        <main className="w-full flex flex-col items-center justify-center bg-white h-full border">
+        <main className="w-full flex flex-col items-center justify-center bg-white h-full">
             {/* Hero Section */}
-            <section className="w-full h-full  py-26 flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+            <section className="w-full h-full  sm:py-26 py-10 flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
                 <div
                     style={{
                         filter: 'blur(30px)'
@@ -461,7 +462,7 @@ export default function SlipAndFall() {
             </section>
 
             {/* Trust Indicators */}
-            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="trust-indicators">
+            <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="trust-indicators">
                 <div className="w-full">
                     <div className="grid md:grid-cols-3 gap-8 text-center">
                         <div className="space-y-2">
@@ -492,7 +493,7 @@ export default function SlipAndFall() {
             </section>
 
             {/* Common Injuries */}
-            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="common-injuries">
+            <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="common-injuries">
                 <div className="w-full">
                     <div className="text-center mb-12">
                         <h2
@@ -510,37 +511,16 @@ export default function SlipAndFall() {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {siteData.injuries.map((injury, index) => (
-                            <Card
-                                key={index}
-                                className="medical-shadow hover:medical-shadow-lg hover:shadow-lg transition-shadow cursor-pointer"
-                                data-anim="injury-card"
-                            >
-                                <CardContent className="flex flex-row  items-center justify-center gap-y-3">
-                                    <div className="p-3 bg-blue-50 rounded-lg">
-                                        <Stethoscope className="h-6 w-6 text-[#0A84FF]" />
-                                    </div>
-                                    <div className=" flex flex-col ml-6">
-                                        <section className="text-lg font-semiboldgroup-hover:text-[#0A84FF] transition-colors">{injury.title}</section>
-                                        <p className="text-gray-600">{injury.blurb}</p>
-                                        {/* <Button variant="outline" size="sm" asChild>
-                                            <Link href={injury.link}>Learn More</Link>
-                                        </Button> */}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
+                    <InjuriesCarousel injuries={siteData.injuries} />
                 </div>
             </section>
 
             {/* Treatment Approach */}
-            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="treatment-approach">
+            <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="treatment-approach">
                 <div className="w-full">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-balance">
+                            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-balance sm:text-start text-center">
                                 Our Comprehensive Treatment Approach
                             </h2>
 
@@ -660,7 +640,7 @@ export default function SlipAndFall() {
             <LocationsPicker />
 
             {/* FAQ Section */}
-            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="faq">
+            <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="faq">
                 <div className="w-full max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-gray-900 mb-4 text-balance">Frequently Asked Questions</h2>
@@ -681,7 +661,7 @@ export default function SlipAndFall() {
             </section>
 
             {/* Insurance & Locations */}
-            <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]" data-section="insurance-locations">
+            <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="insurance-locations">
                 <div className="w-full">
                     <div className="w-full gap-12">
                         <div className="flex flex-col items-center justify-center gap-y-2">
@@ -711,7 +691,7 @@ export default function SlipAndFall() {
             </section>
 
             {/* Final CTA */}
-            <section className="w-full flex flex-col py-[50px] h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
+            <section className="w-full flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
                 <div className="w-full max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold mb-4 text-balance">Don't Wait - Get Expert Care Today</h2>
                     <p className="text-xl mb-8 text-blue-100 text-pretty">
