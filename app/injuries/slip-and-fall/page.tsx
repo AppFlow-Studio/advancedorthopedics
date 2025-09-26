@@ -308,7 +308,7 @@ export default function SlipAndFall() {
     ]
 
     return (
-        <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+        <main className="w-full flex flex-col items-center justify-center bg-white h-full border">
             {/* Hero Section */}
             <section className="w-full h-full  py-26 flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
                 <div
@@ -656,8 +656,7 @@ export default function SlipAndFall() {
             </section>
 
             {/* Meet Our Experts */}
-            <div className="py-16"><InjuryDoctorsSection /></div>
-
+            <InjuryDoctorsSection />
             <LocationsPicker />
 
             {/* FAQ Section */}
@@ -687,9 +686,9 @@ export default function SlipAndFall() {
                     <div className="w-full gap-12">
                         <div className="flex flex-col items-center justify-center gap-y-2">
                             {/* Insurer logos marquee */}
-                            <div className="overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
+                            <div className="overflow-clip w-full [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
                                 <Marquee
-                                    className="flex items-center gap-6 grayscale opacity-60"
+                                    className="flex items-center sm:gap-6 gap-2 grayscale opacity-60"
                                 >
                                     {insuranceCarriers.map((insurer, i) => (
                                         <div key={i} className="flex-shrink-0">

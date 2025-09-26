@@ -363,7 +363,7 @@ export default function CarAccidentPage() {
             <LazyMotion features={domAnimation} >
                 <div className="min-h-screen bg-white w-full overflow-x-hidden">
                     {/* Hero Section */}
-                    <MotionSection className="px-[60px] pb-20 pt-40 relative [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" data-section="hero">
+                    <MotionSection className="lg:px-[60px] px-4 pb-20 pt-40 relative [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" data-section="hero">
                         <div
                             style={{
                                 filter: 'blur(30px)'
