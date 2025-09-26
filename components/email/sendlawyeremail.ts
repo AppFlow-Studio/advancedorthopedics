@@ -20,7 +20,6 @@ export async function sendLawyerContactEmail(formData: {
     accidentDate: string
     injuryDescription: string
     urgency: string
-    preferredLocation: string
     additionalInfo?: string
 }) {
     try {
@@ -42,7 +41,6 @@ export async function sendLawyerContactEmail(formData: {
                 accidentDate: formData.accidentDate,
                 injuryDescription: formData.injuryDescription,
                 urgency: formData.urgency,
-                preferredLocation: formData.preferredLocation,
                 additionalInfo: formData.additionalInfo,
             }),
         })

@@ -15,7 +15,6 @@ interface LawyerEmailProps {
     accidentDate: string
     injuryDescription: string
     urgency: string
-    preferredLocation: string
     additionalInfo?: string
 }
 
@@ -42,7 +41,6 @@ export const LawyerEmailTemplate: React.FC<Readonly<LawyerEmailProps>> = ({
     accidentDate,
     injuryDescription,
     urgency,
-    preferredLocation,
     additionalInfo
 }) => {
     return (
@@ -188,11 +186,11 @@ export const LawyerEmailTemplate: React.FC<Readonly<LawyerEmailProps>> = ({
                                         <strong>Urgency:</strong> {urgency}
                                     </p>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <p style={{ color: '#374151', marginBottom: '4px' }}>
                                         <strong>Preferred Location:</strong> {preferredLocation}
                                     </p>
-                                </div>
+                                </div> */}
                             </div>
                             <div style={{ marginTop: '12px' }}>
                                 <p style={{ color: '#374151', marginBottom: '8px' }}>

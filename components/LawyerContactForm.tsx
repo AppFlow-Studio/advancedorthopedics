@@ -32,7 +32,6 @@ const lawyerSchema = z.object({
     accidentDate: z.string().min(1, "Please select accident date"),
     injuryDescription: z.string().min(10, "Please provide injury description"),
     urgency: z.string().min(1, "Please select urgency level"),
-    preferredLocation: z.string().min(1, "Please select preferred location"),
     additionalInfo: z.string().optional(),
 })
 
@@ -96,7 +95,6 @@ export function LawyerContactForm() {
                 accidentDate: values.accidentDate,
                 injuryDescription: values.injuryDescription,
                 urgency: values.urgency,
-                preferredLocation: values.preferredLocation,
                 additionalInfo: values.additionalInfo || "",
             })
 
@@ -466,7 +464,7 @@ export function LawyerContactForm() {
                                                 <FormMessage />
                                             </FormItem>
                                         )} />
-                                        <FormField control={form.control} name="preferredLocation" render={({ field }) => (
+                                        {/* <FormField control={form.control} name="preferredLocation" render={({ field }) => (
                                             <FormItem className="flex flex-col">
                                                 <FormLabel>Preferred Location</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
@@ -477,7 +475,7 @@ export function LawyerContactForm() {
                                                 </Select>
                                                 <FormMessage />
                                             </FormItem>
-                                        )} />
+                                        )} /> */}
                                     </div>
 
                                     <FormField control={form.control} name="additionalInfo" render={({ field }) => (
