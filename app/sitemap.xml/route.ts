@@ -50,32 +50,33 @@ const FindCare = [
 
 const BackPainPages =[
   "lower-back-pain",
-  'degenerative-disc-disease',
+  'lumbar-degenerative-disc-disease',
   'lumbar-herniated-disc',
-  'foraminal-stenosis',
-  'sciatica',
-  'coccydynia',
-  'back-pain-treatment-options' // Only the correct slug is present
+  'foraminal-stenosis-back-pain',
+  'sciatica-nerve-pain',
+  'tailbone-pain-coccydynia',
+  'back-pain-treatment-options'
 ]
 
 const NeckPainPages = [
-  'cervical-spinal-stenosis',
-  'cervical-herniated-disc',
-  'degenerative-disc-disease',
-  'arthritis',
-  'pinched-nerve',
+  'neck-spinal-stenosis',
+  'neck-herniated-disc',
+  'cervical-degenerative-disc-disease',
+  'neck-shoulder-arthritis-pain',
+  'pinched-nerve-neck-shoulder',
   'neck-and-shoulder-pain-treatment',
 ];
 
 
 const FootPainPages =[
-  'bunions-hallux-valgus',
-  'plantar-fasciitis',
-  'flat-feet',
-  'ankle-arthroscopy',
-  'hammer-toes',
-  'diabetic-foot-ulcers',
-  'ankle-replacement'
+  'bunion-pain-hallux-valgus',
+  'heel-pain-plantar-fasciitis',
+  'flat-feet-pain',
+  'ankle-arthroscopy-recovery-pain',
+  'hammertoes-foot-pain',
+  'diabetic-foot-ulcer-care',
+  'ankle-replacement-surgery-pain',
+  'achilles-tendon-pain'
 ]
 
 export async function GET() {

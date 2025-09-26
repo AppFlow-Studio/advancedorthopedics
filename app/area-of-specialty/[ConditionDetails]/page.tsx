@@ -15,6 +15,7 @@ import ConditionList from '@/components/ConditionsList'
 import Logo from '@/public/newlogo4.png'
 import { notFound } from 'next/navigation';
 import { AllTreatments } from '@/components/data/treatments';
+import { srOnly } from '@/lib/seo';
 
 // Helper: Build a map of all condition/treatment titles to their slugs and type
 const conditionMap = Object.fromEntries(
@@ -84,12 +85,13 @@ export async function generateStaticParams() {
   return conditions.map(c => ({ ConditionDetails: c.slug }));
 }
 
-export default function ConditionDetails({
+export default async function ConditionDetails({
   params,
 }: {
-  params: { ConditionDetails: string }
+  params: Promise<{ ConditionDetails: string }>
 }) {
-  const conditionSlug = params.ConditionDetails
+  const { ConditionDetails } = await params;
+  const conditionSlug = ConditionDetails;
   const condition_details = conditions.find((x: ConditionInfoProp) => x.slug === conditionSlug)
   if (!condition_details) {
     return (
@@ -110,6 +112,10 @@ export default function ConditionDetails({
   const randomDoctors = shuffleArray(Doctors).slice(0, 2);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      {/* SEO: Semantic headings for screen readers */}
+      <h1 className={srOnly}>{condition_details.title}</h1>
+      <h2 className={srOnly}>Overview</h2>
+      
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div

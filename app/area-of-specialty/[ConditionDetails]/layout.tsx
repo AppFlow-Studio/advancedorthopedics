@@ -3,7 +3,7 @@ import { conditions } from "@/components/data/conditions";
 import { posthog } from "posthog-js";
 import StaticNav from "@/components/StaticNav.server";
 import OrphanLinksFooter from '@/components/OrphanLinksFooter';
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 function capitalizeWords(str: string): string {
@@ -34,15 +34,15 @@ export async function generateMetadata(
     const ogImage = getOgImageForPath('/area-of-specialty');
 
     return {
-      title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
-      description: condition.metaDesc || condition.body,
+      title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
+      description: safeDescription(condition.metaDesc, condition.body),
       keywords: condition.keywords || [condition.title, "orthopedic condition", "spine condition"],
       alternates: {
         canonical: canonicalUrl,
       },
       openGraph: {
-        title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
-        description: condition.metaDesc || condition.body,
+        title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
+        description: safeDescription(condition.metaDesc, condition.body),
         url: canonicalUrl,
         siteName: 'Mountain Spine & Orthopedics',
         type: "article",
@@ -55,8 +55,8 @@ export async function generateMetadata(
       },
       twitter: {
         card: "summary_large_image",
-        title: condition.metaTitle || `${condition.title} | Mountain Spine & Orthopedics`,
-        description: condition.metaDesc || condition.body,
+        title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
+        description: safeDescription(condition.metaDesc, condition.body),
         images: [ogImage],
       },
     };

@@ -9,7 +9,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fullcrawl": "node scripts/full-site-crawl.mjs"
+    "fullcrawl": "node scripts/full-site-crawl.mjs",
+    "seo:audit": "node scripts/seo-local-sitemap-audit.mjs --concurrency=4 --timeout=25000 --headless",
+    "seo:audit:debug": "node scripts/seo-local-sitemap-audit.mjs --concurrency=2 --timeout=30000 --debug",
+    "seo:audit:only": "node scripts/seo-local-sitemap-audit.mjs --only=",
+    "seo:test": "node scripts/test-seo-rendering.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -71,11 +75,14 @@
     "dotenv": "^17.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "fast-csv": "^5.0.0",
     "fast-xml-parser": "^5.2.5",
     "node-fetch": "^3.3.2",
     "p-limit": "^6.2.0",
+    "puppeteer": "^23.0.0",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "xml2js": "^0.6.2"
   }
 }

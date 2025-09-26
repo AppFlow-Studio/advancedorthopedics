@@ -5,9 +5,23 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { ConditionInfoProp } from "./ConditionCard"
-import { conditions } from "./data/conditions"
+import { conditions as painconditions } from "./data/painconditions"
+import { PainAreaTreatments } from "./data/painareatreatments"
 
-const backPainOptions: ConditionInfoProp[] = conditions.filter(x => x.title == 'Lower Back Pain' || x.title == 'Sciatica' || x.title == 'Coccydynia' || x.title == 'Lumbar Herniated Disc' || x.title == 'Degenerative Disc Disease' || x.title == 'Foraminal Stenosis')
+const backPainConditions: ConditionInfoProp[] = painconditions.filter(x => 
+  x.slug == 'lower-back-pain' || 
+  x.slug == 'sciatica-nerve-pain' || 
+  x.slug == 'tailbone-pain-coccydynia' || 
+  x.slug == 'lumbar-herniated-disc' || 
+  x.slug == 'lumbar-degenerative-disc-disease' || 
+  x.slug == 'foraminal-stenosis-back-pain'
+)
+
+const backPainTreatment: ConditionInfoProp[] = PainAreaTreatments.filter(x => 
+  x.slug == 'back-pain-treatment-options'
+)
+
+const backPainOptions: ConditionInfoProp[] = [...backPainConditions, ...backPainTreatment]
 
 export function BackPainDropdown({ CurrentCondition }: { CurrentCondition: string }) {
   const [isOpen, setIsOpen] = useState(true)
@@ -53,24 +67,44 @@ export function BackPainDropdown({ CurrentCondition }: { CurrentCondition: strin
       <div
         className={cn(
           "overflow-hidden transition-all duration-300 ease-in-out origin-top",
-          isOpen ? "max-h-[500px] opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-0",
+          isOpen ? "max-h-[800px] opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-0",
         )}
       >
-        <div ref={contentRef} className="rounded-md space-y-[20px] mt-[20px]">
-          {backPainOptions.map((option) => (
-            <Link href={`/area-of-pain/back-pain/${option.slug}`} className={`${CurrentCondition == option.title ? 'bg-[#FAFAFA]' : 'bg-[#FAFAFA]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]`} key={option.title}>
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className=' text-[#111315] text-lg '
-              >{option.title}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                <path d="M0.55723 12.3964C0.718604 12.2745 1.20035 11.9106 1.47806 11.6939C2.03427 11.2598 2.77336 10.6667 3.51025 10.0269C4.25087 9.38385 4.97216 8.70833 5.50241 8.10822C5.76829 7.80731 5.97032 7.54297 6.10182 7.32484C6.22549 7.11969 6.25121 6.99851 6.25121 6.99851C6.25121 6.99851 6.22549 6.88088 6.10182 6.67574C5.97032 6.45761 5.76829 6.19328 5.50241 5.89236C4.97217 5.29225 4.25087 4.61674 3.51024 3.9737C2.77334 3.3339 2.03424 2.74079 1.47802 2.30671C1.20031 2.08998 0.719248 1.72658 0.557872 1.6047C0.224349 1.35906 0.152413 0.889059 0.398046 0.555536C0.643678 0.222013 1.11318 0.150764 1.4467 0.396397L1.44924 0.398315C1.6185 0.526155 2.11751 0.903056 2.40086 1.12419C2.96965 1.56806 3.73055 2.17849 4.49365 2.84105C5.25303 3.50037 6.03173 4.22604 6.62649 4.89916C6.9231 5.23486 7.18982 5.57515 7.38645 5.90131C7.57066 6.20689 7.75195 6.59379 7.75194 7.0003C7.75194 7.40681 7.57066 7.7937 7.38644 8.09927C7.18982 8.42544 6.9231 8.76573 6.62648 9.10143C6.03173 9.77454 5.25304 10.5002 4.49367 11.1595C3.73058 11.8221 2.96968 12.4325 2.40091 12.8764C2.11735 13.0977 1.61832 13.4746 1.44941 13.6022L1.44723 13.6038C1.11371 13.8495 0.643732 13.7786 0.398097 13.4451C0.152471 13.1115 0.223736 12.642 0.55723 12.3964Z" fill="#424959" />
-              </svg>
-            </Link>
-          ))}
+        <div ref={contentRef} className="rounded-md space-y-[20px] mt-[20px] pb-[20px]">
+          {backPainOptions.map((option) => {
+            const isActive = CurrentCondition === option.title
+            return (
+              <Link 
+                href={`/area-of-pain/back-pain/${option.slug}`} 
+                className={`${isActive 
+                  ? 'bg-[#2358AC] text-white border-l-4 border-[#5093FF] shadow-md' 
+                  : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F4FF] hover:border-l-4 hover:border-[#2358AC]'
+                } p-[16px] w-full flex flex-row justify-between items-start rounded-[10px] transition-all duration-200 min-h-[60px]`} 
+                key={option.title}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-public-sans)",
+                    fontWeight: isActive ? 500 : 400,
+                  }}
+                  className={`text-lg ${isActive ? 'text-white' : 'text-[#111315]'} flex-1 leading-tight`}
+                >{option.title}</span>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="8" 
+                  height="14" 
+                  viewBox="0 0 8 14" 
+                  fill="none"
+                  className={isActive ? 'opacity-80' : ''}
+                >
+                  <path 
+                    d="M0.55723 12.3964C0.718604 12.2745 1.20035 11.9106 1.47806 11.6939C2.03427 11.2598 2.77336 10.6667 3.51025 10.0269C4.25087 9.38385 4.97216 8.70833 5.50241 8.10822C5.76829 7.80731 5.97032 7.54297 6.10182 7.32484C6.22549 7.11969 6.25121 6.99851 6.25121 6.99851C6.25121 6.99851 6.22549 6.88088 6.10182 6.67574C5.97032 6.45761 5.76829 6.19328 5.50241 5.89236C4.97217 5.29225 4.25087 4.61674 3.51024 3.9737C2.77334 3.3339 2.03424 2.74079 1.47802 2.30671C1.20031 2.08998 0.719248 1.72658 0.557872 1.6047C0.224349 1.35906 0.152413 0.889059 0.398046 0.555536C0.643678 0.222013 1.11318 0.150764 1.4467 0.396397L1.44924 0.398315C1.6185 0.526155 2.11751 0.903056 2.40086 1.12419C2.96965 1.56806 3.73055 2.17849 4.49365 2.84105C5.25303 3.50037 6.03173 4.22604 6.62649 4.89916C6.9231 5.23486 7.18982 5.57515 7.38645 5.90131C7.57066 6.20689 7.75195 6.59379 7.75194 7.0003C7.75194 7.40681 7.57066 7.7937 7.38644 8.09927C7.18982 8.42544 6.9231 8.76573 6.62648 9.10143C6.03173 9.77454 5.25304 10.5002 4.49367 11.1595C3.73058 11.8221 2.96968 12.4325 2.40091 12.8764C2.11735 13.0977 1.61832 13.4746 1.44941 13.6022L1.44723 13.6038C1.11371 13.8495 0.643732 13.7786 0.398097 13.4451C0.152471 13.1115 0.223736 12.642 0.55723 12.3964Z" 
+                    fill={isActive ? "#ffffff" : "#424959"} 
+                  />
+                </svg>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>

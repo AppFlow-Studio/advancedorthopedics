@@ -86,6 +86,36 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-pain/back-pain/degenerativediscdisease","destination":"/area-of-pain/back-pain/degenerative-disc-disease","permanent":true},
     {"source":"/area-of-pain/back-pain/backpaintreatmentoptions","destination":"/area-of-pain/back-pain/back-pain-treatment-options","permanent":true},
     
+    // --- DDD LEGACY REDIRECTS ---
+    {"source":"/area-of-pain/back-pain/degenerative-disc-disease","destination":"/area-of-pain/back-pain/lumbar-degenerative-disc-disease","permanent":true},
+    {"source":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","destination":"/area-of-pain/neck-and-shoulder-pain/cervical-degenerative-disc-disease","permanent":true},
+    
+    // --- NEW PAIN SLUG REDIRECTS ---
+    // Back Pain Group
+    {"source":"/area-of-pain/back-pain/foraminal-stenosis","destination":"/area-of-pain/back-pain/foraminal-stenosis-back-pain","permanent":true},
+    {"source":"/area-of-pain/back-pain/sciatica","destination":"/area-of-pain/back-pain/sciatica-nerve-pain","permanent":true},
+    {"source":"/area-of-pain/back-pain/coccydynia","destination":"/area-of-pain/back-pain/tailbone-pain-coccydynia","permanent":true},
+    
+    // Neck & Shoulder Pain Group
+    {"source":"/area-of-pain/neck-and-shoulder-pain/cervical-spinal-stenosis","destination":"/area-of-pain/neck-and-shoulder-pain/neck-spinal-stenosis","permanent":true},
+    {"source":"/area-of-pain/neck-and-shoulder-pain/cervical-herniated-disc","destination":"/area-of-pain/neck-and-shoulder-pain/neck-herniated-disc","permanent":true},
+    {"source":"/area-of-pain/neck-and-shoulder-pain/arthritis","destination":"/area-of-pain/neck-and-shoulder-pain/neck-shoulder-arthritis-pain","permanent":true},
+    {"source":"/area-of-pain/neck-and-shoulder-pain/pinched-nerve","destination":"/area-of-pain/neck-and-shoulder-pain/pinched-nerve-neck-shoulder","permanent":true},
+    
+    // Foot & Ankle Pain Group
+    {"source":"/area-of-pain/foot-pain/bunions-hallux-valgus","destination":"/area-of-pain/foot-pain/bunion-pain-hallux-valgus","permanent":true},
+    {"source":"/area-of-pain/foot-pain/plantar-fasciitis","destination":"/area-of-pain/foot-pain/heel-pain-plantar-fasciitis","permanent":true},
+    {"source":"/area-of-pain/foot-pain/achilles-tendonitis","destination":"/area-of-pain/foot-pain/achilles-tendon-pain","permanent":true},
+    {"source":"/area-of-pain/foot-pain/flat-feet","destination":"/area-of-pain/foot-pain/flat-feet-pain","permanent":true},
+    {"source":"/area-of-pain/foot-pain/ankle-arthroscopy","destination":"/area-of-pain/foot-pain/ankle-arthroscopy-recovery-pain","permanent":true},
+    {"source":"/area-of-pain/foot-pain/hammer-toes","destination":"/area-of-pain/foot-pain/hammertoes-foot-pain","permanent":true},
+    {"source":"/area-of-pain/foot-pain/diabetic-foot-ulcers","destination":"/area-of-pain/foot-pain/diabetic-foot-ulcer-care","permanent":true},
+    {"source":"/area-of-pain/foot-pain/ankle-replacement","destination":"/area-of-pain/foot-pain/ankle-replacement-surgery-pain","permanent":true},
+    
+    // Legacy DDD redirects (from audit)
+    {"source":"/area-of-pain/back-pain/degenerative-disc-disease","destination":"/area-of-pain/back-pain/lumbar-degenerative-disc-disease","permanent":true},
+    {"source":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","destination":"/area-of-pain/neck-and-shoulder-pain/cervical-degenerative-disc-disease","permanent":true},
+    
     // --- EXISTING AREA-OF-SPECIALITY REDIRECTS ---
     {"source":"/area-of-specialty/trochantericbursitis","destination":"/conditions/trochanteric-bursitis","permanent":true},
     {"source":"/area-of-specialty/tornmeniscus","destination":"/conditions/torn-meniscus","permanent":true},

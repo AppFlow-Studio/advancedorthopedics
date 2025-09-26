@@ -6,11 +6,30 @@ const getSiteUrl = () => {
 
 export const siteUrl = getSiteUrl();
 
-/** Lowercase, no trailing slash, absolute URL */
+// Always use production domain for canonical URLs (SEO requirement)
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://mountainspineorthopedics.com";
+
+/** Lowercase, no trailing slash, absolute URL - always uses production domain for canonicals */
 export function buildCanonical(path = '/'): string {
-  const url = new URL(path.startsWith('/') ? path : `/${path}`, siteUrl);
-  return url.toString().replace(/\/$/, '').toLowerCase();
+  const p = path.startsWith("/") ? path : `/${path}`;
+  return `${SITE_URL}${p}`;
 }
+
+// Safe title/description fallbacks
+export function safeTitle(primary?: string, fallback?: string): string {
+  return (primary || fallback || "Mountain Spine & Orthopedics").trim();
+}
+
+export function safeDescription(primary?: string, fallback?: string): string {
+  const text = (primary || fallback || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 158);
+  return text || "Trusted orthopedic and spine care across Florida.";
+}
+
+// SR-only utility class (Tailwind assumed)
+export const srOnly = "sr-only";
 
 /** Build consistent OG description for doctor pages */
 export function buildOgDescription(fullName: string): string {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import StaticNav from "@/components/StaticNav.server";
 
@@ -35,6 +35,8 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
+      <h1 className={srOnly}>Orthopedic Health Blog</h1>
+      <h2 className={srOnly}>Expert Health Insights</h2>
       <StaticNav />
       {children}
     </div>

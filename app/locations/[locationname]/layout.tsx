@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { clinics } from "@/components/data/clinics";
 import StaticNav from "@/components/StaticNav.server";
 import OrphanLinksFooter from '@/components/OrphanLinksFooter';
-import { buildCanonical } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 // This function dynamically generates metadata for each location page.
@@ -34,10 +34,10 @@ export async function generateMetadata(
     const cityName = location.region.split(',')[0].trim();
     
     // Create consistent title format
-    const consistentTitle = `Orthopedic & Spine Care in ${cityName}, FL | Mountain Spine & Orthopedics`;
+    const consistentTitle = safeTitle(location.metaTitle, `Mountain Spine & Orthopedics in ${cityName}, FL | Official Site`);
     
     // Create consistent description format
-    const consistentDescription = `Experience minimally invasive spine & orthopedic care in ${cityName}, FL—board-certified surgeons, on-site imaging, and same-day appointments at Mountain Spine & Orthopedics.`;
+    const consistentDescription = safeDescription(location.metaDescription, `Trusted orthopedic care in ${cityName}, FL—board-certified surgeons, compassionate staff, and convenient appointments at Mountain Spine & Orthopedics.`);
     
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
     return {
