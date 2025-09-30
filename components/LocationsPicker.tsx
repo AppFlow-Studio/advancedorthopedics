@@ -202,9 +202,9 @@ export default function LocationsPicker() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h1 className="text-4xl md:text-6xl font-bold text-[#252932] my-6">
+                <h2 className="text-4xl md:text-6xl font-bold text-[#252932] my-6">
                     Our Locations
-                </h1>
+                </h2>
                 <p className="text-lg md:text-xl text-[#424959] max-w-3xl mx-auto">
                     Visit any of our state-of-the-art facilities across Florida for expert orthopedic care and personalized treatment.
                 </p>

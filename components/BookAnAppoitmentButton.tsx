@@ -24,6 +24,7 @@ import { sendContactEmail, sendUserEmail } from './email/sendcontactemail'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
@@ -101,13 +102,12 @@ export default function BookAnAppoitmentButton({
         console.log(values)
         const data = await sendContactEmail(values)
         await sendUserEmail(values)
-        if (typeof window !== "undefined" && window.dataLayer) {
-            window.dataLayer.push({
-                event: 'form_submit',
-                form_name: 'BookAnAppoitmentButton',
-                ...values
-            });
-        }
+        
+        // Enhanced Conversions
+        persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+        pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+        pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
+        
         if (data) {
             setOpen(false)
             //setAppointmentConfirm(true) 

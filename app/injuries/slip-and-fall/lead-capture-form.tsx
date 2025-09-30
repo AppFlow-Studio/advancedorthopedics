@@ -16,6 +16,7 @@ import { Dialog, DialogTitle, DialogContent } from "@/components/ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { sendContactEmail, sendUserEmail } from "@/components/email/sendcontactemail"
 import { redirect } from "next/navigation"
+import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 
 const leadSchema = z.object({
     firstName: z.string().min(2, "First name is required"),
@@ -47,6 +48,15 @@ export function LeadCaptureForm() {
     const [isOpen, setIsOpen] = useState(false)
     const form = useForm<LeadFormData>({
         resolver: zodResolver(leadSchema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            phone: "",
+            email: "",
+            injury: "",
+            urgency: "",
+            location: "",
+        },
     })
 
 
@@ -54,14 +64,17 @@ export function LeadCaptureForm() {
         setIsSubmitting(true)
         const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injury, bestTime: values.urgency, injury_type: values.injury, location: values.location })
         await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
+        
+        // Enhanced Conversions
+        persistEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
+        pushEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
+        pushEvent('injury_form_submit', {
+            form_type: 'slip_fall',
+            form_name: 'PersonalInjuryLead',
+            city_selected: values.location || '',
+        });
+        
         setIsSubmitting(false)
-        if (typeof window !== "undefined" && window.dataLayer) {
-            window.dataLayer.push({
-                event: 'form_submit',
-                form_name: 'DoctorContactForm',
-                ...values
-            });
-        }
         if (data) {
             setIsOpen(false)
             //setAppointmentConfirm(true) 
@@ -179,7 +192,7 @@ export function LeadCaptureForm() {
             {/* Content */}
             <div className="relative z-10">
                 <div className="mb-6">
-                    <h4
+                    <h3
                         style={{
                             fontFamily: 'var(--font-public-sans)',
                             fontWeight: 500,
@@ -188,7 +201,7 @@ export function LeadCaptureForm() {
                     >
                         <Calendar className="w-5 h-5 text-[#0A50EC]" />
                         <span>Schedule Your Evaluation</span>
-                    </h4>
+                    </h3>
                     <p
                         style={{
                             fontFamily: 'var(--font-inter)',
@@ -352,7 +365,7 @@ export function LeadCaptureForm() {
 
                             <DialogContent>
                                 <DialogTitle>
-                                    <h4
+                                    <h3
                                         style={{
                                             fontFamily: 'var(--font-public-sans)',
                                             fontWeight: 500,
@@ -361,7 +374,7 @@ export function LeadCaptureForm() {
                                     >
                                         <Calendar className="w-5 h-5 text-[#0A50EC]" />
                                         <span>Schedule Your Evaluation</span>
-                                    </h4>
+                                    </h3>
                                 </DialogTitle>
                                 <form className="space-y-4 flex flex-col ">
 

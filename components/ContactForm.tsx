@@ -20,6 +20,7 @@ import { Dialog } from "./ui/dialog"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { redirect } from "next/navigation"
+import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
@@ -48,13 +49,12 @@ export function ConsultationForm() {
     setDisabled(true)
     const data = await sendUserEmail(values)
     await sendContactEmail(values)
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'form_submit',
-        form_name: 'ConsultationForm',
-        ...values
-      });
-    }
+    
+    // Enhanced Conversions
+    persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+    pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+    pushEvent('lead_form_submit', { form_name: 'ConsultationForm' });
+    
     if (data) {
       //setAppointmentConfirm(true) 
       form.reset()

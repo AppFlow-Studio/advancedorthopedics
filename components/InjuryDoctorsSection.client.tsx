@@ -36,7 +36,7 @@ export default function InjuryDoctorsSection() {
     const featuredDoctors = Doctors.slice(0, 3)
 
     return (
-        <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
+        <section className="w-full flex flex-col py-[50px] h-full px-[40px]">
             <div className="flex md:flex-row flex-col mb-6">
                 <div className="flex flex-col space-y-[24px] md:w-[50%] w-full">
                     <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-black text-5xl text-left w-full">

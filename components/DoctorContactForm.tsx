@@ -22,6 +22,7 @@ import { motion } from 'framer-motion'
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { BorderBeam } from "@/components/magicui/border-beam";
+import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
     email: z.string().email("Invalid email address"),
@@ -81,14 +82,13 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
         setDisabled(true)
         const data = await sendContactEmail(values)
         await sendUserEmail({ name: values.name, email: values.email, phone: values.phone })
+        
+        // Enhanced Conversions
+        persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+        pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+        pushEvent('lead_form_submit', { form_name: 'DoctorContactForm' });
+        
         setDisabled(false)
-        if (typeof window !== "undefined" && window.dataLayer) {
-            window.dataLayer.push({
-                event: 'form_submit',
-                form_name: 'DoctorContactForm',
-                ...values
-            });
-        }
         if (data) {
             setOpenContactForm(false)
             //setAppointmentConfirm(true) 

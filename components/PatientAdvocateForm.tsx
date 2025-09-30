@@ -19,6 +19,7 @@ import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
 import { motion } from "framer-motion"
+import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
@@ -56,13 +57,12 @@ export function PatientAdvocateForm() {
     setDisabled(true)
     const data = await sendContactEmail(values)
     await sendUserEmail({ name: values.name, email: values.email, phone: values.phone })
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'form_submit',
-        form_name: 'PatientAdvocateForm',
-        ...values
-      });
-    }
+    
+    // Enhanced Conversions
+    persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+    pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+    pushEvent('lead_form_submit', { form_name: 'PatientAdvocateForm' });
+    
     if (data) {
       setAppointmentConfirm(true)
       form.reset()

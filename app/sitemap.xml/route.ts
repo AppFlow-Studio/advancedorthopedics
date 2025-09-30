@@ -79,6 +79,11 @@ const FootPainPages =[
   'achilles-tendon-pain'
 ]
 
+const InjuryPages = [
+  'car-accident',
+  'slip-and-fall'
+]
+
 export async function GET() {
   if (!baseUrl) {
     console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
@@ -123,6 +128,8 @@ export async function GET() {
   ${BackPainPages.map(slug => generateUrlEntry(`/area-of-pain/back-pain/${slug}`)).join('')}
   ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${slug}`)).join('')} 
   ${FootPainPages.map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`)).join('')}
+
+  ${InjuryPages.map(slug => generateUrlEntry(`/injuries/${slug}`)).join('')}
 
   ${Doctors.filter(doctor => isValidSlug(doctor.slug))
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
