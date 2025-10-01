@@ -129,7 +129,7 @@ export default function Blogs() {
           <div className="mt-8 md:mt-10 flex flex-col items-center px-4 md:px-0">
             <p className="text-sm text-[#6B7280] mb-4 text-center leading-relaxed">
               Showing {(currentPage - 1) * PER_PAGE + 1}–
-              {Math.min(currentPage * PER_PAGE, total)} of {total}
+              {Math.min(currentPage * PER_PAGE, total)} of {total} blogs
             </p>
             <nav className="flex items-center gap-2 md:gap-3 flex-wrap justify-center" aria-label="Pagination">
               <button

@@ -253,7 +253,6 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 className="w-full"
                 opts={{
                   align: "center",
-                  fontWeight: false,
                   containScroll: "trimSnaps",
                 }}
               >
@@ -312,7 +311,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-[#252932] mb-2">Extended Hours</h3>
-              <p className="text-[#424959]">Open 6 days a week until 8 PM for your convenience</p>
+              <p className="text-[#424959]">Open 7 days a week until 8 PM for your convenience</p>
             </div>
 
             <div className="text-center">

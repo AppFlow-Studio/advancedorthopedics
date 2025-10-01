@@ -240,7 +240,7 @@ export default function TagBlogPage({ params }: { params: { tagSlug: string } })
           <div className="mt-10 flex flex-col items-center">
             <p className="text-sm text-[#6B7280] mb-3">
               Showing {(currentPage - 1) * PER_PAGE + 1}–
-              {Math.min(currentPage * PER_PAGE, total)} of {total}
+              {Math.min(currentPage * PER_PAGE, total)} of {total} blogs
               {currentTag ? ` for "${currentTag}"` : ""}
             </p>
             <nav className="flex items-center gap-2" aria-label="Pagination">

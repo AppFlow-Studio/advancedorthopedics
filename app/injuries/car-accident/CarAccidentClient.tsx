@@ -1093,7 +1093,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                             <Card className="sm:p-8 p-6">
                                 <div className="space-y-6">
                                     <div className="text-center">
-                                        <Label className="text-lg font-medium">Week {timelineWeek[0]}</Label>
+                                        <Label className="text-lg font-medium">Phase {timelineWeek[0]}</Label>
                                     </div>
 
                                     <motion.div
@@ -1129,7 +1129,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                                         >
                                             {timelineWeek[0] === 1 && (
                                                 <div>
-                                                    <h4 className="font-semibold mb-2">Acute Phase (Weeks 1-2)</h4>
+                                                    <h4 className="font-semibold mb-2">Phase 1 - Acute Phase (Weeks 1-2)</h4>
                                                     <p className="text-gray-600 mb-3">
                                                         Focus on pain management and gentle movement. Most patients see significant improvement.
                                                     </p>
@@ -1143,7 +1143,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
 
                                             {timelineWeek[0] === 2 && (
                                                 <div>
-                                                    <h4 className="font-semibold mb-2">Recovery Phase (Weeks 3-6)</h4>
+                                                    <h4 className="font-semibold mb-2">Phase 2 - Recovery Phase (Weeks 3-6)</h4>
                                                     <p className="text-gray-600 mb-3">
                                                         Progressive strengthening and return to normal activities. Most patients return to full
                                                         function.
@@ -1158,7 +1158,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
 
                                             {timelineWeek[0] === 3 && (
                                                 <div>
-                                                    <h4 className="font-semibold mb-2">Maintenance Phase (Weeks 6+)</h4>
+                                                    <h4 className="font-semibold mb-2">Phase 3 - Maintenance Phase (Weeks 6+)</h4>
                                                     <p className="text-gray-600 mb-3">
                                                         Focus on preventing re-injury and optimizing long-term function. Return to sports and
                                                         high-level activities.
