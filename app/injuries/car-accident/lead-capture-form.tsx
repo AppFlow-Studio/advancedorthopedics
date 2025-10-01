@@ -17,6 +17,7 @@ import { redirect } from "next/navigation"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { clinics } from "@/components/data/clinics"
+import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 
 const leadSchema = z.object({
     firstName: z.string().min(2, "First name is required"),
@@ -68,19 +69,33 @@ export function CarAccidentLeadCaptureForm() {
     const [isOpen, setIsOpen] = useState(false)
     const form = useForm<LeadFormData>({
         resolver: zodResolver(leadSchema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            phone: "",
+            email: "",
+            accidentDate: "",
+            injuryType: "",
+            painLevel: "",
+            location: "",
+            hasAttorney: "",
+        },
     })
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
         const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location })
         await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
+        
+        // Enhanced Conversions
+        persistEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
+        pushEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
+        pushEvent('injury_form_submit', {
+            form_type: 'car_accident',
+            form_name: 'PersonalInjuryLead',
+            city_selected: values.location || '',
+        });
+        
         setIsSubmitting(false)
-        if (typeof window !== "undefined" && window.dataLayer) {
-            window.dataLayer.push({
-                event: 'form_submit',
-                form_name: 'DoctorContactForm',
-                ...values
-            });
-        }
         if (data) {
             setIsOpen(false)
             //setAppointmentConfirm(true) 
@@ -198,7 +213,7 @@ export function CarAccidentLeadCaptureForm() {
             {/* Content */}
             <div className="relative z-10">
                 <div className="mb-6">
-                    <h4
+                    <h3
                         style={{
                             fontFamily: 'var(--font-public-sans)',
                             fontWeight: 500,
@@ -207,7 +222,7 @@ export function CarAccidentLeadCaptureForm() {
                     >
                         <Car className="w-5 h-5 text-[#0A50EC]" />
                         <span>Schedule Your Car Accident Evaluation</span>
-                    </h4>
+                    </h3>
                     <p
                         style={{
                             fontFamily: 'var(--font-inter)',
@@ -352,7 +367,7 @@ export function CarAccidentLeadCaptureForm() {
                     <Dialog onOpenChange={setIsOpen} open={isOpen}>
                         <DialogContent className="w-full max-w-3xl">
                             <DialogTitle>
-                                <h4
+                                <h3
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
@@ -361,7 +376,7 @@ export function CarAccidentLeadCaptureForm() {
                                 >
                                     <Calendar className="w-5 h-5 text-[#0A50EC]" />
                                     <span>Schedule Your Car Accident Evaluation</span>
-                                </h4>
+                                </h3>
                             </DialogTitle>
                             <form className="space-y-6 flex flex-col">
 

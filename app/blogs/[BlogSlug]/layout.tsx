@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
+import { detectFAQContent, generateFAQPageSchema } from "@/lib/faq-utils";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ BlogSlug: string }> },
@@ -75,6 +76,11 @@ export default async function BlogLayout({
   const blog = await GetBlogInfo(resolvedParams.BlogSlug);
   if (!blog) return notFound();
   const info = blog.blog_info;
+  const canonicalUrl = buildCanonical(`/blogs/${blog.slug}`);
+  
+  // Detect FAQ content
+  const faqs = detectFAQContent(blog);
+  
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -83,21 +89,52 @@ export default async function BlogLayout({
     "image": info.img,
     "author": {
       "@type": "Person",
-      "name": info.author
+      "name": info.author,
+      "jobTitle": "Orthopedic Surgeon",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Mountain Spine & Orthopedics",
+        "url": "https://mountainspineorthopedics.com"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mountain Spine & Orthopedics",
+      "url": "https://mountainspineorthopedics.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mountainspineortho.b-cdn.net/logoSearch.png"
+      }
     },
     "datePublished": blog.created_at,
-    "dateModified": blog.modified_at,
+    "dateModified": blog.modified_at || blog.created_at,
+    "inLanguage": "en-US",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://mountainspineorthopedics.com/blogs/${blog.slug}`
+      "@id": canonicalUrl
     },
     "keywords": info.keywords?.join(", ") || undefined,
-    "articleSection": info.tags?.join(", ") || undefined
+    "articleSection": info.tags?.join(", ") || undefined,
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2"],
+      "xpath": ["/html/head/title", "//h1", "//h2"]
+    }
   };
   return (
     <>
       <StaticNav />
       {children}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {faqs && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQPageSchema(faqs, canonicalUrl)) }}
+        />
+      )}
     </>
   );
 }

@@ -2,6 +2,8 @@
     import { notFound } from 'next/navigation';
     import { GetBlogInfo } from '@/app/blogs/api/get-blog-info';
     import BlogPostClient from '@/components/BlogPostClient';
+    import RelatedPosts from '@/components/RelatedPosts';
+    import EATAuthorBlock from '@/components/EATAuthorBlock';
     import { QueryClient, dehydrate, HydrationBoundary } from '@tanstack/react-query';
     import { createClient } from '@/utils/supabase/server';
     import { staticSupabase } from '@/utils/supabase/static';

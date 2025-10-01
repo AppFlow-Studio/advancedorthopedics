@@ -75,6 +75,22 @@ export function LawyerContactForm() {
 
     const form = useForm<LawyerFormData>({
         resolver: zodResolver(lawyerSchema),
+        defaultValues: {
+            firmName: "",
+            attorneyName: "",
+            email: "",
+            phone: "",
+            barNumber: "",
+            practiceAreas: "",
+            caseType: "",
+            clientName: "",
+            clientEmail: "",
+            clientPhone: "",
+            accidentDate: "",
+            injuryDescription: "",
+            urgency: "",
+            additionalInfo: "",
+        },
     })
 
     const onSubmit = async (values: LawyerFormData) => {
@@ -320,10 +336,8 @@ export function LawyerContactForm() {
                 {/* Step 2: Dialog with client details and case info */}
                 <Dialog open={openDialog} onOpenChange={setOpenDialog}>
                     <DialogContent className="rounded-[20px] p-4 sm:p-[32px] sm:min-w-3xl w-full max-h-[90vh] overflow-y-auto">
-                        <DialogTitle>
-                            <h4 className='text-[#111315] text-2xl' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}>
-                                Complete Attorney Coordination Request
-                            </h4>
+                        <DialogTitle className='text-[#111315] text-2xl' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}>
+                            Complete Attorney Coordination Request
                         </DialogTitle>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
