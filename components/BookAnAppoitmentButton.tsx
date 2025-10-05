@@ -84,7 +84,8 @@ export default function BookAnAppoitmentButton({
         if (typeof window !== "undefined" && window.dataLayer) {
             window.dataLayer.push({
                 event: 'booking_click',
-                button_location: 'BookAnAppoitmentButton'
+                button_location: 'BookAnAppoitmentButton',
+                pagePath: window.location.pathname,
             });
         }
         setOpen(true)
@@ -107,6 +108,14 @@ export default function BookAnAppoitmentButton({
         persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
         pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
         pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
+        
+        if (typeof window !== 'undefined' && window.dataLayer) {
+            window.dataLayer.push({
+                event: 'form_submission',
+                formName: 'BookAnAppointmentForm',
+                pagePath: window.location.pathname,
+            });
+        }
         
         if (data) {
             setOpen(false)
