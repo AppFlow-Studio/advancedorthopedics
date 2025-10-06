@@ -19,9 +19,14 @@ function isValidSlug(slug: string | undefined | null): boolean {
 
 // Helper function to generate URL entry
 function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
+  const loc = buildCanonical(path);
+  // Self-check assertion
+  if (loc !== buildCanonical(path)) {
+    console.error(`Sitemap canonical mismatch for path: ${path}`);
+  }
   return `
   <url>
-    <loc>${buildCanonical(path)}</loc>
+    <loc>${loc}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>

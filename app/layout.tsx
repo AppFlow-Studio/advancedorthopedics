@@ -11,7 +11,7 @@ import Script from "next/script";
 import TanstackProvider from "@/providers/tanstack";
 import OrphanLinksFooter from "@/components/OrphanLinksFooter";
 import StaticNav from "@/components/StaticNav.server";
-import { buildCanonical, SITE_URL } from "@/lib/seo";
+import { buildCanonical, SITE_URL, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export const viewport: Viewport = {
@@ -71,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Mountain Spine & Orthopedics",
       description: "Florida's trusted experts in spine and joint care. Book today.",
-      url: url,
+      url: canonicalForOg('/'),
       siteName: "Mountain Spine & Orthopedics",
       type: "website",
       locale: "en_US",

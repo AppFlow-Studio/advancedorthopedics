@@ -222,7 +222,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             }}
             className='text-white text-xl'
           >
-            Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 Locations and an Ambulatory Surgery Center.
+            Mountain Spine & Orthopedics delivers expert spine care across Florida with 9 Locations and an Ambulatory Surgery Center.
           </p>
         </div>
       </section>

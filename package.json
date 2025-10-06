@@ -13,7 +13,13 @@
     "seo:audit": "node scripts/seo-local-sitemap-audit.mjs --concurrency=4 --timeout=25000 --headless",
     "seo:audit:debug": "node scripts/seo-local-sitemap-audit.mjs --concurrency=2 --timeout=30000 --debug",
     "seo:audit:only": "node scripts/seo-local-sitemap-audit.mjs --only=",
-    "seo:test": "node scripts/test-seo-rendering.mjs"
+    "seo:test": "node scripts/test-seo-rendering.mjs",
+    "seo:check": "tsx scripts/seo/check-canonicals.ts",
+    "seo:check:local": "tsx scripts/seo/check-canonicals-local.ts",
+    "seo:check:static": "tsx scripts/seo/check-canonicals-static.ts",
+    "seo:check:comprehensive": "tsx scripts/seo/check-canonicals-comprehensive.ts",
+    "seo:check:quick": "tsx scripts/seo/check-canonicals-quick.ts",
+    "seo:check:gsc": "tsx scripts/seo/check-gsc-duplicates.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -70,6 +76,7 @@
     "@types/node": "^20",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
+    "chalk": "^5.6.2",
     "cheerio": "^1.1.0",
     "csv-stringify": "^6.6.0",
     "dotenv": "^17.2.0",
@@ -77,11 +84,14 @@
     "eslint-config-next": "15.2.4",
     "fast-csv": "^5.0.0",
     "fast-xml-parser": "^5.2.5",
+    "glob": "^11.0.3",
+    "jsdom": "^27.0.0",
     "node-fetch": "^3.3.2",
     "p-limit": "^6.2.0",
     "puppeteer": "^23.0.0",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5",
     "xml2js": "^0.6.2"
   }

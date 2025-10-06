@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
+import { buildCanonical, canonicalForOg, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import StaticNav from "@/components/StaticNav.server";
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
     description: 'Comprehensive guide to orthopedic conditions, spine disorders, and joint problems. Expert diagnosis and treatment options from board-certified specialists.',
-    url: buildCanonical('/area-of-specialty'),
+    url: canonicalForOg('/area-of-specialty'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
     images: [
@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonical('/area-of-specialty'),
   },
+  robots: { index: true, follow: true, maxSnippet: -1, maxImagePreview: "large", maxVideoPreview: -1 },
 }
 
 export default function AreaOfSpecialtyLayout({

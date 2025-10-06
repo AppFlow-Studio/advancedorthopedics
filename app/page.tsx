@@ -53,9 +53,6 @@ const MRI3 = 'https://mountainspineortho.b-cdn.net/public/MRI3.png';
 export const metadata: Metadata = {
   title: 'Mountain Spine & Orthopedics | Top Florida Spine & Joint Pain Specialists',
   description: 'Trusted orthopedic and spine care across Florida. Experts in minimally invasive surgery, arthritis, and joint pain relief. Book your free MRI review or second opinion today.',
-  alternates: {
-    canonical: buildCanonical('/'),
-  },
   openGraph: {
     title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
     description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',

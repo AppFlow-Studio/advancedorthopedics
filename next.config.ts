@@ -35,7 +35,21 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
+  // Only apply host redirects in production
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   return [
+    // --- HOST/PROTOCOL/CASE/SLASH NORMALIZATION (301s) - PRODUCTION ONLY ---
+    ...(isProduction ? [
+      { source: "/:path*", has:[{type:"host",value:"mountainspineorthopedics.com"}],
+        destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
+      { source: "/:path*", has:[{type:"host",value:"www.mountainspineorthopedics.com"}],
+        destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
+    ] : []),
+    
+    // Trailing slash redirect (applies everywhere)
+    { source: "/:path*/", destination:"/:path*", permanent:true },
+    
     // --- TYPO FIX: area-of-speciality → area-of-specialty ---
     {"source":"/area-of-speciality","destination":"/area-of-specialty","permanent":true},
     {"source":"/area-of-speciality/:slug*","destination":"/area-of-specialty/:slug*","permanent":true},

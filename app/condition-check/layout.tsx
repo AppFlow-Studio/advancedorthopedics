@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildCanonical, srOnly } from "@/lib/seo";
+import { buildCanonical, canonicalForOg, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Orthopedic Condition Checker | Mountain Spine & Orthopedics',
     description: 'Answer a few quick questions to see if you\'re a candidate for minimally invasive spine or joint treatment. Takes less than 2 minutes.',
-    url: buildCanonical('/condition-check'),
+    url: canonicalForOg('/condition-check'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'Answer a few quick questions to see if you\'re a candidate for minimally invasive spine or joint treatment. Takes less than 2 minutes.',
     images: [getOgImageForPath('/')],
   },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true, maxSnippet: -1, maxImagePreview: "large", maxVideoPreview: -1 },
 };
 
 export default function ConditionCheckLayout({
