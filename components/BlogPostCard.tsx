@@ -47,16 +47,16 @@ function truncateString(str: string, maxLength = 120) {
 // Internal link mapping based on anatomical tags from conditions/treatments
 function getInternalLinks(tags: string[]): { url: string; text: string }[] {
     const linkMap: Record<string, { url: string; text: string }[]> = {
-        // Blog tags mapped to anatomical conditions/treatments
+        // Blog tags mapped to anatomical conditions/treatments (ONLY VERIFIED PAGES)
         "Back Pain": [
-            { url: "/area-of-specialty/lumbar-degenerative-disc-disease", text: "Degenerative Disc Disease" },
+            { url: "/area-of-specialty/degenerative-disc-disease", text: "Degenerative Disc Disease" },
             { url: "/area-of-specialty/lumbar-herniated-disc", text: "Herniated Disc Treatment" },
-            { url: "/treatments/minimally-invasive-spine-surgery", text: "Minimally Invasive Surgery" }
+            { url: "/treatments/back-pain-treatment", text: "Back Pain Treatment" }
         ],
         "Neck Pain": [
-            { url: "/area-of-specialty/cervical-stenosis", text: "Cervical Stenosis" },
+            { url: "/area-of-specialty/cervical-spinal-stenosis", text: "Cervical Stenosis" },
             { url: "/area-of-specialty/cervical-herniated-disc", text: "Cervical Disc Treatment" },
-            { url: "/treatments/anterior-cervical-discectomy-and-fusion", text: "ACDF Surgery" }
+            { url: "/treatments/acdf-surgery", text: "ACDF Surgery" }
         ],
         "Joint Care": [
             { url: "/area-of-specialty/arthritis", text: "Arthritis Treatment" },
@@ -65,59 +65,58 @@ function getInternalLinks(tags: string[]): { url: string; text: string }[] {
         ],
         "Spinal Surgery": [
             { url: "/treatments/spinal-fusion", text: "Spinal Fusion Surgery" },
-            { url: "/treatments/minimally-invasive-spine-surgery", text: "Minimally Invasive Surgery" },
+            { url: "/treatments/motion-preservation-spine-surgery", text: "Motion Preservation" },
             { url: "/area-of-specialty/spinal-stenosis", text: "Spinal Stenosis" }
         ],
         "Sports Injury": [
-            { url: "/area-of-specialty/rotator-cuff-tears", text: "Rotator Cuff Repair" },
-            { url: "/treatments/arthroscopic-surgery", text: "Arthroscopic Surgery" },
-            { url: "/area-of-specialty/acl-tears", text: "ACL Injury Treatment" }
+            { url: "/area-of-specialty/rotator-cuff-tear", text: "Rotator Cuff Repair" },
+            { url: "/treatments/arthroscopic-knee-surgery", text: "Arthroscopic Surgery" },
+            { url: "/area-of-specialty/acl-injury", text: "ACL Injury Treatment" }
         ],
         "Recovery": [
-            { url: "/treatments/physical-therapy", text: "Physical Therapy" },
-            { url: "/area-of-specialty/post-surgical-recovery", text: "Post-Surgical Recovery" },
-            { url: "/treatments/pain-management", text: "Pain Management" }
+            { url: "/treatments/non-surgical-treatments-for-pain-management", text: "Pain Management" },
+            { url: "/treatments/back-pain-treatment", text: "Back Pain Treatment" }
         ],
         "Minimally Invasive": [
             { url: "/treatments/endoscopic-discectomy-surgery", text: "Endoscopic Discectomy" },
-            { url: "/treatments/minimally-invasive-spine-surgery", text: "Minimally Invasive Surgery" },
-            { url: "/area-of-specialty/minimally-invasive-procedures", text: "Minimally Invasive Procedures" }
+            { url: "/treatments/motion-preservation-spine-surgery", text: "Motion Preservation" },
+            { url: "/treatments/lumbar-microendoscopic-discectomy-surgery", text: "Microendoscopic Surgery" }
         ],
-        // Direct anatomical tag mappings (from conditions/treatments data)
+        // Direct anatomical tag mappings (from conditions/treatments data) - ONLY VERIFIED PAGES
         "Spine": [
             { url: "/area-of-specialty/spinal-stenosis", text: "Spinal Stenosis" },
             { url: "/treatments/spinal-fusion", text: "Spinal Fusion" },
             { url: "/area-of-specialty/degenerative-disc-disease", text: "Disc Disease" }
         ],
         "Lower Spine": [
-            { url: "/area-of-specialty/lumbar-stenosis", text: "Lumbar Stenosis" },
+            { url: "/area-of-specialty/spinal-stenosis", text: "Spinal Stenosis" },
             { url: "/area-of-specialty/sciatica", text: "Sciatica Treatment" },
-            { url: "/treatments/lumbar-fusion", text: "Lumbar Fusion" }
+            { url: "/treatments/lumbar-fusion-surgery", text: "Lumbar Fusion" }
         ],
         "Neck": [
-            { url: "/area-of-specialty/cervical-stenosis", text: "Cervical Stenosis" },
+            { url: "/area-of-specialty/cervical-spinal-stenosis", text: "Cervical Stenosis" },
             { url: "/area-of-specialty/cervical-herniated-disc", text: "Cervical Disc" },
-            { url: "/treatments/anterior-cervical-discectomy-and-fusion", text: "ACDF Surgery" }
+            { url: "/treatments/acdf-surgery", text: "ACDF Surgery" }
         ],
         "Shoulder": [
-            { url: "/area-of-specialty/rotator-cuff-tears", text: "Rotator Cuff Repair" },
+            { url: "/area-of-specialty/rotator-cuff-tear", text: "Rotator Cuff Repair" },
             { url: "/area-of-specialty/shoulder-arthritis", text: "Shoulder Arthritis" },
-            { url: "/treatments/shoulder-replacement", text: "Shoulder Replacement" }
+            { url: "/treatments/resurfacing-shoulder-replacement", text: "Shoulder Replacement" }
         ],
         "Knee": [
-            { url: "/area-of-specialty/knee-arthritis", text: "Knee Arthritis" },
+            { url: "/area-of-specialty/torn-meniscus", text: "Torn Meniscus" },
             { url: "/treatments/total-knee-replacement", text: "Knee Replacement" },
-            { url: "/area-of-specialty/acl-tears", text: "ACL Injury" }
+            { url: "/area-of-specialty/acl-injury", text: "ACL Injury" }
         ],
         "Hand": [
             { url: "/area-of-specialty/carpal-tunnel-syndrome", text: "Carpal Tunnel" },
-            { url: "/area-of-specialty/hand-arthritis", text: "Hand Arthritis" },
-            { url: "/treatments/hand-surgery", text: "Hand Surgery" }
+            { url: "/area-of-specialty/tennis-elbow", text: "Tennis Elbow" },
+            { url: "/treatments/carpal-tunnel-release", text: "Carpal Tunnel Surgery" }
         ],
         "Foot": [
             { url: "/area-of-specialty/plantar-fasciitis", text: "Plantar Fasciitis" },
-            { url: "/area-of-specialty/bunions", text: "Bunion Treatment" },
-            { url: "/treatments/foot-surgery", text: "Foot Surgery" }
+            { url: "/area-of-specialty/bunions-hallux-valgus", text: "Bunion Treatment" },
+            { url: "/area-of-specialty/achilles-tendonitis", text: "Achilles Tendonitis" }
         ]
     }
 

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { GetBlogsPaginated } from "./api/get-blogs";
@@ -43,6 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const url = new URL(headersList.get("x-url") || "https://mountainspineorthopedics.com/blogs");
   const tag = url.searchParams.get("tag");
   const page = parseInt(url.searchParams.get("page") || "1", 10);
+  const perPage = 6; // Ensure this matches the page size
 
   let title = "Orthopedic Blog | Mountain Spine & Orthopedics";
   let description =
@@ -56,32 +56,40 @@ export async function generateMetadata(): Promise<Metadata> {
     description = `Read expert blog posts and resources about ${tag} from our orthopedic specialists in Florida.`;
   }
 
-  // Canonical is now page-specific
-  const canonicalUrl = buildCanonical(`/blogs${tag ? `?tag=${encodeURIComponent(tag)}` : ""}${page > 1 ? `&page=${page}` : ""}`);
-  const ogImage = getOgImageForPath("/blogs");
+  // --- CORRECTED URL & PAGINATION LOGIC ---
 
-  // Build pagination links
-  const baseUrl = `/blogs${tag ? `?tag=${encodeURIComponent(tag)}` : ""}`;
-  const alternates: any = {
-    canonical: canonicalUrl
+  // Base path with optional tag
+  const basePath = `/blogs${tag ? `?tag=${encodeURIComponent(tag)}` : ""}`;
+  
+  // Function to correctly append page parameter
+  const buildPageUrl = (p: number) => {
+    if (p <= 1) return basePath;
+    const separator = basePath.includes('?') ? '&' : '?';
+    return `${basePath}${separator}page=${p}`;
   };
 
-  // Add prev/next links for pagination
+  const canonicalUrl = buildCanonical(buildPageUrl(page));
+  const ogImage = getOgImageForPath("/blogs");
+
+  const alternates: { canonical: string; prev?: string; next?: string } = {
+    canonical: canonicalUrl,
+  };
+
+  // Add prev link
   if (page > 1) {
-    alternates.prev = buildCanonical(`${baseUrl}${page === 2 ? "" : `&page=${page - 1}`}`);
+    alternates.prev = buildCanonical(buildPageUrl(page - 1));
   }
   
-  // Check if there are more pages by fetching total count
+  // Check for a next page and add the link
   try {
-    const { total } = await GetBlogsPaginated(page, 6, tag || undefined);
-    const totalPages = Math.ceil((total || 0) / 6);
+    const { total } = await GetBlogsPaginated(page, perPage, tag || undefined);
+    const totalPages = Math.ceil((total || 0) / perPage);
     
     if (page < totalPages) {
-      alternates.next = buildCanonical(`${baseUrl}&page=${page + 1}`);
+      alternates.next = buildCanonical(buildPageUrl(page + 1));
     }
   } catch (error) {
     console.error("Error fetching blog count for pagination:", error);
-    // Continue without next link if there's an error
   }
 
   return {
@@ -222,11 +230,17 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
         "url": `https://mountainspineorthopedics.com/blogs/${post.slug}`,
         "datePublished": post.created_at,
         "dateModified": post.modified_at || post.created_at,
-        "author": {
-          "@type": "Person",
-          "name": post.blog_info?.author || "Mountain Spine & Orthopedics",
-          "jobTitle": "Orthopedic Surgeon"
-        },
+        "author": post.blog_info?.author && post.blog_info.author !== "Mountain Spine & Orthopedics"
+          ? {
+              "@type": "Person",
+              "name": post.blog_info.author,
+              "jobTitle": "Orthopedic Surgeon"
+            }
+          : {
+              "@type": "Organization",
+              "name": "Mountain Spine & Orthopedics",
+              "url": "https://mountainspineorthopedics.com"
+            },
         "publisher": {
           "@type": "Organization",
           "name": "Mountain Spine & Orthopedics",
@@ -244,7 +258,6 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
 
   return (
     <>
-      <StaticNav />
       {children}
       <script
         type="application/ld+json"

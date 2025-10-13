@@ -23,6 +23,16 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
+
+// Professional association logo alt text mapping
+const associationLogoAlt: Record<string, string> = {
+  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+  'ACP': 'American College of Physicians (ACP) certification',
+  'AOA': 'American Osteopathic Association (AOA) accreditation',
+  'NASS': 'North American Spine Society (NASS) membership badge',
+  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+};
 import { redirect } from 'next/navigation'
 // Reverted form schema to match the "Candidacy Check" steps from the image
 const formSchema = z.object({
@@ -125,10 +135,9 @@ const Testimonial = (
 )
 
 const Header = (
-  <p>
-    Reasons Why You Should Seek: <br /><br />
-    Candidacy Check for Spine Treatment
-  </p>
+  <span>
+    Reasons Why You Should Seek Candidacy Check for Spine Treatment
+  </span>
 )
 
 export default function CandidacyCheckClient() {
@@ -443,8 +452,15 @@ export default function CandidacyCheckClient() {
       >
         <Marquee pauseOnHover className='w-full' >
           {
-            [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-              <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+            [
+              { img: AAOS, name: 'AAOS' },
+              { img: ACP, name: 'ACP' },
+              { img: AOA, name: 'AOA' },
+              { img: NASS, name: 'NASS' },
+              { img: Serpent, name: 'Serpent' },
+              { img: SMIS, name: 'SMIS' }
+            ].map((item, index) => (
+              <Image key={index} src={item.img} alt={associationLogoAlt[item.name]} className=" h-[40px] object-contain mx-[20px]" />
             ))
           }
         </Marquee>

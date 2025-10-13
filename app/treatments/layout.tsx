@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { buildCanonical, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
-import StaticNav from "@/components/StaticNav.server";
+import { TreatmentsItemListSchema } from '@/components/TreatmentsItemListSchema';
 
 export const metadata: Metadata = {
   title: 'Orthopedic Treatments & Procedures | Mountain Spine & Orthopedics',
@@ -39,9 +39,7 @@ export default function TreatmentsLayout({
 }) {
   return (
     <div>
-      <h1 className={srOnly}>Orthopedic Treatments & Procedures</h1>
-      <h2 className={srOnly}>Minimally Invasive Care Options</h2>
-      <StaticNav />
+      <TreatmentsItemListSchema />
       {children}
     </div>
   );

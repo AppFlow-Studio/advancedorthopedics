@@ -39,7 +39,7 @@ export default function HomeInteractiveAnatomy() {
 
         <div className="flex xl:flex-row flex-col justify-between w-full relative">
           <div className="xl:py-24 z-20 xl:max-w-[30%] xl:w-[20%] w-full">
-            <h3
+            <p
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500, color: '#252932',
@@ -47,7 +47,7 @@ export default function HomeInteractiveAnatomy() {
               className="text-2xl xl:text-start text-center"
             >
               See Our Treatment Category
-            </h3>
+            </p>
 
             <div className="space-y-[20px] flex flex-col mt-[24px]">
               {selectedOrthoCondition.treatment_categories.map((item, index) => (
@@ -157,7 +157,7 @@ export default function HomeInteractiveAnatomy() {
               animation="blurInUp"
               by="character"
               once
-              as="h3"
+              as="p"
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500, color: '#0A50EC',

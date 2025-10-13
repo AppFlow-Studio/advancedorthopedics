@@ -82,11 +82,115 @@ const breadcrumbSchema = {
   ]
 }
 
+// HowTo Schema for the condition checker process
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Check Your Spine Condition with Our Free Online Assessment",
+  "description": "Answer a few quick questions to see if you're a candidate for minimally invasive spine or joint treatment. Takes less than 2 minutes.",
+  "totalTime": "PT2M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Describe Your Pain",
+      "text": "Understanding the nature and intensity of your pain is the first step. You'll answer questions about where your pain is, how long you've had it, and what it feels like.",
+      "url": "https://mountainspineorthopedics.com/condition-check#step-1"
+    },
+    {
+      "@type": "HowToStep", 
+      "name": "Describe Your Symptoms",
+      "text": "Pinpoint how your pain responds to different activities and identify other specific symptoms like numbness or tingling.",
+      "url": "https://mountainspineorthopedics.com/condition-check#step-2"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Provide Your Profile", 
+      "text": "A few details about you help us protect your information and provide a more targeted preliminary diagnosis.",
+      "url": "https://mountainspineorthopedics.com/condition-check#step-3"
+    }
+  ],
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Computer or mobile device"
+    },
+    {
+      "@type": "HowToSupply", 
+      "name": "Internet connection"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Mountain Spine & Orthopedics Condition Checker"
+    }
+  ]
+}
+
+// MedicalOrganization Schema for brand consistency
+const medicalOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Mountain Spine & Orthopedics",
+  "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+  "url": "https://mountainspineorthopedics.com",
+  "logo": "https://mountainspineorthopedics.com/newlogo4.png",
+  "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
+  "telephone": [
+    "(561) 223-9959",
+    "(754) 212-8736", 
+    "(407) 565-7598",
+    "(407) 960-1717",
+    "(863) 777-5805",
+    "(561) 556-1802",
+    "(954) 987-2047",
+    "(561) 544-5501"
+  ],
+  "medicalSpecialty": [
+    "Orthopedic Surgery",
+    "Spine Surgery", 
+    "Sports Medicine",
+    "Pain Management",
+    "Minimally Invasive Surgery",
+    "Joint Replacement",
+    "Spinal Fusion",
+    "Discectomy",
+    "Arthroscopy"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.7663,
+      "longitude": -82.6404
+    },
+    "geoRadius": "300000"
+  },
+  "areaServed": [
+    "Florida",
+    "Hollywood, FL",
+    "Orlando, FL", 
+    "Altamonte Springs, FL",
+    "Davenport, FL",
+    "Fort Pierce, FL",
+    "Palm Beach Gardens, FL",
+    "Miami Beach, FL",
+    "Boca Raton, FL"
+  ]
+}
+
 export default function ConditionChecker() {
   return (
     <main className="w-full flex flex-col items-center justify-center bg-white h-full" aria-label="Condition Check Main Content">
-      {/* JSON-LD Breadcrumb Schema */}
+      {/* JSON-LD Schema Markup */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
       {/* Landing Section */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-labelledby="condition-check-heading">
         <div
@@ -101,7 +205,7 @@ export default function ConditionChecker() {
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt="Orthopedic specialist performing spine condition assessment for online diagnosis tool at Mountain Spine & Orthopedics"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -138,46 +242,6 @@ export default function ConditionChecker() {
       </section>
       {/* Interactive Condition Checker Section */}
       <ConditionCheckSection steps={ConditionCheckSteps} initialValues={initialValues} />
-      {/* Informational Cards Section */}
-      <section className='w-full h-full xl:space-y-0 space-y-6 flex flex-col xl:flex-row space-x-[32px] relative overflow-hidden py-[50px] px-6 lg:px-[80px]'>
-        <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
-          <h1
-            style={{
-              fontFamily: "var(--font-public-sans)",
-              fontWeight: 500,
-            }}
-            className='text-[#252932] text-4xl md:text-5xl'
-          >Check<br className='md:flex hidden' /> Back Pain & Neck Pain</h1>
-          <h1
-            style={{
-              fontFamily: "var(--font-public-sans)",
-              fontWeight: 500,
-            }}
-            className='text-[#424959] text-lg md:text-xl'
-          >When you first visit a doctor, he will ask questions about the symptoms you’re experiencing. This is known as medical history. It allows the doctor to get more information about your symptoms. For instance, when they first developed, what makes them worse and what treatments you’ve tried.
-            <br /> <br />
-            The doctor will then do a physical examination to assess your muscle strength, sensation and reflexes so they can determine your particular condition. The location of symptoms will help the doctor narrow down the conditions you may have. After the physical examination, the doctor may perform additional tests to accurately confirm the diagnosis. These can include X-rays, CT scans or MRI scans.</h1>
-        </div>
-        <div className=' flex flex-col space-y-[40px] rounded-[24px] bg-[#FAFAFA] p-4 md:p-[40px] w-full xl:w-[50%]'>
-          <h1
-            style={{
-              fontFamily: "var(--font-public-sans)",
-              fontWeight: 500,
-            }}
-            className='text-[#252932] text-4xl md:text-5xl'
-          >Mountain Spine & Orthopedics<br className='md:flex hidden' /> Condition Check Tool</h1>
-          <h1
-            style={{
-              fontFamily: "var(--font-public-sans)",
-              fontWeight: 500,
-            }}
-            className='text-[#424959] text-lg md:text-xl'>
-            Mountain Spine & Orthopedics offers a free condition check tool to help you understand the source of <a href="/area-of-specialty?data=%7B%22tags%22%3A%5B%22Lower+Spine%22%5D%7D" className='text-[#252932] underline'>your back pain.</a> With our condition check tool, you can quickly identify your current neck, back or spine problem so you can obtain treatment as soon as possible.
-            <br /><br />
-            To complete the condition check tool, describe your pain, tell us about your symptoms and give us additional information about the history of your pain. An Mountain Spine & Orthopedics spine specialist will get back to you with the results of your assessment. Keep in mind, however, that an online diagnosis isn’t conclusive and you need to<a href="#contact-us-section" className='text-[#252932] underline'> be further evaluated by an Mountain Spine & Orthopedics specialist</a> at one of our clinics.
-          </h1>
-        </div>
-      </section>
       {/* Final CTA Section */}
       <section className="w-full flex flex-col items-center justify-center py-16" aria-label="Condition Check CTA">
         <h2 className="text-3xl md:text-5xl font-bold text-[#252932] mb-4" style={{ fontFamily: 'var(--font-public-sans)' }}>

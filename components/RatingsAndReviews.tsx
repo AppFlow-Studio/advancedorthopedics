@@ -86,14 +86,14 @@ export default function RatingsAndReviews() {
       aria-labelledby="reviews-heading"
     >
       <div>
-        <h4
+        <h2
           id="reviews-heading"
           style={{
             fontFamily: "var(--font-public-sans)",
             fontWeight: 500,
           }}
           className="text-black text-5xl text-left w-full"
-        >What Our Patients Say</h4>
+        >What Our Patients Say</h2>
       </div>
       <div
         style={{

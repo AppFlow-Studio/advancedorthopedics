@@ -2,6 +2,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react' // Added useState
 import Image from 'next/image'
+import Link from 'next/link'
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 // Remove the basic Input import if no longer needed elsewhere
 // import { Input } from '@/components/ui/input'
@@ -185,7 +186,7 @@ export default function Treatments() {
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt="Orthopedic surgeon explaining minimally invasive treatment procedures to a patient at Mountain Spine & Orthopedics"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -201,14 +202,18 @@ export default function Treatments() {
       /> */}
         <div className="z-[1] flex flex-col w-full h-full text-left relative sm:pt-60 sm:pb-20 pt-30 pb-0">
           <div className=" px-6  xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center text-center w-full">
-            <TextAnimate animation="blurInUp" by="word" once
+            <TextAnimate 
+              as="h1"
+              animation="blurInUp" 
+              by="word" 
+              once
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
               }}
               className="text-[#252932] text-3xl md:text-6xl lg:text-7xl"
             >
-              Treatments
+              Orthopedic Treatments & Procedures
             </TextAnimate>
           </div>
 
@@ -300,32 +305,22 @@ export default function Treatments() {
             </div>
 
             {/* Filter Dropdown */}
-            {/* <div className="w-full md:w-1/2">
-                <Select
-                  value={selectedFilters.join(',')}
-                  onValueChange={(value) => {
-                    if (value === '') {
-                      setSelectedFilters([]);
-                    } else {
-                      handleFilterChange(value);
-                    }
-                  }}
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Filter by category"  />
-                  </SelectTrigger>
-                  <SelectContent >
-                    {filterCategories.map((category) => (
-                      <SelectItem key={category.value} value={category.value}>
-                        <div className="flex items-center gap-2">
-                          <span>{category.label}</span>
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div> */}
             <div className='w-full md:w-1/2'>
+              {/* Hidden crawlable links for SEO */}
+              <div className="sr-only">
+                <nav aria-label="Filter treatments by category">
+                  {filterCategories.map(category => (
+                    <Link
+                      key={category.value}
+                      href={`/treatments?category=${encodeURIComponent(category.value)}`}
+                    >
+                      {category.label} Treatments
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+              
+              {/* Visible MultiSelect UI for users */}
               <MultiSelect
                 options={filterCategories}
                 onValueChange={setSelectedFilters}

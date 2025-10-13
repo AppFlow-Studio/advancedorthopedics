@@ -18,10 +18,16 @@ import {
 
 interface LocationsClientProps {
   selectedLocation?: any
-  setSelectedLocation: (location: any) => void
+  setSelectedLocation?: (location: any) => void
 }
 
 export default function LocationsClient({ selectedLocation, setSelectedLocation }: LocationsClientProps) {
+  // Create local state if props are not provided
+  const [localSelectedLocation, setLocalSelectedLocation] = useState(selectedLocation);
+  
+  // Use props if provided, otherwise use local state
+  const currentSelectedLocation = selectedLocation !== undefined ? selectedLocation : localSelectedLocation;
+  const currentSetSelectedLocation = setSelectedLocation || setLocalSelectedLocation;
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [hasMounted, setHasMounted] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
@@ -102,7 +108,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
       onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
       onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
       onClick={() => {
-        setSelectedLocation(clinic)
+        currentSetSelectedLocation(clinic)
         const goToSection = () => {
           const section = document.getElementById('Locations')
           if (section) {
@@ -227,7 +233,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
         </div>
       </section>
 
-      <ClinicsMap startingClinic={selectedLocation} />
+      <ClinicsMap startingClinic={currentSelectedLocation} />
       <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
         {/* Header Section */}
         <motion.div

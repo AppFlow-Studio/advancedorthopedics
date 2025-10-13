@@ -112,10 +112,6 @@ export default async function ConditionDetails({
   const randomDoctors = shuffleArray(Doctors).slice(0, 2);
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-      {/* SEO: Semantic headings for screen readers */}
-      <h1 className={srOnly}>{condition_details.title}</h1>
-      <h2 className={srOnly}>Overview</h2>
-      
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
@@ -130,7 +126,7 @@ export default async function ConditionDetails({
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt={`Doctor evaluating patient symptoms for ${condition_details.title} diagnosis at Mountain Spine & Orthopedics`}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"

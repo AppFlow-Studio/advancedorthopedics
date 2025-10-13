@@ -9,6 +9,7 @@ import { socials } from '@/components/DoctorCard';
 import { DoctorContactForm } from '@/components/DoctorContactForm';
 import Link from 'next/link';
 import type { DoctorProp } from '@/components/data/doctors';
+import { findTreatmentLinkForSpecialty, findConditionLinkForCondition } from '@/lib/doctor-linking-utils';
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -23,16 +24,6 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
   if (!doctor_details) {
     return notFound();
   }
-
-  // Example placeholder for conditions treated (replace with real data if available)
-  const conditionsTreated = [
-    'Herniated Discs',
-    'Sciatica',
-    'Spinal Stenosis',
-    'Degenerative Disc Disease',
-    'Scoliosis',
-    'Spine Fractures',
-  ];
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -50,7 +41,7 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt={`${doctor_details.name}, ${doctor_details.practice}, consulting with patients at Mountain Spine & Orthopedics`}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -142,24 +133,42 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
           <section className=' flex flex-col space-y-[24px]'>
             <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] text-4xl">Specialties</h2>
             <ul className='flex flex-col space-y-4'>
-              {['Laser Spine Surgery', 'Laminoforaminotomy', 'Endoscopic Foraminotomy', 'Orthopedic Surgery', 'Interlaminar Spacer'].map((item) => (
-                <li key={item} className=' flex flex-row space-x-2 items-center'>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M1.29199 8.99996C1.29199 13.2572 4.74313 16.7083 9.00033 16.7083C13.2575 16.7083 16.7087 13.2572 16.7087 8.99996C16.7087 4.74276 13.2575 1.29163 9.00033 1.29163C4.74313 1.29163 1.29199 4.74276 1.29199 8.99996ZM9.00033 17.9583C4.05277 17.9583 0.0419922 13.9475 0.0419922 8.99996C0.0419922 4.05241 4.05277 0.041626 9.00033 0.041626C13.9479 0.041626 17.9587 4.05241 17.9587 8.99996C17.9587 13.9475 13.9479 17.9583 9.00033 17.9583ZM12.7944 6.92229C13.0276 6.66784 13.0104 6.27249 12.756 6.03924C12.5015 5.806 12.1062 5.82319 11.8729 6.07764L7.73069 10.5964L6.10893 8.97469C5.86486 8.73061 5.46913 8.73061 5.22505 8.97469C4.98097 9.21877 4.98097 9.61449 5.22505 9.85857L7.30838 11.9419C7.42892 12.0624 7.59347 12.1285 7.7639 12.1248C7.93433 12.1211 8.09586 12.048 8.21105 11.9223L12.7944 6.92229Z" fill="#92BCFF" />
-                  </svg>
-                  <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className='text-[#111315] text-xl'>{item}</span>
-                </li>
-              ))}
+              {doctor_details.specialties.map((item) => {
+                const link = findTreatmentLinkForSpecialty(item);
+                return (
+                  <li key={item} className=' flex flex-row space-x-2 items-center'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M1.29199 8.99996C1.29199 13.2572 4.74313 16.7083 9.00033 16.7083C13.2575 16.7083 16.7087 13.2572 16.7087 8.99996C16.7087 4.74276 13.2575 1.29163 9.00033 1.29163C4.74313 1.29163 1.29199 4.74276 1.29199 8.99996ZM9.00033 17.9583C4.05277 17.9583 0.0419922 13.9475 0.0419922 8.99996C0.0419922 4.05241 4.05277 0.041626 9.00033 0.041626C13.9479 0.041626 17.9587 4.05241 17.9587 8.99996C17.9587 13.9475 13.9479 17.9583 9.00033 17.9583ZM12.7944 6.92229C13.0276 6.66784 13.0104 6.27249 12.756 6.03924C12.5015 5.806 12.1062 5.82319 11.8729 6.07764L7.73069 10.5964L6.10893 8.97469C5.86486 8.73061 5.46913 8.73061 5.22505 8.97469C4.98097 9.21877 4.98097 9.61449 5.22505 9.85857L7.30838 11.9419C7.42892 12.0624 7.59347 12.1285 7.7639 12.1248C7.93433 12.1211 8.09586 12.048 8.21105 11.9223L12.7944 6.92229Z" fill="#92BCFF" />
+                    </svg>
+                    {link ? (
+                      <Link href={link} className='text-[#0A50EC] hover:underline'>
+                        <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className='text-xl'>{item}</span>
+                      </Link>
+                    ) : (
+                      <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className='text-[#111315] text-xl'>{item}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </section>
           <section className=' flex flex-col space-y-[24px]'>
             <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] text-4xl">Conditions Treated</h2>
             <ul className='flex flex-col space-y-4'>
-              {conditionsTreated.map((item) => (
-                <li key={item} className=' flex flex-row space-x-2 items-center'>
-                  <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className='text-[#111315] text-xl'>{item}</span>
-                </li>
-              ))}
+              {doctor_details.conditionsTreated.map((item) => {
+                const link = findConditionLinkForCondition(item);
+                return (
+                  <li key={item} className=' flex flex-row space-x-2 items-center'>
+                    {link ? (
+                      <Link href={link} className='text-[#0A50EC] hover:underline'>
+                        <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className='text-xl'>{item}</span>
+                      </Link>
+                    ) : (
+                      <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className='text-[#111315] text-xl'>{item}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </section>
           <section className=' flex flex-col space-y-[24px]'>

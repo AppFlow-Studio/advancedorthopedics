@@ -1,15 +1,17 @@
 import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
+import { Doctors } from '@/components/data/doctors';
+import PhysicianSchema from '@/components/PhysicianSchema';
 
 export const metadata = {
-  title: "Find a Doctor Near You | Mountain Spine",
-  description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+  title: "Find an Orthopedic Doctor in Florida | Mountain Spine & Orthopedics",
+  description: "Find board-certified orthopedic doctors and spine surgeons in Florida. Our expert physicians specialize in comprehensive spine care, joint reconstruction, and pain management.",
   alternates: {
     canonical: buildCanonical('/find-care/find-a-doctor'),
   },
   openGraph: {
-    title: "Find a Doctor Near You | Mountain Spine",
-    description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+    title: "Find an Orthopedic Doctor in Florida | Mountain Spine & Orthopedics",
+    description: "Find board-certified orthopedic doctors and spine surgeons in Florida. Our expert physicians specialize in comprehensive spine care, joint reconstruction, and pain management.",
     url: buildCanonical('/find-care/find-a-doctor'),
     images: [
       {
@@ -22,11 +24,64 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Find a Doctor Near You | Mountain Spine",
-    description: "Search for experienced orthopedic doctors near you. Filter by location, specialty, and more.",
+    title: "Find an Orthopedic Doctor in Florida | Mountain Spine & Orthopedics",
+    description: "Find board-certified orthopedic doctors and spine surgeons in Florida. Our expert physicians specialize in comprehensive spine care, joint reconstruction, and pain management.",
     images: [getOgImageForPath('/find-care')],
   },
 };
+
+// MedicalOrganization Schema for brand consistency
+const medicalOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Mountain Spine & Orthopedics",
+  "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+  "url": "https://mountainspineorthopedics.com",
+  "logo": "https://mountainspineorthopedics.com/newlogo4.png",
+  "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
+  "telephone": [
+    "(561) 223-9959",
+    "(754) 212-8736",
+    "(407) 565-7598",
+    "(407) 960-1717",
+    "(863) 777-5805",
+    "(561) 556-1802",
+    "(954) 987-2047",
+    "(561) 544-5501"
+  ],
+  "medicalSpecialty": [
+    "Orthopedic Surgery",
+    "Spine Surgery",
+    "Sports Medicine",
+    "Pain Management",
+    "Minimally Invasive Surgery",
+    "Joint Replacement",
+    "Spinal Fusion",
+    "Discectomy",
+    "Arthroscopy"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.7663,
+      "longitude": -82.6404
+    },
+    "geoRadius": "300000"
+  },
+  "areaServed": [
+    "Florida",
+    "Hollywood, FL",
+    "Orlando, FL",
+    "Altamonte Springs, FL",
+    "Davenport, FL",
+    "Fort Pierce, FL",
+    "Palm Beach Gardens, FL",
+    "Miami Beach, FL",
+    "Boca Raton, FL"
+  ]
+};
+
 import React from 'react'
 import ContactUsSection from '@/components/ContactUsSection'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
@@ -37,7 +92,16 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
-import { Doctors } from '@/components/data/doctors';
+
+// Professional association logo alt text mapping
+const associationLogoAlt: Record<string, string> = {
+  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+  'ACP': 'American College of Physicians (ACP) certification',
+  'AOA': 'American Osteopathic Association (AOA) accreditation',
+  'NASS': 'North American Spine Society (NASS) membership badge',
+  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+};
 import DoctorCard from '@/components/DoctorCard';
 import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
@@ -46,9 +110,16 @@ import { Marquee } from '@/components/magicui/marquee';
 export default function FindADoctor() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      {/* JSON-LD Schema Markup for SEO */}
+      <PhysicianSchema doctors={Doctors} wrapInItemList={true} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
       <section className=' bg-[#6FC2ED] w-full flex flex-row'>
         <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-          <TextAnimate animation="blurInUp" by="word" once
+          <TextAnimate 
+            animation="blurInUp" 
+            by="word" 
+            once
+            as="h1"
             style={{
               fontFamily: 'var(--font-public-sans)',
               fontWeight: 500,
@@ -57,15 +128,15 @@ export default function FindADoctor() {
           >
             Find a Doctor
           </TextAnimate>
-          <h1
+          <p
             style={{
               fontFamily: 'var(--font-public-sans)',
               fontWeight: 500,
             }}
-            className='text-white text-lg md:text-xl'
+            className='text-white text-lg md:text-xl mt-2'
           >
             Connect With a Top Spine Surgeon or Orthopedic Specialist
-          </h1>
+          </p>
         </div>
       </section>
       <FindCareContactUsSection page={'Find a Doctor'} backgroundcolor="white" />
@@ -73,8 +144,15 @@ export default function FindADoctor() {
       >
         <Marquee pauseOnHover className='w-full' >
           {
-            [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-              <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+            [
+              { img: AAOS, name: 'AAOS' },
+              { img: ACP, name: 'ACP' },
+              { img: AOA, name: 'AOA' },
+              { img: NASS, name: 'NASS' },
+              { img: Serpent, name: 'Serpent' },
+              { img: SMIS, name: 'SMIS' }
+            ].map((item, index) => (
+              <Image key={index} src={item.img} alt={associationLogoAlt[item.name]} className=" h-[40px] object-contain mx-[20px]" />
             ))
           }
         </Marquee>
@@ -83,13 +161,13 @@ export default function FindADoctor() {
       <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
         <div className=" flex flex-row">
           <div className=" flex flex-col space-y-[24px] w-[50%]">
-            <h1
+            <h2
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500,
               }}
               className="text-black text-5xl text-left w-full"
-            >Meet Our doctors</h1>
+            >Meet Our Doctors</h2>
           </div>
         </div>
         <div className=" mt-[60px] grid-cols-1 md:grid-cols-2 grid lg:grid-cols-3 gap-16">

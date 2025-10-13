@@ -71,43 +71,12 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h2>
         <p className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Hollywood orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
-
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Hollywood & Nearby Areas</h2>
-        <p className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <a href="https://mountainspineorthopedics.com/treatments/back-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">lumbar and cervical pain</a>, <a href="https://mountainspineorthopedics.com/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">cervical radiculopathy</a>, herniated nucleus pulposus, <a href="https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">degenerative disc disease</a>, <a href="https://mountainspineorthopedics.com/area-of-specialty/acl-injury" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACL tears and injuries</a>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
-        <h3 className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Over 15 years serving South Florida families with high patient satisfaction rates</li>
-          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
-          <li>Bilingual Spanish-speaking staff for our diverse community</li>
-          <li>Free parking and wheelchair-accessible medical facility</li>
-          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Hollywood, specializing in athletic injuries</li>
-          <li>Specialized pediatric orthopedic services for children and adolescents</li>
-        </ul>
-        <h3 className='font-bold text-xl'>Easily Accessible From Throughout South Florida:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Miami - 25 minutes via I-95</li>
-          <li>Fort Lauderdale - 20 minutes via I-95</li>
-          <li>Miami International Airport - 40 minutes via I-95</li>
-          <li>Downtown Miami - 30 minutes via I-95</li>
-          <li>Aventura & Hallandale Beach - 10 minutes via US-1</li>
-          <li>Pembroke Pines - 15 minutes via Pines Boulevard</li>
-          <li>Davie - 12 minutes via State Road 84</li>
-          <li>Miramar - 18 minutes via Miramar Parkway</li>
-        </ul>
-        <h3 className='font-bold text-xl'>Central Florida Theme Park Access:</h3>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Disney World (Orlando) - 3.5 hours via Florida's Turnpike</li>
-          <li>Universal Studios (Orlando) - 3.5 hours via Florida's Turnpike</li>
-          <li>Orlando International Airport - 3.5 hours via Florida's Turnpike</li>
-          <li>Downtown Orlando - 3.5 hours via I-4</li>
-        </ul>
-        <h3 className='font-bold text-xl'>Convenient for Hollywood & Surrounding Communities</h3>
-        <p className='text-lg'>Our <a href="https://mountainspineorthopedics.com/locations/hollywood-fl-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">modern orthopedic facility in Hollywood FL</a> is perfectly positioned to serve Hollywood, Aventura, Hallandale Beach, and Pembroke Pines residents who need expert spine care. We're easily accessible from I-95, US-1, and major South Florida highways, making it simple for the local community to receive advanced treatment close to home.</p>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Hollywood & Nearby Areas</h2>
+        <p className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -158,36 +127,24 @@ export const clinics: ClinicsProps[] = [
         <p className='text-lg'>Our Hollywood Orthopedic Center brings cutting-edge medical innovations to South Florida families with exclusive minimally invasive therapeutic procedures.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Treatment Options:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>
-            <span className='font-bold'>Advanced Pain Management:</span> <a href="https://mountainspineorthopedics.com/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Epidural steroid injections</a>, <a href="https://mountainspineorthopedics.com/treatments/stem-cell-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">regenerative stem cell therapy</a>, <a href="https://mountainspineorthopedics.com/treatments/non-surgical-treatments-for-pain-management" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">comprehensive pain management protocols</a>
-          </li>
-          <li>
-            <span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art laser spine procedures and precisely targeted radiofrequency ablation treatments using the latest minimally invasive technology
-          </li>
-          <li>
-            <span className='font-bold'>Precision Injections:</span> Image-guided facet joint procedures, targeted cortisone injections, trigger point therapy interventions
-          </li>
+          <li><span className='font-bold'>Advanced Pain Management:</span> <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">Epidural steroid injections</Link>, <Link href="/treatments/stem-cell-treatment" className="text-[#0A50EC] underline">regenerative stem cell therapy</Link>, <Link href="/treatments/non-surgical-treatments-for-pain-management" className="text-[#0A50EC] underline">comprehensive pain management protocols</Link></li>
+          <li><span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art laser spine procedures and precisely targeted radiofrequency ablation treatments using the latest minimally invasive technology</li>
+          <li><span className='font-bold'>Precision Injections:</span> Image-guided facet joint procedures, targeted cortisone injections, trigger point therapy interventions</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Exclusive Surgical Innovation:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>
-            <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and quick return to work
-          </li>
-          <li>
-            <span className='font-bold'>Minimally Invasive Clinical Excellence:</span> <a href="https://mountainspineorthopedics.com/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Advanced endoscopic techniques</a>, artificial disc replacement procedures, <a href="https://mountainspineorthopedics.com/treatments/spinal-fusion" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">motion-preserving spinal fusion</a>
-          </li>
-          <li>
-            <span className='font-bold'>Complex Specialized Procedures:</span> <a href="https://mountainspineorthopedics.com/treatments/acdf-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACDF surgery</a>, <a href="https://mountainspineorthopedics.com/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">revision spinal surgery</a>, <a href="https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">motion preservation techniques</a>, multi-level surgical procedures
-          </li>
+          <li><span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive surgical procedure available at select centers nationwide. Micro-incisions that heal like band-aids with high success rates and quick return to work</li>
+          <li><span className='font-bold'>Minimally Invasive Clinical Excellence:</span> <Link href="/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline">Advanced endoscopic techniques</Link>, artificial disc replacement procedures, <Link href="/treatments/spinal-fusion" className="text-[#0A50EC] underline">motion-preserving spinal fusion</Link></li>
+          <li><span className='font-bold'>Complex Specialized Procedures:</span> <Link href="/treatments/acdf-surgery" className="text-[#0A50EC] underline">ACDF surgery</Link>, <Link href="/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline">revision spinal surgery</Link>, <Link href="/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline">motion preservation techniques</Link>, multi-level surgical procedures</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Exclusive advantages for patients in Greater Hollywood area:</h3>
         <p className='text-lg'>Robotic-assisted minimally invasive procedures, computer-guided surgical navigation systems, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
-        <p className='text-lg'><a href="https://mountainspineorthopedics.com/find-care/candidacy-check" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Check Treatment Candidacy Today</a></p>
+        <p className='text-lg'><Link href="/find-care/candidacy-check" className="text-[#0A50EC] underline">Check Treatment Candidacy Today</Link></p>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Hollywood Patients Say</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Hollywood Patients Say</h2>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial
             name="Jennifer T."
@@ -252,8 +209,8 @@ export const clinics: ClinicsProps[] = [
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Palm Springs & Nearby Areas</h2>
-        <p className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <a href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</a>, <a href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</a>, <a href='/area-of-specialty/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</a>, <a href='/area-of-specialty/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</a>, and work injuries with personalized treatment plans.</p>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Palm Springs & Nearby Areas</h2>
+        <p className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</Link>, <Link href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</Link>, <Link href='/area-of-specialty/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</Link>, <Link href='/area-of-specialty/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, and work injuries with personalized treatment plans.</p>
       </div>
     ),
     whyChoose: (
@@ -308,7 +265,7 @@ export const clinics: ClinicsProps[] = [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Palm Springs Patients Say</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Palm Springs Patients Say</h2>
         <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
           <Testimonial
             name="Maria G."
@@ -354,39 +311,18 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Orthopedic Center in Orlando & Walk-in Clinic in Central Florida',
     metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.',
-    specialists:
+    specialists: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{
-          fontFamily: "var(--font-public-sans)",
-        }} className=' font-bold text-3xl '>Orlando Spine and Orthopedic Specialists of Central FL</h2>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Orlando Spine and Orthopedic Specialists of Central FL</h2>
         <p className='text-lg'>Orlando residents can get world-class spine care right here in Central Florida. As your trusted Orlando orthopedic center, Mountain Spine & Orthopedics brings expert care to Orlando families. We know Orlando life is active. Our goal is to give you the best care so you can get back to work and play.</p>
-        <p className='text-lg'>At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href="https://mountainspineorthopedics.com/treatments" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">treatments</a>. We put patients first. Here's why <a href="https://www.orlando.gov/Home" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Orlando</a> families choose us:</p>
-        <h3 className='font-bold text-xl'>World-Class Expertise</h3>
-        <p className='text-lg'>Our board-certified Orlando orthopedic surgeons have years of experience. They have a strong record of helping Orlando patients get better with advanced spine care techniques.</p>
-        <h3 className='font-bold text-xl'>Laser Spine & Radiofrequency Technology</h3>
-        <p className='text-lg'>Our <a href="https://mountainspineorthopedics.com/locations/hollywood-fl-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Orthopedic clinic</a> provides access to cutting-edge laser <a href="https://mountainspineorthopedics.com/treatments/hybrid-cervical-spine-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">spine procedures</a>. Our targeted treatments give great results with cutting-edge technology that helps Orlando residents heal faster.</p>
-        <h3 className='font-bold text-xl'>Band-Aid Back Surgery</h3>
-        <p className='text-lg'><a href="https://mountainspineorthopedics.com/" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Mountain Spine & Orthopedics</a> offers Band-Aid Back Surgery. This new technique uses tiny incisions. Our patients heal faster and hurt less than with traditional surgery.</p>
-        <h3 className='font-bold text-xl'>Minimally Invasive Excellence</h3>
-        <p className='text-lg'>We use treatments that make small cuts. This means less tissue damage and faster healing. Patients get back to life quicker with less pain and scarring.</p>
-      </div>,
-    skilled:
+      </div>
+    ),
+    skilled: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{
-          fontFamily: "var(--font-public-sans)",
-        }} className=' font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Orlando & Nearby Areas</h2>
-        <p className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <a href="https://mountainspineorthopedics.com/treatments/back-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">back pain</a>, <a href="https://mountainspineorthopedics.com/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">neck pain</a>, <a href="https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">disc problems</a>, <a href="https://mountainspineorthopedics.com/area-of-specialty/acl-injury" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACL injuries</a>, and work injuries. Every patient gets a treatment plan made just for them.</p>
-        <p className='text-lg'>Why Orlando Patients Choose Mountain Spine & Orthopedics:</p>
-        <ul className='text-lg list-disc pl-5 space-y-2'>
-          <li>Over 15 years serving Orlando families</li>
-          <li>Same-day appointments available for urgent problems</li>
-          <li>Spanish-speaking staff for Orlando's diverse community</li>
-          <li>Free parking at our Orlando orthopedic center.</li>
-        </ul>
-        <p className='text-lg'>Easy to Reach From Anywhere in Orlando: • Disney World - 20 minutes • Universal Studios - 15 minutes • Orlando Airport - 25 minutes • Downtown Orlando - 12 minutes • Lake Nona - 18 minutes</p>
-        <h3 className='font-bold text-xl'>Convenient for Lake Nona Residents</h3>
-        <p className='text-lg'>Our orthopedic walk-in clinic is perfectly positioned to serve <a href="https://lakenona.com/" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Lake Nona</a> residents who need expert spine care. We're easily accessible from Highway 417 and 528, making it simple for Orlando's Lake Nona community to receive advanced treatment without traveling far from home.</p>
-      </div>,
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Orlando & Nearby Areas</h2>
+        <p className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">disc problems</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, and work injuries. Every patient gets a treatment plan made just for them.</p>
+      </div>
+    ),
     whyChoose:
       <div className='flex flex-col space-y-4'>
         <h2 style={{
@@ -430,7 +366,7 @@ export const clinics: ClinicsProps[] = [
             <span className='font-bold'>Laser & Radiofrequency Treatments:</span> Advanced laser spine procedures and targeted radio treatments using the latest minimally invasive procedure technology for better outcomes.
           </li>
           <li>
-            <span className='font-bold'>Precision Injections:</span> <a href="https://mountainspineorthopedics.com/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Facet Joint Procedures</a> | <a href="https://mountainspineorthopedics.com/treatments/cortisone-injections-for-back-pain" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Cortisone Treatments</a>
+            <span className='font-bold'>Precision Injections:</span> <Link href="/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information" className="text-[#0A50EC] underline">Facet Joint Procedures</Link> | <Link href="/treatments/cortisone-injections-for-back-pain" className="text-[#0A50EC] underline">Cortisone Treatments</Link>
           </li>
         </ul>
         <h3 style={{
@@ -441,10 +377,10 @@ export const clinics: ClinicsProps[] = [
             <span className='font-bold'>Band Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at few locations. Tiny incisions that heal like band aids with exceptional results and faster recovery.
           </li>
           <li>
-            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href="https://mountainspineorthopedics.com/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Advanced Techniques</a> | <a href="https://mountainspineorthopedics.com/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Disc Replacement</a> | <a href="https://mountainspineorthopedics.com/treatments/spinal-fusion" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Spinal Fusion</a>
+            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href="https://mountainspineorthopedics.com/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Advanced Techniques</a> | <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">Disc Replacement</Link> | <a href="https://mountainspineorthopedics.com/treatments/spinal-fusion" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Spinal Fusion</a>
           </li>
           <li>
-            <span className='font-bold'>Complex Procedures:</span> <a href="https://mountainspineorthopedics.com/treatments/acdf-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACDF surgery</a> | <a href="https://mountainspineorthopedics.com/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Revision Surgery</a> | <a href="https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Motion Preservation</a>
+            <span className='font-bold'>Complex Procedures:</span> <Link href="/treatments/acdf-surgery" className="text-[#0A50EC] underline">ACDF surgery</Link> | <a href="https://mountainspineorthopedics.com/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Revision Surgery</a> | <a href="https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Motion Preservation</a>
           </li>
         </ul>
         <p className='text-lg'>Orlando's advantage: Robotic-assisted minimally invasive procedures, computer-guided navigation, same-day outpatient techniques.</p>
@@ -452,7 +388,7 @@ export const clinics: ClinicsProps[] = [
       </div>,
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Orlando Patients Say</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Orlando Patients Say</h2>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial
             name="Sarah M."
@@ -513,8 +449,8 @@ export const clinics: ClinicsProps[] = [
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Fort Pierce & Nearby Areas</h2>
-        <p className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <a href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</a>, <a href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</a>, herniated discs, <a href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</a>, <a href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</a>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Fort Pierce & Nearby Areas</h2>
+        <p className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -572,7 +508,7 @@ export const clinics: ClinicsProps[] = [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Patients Say</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Patients Say</h2>
         <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial name="Jennifer T." role="Teacher, St. Lucie County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This orthopedic center in Fort Pierce truly understands working families." />
@@ -947,7 +883,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs & Nearby Areas</h2>
-        <p className='text-lg'>Our <a href="https://mountainspineorthopedics.com/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">orthopedic doctors in Altamonte Springs, FL</a> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <a href="https://mountainspineorthopedics.com/treatments/back-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">back pain</a>, <a href="https://mountainspineorthopedics.com/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">neck pain</a>, herniated discs, <a href="https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">degenerative disc disease</a>, <a href="https://mountainspineorthopedics.com/area-of-specialty/acl-injury" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACL injuries</a>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p className='text-lg'>Our <Link href="/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
         <h3 className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
           <li>Over 15 years serving Central Florida families with high patient satisfaction</li>
@@ -955,7 +891,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
-          <li><a href="https://mountainspineorthopedics.com/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Sports orthopedic specialists</a> in Altamonte Springs specializing in athletic injuries</li>
+          <li><Link href="/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in athletic injuries</li>
         </ul>
         <h3 className='font-bold text-xl'>Easily Accessible From Throughout Central Florida:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
@@ -966,7 +902,7 @@ export const clinics: ClinicsProps[] = [
           <li>Lake Mary & Heathrow - 15 minutes</li>
         </ul>
         <h3 className='font-bold text-xl'>Convenient for Lake Mary Residents</h3>
-        <p className='text-lg'>Our <a href="https://mountainspineorthopedics.com/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">orthopedic center in Altamonte Springs, FL</a> is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
+        <p className='text-lg'>Our <Link href="/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic center in Altamonte Springs, FL</Link> is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
       </div>
     ),
     whyChoose: (
@@ -1001,7 +937,7 @@ export const clinics: ClinicsProps[] = [
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
           <li>
-            <span className='font-bold'>Advanced Pain Relief:</span> <a href="https://mountainspineorthopedics.com/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Epidural steroid injections</a>, <a href="https://mountainspineorthopedics.com/treatments/stem-cell-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">regenerative stem cell therapy</a>, <a href="https://mountainspineorthopedics.com/treatments/non-surgical-treatments-for-pain-management" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">comprehensive pain management programs</a>
+            <span className='font-bold'>Advanced Pain Relief:</span> <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">Epidural steroid injections</Link>, <Link href="/treatments/stem-cell-treatment" className="text-[#0A50EC] underline">regenerative stem cell therapy</Link>, <Link href="/treatments/non-surgical-treatments-for-pain-management" className="text-[#0A50EC] underline">comprehensive pain management programs</Link>
           </li>
           <li>
             <span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art laser spine procedures and precisely targeted radiofrequency treatments using the latest minimally invasive technology
@@ -1016,19 +952,19 @@ export const clinics: ClinicsProps[] = [
             <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary minimally invasive procedure available at select centers nationwide. Tiny incisions that heal like band-aids with high success rates and quick return to work
           </li>
           <li>
-            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href="https://mountainspineorthopedics.com/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Advanced endoscopic techniques</a>, artificial disc replacement, <a href="https://mountainspineorthopedics.com/treatments/spinal-fusion" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">motion-preserving spinal fusion</a>
+            <span className='font-bold'>Minimally Invasive Excellence:</span> <Link href="/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline">Advanced endoscopic techniques</Link>, artificial disc replacement, <Link href="/treatments/spinal-fusion" className="text-[#0A50EC] underline">motion-preserving spinal fusion</Link>
           </li>
           <li>
-            <span className='font-bold'>Complex Specialized Procedures:</span> <a href="https://mountainspineorthopedics.com/treatments/acdf-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACDF surgery</a>, <a href="https://mountainspineorthopedics.com/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">revision spinal surgery</a>, <a href="https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">motion preservation techniques</a>, multi-level procedures
+            <span className='font-bold'>Complex Specialized Procedures:</span> <Link href="/treatments/acdf-surgery" className="text-[#0A50EC] underline">ACDF surgery</Link>, <Link href="/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline">revision spinal surgery</Link>, <Link href="/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline">motion preservation techniques</Link>, multi-level procedures
           </li>
         </ul>
         <p className='text-lg'>Exclusive advantages for patients in Greater Altamonte Springs: Robotic-assisted minimally invasive procedures, computer-guided surgical navigation, same-day outpatient techniques, and accelerated recovery protocols. Most patients return to normal activities within weeks.</p>
-        <p className='text-lg'><a href="https://mountainspineorthopedics.com/find-care/candidacy-check" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Check Treatment Candidacy Today</a></p>
+        <p className='text-lg'><Link href="/find-care/candidacy-check" className="text-[#0A50EC] underline">Check Treatment Candidacy Today</Link></p>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Altamonte Springs Patients Say</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Altamonte Springs Patients Say</h2>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial
             name="Jennifer T."
@@ -1080,7 +1016,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Davenport & Nearby Areas</h2>
-        <p className='text-lg'>Our <a href="https://mountainspineorthopedics.com/locations/miami-beach-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">orthopedic doctors</a> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <a href="https://mountainspineorthopedics.com/treatments/back-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">back pain</a>, <a href="https://mountainspineorthopedics.com/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">neck pain</a>, intervertebral disc herniation, <a href="https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">degenerative disc disease</a>, <a href="https://mountainspineorthopedics.com/area-of-specialty/acl-injury" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACL injuries</a>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
+        <p className='text-lg'>Our <Link href="/locations/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
         <h3 className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
           <li>Over 15 years of serving Central Florida families with high patient satisfaction</li>
@@ -1098,7 +1034,7 @@ export const clinics: ClinicsProps[] = [
           <li>Kissimmee & Celebration - 20 minutes</li>
         </ul>
         <h3 className='font-bold text-xl'>Convenient for Kissimmee Residents</h3>
-        <p className='text-lg'>Our <a href="https://mountainspineorthopedics.com/locations/davenport-orthopedics" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">orthopedic specialists near Davenport, FL</a> center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
+        <p className='text-lg'>Our <Link href="/locations/davenport-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists near Davenport, FL</Link> center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
       </div>
     ),
     whyChoose: (
@@ -1132,7 +1068,7 @@ export const clinics: ClinicsProps[] = [
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Revolutionary Non-Surgical Options:</h3>
         <ul className='text-lg list-disc pl-5 space-y-2'>
           <li>
-            <span className='font-bold'>Advanced Pain Management:</span> <a href="https://mountainspineorthopedics.com/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Epidural steroid injections</a>, <a href="https://mountainspineorthopedics.com/treatments/stem-cell-treatment" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">regenerative stem cell therapy</a>, <a href="https://mountainspineorthopedics.com/treatments/non-surgical-treatments-for-pain-management" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">comprehensive pain management programs</a>
+            <span className='font-bold'>Advanced Pain Management:</span> <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">Epidural steroid injections</Link>, <Link href="/treatments/stem-cell-treatment" className="text-[#0A50EC] underline">regenerative stem cell therapy</Link>, <Link href="/treatments/non-surgical-treatments-for-pain-management" className="text-[#0A50EC] underline">comprehensive pain management programs</Link>
           </li>
           <li>
             <span className='font-bold'>Laser & Radiofrequency Treatments:</span> State-of-the-art therapeutic laser modalities and precisely targeted radiofrequency ablation procedures using advanced minimally invasive technology
@@ -1147,19 +1083,19 @@ export const clinics: ClinicsProps[] = [
             <span className='font-bold'>Band-Aid Back Surgery:</span> Revolutionary percutaneous endoscopic procedure available at select centers nationwide. Micro-surgical portals that heal like band-aids with superior clinical outcomes and rapid return to functional activities
           </li>
           <li>
-            <span className='font-bold'>Minimally Invasive Excellence:</span> <a href="https://mountainspineorthopedics.com/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Advanced endoscopic techniques</a>, artificial disc replacement, arthroplasty, <a href="https://mountainspineorthopedics.com/treatments/spinal-fusion" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">motion-preserving spinal fusion</a>
+            <span className='font-bold'>Minimally Invasive Excellence:</span> <Link href="/treatments/lumbar-microendoscopic-discectomy-surgery" className="text-[#0A50EC] underline">Advanced endoscopic techniques</Link>, artificial disc replacement, arthroplasty, <Link href="/treatments/spinal-fusion" className="text-[#0A50EC] underline">motion-preserving spinal fusion</Link>
           </li>
           <li>
-            <span className='font-bold'>Complex Specialized Procedures:</span> <a href="https://mountainspineorthopedics.com/treatments/acdf-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">ACDF surgery</a>, <a href="https://mountainspineorthopedics.com/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">revision spinal surgery</a>, <a href="https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">motion preservation techniques</a>, multi-level decompression procedures
+            <span className='font-bold'>Complex Specialized Procedures:</span> <Link href="/treatments/acdf-surgery" className="text-[#0A50EC] underline">ACDF surgery</Link>, <Link href="/treatments/revision-spinal-surgery" className="text-[#0A50EC] underline">revision spinal surgery</Link>, <Link href="/treatments/motion-preservation-spine-surgery" className="text-[#0A50EC] underline">motion preservation techniques</Link>, multi-level decompression procedures
           </li>
         </ul>
         <p className='text-lg'>Exclusive advantages for patients in Greater Davenport: Robotic-assisted minimally invasive surgical procedures, computer-guided intraoperative navigation, same-day ambulatory surgery protocols, and accelerated rehabilitation programs. Most patients demonstrate optimal functional recovery within weeks.</p>
-        <p className='text-lg'><a href="https://mountainspineorthopedics.com/find-care/candidacy-check" className="text-[#0A50EC] underline" target="_blank" rel="noopener noreferrer">Check Treatment Candidacy Today</a></p>
+        <p className='text-lg'><Link href="/find-care/candidacy-check" className="text-[#0A50EC] underline">Check Treatment Candidacy Today</Link></p>
       </div>
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Davenport Patients Say</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Davenport Patients Say</h2>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial
             name="Jessica M."

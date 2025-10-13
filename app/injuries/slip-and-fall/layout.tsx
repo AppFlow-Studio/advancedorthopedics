@@ -92,9 +92,10 @@ export default function SlipAndFallLayout({
             },
             "url": "https://mountainspineorthopedics.com/injuries/slip-and-fall",
             "mainEntity": {
-              "@type": "MedicalSpecialty",
-              "name": "Orthopedic Surgery",
-              "description": "Specialized treatment for slip and fall injuries including fractures, spinal trauma, and soft tissue damage"
+              "@type": "MedicalCondition",
+              "name": "Slip and Fall Injuries",
+              "description": "Orthopedic and spinal injuries resulting from slip and fall accidents, including fractures, joint damage, and soft tissue injuries.",
+              "alternateName": "Fall Accident Injuries"
             },
             "breadcrumb": {
               "@type": "BreadcrumbList",

@@ -92,9 +92,10 @@ export default function CarAccidentLayout({
             },
             "url": "https://mountainspineorthopedics.com/injuries/car-accident",
             "mainEntity": {
-              "@type": "MedicalSpecialty",
-              "name": "Orthopedic Surgery",
-              "description": "Specialized orthopedic care for car accident injuries including whiplash, spinal trauma, and joint injuries"
+              "@type": "MedicalCondition",
+              "name": "Car Accident Injuries",
+              "description": "Orthopedic and spinal injuries resulting from motor vehicle accidents, including whiplash, herniated discs, and fractures.",
+              "alternateName": "Auto Accident Injuries"
             },
             "breadcrumb": {
               "@type": "BreadcrumbList",

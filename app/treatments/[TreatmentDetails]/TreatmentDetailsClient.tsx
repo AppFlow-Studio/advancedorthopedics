@@ -107,7 +107,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                     }}
                     className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
                 />
-                <Image src={ConditionDetialsLanding} fill className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt="Doctor Diagnosing a Old Patient" />
+                <Image src={ConditionDetialsLanding} fill className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt={`Orthopedic surgeon explaining ${treatment_details.title} procedure options to patient in Florida`} />
 
                 <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
                     <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"

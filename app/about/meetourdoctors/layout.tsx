@@ -25,11 +25,5 @@ export default function MeetOurDoctorsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <h1 className="sr-only">Meet Our Doctors</h1>
-      <h2 className="sr-only">Board-Certified Orthopedic Specialists</h2>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

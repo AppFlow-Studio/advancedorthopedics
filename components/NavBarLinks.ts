@@ -48,7 +48,7 @@ export const NavBarLinks = [
     label: 'Meet our Doctors',
   },
   {
-    href: '/about/FAQs',
+    href: '/about/faqs',
     label: 'FAQs',
   },
   {

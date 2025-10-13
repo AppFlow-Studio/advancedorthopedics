@@ -3,7 +3,6 @@ import { GetBlogInfo } from '../api/get-blog-info'
 import type { Metadata, ResolvingMetadata } from "next";
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
-import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { detectFAQContent, generateFAQPageSchema } from "@/lib/faq-utils";
@@ -28,7 +27,8 @@ export async function generateMetadata(
 
   const info = blog.blog_info;
   const canonicalUrl = buildCanonical(`/blogs/${blog.slug}`);
-  const ogImage = getOgImageForPath('/blogs');
+  // Use specific blog post image for social sharing (better CTR)
+  const blogImage = info.img || getOgImageForPath('/blogs');
   
   return {
     title: info.metaTitle || `${info.title} | Mountain Spine & Orthopedics`,
@@ -45,7 +45,7 @@ export async function generateMetadata(
       tags: info.tags,
       images: [
         {
-          url: ogImage,
+          url: blogImage,
           width: 1200,
           height: 630,
           alt: info.title,
@@ -57,7 +57,7 @@ export async function generateMetadata(
       card: "summary_large_image",
       title: info.metaTitle || info.title,
       description: info.metaDescription || info.desc,
-      images: [ogImage],
+      images: [blogImage],
     },
     alternates: {
       canonical: canonicalUrl
@@ -87,15 +87,14 @@ export default async function BlogLayout({
     "headline": info.metaTitle || info.title,
     "description": info.metaDescription || info.desc,
     "image": info.img,
-    "author": {
+    "author": info.author && info.author !== "Mountain Spine & Orthopedics" ? {
       "@type": "Person",
       "name": info.author,
-      "jobTitle": "Orthopedic Surgeon",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Mountain Spine & Orthopedics",
-        "url": "https://mountainspineorthopedics.com"
-      }
+      "jobTitle": "Orthopedic Surgeon"
+    } : {
+      "@type": "Organization",
+      "name": "Mountain Spine & Orthopedics",
+      "url": "https://mountainspineorthopedics.com"
     },
     "publisher": {
       "@type": "Organization",
@@ -123,7 +122,6 @@ export default async function BlogLayout({
   };
   return (
     <>
-      <StaticNav />
       {children}
       <script
         type="application/ld+json"

@@ -1,7 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next";
 import { clinics } from "@/components/data/clinics";
-import StaticNav from "@/components/StaticNav.server";
-import OrphanLinksFooter from '@/components/OrphanLinksFooter';
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
@@ -36,8 +34,8 @@ export async function generateMetadata(
     // Create consistent title format
     const consistentTitle = safeTitle(location.metaTitle, `Mountain Spine & Orthopedics in ${cityName}, FL | Official Site`);
     
-    // Create consistent description format
-    const consistentDescription = safeDescription(location.metaDescription, `Trusted orthopedic care in ${cityName}, FL—board-certified surgeons, compassionate staff, and convenient appointments at Mountain Spine & Orthopedics.`);
+    // Use FULL meta description directly (no truncation for location pages)
+    const consistentDescription = location.metaDescription || `Trusted orthopedic care in ${cityName}, FL—board-certified surgeons, compassionate staff, and convenient appointments at Mountain Spine & Orthopedics.`;
     
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
     return {
@@ -85,12 +83,46 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         return null;
     }
 
-    // Split address for the schema
-    const addressParts = location.address.split(', ');
-    const streetAddress = addressParts[0];
-    const addressLocality = addressParts[1];
-    const addressRegion = addressParts.length > 2 ? addressParts[2].split(' ')[0] : 'FL';
-    const postalCode = addressParts.length > 2 ? addressParts[2].split(' ')[1] : '';
+    // Robust address parsing for schema
+    // This function reliably parses US addresses into schema components.
+    const parseAddress = (fullAddress: string) => {
+        const addressParts = fullAddress.split(', ');
+        
+        let streetAddress = fullAddress;
+        let addressLocality = '';
+        let addressRegion = 'FL';
+        let postalCode = '';
+
+        if (addressParts.length >= 2) {
+            // Handles formats like "Street, City, State ZIP" or "Street, City"
+            streetAddress = addressParts[0];
+            addressLocality = addressParts[1];
+
+            if (addressParts.length === 3) {
+                const stateZip = addressParts[2].split(' ');
+                addressRegion = stateZip[0];
+                postalCode = stateZip[1];
+            }
+        } else if (addressParts.length === 1) {
+            // Fallback for formats like "Street City State ZIP" without commas
+            const stateMatch = fullAddress.match(/\b([A-Z]{2})\s+(\d{5}(?:-\d{4})?)\s*$/);
+            if (stateMatch) {
+                addressRegion = stateMatch[1];
+                postalCode = stateMatch[2];
+                const cityAndStreet = fullAddress.substring(0, stateMatch.index).trim();
+                const lastSpaceIndex = cityAndStreet.lastIndexOf(' ');
+                
+                if (lastSpaceIndex > -1) {
+                    streetAddress = cityAndStreet.substring(0, lastSpaceIndex);
+                    addressLocality = cityAndStreet.substring(lastSpaceIndex + 1);
+                }
+            }
+        }
+
+        return { streetAddress, addressLocality, addressRegion, postalCode };
+    };
+    
+    const { streetAddress, addressLocality, addressRegion, postalCode } = parseAddress(location.address);
 
     const schema = {
       '@context': 'https://schema.org',
@@ -141,12 +173,11 @@ export default async function LocationLayout({
 }) {
     return (
         <>
-            <StaticNav />
             {/* Await the async LocationJsonLdSchema and render it */}
             {/* @ts-expect-error Async Server Component */}
             <LocationJsonLdSchema params={params} />
             {children}
-            <OrphanLinksFooter /> {/* sr-only, zero visual impact */}
         </>
     );
 }
+

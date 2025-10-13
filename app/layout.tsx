@@ -9,8 +9,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { DelayedLocationPopup } from "@/components/delayedlocationpopup";
 import Script from "next/script";
 import TanstackProvider from "@/providers/tanstack";
-import OrphanLinksFooter from "@/components/OrphanLinksFooter";
-import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical, SITE_URL, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
@@ -96,38 +94,29 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "MedicalOrganization",
-  "name": "Mountain Spine & Orthopedics",
-  "url": "https://mountainspineorthopedics.com",
-  "logo": "/android-chrome-512x512.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-561-223-9959",
-    "contactType": "Customer Service",
-    "areaServed": "US",
-    "availableLanguage": ["en"],
-  },
-  // --- Social media links updated here ---
-  "sameAs": [
-    "https://www.facebook.com/people/Mountain-Spine-Orthopedics/61576930958681/",
-    "https://www.instagram.com/mountainspineortho/"
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://mountainspineorthopedics.com/",
+    "name": "Mountain Spine & Orthopedics",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://mountainspineorthopedics.com/blogs?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
         {/* Preconnect to CDN for performance */}
         <link rel="preconnect" href="https://mountainspineortho.b-cdn.net" crossOrigin="" />
         {/* Favicons and icons for SEO and device support */}
@@ -165,6 +154,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} ${sora.variable} ${publicSans.variable} antialiased overscroll-none `}
       >
+        {/* WebSite Schema for Search Functionality */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T57SB8NQ"
@@ -172,8 +166,6 @@ export default function RootLayout({
         </noscript>
         <TanstackProvider>
           <NavBar />
-          {/* Hidden crawler nav */}
-          <StaticNav />
           <MapProvider>
             <GeolocationProvider>
               {children}
@@ -181,8 +173,6 @@ export default function RootLayout({
               <DelayedLocationPopup delayInSeconds={8} />
             </GeolocationProvider>
           </MapProvider>
-          {/* SEO crawlable links for orphan pages */}
-          <OrphanLinksFooter />
         </TanstackProvider>
       </body>
     </html>

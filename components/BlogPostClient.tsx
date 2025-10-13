@@ -301,7 +301,7 @@ export default function BlogDetails({
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt={`Expert orthopedic insights from Mountain Spine & Orthopedics - ${blog.blog_info.title}`}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"

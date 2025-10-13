@@ -1,9 +1,78 @@
 import { Metadata } from 'next';
 import { buildCanonical } from '@/lib/seo';
 import InsurancePolicyClient from './InsurancePolicyClient'
-// Remove 'use client' from this file.
-// Move all JSX and client logic to InsurancePolicyClient.tsx.
-// Keep only metadata and a default export that renders <InsurancePolicyClient />.
+
+// BreadcrumbList Schema for navigation context
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mountainspineorthopedics.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insurance Policy",
+      "item": "https://mountainspineorthopedics.com/insurance-policy"
+    }
+  ]
+};
+
+// MedicalOrganization Schema for brand consistency
+const medicalOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Mountain Spine & Orthopedics",
+  "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+  "url": "https://mountainspineorthopedics.com",
+  "logo": "https://mountainspineorthopedics.com/newlogo4.png",
+  "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
+  "telephone": [
+    "(561) 223-9959",
+    "(754) 212-8736",
+    "(407) 565-7598",
+    "(407) 960-1717",
+    "(863) 777-5805",
+    "(561) 556-1802",
+    "(954) 987-2047",
+    "(561) 544-5501"
+  ],
+  "medicalSpecialty": [
+    "Orthopedic Surgery",
+    "Spine Surgery",
+    "Sports Medicine",
+    "Pain Management",
+    "Minimally Invasive Surgery",
+    "Joint Replacement",
+    "Spinal Fusion",
+    "Discectomy",
+    "Arthroscopy"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.7663,
+      "longitude": -82.6404
+    },
+    "geoRadius": "300000"
+  },
+  "areaServed": [
+    "Florida",
+    "Hollywood, FL",
+    "Orlando, FL",
+    "Altamonte Springs, FL",
+    "Davenport, FL",
+    "Fort Pierce, FL",
+    "Palm Beach Gardens, FL",
+    "Miami Beach, FL",
+    "Boca Raton, FL"
+  ]
+};
 
 export const generateMetadata = (): Metadata => ({
   title: 'Insurance Policy | Mountain Spine & Orthopedics',
@@ -36,6 +105,12 @@ export const generateMetadata = (): Metadata => ({
 
 export default function InsurancePolicy() {
   return (
-    <InsurancePolicyClient />
+    <>
+      {/* JSON-LD Schema Markup for SEO */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
+      
+      <InsurancePolicyClient />
+    </>
   )
 }

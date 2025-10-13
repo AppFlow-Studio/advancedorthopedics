@@ -1,7 +1,6 @@
 // app/blogs/tag/[tagSlug]/layout.tsx
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { GetBlogsPaginated } from "../../api/get-blogs";
@@ -150,7 +149,6 @@ export default async function TagBlogLayout({
   if (!tagDisplayName) {
     return (
       <>
-        <StaticNav />
         {children}
       </>
     );
@@ -239,7 +237,6 @@ export default async function TagBlogLayout({
 
   return (
     <>
-      <StaticNav />
       {children}
       <script
         type="application/ld+json"

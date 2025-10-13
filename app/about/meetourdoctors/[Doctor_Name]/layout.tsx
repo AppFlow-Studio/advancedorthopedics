@@ -1,6 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { Doctors } from "@/components/data/doctors";
-import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical, buildOgDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
@@ -24,33 +23,29 @@ export async function generateMetadata(
         };
     }
     
-    // Build the slug → name in Title-Case
-    const fullName = resolvedParams.Doctor_Name.replace(/-/g, ' ')
-                      .replace(/\b\w/g, (l) => l.toUpperCase());
-    
-    // Title pattern (match brand guidelines)
-    const title = `${fullName} | Spine & Orthopedic Surgeon in Florida | Mountain Spine & Orthopedics`;
-    
-    // Description helper
-    const description = buildOgDescription(fullName);
+    // Use doctor's specific SEO metadata from data
+    const title = doctor.metaTitle;
+    const description = doctor.metaDescription;
+    const canonicalUrl = buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`);
 
     return {
         title,
         description,
+        keywords: doctor.keywords,
         alternates: { 
-            canonical: buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`) 
+            canonical: canonicalUrl
         },
         openGraph: {
-            url: buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`),
+            url: canonicalUrl,
             title,
             description,
-            images: [getOgImageForPath('/about/meetourdoctors')],
+            images: [doctor.ogImage || getOgImageForPath('/about/meetourdoctors')],
         },
         twitter: {
             card: 'summary_large_image',
             title,
             description,
-            images: [getOgImageForPath('/about/meetourdoctors')],
+            images: [doctor.ogImage || getOgImageForPath('/about/meetourdoctors')],
         },
     };
 }
@@ -81,8 +76,9 @@ const CombinedSchema = async ({ params }: { params: Promise<{ Doctor_Name: strin
             "name": "Mountain Spine & Orthopedics",
             "url": "https://mountainspineorthopedics.com"
         },
-        "medicalSpecialty": "Orthopedic",
-        "knowsAbout": doctor.keywords // Using keywords to show expertise
+        "medicalSpecialty": doctor.medicalSpecialty, // DYNAMIC from data
+        "knowsAbout": doctor.specialties, // DYNAMIC & SPECIFIC from data
+        "sameAs": doctor.sameAs // DYNAMIC E-E-A-T SIGNAL from data
     };
 
     // Schema for the Breadcrumb trail
@@ -142,7 +138,6 @@ export default async function DoctorLayout({
 }) {
     return (
         <>
-            <StaticNav />
             {await CombinedSchema({ params })}
             {children}
         </>

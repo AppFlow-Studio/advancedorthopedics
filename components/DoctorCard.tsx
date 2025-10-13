@@ -32,7 +32,12 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
           href={`/about/meetourdoctors/${doctor.slug}`}
           aria-label={`View profile for ${doctor.name}`}
           className='block flex-grow'>
-          <Image src={doctor.img} alt={doctor.name} className='w-full object-cover object-top xl:max-h-[400px] aspect-square rounded-[16px] bg-gray-500 xl:h-[400px]' draggable={false} />
+          <Image 
+            src={doctor.img} 
+            alt={`${doctor.name}, ${doctor.practice}`} 
+            className='w-full object-cover object-top xl:max-h-[400px] aspect-square rounded-[16px] bg-gray-500 xl:h-[400px]' 
+            draggable={false} 
+          />
           <div className='flex flex-col space-y-[4px] mt-[16px] flex-grow sm:px-4 px-2'>
             <div className='space-y-[10px] flex flex-col'>
               <h3
@@ -42,7 +47,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
                 }}
                 className="text-black text-3xl text-left w-full"
               >{doctor.name}</h3>
-              <h3
+              <p
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontWeight: 400,
@@ -50,7 +55,7 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
                 className="text-[#54535C] "
               >
                 {doctor.practice}
-              </h3>
+              </p>
             </div>
             <p className='text-[#54535C] text-sm flex-grow'>
               {doctor?.short_bio}

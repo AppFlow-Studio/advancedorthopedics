@@ -93,7 +93,7 @@ export default function InsurancePolicyClient() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
-        <Image src={InsuranceLanding} className=" h-full absolute top-0 object-cover object-center self-end w-full" alt="Doctor Diagnosing a Old Patient" />
+        <Image src={InsuranceLanding} className=" h-full absolute top-0 object-cover object-center self-end w-full" alt="Mountain Spine & Orthopedics insurance coordinator explaining coverage options to a patient in Florida" />
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-32 md:pt-60">
           <div className="lg:w-[60%] h-full absolute left-0 top-0 md:w-[85%] w-full"
             style={{ background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)' }}
@@ -134,7 +134,7 @@ export default function InsurancePolicyClient() {
             <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#424959' }} className="text-lg mt-[24px]">
               Not all insurance providers are equal which is why we only work with carriers that offer flexibility, comprehensive coverage, and cost effective options. Speak with a patient advocate to learn more.
             </p>
-            <Image src={InsurancePolicy2} className="w-full rounded-[24px] mt-[40px] h-full aspect-auto" alt="Doctor teaching other doctors" />
+            <Image src={InsurancePolicy2} className="w-full rounded-[24px] mt-[40px] h-full aspect-auto" alt="Mountain Spine & Orthopedics medical staff training session on insurance verification and patient billing procedures" />
           </div>
           <div className=" lg:w-[50%] w-full flex flex-col items-center justify-center">
             <PatientAdvocateForm />

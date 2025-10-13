@@ -48,7 +48,7 @@ const ReviewCard = React.forwardRef<HTMLDivElement, ReviewCardProps>(
                         </div>
 
                         <div className="flex flex-col">
-                            <h3 className="font-semibold text-foreground">{name}</h3>
+                            <p className="font-semibold text-foreground text-lg">{name}</p>
                             <p className="text-sm text-muted-foreground">
                                 {role}
                                 {company && ` at ${company}`}
