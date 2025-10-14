@@ -23,9 +23,9 @@ export function middleware(req: NextRequest) {
   }
   
   // 3. PostHog analytics ingest paths (from your rewrites config)
-  // if (pathname.startsWith('/ingest')) {
-  //   return NextResponse.next();
-  // }
+  if (pathname.startsWith('/ingest')) {
+    return NextResponse.next();
+  }
   
   // 4. Static files with extensions (images, fonts, manifests, etc.)
   // Match: .png, .jpg, .jpeg, .gif, .svg, .webp, .avif, .ico, .woff, .woff2, .ttf, .eot, .otf, .xml, .json, .txt, .pdf, .css, .js, .map
