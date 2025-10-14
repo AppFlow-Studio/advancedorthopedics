@@ -175,7 +175,7 @@ export default function AreaOfSpecialty() {
                 fontFamily: 'var(--font-public-sans)',
                 fontWeight: 400,
               }}
-              className="text-[#252932]  text-4xl sm:text-6xl xl:text-6xl "
+              className="text-[#252932]  text-4xl text-center sm:text-6xl xl:text-6xl "
             >
               Orthopedic Conditions & Treatments
             </TextAnimate>

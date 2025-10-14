@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { format, set } from "date-fns"
-import { CalendarIcon, ChevronDown, Clock, User, Mail, Phone } from "lucide-react"
+import { CalendarIcon, ChevronDown, Clock, User, Mail, Phone, Shield, FileImage, ChevronUp } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -18,20 +18,23 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from './email/sendcontactemail'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
-
+import { ScrollProgress } from "@/components/ui/scroll-progress"
+import { FileUpload } from './ui/file-upload'
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
     email: z.string().email("Invalid email address"),
     phone: z.string().min(10, "Phone number must be at least 10 digits"),
     reason: z.string().min(2),
-    bestTime: z.string().min(1, "Please provide more detail about your consultation needs")
+    bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
+    insuranceCardFront: z.instanceof(File).optional().or(z.null()),
+    insuranceCardBack: z.instanceof(File).optional().or(z.null())
 })
 const TIME_SLOTS = [
     "9:00 AM",
@@ -69,6 +72,8 @@ export default function BookAnAppoitmentButton({
     const [open, setOpen] = React.useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
+    const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+    const formRef = useRef<HTMLFormElement>(null)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -81,6 +86,7 @@ export default function BookAnAppoitmentButton({
     })
 
     const handleOpen = () => {
+        console.log('Opening dialog...')
         if (typeof window !== "undefined" && window.dataLayer) {
             window.dataLayer.push({
                 event: 'booking_click',
@@ -94,6 +100,67 @@ export default function BookAnAppoitmentButton({
         setOpen(false)
     }
 
+    // Handle scroll indicator visibility
+    useEffect(() => {
+        if (!open) {
+            return
+        }
+
+        // Wait a bit for the form to render
+        setTimeout(() => {
+            const form = formRef.current
+
+            if (!form) {
+                return
+            }
+
+            setupScrollDetection(form)
+        }, 200)
+    }, [open])
+
+    const setupScrollDetection = (form) => {
+        const handleScroll = (event) => {
+            const { scrollTop, scrollHeight, clientHeight } = event.target
+            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5
+            const hasScrollableContent = scrollHeight > clientHeight
+
+            setShowScrollIndicator(hasScrollableContent && !isAtBottom)
+        }
+
+        // Try multiple potential scroll targets
+        const targets = [
+            form,
+            form.parentElement,
+            form.closest('[data-radix-scroll-area-viewport]'),
+            form.closest('.overflow-y-auto'),
+            document.querySelector('[data-radix-scroll-area-viewport]'),
+            document.querySelector('.overflow-y-auto')
+        ].filter(Boolean)
+
+        targets.forEach(target => {
+            if (target) {
+                target.addEventListener('scroll', handleScroll)
+            }
+        })
+
+        // Check initial state
+        setTimeout(() => {
+            const { scrollTop, scrollHeight, clientHeight } = form
+            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5
+            const hasScrollableContent = scrollHeight > clientHeight
+            setShowScrollIndicator(hasScrollableContent && !isAtBottom)
+        }, 100)
+
+        return () => {
+            targets.forEach(target => {
+                if (target) {
+                    target.removeEventListener('scroll', handleScroll)
+                }
+            })
+        }
+    }
+
+
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setDisabled(true)
@@ -101,14 +168,35 @@ export default function BookAnAppoitmentButton({
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values)
+
+        // Handle file uploads - create FormData for files
+        const formData = new FormData()
+        formData.append('name', values.name)
+        formData.append('email', values.email)
+        formData.append('phone', values.phone)
+        formData.append('reason', values.reason)
+        formData.append('bestTime', values.bestTime)
+
+        // Add insurance card files if they exist
+        if (values.insuranceCardFront) {
+            formData.append('insuranceCardFront', values.insuranceCardFront)
+        }
+        if (values.insuranceCardBack) {
+            formData.append('insuranceCardBack', values.insuranceCardBack)
+        }
+
+        // Log the files for debugging
+        console.log('Insurance Card Front:', values.insuranceCardFront)
+        console.log('Insurance Card Back:', values.insuranceCardBack)
+
         const data = await sendContactEmail(values)
         await sendUserEmail(values)
-        
+
         // Enhanced Conversions
         persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
         pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
         pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
-        
+
         if (typeof window !== 'undefined' && window.dataLayer) {
             window.dataLayer.push({
                 event: 'form_submission',
@@ -116,13 +204,12 @@ export default function BookAnAppoitmentButton({
                 pagePath: window.location.pathname,
             });
         }
-        
+
         if (data) {
             setOpen(false)
             //setAppointmentConfirm(true) 
             form.reset()
             redirect('/thank-you')
-            setDisabled(false)
         }
     }
     return (
@@ -136,7 +223,7 @@ export default function BookAnAppoitmentButton({
                             max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#252932] rounded-[62px] relative flex ${bordered ? 'bg-transparent border border-[#0A50EC] text-[#0A50EC]' : 'bg-[#0A50EC] text-white'} text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer`,
                             className
                         )}>
-                    
+
                         <div className='pr-[10px] group-hover:scale-[1.2] transition-all duration-300 ease-in-out'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M6 1C6 0.447715 5.55229 0 5 0C4.44772 0 4 0.447715 4 1V1.44885C3.23882 1.6903 2.57734 2.06994 2.01802 2.6746C1.18949 3.57031 0.83279 4.69272 0.664161 6.04866C0.499967 7.36894 0.499982 9.05406 0.5 11.1739V11.1739V11.8261V11.8261C0.499982 13.9459 0.499967 15.6311 0.664161 16.9513C0.83279 18.3073 1.18949 19.4297 2.01802 20.3254C2.8568 21.2322 3.92535 21.6329 5.21533 21.8204C6.45141 22.0001 8.02291 22 9.97119 22H9.97121H9.97122H12.0288H12.0288H12.0288C13.9771 22 15.5486 22.0001 16.7847 21.8204C18.0747 21.6329 19.1432 21.2322 19.982 20.3254C20.8105 19.4297 21.1672 18.3073 21.3358 16.9513C21.5 15.6311 21.5 13.9459 21.5 11.8261V11.1739C21.5 9.05408 21.5 7.36895 21.3358 6.04866C21.1672 4.69272 20.8105 3.57031 19.982 2.6746C19.4227 2.06993 18.7612 1.6903 18 1.44885V1C18 0.447715 17.5523 0 17 0C16.4477 0 16 0.447715 16 1V1.09173C14.903 0.999955 13.5863 0.999976 12.0288 1H12.0288H9.97122H9.97121C8.41374 0.999976 7.09704 0.999955 6 1.09173V1ZM3.49783 8C3.03921 8 2.8099 8 2.66385 8.14417C2.51781 8.28833 2.51487 8.51472 2.509 8.96751C2.50027 9.64067 2.5 10.3942 2.5 11.2432V11.7568C2.5 13.9616 2.50182 15.5221 2.64887 16.7045C2.79327 17.8656 3.06263 18.5094 3.48622 18.9673C3.89956 19.4142 4.4647 19.6903 5.503 19.8412C6.57858 19.9975 8.00425 20 10.05 20H11.95C13.9957 20 15.4214 19.9975 16.497 19.8412C17.5353 19.6903 18.1004 19.4142 18.5138 18.9673C18.9374 18.5094 19.2067 17.8656 19.3511 16.7045C19.4982 15.5221 19.5 13.9616 19.5 11.7568V11.2432C19.5 10.3942 19.4997 9.64067 19.491 8.96751C19.4851 8.51472 19.4822 8.28833 19.3362 8.14417C19.1901 8 18.9608 8 18.5022 8H3.49783ZM12 11C12 10.4477 11.5523 10 11 10C10.4477 10 10 10.4477 10 11V13H8C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15H10V17C10 17.5523 10.4477 18 11 18C11.5523 18 12 17.5523 12 17V15H14C14.5523 15 15 14.5523 15 14C15 13.4477 14.5523 13 14 13H12V11Z" fill={`${bordered ? '#0A50EC' : '#FAFAFA'}`} />
@@ -154,14 +241,20 @@ export default function BookAnAppoitmentButton({
                     </button>
                 </DialogTrigger>
 
-                <DialogContent className=" rounded-[20px] p-[32px] sm:h-fit sm:max-h-fit max-h-150 overflow-y-auto" >
+                <DialogContent className="rounded-[20px] max-h-[90vh] min-w-3xl overflow-hidden flex flex-col" >
+                    <DialogTitle>Book an Appointment</DialogTitle>
                     <Form {...form}>
-                        <form className="space-y-8">
+                        <form
+                            ref={formRef}
+                            className="space-y-6 p-1 overflow-y-auto flex-1 pr-2 relative"
+                            onSubmit={form.handleSubmit(onSubmit, () => { console.log('error') })}
+                        >
+                            {/* <ScrollProgress className="top-[65px]" color="#0A50EC" /> */}
+
 
 
                             <div className="w-full  space-y-6"
                             >
-
                                 {/* Name Fields */}
                                 <div className="grid grid-cols-1  gap-6">
                                     <FormField
@@ -285,12 +378,130 @@ export default function BookAnAppoitmentButton({
                                     )}
                                 />
 
+                                {/* Insurance Card Upload Section */}
+                                <div className="space-y-6">
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <Shield className="h-5 w-5 text-green-600" />
+                                        <span className="text-sm font-medium text-green-700">HIPAA Compliant & Secure</span>
+                                    </div>
+
+                                    <div className='flex md:flex-row flex-col gap-x-4'>
+                                        {/* Front of Insurance Card */}
+                                        <FormField
+                                            control={form.control}
+                                            name="insuranceCardFront"
+                                            render={({ field: { onChange, value, ...field } }) => (
+                                                <FormItem className='w-1/2'>
+                                                    <FormLabel className="text-sm text-[#111315] font-semibold">
+                                                        Front of Insurance Card
+                                                        <span className="text-xs text-gray-500 font-normal ml-1">(Optional)</span>
+                                                    </FormLabel>
+                                                    <FormControl>
+                                                        <div className="relative">
+                                                            <input
+                                                                type="file"
+                                                                accept="image/*,.pdf"
+                                                                onChange={(e) => {
+                                                                    const file = e.target.files?.[0] || null;
+                                                                    onChange(file);
+                                                                }}
+                                                                className="hidden"
+                                                                id="insurance-front-button"
+                                                                {...field}
+                                                            />
+                                                            <label
+                                                                htmlFor="insurance-front-button"
+                                                                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
+                                                            >
+                                                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                    <FileImage className="w-8 h-8 mb-2 text-[#838890]" />
+                                                                    <p className="mb-2 text-sm text-[#111315]">
+                                                                        <span className="font-semibold">Click to upload</span> or drag and drop
+                                                                    </p>
+                                                                    <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                                    {value && (
+                                                                        <p className="text-xs text-green-600 mt-1 font-medium">
+                                                                            ✓ {value.name}
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            </label>
+                                                            {/* <FileUpload onChange={onChange} /> */}
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+
+                                        {/* Back of Insurance Card */}
+                                        <FormField
+                                            control={form.control}
+                                            name="insuranceCardBack"
+                                            render={({ field: { onChange, value, ...field } }) => (
+                                                <FormItem className='w-1/2'>
+                                                    <FormLabel className="text-sm text-[#111315] font-semibold">
+                                                        Back of Insurance Card
+                                                        <span className="text-xs text-gray-500 font-normal ml-1">(Optional)</span>
+                                                    </FormLabel>
+                                                    <FormControl>
+                                                        <div className="relative">
+                                                            <input
+                                                                type="file"
+                                                                accept="image/*,.pdf"
+                                                                onChange={(e) => {
+                                                                    const file = e.target.files?.[0] || null;
+                                                                    onChange(file);
+                                                                }}
+                                                                className="hidden"
+                                                                id="insurance-back-button"
+                                                                {...field}
+                                                            />
+                                                            <label
+                                                                htmlFor="insurance-back-button"
+                                                                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
+                                                            >
+                                                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                    <FileImage className="w-8 h-8 mb-2 text-[#838890]" />
+                                                                    <p className="mb-2 text-sm text-[#111315]">
+                                                                        <span className="font-semibold">Click to upload</span> or drag and drop
+                                                                    </p>
+                                                                    <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                                    {value && (
+                                                                        <p className="text-xs text-green-600 mt-1 font-medium">
+                                                                            ✓ {value.name}
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            </label>
+                                                            {/* <FileUpload onChange={onChange} /> */}
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </div>
+
+                                    {/* HIPAA Compliance Notice */}
+                                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                                        <div className="flex items-start gap-3">
+                                            <Shield className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                            <div className="text-sm">
+                                                <p className="font-medium text-green-800 mb-1">Your information is secure and protected</p>
+                                                <p className="text-green-700">
+                                                    All uploaded documents are encrypted and stored securely in compliance with HIPAA regulations.
+                                                    Your personal health information is protected and will only be used for your medical care.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <button
+                                    type="submit"
                                     className="w-full self-center flex items-center justify-center"
                                     disabled={disabled}
-                                    onClick={
-                                        form.handleSubmit(onSubmit, () => { console.log('error') })
-                                    }
                                 >
                                     {disabled ? (
                                         <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#252932] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
@@ -312,6 +523,18 @@ export default function BookAnAppoitmentButton({
                                     >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
                                 </div>
                             </div>
+
+                            {/* Scroll indicator - only show when not at bottom */}
+
+                            <div className={`fixed bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-50 transition-opacity duration-300 ${showScrollIndicator ? 'opacity-100' : 'opacity-0'}`}>
+                                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                                    <div className="flex items-center gap-1 text-gray-600 text-sm font-medium">
+                                        <span>Scroll for more</span>
+                                        <ChevronDown className="w-4 h-4 animate-bounce" />
+                                    </div>
+                                </div>
+                            </div>
+
                         </form>
                     </Form>
                 </DialogContent>
@@ -379,26 +602,25 @@ export default function BookAnAppoitmentButton({
 
                         </div>
 
-                        <div className=" flex flex-col space-y-[10px] items-center justify-center">
+                        <div className="flex flex-col space-y-[10px] items-center justify-center">
                             <h3
                                 style={{
                                     fontFamily: 'var(--font-public-sans)',
                                     fontWeight: 500,
                                 }}
-                                className='text-[black] text-2xl'
+                                className="text-[black] text-2xl"
                             >
-                                Your Appointment Request Is Confirmed
+                                Thank you for your request
                             </h3>
                             <p
                                 style={{
                                     fontFamily: 'var(--font-public-sans)',
                                     fontWeight: 500,
                                 }}
-                                className='text-[#838890] text-md text-center'
+                                className="text-[#838890] text-md text-center"
                             >
-                                You're one step closer to a pain-free life!<br />
-                                Please check your email for details. Our team will contact you shortly.<br />
-                                Thank you for choosing Mountain Spine & Orthopedic Center!
+                                We’ve received your information and our office will reach out to you as soon as possible.<br />
+                                Please be on the lookout for a call from our team.
                             </p>
                         </div>
                         <div

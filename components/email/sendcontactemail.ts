@@ -8,7 +8,7 @@ import { ConditionCheckEmailTemplate } from './conditioncheckemailtemplate';
 import { UserEmailTemplate } from './useremailtemplate';
 const resend = new Resend(process.env.RESEND_API_KEY);
 import { createClient } from '@/utils/supabase/server';
-export async function sendUserEmail(formData : {name : string, email : string, phone : string}) {
+export async function sendUserEmail(formData: { name: string, email: string, phone: string }) {
 
     try {
         const supabase = await createClient();
@@ -16,7 +16,7 @@ export async function sendUserEmail(formData : {name : string, email : string, p
             from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
             to: [formData.email],
             subject: 'Thank you for contacting Mountain Spine & Orthopedics',
-            react: await UserEmailTemplate({name : formData.name, email : formData.email, phone : formData.phone}),
+            react: await UserEmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone }),
         });
         await supabase.from('forms').insert({
             patient_email: formData.email,
@@ -29,13 +29,26 @@ export async function sendUserEmail(formData : {name : string, email : string, p
     }
 }
 
-export async function sendContactEmail(formData : {name : string, email : string, phone : string, reason : string, bestTime : string, has_attorney? : string | undefined, injury_type? : string | undefined, pain_level? : string | undefined, location? : string | undefined}) {
+export async function sendContactEmail(formData: { name: string, email: string, phone: string, reason: string, bestTime: string, has_attorney?: string | undefined, injury_type?: string | undefined, pain_level?: string | undefined, location?: string | undefined, insuranceCardFront?: File | undefined, insuranceCardBack?: File | undefined }) {
     try {
+        // Prepare attachments if files are provided
+        const attachments = formData.insuranceCardFront || formData.insuranceCardBack ? await Promise.all(
+            [formData.insuranceCardFront, formData.insuranceCardBack].map(async (file) => {
+                if( file ) {
+                    const buffer = await file.arrayBuffer();
+                return {
+                        filename: file.name,
+                        content: Buffer.from(buffer),
+                    };
+                }
+            })
+        ) : undefined;
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
             to: ['info@mountainspineorthopedics.com'],
             subject: 'New Contact Form Submission',
-            react: await EmailTemplate({name : formData.name, email : formData.email, phone : formData.phone, reason : formData.reason, bestTime : formData.bestTime, has_attorney : formData.has_attorney, injury_type : formData.injury_type, pain_level : formData.pain_level, location : formData.location}),
+            react: await EmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone, reason: formData.reason, bestTime: formData.bestTime, has_attorney: formData.has_attorney, injury_type: formData.injury_type, pain_level: formData.pain_level, location: formData.location }),
+            attachments: attachments?.filter(Boolean) as any[],
         });
         return data;
     } catch (error) {
@@ -44,7 +57,7 @@ export async function sendContactEmail(formData : {name : string, email : string
     }
 }
 
-export async function sendMRIContactEmail(formData : {email : string, phone : string, first_name : string, last_name : string, comments : string, email_optout : string, insurance_type : string, last_test_date : string, other : string, recent_diagnosis : string, state : string, bestTime : string}) {
+export async function sendMRIContactEmail(formData: { email: string, phone: string, first_name: string, last_name: string, comments: string, email_optout: string, insurance_type: string, last_test_date: string, other: string, recent_diagnosis: string, state: string, bestTime: string }) {
     try {
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
@@ -72,7 +85,7 @@ export async function sendMRIContactEmail(formData : {email : string, phone : st
     }
 }
 
-export async function sendCandidacyEmail(formData : {first_name : string, last_name : string, email : string, phone : string, state : string, condition : string, age : string, health : string, smoking : string, recent_diagnosis : string, insurance_type : string, last_test_date : string, other : string, comments : string, email_optout : string}) {
+export async function sendCandidacyEmail(formData: { first_name: string, last_name: string, email: string, phone: string, state: string, condition: string, age: string, health: string, smoking: string, recent_diagnosis: string, insurance_type: string, last_test_date: string, other: string, comments: string, email_optout: string }) {
     try {
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
@@ -88,13 +101,13 @@ export async function sendCandidacyEmail(formData : {first_name : string, last_n
                 age: formData.age,
                 health: formData.health,
                 smoking: formData.smoking,
-                recent_diagnosis : formData.recent_diagnosis,
-                insurance_type : formData.insurance_type,
-                last_test_date : formData.last_test_date,
-                other : formData.other,
-                comments : formData.comments,
-                email_optout : formData.email_optout,
-                
+                recent_diagnosis: formData.recent_diagnosis,
+                insurance_type: formData.insurance_type,
+                last_test_date: formData.last_test_date,
+                other: formData.other,
+                comments: formData.comments,
+                email_optout: formData.email_optout,
+
             }),
         });
         return data;
@@ -104,7 +117,7 @@ export async function sendCandidacyEmail(formData : {first_name : string, last_n
     }
 }
 
-export const sendConditionCheckEmail = async (formData : {first_name : string, last_name : string, email : string, phone : string, state : string, insurance_type : string, comments : string, email_optout : string, pain_area : string[], pain_strongest : string, pain_length : string, pain_desc : string, pain_always : string, pain_symptoms : string[], pain_worst : string, pain_feel_better : string, pain_source : string, pain_test : string}) => {
+export const sendConditionCheckEmail = async (formData: { first_name: string, last_name: string, email: string, phone: string, state: string, insurance_type: string, comments: string, email_optout: string, pain_area: string[], pain_strongest: string, pain_length: string, pain_desc: string, pain_always: string, pain_symptoms: string[], pain_worst: string, pain_feel_better: string, pain_source: string, pain_test: string }) => {
     try {
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',

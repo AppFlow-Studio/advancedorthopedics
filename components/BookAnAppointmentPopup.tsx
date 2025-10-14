@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { format } from "date-fns"
-import { CalendarIcon, ChevronDown, Clock } from "lucide-react"
+import { CalendarIcon, ChevronDown, Clock, User, Mail, Phone, Upload, Shield, FileImage } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -30,34 +30,11 @@ const formSchema = z.object({
     reason: z.string().min(0),
     selectService: z.string(),
     gender: z.string(),
-    appointmentTime: z.string()
+    appointmentTime: z.string(),
+    insuranceCardFront: z.instanceof(File).optional().or(z.null()),
+    insuranceCardBack: z.instanceof(File).optional().or(z.null())
 })
-const TIME_SLOTS = [
-    "9:00 AM",
-    "9:30 AM",
-    "10:00 AM",
-    "10:30 AM",
-    "11:00 AM",
-    "11:30 AM",
-    "12:00 PM",
-    "12:30 PM",
-    "1:00 PM",
-    "1:30 PM",
-    "2:00 PM",
-    "2:30 PM",
-    "3:00 PM",
-    "3:30 PM",
-    "4:00 PM",
-    "4:30 PM",
-    "5:00 PM",
-    "5:30 PM",
-]
-const services = [
-    { id: "service1", name: "Service 1" },
-    { id: "service2", name: "Service 2" },
-    { id: "service3", name: "Service 3" },
-    { id: "service4", name: "Service 4" },
-]
+
 export default function BookAnAppointmentPopup() {
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
@@ -83,7 +60,7 @@ export default function BookAnAppointmentPopup() {
             console.log(values)
             await sendUserEmail(values)
             await sendContactEmail(values)
-            
+
             if (typeof window !== 'undefined' && window.dataLayer) {
                 window.dataLayer.push({
                     event: 'form_submission',
@@ -91,7 +68,7 @@ export default function BookAnAppointmentPopup() {
                     pagePath: window.location.pathname,
                 });
             }
-            
+
             setAppointmentConfirm(true)
         } catch (error) {
             console.error('Error submitting form:', error)
@@ -239,6 +216,122 @@ export default function BookAnAppointmentPopup() {
                             )}
                         />
 
+                        {/* Insurance Card Upload Section */}
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-2 mb-4">
+                                <Shield className="h-5 w-5 text-green-600" />
+                                <span className="text-sm font-medium text-green-700">HIPAA Compliant & Secure</span>
+                            </div>
+
+                            {/* Front of Insurance Card */}
+                            <FormField
+                                control={form.control}
+                                name="insuranceCardFront"
+                                render={({ field: { onChange, value, ...field } }) => (
+                                    <FormItem>
+                                        <FormLabel className="text-sm text-[#111315] font-semibold">
+                                            Front of Insurance Card
+                                            <span className="text-xs text-gray-500 font-normal ml-1">(Optional)</span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <div className="relative">
+                                                <input
+                                                    type="file"
+                                                    accept="image/*,.pdf"
+                                                    onChange={(e) => {
+                                                        const file = e.target.files?.[0] || null;
+                                                        onChange(file);
+                                                    }}
+                                                    className="hidden"
+                                                    id="insurance-front"
+                                                    {...field}
+                                                />
+                                                <label
+                                                    htmlFor="insurance-front"
+                                                    className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
+                                                >
+                                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                        <FileImage className="w-8 h-8 mb-2 text-[#838890]" />
+                                                        <p className="mb-2 text-sm text-[#111315]">
+                                                            <span className="font-semibold">Click to upload</span> or drag and drop
+                                                        </p>
+                                                        <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                        {value && (
+                                                            <p className="text-xs text-green-600 mt-1 font-medium">
+                                                                ✓ {value.name}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            {/* Back of Insurance Card */}
+                            <FormField
+                                control={form.control}
+                                name="insuranceCardBack"
+                                render={({ field: { onChange, value, ...field } }) => (
+                                    <FormItem>
+                                        <FormLabel className="text-sm text-[#111315] font-semibold">
+                                            Back of Insurance Card
+                                            <span className="text-xs text-gray-500 font-normal ml-1">(Optional)</span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <div className="relative">
+                                                <input
+                                                    type="file"
+                                                    accept="image/*,.pdf"
+                                                    onChange={(e) => {
+                                                        const file = e.target.files?.[0] || null;
+                                                        onChange(file);
+                                                    }}
+                                                    className="hidden"
+                                                    id="insurance-back"
+                                                    {...field}
+                                                />
+                                                <label
+                                                    htmlFor="insurance-back"
+                                                    className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
+                                                >
+                                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                        <FileImage className="w-8 h-8 mb-2 text-[#838890]" />
+                                                        <p className="mb-2 text-sm text-[#111315]">
+                                                            <span className="font-semibold">Click to upload</span> or drag and drop
+                                                        </p>
+                                                        <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                        {value && (
+                                                            <p className="text-xs text-green-600 mt-1 font-medium">
+                                                                ✓ {value.name}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            {/* HIPAA Compliance Notice */}
+                            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <div className="flex items-start gap-3">
+                                    <Shield className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                    <div className="text-sm">
+                                        <p className="font-medium text-green-800 mb-1">Your information is secure and protected</p>
+                                        <p className="text-green-700">
+                                            All uploaded documents are encrypted and stored securely in compliance with HIPAA regulations.
+                                            Your personal health information is protected and will only be used for your medical care.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <button
                             type="submit"
                             disabled={loading}
@@ -268,9 +361,6 @@ export default function BookAnAppointmentPopup() {
                 </Form>
                 <Dialog open={openAppointmentConfirm} onOpenChange={() => setAppointmentConfirm(false)}>
                     <DialogContent className=" rounded-[20px] p-[32px]" >
-                        <DialogTitle>
-
-                        </DialogTitle>
                         <div className="bg-white flex flex-col space-y-[20px] items-center justify-center">
                             <div className=" relative h-[100px] self-center flex w-full">
                                 <div className="z-1 relative justify-center items-center flex w-full">
@@ -297,25 +387,25 @@ export default function BookAnAppointmentPopup() {
 
                             </div>
 
-                            <div className=" flex flex-col space-y-[10px] items-center justify-center">
+                            <div className="flex flex-col space-y-[10px] items-center justify-center">
                                 <h3
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
                                     }}
-                                    className='text-[black] text-2xl'
+                                    className="text-[black] text-2xl"
                                 >
-                                    Your Appointment is confirmed
+                                    Thank you for your request
                                 </h3>
                                 <p
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
                                     }}
-                                    className='text-[#838890] text-md text-center'
+                                    className="text-[#838890] text-md text-center"
                                 >
-                                    Your appointment has been booked successfully
-                                    Please be available on your time
+                                    We’ve received your information and our office will reach out to you as soon as possible.<br />
+                                    Please be on the lookout for a call from our team.
                                 </p>
                             </div>
                             <div

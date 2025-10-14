@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { format } from "date-fns"
-import { CalendarIcon, ChevronDown, Clock, Mail, Phone, User } from "lucide-react"
+import { CalendarIcon, ChevronDown, Clock, Mail, Phone, User, Shield, FileImage } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import { motion } from 'framer-motion'
@@ -28,7 +28,9 @@ const formSchema = z.object({
     email: z.string().email("Invalid email address"),
     phone: z.string().min(10, "Phone number must be at least 10 digits"),
     reason: z.string().min(2),
-    bestTime: z.string().min(1, "Please provide more detail about your consultation needs")
+    bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
+    insuranceCardFront: z.instanceof(File).optional().or(z.null()),
+    insuranceCardBack: z.instanceof(File).optional().or(z.null())
 })
 
 const TIME_SLOTS = [
@@ -67,6 +69,8 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
+    const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+    const formRef = useRef<HTMLFormElement>(null)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -78,16 +82,105 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
         },
     })
 
+    // Handle scroll indicator visibility
+    useEffect(() => {
+        if (!openContactForm) {
+            return
+        }
+
+        // Wait a bit for the form to render
+        setTimeout(() => {
+            const form = formRef.current
+
+            if (!form) {
+                return
+            }
+
+            setupScrollDetection(form)
+        }, 200)
+    }, [openContactForm])
+
+    const setupScrollDetection = (form) => {
+        const handleScroll = (event) => {
+            const { scrollTop, scrollHeight, clientHeight } = event.target
+            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5
+            const hasScrollableContent = scrollHeight > clientHeight
+
+            setShowScrollIndicator(hasScrollableContent && !isAtBottom)
+        }
+
+        // Try multiple potential scroll targets
+        const targets = [
+            form,
+            form.parentElement,
+            form.closest('[data-radix-scroll-area-viewport]'),
+            form.closest('.overflow-y-auto'),
+            document.querySelector('[data-radix-scroll-area-viewport]'),
+            document.querySelector('.overflow-y-auto')
+        ].filter(Boolean)
+
+        targets.forEach(target => {
+            if (target) {
+                target.addEventListener('scroll', handleScroll)
+            }
+        })
+
+        // Check initial state
+        setTimeout(() => {
+            const { scrollTop, scrollHeight, clientHeight } = form
+            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5
+            const hasScrollableContent = scrollHeight > clientHeight
+            setShowScrollIndicator(hasScrollableContent && !isAtBottom)
+        }, 100)
+
+        return () => {
+            targets.forEach(target => {
+                if (target) {
+                    target.removeEventListener('scroll', handleScroll)
+                }
+            })
+        }
+    }
+
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setDisabled(true)
-        const data = await sendContactEmail(values)
+
+        // Handle file uploads - create FormData for files
+        const formData = new FormData()
+        formData.append('name', values.name)
+        formData.append('email', values.email)
+        formData.append('phone', values.phone)
+        formData.append('reason', values.reason)
+        formData.append('bestTime', values.bestTime)
+
+        // Add insurance card files if they exist
+        if (values.insuranceCardFront) {
+            formData.append('insuranceCardFront', values.insuranceCardFront)
+        }
+        if (values.insuranceCardBack) {
+            formData.append('insuranceCardBack', values.insuranceCardBack)
+        }
+
+        // Log the files for debugging
+        console.log('Insurance Card Front:', values.insuranceCardFront)
+        console.log('Insurance Card Back:', values.insuranceCardBack)
+
+        const data = await sendContactEmail({
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            reason: values.reason,
+            bestTime: values.bestTime,
+            insuranceCardFront: values.insuranceCardFront || undefined,
+            insuranceCardBack: values.insuranceCardBack || undefined
+        })
         await sendUserEmail({ name: values.name, email: values.email, phone: values.phone })
-        
+
         // Enhanced Conversions
         persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
         pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
         pushEvent('lead_form_submit', { form_name: 'DoctorContactForm' });
-        
+
         setDisabled(false)
         if (data) {
             setOpenContactForm(false)
@@ -272,171 +365,297 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                         <div className="w-full self-center flex items-center justify-center" onClick={() => setOpenContactForm(true)}><BookAnAppointmentClient buttonText={buttonText} /></div>
 
                         <Dialog open={openContactForm} onOpenChange={() => setOpenContactForm(false)}>
-                            <DialogContent className=" rounded-[20px] p-[32px] sm:h-fit sm:max-h-fit max-h-150 overflow-y-auto" >
-                                <DialogTitle >
-                                    <p
-                                        style={{
-                                            fontFamily: 'var(--font-public-sans)',
-                                            fontWeight: 500,
-                                        }}
-                                        className='text-[#111315] text-xl'
+                            <DialogContent className="rounded-[20px] max-h-[90vh] sm:min-w-3xl overflow-hidden flex flex-col" >
+                                <DialogTitle>Book Your Appointment</DialogTitle>
+                                <Form {...form}>
+                                    <form
+                                        ref={formRef}
+                                        className="sm:space-y-6 space-y-2 p-1 overflow-y-auto flex-1 pr-2 relative"
+                                        onSubmit={form.handleSubmit(onSubmit, () => { console.log('error') })}
                                     >
-                                        Book Your Appointment
-                                    </p>
-                                </DialogTitle>
-                                <div className="w-full  space-y-6"
-                                >
+                                        <div className="w-full  space-y-6"
+                                        >
 
-                                    {/* Name Fields */}
-                                    <div className="grid grid-cols-1  gap-6">
-                                        <FormField
-                                            control={form.control}
-                                            name="name"
+                                            {/* Name Fields */}
+                                            <div className="grid grid-cols-1  gap-6">
+                                                <FormField
+                                                    control={form.control}
+                                                    name="name"
 
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
-                                                    <FormControl>
-                                                        <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
+                                                            <FormControl>
+                                                                <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
 
-                                    </div>
-
-                                    {/* Contact Fields */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <FormField
-                                            control={form.control}
-                                            name="email"
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel>
-                                                        <span
-                                                            style={{
-                                                                fontFamily: 'var(--font-public-sans)',
-                                                                fontWeight: 500,
-                                                            }}
-                                                            className='text-[#111315] sm:text-md text-sm'
-                                                        >
-                                                            Email Address
-                                                        </span>
-                                                    </FormLabel>
-                                                    <FormControl>
-                                                        <Input placeholder="Enter your email" startIcon={Mail} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
-
-                                        <FormField
-                                            control={form.control}
-                                            name="phone"
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel>
-                                                        <span
-                                                            style={{
-                                                                fontFamily: 'var(--font-public-sans)',
-                                                                fontWeight: 500,
-                                                            }}
-                                                            className='text-[#111315] sm:text-md text-sm'
-                                                        >
-                                                            Phone Number
-                                                        </span>
-
-                                                    </FormLabel>
-                                                    <FormControl>
-                                                        <Input placeholder="+1 0123456789" startIcon={Phone} className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-
-                                    <FormField
-                                        control={form.control}
-                                        name="bestTime"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>
-                                                    <span
-                                                        style={{
-                                                            fontFamily: 'var(--font-public-sans)',
-                                                            fontWeight: 500,
-                                                        }}
-                                                        className='text-[#111315] sm:text-md text-sm'
-                                                    >
-                                                        Best Time To Contact
-                                                    </span>
-                                                </FormLabel>
-                                                <FormControl>
-                                                    <Select onValueChange={field.onChange} value={field.value} >
-                                                        <SelectTrigger
-                                                            className="w-full h-10 px-6 bg-[#f0f5ff]  border rounded-sm"
-                                                        >
-                                                            <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-10 text-lg data-[placeholder]:text-red-500" />
-                                                        </SelectTrigger>
-                                                        <SelectContent>
-                                                            <SelectGroup>
-                                                                {["As Soon As Possible", "Morning", "Afternoon", "Evening"].map((service) => (
-                                                                    <SelectItem key={service} value={service}>
-                                                                        {service}
-                                                                    </SelectItem>
-                                                                ))}
-                                                            </SelectGroup>
-                                                        </SelectContent>
-                                                    </Select>
-                                                </FormControl>
-                                            </FormItem>
-                                        )}
-                                    />
-                                    {/* Reason Field */}
-                                    <FormField
-                                        control={form.control}
-                                        name="reason"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="text-sm text-[#111315] font-semibold">Consultation Reason</FormLabel>
-                                                <FormControl>
-                                                    <Textarea placeholder="Consultation Reason" className="min-h-[200px] text-lg resize-none  border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-
-                                    <button
-                                        className="w-full self-center flex items-center justify-center"
-                                        disabled={disabled}
-                                        onClick={
-                                            form.handleSubmit(onSubmit, () => { console.log('error') })
-                                        }
-                                    >
-                                        {disabled ? (
-                                            <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#252932] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
-                                                <span className="text-white">Sending...</span>
-                                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
                                             </div>
-                                        ) : (
-                                            <BookAnAppointmentClient />
-                                        )}
-                                    </button>
 
-                                    <div>
-                                        <p
-                                            style={{
-                                                fontFamily: 'var(--font-public-sans)',
-                                                fontWeight: 500,
-                                            }}
-                                            className='text-[#838890] sm:text-md text-sm'
-                                        >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
-                                    </div>
-                                </div>
+                                            {/* Contact Fields */}
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <FormField
+                                                    control={form.control}
+                                                    name="email"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>
+                                                                <span
+                                                                    style={{
+                                                                        fontFamily: 'var(--font-public-sans)',
+                                                                        fontWeight: 500,
+                                                                    }}
+                                                                    className='text-[#111315] sm:text-md text-sm'
+                                                                >
+                                                                    Email Address
+                                                                </span>
+                                                            </FormLabel>
+                                                            <FormControl>
+                                                                <Input placeholder="Enter your email" startIcon={Mail} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                <FormField
+                                                    control={form.control}
+                                                    name="phone"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>
+                                                                <span
+                                                                    style={{
+                                                                        fontFamily: 'var(--font-public-sans)',
+                                                                        fontWeight: 500,
+                                                                    }}
+                                                                    className='text-[#111315] sm:text-md text-sm'
+                                                                >
+                                                                    Phone Number
+                                                                </span>
+
+                                                            </FormLabel>
+                                                            <FormControl>
+                                                                <Input placeholder="+1 0123456789" startIcon={Phone} className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+                                            </div>
+
+                                            <FormField
+                                                control={form.control}
+                                                name="bestTime"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>
+                                                            <span
+                                                                style={{
+                                                                    fontFamily: 'var(--font-public-sans)',
+                                                                    fontWeight: 500,
+                                                                }}
+                                                                className='text-[#111315] sm:text-md text-sm'
+                                                            >
+                                                                Best Time To Contact
+                                                            </span>
+                                                        </FormLabel>
+                                                        <FormControl>
+                                                            <Select onValueChange={field.onChange} value={field.value} >
+                                                                <SelectTrigger
+                                                                    className="w-full h-10 px-6 bg-[#f0f5ff]  border rounded-sm"
+                                                                >
+                                                                    <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-10 text-lg data-[placeholder]:text-red-500" />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    <SelectGroup>
+                                                                        {["As Soon As Possible", "Morning", "Afternoon", "Evening"].map((service) => (
+                                                                            <SelectItem key={service} value={service}>
+                                                                                {service}
+                                                                            </SelectItem>
+                                                                        ))}
+                                                                    </SelectGroup>
+                                                                </SelectContent>
+                                                            </Select>
+                                                        </FormControl>
+                                                    </FormItem>
+                                                )}
+                                            />
+                                            {/* Reason Field */}
+                                            <FormField
+                                                control={form.control}
+                                                name="reason"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel className="text-sm text-[#111315] font-semibold">Consultation Reason</FormLabel>
+                                                        <FormControl>
+                                                            <Textarea placeholder="Consultation Reason" className="min-h-[200px] text-lg resize-none  border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
+                                                        </FormControl>
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+
+                                            {/* Insurance Card Upload Section */}
+                                            <div className="space-y-6">
+                                                <div className="flex items-center gap-2 mb-4">
+                                                    <Shield className="h-5 w-5 text-green-600" />
+                                                    <span className="text-sm font-medium text-green-700">HIPAA Compliant & Secure</span>
+                                                </div>
+
+                                                <div className='flex md:flex-row flex-col sm:gap-x-4 gap-y-4'>
+                                                    {/* Front of Insurance Card */}
+                                                    <FormField
+                                                        control={form.control}
+                                                        name="insuranceCardFront"
+                                                        render={({ field: { onChange, value, ...field } }) => (
+                                                            <FormItem className='sm:w-1/2 w-full'>
+                                                                <FormLabel className="text-sm text-[#111315] font-semibold">
+                                                                    Front of Insurance Card
+                                                                    <span className="text-xs text-gray-500 font-normal ml-1">(Optional)</span>
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <div className="relative">
+                                                                        <input
+                                                                            type="file"
+                                                                            accept="image/*,.pdf"
+                                                                            onChange={(e) => {
+                                                                                const file = e.target.files?.[0] || null;
+                                                                                onChange(file);
+                                                                            }}
+                                                                            className="hidden"
+                                                                            id="insurance-front-doctor"
+                                                                            {...field}
+                                                                        />
+                                                                        <label
+                                                                            htmlFor="insurance-front-doctor"
+                                                                            className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
+                                                                        >
+                                                                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                                <FileImage className="w-8 h-8 mb-2 text-[#838890]" />
+                                                                                <p className="mb-2 text-sm text-[#111315]">
+                                                                                    <span className="font-semibold">Click to upload</span> or drag and drop
+                                                                                </p>
+                                                                                <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                                                {value && (
+                                                                                    <p className="text-xs text-green-600 mt-1 font-medium">
+                                                                                        ✓ {value.name}
+                                                                                    </p>
+                                                                                )}
+                                                                            </div>
+                                                                        </label>
+                                                                    </div>
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+
+                                                    {/* Back of Insurance Card */}
+                                                    <FormField
+                                                        control={form.control}
+                                                        name="insuranceCardBack"
+                                                        render={({ field: { onChange, value, ...field } }) => (
+                                                            <FormItem className='sm:w-1/2 w-full'>
+                                                                <FormLabel className="text-sm text-[#111315] font-semibold">
+                                                                    Back of Insurance Card
+                                                                    <span className="text-xs text-gray-500 font-normal ml-1">(Optional)</span>
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <div className="relative">
+                                                                        <input
+                                                                            type="file"
+                                                                            accept="image/*,.pdf"
+                                                                            onChange={(e) => {
+                                                                                const file = e.target.files?.[0] || null;
+                                                                                onChange(file);
+                                                                            }}
+                                                                            className="hidden"
+                                                                            id="insurance-back-doctor"
+                                                                            {...field}
+                                                                        />
+                                                                        <label
+                                                                            htmlFor="insurance-back-doctor"
+                                                                            className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
+                                                                        >
+                                                                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                                <FileImage className="w-8 h-8 mb-2 text-[#838890]" />
+                                                                                <p className="mb-2 text-sm text-[#111315]">
+                                                                                    <span className="font-semibold">Click to upload</span> or drag and drop
+                                                                                </p>
+                                                                                <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                                                {value && (
+                                                                                    <p className="text-xs text-green-600 mt-1 font-medium">
+                                                                                        ✓ {value.name}
+                                                                                    </p>
+                                                                                )}
+                                                                            </div>
+                                                                        </label>
+                                                                    </div>
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
+
+                                                {/* HIPAA Compliance Notice */}
+                                                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                                                    <div className="flex items-start gap-3">
+                                                        <Shield className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                                        <div className="text-sm">
+                                                            <p className="font-medium text-green-800 mb-1">Your information is secure and protected</p>
+                                                            <p className="text-green-700">
+                                                                All uploaded documents are encrypted and stored securely in compliance with HIPAA regulations.
+                                                                Your personal health information is protected and will only be used for your medical care.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button
+                                                className="w-full self-center flex items-center justify-center"
+                                                disabled={disabled}
+                                                onClick={
+                                                    form.handleSubmit(onSubmit, () => { console.log('error') })
+                                                }
+                                            >
+                                                {disabled ? (
+                                                    <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#252932] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">
+                                                        <span className="text-white">Sending...</span>
+                                                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                                    </div>
+                                                ) : (
+                                                    <BookAnAppointmentClient />
+                                                )}
+                                            </button>
+
+                                            <div>
+                                                <p
+                                                    style={{
+                                                        fontFamily: 'var(--font-public-sans)',
+                                                        fontWeight: 500,
+                                                    }}
+                                                    className='text-[#838890] sm:text-md text-sm'
+                                                >By submitting, you agree to our <Link href="/privacy-policy" className="text-[#2358AC] underline">privacy policy and disclaimer.</Link> Someone from our team may contact you via phone, email and/or text.</p>
+                                            </div>
+
+                                            {/* Scroll indicator - only show when not at bottom */}
+                                            <div className={`fixed bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-50 transition-opacity duration-300 ${showScrollIndicator ? 'opacity-100' : 'opacity-0'}`}>
+                                                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                                                    <div className="flex items-center gap-1 text-gray-600 text-sm font-medium">
+                                                        <span>Scroll for more</span>
+                                                        <ChevronDown className="w-4 h-4 animate-bounce" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </Form>
                             </DialogContent>
                         </Dialog>
                     </form>
@@ -444,7 +663,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             </div>
             <BorderBeam duration={8} size={200} borderWidth={2} colorFrom="#0A50EC" colorTo="#ffffff" />
             <Dialog open={openAppointmentConfirm} onOpenChange={() => setAppointmentConfirm(!openAppointmentConfirm)} >
-                <DialogContent className=" rounded-[20px] p-[32px]" >
+                <DialogContent className=" rounded-[20px] p-[32px] " >
                     <DialogTitle>
 
                     </DialogTitle>

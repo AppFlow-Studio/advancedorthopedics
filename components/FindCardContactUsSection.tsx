@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { ConsultationForm } from './ContactForm'
 import HomeContactUs from '../public/HomeContactUs.jpeg'
+import { DoctorContactForm } from './DoctorContactForm'
 export default function FindCareContactUsSection({ page, backgroundcolor = '#FAFCFF' }: { page: string, backgroundcolor?: string }) {
   return (
     <section className={`bg-[${backgroundcolor}] w-full h-full py-[50px]`}>
@@ -91,7 +92,8 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
             Reach out to us anytime - we're here to help.
           </p>
 
-          <ConsultationForm />
+          {/* <ConsultationForm /> */}
+          <DoctorContactForm backgroundcolor="#" />
         </div>
       </div>
     </section>

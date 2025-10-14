@@ -11,8 +11,8 @@ export default function BookAnAppointmentClient({ buttonText = 'Book an Appointm
       <p
         style={{
           fontFamily: "var(--font-public-sans)",
-          fontWeight: 500, lineHeight: "24px",
-          letterSpacing: "0.02em"
+          fontWeight: 500,
+     
         }}
         className='group-hover:translate-x-1 transition-all duration-300 ease-in-out lg:text-lg text-md'
       >{buttonText}</p>
