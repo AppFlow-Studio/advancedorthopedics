@@ -251,7 +251,7 @@ export default function Treatments() {
             }}
             className='text-[#424959] sm:text-xl text-md sm:w-[75%] '
           >
-            Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
+            Spinal conditions may cause persistent pain that affects daily activities and quality of life. Understanding available treatment options—both surgical and non-surgical—can help patients make informed decisions about their care journey.
           </p>
         </div>
 

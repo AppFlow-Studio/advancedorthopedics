@@ -54,7 +54,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
     [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier medical care that gets you back to work and play. We are the trusted orthopedic urgent care center in Hollywood, FL, and walk-in clinic for all your musculoskeletal needs.
-    [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified specialists recognized as the premier orthopedic surgeons in Hollywood, Florida, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of your pain to achieve lasting clinical results.
+    [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified specialists recognized as the premier orthopedic surgeons in Hollywood, Florida, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of pain to achieve lasting clinical results.
     [PARAGRAPH BREAK]Inside our state-of-the-art orthopedic treatment center in Hollywood, FL, we utilize the latest diagnostic imaging technology and minimally invasive surgical techniques and orthopedic laser spine surgery in Hollywood, FL. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
     `,
     keywords: [
@@ -149,7 +149,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Jennifer T."
             role="Teacher, Broward County Schools"
-            testimonial="After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgical approach had me back to teaching in just three weeks. This top-rated orthopedic center in Hollywood truly understands working families."
+            testimonial="After years of persistent lumbar pain, Dr. Katzman's minimally invasive surgical approach had me back to teaching in just three weeks. This top-rated orthopedic center in Hollywood truly understands working families."
           />
           <Testimonial
             name="Dr. Robert Chen"
@@ -159,7 +159,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Mark S."
             role="Construction Supervisor, Pembroke Pines"
-            testimonial="Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Hollywood got me back to work in one month."
+            testimonial="Three different centers couldn't address my persistent lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Hollywood got me back to work in one month."
           />
           <Testimonial
             name="Maria L."
@@ -295,7 +295,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center and walk-in clinic for all your needs.
     [PARAGRAPH BREAK]
-    Our Orlando team includes fellowship-trained, board-certified Orlando orthopedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of your pain to achieve lasting results.
+    Our Orlando team includes fellowship-trained, board-certified Orlando orthopedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of pain to achieve lasting results.
     [PARAGRAPH BREAK]
     Inside our state-of-the-art Orlando orthopedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando's expert team for spine and orthopedic health.
     `,
@@ -393,7 +393,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Sarah M."
             role="Disney Cast Member, Celebration"
-            testimonial="Eight years working at Magic Kingdom left me with terrible back pain. I tried three different Orlando doctors before finding Mountain Spine & Orthopedics. Dr. Katzman at this Orlando orthopedic center took time to understand the physical demands of theme park work. His minimally invasive approach had me back to full Disney shifts in just three weeks. Two years later, I'm still pain-free and can enjoy the Orlando parks with my own children. This Orlando team truly understands working families."
+            testimonial="Eight years working at Magic Kingdom left me with severe back pain. I tried three different Orlando doctors before finding Mountain Spine & Orthopedics. Dr. Katzman at this Orlando orthopedic center took time to understand the physical demands of theme park work. His minimally invasive approach had me back to full Disney shifts in just three weeks. Two years later, my condition has greatly improved and I can enjoy the Orlando parks with my own children. This Orlando team truly understands working families."
           />
           <Testimonial
             name="Dr. Michael Rodriguez"
@@ -403,7 +403,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="David L."
             role="Construction Supervisor, Winter Garden"
-            testimonial="Fifteen years in Orlando construction gave me chronic back pain that workers' comp couldn't seem to fix. Three different Orlando centers couldn't help until a coworker mentioned Mountain Spine & Orthopedics. The orthopedic surgeons here understood construction work demands and got me back to managing job sites in one month. Their workers' comp coordination was professional and hassle-free. Finally found Orlando doctors who understand working people."
+            testimonial="Fifteen years in Orlando construction led to persistent back pain that workers' comp couldn't seem to address. Three different Orlando centers couldn't help until a coworker mentioned Mountain Spine & Orthopedics. The orthopedic surgeons here understood construction work demands and got me back to managing job sites in one month. Their workers' comp coordination was professional and hassle-free. Finally found Orlando doctors who understand working people."
           />
         </div>
       </div>
@@ -425,7 +425,7 @@ export const clinics: ClinicsProps[] = [
   [PARAGRAPH BREAK]
   Our Fort Pierce orthopedic clinic provides advanced treatment options including Band-Aid back surgery, laser spine procedures, endoscopic discectomies, and minimally invasive techniques. Patients benefit from a full continuum of care—orthopedic consultation, imaging, surgery, and physical therapy—all under one roof. Our Fort Pierce location supports faster recovery and better outcomes.
   [PARAGRAPH BREAK]
-  Trust your care to orthopedic experts focused on helping Fort Pierce families return to active, pain-free lives.`,
+  Trust your care to orthopedic experts focused on helping Fort Pierce families return to active lifestyles.`,
     keywords: [
       'orthopedic fort pierce',
       'fort pierce orthopedic',
@@ -513,7 +513,7 @@ export const clinics: ClinicsProps[] = [
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial name="Jennifer T." role="Teacher, St. Lucie County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This orthopedic center in Fort Pierce truly understands working families." />
           <Testimonial name="Dr. Robert Chen" role="Emergency Physician, HCA Florida Lawnwood Hospital" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these orthopedic surgery specialists in Fort Pierce, FL because I've experienced their excellent care firsthand." />
-          <Testimonial name="Mark S." role="Construction Supervisor, Port St. Lucie" testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The sports orthopedic team in Fort Pierce got me back to work in one month." />
+          <Testimonial name="Mark S." role="Construction Supervisor, Port St. Lucie" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The sports orthopedic team in Fort Pierce got me back to work in one month." />
         </div>
       </div>
     ),
@@ -627,14 +627,14 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Patients Say</h2>
         <p className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented clinical outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
-          <Testimonial name="Jennifer T." role="Teacher, Palm Beach County Schools" testimonial="After years of chronic lumbar pain, Dr. Katzman's minimally invasive surgery had me back in the classroom in just three weeks. This orthopedic center in Palm Beach Gardens truly understands the needs of working families." />
+          <Testimonial name="Jennifer T." role="Teacher, Palm Beach County Schools" testimonial="After years of persistent lumbar pain, Dr. Katzman's minimally invasive surgery had me back in the classroom in just three weeks. This orthopedic center in Palm Beach Gardens truly understands the needs of working families." />
           <Testimonial name="Dr. Robert Chen" role="Emergency Physician, Jupiter Medical Center" testimonial="Dr. Katzman's clinical expertise for my herniated nucleus pulposus exceeded all my expectations. I now confidently refer my own patients to these experienced orthopedic specialists in Palm Beach Gardens, FL, because I've experienced their excellent care firsthand." />
-          <Testimonial name="Mark S." role="Construction Supervisor, Wellington" testimonial="Three different centers couldn't help my chronic lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Palm Beach Gardens got me back to work in just one month." />
+          <Testimonial name="Mark S." role="Construction Supervisor, Wellington" testimonial="Three different centers couldn't address my persistent lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Palm Beach Gardens got me back to work in just one month." />
           <Testimonial name="Maria L." role="Nurse, Palm Beach Gardens Medical Center" testimonial="As a healthcare professional, I was incredibly impressed by the exceptional orthopedic treatment in Palm Beach Gardens. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless." />
           <Testimonial name="Carlos R." role="Palm Beach County Sheriff's Deputy" testimonial="Being in law enforcement demands peak physical condition. When I injured my lumbar spine, the professional orthopedic team in Palm Beach Gardens got me back to protecting our community in record time." />
           <Testimonial name="Sarah M." role="Parent from Jupiter" testimonial="My teenage daughter needed specialized pediatric orthopedic care in Palm Beach Gardens after a gymnastics injury. The team's expertise with young athletes was incredible – she's back competing stronger than ever!" />
           <Testimonial name="Dr. Lisa K." role="Physical Therapist, Palm Beach Gardens" testimonial="When I needed urgent orthopedic care in Palm Beach Gardens for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment surpassed my professional expectations." />
-          <Testimonial name="Michael R." role="Golf Pro, PGA National" testimonial="As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed chronic back pain. Dr. Katzman's expertise had me back on the course, pain-free, within a month." />
+          <Testimonial name="Michael R." role="Golf Pro, PGA National" testimonial="As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed persistent back pain. Dr. Katzman's expertise had me back on the course within a month." />
         </div>
       </div>
     ),
@@ -737,7 +737,7 @@ export const clinics: ClinicsProps[] = [
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial name="Maria R." role="Teacher, Miami-Dade County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This Miami Beach clinic truly understands working families." />
           <Testimonial name="Dr. Carlos Mendez" role="Emergency Physician, Baptist Hospital Miami" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these Miami Beach orthopedic specialists because I've experienced their excellent care firsthand." />
-          <Testimonial name="James T." role="Construction Supervisor, Miami Beach" testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month." />
+          <Testimonial name="James T." role="Construction Supervisor, Miami Beach" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month." />
         </div>
       </div>
     ),
@@ -758,7 +758,7 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     Our team of fellowship-trained, board-certified orthopedic doctors in Boca Raton is celebrated for its powerful combination of surgical expertise and heartfelt compassion. We specialize in diagnosing and treating a wide range of ailments, including herniated discs, degenerative disc disease, and sciatica.
     [PARAGRAPH BREAK]
-    By leveraging state-of-the-art diagnostic imaging and pioneering minimally invasive procedures, we offer a pathway to a faster, safer recovery. Our advanced laser and endoscopic techniques are designed to address the source of your pain with unmatched precision, minimizing your downtime. 
+    By leveraging state-of-the-art diagnostic imaging and pioneering minimally invasive procedures, we offer a pathway to a faster, safer recovery. Our advanced laser and endoscopic techniques are designed to address the source of pain with unmatched precision, minimizing downtime. 
     `,
     keywords: [
       'boca raton orthopedic group', 'orthopedic boca raton', 'best orthopedic doctor in boca raton', 'orthopedic doctors boca raton', 'orthopedic doctors in boca raton', 'boca orthopedic', 'orthopedic surgeon boca raton fl', 'pediatric orthopedic boca raton', 'orthopedic surgeon boca', 'orthopedic doctor boca raton', 'walk in orthopedic boca raton', 'spine and orthopedic center boca raton', 'orthopedic surgeon boca raton', 'orthopedic surgeons boca raton', 'orthopedic surgery associates boca raton', 'boca raton orthopedic', 'sports & orthopedic center boca raton',
@@ -844,7 +844,7 @@ export const clinics: ClinicsProps[] = [
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           <Testimonial name="Jennifer S." role="Teacher, Palm Beach County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This trusted orthopedic clinic truly understands working families." />
           <Testimonial name="Dr. Michael Rodriguez" role="Emergency Physician, Boca Raton Regional Hospital" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these skilled orthopedic surgeons because I've experienced their excellent care firsthand." />
-          <Testimonial name="Robert T." role="Construction Supervisor, Delray Beach" testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The expert orthopedic surgeons' team got me back to work in one month." />
+          <Testimonial name="Robert T." role="Construction Supervisor, Delray Beach" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The expert orthopedic surgeons' team got me back to work in one month." />
         </div>
       </div>
     ),
@@ -863,7 +863,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center and walk-in clinic for all your needs.
     [PARAGRAPH BREAK]
-    Our team includes fellowship-trained, board-certified orthopedic surgery specialists in Altamonte Springs, Florida recognized for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of your pain to achieve lasting results.
+    Our team includes fellowship-trained, board-certified orthopedic surgery specialists in Altamonte Springs, Florida recognized for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of pain to achieve lasting results.
     [PARAGRAPH BREAK]
     Inside our state-of-the-art orthopedic center, we utilize the latest diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Central Florida's expert team for spine and orthopedic health.
     `,
@@ -979,7 +979,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Mark S."
             role="Construction Supervisor, Maitland"
-            testimonial="Three different centers couldn't help my chronic back pain until I found Mountain Spine & Orthopedics. The sports orthopedic team in Altamonte Springs got me back to work in one month."
+            testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The sports orthopedic team in Altamonte Springs got me back to work in one month."
           />
         </div>
       </div>
@@ -999,7 +999,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center and walk-in clinic for all your needs.
     [PARAGRAPH BREAK]
-    Our team includes fellowship-trained, board-certified orthopedic specialists recognized for their advanced surgical proficiency and evidence-based patient care protocols. We provide comprehensive, multidisciplinary treatment for various spinal pathologies, including lumbar degenerative disc disease, cervical radiculopathy, herniated nucleus pulposus, and complex musculoskeletal sports injuries. Every treatment protocol is meticulously individualized, ensuring we address the underlying pathophysiology of your condition to achieve optimal therapeutic results.
+    Our team includes fellowship-trained, board-certified orthopedic specialists recognized for their advanced surgical proficiency and evidence-based patient care protocols. We provide comprehensive, multidisciplinary treatment for various spinal pathologies, including lumbar degenerative disc disease, cervical radiculopathy, herniated nucleus pulposus, and complex musculoskeletal sports injuries. Every treatment protocol is meticulously individualized, ensuring we address the underlying pathophysiology of each condition to achieve optimal therapeutic results.
     [PARAGRAPH BREAK]
     Inside our state-of-the-art orthopedic center, we utilize advanced diagnostic imaging modalities and minimally invasive surgical techniques. These precision-guided methods allow for micro-surgical incisions, reduced neuropathic pain, and significantly accelerated tissue healing. Trust our commitment to evidence-based, outcome-focused care to restore your spinal biomechanics and quality of life.
     `,
@@ -1100,7 +1100,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Jessica M."
             role="Physical Therapist at Heart of Florida Regional Medical Center"
-            testimonial="As a healthcare professional, I understand spinal pathologies from treating patients with various musculoskeletal conditions daily. When my own L4-L5 disc herniation became debilitating, I researched every orthopedic center in Davenport, FL. Dr. Katzman's minimally invasive discectomy technique exceeded my professional expectations. I returned to treating patients pain-free within four weeks."
+            testimonial="As a healthcare professional, I understand spinal pathologies from treating patients with various musculoskeletal conditions daily. When my own L4-L5 disc herniation became debilitating, I researched every orthopedic center in Davenport, FL. Dr. Katzman's minimally invasive discectomy technique exceeded my professional expectations. I returned to treating patients with significantly improved symptoms within four weeks."
           />
           <Testimonial
             name="Carlos R."
@@ -1110,7 +1110,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Sandra L."
             role="Hotel Operations Manager at Champions Gate Resort & Spa"
-            testimonial="Managing a busy resort while dealing with chronic lumbar disc disease was becoming impossible. Three previous conservative treatments failed until I discovered the hill orthopedic team in Davenport FL. Their innovative endoscopic approach had me back to managing our 300-room property efficiently. The improvement in my functional capacity is remarkable."
+            testimonial="Managing a busy resort while dealing with persistent lumbar disc disease was becoming challenging. Three previous conservative treatments failed until I discovered the orthopedic team in Davenport FL. Their innovative endoscopic approach had me back to managing our 300-room property efficiently. The improvement in my functional capacity is remarkable."
           />
         </div>
       </div>

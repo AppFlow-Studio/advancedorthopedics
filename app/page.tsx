@@ -334,7 +334,7 @@ export default function Home() {
                 Top Florida Clinic Free Second Opinion & MRI Reading
               </h2>
               <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#424959', lineHeight: 1.5 }} className="">
-                <span className="text-[#0A50EC]">Free Second Opinion.</span>Still suffering from pain-despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0A50EC]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures to relieve pain, restore mobility, and enhance your quality of life.
+                <span className="text-[#0A50EC]">Free Second Opinion.</span>Persistent pain concerns despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0A50EC]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures for pain management, mobility restoration, and quality of life enhancement.
               </p>
               <div className="flex md:flex-row flex-col w-full md:space-x-[11px] md:space-y-0 space-y-4 justify-center items-center">
                 <div className="md:w-[45%] w-full">

@@ -18,20 +18,20 @@ const howToSchema = {
   "step": [
     {
       "@type": "HowToStep",
-      "name": "Describe Your Pain",
-      "text": "Answer questions about the location, duration, and nature of your pain to help our specialists understand your condition.",
+      "name": "Pain Assessment",
+      "text": "Answer questions about pain location, duration, and severity to help our specialists evaluate treatment options.",
       "url": "https://mountainspineorthopedics.com/find-care/candidacy-check#step-1"
     },
     {
       "@type": "HowToStep",
-      "name": "Describe Your Symptoms",
-      "text": "Identify any related symptoms and what activities make your pain better or worse. This helps us determine the best treatment approach.",
+      "name": "Symptom Evaluation",
+      "text": "Identify related symptoms and aggravating activities. This helps determine optimal treatment approaches for effective pain management.",
       "url": "https://mountainspineorthopedics.com/find-care/candidacy-check#step-2"
     },
     {
       "@type": "HowToStep",
       "name": "Provide Your Profile",
-      "text": "Share some basic information so our specialists can provide a preliminary assessment of your condition and treatment candidacy.",
+      "text": "Share basic information so our specialists can provide a preliminary assessment of treatment candidacy.",
       "url": "https://mountainspineorthopedics.com/find-care/candidacy-check#step-3"
     }
   ],
