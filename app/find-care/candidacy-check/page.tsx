@@ -3,6 +3,112 @@ import CandidacyCheckClient from '@/components/CandidacyCheckClient'
 import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
+// HowTo Schema for the candidacy check process
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Check Your Candidacy for Spine Surgery",
+  "description": "Get a free spine surgery candidacy evaluation from our expert team in a few simple steps. Determine which minimally invasive treatments may be right for your condition.",
+  "totalTime": "PT3M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Describe Your Pain",
+      "text": "Answer questions about the location, duration, and nature of your pain to help our specialists understand your condition.",
+      "url": "https://mountainspineorthopedics.com/find-care/candidacy-check#step-1"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Describe Your Symptoms",
+      "text": "Identify any related symptoms and what activities make your pain better or worse. This helps us determine the best treatment approach.",
+      "url": "https://mountainspineorthopedics.com/find-care/candidacy-check#step-2"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Provide Your Profile",
+      "text": "Share some basic information so our specialists can provide a preliminary assessment of your condition and treatment candidacy.",
+      "url": "https://mountainspineorthopedics.com/find-care/candidacy-check#step-3"
+    }
+  ],
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Computer or mobile device"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Internet connection"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Medical records (if available)"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Mountain Spine & Orthopedics Candidacy Checker"
+    }
+  ]
+}
+
+// MedicalOrganization Schema for brand consistency
+const medicalOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Mountain Spine & Orthopedics",
+  "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+  "url": "https://mountainspineorthopedics.com",
+  "logo": "https://mountainspineorthopedics.com/newlogo4.png",
+  "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
+  "telephone": [
+    "(561) 223-9959",
+    "(754) 212-8736",
+    "(407) 565-7598",
+    "(407) 960-1717",
+    "(863) 777-5805",
+    "(561) 556-1802",
+    "(954) 987-2047",
+    "(561) 544-5501"
+  ],
+  "medicalSpecialty": [
+    "Orthopedic Surgery",
+    "Spine Surgery",
+    "Sports Medicine",
+    "Pain Management",
+    "Minimally Invasive Surgery",
+    "Joint Replacement",
+    "Spinal Fusion",
+    "Discectomy",
+    "Arthroscopy"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.7663,
+      "longitude": -82.6404
+    },
+    "geoRadius": "300000"
+  },
+  "areaServed": [
+    "Florida",
+    "Hollywood, FL",
+    "Orlando, FL",
+    "Altamonte Springs, FL",
+    "Davenport, FL",
+    "Fort Pierce, FL",
+    "Palm Beach Gardens, FL",
+    "Miami Beach, FL",
+    "Boca Raton, FL"
+  ]
+}
+
 export const metadata: Metadata = {
   title: 'Free Spine Surgery Candidacy Check | Mountain Spine & Orthopedics',
   description: 'Get a free spine surgery candidacy evaluation from our expert team. Determine which treatments may be right for your condition with our comprehensive assessment tool.',
@@ -32,5 +138,13 @@ export const metadata: Metadata = {
 }
 
 export default function CandidacyCheckPage() {
-  return <CandidacyCheckClient />
+  return (
+    <>
+      {/* JSON-LD Schema Markup for SEO */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
+      
+      <CandidacyCheckClient />
+    </>
+  )
 }

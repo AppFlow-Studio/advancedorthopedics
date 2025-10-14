@@ -60,7 +60,7 @@ export default function OurSpecialtySection() {
             <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px]">
                 {item.icon()}
             </div>
-            <h4
+            <p
                 style={{
                     fontFamily: "var(--font-public-sans)",
                     fontWeight: 500,
@@ -69,7 +69,7 @@ export default function OurSpecialtySection() {
                 className="text-xl"
             >
                 {item.title}
-            </h4>
+            </p>
             <p
                 style={{
                     fontFamily: "var(--font-inter)",

@@ -79,7 +79,7 @@ export default function ServicesAndExpertiseSection() {
                 </div>
 
                 <div className="flex flex-col space-y-[16px] flex-grow">
-                    <h3
+                    <p
                         style={{
                             fontFamily: "var(--font-public-sans)",
                             fontWeight: 500,
@@ -87,7 +87,7 @@ export default function ServicesAndExpertiseSection() {
                         className="text-3xl text-[#252932]"
                     >
                         {item.title}
-                    </h3>
+                    </p>
 
                     <p
                         style={{

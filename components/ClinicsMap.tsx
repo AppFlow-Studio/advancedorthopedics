@@ -3,7 +3,7 @@
 //Map component Component from library
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 // Make sure to import MarkerF and useLoadScript if needed
-import { GoogleMap, Libraries, MarkerF, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, Libraries, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 import { useGeolocation } from '@/providers/geolocationcontext';
 import { Select, SelectContent, SelectItem, SelectTrigger } from './ui/select';
 import { clinics } from './data/clinics';
@@ -32,8 +32,14 @@ const defaultMapOptions = {
 export default function ClinicsMap({ startingClinic }: {
   startingClinic?: { id: number, name: string, lat: number, lng: number, address: string },
 }) {
-
   const { location } = useGeolocation();
+  
+  // Load Google Maps API
+  const libraries: Libraries = ['places', 'drawing', 'geometry', 'marker'];
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API as string,
+    libraries: libraries,
+  });
   // Optional: State to hold map instance
   const [map, setMap] = useState(null);
   const [selectedClinc, setSeletecedClinic] = useState<{ id: number, name: string, lat: number, lng: number, address: string } | undefined>(startingClinic ? startingClinic : undefined)
@@ -177,18 +183,16 @@ export default function ClinicsMap({ startingClinic }: {
       setMapCenter({ lat: clinic.lat, lng: clinic.lng });
     }
   };
+  // Combined useEffect to avoid infinite loops
   useEffect(() => {
-    if (!startingClinic) { setSeletecedClinic(findNearestClinicNameGoogle(clinics, location, window.google)) }
-  }, [location, startingClinic])
-
-  useEffect(() => {
-    if (location) {
+    if (location && !startingClinic) {
       const nearestClinic = findNearestClinicNameGoogle(clinics, location, window.google)
-      setSeletecedClinic(nearestClinic)
-      const defaultMapCenter = { lat: nearestClinic?.lat, lng: nearestClinic?.lng }
-      setMapCenter(defaultMapCenter)
+      if (nearestClinic) {
+        setSeletecedClinic(nearestClinic)
+        setMapCenter({ lat: nearestClinic.lat, lng: nearestClinic.lng })
+      }
     }
-  }, [location])
+  }, [location, startingClinic])
   useEffect(() => {
     if (isInitialMount.current && selectedClinc && !startingClinic) {
       const defaultMapCenter = { lat: selectedClinc?.lat, lng: selectedClinc?.lng }
@@ -205,37 +209,42 @@ export default function ClinicsMap({ startingClinic }: {
         <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange} />
 
         {/* The Google Map */}
-        <GoogleMap
-          mapContainerStyle={defaultMapContainerStyle}
-          center={mapCenter}
-          zoom={defaultMapZoom}
-          options={defaultMapOptions}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
+        {isLoaded ? (
+          <GoogleMap
+            mapContainerStyle={defaultMapContainerStyle}
+            center={mapCenter}
+            zoom={defaultMapZoom}
+            options={defaultMapOptions}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+          >
+            {/* Render Markers Inside */}
+            {clinics.map((clinic) => {
+              // Determine which icon to use
+              const isSelected = clinic.name == selectedClinc?.name;
+              const iconToUse = isSelected
+                ? createSelectedIcon(clinic.name) // Generate selected icon with name
+                : defaultMarkerIcon;             // Use default icon
 
-        >
-          {/* Render Markers Inside */}
-          {clinics.map((clinic) => {
-            // Determine which icon to use
-            const isSelected = clinic.name == selectedClinc?.name;
-            const iconToUse = isSelected
-              ? createSelectedIcon(clinic.name) // Generate selected icon with name
-              : defaultMarkerIcon;             // Use default icon
-
-            // Ensure iconToUse is not null before rendering MarkerF
-            if (!iconToUse) return null;
-            return (
-              <MarkerF
-                key={clinic.name}
-                position={{ lat: clinic.lat, lng: clinic.lng }}
-                icon={iconToUse} // Apply the determined icon
-                title={clinic.name}
-                onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
-              // Optional: Lower zIndex for non-selected markers if overlap is an issue
-              />
-            );
-          })}
-        </GoogleMap>
+              // Ensure iconToUse is not null before rendering MarkerF
+              if (!iconToUse) return null;
+              return (
+                <MarkerF
+                  key={clinic.name}
+                  position={{ lat: clinic.lat, lng: clinic.lng }}
+                  icon={iconToUse} // Apply the determined icon
+                  title={clinic.name}
+                  onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
+                // Optional: Lower zIndex for non-selected markers if overlap is an issue
+                />
+              );
+            })}
+          </GoogleMap>
+        ) : (
+          <div className="flex items-center justify-center h-[680px] bg-gray-100 rounded-3xl">
+            <p className="text-gray-600">Loading map...</p>
+          </div>
+        )}
       </div>
     </section>
   )
@@ -289,14 +298,14 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic:
   return (
     <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
       <div >
-        <h2
+        <p
           style={{
             fontFamily: "var(--font-public-sans)",
             fontWeight: 400,
           }}
           className="text-2xl font-semibold text-[#424959]">
           Find your Clinic
-        </h2>
+        </p>
         {
           !location && (
             <p className="text-lg text-[#2358AC] underline" onClick={AllowLocation}>

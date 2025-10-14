@@ -10,6 +10,16 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
+
+// Professional association logo alt text mapping
+const associationLogoAlt: Record<string, string> = {
+  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+  'ACP': 'American College of Physicians (ACP) certification',
+  'AOA': 'American Osteopathic Association (AOA) accreditation',
+  'NASS': 'North American Spine Society (NASS) membership badge',
+  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+};
 import Image from 'next/image'
 import { Marquee } from '@/components/magicui/marquee'
 import { notFound } from 'next/navigation'
@@ -47,7 +57,7 @@ export default async function LocationDetails(
                     <path fillRule="evenodd" clipRule="evenodd" d="M7 11.2502C7.19892 11.2502 7.38968 11.3293 7.53033 11.4699L9 12.9396L10.4697 11.4699C10.6103 11.3293 10.8011 11.2502 11 11.2502H11H11.0001C12.3676 11.2502 13.5248 11.2502 14.3918 11.3668C15.2919 11.4878 16.0497 11.7467 16.6517 12.3486C17.2536 12.9505 17.5125 13.7084 17.6335 14.6085C17.75 15.4755 17.75 16.5778 17.75 17.9454V21.0002C17.75 21.4145 17.4142 21.7502 17 21.7502L1 21.7502C0.585789 21.7502 0.250001 21.4145 0.250001 21.0002L0.250001 17.9454V17.9454V17.9453C0.249981 16.5778 0.249965 15.4755 0.366525 14.6085C0.487541 13.7084 0.746435 12.9505 1.34835 12.3486C1.95027 11.7467 2.70814 11.4878 3.60825 11.3668C4.4752 11.2502 5.63238 11.2502 6.99994 11.2502H6.99998H7ZM13 13.7502C13.4142 13.7502 13.75 14.086 13.75 14.5002V15.7502H15C15.4142 15.7502 15.75 16.086 15.75 16.5002C15.75 16.9145 15.4142 17.2502 15 17.2502H13.75V18.5002C13.75 18.9145 13.4142 19.2502 13 19.2502C12.5858 19.2502 12.25 18.9145 12.25 18.5002V17.2502H11C10.5858 17.2502 10.25 16.9145 10.25 16.5002C10.25 16.086 10.5858 15.7502 11 15.7502H12.25V14.5002C12.25 14.086 12.5858 13.7502 13 13.7502ZM9 0.250137C6.65279 0.250137 4.75 2.15293 4.75 4.50014V5.50014C4.75 7.84735 6.65279 9.75014 9 9.75014C11.3472 9.75014 13.25 7.84735 13.25 5.50014L13.25 4.50014C13.25 2.15293 11.3472 0.250137 9 0.250137Z" fill="#0A50EC" />
                 </svg>
             ),
-            title: 'World - Class Expertise',
+            title: 'World-Class Expertise',
             body: `Our board-certified ${location.name.replace('Mountain Spine & Orthopedics', '').trim()} orthopedic surgeons bring years of experience and a proven track record of successful outcomes.`
         },
         {
@@ -94,7 +104,7 @@ export default async function LocationDetails(
                     fetchPriority="high"
                     layout='fill'
                     className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-                    alt="Doctor Diagnosing a Old Patient"
+                    alt={`Mountain Spine & Orthopedics ${location.region} clinic - Expert orthopedic care consultation room`}
                 />
                 <div
                     className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -103,13 +113,12 @@ export default async function LocationDetails(
                     }}
                 />
 
-                <div className="w-full h-full flex flex-row relative overflow-hidden  justify-between sm:py-20">
-                    <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full  text-left xl:px-6 py-4 relative xl:pb-[160px]">
+                <div className="w-full h-full flex flex-row relative overflow-hidden justify-between sm:py-16">
+                    <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 py-4 relative xl:pb-[160px]">
 
-                        <SlidingDiv position="left" className="z-[2]"
-                        >
-                            <div className="xl:px-[80px] px-8  xl:w-[90%] space-y-4  ">
-                                <div className=' md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+                        <SlidingDiv position="left" className="z-[2]">
+                            <div className="xl:px-[80px] px-8 xl:w-[90%] space-y-4">
+                                <div className='md:flex hidden flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                                     style={{
                                         background: 'rgba(255, 255, 255, 0.50)'
                                     }}
@@ -148,24 +157,24 @@ export default async function LocationDetails(
                                         fontFamily: "var(--font-public-sans)",
                                         fontWeight: 500,
                                     }}
-                                    className="text-[#252932] text-3xl sm:text-6xl xl:text-6xl text-shadow-sm md:mt-0 mt-16 "
+                                    className="text-[#252932] text-3xl sm:text-5xl xl:text-6xl text-shadow-sm md:mt-0 mt-16"
                                 >
                                     Welcome to Mountain Spine & Orthopedics {location.name.replace('Mountain Spine & Orthopedics', '').trim()}
                                 </h1>
                             </div>
                         </SlidingDiv>
 
-                        <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mt-4 ">
+                        <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mt-4">
                             <div className="xl:w-[65%] w-[95%] rounded-3xl mx-auto"><DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" /></div>
                         </SlidingDiv>
 
                         <SlidingDiv position="left" className="z-[2]">
-                            <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center mt-4">
+                            <div className="xl:px-[80px] px-8 mb-[16px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center mt-2">
                                 <p
                                     style={{
                                         fontWeight: 400,
                                     }}
-                                    className="text-[#424959] text-lg lg:text-xl "
+                                    className="text-[#424959] text-base lg:text-lg"
                                 >
                                     Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver comprehensive orthopedic care.<br />
                                     {location.region} most trusted spine and joint care center, serving Florida families at their convenience.
@@ -174,10 +183,10 @@ export default async function LocationDetails(
                         </SlidingDiv>
 
                         <div className="z-[2] sm:block hidden">
-                            <div className="xl:px-[80px] px-8 my-[24px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
+                            <div className="xl:px-[80px] px-8 my-[16px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
                                 <div className=""><BookAnAppoitmentButton /></div>
                                 <a href="tel:5612239959"
-                                    className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden  px-[32px] py-[16px] rounded-[62px] relative items-center  justify-center `md:justify-between bg-[white] text-[#0A50EC]  w-full md:w-fit font-[500] text-[14px] "
+                                    className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden px-[32px] py-[16px] rounded-[62px] relative items-center justify-center md:justify-between bg-[white] text-[#0A50EC] w-full md:w-fit font-[500] text-[14px]"
                                 >
                                     <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
                                     <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
@@ -190,7 +199,8 @@ export default async function LocationDetails(
                         </div>
                     </div>
 
-                    <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] xl:mb-32" >
+                    {/* Desktop Form - Positioned higher for above the fold */}
+                    <div className="w-[50%] sm:flex hidden flex-col z-[2] justify-start items-center xl:pt-8 lg:pt-12 md:pt-16">
                         <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
                     </div>
                 </div>
@@ -201,8 +211,15 @@ export default async function LocationDetails(
                 >
                     <Marquee pauseOnHover className="w-full" >
                         {
-                            [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                                <Image key={index} src={item} alt="Logo" className=" lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]" draggable={false} />
+                            [
+                                { img: AAOS, name: 'AAOS' },
+                                { img: ACP, name: 'ACP' },
+                                { img: AOA, name: 'AOA' },
+                                { img: NASS, name: 'NASS' },
+                                { img: Serpent, name: 'Serpent' },
+                                { img: SMIS, name: 'SMIS' }
+                            ].map((item, index) => (
+                                <Image key={index} src={item.img} alt={associationLogoAlt[item.name]} className=" lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]" draggable={false} />
                             ))
                         }
                     </Marquee>
@@ -242,7 +259,7 @@ export default async function LocationDetails(
                 </Reveal>
 
                 <div className=" flex xl:flex-row flex-col w-full gap-[32px] xl:items-stretch">
-                    <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt="Doctor Diagnosing Patient " /></div>
+                    <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt={`Orthopedic surgeon consulting with patient at Mountain Spine & Orthopedics ${location.region} clinic`} /></div>
 
                     <div className=" xl:w-[50%] w-full flex flex-col space-y-[32px] ">
                         <Reveal className="w-full" width="100%">
@@ -278,13 +295,13 @@ export default async function LocationDetails(
                                             <div className=" rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] ">
                                                 <item.icon />
                                             </div>
-                                            <h4
+                                            <p
                                                 style={{
                                                     fontFamily: "var(--font-public-sans)",
                                                     fontWeight: 500, color: '#252932'
                                                 }}
                                                 className=" text-xl"
-                                            >{item.title}</h4>
+                                            >{item.title}</p>
                                             <p
                                                 style={{
                                                     fontFamily: "var(--font-inter)",
@@ -306,11 +323,18 @@ export default async function LocationDetails(
 
             >
                 <Marquee pauseOnHover className='w-full' >
-                    {
-                        [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                            <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
-                        ))
-                    }
+                {
+                    [
+                        { img: AAOS, name: 'AAOS' },
+                        { img: ACP, name: 'ACP' },
+                        { img: AOA, name: 'AOA' },
+                        { img: NASS, name: 'NASS' },
+                        { img: Serpent, name: 'Serpent' },
+                        { img: SMIS, name: 'SMIS' }
+                    ].map((item, index) => (
+                        <Image key={index} src={item.img} alt={associationLogoAlt[item.name]} className=" h-[40px] object-contain mx-[20px]" />
+                    ))
+                }
                 </Marquee>
             </div>
 
@@ -372,21 +396,14 @@ export default async function LocationDetails(
                     </div>
                 </div>
             </section>
-            <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-8  h-full px-2 md:px-[40px]">
+            <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
                 {location.specialists}
-                {/* INTERNAL LINKS HERE */}
                 {location.skilled}
-                {/* INTERNAL LINKS HERE */}
                 {location.whyChoose}
-                {/* INTERNAL LINKS HERE */}
                 {location.easyToReach}
-                {/* INTERNAL LINKS HERE */}
                 {location.nearby}
-                {/* INTERNAL LINKS HERE */}
                 {location.advancedTreatments}
-                {/* INTERNAL LINKS HERE */}
                 {location.whatOurPatientsSay}
-                {/* INTERNAL LINKS HERE */}
             </section>
             {/* <RatingsAndReviews /> */}
         </main>

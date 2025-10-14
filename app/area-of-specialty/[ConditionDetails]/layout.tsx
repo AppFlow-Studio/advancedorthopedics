@@ -1,8 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
-import { posthog } from "posthog-js";
-import StaticNav from "@/components/StaticNav.server";
-import OrphanLinksFooter from '@/components/OrphanLinksFooter';
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
@@ -31,7 +28,11 @@ export async function generateMetadata(
     }
 
     const canonicalUrl = buildCanonical(`/area-of-specialty/${condition.slug}`);
-    const ogImage = getOgImageForPath('/area-of-specialty');
+    
+    // Use the specific image for the condition, with a fallback
+    const ogImage = typeof condition.card_img === 'string' 
+        ? condition.card_img 
+        : condition.card_img?.src || getOgImageForPath('/area-of-specialty');
 
     return {
       title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
@@ -63,7 +64,8 @@ export async function generateMetadata(
 }
 
 // --- SEO ENHANCEMENT: Combined JSON-LD Schema Component ---
-const CombinedSchema = async ({ params }: { params: Promise<{ ConditionDetails: string }> }) => {
+// This component generates MedicalCondition and BreadcrumbList schemas
+const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails: string }> }) => {
     const resolvedParams = await params;
     const condition = conditions.find(c => c.slug === resolvedParams.ConditionDetails);
 
@@ -74,26 +76,35 @@ const CombinedSchema = async ({ params }: { params: Promise<{ ConditionDetails: 
     const conditionUrl = `https://mountainspineorthopedics.com/area-of-specialty/${condition.slug}`;
     const imageUrl = typeof condition.card_img === 'string' ? condition.card_img : condition.card_img?.src || '';
 
-    // Schema for the specific medical condition page
-    const medicalPageSchema = {
+    // 1. MedicalCondition Schema (More specific than MedicalWebPage)
+    const medicalConditionSchema = {
         '@context': 'https://schema.org',
-        '@type': 'MedicalWebPage',
-        'headline': condition.title,
+        '@type': 'MedicalCondition',
+        'name': condition.title,
         'description': condition.body,
         'url': conditionUrl,
-        'keywords': condition.keywords?.join(', '),
         'image': imageUrl,
-        'publisher': {
+        'alternateName': condition.keywords?.[0],
+        'signOrSymptom': condition.what_sym ? {
+            '@type': 'MedicalSymptom',
+            'name': condition.what_sym
+        } : undefined,
+        'riskFactor': condition.risk_fac ? {
+            '@type': 'MedicalRiskFactor',
+            'name': condition.risk_fac
+        } : undefined,
+        'possibleTreatment': condition.treatment ? {
+            '@type': 'MedicalTherapy',
+            'name': condition.treatment
+        } : undefined,
+        'author': {
             '@type': 'Organization',
             'name': 'Mountain Spine & Orthopedics',
-            'logo': {
-                '@type': 'ImageObject',
-                'url': 'https://mountainspineortho.b-cdn.net/logoSearch.png'
-            }
+            'url': 'https://mountainspineorthopedics.com'
         }
     };
 
-    // Schema for the breadcrumb trail
+    // 2. BreadcrumbList Schema
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -119,18 +130,18 @@ const CombinedSchema = async ({ params }: { params: Promise<{ ConditionDetails: 
         ]
     };
 
-    // Render both schemas
+    // Render both schemas (server-side, included in initial HTML)
     return (
-        <div>
+        <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalPageSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalConditionSchema) }}
             />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
-        </div>
+        </>
     );
 };
 
@@ -143,17 +154,10 @@ export default async function ConditionLayout({
     children: React.ReactNode;
     params: Promise<{ ConditionDetails: string }>;
 }) {
-    const resolvedParams = await params;
-    posthog.capture("view_condition", {
-        condition: resolvedParams.ConditionDetails
-    });
     return (
         <>
-            {/* Hidden crawler nav */}
-            <StaticNav />
-            {await CombinedSchema({ params })}
+            {await ConditionSchemas({ params })}
             {children}
-            <OrphanLinksFooter /> {/* sr-only, zero visual impact */}
         </>
     );
 }

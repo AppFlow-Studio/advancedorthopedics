@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
+import { clinics } from "@/components/data/clinics"; // Import clinics data
+import { LocationItemListSchema } from "@/components/LocationItemListSchema"; // Import the new schema component
 
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Orthopedic Clinic Locations | Mountain Spine & Orthopedics"),
@@ -37,8 +39,8 @@ export default function LocationsLayout({
 }) {
   return (
     <>
-      <h1 className={srOnly}>Orthopedic Clinic Locations</h1>
-      <h2 className={srOnly}>Florida Orthopedic Care Centers</h2>
+      {/* Add the ItemList Schema component here */}
+      <LocationItemListSchema clinics={clinics} />
       {children}
     </>
   );

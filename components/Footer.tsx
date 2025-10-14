@@ -119,6 +119,7 @@ export default function Footer() {
                             <Link href={'/find-care/find-a-doctor'}>Doctors</Link >
                             <Link href={'/locations'}>Locations</Link >
                             <Link href={'/blogs'}>Blog</Link >
+                            <Link href={'/about/faqs'}>FAQs</Link >
                             <Link href={'/patient-forms'}>Patient Forms</Link >
                             <Link href={'/condition-check'}>Condition Check</Link >
                             <Link href={'/find-care/candidacy-check'}>Treatment Check</Link >
@@ -164,7 +165,7 @@ export default function Footer() {
                     }}
                 >Copyright © 2025 Mountain Spine & Orthopedics.</p>
 
-                <div className='flex md:flex-row flex-col md:space-x-[40px] space-y-[10px]'>
+                <div className='flex md:flex-row flex-col md:space-x-[40px] md:space-y-0 space-y-[10px]'>
                     <Link href={'/privacy-policy'}
                         style={{
                             fontFamily: 'var(--font-public-sans)',
@@ -173,6 +174,24 @@ export default function Footer() {
                         }}
                     >
                         Privacy Policy
+                    </Link>
+                    <Link href={'/insurance-policy'}
+                        style={{
+                            fontFamily: 'var(--font-public-sans)',
+                            fontWeight: 400,
+                            color: '#5E96F0'
+                        }}
+                    >
+                        Insurance
+                    </Link>
+                    <Link href={'/sitemap'}
+                        style={{
+                            fontFamily: 'var(--font-public-sans)',
+                            fontWeight: 400,
+                            color: '#5E96F0'
+                        }}
+                    >
+                        Sitemap
                     </Link>
                 </div>
             </div>

@@ -8,10 +8,169 @@ import DoctorCard from '@/components/DoctorCard'
 import StarRating from '@/components/StarRating'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Link from 'next/link'
+import { Metadata } from 'next'
+import { buildCanonical } from '@/lib/seo'
+import { getOgImageForPath } from '@/lib/og'
+import PhysicianSchema from '@/components/PhysicianSchema'
+
+export const metadata: Metadata = {
+  title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care in Florida',
+  description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida. Meet our expert team dedicated to your recovery.',
+  alternates: {
+    canonical: buildCanonical('/about'),
+  },
+  openGraph: {
+    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care in Florida',
+    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida. Meet our expert team dedicated to your recovery.',
+    url: buildCanonical('/about'),
+    type: 'website',
+    images: [
+      {
+        url: getOgImageForPath('/about'),
+        width: 1200,
+        height: 630,
+        alt: 'About Mountain Spine & Orthopedics - Expert Orthopedic Care in Florida',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care in Florida',
+    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida. Meet our expert team dedicated to your recovery.',
+    images: [getOgImageForPath('/about')],
+  },
+};
+
+// AboutPage Schema with MedicalOrganization as mainEntity
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Mountain Spine & Orthopedics | Expert Spine & Joint Care",
+  "description": "Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida.",
+  "url": "https://mountainspineorthopedics.com/about",
+  "mainEntity": {
+    "@type": "MedicalOrganization",
+    "name": "Mountain Spine & Orthopedics",
+    "url": "https://mountainspineorthopedics.com",
+    "logo": "https://mountainspineorthopedics.com/newlogo4.png",
+    "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
+    "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+    "telephone": [
+      "(561) 223-9959",
+      "(754) 212-8736",
+      "(407) 565-7598",
+      "(407) 960-1717",
+      "(863) 777-5805",
+      "(561) 556-1802",
+      "(954) 987-2047",
+      "(561) 544-5501"
+    ],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "3500 Tyler St",
+        "addressLocality": "Hollywood",
+        "addressRegion": "FL",
+        "postalCode": "33021",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "652 Palm Springs Dr",
+        "addressLocality": "Altamonte Springs",
+        "addressRegion": "FL",
+        "postalCode": "32701",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "6150 Metrowest Blvd Suite 102",
+        "addressLocality": "Orlando",
+        "addressRegion": "FL",
+        "postalCode": "32835",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "2215 Nebraska Ave Suite 1C",
+        "addressLocality": "Fort Pierce",
+        "addressRegion": "FL",
+        "postalCode": "34950",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "3355 Burns Road Suite 304",
+        "addressLocality": "Palm Beach Gardens",
+        "addressRegion": "FL",
+        "postalCode": "33410",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "8000 SW 67TH Ave, 2nd Floor",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "postalCode": "33143",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "1905 Clint Moore Rd #300",
+        "addressLocality": "Boca Raton",
+        "addressRegion": "FL",
+        "postalCode": "33496",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "499 E Central Pkwy #130",
+        "addressLocality": "Altamonte Springs",
+        "addressRegion": "FL",
+        "postalCode": "32701",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "2400 North Blvd W Suite C",
+        "addressLocality": "Davenport",
+        "addressRegion": "FL",
+        "postalCode": "33837",
+        "addressCountry": "US"
+      }
+    ],
+    "medicalSpecialty": [
+      "Orthopedic Surgery",
+      "Spine Surgery",
+      "Sports Medicine",
+      "Pain Management",
+      "Minimally Invasive Surgery",
+      "Joint Replacement",
+      "Spinal Fusion",
+      "Discectomy",
+      "Arthroscopy"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1247",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "sameAs": [
+      "https://www.facebook.com/people/Mountain-Spine-Orthopedics/61576930958681/",
+      "https://www.instagram.com/mountainspineortho/"
+    ]
+  }
+};
 
 export default function AboutUs() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      {/* JSON-LD Schema Markup for SEO and Knowledge Graph */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }} />
+      <PhysicianSchema doctors={Doctors.slice(0, 3)} wrapInItemList={true} />
+      
       {/* Landing */}
       <section className=" w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
@@ -26,7 +185,7 @@ export default function AboutUs() {
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt="Mountain Spine & Orthopedics board-certified physicians providing comprehensive spine and joint care to Florida patients"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -60,7 +219,11 @@ export default function AboutUs() {
             </div>
           </div>
           <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center text-center w-full">
-            <TextAnimate animation="blurInUp" by="word" once
+            <TextAnimate 
+              animation="blurInUp" 
+              by="word" 
+              once
+              as="h1"
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
@@ -90,7 +253,7 @@ export default function AboutUs() {
       <section className=' w-full max-w-[1440px] flex flex-col py-[50px] h-full px-6 xl:px-[40px]'>
         <div className=' space-x-[12px] flex flex-row items-center justify-center'>
           <StarRating rating={5} size={25} />
-          <h2
+          <span
             style={{
               fontFamily: 'var(--font-public-sans)',
               fontWeight: 500,
@@ -98,7 +261,7 @@ export default function AboutUs() {
             className='text-[#424959] text-xl'
           >
             250k+ Reviews
-          </h2>
+          </span>
         </div>
 
         <div className=' mt-[16px] '>
@@ -160,13 +323,13 @@ export default function AboutUs() {
             <Link
               href={'/about/meetourdoctors'}
               className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px]">
-              <h3
+              <span
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontWeight: 400,
                 }}
                 className="text-[#252932]"
-              >View all</h3>
+              >View all</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11" viewBox="0 0 18 11" fill="none">
                 <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 9.79314 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#252932" />
               </svg>

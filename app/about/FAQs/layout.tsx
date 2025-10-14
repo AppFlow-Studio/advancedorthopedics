@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: safeTitle(undefined, "Frequently Asked Questions | Mountain Spine & Orthopedics"),
   description: safeDescription(undefined, "Find answers to frequently asked questions about orthopedic care, spine surgery, appointments, insurance, and treatments at Mountain Spine & Orthopedics."),
   alternates: {
-    canonical: buildCanonical("/about/FAQs"),
+    canonical: buildCanonical("/about/faqs"),
   },
   openGraph: {
     title: safeTitle(undefined, "Frequently Asked Questions | Mountain Spine & Orthopedics"),
     description: safeDescription(undefined, "Find answers to frequently asked questions about orthopedic care, spine surgery, appointments, insurance, and treatments at Mountain Spine & Orthopedics."),
-    url: buildCanonical("/about/FAQs"),
+    url: buildCanonical("/about/faqs"),
     type: "website",
   },
   twitter: {
@@ -25,11 +25,5 @@ export default function FAQsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <h1 className="sr-only">Frequently Asked Questions</h1>
-      <h2 className="sr-only">Common Questions About Orthopedic Care</h2>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

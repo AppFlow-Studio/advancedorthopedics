@@ -83,6 +83,15 @@ export default function BookAnAppointmentPopup() {
             console.log(values)
             await sendUserEmail(values)
             await sendContactEmail(values)
+            
+            if (typeof window !== 'undefined' && window.dataLayer) {
+                window.dataLayer.push({
+                    event: 'form_submission',
+                    formName: 'BookAnAppointmentPopup',
+                    pagePath: window.location.pathname,
+                });
+            }
+            
             setAppointmentConfirm(true)
         } catch (error) {
             console.error('Error submitting form:', error)

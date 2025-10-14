@@ -7,12 +7,24 @@ const getSiteUrl = () => {
 export const siteUrl = getSiteUrl();
 
 // Always use production domain for canonical URLs (SEO requirement)
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://mountainspineorthopedics.com";
+export const SITE_URL = "https://mountainspineorthopedics.com";
+
+export function normalizePath(p: string): string {
+  if (!p) return "/";
+  let path = p.trim();
+  if (!path.startsWith("/")) path = `/${path}`;
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+  return path.toLowerCase();
+}
 
 /** Lowercase, no trailing slash, absolute URL - always uses production domain for canonicals */
-export function buildCanonical(path = '/'): string {
-  const p = path.startsWith("/") ? path : `/${path}`;
-  return `${SITE_URL}${p}`;
+export function buildCanonical(path: string = "/"): string {
+  const normalized = normalizePath(path);
+  return `${SITE_URL}${normalized}`;
+}
+
+export function canonicalForOg(path: string): string {
+  return buildCanonical(path);
 }
 
 // Safe title/description fallbacks

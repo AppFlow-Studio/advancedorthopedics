@@ -1,13 +1,19 @@
 "use client";
 
+import { useEffect } from 'react';
 import { CheckCircle, Mail, Users, Share2, Instagram } from "lucide-react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { restoreECFromSession } from "@/utils/enhancedConversions";
 
 export default function ThankYouPage() {
+  useEffect(() => {
+    restoreECFromSession(); // pushes {event:'ec_restore', enhanced_conversion_data:{...}}
+  }, []);
+
   return (
     <div className="lg:py-[80px] py-[40px] w-full bg-gradient-to-br from-blue-50 to-slate-50">
       <div className="container mx-auto px-4 py-12">

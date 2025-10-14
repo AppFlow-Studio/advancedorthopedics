@@ -1,11 +1,7 @@
 'use client'
 import React, { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import FAQsLanding from '@/public/FAQs.jpeg'
 import { Minus, Plus } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import FAQsDocotorTestimony from '@/public/FAQsDoctorTestimony.png'
 
 export default function FAQsSection({ header, faqItems }: { header: React.ReactElement, faqItems: { question: string, answer: React.ReactElement }[] }) {
     const [openItem, setOpenItem] = useState<number>(0)
@@ -37,13 +33,13 @@ export default function FAQsSection({ header, faqItems }: { header: React.ReactE
                                 className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
                                 aria-expanded={openItem === index}
                             >
-                                <span
+                                <h3
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
                                     }}
                                     className={`${openItem === index ? 'text-black' : 'text-[#424959]'} text-2xl`}
-                                >{item.question}</span>
+                                >{item.question}</h3>
                                 <motion.div initial={false} animate={{ rotate: openItem === index ? 0 : 0 }}>
                                     {openItem === index ? (
                                         <Minus className="h-5 w-5 text-black" />

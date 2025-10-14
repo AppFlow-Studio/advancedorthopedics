@@ -5,23 +5,38 @@ import DoctorCard from '@/components/DoctorCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import Link from 'next/link';
+import { buildCanonical } from '@/lib/seo';
+import { getOgImageForPath } from '@/lib/og';
+import PhysicianSchema from '@/components/PhysicianSchema';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Meet Our Doctors | Orthopedic & Spine Specialists in Florida | Mountain Spine & Orthopedics',
-  description: 'Our team of board-certified spine and orthopedic specialists offers expert care across Florida. Learn more about our surgeons and pain management experts.',
+export const metadata: Metadata = {
+  title: 'Board-Certified Orthopedic Doctors | Mountain Spine & Orthopedics',
+  description: 'Meet the expert team of spine and orthopedic surgeons at Mountain Spine. Our renowned doctors use advanced, compassionate care to help you find relief. Learn more.',
+  alternates: {
+    canonical: buildCanonical('/about/meetourdoctors'),
+  },
   openGraph: {
-    title: 'Meet Our Doctors | Orthopedic & Spine Specialists in Florida | Mountain Spine & Orthopedics',
-    description: 'Our team of board-certified spine and orthopedic specialists offers expert care across Florida. Learn more about our surgeons and pain management experts.'
+    title: 'Board-Certified Orthopedic Doctors | Mountain Spine & Orthopedics',
+    description: 'Meet the expert team of spine and orthopedic surgeons at Mountain Spine. Our renowned doctors use advanced, compassionate care to help you find relief. Learn more.',
+    url: buildCanonical('/about/meetourdoctors'),
+    images: [getOgImageForPath('/about')],
+    type: 'website',
   },
   twitter: {
-    title: 'Meet Our Doctors | Orthopedic & Spine Specialists in Florida | Mountain Spine & Orthopedics',
-    description: 'Our team of board-certified spine and orthopedic specialists offers expert care across Florida. Learn more about our surgeons and pain management experts.'
+    card: 'summary_large_image',
+    title: 'Board-Certified Orthopedic Doctors | Mountain Spine & Orthopedics',
+    description: 'Meet the expert team of spine and orthopedic surgeons at Mountain Spine. Our renowned doctors use advanced, compassionate care to help you find relief. Learn more.',
+    images: [getOgImageForPath('/about')],
   }
 };
 
 export default function MeetOurDoctors() {
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      {/* JSON-LD Schema Markup for SEO - Physician Schema for E-E-A-T */}
+      <PhysicianSchema doctors={Doctors} wrapInItemList={true} />
+      
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
@@ -36,7 +51,7 @@ export default function MeetOurDoctors() {
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt="A compassionate Mountain Spine & Orthopedics doctor reviewing a patient's spine condition in Florida"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -76,14 +91,14 @@ export default function MeetOurDoctors() {
             <Link href={'/condition-check'}
               className=" max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-transparent border border-[#0A50EC] w-fit text-[#0A50EC] text-[14px] font-semibold justify-center items-center hover:cursor-pointe "
             >
-              <h1
+              <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500, fontSize: "16px",
                   lineHeight: "24px",
                   letterSpacing: "0.02em"
                 }}
-              >Condition Checker</h1>
+              >Condition Checker</span>
             </Link>
           </div>
         </div>
@@ -95,7 +110,10 @@ export default function MeetOurDoctors() {
             <h2
               style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
               className="text-black text-5xl text-left w-full"
-            >Meet Our Doctors</h2>
+            >Florida's Leading Orthopedic Experts</h2>
+            <p className="text-[#424959] text-lg">
+              Our team of board-certified, fellowship-trained specialists bring decades of combined experience in advanced spine care, joint reconstruction, and pain management.
+            </p>
           </div>
         </div>
         <div className=" mt-[60px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 items-stretch">

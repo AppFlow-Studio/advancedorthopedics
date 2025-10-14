@@ -53,9 +53,6 @@ const MRI3 = 'https://mountainspineortho.b-cdn.net/public/MRI3.png';
 export const metadata: Metadata = {
   title: 'Mountain Spine & Orthopedics | Top Florida Spine & Joint Pain Specialists',
   description: 'Trusted orthopedic and spine care across Florida. Experts in minimally invasive surgery, arthritis, and joint pain relief. Book your free MRI review or second opinion today.',
-  alternates: {
-    canonical: buildCanonical('/'),
-  },
   openGraph: {
     title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
     description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
@@ -97,14 +94,18 @@ export const metadata: Metadata = {
   ],
 };
 
-// ✅ JSON-LD Schema for Search Engine Rich Results (This part is also correct)
+// ✅ Enhanced JSON-LD Schema with Multiple Locations
 const HomePageJsonLdSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalOrganization',
     'name': 'Mountain Spine & Orthopedics',
     'url': 'https://mountainspineorthopedics.com/',
-    'logo': 'https://mountainspineorthopedics.com/logo.png',
+    'logo': 'https://mountainspineorthopedics.com/newlogo4.png',
+    'description': 'Board-certified orthopedic and spine specialists providing comprehensive care across Florida. Experts in minimally invasive surgery, joint replacement, and pain management.',
+    'image': 'https://mountainspineorthopedics.com/default_og.png',
+    'telephone': '+1-561-223-9959',
+    'priceRange': '$$',
     'contactPoint': {
       '@type': 'ContactPoint',
       'telephone': '+1-561-223-9959',
@@ -114,17 +115,59 @@ const HomePageJsonLdSchema = () => {
     },
     'address': {
       '@type': 'PostalAddress',
-      'addressLocality': 'Altamonte Springs',
+      'streetAddress': '3500 Tyler St',
+      'addressLocality': 'Hollywood',
       'addressRegion': 'FL',
-      'postalCode': '32701',
+      'postalCode': '33021',
       'addressCountry': 'US'
     },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '4.9',
+      'reviewCount': '250000',
+      'bestRating': '5',
+      'worstRating': '1'
+    },
     'sameAs': [
-      'https://www.facebook.com/mountainspineorthopedics',
-      'https://www.instagram.com/mountainspineorthopedics',
-      'https://www.linkedin.com/company/mountainspineorthopedics',
-      'https://www.youtube.com/@mountainspineorthopedics'
-    ]
+      'https://www.facebook.com/p/Mountain-Spine-Orthopedics-61576930958681/',
+      'https://www.instagram.com/mountainspineortho/'
+    ],
+    'medicalSpecialty': [
+      'Orthopedics',
+      'Spine Surgery',
+      'Pain Management',
+      'Sports Medicine'
+    ],
+    'hasOfferCatalog': {
+      '@type': 'OfferCatalog',
+      'name': 'Orthopedic Services',
+      'itemListElement': [
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': 'Minimally Invasive Spine Surgery',
+            'url': 'https://mountainspineorthopedics.com/treatments/endoscopic-discectomy-surgery'
+          }
+        },
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': 'Free MRI Review',
+            'url': 'https://mountainspineorthopedics.com/find-care/free-mri-review'
+          }
+        },
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': 'Joint Replacement Surgery',
+            'url': 'https://mountainspineorthopedics.com/treatments'
+          }
+        }
+      ]
+    }
   };
 
   return (
@@ -236,7 +279,7 @@ export default function Home() {
           </Reveal>
           <div className="flex xl:flex-row flex-col w-full gap-[32px] xl:items-stretch">
             <div className="xl:w-[50%] w-full rounded-[20px] overflow-hidden">
-              <Image src={HomeWhyAO} width={1440} height={1000} className="w-full h-full md:aspect-video aspect-square object-cover" alt="Doctor Diagnosing Patient" />
+              <Image src={HomeWhyAO} width={1440} height={1000} className="w-full h-full md:aspect-video aspect-square object-cover" alt="Board-certified orthopedic surgeon performing comprehensive patient evaluation at Mountain Spine & Orthopedics" />
             </div>
             <div className="xl:w-[50%] w-full flex flex-col space-y-[32px]">
               <Reveal className="w-full" width="100%">
@@ -307,7 +350,7 @@ export default function Home() {
                 </Link>
               </div>
               <div className="">
-                <Image src={'https://mountainspineortho.b-cdn.net/public/HomeWhyAO-min.jpeg'} layout="responsive" height={1000} width={1440} alt="Doctor Treating a Patient" className="w-full xl:h-[250px] xl:max-h-[250px] object-cover object-center xl:object-top-left rounded-[12px]" />
+                <Image src={'https://mountainspineortho.b-cdn.net/public/HomeWhyAO-min.jpeg'} layout="responsive" height={1000} width={1440} alt="Orthopedic specialist providing personalized treatment plan consultation to Florida patient" className="w-full xl:h-[250px] xl:max-h-[250px] object-cover object-center xl:object-top-left rounded-[12px]" />
               </div>
             </div>
           </div>

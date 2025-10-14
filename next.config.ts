@@ -30,12 +30,26 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  experimental: {
-    optimizeCss: true,
-  },
+  // experimental: {
+  //   optimizeCss: true,
+  // },
 
   async redirects() {
+  // Only apply host redirects in production
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   return [
+    // --- HOST/PROTOCOL/CASE NORMALIZATION (301s) - PRODUCTION ONLY ---
+    ...(isProduction ? [
+      { source: "/:path*", has:[{type:"host",value:"mountainspineorthopedics.com"}],
+        destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
+      { source: "/:path*", has:[{type:"host",value:"www.mountainspineorthopedics.com"}],
+        destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
+    ] : []),
+    
+    // Trailing slash handling now happens in middleware to avoid blank Location headers
+    // that caused infinite refresh loops when developing locally.
+
     // --- TYPO FIX: area-of-speciality → area-of-specialty ---
     {"source":"/area-of-speciality","destination":"/area-of-specialty","permanent":true},
     {"source":"/area-of-speciality/:slug*","destination":"/area-of-specialty/:slug*","permanent":true},
@@ -189,11 +203,6 @@ const nextConfig: NextConfig = {
 
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
-};
-
-nextConfig.generateBuildId = async () => {
-  // Use a timestamp or a random string for uniqueness
-  return `${Date.now()}`;
 };
 
 export default nextConfig;

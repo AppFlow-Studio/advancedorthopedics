@@ -10,6 +10,7 @@ import DoctorCard from '@/components/DoctorCard'
 import BlogPostCard, { BlogPostProp, supabaseBlogPostProp } from '@/components/BlogPostCard'
 import ClinicsMap from '@/components/ClinicsMap'
 import ContactUsSection from '@/components/ContactUsSection'
+import RelatedPosts from '@/components/RelatedPosts'
 import { GetBlogInfo } from '@/app/blogs/api/get-blog-info'
 import { Badge } from '@/components/ui/badge'
 import { TextAnimate } from '@/components/magicui/text-animate'
@@ -300,7 +301,7 @@ export default function BlogDetails({
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt={`Expert orthopedic insights from Mountain Spine & Orthopedics - ${blog.blog_info.title}`}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -385,6 +386,14 @@ export default function BlogDetails({
           </div>
         </aside>
       </main>
+
+      {/* Related Posts */}
+      <section className='max-w-[1440px] w-full px-6 xl:px-[80px] py-8'>
+        <RelatedPosts 
+          currentSlug={params}
+          currentTags={blog_details.blog_info.tags || []}
+        />
+      </section>
 
       <ContactUsSection />
     </main>

@@ -2,7 +2,6 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { conditions as painconditions } from "@/components/data/painconditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
-import StaticNav from "@/components/StaticNav.server";
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
@@ -110,7 +109,6 @@ export default function BackPainAreaLayout({
 }) {
   return (
     <div>
-      <StaticNav />
       {children}
     </div>
   );

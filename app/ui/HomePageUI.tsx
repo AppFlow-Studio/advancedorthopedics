@@ -40,6 +40,16 @@ import AOA from '../../public/AOA.png';
 import NASS from '../../public/NASS.png';
 import Serpent from '../../public/Serpent.png';
 import SMIS from '../../public/SMIS.png';
+
+// Professional association logo alt text mapping
+const associationLogoAlt: Record<string, string> = {
+  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+  'ACP': 'American College of Physicians (ACP) certification',
+  'AOA': 'American Osteopathic Association (AOA) accreditation',
+  'NASS': 'North American Spine Society (NASS) membership badge',
+  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+};
 import HomeWhyAO from '../../public/HomeWhyAO-min.jpeg';
 import MRI1 from '../../public/MRI1.png';
 import MRI2 from '../../public/MRI2.png';
@@ -88,7 +98,7 @@ export default function HomePageUI() {
           }}
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
-        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Doctor Diagnosing a Old Patient" />
+        <Image src={'https://mountainspineortho.b-cdn.net/public/home-landing-min.jpeg'} priority={true} fetchPriority="high" layout='fill' className="h-full absolute top-0 object-cover  object-center md:object-top pt-16 self-end w-full md:pl-[100px] pl-8" alt="Board-certified spine and orthopedic surgeons consulting with Florida patients at Mountain Spine & Orthopedics" />
         <div className="lg:w-[60%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
           style={{
             background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
@@ -156,15 +166,22 @@ export default function HomePageUI() {
           {hasMounted && dimensions.width > 0 && (
             <div className="w-full">
               <Marquee pauseOnHover className="w-full">
-                {[AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                  <Image
-                    key={index}
-                    src={item}
-                    alt="Logo of a professional medical association"
-                    className="lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]"
-                    draggable={false}
-                  />
-                ))}
+              {[
+                { img: AAOS, name: 'AAOS' },
+                { img: ACP, name: 'ACP' },
+                { img: AOA, name: 'AOA' },
+                { img: NASS, name: 'NASS' },
+                { img: Serpent, name: 'Serpent' },
+                { img: SMIS, name: 'SMIS' }
+              ].map((item, index) => (
+                <Image
+                  key={index}
+                  src={item.img}
+                  alt={associationLogoAlt[item.name]}
+                  className="lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]"
+                  draggable={false}
+                />
+              ))}
               </Marquee>
             </div>
           )}

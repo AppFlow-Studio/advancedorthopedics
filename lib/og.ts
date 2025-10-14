@@ -1,4 +1,4 @@
-import { buildCanonical } from '@/lib/seo';
+import { SITE_URL } from '@/lib/seo';
 
 /**
  * Map route-prefix ➜ image file.
@@ -25,23 +25,18 @@ const OG_IMAGE_MAP: Record<string, string> = {
 
 /**
  * Resolve an absolute, canonical OG image for any pathname.
+ * Always uses production URL for proper social media sharing.
  * @example getOgImageForPath('/treatments/lumbar-fusion-surgery')
  */
 export function getOgImageForPath(pathname: string): string {
-  // Handle both development and production environments
-  const isDevelopment = process.env.NODE_ENV === 'development';
-  const siteUrl = isDevelopment ? 'http://localhost:3000' : 'https://mountainspineorthopedics.com';
-  
+  // Always use production URL for OG images (critical for social media sharing)
   for (const [prefix, img] of Object.entries(OG_IMAGE_MAP)
                                      .sort((a, b) => b[0].length - a[0].length)) {
     if (pathname.startsWith(prefix)) {
-      // Build the full URL directly
-      const fullUrl = new URL(img, siteUrl);
-      return fullUrl.toString();
+      return `${SITE_URL}${img}`;
     }
   }
   
   // Fallback to default
-  const fullUrl = new URL(OG_IMAGE_MAP.DEFAULT, siteUrl);
-  return fullUrl.toString();
+  return `${SITE_URL}${OG_IMAGE_MAP.DEFAULT}`;
 } 

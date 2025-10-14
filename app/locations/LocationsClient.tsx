@@ -18,10 +18,16 @@ import {
 
 interface LocationsClientProps {
   selectedLocation?: any
-  setSelectedLocation: (location: any) => void
+  setSelectedLocation?: (location: any) => void
 }
 
 export default function LocationsClient({ selectedLocation, setSelectedLocation }: LocationsClientProps) {
+  // Create local state if props are not provided
+  const [localSelectedLocation, setLocalSelectedLocation] = useState(selectedLocation);
+  
+  // Use props if provided, otherwise use local state
+  const currentSelectedLocation = selectedLocation !== undefined ? selectedLocation : localSelectedLocation;
+  const currentSetSelectedLocation = setSelectedLocation || setLocalSelectedLocation;
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [hasMounted, setHasMounted] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
@@ -102,7 +108,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
       onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
       onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
       onClick={() => {
-        setSelectedLocation(clinic)
+        currentSetSelectedLocation(clinic)
         const goToSection = () => {
           const section = document.getElementById('Locations')
           if (section) {
@@ -222,12 +228,12 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             }}
             className='text-white text-xl'
           >
-            Mountain Spine & Orthopedics delivers expert spine care across Florida with 7 Locations and an Ambulatory Surgery Center.
+            Mountain Spine & Orthopedics delivers expert spine care across Florida with 9 Locations and an Ambulatory Surgery Center.
           </p>
         </div>
       </section>
 
-      <ClinicsMap startingClinic={selectedLocation} />
+      <ClinicsMap startingClinic={currentSelectedLocation} />
       <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
         {/* Header Section */}
         <motion.div
@@ -253,7 +259,6 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 className="w-full"
                 opts={{
                   align: "center",
-                  fontWeight: false,
                   containScroll: "trimSnaps",
                 }}
               >
@@ -312,7 +317,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-[#252932] mb-2">Extended Hours</h3>
-              <p className="text-[#424959]">Open 6 days a week until 8 PM for your convenience</p>
+              <p className="text-[#424959]">Open 7 days a week until 8 PM for your convenience</p>
             </div>
 
             <div className="text-center">

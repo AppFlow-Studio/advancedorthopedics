@@ -46,11 +46,5 @@ export default function AboutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <h1 className="sr-only">About Mountain Spine & Orthopedics</h1>
-      <h2 className="sr-only">Leading Orthopedic Care in Florida</h2>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

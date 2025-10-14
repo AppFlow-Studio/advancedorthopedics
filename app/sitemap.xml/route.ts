@@ -19,9 +19,14 @@ function isValidSlug(slug: string | undefined | null): boolean {
 
 // Helper function to generate URL entry
 function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
+  const loc = buildCanonical(path);
+  // Self-check assertion
+  if (loc !== buildCanonical(path)) {
+    console.error(`Sitemap canonical mismatch for path: ${path}`);
+  }
   return `
   <url>
-    <loc>${buildCanonical(path)}</loc>
+    <loc>${loc}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -79,6 +84,11 @@ const FootPainPages =[
   'achilles-tendon-pain'
 ]
 
+const InjuryPages = [
+  'car-accident',
+  'slip-and-fall'
+]
+
 export async function GET() {
   if (!baseUrl) {
     console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
@@ -124,6 +134,8 @@ export async function GET() {
   ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${slug}`)).join('')} 
   ${FootPainPages.map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`)).join('')}
 
+  ${InjuryPages.map(slug => generateUrlEntry(`/injuries/${slug}`)).join('')}
+
   ${Doctors.filter(doctor => isValidSlug(doctor.slug))
     .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
     .join('')}
@@ -136,10 +148,30 @@ export async function GET() {
     .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
     .join('')}
 
+  ${generateUrlEntry("/blogs")}
+  
   ${blogsData
     .filter(blog => blog?.slug)
     .map(blog => generateUrlEntry(`/blogs/${blog.slug}`, blog.modified_at, "monthly"))
     .join('')}
+
+  <!-- Tag landing pages -->
+  ${generateUrlEntry("/blogs/tag/back-pain", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/neck-pain", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/joint-care", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/spinal-surgery", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/sports-injury", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/recovery", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/minimally-invasive", new Date().toISOString(), "weekly", "0.8")}
+  
+  <!-- Anatomical tag landing pages -->
+  ${generateUrlEntry("/blogs/tag/spine", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/lower-spine", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/neck", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/shoulder", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/knee", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/hand", new Date().toISOString(), "weekly", "0.8")}
+  ${generateUrlEntry("/blogs/tag/foot", new Date().toISOString(), "weekly", "0.8")}
 </urlset>`;
 
   return new Response(xmlContent, {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import ContactUsSection from '@/components/ContactUsSection'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
 import Image from 'next/image'
@@ -8,6 +8,16 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
+
+// Professional association logo alt text mapping
+const associationLogoAlt: Record<string, string> = {
+  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+  'ACP': 'American College of Physicians (ACP) certification',
+  'AOA': 'American Osteopathic Association (AOA) accreditation',
+  'NASS': 'North American Spine Society (NASS) membership badge',
+  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+};
 import { Doctors } from '@/components/data/doctors';
 import DoctorCard from '@/components/DoctorCard';
 import FAQsSection from '@/components/FaqsSection';
@@ -16,8 +26,35 @@ import FindCareContactUsSection from '@/components/FindCardContactUsSection';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { Marquee } from '@/components/magicui/marquee';
 
+// Helper function to extract plain text from React elements for schema
+function extractTextFromReactElement(element: ReactElement | string): string {
+  if (typeof element === 'string') {
+    return element;
+  }
+  
+  if (!element || !element.props) {
+    return '';
+  }
+  
+  const { children } = element.props;
+  
+  if (!children) {
+    return '';
+  }
+  
+  if (typeof children === 'string') {
+    return children;
+  }
+  
+  if (Array.isArray(children)) {
+    return children.map(child => extractTextFromReactElement(child)).join(' ');
+  }
+  
+  return extractTextFromReactElement(children);
+}
 
-const faqItems: { question: string, answer: React.JSX.Element }[] = [
+
+const faqItems: { question: string, answer: React.ReactElement }[] = [
     {
         question: 'What is a second opinion?',
         answer: (
@@ -67,12 +104,81 @@ const Testimonial = (
 )
 
 const Header = (
-    <><h2>Your Questions Answered</h2><h3>Second Opinion FAQs From Our Patients</h3></>
+    <span>Your Questions Answered: Second Opinion FAQs From Our Patients</span>
 )
+
+// FAQPage Schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": extractTextFromReactElement(item.answer)
+    }
+  }))
+}
+
+// MedicalOrganization Schema for brand consistency
+const medicalOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Mountain Spine & Orthopedics",
+  "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+  "url": "https://mountainspineorthopedics.com",
+  "logo": "https://mountainspineorthopedics.com/newlogo4.png",
+  "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
+  "telephone": [
+    "(561) 223-9959",
+    "(754) 212-8736", 
+    "(407) 565-7598",
+    "(407) 960-1717",
+    "(863) 777-5805",
+    "(561) 556-1802",
+    "(954) 987-2047",
+    "(561) 544-5501"
+  ],
+  "medicalSpecialty": [
+    "Orthopedic Surgery",
+    "Spine Surgery", 
+    "Sports Medicine",
+    "Pain Management",
+    "Minimally Invasive Surgery",
+    "Joint Replacement",
+    "Spinal Fusion",
+    "Discectomy",
+    "Arthroscopy"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.7663,
+      "longitude": -82.6404
+    },
+    "geoRadius": "300000"
+  },
+  "areaServed": [
+    "Florida",
+    "Hollywood, FL",
+    "Orlando, FL", 
+    "Altamonte Springs, FL",
+    "Davenport, FL",
+    "Fort Pierce, FL",
+    "Palm Beach Gardens, FL",
+    "Miami Beach, FL",
+    "Boca Raton, FL"
+  ]
+}
 
 export default function SecondOpinion() {
     return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+            {/* JSON-LD Schema Markup */}
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
             <section className=' bg-[#6FC2ED] w-full flex flex-row'>
                 <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
                     <TextAnimate animation="blurInUp" by="word" once
@@ -104,8 +210,15 @@ export default function SecondOpinion() {
 
                 <Marquee pauseOnHover className='w-full' >
                     {
-                        [AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
-                            <Image key={index} src={item} alt="Logo" className=" h-[40px] object-contain mx-[20px]" />
+                        [
+                          { img: AAOS, name: 'AAOS' },
+                          { img: ACP, name: 'ACP' },
+                          { img: AOA, name: 'AOA' },
+                          { img: NASS, name: 'NASS' },
+                          { img: Serpent, name: 'Serpent' },
+                          { img: SMIS, name: 'SMIS' }
+                        ].map((item, index) => (
+                            <Image key={index} src={item.img} alt={associationLogoAlt[item.name]} className=" h-[40px] object-contain mx-[20px]" />
                         ))
                     }
                 </Marquee>

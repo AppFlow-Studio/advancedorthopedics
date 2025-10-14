@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import { AllTreatments } from '@/components/data/treatments';
-import InjectFaqSchema from '@/components/InjectFaqSchema';
 import React from 'react';
 import Image from 'next/image';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
@@ -85,42 +84,8 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
   // Shuffle the Doctors array and then take the first two doctors
   const randomDoctors = shuffleArray(Doctors).slice(0, 2);
 
-  const faqSchema = treatment
-    ? {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: `What are the benefits of ${treatment.title}?`,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: treatment.benefits || "Relieves spine and joint pain.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: `What conditions does ${treatment.title} treat?`,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: treatment.conditions_treated || "Treats orthopedic and spinal conditions.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What is the recovery process like?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: treatment.recovery_info || "Often includes physical therapy.",
-          },
-        },
-      ],
-    }
-    : null;
-
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-      {faqSchema && <InjectFaqSchema schema={faqSchema} />}
       {/* Landing */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
         <div
@@ -135,7 +100,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Doctor Diagnosing a Old Patient"
+          alt={`A surgeon discussing ${treatment.title} options with a patient in Florida`}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -212,7 +177,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }}
               className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl text-center"
             >
-              {treatment.title}
+              {treatment.title} in Florida
             </h1>
           </div>
 

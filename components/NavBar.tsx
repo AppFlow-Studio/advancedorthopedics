@@ -786,7 +786,7 @@ const NavBarLinks = [
       },
       {
         title: 'FAQs',
-        href: '/about/FAQs',
+        href: '/about/faqs',
         short_desc: 'Frequently asked questions',
         icon: HelpCircle,
         subLinks: []

@@ -15,6 +15,16 @@ import AOA from '@/public/AOA.png';
 import NASS from '@/public/NASS.png';
 import Serpent from '@/public/Serpent.png';
 import SMIS from '@/public/SMIS.png';
+
+// Professional association logo alt text mapping
+const associationLogoAlt: Record<string, string> = {
+  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+  'ACP': 'American College of Physicians (ACP) certification',
+  'AOA': 'American Osteopathic Association (AOA) accreditation',
+  'NASS': 'North American Spine Society (NASS) membership badge',
+  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+};
 import Reveal from './RevealAnimation';
 
 export default function HomeHeroSection() {
@@ -55,7 +65,7 @@ export default function HomeHeroSection() {
         fetchPriority="high"
         layout='fill'
         className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-        alt="Doctor Diagnosing a Old Patient"
+        alt="Board-certified spine and orthopedic surgeons consulting with Florida patients at Mountain Spine & Orthopedics"
       />
       <div
         className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -74,15 +84,21 @@ export default function HomeHeroSection() {
         <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 xl:py-8 relative">
           <SlidingDiv position="left" className="z-[2] sm:mt-30 mt-16">
             <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]">
-              <h1
+              {/* SEO-Optimized H1 - Hidden but accessible */}
+              <h1 className="sr-only">
+                Leading Spine & Orthopedic Specialists in Florida - Mountain Spine & Orthopedics
+              </h1>
+              
+              {/* Visual Header - User-Friendly */}
+              <p
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
-                className="text-[#252932] text-5xl sm:text-6xl xl:text-6xl sm:text-left sm:block hidden text-center"
+                className="text-[#252932] text-4xl sm:text-6xl xl:text-6xl sm:text-left text-center"
               >
                 Welcome to<br /> Mountain <br /> Spine & Orthopedics
-              </h1>
+              </p>
 
             </div>
           </SlidingDiv>
@@ -137,11 +153,18 @@ export default function HomeHeroSection() {
         {hasMounted && dimensions.width > 0 && (
           <div className="w-full">
             <Marquee pauseOnHover className="w-full">
-              {[AAOS, ACP, AOA, NASS, Serpent, SMIS].map((item, index) => (
+              {[
+                { img: AAOS, name: 'AAOS' },
+                { img: ACP, name: 'ACP' },
+                { img: AOA, name: 'AOA' },
+                { img: NASS, name: 'NASS' },
+                { img: Serpent, name: 'Serpent' },
+                { img: SMIS, name: 'SMIS' }
+              ].map((item, index) => (
                 <Image
                   key={index}
-                  src={item}
-                  alt="Logo of a professional medical association"
+                  src={item.img}
+                  alt={associationLogoAlt[item.name]}
                   className="lg:h-[40px] h-10 md:h-8 object-contain mx-[20px]"
                   draggable={false}
                 />
