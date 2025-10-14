@@ -742,7 +742,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                 }}
                                 className='text-[#838890] sm:text-md text-sm text-center'
                             >
-                                You're one step closer to a pain-free life!<br />
+                                You're one step closer to pain relief and improved mobility!<br />
                                 Please check your email for details. Our team will contact you shortly.<br />
                                 Thank you for choosing Mountain Spine & Orthopedic Center!
                             </p>

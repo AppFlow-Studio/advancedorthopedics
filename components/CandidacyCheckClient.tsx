@@ -93,10 +93,10 @@ const CandidacyCheckSteps = [
 
 const faqItems: { question: string, answer: React.JSX.Element }[] = [
   {
-    question: "Reason 1: Understand What's Causing Your Back Pain",
+    question: "Reason 1: Understanding Potential Causes of Back Pain",
     answer: (
       <p>
-        Your back is a complex and highly engineered system made up of bones, muscles, joints, and ligaments. Unfortunately, it's also vulnerable to pain. Whether caused by injuries, fractures, or conditions like spinal stenosis, disc degeneration, pinched nerves, or herniated discs, understanding the source of your pain is the first step toward treatment.
+        Your back is a complex and highly engineered system made up of bones, muscles, joints, and ligaments. Unfortunately, it's also vulnerable to pain. Whether caused by injuries, fractures, or conditions like spinal stenosis, disc degeneration, pinched nerves, or herniated discs, understanding the source of pain is the first step toward treatment.
       </p>
     )
   },
@@ -104,7 +104,7 @@ const faqItems: { question: string, answer: React.JSX.Element }[] = [
     question: "Reason 2: Don't Ignore the Warning Signs",
     answer: (
       <p>
-        We've all experienced back pain but recurring or chronic pain should never be ignored. In fact, studies show that regular pain in your spine can increase your risk of death by up to 15%. Identifying and treating the root of your pain early can be lifesaving.
+        Back pain is common, but recurring or chronic symptoms warrant medical evaluation. Research indicates that persistent spinal conditions are associated with increased health risks. Early diagnosis and treatment planning can lead to better health outcomes.
         <br /><br />A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
       </p>
     )

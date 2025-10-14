@@ -599,7 +599,7 @@ export default function FreeMRIReviewClient() {
                   Your Appointment Request Is Confirmed
                 </h1>
                 <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className='text-[#838890] text-md text-center'>
-                  You're one step closer to a pain-free life!<br />
+                  You're one step closer to effective pain management!<br />
                   Please check your email for details. Our team will contact you shortly.<br />
                   Thank you for choosing Mountain Spine & Orthopedic Center!
                 </h3>

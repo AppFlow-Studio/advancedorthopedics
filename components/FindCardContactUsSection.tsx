@@ -53,7 +53,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
             className="text-5xl w-[90%]"
           >
             Take the first step toward
-            a pain-free life .
+            pain relief and recovery.
           </h2>
 
           <p
