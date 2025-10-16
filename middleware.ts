@@ -67,9 +67,15 @@ export function middleware(req: NextRequest) {
 }
 
 // Apply to all routes, but exclusions are handled in the function above
-export const config = { 
+export const config = {
   matcher: [
-    // Match all paths EXCEPT Next.js internal paths and static assets
-    '/((?!_next/static|_next/image|_next/webpack-hmr|favicon\\.ico).*)',
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ]
 };

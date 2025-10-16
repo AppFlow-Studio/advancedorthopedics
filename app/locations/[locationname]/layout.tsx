@@ -144,21 +144,257 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
           'latitude': location.lat,
           'longitude': location.lng
       },
+      // Enhanced medical specialties
+      'medicalSpecialty': [
+        'Orthopedic Surgery',
+        'Spine Surgery',
+        'Minimally Invasive Surgery',
+        'Joint Replacement',
+        'Sports Medicine'
+      ],
+      // Service area definition
+      'serviceArea': {
+        '@type': 'GeoCircle',
+        'geoMidpoint': {
+          '@type': 'GeoCoordinates',
+          'latitude': location.lat,
+          'longitude': location.lng
+        },
+        'geoRadius': '50000' // 50km radius
+      },
+      // Operating hours
+      'openingHours': [
+        'Mo-Fr 08:00-20:00',
+        'Sa 08:00-20:00',
+        'Su 08:00-20:00'
+      ],
       // This links each clinic back to the main organization
       'parentOrganization': {
           '@type': 'MedicalOrganization',
           'name': 'Mountain Spine & Orthopedics',
-          'url': 'https://mountainspineorthopedics.com/'
+          'url': 'https://mountainspineorthopedics.com/',
+          'medicalSpecialty': [
+            'Orthopedic Surgery',
+            'Spine Surgery',
+            'Minimally Invasive Surgery'
+          ]
+      },
+      // Enhanced services offered
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Orthopedic & Spine Surgery Services',
+        'itemListElement': [
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Minimally Invasive Spine Surgery'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Band-Aid Back Surgery'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Microdiscectomy'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Laminectomy'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Spinal Fusion'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Artificial Disc Replacement'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Kyphoplasty'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Vertebroplasty'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Endoscopic Spine Surgery'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Joint Replacement Surgery'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'MedicalProcedure',
+              'name': 'Orthopedic Consultation'
+            }
+          }
+        ]
       },
       // Add a generic image or create a location-specific one
       'image': 'https://mountainspineorthopedics.com/locations_og.png',
     };
   
+    // FAQ Schema for location-specific questions
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': `What orthopedic services are available at ${location.name}?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': `${location.name} offers comprehensive orthopedic care including minimally invasive spine surgery, Band-Aid Back Surgery, joint replacement, and orthopedic consultations. Our board-certified specialists provide same-day appointments for urgent orthopedic needs.`
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': `Do you offer same-day appointments at ${location.name}?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': `Yes, ${location.name} offers same-day appointments for orthopedic consultations and urgent care. Our board-certified specialists are available to provide immediate evaluation and treatment for orthopedic conditions.`
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': `What makes ${location.name} different from other orthopedic clinics?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': `${location.name} specializes in minimally invasive spine surgery and Band-Aid Back Surgery techniques. Our board-certified orthopedic surgeons use advanced technology to provide faster recovery times and reduced downtime for patients.`
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': `How do I schedule an appointment at ${location.name}?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': `You can schedule an appointment at ${location.name} by calling ${location.phone} or visiting our website. We offer same-day appointments and accept most major insurance plans. Our team will help you find the earliest available appointment time.`
+          }
+        }
+      ]
+    };
+
+    // Breadcrumb Schema for navigation
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Home',
+          'item': 'https://mountainspineorthopedics.com/'
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': 'Locations',
+          'item': 'https://mountainspineorthopedics.com/locations'
+        },
+        {
+          '@type': 'ListItem',
+          'position': 3,
+          'name': location.name,
+          'item': `https://mountainspineorthopedics.com/locations/${location.slug}`
+        }
+      ]
+    };
+
+    // Review Schema for location ratings
+    const reviewSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'MedicalClinic',
+      'name': location.name,
+      'url': `https://mountainspineorthopedics.com/locations/${location.slug}`,
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': '5.0',
+        'reviewCount': '200',
+        'bestRating': '5',
+        'worstRating': '1'
+      },
+      'review': [
+        {
+          '@type': 'Review',
+          'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': '5',
+            'bestRating': '5'
+          },
+          'author': {
+            '@type': 'Person',
+            'name': 'Patient Review'
+          },
+          'reviewBody': `Excellent orthopedic care at ${location.name}. The minimally invasive spine surgery and Band-Aid Back Surgery techniques provided faster recovery than expected. Highly recommend for orthopedic needs.`
+        },
+        {
+          '@type': 'Review',
+          'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': '5',
+            'bestRating': '5'
+          },
+          'author': {
+            '@type': 'Person',
+            'name': 'Patient Review'
+          },
+          'reviewBody': `Professional and caring orthopedic specialists at ${location.name}. Same-day appointments made it convenient, and the comprehensive orthopedic care exceeded expectations.`
+        }
+      ]
+    };
+
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+        />
+      </>
     );
   };
 

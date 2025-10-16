@@ -201,7 +201,7 @@ const data = {
         {
             title: "Rear-end collision → neck pain",
             problem: "Couldn't sit for work; headaches.",
-            plan: "Exam + X-ray; targeted PT; short-term brace.",
+            plan: "Exam + X-ray; PT referral (if appropriate); short-term brace.",
             result: "Back to full desk days by week 2; driving okay.",
         },
     ],
