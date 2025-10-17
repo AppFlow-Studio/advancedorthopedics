@@ -1,16 +1,18 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Normalizes URLs by lowercasing the path and stripping any trailing slash.
-// This runs in middleware so that we can safely handle the root path without
-// triggering the blank `Location` header issue we saw when using a global
-// redirect in `next.config.ts` (which caused the dev server to constantly
-// refresh).
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const hostname = req.headers.get('host') || '';
+  
+  // === SKIP MIDDLEWARE FOR WWW REDIRECTS ===
+  // Let next.config.ts handle www → non-www redirect in production
+  // This prevents redirect loops
+  if (hostname.startsWith('www.')) {
+    return NextResponse.next();
+  }
   
   // === SKIP MIDDLEWARE FOR SPECIFIC PATHS ===
-  // These paths should NEVER be modified to prevent breaking functionality
   
   // 1. Next.js internal paths (build assets, data fetching, HMR)
   if (pathname.startsWith('/_next')) {
@@ -22,19 +24,18 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
   
-  // 3. PostHog analytics ingest paths (from your rewrites config)
+  // 3. PostHog analytics ingest paths
   if (pathname.startsWith('/ingest')) {
     return NextResponse.next();
   }
   
-  // 4. Static files with extensions (images, fonts, manifests, etc.)
-  // Match: .png, .jpg, .jpeg, .gif, .svg, .webp, .avif, .ico, .woff, .woff2, .ttf, .eot, .otf, .xml, .json, .txt, .pdf, .css, .js, .map
+  // 4. Static files with extensions
   const hasFileExtension = /\.[a-zA-Z0-9]+$/.test(pathname);
   if (hasFileExtension) {
     return NextResponse.next();
   }
   
-  // 5. Sitemap paths (XML sitemaps)
+  // 5. Sitemap paths
   if (pathname.startsWith('/sitemap')) {
     return NextResponse.next();
   }
@@ -45,8 +46,6 @@ export function middleware(req: NextRequest) {
   }
   
   // === URL NORMALIZATION ===
-  // Only runs for actual page routes
-  
   const lower = pathname.toLowerCase();
   
   // Remove trailing slash for all paths EXCEPT root "/"
@@ -56,7 +55,6 @@ export function middleware(req: NextRequest) {
   if (pathname !== normalized) {
     const url = new URL(req.nextUrl.toString());
     url.pathname = normalized;
-    // Preserve query parameters and hash
     url.search = req.nextUrl.search;
     url.hash = req.nextUrl.hash;
     return NextResponse.redirect(url, 301);

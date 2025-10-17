@@ -41,8 +41,9 @@ const nextConfig: NextConfig = {
   return [
     // --- HOST/PROTOCOL/CASE NORMALIZATION (301s) - PRODUCTION ONLY ---
     ...(isProduction ? [
-      // Only redirect www to non-www, don't redirect same domain to itself
-      { source: "/:path*", has:[{type:"host", key:"host", value:"www.mountainspineorthopedics.com"}],
+      // { source: "/:path*", has:[{type:"host",value:"mountainspineorthopedics.com"}],
+      //   destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
+      { source: "/:path*", has:[{type:"host",value:"www.mountainspineorthopedics.com"}],
         destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
     ] : []),
     
