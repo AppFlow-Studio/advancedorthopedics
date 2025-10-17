@@ -201,8 +201,8 @@ const nextConfig: NextConfig = {
   //   ];
   // },
 
-  // This is required to support PostHog trailing slash API requests
-  skipTrailingSlashRedirect: true,
+  // Removed skipTrailingSlashRedirect to prevent conflict with middleware
+  // Middleware handles trailing slash normalization
 };
 
 export default nextConfig;

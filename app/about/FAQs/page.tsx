@@ -156,7 +156,7 @@ const faqSections = [
         question: 'Will I need physical therapy after surgery?',
         answer: (
           <p>
-            Yes. Physical therapy helps restore strength, flexibility, and range of motion. Your orthopedic surgeon will customize a program based on your progress and recovery goals.
+            Often, rehabilitation is part of recovery. Your orthopedic surgeon may recommend physical therapy to help restore strength, flexibility, and range of motion. If appropriate, we'll coordinate a referral to a licensed physical therapist.
           </p>
         ),
       },
@@ -193,7 +193,7 @@ const faqSections = [
         question: 'Can I avoid surgery with non-surgical treatments?',
         answer: (
           <p>
-            Yes. Physical therapy, <Link href="/treatments/epidural-steroid-injection" className="text-blue-600 hover:underline">injections</Link>, and medication can often relieve pain and restore function before surgery is considered.
+            Yes. Many patients improve with non-surgical care such as <strong>a referral for physical therapy (if recommended)</strong>, <Link href="/treatments/epidural-steroid-injection" className="text-blue-600 hover:underline">injections</Link>, and medication before surgery is considered.
           </p>
         ),
       },
@@ -251,10 +251,10 @@ const faqSections = [
         ),
       },
       {
-        question: 'Do you offer emergency or walk-in orthopedic care?',
+        question: 'Do you offer emergency or same-day orthopedic appointments?',
         answer: (
           <p>
-            Yes. Walk-ins and urgent same-day appointments are available for acute injuries like fractures, sprains, and back pain. <Link href="/find-care/book-an-appointment" className="text-blue-600 hover:underline">Contact us immediately</Link> for urgent care.
+            Yes. Same-day appointments are available for acute injuries like fractures, sprains, and back pain. <Link href="/find-care/book-an-appointment" className="text-blue-600 hover:underline">Contact us immediately</Link> for urgent care.
           </p>
         ),
       },

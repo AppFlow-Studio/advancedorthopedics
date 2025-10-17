@@ -249,7 +249,7 @@ const HomePage = () => {
                                     },
                                     {
                                         title: "Comprehensive Rehabilitation",
-                                        description: "In-house physical therapy and sports performance programs for complete recovery.",
+                                        description: "Expert guidance and referral to trusted rehabilitation specialists for complete recovery.",
                                     },
                                 ].map((item, index) => (
                                     <div key={index} className="flex gap-4 items-center justify-center">

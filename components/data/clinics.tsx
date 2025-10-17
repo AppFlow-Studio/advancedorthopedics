@@ -53,20 +53,38 @@ export const clinics: ClinicsProps[] = [
     slug: 'hollywood-fl-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
-    [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier medical care that gets you back to work and play. We are the trusted orthopedic urgent care center in Hollywood, FL, and walk-in clinic for all your musculoskeletal needs.
+    [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier medical care that gets you back to work and play. We are the trusted orthopedic center in Hollywood, FL, offering same-day appointments for all your musculoskeletal needs.
     [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified specialists recognized as the premier orthopedic surgeons in Hollywood, Florida, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of pain to achieve lasting clinical results.
     [PARAGRAPH BREAK]Inside our state-of-the-art orthopedic treatment center in Hollywood, FL, we utilize the latest diagnostic imaging technology and minimally invasive surgical techniques and orthopedic laser spine surgery in Hollywood, FL. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
     `,
     keywords: [
-      'orthopedic walk-in clinic hollywood fl', 'orthopedic laser spine surgery hollywood fl', 'orthopedic urgent care hollywood fl', 'orthopedic doctor hollywood fl', 'orthopedic surgeon hollywood fl', 'pediatric orthopedic hollywood fl', 'orthopedic in hollywood fl', 'orthopedic surgeon in hollywood florida',
-      'spine surgeon hollywood fl',
+      'hollywood orthopedic surgeon',
+      'hollywood spine surgeon',
+      'minimally invasive spine surgery hollywood fl',
+      'Band-Aid Back Surgery hollywood fl',
+      'orthopedic surgery hollywood fl',
+      'joint replacement hollywood fl',
+      'orthopedic same-day appointments hollywood fl',
+      'orthopedic urgent care hollywood fl',
+      'spine specialist hollywood fl',
+      'orthopedic doctor hollywood fl',
+      'orthopedic laser spine surgery hollywood fl',
+      'pediatric orthopedic hollywood fl',
+      'orthopedic in hollywood fl',
+      'orthopedic surgeon in hollywood florida',
       'anterior hip replacement surgeon hollywood fl',
       'discectomy specialist hollywood fl',
       'carpal tunnel release surgery hollywood fl',
       'arthroscopic knee surgery hollywood fl',
+      'best orthopedic surgeon hollywood fl',
+      'orthopedic clinic hollywood fl',
+      'orthopedic near me hollywood',
+      'spine surgeon near me hollywood',
+      'orthopedic doctor near me hollywood',
+      'best orthopedic near me hollywood'
     ],
-    metaTitle: 'Hollywood FL Orthopedic Walk-In Clinic | Spine & Musculoskeletal Care',
-    metaDescription: "South Florida's leading orthopedic walk-in clinic in Hollywood, FL, specializing in spine and musculoskeletal care. Get expert treatment for back pain, sports injuries, and more. Same-day appointments available.",
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Hollywood, FL | Mountain Spine Orthopedics',
+    metaDescription: "Expert orthopedic surgeons in Hollywood, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving South Florida with same-day appointments. Schedule a consultation today.",
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h2>
@@ -198,9 +216,34 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in laser and endoscopic procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Trust Mountain Spine & Orthopedics in Palm Springs to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
-    keywords: ['palm springs orthopedic', 'orthopedic care palm springs', 'spine specialists palm springs', 'orthopedic surgeons palm springs'],
-    metaTitle: 'Orthopedic Surgeons in Palm Springs, FL | Mountain Spine',
-    metaDescription: 'Advanced spine and orthopedic care in Palm Springs. Our board-certified surgeons specialize in minimally invasive techniques to restore your active lifestyle.',
+    keywords: [
+      'palm springs orthopedic surgeon',
+      'palm springs spine surgeon',
+      'minimally invasive spine surgery palm springs fl',
+      'Band-Aid Back Surgery palm springs fl',
+      'orthopedic surgery palm springs fl',
+      'joint replacement palm springs fl',
+      'orthopedic same-day appointments palm springs fl',
+      'orthopedic urgent care palm springs fl',
+      'spine specialist palm springs fl',
+      'orthopedic doctor palm springs fl',
+      'orthopedic laser spine surgery palm springs fl',
+      'pediatric orthopedic palm springs fl',
+      'orthopedic in palm springs fl',
+      'orthopedic surgeon in palm springs florida',
+      'best orthopedic surgeon palm springs fl',
+      'orthopedic clinic palm springs fl',
+      'palm springs orthopedic care',
+      'spine specialists palm springs',
+      'orthopedic surgeons palm springs',
+      'orthopedic center palm springs',
+      'orthopedic near me palm springs',
+      'spine surgeon near me palm springs',
+      'orthopedic doctor near me palm springs',
+      'best orthopedic near me palm springs'
+    ],
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Palm Springs, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Palm Springs, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving Palm Beach County with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Palm Springs Spine and Orthopedic Specialists of Palm Beach County</h2>
@@ -293,24 +336,40 @@ export const clinics: ClinicsProps[] = [
     link: 'https://g.co/kgs/koPU6cZ',
     slug: 'orlando-orthopedics',
     paragraph: `
-    Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center and walk-in clinic for all your needs.
+    Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
     Our Orlando team includes fellowship-trained, board-certified Orlando orthopedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of pain to achieve lasting results.
     [PARAGRAPH BREAK]
     Inside our state-of-the-art Orlando orthopedic center in Orlando, FL, we utilize the latest in diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Orlando's expert team for spine and orthopedic health.
     `,
     keywords: [
-      'orlando orthopedic center', 'orlando orthopedic', 'orlando orthopedic center and walk-in clinic - lake nona', 'orlando orthopedic center orlando fl', 'orlando orthopedic lake nona', 'orlando orthopedic surgeons', 'orlando orthopedic center lake nona office', 'orlando orthopedic center lake nona', 'orlando spine and orthopedic specialists of central fl', 'orlando orthopedic center orthopedic injury walk-in clinic photos',
+      'orlando orthopedic surgeon',
+      'orlando spine surgeon',
+      'minimally invasive spine surgery orlando fl',
+      'Band-Aid Back Surgery orlando fl',
+      'orthopedic surgery orlando fl',
+      'joint replacement orlando fl',
+      'orthopedic same-day appointments orlando fl',
+      'orthopedic urgent care orlando fl',
+      'spine specialist orlando fl',
+      'orthopedic doctor orlando fl',
+      'orthopedic laser spine surgery orlando fl',
+      'pediatric orthopedic orlando fl',
+      'orthopedic in orlando fl',
+      'orthopedic surgeon in orlando florida',
       'best orthopedic surgeon orlando',
       'best knee surgeon in orlando',
-      'spine surgeon orlando',
       'knee replacement surgeon orlando',
       'shoulder replacement surgeon orlando',
       'orthopedic surgery center orlando',
       'ACL surgery doctor orlando',
+      'orthopedic near me orlando',
+      'spine surgeon near me orlando',
+      'orthopedic doctor near me orlando',
+      'best orthopedic near me orlando'
     ],
-    metaTitle: 'Orthopedic Center in Orlando & Walk-in Clinic in Central Florida',
-    metaDescription: 'Visit Mountain Spine and Orthopedics, your trusted Orthopedic Center in Orlando and Walk-in Clinic in Central Florida for expert care, fast relief, and no appointments.',
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Orlando, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Orlando, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving Central Florida with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Orlando Spine and Orthopedic Specialists of Central FL</h2>
@@ -347,7 +406,7 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{
           fontFamily: "var(--font-public-sans)",
         }} className=' font-bold text-xl'>Convenient for Lake Nona Residents</h2>
-        <p className='text-lg'>Our orthopedic walk-in clinic is perfectly positioned to serve Lake Nona residents who need expert spine care. We're easily accessible from Highway 417 and 528, making it simple for Orlando's Lake Nona community to receive advanced treatment without traveling far from home.</p>
+        <p className='text-lg'>Our orthopedic center is perfectly positioned to serve Lake Nona residents who need expert spine care. We're easily accessible from Highway 417 and 528, making it simple for Orlando's Lake Nona community to receive advanced treatment without traveling far from home.</p>
       </div>,
     advancedTreatments:
       <div className='flex flex-col space-y-[10px]'>
@@ -421,26 +480,39 @@ export const clinics: ClinicsProps[] = [
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
     paragraph: `
-  Mountain Spine & Orthopedics in Fort Pierce offers top-tier orthopedic care to the Treasure Coast. Our local walk-in clinic gives patients fast access to spine specialists who diagnose and treat a wide range of orthopedic conditions with compassion, technology, and experience.
+  Mountain Spine & Orthopedics in Fort Pierce offers top-tier orthopedic care to the Treasure Coast. Our local center provides same-day appointments for fast access to spine specialists who diagnose and treat a wide range of orthopedic conditions with compassion, technology, and experience.
   [PARAGRAPH BREAK]
-  Our Fort Pierce orthopedic clinic provides advanced treatment options including Band-Aid back surgery, laser spine procedures, endoscopic discectomies, and minimally invasive techniques. Patients benefit from a full continuum of care—orthopedic consultation, imaging, surgery, and physical therapy—all under one roof. Our Fort Pierce location supports faster recovery and better outcomes.
+  Our Fort Pierce orthopedic clinic provides advanced treatment options including Band-Aid back surgery, laser spine procedures, endoscopic discectomies, and minimally invasive techniques. Patients benefit from comprehensive orthopedic care—consultation, imaging, and surgery—with expert referrals to trusted rehabilitation partners when needed. Our Fort Pierce location supports faster recovery and better outcomes.
   [PARAGRAPH BREAK]
   Trust your care to orthopedic experts focused on helping Fort Pierce families return to active lifestyles.`,
     keywords: [
+      'fort pierce orthopedic surgeon',
+      'fort pierce spine surgeon',
+      'minimally invasive spine surgery fort pierce fl',
+      'Band-Aid Back Surgery fort pierce fl',
+      'orthopedic surgery fort pierce fl',
+      'joint replacement fort pierce fl',
+      'orthopedic same-day appointments fort pierce fl',
+      'orthopedic urgent care fort pierce fl',
+      'spine specialist fort pierce fl',
+      'orthopedic doctor fort pierce fl',
+      'orthopedic laser spine surgery fort pierce fl',
+      'pediatric orthopedic fort pierce fl',
+      'orthopedic in fort pierce fl',
+      'orthopedic surgeon in fort pierce florida',
       'orthopedic fort pierce',
-      'fort pierce orthopedic',
-      'orthopedic doctors fort pierce',
-      'orthopedic physical therapy fort pierce',
-      'minimally invasive spine surgery fort pierce',
+      'orthopedic rehabilitation fort pierce',
       'laser back surgery fort pierce',
       'sports injury doctor fort pierce',
-      'orthopedic walk-in clinic fort pierce',
       'meniscus repair surgeon fort pierce',
       'hand surgeon fort pierce',
-      'sciatica treatment fort pierce',
+      'orthopedic near me fort pierce',
+      'spine surgeon near me fort pierce',
+      'orthopedic doctor near me fort pierce',
+      'best orthopedic near me fort pierce'
     ],
-    metaTitle: 'Orthopedic Walk-In Clinic Fort Pierce, FL | Spine Doctors Near Me',
-    metaDescription: 'Visit our Fort Pierce orthopedic clinic for minimally invasive back pain treatments, physical therapy, and expert spine care. Walk-ins welcome. Schedule today.',
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Fort Pierce, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Fort Pierce, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving Treasure Coast with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
@@ -535,14 +607,33 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]At Mountain Spine & Orthopedics, we provide exceptional clinical care using the latest treatments with a patient-centered approach. Here's why families throughout South Florida choose our leading advanced orthopedic care in the greater Palm Beach Gardens area.
     `,
     keywords: [
-      'orthopedic walk-in clinic palm beach gardens fl', 'orthopedic laser spine surgery palm beach gardens fl', 'orthopedic urgent care palm beach gardens fl', 'orthopedic doctor palm beach gardens fl', 'orthopedic surgeon palm beach gardens fl', 'pediatric orthopedic bracing palm beach gardens fl', 'orthopedic in palm beach gardens fl', 'orthopedic surgeon in palm beach gardens florida',
+      'palm beach gardens orthopedic surgeon',
+      'palm beach gardens spine surgeon',
+      'minimally invasive spine surgery palm beach gardens fl',
+      'Band-Aid Back Surgery palm beach gardens fl',
+      'orthopedic surgery palm beach gardens fl',
+      'joint replacement palm beach gardens fl',
+      'orthopedic same-day appointments palm beach gardens fl',
+      'orthopedic urgent care palm beach gardens fl',
+      'spine specialist palm beach gardens fl',
+      'orthopedic doctor palm beach gardens fl',
+      'orthopedic laser spine surgery palm beach gardens fl',
+      'pediatric orthopedic bracing palm beach gardens fl',
+      'orthopedic in palm beach gardens fl',
+      'orthopedic surgeon in palm beach gardens florida',
       'best shoulder surgeon palm beach gardens',
       'laminectomy surgeon palm beach gardens',
       'revision hip surgery palm beach gardens',
       'partial knee replacement surgeon palm beach gardens',
+      'best orthopedic surgeon palm beach gardens fl',
+      'orthopedic clinic palm beach gardens fl',
+      'orthopedic near me palm beach gardens',
+      'spine surgeon near me palm beach gardens',
+      'orthopedic doctor near me palm beach gardens',
+      'best orthopedic near me palm beach gardens'
     ],
-    metaTitle: 'Palm Beach Gardens Orthopedic & Spine Specialists | Mountain Spine & Orthopedics',
-    metaDescription: 'For comprehensive spine and orthopedic care in Palm Beach Gardens, FL, trust Mountain Spine & Orthopedics. Our highly skilled, fellowship-trained surgeons offer a full spectrum of services, from non-surgical treatments to advanced minimally invasive procedures.',
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Palm Beach Gardens, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Palm Beach Gardens, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving South Florida with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
@@ -656,20 +747,37 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]At Mountain Spine & Orthopedics, we provide exceptional care using the latest treatments with a patient-first approach. Here's why families throughout South Florida choose us.
     `,
     keywords: [
-      'orthopedic walk-in clinic miami beach fl', 'orthopedic laser spine surgery miami beach fl', 'orthopedic urgent care miami beach fl', 'orthopedic doctor miami beach fl', 'orthopedic surgeon miami beach fl', 'pediatric orthopedic miami beach fl', 'orthopedic in miami beach fl', 'orthopedic surgeon in miami beach florida',
+      'miami beach orthopedic surgeon',
+      'miami beach spine surgeon',
+      'minimally invasive spine surgery miami beach fl',
+      'Band-Aid Back Surgery miami beach fl',
+      'orthopedic surgery miami beach fl',
+      'joint replacement miami beach fl',
+      'orthopedic same-day appointments miami beach fl',
+      'orthopedic urgent care miami beach fl',
+      'spine specialist miami beach fl',
+      'orthopedic doctor miami beach fl',
+      'orthopedic laser spine surgery miami beach fl',
+      'pediatric orthopedic miami beach fl',
+      'orthopedic in miami beach fl',
+      'orthopedic surgeon in miami beach florida',
       'minimally invasive spine surgery miami',
       'top knee replacement surgeon miami',
       'hip replacement surgeon miami beach',
       'rotator cuff surgery specialist miami beach',
       'cervical spine surgeon miami',
       'orthopedic surgical associates miami',
+      'orthopedic near me miami beach',
+      'spine surgeon near me miami beach',
+      'orthopedic doctor near me miami beach',
+      'best orthopedic near me miami beach'
     ],
-    metaTitle: 'Orthopedic Walk-In Clinic Miami Beach, FL | Spine & Joint Care',
-    metaDescription: 'Get expert spine and joint care at Mountain Spine & Orthopedics in Miami Beach, FL. We offer same-day appointments, Band-Aid Back Surgery, and minimally invasive treatments for faster healing. Your mobility is our priority.',
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Miami Beach, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Miami Beach, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving South Florida with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Miami Beach Spine and Orthopedic Specialists</h2>
-        <p className='text-lg'>Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in South Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center and walk-in clinic in North Miami Beach for all your needs.</p>
+        <p className='text-lg'>Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in South Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center in North Miami Beach offering same-day appointments for all your needs.</p>
       </div>
     ),
     skilled: (
@@ -761,21 +869,37 @@ export const clinics: ClinicsProps[] = [
     By leveraging state-of-the-art diagnostic imaging and pioneering minimally invasive procedures, we offer a pathway to a faster, safer recovery. Our advanced laser and endoscopic techniques are designed to address the source of pain with unmatched precision, minimizing downtime. 
     `,
     keywords: [
-      'boca raton orthopedic group', 'orthopedic boca raton', 'best orthopedic doctor in boca raton', 'orthopedic doctors boca raton', 'orthopedic doctors in boca raton', 'boca orthopedic', 'orthopedic surgeon boca raton fl', 'pediatric orthopedic boca raton', 'orthopedic surgeon boca', 'orthopedic doctor boca raton', 'walk in orthopedic boca raton', 'spine and orthopedic center boca raton', 'orthopedic surgeon boca raton', 'orthopedic surgeons boca raton', 'orthopedic surgery associates boca raton', 'boca raton orthopedic', 'sports & orthopedic center boca raton',
-      'top rated spine surgeon boca raton',
-      'best orthopedic surgeon boca raton',
-      'spine surgeon boca raton',
-      'spinal fusion surgeon boca raton',
-      'shoulder arthroscopy boca raton',
-      'total knee replacement surgeon boca raton',
-      'find an orthopedic surgeon boca raton',
+      'boca raton orthopedic surgeon',
+      'boca raton spine surgeon',
+      'minimally invasive spine surgery boca raton fl',
+      'Band-Aid Back Surgery boca raton fl',
+      'orthopedic surgery boca raton fl',
+      'joint replacement boca raton fl',
+      'orthopedic same-day appointments boca raton fl',
+      'orthopedic urgent care boca raton fl',
+      'spine specialist boca raton fl',
+      'orthopedic doctor boca raton fl',
+      'orthopedic laser spine surgery boca raton fl',
+      'pediatric orthopedic boca raton fl',
+      'orthopedic in boca raton fl',
+      'orthopedic surgeon in boca raton florida',
+      'boca raton orthopedic group',
+      'best orthopedic doctor in boca raton',
+      'orthopedic doctors boca raton',
+      'orthopedic doctors in boca raton',
+      'boca orthopedic',
+      'walk in orthopedic boca raton',
+      'orthopedic near me boca raton',
+      'spine surgeon near me boca raton',
+      'orthopedic doctor near me boca raton',
+      'best orthopedic near me boca raton'
     ],
-    metaTitle: 'Orthopedic Walk-In Clinic Boca Raton, FL | Spine & Joint Care',
-    metaDescription: 'Get expert spine and joint care at Mountain Spine & Orthopedics in Boca Raton, FL. We offer same-day appointments, Band-Aid Back Surgery, and minimally invasive treatments for faster healing. Your mobility is our priority.',
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Boca Raton, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Boca Raton, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving South Florida with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Boca Raton Spine and Orthopedic Specialists</h2>
-        <p className='text-lg'>Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in South Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Boca Raton orthopedic group facility and premier walk-in orthopedic Boca Raton clinic for all your needs.</p>
+        <p className='text-lg'>Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in South Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Boca Raton orthopedic group facility and premier orthopedic center in Boca Raton offering same-day appointments for all your needs.</p>
       </div>
     ),
     skilled: (
@@ -861,18 +985,40 @@ export const clinics: ClinicsProps[] = [
     link: 'https://g.co/kgs/RHk8nQb',
     slug: 'altamonte-springs-orthopedics',
     paragraph: `
-    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center and walk-in clinic for all your needs.
+    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
     Our team includes fellowship-trained, board-certified orthopedic surgery specialists in Altamonte Springs, Florida recognized for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of pain to achieve lasting results.
     [PARAGRAPH BREAK]
     Inside our state-of-the-art orthopedic center, we utilize the latest diagnostic technology and minimally invasive surgical techniques. These advanced methods allow for smaller incisions, less pain, and significantly faster recovery times. Trust our commitment to innovative, outcome-focused care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be Central Florida's expert team for spine and orthopedic health.
     `,
     keywords: [
-      'orthopedic altamonte springs', 'altamonte springs sports orthopedic doctor', 'orthopedic-laser spine surgery altamonte springs fl', 'orthopedic surgery specialists altamonte springs florida', 'orthopedic surgery specialists altamonte springs fl', 'orthopedic surgeon fl altamonte springs', 'orthopedic altamonte springs fl', 'orthopedic doctors in altamonte springs fl', 'orthopedic walk-in clinic altamonte springs fl',
+      'altamonte springs orthopedic surgeon',
+      'altamonte springs spine surgeon',
+      'minimally invasive spine surgery altamonte springs fl',
+      'Band-Aid Back Surgery altamonte springs fl',
+      'orthopedic surgery altamonte springs fl',
+      'joint replacement altamonte springs fl',
+      'orthopedic same-day appointments altamonte springs fl',
+      'orthopedic urgent care altamonte springs fl',
+      'spine specialist altamonte springs fl',
+      'orthopedic doctor altamonte springs fl',
+      'orthopedic laser spine surgery altamonte springs fl',
+      'pediatric orthopedic altamonte springs fl',
+      'orthopedic in altamonte springs fl',
+      'orthopedic surgeon in altamonte springs florida',
+      'orthopedic altamonte springs',
+      'altamonte springs sports orthopedic doctor',
+      'orthopedic-laser spine surgery altamonte springs fl',
+      'orthopedic surgery specialists altamonte springs florida',
       'knee surgery specialist altamonte springs',
+      'best orthopedic surgeon altamonte springs fl',
+      'orthopedic near me altamonte springs',
+      'spine surgeon near me altamonte springs',
+      'orthopedic doctor near me altamonte springs',
+      'best orthopedic near me altamonte springs'
     ],
-    metaTitle: 'Orthopedic Walk-In Clinic in Altamonte Springs, FL',
-    metaDescription: 'Looking for an Orthopedic Walk-In Clinic in Altamonte Springs, FL? Mountain Spine & Orthopedics offers expert spine and joint care, minimally invasive surgery, and same-day appointments.',
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Altamonte Springs, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Altamonte Springs, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving Central Florida with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in Central Florida</h2>
@@ -997,15 +1143,40 @@ export const clinics: ClinicsProps[] = [
     link: 'https://www.google.com/maps/place/2400+North+Blvd+W,+Davenport,+FL+33837,+USA/@28.1674336,-81.6414992,17z/data=!3m1!4b1!4m6!3m5!1s0x88dd710dcdc14069:0x95933b5620dfb1e2!8m2!3d28.1674289!4d-81.6389243!16s%2Fg%2F11h08yw72b?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
     slug: 'davenport-orthopedics',
     paragraph: `
-    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center and walk-in clinic for all your needs.
+    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
     Our team includes fellowship-trained, board-certified orthopedic specialists recognized for their advanced surgical proficiency and evidence-based patient care protocols. We provide comprehensive, multidisciplinary treatment for various spinal pathologies, including lumbar degenerative disc disease, cervical radiculopathy, herniated nucleus pulposus, and complex musculoskeletal sports injuries. Every treatment protocol is meticulously individualized, ensuring we address the underlying pathophysiology of each condition to achieve optimal therapeutic results.
     [PARAGRAPH BREAK]
     Inside our state-of-the-art orthopedic center, we utilize advanced diagnostic imaging modalities and minimally invasive surgical techniques. These precision-guided methods allow for micro-surgical incisions, reduced neuropathic pain, and significantly accelerated tissue healing. Trust our commitment to evidence-based, outcome-focused care to restore your spinal biomechanics and quality of life.
     `,
-    keywords: ['orthopedic davenport fl', 'orthopedic surgeon davenport fl', 'orthopedic doctor davenport fl', 'orthopedic specialists davenport fl', 'orthopedic in davenport fl', 'orthopedic walk-in clinic davenport fl', 'orthopedic laser spine surgery davenport fl'],
-    metaTitle: 'Orthopedic Walk-In Clinic in Davenport, FL | Mountain Spine & Orthopedics',
-    metaDescription: 'Central Florida\'s trusted orthopedic walk-in clinic in Davenport, FL. Get expert spine and joint care, including minimally invasive surgery and same-day appointments, from board-certified specialists.',
+    keywords: [
+      'davenport orthopedic surgeon',
+      'davenport spine surgeon',
+      'minimally invasive spine surgery davenport fl',
+      'Band-Aid Back Surgery davenport fl',
+      'orthopedic surgery davenport fl',
+      'joint replacement davenport fl',
+      'orthopedic same-day appointments davenport fl',
+      'orthopedic urgent care davenport fl',
+      'spine specialist davenport fl',
+      'orthopedic doctor davenport fl',
+      'orthopedic laser spine surgery davenport fl',
+      'pediatric orthopedic davenport fl',
+      'orthopedic in davenport fl',
+      'orthopedic surgeon in davenport florida',
+      'orthopedic davenport fl',
+      'orthopedic surgeon davenport fl',
+      'orthopedic doctor davenport fl',
+      'orthopedic specialists davenport fl',
+      'best orthopedic surgeon davenport fl',
+      'orthopedic clinic davenport fl',
+      'orthopedic near me davenport',
+      'spine surgeon near me davenport',
+      'orthopedic doctor near me davenport',
+      'best orthopedic near me davenport'
+    ],
+    metaTitle: 'Minimally Invasive Spine Surgery & Orthopedic Care in Davenport, FL | Mountain Spine Orthopedics',
+    metaDescription: 'Expert orthopedic surgeons in Davenport, FL at Mountain Spine Orthopedics. Board-certified specialists performing minimally invasive spine surgery, Band-Aid Back Surgery & comprehensive orthopedic care. Serving Central Florida with same-day appointments. Schedule a consultation today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in Central Florida</h2>

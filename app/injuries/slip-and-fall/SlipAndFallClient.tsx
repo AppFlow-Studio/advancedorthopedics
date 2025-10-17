@@ -97,7 +97,7 @@ const siteData = {
         },
         {
             q: "When should I start PT?",
-            a: "Early guided motion when safe; timing depends on injury and stability.",
+            a: "Early guided motion when safe; timing depends on injury and stability. Your surgeon may coordinate with trusted PT specialists if appropriate.",
         },
         {
             q: "When can I drive?",
@@ -128,12 +128,6 @@ const siteData = {
             sub: "Sports Medicine",
             bio: "Advanced arthroscopy and injury prevention specialist.",
             headshot: "/professional-male-doctor.png",
-        },
-        {
-            name: "Dr. Sarah Johnson, DPT",
-            sub: "Physical Therapy",
-            bio: "Movement analysis and functional recovery expert.",
-            headshot: "/professional-female-physical-therapist-headshot.jpg",
         },
     ],
 }
@@ -263,7 +257,7 @@ const data = {
         {
             title: "Rear-end collision → neck pain",
             problem: "Couldn't sit for work; headaches.",
-            plan: "Exam + X-ray; targeted PT; short-term brace.",
+            plan: "Exam + X-ray; PT referral (if appropriate); short-term brace.",
             result: "Back to full desk days by week 2; driving okay.",
         },
     ],
@@ -591,8 +585,8 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                                         <div className="flex items-start space-x-3">
                                             <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                                             <div>
-                                                <h4 className="font-semibold text-gray-900">Physical Therapy</h4>
-                                                <p className="text-gray-600">Guided rehabilitation and strength building</p>
+                                                <h4 className="font-semibold text-gray-900">Rehabilitation Referral</h4>
+                                                <p className="text-gray-600">Expert referral to trusted rehabilitation specialists when appropriate</p>
                                             </div>
                                         </div>
                                         <div className="flex items-start space-x-3">

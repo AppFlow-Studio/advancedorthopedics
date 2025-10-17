@@ -91,7 +91,7 @@ const CandidacyCheckSteps = [
   }
 ]
 
-const faqItems: { question: string, answer: React.JSX.Element }[] = [
+const faqItems: { question: string, answer: JSX.Element }[] = [
   {
     question: "Reason 1: Understanding Potential Causes of Back Pain",
     answer: (
@@ -113,7 +113,7 @@ const faqItems: { question: string, answer: React.JSX.Element }[] = [
     question: "Reason 3: Explore Non-Surgical and Surgical Solutionss",
     answer: (
       <p>
-        The good news? Most patients respond well to non-surgical options like physical therapy and medication. However, if these don't work, minimally invasive surgery may be the next step. Mountain Spine & Orthopedics provides advanced treatments tailored to your unique condition.
+        The good news? Most patients respond well to non-surgical options and medication. However, if these don't work, minimally invasive surgery may be the next step. Mountain Spine & Orthopedics provides advanced treatments tailored to your unique condition.
         <br /><br />A remote second opinion helps confirm your diagnosis, prevent unnecessary procedures, optimize treatment strategies, and bolster your confidence in making informed health decisions.
       </p>
     )
@@ -131,7 +131,7 @@ const faqItems: { question: string, answer: React.JSX.Element }[] = [
 
 const Testimonial = (
   <p>
-    Request a Free Candidacy Evaluation from Our Spine Team: <br /> <br />Knowing your options starts with the right diagnosis. That's why Mountain Spine & Orthopedics offers free spine surgery candidacy checks. We help determine which treatments may be a fit for your condition at no cost to you. Whether you need physical therapy or surgery, you'll get expert advice based on your specific needs.    </p>
+    Request a Free Candidacy Evaluation from Our Spine Team: <br /> <br />Knowing your options starts with the right diagnosis. That's why Mountain Spine & Orthopedics offers free spine surgery candidacy checks. We help determine which treatments may be a fit for your condition at no cost to you. Whether you need a physical therapy referral or surgery, you'll get expert advice based on your specific needs.    </p>
 )
 
 const Header = (
