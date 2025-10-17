@@ -232,12 +232,12 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
         },
         {
           header: "Rehabilitation and Beyond: Continued Care for a Healthy Spine",
-          body: "When referred to a licensed physical therapist, guided movement and rehabilitation exercises are often part of recovery after ACDF surgery.",
+          body: "Physical therapy and mindful movement are crucial for long-term success after ACDF surgery.",
           video: "",
           sub_stories: [
             {
-              header: "How Physical Therapy May Fit Into Recovery",
-              body: "If physical therapy is recommended, the physical therapist we refer you to can help guide your safe return to activity and teach you proper body mechanics to prevent future problems.",
+              header: "The Vital Role of Physical Therapy",
+              body: "Follow your physical therapist's guidance to regain neck mobility, strength, and flexibility. They will also teach you proper body mechanics to prevent future problems.",
               video: "",
               img: undefined,
             },
@@ -363,7 +363,7 @@ Orthopedic & Laser Spine Surgery knows the importance of stretching techniques f
         },
         {
           header: "Life After TLIF: Recovery and Rehabilitation",
-          body: "Recovery after TLIF surgery involves a hospital stay, pain management, and often a referral for physical therapy when recommended. Full recovery can take several months, and following your healthcare team's instructions is crucial for a successful outcome.",
+          body: "Recovery after TLIF surgery involves a hospital stay, pain management, and physical therapy. Full recovery can take several months, and following your healthcare team's instructions is crucial for a successful outcome.",
           video: "",
           sub_stories: []
         }

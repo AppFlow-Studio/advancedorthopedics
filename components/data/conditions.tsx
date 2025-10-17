@@ -62,7 +62,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "A thorough diagnosis begins with a comprehensive medical history and physical examination. Our specialists then use advanced imaging, such as complimentary MRI scans and standing X-rays, to map the precise curve, assess spinal balance, and create the most effective, individualized treatment plan.",
         treatment:
-            "Treatment plans often start with conservative care, such as physical therapy referrals, targeted low-impact exercises, pain management medication, or spinal injections. Supportive bracing may also be recommended. When non-surgical care is not enough to relieve symptoms or halt progression, our surgeons may suggest minimally invasive surgery to correct the deformity and stabilize the spine, promoting a faster recovery.",
+            "Treatment plans often start with conservative care, such as customized physical therapy, targeted low-impact exercises, pain management medication, or spinal injections. Supportive bracing may also be recommended. When non-surgical care is not enough to relieve symptoms or halt progression, our surgeons may suggest minimally invasive surgery to correct the deformity and stabilize the spine, promoting a faster recovery.",
         pain_info:
             "Discomfort primarily results from pressure on spinal nerves, inflammation in the facet joints, and mechanical instability in the curved spinal segments. The pain can range from a mild, persistent ache to severe, chronic pain. Targeted care from our specialists can significantly lower these symptoms and help patients move with greater comfort and confidence.",
         prevent:
@@ -101,7 +101,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis at our clinic begins with a detailed medical history and a comprehensive physical exam. This is followed by advanced imaging, such as X-rays and MRI scans. A complimentary MRI review allows our experts to accurately check spinal integrity, identify any adjacent segment degeneration, and differentiate it from other potential causes of pain.",
         treatment:
-            "Treatment for Adjacent Segment Disease depends on symptom severity. Conservative options like physical therapy referrals, anti-inflammatory medications, targeted injections, and lifestyle changes often provide relief. If symptoms persist or worsen, our care team may recommend advanced treatments, including minimally invasive revision surgery. We always offer a free second opinion to ensure patients can move forward with confidence in their chosen treatment path.",
+            "Treatment for Adjacent Segment Disease depends on symptom severity. Conservative options like physical therapy, anti-inflammatory medications, targeted injections, and lifestyle changes often provide relief. If symptoms persist or worsen, our care team may recommend advanced treatments, including minimally invasive revision surgery. We always offer a free second opinion to ensure patients can move forward with confidence in their chosen treatment path.",
         pain_info:
             "Pain is a primary symptom of ASD, resulting from increased mechanical stress, nerve irritation, or inflammation at the affected levels. The discomfort is typically centered near the previously operated region and can radiate along the impacted nerve pathways, mimicking the original symptoms that led to surgery.",
         prevent:
@@ -141,9 +141,9 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis at our clinic involves a comprehensive evaluation, starting with a detailed medical history and physical exam, including neurological testing. While symptoms often point to a herniated disc, an MRI is crucial to confirm the diagnosis, visualize the nerve compression, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy and help you understand your condition.",
         treatment:
-            "We prioritize conservative treatment for most lumbar herniated discs. This often includes physical therapy referrals, pain and anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. If significant pain or neurological symptoms persist despite conservative care, minimally invasive surgical options like microdiscectomy may be recommended to decompress the affected nerve and provide lasting relief.",
+            "We prioritize conservative treatment for most lumbar herniated discs. This often includes targeted physical therapy, pain and anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. If significant pain or neurological symptoms persist despite conservative care, minimally invasive surgical options like microdiscectomy may be recommended to decompress the affected nerve and provide lasting relief.",
         pain_info:
-            "The pain from a lumbar herniated disc is typically neuropathic, stemming from direct nerve compression. This results in sharp, burning, or electric shock-like sensations down the leg (sciatica), which is often more severe than the back pain itself. Our treatments focus on alleviating this nerve pain through targeted injections, physical therapy referrals, and other non-surgical methods designed to reduce nerve irritation.",
+            "The pain from a lumbar herniated disc is typically neuropathic, stemming from direct nerve compression. This results in sharp, burning, or electric shock-like sensations down the leg (sciatica), which is often more severe than the back pain itself. Our treatments focus on alleviating this nerve pain through targeted injections, physical therapy, and other non-surgical methods designed to reduce nerve irritation.",
         prevent:
             "While not all herniated discs are preventable, you can lower your risk by using proper lifting techniques (lift with your legs, not your back), maintaining a healthy weight, practicing good posture, and strengthening your core muscles through regular exercise. Avoiding prolonged sitting and quitting smoking also contribute to better disc health.",
         why_choose_us:
@@ -232,7 +232,7 @@ export const conditions: ConditionInfoProp[] = [
                                 The right treatment for a lumbar herniated disc depends on how
                                 severe your symptoms are and how much they impact your daily
                                 life. Most cases respond well to conservative care, including
-                                rest, heat and ice therapy, physical therapy referrals, and
+                                rest, heat and ice therapy, physical therapy, and
                                 anti-inflammatory medications. These methods aim to reduce
                                 nerve irritation, restore movement, and strengthen the muscles
                                 that support the spine. If pain persists or worsens despite
@@ -274,7 +274,7 @@ export const conditions: ConditionInfoProp[] = [
                                 The right treatment for a lumbar herniated disc depends on how
                                 severe your symptoms are and how much they impact your daily
                                 life. Most cases respond well to conservative care, including
-                                rest, heat and ice therapy, physical therapy referrals, and
+                                rest, heat and ice therapy, physical therapy, and
                                 anti-inflammatory medications. These methods aim to reduce
                                 nerve irritation, restore movement, and strengthen the muscles
                                 that support the spine. If pain persists or worsens despite
@@ -320,7 +320,7 @@ export const conditions: ConditionInfoProp[] = [
                                 If you're experiencing symptoms of a lumbar herniated disc,
                                 there are several treatment options available depending on the
                                 severity of your condition. If your pain is mild and manageable,
-                                starting with home care and guided physical therapy referrals can often
+                                starting with home care and guided physical therapy can often
                                 lead to improvement. Applying heat or ice, taking
                                 anti-inflammatory medications such as ibuprofen or naproxen, and
                                 making lifestyle adjustments like avoiding long periods of
@@ -593,7 +593,7 @@ export const conditions: ConditionInfoProp[] = [
                             >
                                 At Mountain Spine & Orthopedics, we create personalized
                                 treatment plans tailored to your condition and lifestyle.
-                                Treatment options may include physical therapy referrals to improve
+                                Treatment options may include physical therapy to improve
                                 strength, flexibility, and posture, as well as medications like
                                 non-steroidal anti-inflammatory drugs (NSAIDs) to reduce pain
                                 and swelling. For patients with nerve irritation, epidural
@@ -694,7 +694,7 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Initial management focuses on conservative care, such as activity modification, physical therapy referrals, and anti-inflammatory medications. Image-guided epidural steroid injections can provide powerful relief from radiating arm pain. When symptoms progress or myelopathy is present, our surgeons may recommend minimally invasive procedures like laminoplasty or ACDF to decompress the spinal cord and restore function.",
+            "Initial management focuses on conservative care, such as activity modification, physical therapy, and anti-inflammatory medications. Image-guided epidural steroid injections can provide powerful relief from radiating arm pain. When symptoms progress or myelopathy is present, our surgeons may recommend minimally invasive procedures like laminoplasty or ACDF to decompress the spinal cord and restore function.",
         pain_info:
             "Pain may fluctuate with neck posture and activity, but neurological symptoms like numbness or weakness can progress silently. Our approach blends precise decompression techniques with targeted rehabilitation to curb pain, restore nerve function, and prevent irreversible spinal cord changes.",
         prevent:
@@ -964,7 +964,7 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Non-surgical care is the first line of treatment and may include physical therapy referrals to strengthen and stabilize the core, anti-inflammatory medications, and <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">image-guided injections</a> to reduce nerve inflammation. If conservative care fails or the slippage progresses, surgical options like decompression and <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">spinal fusion</a> are considered. At our practice, we use minimally invasive techniques to achieve long-term spinal stability while reducing recovery time.",
+            "Non-surgical care is the first line of treatment and may include physical therapy to strengthen and stabilize the core, anti-inflammatory medications, and <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">image-guided injections</a> to reduce nerve inflammation. If conservative care fails or the slippage progresses, surgical options like decompression and <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">spinal fusion</a> are considered. At our practice, we use minimally invasive techniques to achieve long-term spinal stability while reducing recovery time.",
         pain_info:
             "The pain associated with spondylolisthesis often stems from both mechanical instability of the spine and direct nerve compression. It may increase with activities like standing, walking, or bending backward. Our integrated treatment approach targets both the pain and its underlying structural source to provide long-lasting relief.",
         prevent:
@@ -1021,7 +1021,7 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Initial care focuses on conservative treatments like activity modification, targeted physical therapy referrals, and anti-inflammatory medication. For persistent or severe symptoms, our spine surgeons may perform minimally invasive procedures such as anterior cervical discectomy and fusion (ACDF) or artificial disc replacement. These surgeries decompress neural structures, restore alignment, and support a rapid recovery with lasting stability.",
+            "Initial care focuses on conservative treatments like activity modification, targeted physical therapy, and anti-inflammatory medication. For persistent or severe symptoms, our spine surgeons may perform minimally invasive procedures such as anterior cervical discectomy and fusion (ACDF) or artificial disc replacement. These surgeries decompress neural structures, restore alignment, and support a rapid recovery with lasting stability.",
         pain_info:
             "Pain intensity often peaks in the first few weeks after herniation and can be aggravated by neck movement or sustained positions. Our comprehensive approach combines precise diagnostic injections and rehabilitative exercises to reduce inflammation, improve posture, and accelerate symptom resolution.",
         prevent:
@@ -1061,7 +1061,7 @@ export const conditions: ConditionInfoProp[] = [
                                 press against surrounding spinal nerves. This can lead to
                                 symptoms such as neck pain, numbness, tingling, or weakness in
                                 the shoulders, arms, or hands. Treatment options range from
-                                conservative therapies like rest and physical therapy referrals to more
+                                conservative therapies like rest and physical therapy to more
                                 advanced solutions, including cervical spine surgery.
                             </p>
 
@@ -1154,7 +1154,7 @@ export const conditions: ConditionInfoProp[] = [
                                 often be managed with rest, ice, heat therapy, and
                                 anti-inflammatory medications. Muscle relaxants or prescription
                                 pain relievers may also be used. If pain continues, physicians
-                                may suggest physical therapy referrals to help strengthen the surrounding
+                                may suggest physical therapy to help strengthen the surrounding
                                 neck muscles. In some cases, nerve root blocks or epidural
                                 steroid injections are used to reduce inflammation and nerve
                                 pressure. Our team at Mountain Spine & Orthopedics will help
@@ -1381,7 +1381,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis includes standing long-cassette X-rays to measure the Cobb angle and assess overall sagittal balance. We also use complimentary high-resolution MRI or CT scans to evaluate disc integrity and spinal cord space. These evaluations ensure all contributing factors are addressed in the final treatment strategy.",
         treatment:
-            "Flexible, postural kyphosis often improves with specialized physical therapy referrals that strengthens core and back muscles. For rigid curves in younger patients, bracing may be used to halt progression. For adults with painful or progressive deformity, our spine surgeons may perform minimally invasive osteotomies and fusion to restore sagittal balance, protect the spinal cord, and relieve pain.",
+            "Flexible, postural kyphosis often improves with specialized physical therapy that strengthens core and back muscles. For rigid curves in younger patients, bracing may be used to halt progression. For adults with painful or progressive deformity, our spine surgeons may perform minimally invasive osteotomies and fusion to restore sagittal balance, protect the spinal cord, and relieve pain.",
         pain_info:
             "Pain from kyphosis often stems from muscle fatigue, facet joint overload, and stress on the intervertebral discs. We use targeted injections, muscle-balancing therapy, and, when necessary, surgical realignment to deliver durable pain relief and functional improvement.",
         prevent:
@@ -1479,7 +1479,7 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Initial management for small or partial tears often includes non-surgical options like activity modification, physical therapy referrals, and image-guided corticosteroid injections for pain relief. For patients with persistent symptoms or larger tears, our surgeons perform minimally invasive arthroscopic rotator cuff repair to reattach the torn tendon to the bone, promoting a faster and less painful recovery.",
+            "Initial management for small or partial tears often includes non-surgical options like activity modification, physical therapy, and image-guided corticosteroid injections for pain relief. For patients with persistent symptoms or larger tears, our surgeons perform minimally invasive arthroscopic rotator cuff repair to reattach the torn tendon to the bone, promoting a faster and less painful recovery.",
         pain_info:
             "Pain in a rotator cuff tear arises from tendon inflammation, mechanical impingement of the tendon under the acromion bone, and chemical irritation from inflammatory mediators. Patients often report a deep, aching discomfort that intensifies with arm elevation and activities such as lifting or throwing.",
         prevent:
@@ -1555,7 +1555,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Beyond a physical exam, diagnosis is confirmed with advanced imaging. A complimentary MRI arthrogram, where contrast dye is injected into the joint, is the most effective way to visualize a labral tear. In some cases, a diagnostic intra-articular anesthetic injection may be used to confirm the labrum as the primary source of pain.",
         treatment:
-            "Initial care often emphasizes conservative management, including activity modification, targeted physical therapy referrals, and anti-inflammatory or biologic injections. If pain persists or mechanical symptoms are present, our surgeons perform minimally invasive arthroscopic repair. This procedure uses small incisions and specialized instruments to reattach the labrum to the bone, restoring the joint's stability and suction seal.",
+            "Initial care often emphasizes conservative management, including activity modification, targeted physical therapy, and anti-inflammatory or biologic injections. If pain persists or mechanical symptoms are present, our surgeons perform minimally invasive arthroscopic repair. This procedure uses small incisions and specialized instruments to reattach the labrum to the bone, restoring the joint's stability and suction seal.",
         pain_info:
             "Labral tear pain often presents as a deep, pinpoint discomfort that is exacerbated by specific movements, such as rotation or sustained loading. By correcting the mechanical conflict and promoting tissue healing through phased rehabilitation, our integrated approach markedly diminishes pain and restores confidence in the joint's stability.",
         prevent:
@@ -1593,7 +1593,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis involves a thorough clinical examination, including tests like the McMurray's and Apley grind tests, to reproduce mechanical symptoms. We offer a complimentary MRI review, as MRI provides detailed visualization of the tear type and severity, which is crucial for determining the best course of treatment—whether it be repair or removal.",
         treatment:
-            "Conservative management, including rest, ice, physical therapy referrals, and anti-inflammatory medications, often succeeds for small, stable tears. For larger tears causing persistent mechanical symptoms, our surgeons recommend minimally invasive arthroscopic surgery. Depending on the tear pattern, we perform either a meniscal repair to preserve the cartilage or a partial meniscectomy to remove the damaged portion, optimizing recovery and minimizing long-term joint degeneration.",
+            "Conservative management, including rest, ice, physical therapy, and anti-inflammatory medications, often succeeds for small, stable tears. For larger tears causing persistent mechanical symptoms, our surgeons recommend minimally invasive arthroscopic surgery. Depending on the tear pattern, we perform either a meniscal repair to preserve the cartilage or a partial meniscectomy to remove the damaged portion, optimizing recovery and minimizing long-term joint degeneration.",
         pain_info:
             "Pain from a torn meniscus arises from both mechanical impingement of the torn fragments within the joint and inflammation of the synovial lining. Patients often describe a sharp pain with weight-bearing, twisting, or deep knee bending. Swelling is also a common result of the internal joint irritation.",
         prevent:
@@ -1631,7 +1631,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "The gold standard for diagnosis is a diagnostic SI joint injection. Our specialists perform this procedure under fluoroscopic guidance, injecting a local anesthetic into the joint. A pain reduction of at least 75% confirms the SI joint as the primary pain source. This is often preceded by a complimentary MRI review to rule out other spinal pathologies.",
         treatment:
-            "Conservative management includes activity modification, physical therapy referrals focusing on pelvic and core stabilization, and anti-inflammatory medication. For more significant relief, we offer image-guided corticosteroid injections. For chronic, refractory pain, our surgeons perform minimally invasive SI joint fusion using advanced implants that promote rapid bone integration and provide long-term stability.",
+            "Conservative management includes activity modification, physical therapy focusing on pelvic and core stabilization, and anti-inflammatory medication. For more significant relief, we offer image-guided corticosteroid injections. For chronic, refractory pain, our surgeons perform minimally invasive SI joint fusion using advanced implants that promote rapid bone integration and provide long-term stability.",
         pain_info:
             "SI joint pain is typically sharp during transitional movements like standing up from a chair, rolling in bed, or climbing stairs. It often eases with short bouts of walking or lying flat. By stabilizing the joint's motion and calming inflammation, our integrated approach delivers lasting pain relief and renewed confidence.",
         prevent:
@@ -1669,7 +1669,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "In addition to a physical exam demonstrating point tenderness, our specialists may perform complimentary imaging to confirm bursal inflammation. An MRI or ultrasound can also help rule out other causes of outer hip pain, such as gluteus medius tendonitis or tears, ensuring your treatment is accurately targeted.",
         treatment:
-            "Initial care is conservative and includes rest, ice, and physical therapy referrals designed to correct biomechanics and stretch the IT band and other tight structures. Anti-inflammatory medications are also helpful. For persistent cases, an image-guided corticosteroid injection can provide rapid and effective relief. Surgery is rarely needed but may be considered if all conservative measures fail.",
+            "Initial care is conservative and includes rest, ice, and physical therapy designed to correct biomechanics and stretch the IT band and other tight structures. Anti-inflammatory medications are also helpful. For persistent cases, an image-guided corticosteroid injection can provide rapid and effective relief. Surgery is rarely needed but may be considered if all conservative measures fail.",
         pain_info:
             "Pain from trochanteric bursitis is typically sharp with direct pressure or movement and can be a dull ache at rest. It is notoriously worse when lying on the affected side at night, which can significantly disrupt sleep. Our treatments focus on reducing the inflammation to restore pain-free movement and sleep.",
         prevent:
@@ -1749,7 +1749,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis begins with a complete medical history and a thorough physical examination. To identify the precise source of pain, our specialists often utilize advanced imaging. We offer a complimentary MRI review to assess the spine for issues like herniated discs, stenosis, or arthritis, which allows us to select the best possible treatment.",
         treatment:
-            "Personalized plans are designed to relieve pain and restore function as safely and quickly as possible. Treatment may include physical therapy referrals, targeted exercises, pain relief medication, minimally invasive spinal injections, or lifestyle changes. When non-surgical care is not enough, our surgeons may recommend advanced, minimally invasive procedures.",
+            "Personalized plans are designed to relieve pain and restore function as safely and quickly as possible. Treatment may include physical therapy, targeted exercises, pain relief medication, minimally invasive spinal injections, or lifestyle changes. When non-surgical care is not enough, our surgeons may recommend advanced, minimally invasive procedures.",
         pain_info:
             "Back pain can vary from mild, occasional soreness to severe, continuous discomfort. Identifying individual triggers and following a structured, professional treatment plan can greatly reduce symptoms and support long-term comfort and function.",
         prevent:
@@ -1788,7 +1788,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis begins with a thorough physical examination and a detailed patient history. This is followed by advanced imaging, such as a complimentary MRI scan, to confirm the presence of a bulging disc. Accurately identifying the disc and its impact on surrounding nerves is essential for creating an effective, personalized treatment plan.",
         treatment:
-            "Personalized treatment strategies typically start with conservative care, such as physical therapy referrals, guided exercises, pain management medications, and lifestyle modifications. If pain persists, minimally invasive spinal injections can be highly effective. Surgical procedures are considered only when necessary to relieve nerve compression and restore function.",
+            "Personalized treatment strategies typically start with conservative care, such as physical therapy, guided exercises, pain management medications, and lifestyle modifications. If pain persists, minimally invasive spinal injections can be highly effective. Surgical procedures are considered only when necessary to relieve nerve compression and restore function.",
         pain_info:
             "Pain from a bulging disc can range from a mild, localized discomfort to severe, debilitating sensations that worsen with certain movements or positions. Expert pain management at our clinic, including targeted injections, can greatly improve comfort and support better daily functioning.",
         prevent:
@@ -1827,7 +1827,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Alongside a clinical exam, we provide a complimentary MRI review to identify the source of nerve compression, such as a herniated disc or spinal stenosis. Nerve conduction studies and electromyography (EMG) may also be used to assess the nerve's health and function. These complimentary diagnostics ensure treatment targets the true pain generator.",
         treatment:
-            "Initial care emphasizes conservative management, including activity modification, ergonomic adjustments, and a structured physical therapy referrals program. For more direct relief, we offer image-guided epidural steroid injections to reduce inflammation around the compressed nerve. When structural issues are severe or neurological deficits progress, our surgeons may perform minimally invasive decompression surgery, such as a microdiscectomy or foraminotomy, to free the nerve.",
+            "Initial care emphasizes conservative management, including activity modification, ergonomic adjustments, and a structured physical therapy program. For more direct relief, we offer image-guided epidural steroid injections to reduce inflammation around the compressed nerve. When structural issues are severe or neurological deficits progress, our surgeons may perform minimally invasive decompression surgery, such as a microdiscectomy or foraminotomy, to free the nerve.",
         pain_info:
             "Pain from a pinched nerve often spikes with certain movements or sustained positions and may ease with gentle stretching or finding a more comfortable posture. Our team combines targeted injections, therapeutic exercise, and ergonomic coaching to break the pain-inflammation cycle and foster lasting nerve healing.",
         prevent:
@@ -2026,7 +2026,7 @@ export const conditions: ConditionInfoProp[] = [
                                 A pinched nerve doesn’t have to control your life. With early
                                 intervention and the right treatment strategy, most patients
                                 experience relief without surgery. Non-surgical options may
-                                include physical therapy referrals, anti-inflammatory medication, activity
+                                include physical therapy, anti-inflammatory medication, activity
                                 modification, ergonomic adjustments, and corticosteroid
                                 injections. When conservative care fails to relieve pressure on
                                 the nerve, minimally invasive surgical solutions such as
@@ -2113,7 +2113,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis integrates a detailed physical and neurological exam with upright radiographic imaging to measure spinal balance. We provide a complimentary MRI review to view soft tissue compromise and CT scans to assess bony anatomy, ensuring every structural issue is addressed before treatment begins.",
         treatment:
-            "Non-operative care is preferred when possible and may include customized physical therapy referrals, posture retraining, and anti-inflammatory medication. When surgery is required to protect the spinal cord and relieve pain, our surgeons use minimally invasive decompression and fusion techniques or, for severe deformities, osteotomies with modern instrumentation to restore natural alignment.",
+            "Non-operative care is preferred when possible and may include customized physical therapy, posture retraining, and anti-inflammatory medication. When surgery is required to protect the spinal cord and relieve pain, our surgeons use minimally invasive decompression and fusion techniques or, for severe deformities, osteotomies with modern instrumentation to restore natural alignment.",
         pain_info:
             "Pain from a cervical deformity arises from overloaded facet joints, strained posterior muscles, and nerve compression. Symptoms often worsen after prolonged sitting or when trying to keep the head level. Our comprehensive pain management blends targeted injections, muscle balancing therapy, and, when needed, corrective surgery.",
         prevent:
@@ -2151,7 +2151,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis uses a thorough history and physical examination, supplemented by advanced imaging. We offer a complimentary MRI review, as high-intensity zones on an MRI can confirm an annular tear and identify any early disc bulging or nerve irritation. This precise mapping guides a tailored rehabilitation and intervention strategy.",
         treatment:
-            "Initial management includes activity modification, core stabilization physical therapy referrals, and anti-inflammatory medication to calm the chemical irritation. Image-guided epidural injections can deliver medication directly to the tear to reduce inflammation. If pain persists or the tear progresses to a large herniation, minimally invasive procedures like microdiscectomy may be performed to provide lasting relief.",
+            "Initial management includes activity modification, core stabilization physical therapy, and anti-inflammatory medication to calm the chemical irritation. Image-guided epidural injections can deliver medication directly to the tear to reduce inflammation. If pain persists or the tear progresses to a large herniation, minimally invasive procedures like microdiscectomy may be performed to provide lasting relief.",
         pain_info:
             "Pain from an annular tear is often described as deep and burning, intensifying after prolonged sitting or with sudden movements. It typically eases with gentle walking or lying flat. By addressing both the chemical inflammation and mechanical instability, our integrated approach rapidly reduces pain.",
         prevent:
@@ -2190,7 +2190,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis begins with standing X-rays to reveal a shallow socket. We offer a complimentary MRI review to delineate any cartilage and labral damage, while a 3D CT scan can assist in surgical planning by capturing the precise three-dimensional orientation of the hip joint, ensuring a comprehensive diagnosis.",
         treatment:
-            "Conservative care focuses on physical therapy referrals to strengthen core and gluteal muscles and activity modification to limit repetitive pivoting. When structural instability and pain persist, our surgeons may perform a periacetabular osteotomy (PAO) to reorient the socket and preserve the native joint. For hips with advanced arthritis, minimally invasive total hip replacement offers predictable and lasting pain relief.",
+            "Conservative care focuses on physical therapy to strengthen core and gluteal muscles and activity modification to limit repetitive pivoting. When structural instability and pain persist, our surgeons may perform a periacetabular osteotomy (PAO) to reorient the socket and preserve the native joint. For hips with advanced arthritis, minimally invasive total hip replacement offers predictable and lasting pain relief.",
         pain_info:
             "Hip dysplasia pain often begins as intermittent groin discomfort after exercise and can progress to a constant ache that disrupts sleep. By correcting the underlying biomechanical overload and rehabilitating surrounding muscles, our integrated care model breaks the cycle of inflammation and provides lasting relief.",
         prevent:
@@ -2232,9 +2232,9 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Our diagnostic process begins with a complete medical history and physical exam. To confirm the diagnosis, we may use a complimentary MRI review to visualize the arthritic joints. The most definitive diagnostic tool is a facet joint injection, where an anesthetic is precisely injected into the suspected joint under imaging guidance to see if it relieves the pain.",
         treatment:
-            "Care often begins with conservative measures like structured physical therapy referrals and anti-inflammatory medication. For more targeted relief, our specialists perform facet joint injections with corticosteroids. For longer-lasting relief from chronic pain, a minimally invasive procedure called radiofrequency ablation (RFA) can be performed to deactivate the small nerves that send pain signals from the joint.",
+            "Care often begins with conservative measures like structured physical therapy and anti-inflammatory medication. For more targeted relief, our specialists perform facet joint injections with corticosteroids. For longer-lasting relief from chronic pain, a minimally invasive procedure called radiofrequency ablation (RFA) can be performed to deactivate the small nerves that send pain signals from the joint.",
         pain_info:
-            "Pain from facet joint disease is typically localized to the area of the affected joint and often grows worse with certain movements or long periods of standing. A structured pain management plan, including targeted injections and physical therapy referrals, can greatly reduce symptoms and improve daily comfort.",
+            "Pain from facet joint disease is typically localized to the area of the affected joint and often grows worse with certain movements or long periods of standing. A structured pain management plan, including targeted injections and physical therapy, can greatly reduce symptoms and improve daily comfort.",
         prevent:
             "You can help slow joint wear by engaging in regular low-impact exercise, maintaining a healthy weight, practicing good posture, and avoiding smoking and repetitive heavy strain on your back.",
         why_choose_us:
@@ -2270,9 +2270,9 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "At Mountain Spine & Orthopedics, diagnosis begins with a thorough medical history and a detailed physical examination. We utilize diagnostic imaging, such as X-rays or MRIs, to visualize the joint; we also offer a complimentary MRI review to aid this process. Blood tests or an analysis of joint fluid may also be necessary to pinpoint specific inflammatory types like RA or gout.",
         treatment:
-            "We create personalized treatment plans that may involve a combination of approaches: pain-relieving medications, tailored physical therapy referrals programs, lifestyle adjustments, and corticosteroid or hyaluronic acid injections. For severe cases that are unresponsive to conservative care, our surgeons may consider advanced minimally invasive surgical options or joint replacement.",
+            "We create personalized treatment plans that may involve a combination of approaches: pain-relieving medications, tailored physical therapy programs, lifestyle adjustments, and corticosteroid or hyaluronic acid injections. For severe cases that are unresponsive to conservative care, our surgeons may consider advanced minimally invasive surgical options or joint replacement.",
         pain_info:
-            "Arthritis pain can manifest as a dull ache or a sharp pain, and it is often accompanied by significant stiffness. Our comprehensive pain management strategy combines medication, therapeutic injections, and physical therapy referrals to effectively reduce discomfort, manage flare-ups, and improve your ability to perform daily tasks.",
+            "Arthritis pain can manifest as a dull ache or a sharp pain, and it is often accompanied by significant stiffness. Our comprehensive pain management strategy combines medication, therapeutic injections, and physical therapy to effectively reduce discomfort, manage flare-ups, and improve your ability to perform daily tasks.",
         prevent:
             "While some types of arthritis are not preventable, managing risk factors is key. Maintaining a healthy weight, engaging in regular low-impact exercise, and protecting joints from injury can slow the progression of the disease and preserve function.",
         why_choose_us:
@@ -2540,7 +2540,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Our diagnostic process includes a detailed history, a physical exam, and complimentary imaging. An MRI can pinpoint disc pathology, nerve compression, or arthritic changes, while standing X-rays can assess alignment and stability. These investigations ensure that treatment targets the true pain generator.",
         treatment:
-            "Initial management emphasizes conservative care, including patient education, physical therapy referrals to strengthen core stabilizers, and anti-inflammatory medication. Image-guided epidural steroid injections can provide focal relief. When structural issues cause persistent pain or neurological deficits, our surgeons may perform minimally invasive decompression or fusion surgery to offer durable relief.",
+            "Initial management emphasizes conservative care, including patient education, physical therapy to strengthen core stabilizers, and anti-inflammatory medication. Image-guided epidural steroid injections can provide focal relief. When structural issues cause persistent pain or neurological deficits, our surgeons may perform minimally invasive decompression or fusion surgery to offer durable relief.",
         pain_info:
             "Lower back pain can fluctuate with daily activity, often easing during gentle movement and worsening with prolonged static postures. Our integrative approach combines targeted pain interventions and graded exercise to break the cycle of inflammation and muscle guarding that perpetuates chronic pain.",
         prevent:
@@ -2669,7 +2669,7 @@ export const conditions: ConditionInfoProp[] = [
                             >
                                 Surgery is not always necessary for lower back pain. In fact,
                                 many patients experience significant relief through
-                                non-surgical treatments such as physical therapy referrals, spinal
+                                non-surgical treatments such as physical therapy, spinal
                                 injections, or medications that improve body mechanics and
                                 reduce inflammation. However, if conservative treatments fail
                                 or if there is significant damage to spinal discs or nerves,
@@ -2780,13 +2780,13 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "In addition to a physical exam and a complimentary MRI review, our specialists may use a diagnostic selective nerve root block to confirm the precise location of the nerve irritation. This ensures that any subsequent treatment, like an epidural steroid injection, is targeted to the exact source of your pain.",
         treatment:
-            "First-line treatments include physical therapy referrals focused on lumbar stabilization and nerve gliding techniques, anti-inflammatory medications, and activity modification. Image-guided epidural steroid injections are highly effective for targeting inflammation at the nerve root level. For persistent cases, our surgeons may recommend minimally invasive decompression procedures, such as a microdiscectomy, to relieve pressure on the sciatic nerve.",
+            "First-line treatments include physical therapy focused on lumbar stabilization and nerve gliding techniques, anti-inflammatory medications, and activity modification. Image-guided epidural steroid injections are highly effective for targeting inflammation at the nerve root level. For persistent cases, our surgeons may recommend minimally invasive decompression procedures, such as a microdiscectomy, to relieve pressure on the sciatic nerve.",
         pain_info:
             "Sciatica pain can range from a mild ache to debilitating shocks of nerve pain that fluctuate with movement or posture. Our multidisciplinary approach targets both the structural source of the compression and the resulting nerve inflammation to restore nerve health and daily comfort.",
         prevent:
             "Maintaining a healthy body weight, practicing proper lifting techniques, staying active with core strengthening exercises, and avoiding prolonged sitting can all help prevent sciatic nerve compression.",
         why_choose_us:
-            "The spine specialists at Mountain Spine & Orthopedics are experts at diagnosing the root cause of sciatica. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We offer a full spectrum of care, including referrals for physical therapy and targeted injections to minimally invasive surgery, to resolve your sciatica and restore confident, pain-free movement.",
+            "The spine specialists at Mountain Spine & Orthopedics are experts at diagnosing the root cause of sciatica. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We offer a full spectrum of care, from physical therapy and targeted injections to minimally invasive surgery, to resolve your sciatica and restore confident, pain-free movement.",
         schedule:
             "If radiating leg or lower back pain is interfering with your mobility, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a detailed second opinion to start on your path to resolving sciatica.",
         side_img: "https://mountainspineortho.b-cdn.net/public/sciaticaside.png",
@@ -2873,7 +2873,7 @@ export const conditions: ConditionInfoProp[] = [
                                 especially when the underlying condition compressing the sciatic
                                 nerve is addressed. Treatment may include anti-inflammatory
                                 medication, stretching exercises, heat and ice therapy, and
-                                physical therapy referrals. These methods aim to relieve pressure, reduce
+                                physical therapy. These methods aim to relieve pressure, reduce
                                 inflammation, and restore mobility.
                                 <br />
                                 <br />
@@ -3037,7 +3037,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis often includes a diagnostic local anesthetic injection to confirm the coccyx as the source of pain, in addition to imaging studies. We offer complimentary MRI or dynamic X-ray reviews to guide therapy and avoid unnecessary treatment of unrelated areas. This precise diagnostic approach ensures we target the right spot.",
         treatment:
-            "Care begins with conservative measures, such as using a specialized cut-out seat cushion, activity modification, and targeted physical therapy referrals to relieve pelvic floor tension. Ultrasound-guided steroid or nerve block injections can offer potent relief. In rare cases of persistent pain and confirmed instability, our surgeons may perform a minimally invasive coccygectomy (removal of the tailbone).",
+            "Care begins with conservative measures, such as using a specialized cut-out seat cushion, activity modification, and targeted physical therapy to relieve pelvic floor tension. Ultrasound-guided steroid or nerve block injections can offer potent relief. In rare cases of persistent pain and confirmed instability, our surgeons may perform a minimally invasive coccygectomy (removal of the tailbone).",
         pain_info:
             "Tailbone pain often intensifies after long car rides or sitting on hard surfaces. Our specialists pair ergonomic counseling with image-guided interventions to reduce inflammation, retrain posture, and break the cycle of chronic coccygeal pain, allowing you to sit, move, and live comfortably.",
         prevent:
@@ -3171,7 +3171,7 @@ export const conditions: ConditionInfoProp[] = [
                                 <br />
                                 <br />
                                 If the pain persists beyond a few weeks, stronger pain
-                                relievers, physical therapy referrals, or injections may be recommended.
+                                relievers, physical therapy, or injections may be recommended.
                                 Surgery (coccygectomy) is reserved for severe cases when all
                                 other options have failed.
                             </p>
@@ -3304,7 +3304,7 @@ export const conditions: ConditionInfoProp[] = [
                             >
                                 <li>Cushions and posture correction</li>
                                 <li>Anti-inflammatory medications</li>
-                                <li>Referral for Physical Therapy</li>
+                                <li>Physical Therapy</li>
                                 <li>Corticosteroid injections</li>
                             </ul>
                             <p
@@ -3472,7 +3472,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis goes beyond standard imaging. In addition to a complimentary MRI review, we may use diagnostic selective nerve root blocks, facet joint injections, or even a spinal cord stimulation trial to pinpoint the pain generators. These advanced diagnostics create an evidence-based foundation for targeted revision surgery or non-surgical management.",
         treatment:
-            "Treatment begins with a comprehensive re-evaluation. Our approach may include personalized physical therapy referrals, specialized medications for neuropathic pain, and image-guided injections. Neuromodulation options, including spinal cord stimulation, can dramatically cut pain. For clear mechanical failures, such as a non-union or hardware malposition, our surgeons perform minimally invasive revision surgery to correct the issue and provide lasting stability.",
+            "Treatment begins with a comprehensive re-evaluation. Our approach may include personalized physical therapy, specialized medications for neuropathic pain, and image-guided injections. Neuromodulation options, including spinal cord stimulation, can dramatically cut pain. For clear mechanical failures, such as a non-union or hardware malposition, our surgeons perform minimally invasive revision surgery to correct the issue and provide lasting stability.",
         pain_info:
             "Postoperative pain often involves a mix of residual mechanical compression, nerve hypersensitivity, and central pain amplification. Our team integrates targeted medical interventions with rehabilitative therapies to recalibrate pain pathways and foster sustained relief from this complex condition.",
         prevent:
@@ -3511,7 +3511,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis involves a thorough clinical evaluation to assess symptoms, reflexes, and muscle strength. Imaging is crucial; we offer a complimentary MRI review to get a detailed view of the nerves and soft tissues, while a CT scan can excel at showing bone structure. These tools help us create a tailored treatment plan targeting the specific compressed nerve.",
         treatment:
-            "Initial treatment is typically conservative, focusing on physical therapy referrals, anti-inflammatory medications, and <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce inflammation around the nerve. If symptoms persist or there is significant weakness, our expert surgeons at Mountain Spine & Orthopedics may recommend a minimally invasive surgical option like <a href=\"/treatments/endoscopic-foraminotomy-surgery\" class=\"text-blue-600 hover:underline\">foraminotomy</a> to decompress the nerve.",
+            "Initial treatment is typically conservative, focusing on physical therapy, anti-inflammatory medications, and <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce inflammation around the nerve. If symptoms persist or there is significant weakness, our expert surgeons at Mountain Spine & Orthopedics may recommend a minimally invasive surgical option like <a href=\"/treatments/endoscopic-foraminotomy-surgery\" class=\"text-blue-600 hover:underline\">foraminotomy</a> to decompress the nerve.",
         pain_info:
             "Pain from foraminal stenosis often follows a specific nerve path (a dermatome). Lumbar stenosis typically causes leg pain (sciatica), while cervical stenosis causes arm pain. The pain can range from a dull ache to sharp, shooting sensations. Our team focuses on identifying the exact nerve involved to deliver targeted, effective relief.",
         prevent:
@@ -3670,7 +3670,7 @@ export const conditions: ConditionInfoProp[] = [
                                     or naproxen can reduce pain and swelling.
                                 </li>
                                 <li>
-                                    Physical Therapy (via Referral): Specific exercises can help improve
+                                    <b>Physical Therapy:</b> Specific exercises can help improve
                                     flexibility, strengthen supporting muscles (core, back), and
                                     improve posture, potentially creating more space for the
                                     nerve.
@@ -3970,7 +3970,7 @@ export const conditions: ConditionInfoProp[] = [
                                 thickened ligaments) typically does not resolve on its own.
                                 However, symptoms can sometimes improve or fluctuate with
                                 conservative treatments that reduce inflammation (like
-                                injections) or improve biomechanics (like physical therapy referrals),
+                                injections) or improve biomechanics (like physical therapy),
                                 effectively managing the condition without surgery.
                             </p>
                             <h3
@@ -4067,7 +4067,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis uses X-rays to measure key angles and confirm the cam or pincer morphology. We offer a complimentary MRI review, often with an arthrogram, to clearly show labral tears and cartilage wear. A diagnostic intra-articular anesthetic injection can also be used to confirm that the pain is originating from within the hip joint.",
         treatment:
-            "Initial care focuses on conservative measures like activity modification and targeted physical therapy referrals to strengthen hip and core muscles. When pain persists, our surgeons perform minimally invasive hip arthroscopy to reshape the bone, repair the labrum, and address cartilage defects. This procedure restores smooth joint mechanics while preserving the native joint and facilitating a rapid return to activity.",
+            "Initial care focuses on conservative measures like activity modification and targeted physical therapy to strengthen hip and core muscles. When pain persists, our surgeons perform minimally invasive hip arthroscopy to reshape the bone, repair the labrum, and address cartilage defects. This procedure restores smooth joint mechanics while preserving the native joint and facilitating a rapid return to activity.",
         pain_info:
             "The pain from FAI often spikes during activities that involve deep hip flexion or athletic pivoting, then lingers as a dull ache. Our approach addresses both the mechanical impingement and the resulting soft tissue inflammation through integrated care that rapidly reduces pain and prevents further joint damage.",
         prevent:
@@ -4182,13 +4182,13 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Diagnosis starts with a detailed medical history and physical exam. We offer a complimentary MRI review and X-rays to pinpoint the cause of pain, such as a herniated disc or facet arthritis. In some cases, diagnostic selective nerve root or facet blocks may be used to confirm the precise pain generator.",
         treatment:
-            "First-line care focuses on conservative treatments like physical therapy referrals, ergonomic adjustments, and anti-inflammatory medication. Image-guided cervical epidural or facet injections can provide potent relief from inflammatory flares. When structural issues like a large herniated disc cause persistent pain or neurologic deficits, our surgeons may recommend minimally invasive decompression or fusion surgery.",
+            "First-line care focuses on conservative treatments like physical therapy, ergonomic adjustments, and anti-inflammatory medication. Image-guided cervical epidural or facet injections can provide potent relief from inflammatory flares. When structural issues like a large herniated disc cause persistent pain or neurologic deficits, our surgeons may recommend minimally invasive decompression or fusion surgery.",
         pain_info:
             "Neck pain often worsens with prolonged static posture or stress and eases with gentle movement or heat therapy. Our integrative approach combines precise pain interventions, graded exercise, and posture retraining to break the cycle of inflammation and muscle guarding that sustains chronic discomfort.",
         prevent:
             "Preventive measures include maintaining ergonomic workstation setups with monitors at eye level, taking regular stretch breaks, strengthening shoulder and core muscles, practicing good sleep posture, and avoiding tobacco.",
         why_choose_us:
-            "The spine specialists at Mountain Spine & Orthopedics are dedicated to resolving your neck pain. We provide every patient at our Florida clinics with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. Our comprehensive approach, including referrals for physical therapy and minimally invasive surgery, is designed to restore your comfort and function.",
+            "The spine specialists at Mountain Spine & Orthopedics are dedicated to resolving your neck pain. We provide every patient at our Florida clinics with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. Our comprehensive approach, from physical therapy to minimally invasive surgery, is designed to restore your comfort and function.",
         schedule:
             "If neck pain is limiting your activities, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized plan to conquer your neck pain.",
         slug: "neck-pain",
@@ -4296,7 +4296,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Our specialists use detailed imaging, including a complimentary MRI or ultrasound review when needed, to assess joint cartilage, the condition of the rotator cuff, and any inflammation. Combined with a thorough clinical evaluation, this ensures the most accurate diagnosis and an effective treatment plan.",
         treatment:
-            "Initial management includes anti-inflammatory medications, physical therapy referrals to preserve motion, and corticosteroid or biologic injections. When symptoms persist or joint damage is advanced, our surgeons offer advanced surgical options, including minimally invasive arthroscopy, partial joint resurfacing, or total shoulder replacement. A reverse shoulder replacement may be used if a large rotator cuff tear is also present.",
+            "Initial management includes anti-inflammatory medications, physical therapy to preserve motion, and corticosteroid or biologic injections. When symptoms persist or joint damage is advanced, our surgeons offer advanced surgical options, including minimally invasive arthroscopy, partial joint resurfacing, or total shoulder replacement. A reverse shoulder replacement may be used if a large rotator cuff tear is also present.",
         pain_info:
             "Pain from shoulder arthritis often flares with repetitive activity or lifting and can become constant over time. Our comprehensive approach targets both the inflammation and the underlying joint mechanics to relieve pain and restore comfortable, functional motion.",
         prevent:
@@ -4334,7 +4334,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Our specialists use focused physical tests, such as the Hawkins-Kennedy or Speed's Test, alongside complimentary imaging to detect inflammation, microtears, and any associated bursitis or impingement. This process ensures a clear diagnosis and allows for an effective, customized treatment plan.",
         treatment:
-            "Initial treatment includes rest from the aggravating activity, anti-inflammatory medications, and physical therapy referrals focused on balancing the muscles of the rotator cuff and scapula. An ultrasound-guided corticosteroid injection can provide rapid relief. For persistent cases, regenerative medicine options like platelet-rich plasma (PRP) therapy or minimally invasive arthroscopy may be used to treat chronic tendon damage.",
+            "Initial treatment includes rest from the aggravating activity, anti-inflammatory medications, and physical therapy focused on balancing the muscles of the rotator cuff and scapula. An ultrasound-guided corticosteroid injection can provide rapid relief. For persistent cases, regenerative medicine options like platelet-rich plasma (PRP) therapy or minimally invasive arthroscopy may be used to treat chronic tendon damage.",
         pain_info:
             "Shoulder tendonitis pain is usually activity-related and feels sharp with movement, especially when reaching overhead. The pain may radiate into the upper arm and worsen at night. Our targeted therapies are designed to reduce inflammation, promote tendon healing, and restore pain-free strength.",
         prevent:
@@ -4372,7 +4372,7 @@ export const conditions: ConditionInfoProp[] = [
         diagnose:
             "Our specialists use clinical movement assessments and complimentary dynamic ultrasound or MRI to identify the exact snapping structure. A dynamic ultrasound is particularly useful as it can visualize the tendon snapping in real-time. This precise diagnosis ensures that treatment is appropriately targeted.",
         treatment:
-            "Most cases respond well to non-operative care, including activity modification and a physical therapy referrals program focused on stretching tight structures (like the IT band and iliopsoas) and strengthening hip and core stabilizers. If conservative treatment fails or imaging reveals an intra-articular issue like a labral tear, minimally invasive hip arthroscopy may be used to correct the underlying problem.",
+            "Most cases respond well to non-operative care, including activity modification and a physical therapy program focused on stretching tight structures (like the IT band and iliopsoas) and strengthening hip and core stabilizers. If conservative treatment fails or imaging reveals an intra-articular issue like a labral tear, minimally invasive hip arthroscopy may be used to correct the underlying problem.",
         pain_info:
             "While the snapping itself may be painless, the associated inflammation (tendonitis or bursitis) or an intra-articular cause can lead to a sharp or aching pain in the hip or groin. Addressing both the mechanical snapping and any resulting inflammation is essential for achieving long-lasting relief.",
         prevent:
@@ -4412,7 +4412,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "When symptomatic, bone spurs can cause localized neck or back pain, stiffness, and radiating pain, numbness, or weakness in the arms or legs. In severe cases, they can contribute to spinal stenosis, leading to issues with balance or walking.",
         risk_fac: "Age-related disc degeneration and osteoarthritis are the primary risk factors. Other contributing factors include previous spinal injuries, poor posture, repetitive spinal stress from manual labor or sports, and a genetic predisposition to joint degeneration.",
         diagnose: "In addition to a clinical evaluation, we offer a complimentary high-resolution MRI or CT review to pinpoint the size and location of bone spurs and assess their impact on spinal nerves. This precise diagnosis helps differentiate bone spur pain from other spinal conditions.",
-        treatment: "Initial management may include anti-inflammatory medications, physical therapy referrals focused on improving posture and core stabilization, and activity modification. Image-guided injections can reduce inflammation and relieve nerve pressure. When symptoms persist, our surgeons may recommend minimally invasive surgery to remove the bone spur and decompress the affected nerve root or spinal cord.",
+        treatment: "Initial management may include anti-inflammatory medications, physical therapy focused on improving posture and core stabilization, and activity modification. Image-guided injections can reduce inflammation and relieve nerve pressure. When symptoms persist, our surgeons may recommend minimally invasive surgery to remove the bone spur and decompress the affected nerve root or spinal cord.",
         pain_info: "Pain from spinal bone spurs often presents as a dull, aching discomfort that can become a sharper, radiating pain during activity. Our approach aims to reduce the mechanical pressure and calm the nerve inflammation to provide long-term symptom relief.",
         prevent: "Maintaining good posture, engaging in regular low-impact exercise, managing weight, and treating underlying conditions like arthritis or disc degeneration early can help slow the progression of bone spur formation.",
         why_choose_us: "At Mountain Spine & Orthopedics, our spine specialists are experts at treating symptomatic bone spurs. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize the full spectrum of non-surgical and minimally invasive surgical techniques to relieve your pain and restore mobility.",
@@ -4441,7 +4441,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Lumbar stenosis often causes pain, cramping, or weakness in the legs with walking or standing, which improves with sitting. Cervical stenosis can cause neck pain, numbness in the arms or hands, and in severe cases, balance or coordination issues.",
         risk_fac: "The primary risk factor for spinal stenosis is aging. Other factors include arthritis, herniated discs, prior spinal surgery, spinal injuries, and a congenitally narrow spinal canal. Conditions like scoliosis can also contribute.",
         diagnose: "We use complimentary high-resolution imaging, such as an MRI and standing X-rays, to visualize the spinal canal, nerve roots, and surrounding structures. This allows us to confirm the location and severity of the stenosis and identify any associated spinal instability or disc issues, guiding the best course of treatment.",
-        treatment: "Conservative care includes anti-inflammatory medications, physical therapy referrals to improve strength and flexibility, and activity modification. Image-guided epidural steroid injections can effectively reduce inflammation and relieve nerve compression. If symptoms persist or neurologic function declines, our surgeons may recommend minimally invasive decompression surgery, such as a laminectomy, to create more space for the nerves.",
+        treatment: "Conservative care includes anti-inflammatory medications, physical therapy to improve strength and flexibility, and activity modification. Image-guided epidural steroid injections can effectively reduce inflammation and relieve nerve compression. If symptoms persist or neurologic function declines, our surgeons may recommend minimally invasive decompression surgery, such as a laminectomy, to create more space for the nerves.",
         pain_info: "Pain from spinal stenosis is often positional, worsening with standing or walking and improving with sitting or leaning forward (which opens up the spinal canal). Our treatments target both the mechanical compression and the resulting nerve inflammation to provide lasting relief and improve mobility.",
         prevent: "Staying physically active, maintaining good posture, avoiding smoking, and treating other spinal conditions early can help reduce the risk or slow the progression of spinal stenosis.",
         why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating spinal stenosis. We provide patients throughout Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize advanced, minimally invasive surgical techniques designed to minimize downtime and maximize long-term relief.",
@@ -4470,7 +4470,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Common symptoms include visibly uneven shoulders or hips, a noticeable spinal curve, persistent back pain, and fatigue after standing. Severe deformities can lead to a loss of height or interfere with breathing.",
         risk_fac: "Risk factors include genetics, adolescent growth spurts, degenerative disc disease, osteoporosis, spinal trauma, and a history of previous spinal surgery. Neuromuscular conditions can also lead to the development of spinal deformities.",
         diagnose: "Our specialists use complimentary standing X-rays to measure the curvature angles (like the Cobb angle) and assess overall spinal balance. An MRI or CT scan may be used to detect any associated disc or nerve issues. Ongoing monitoring is often used to track curve progression, especially in younger patients.",
-        treatment: "Non-surgical options include physical therapy referrals to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and fusion techniques. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
+        treatment: "Non-surgical options include physical therapy to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and fusion techniques. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
         pain_info: "Pain from spine deformities can be mechanical, stemming from muscle fatigue and postural strain, or neurologic, resulting from compressed nerves. Our comprehensive approach addresses both sources with a combination of targeted therapies and, when necessary, structural realignment.",
         prevent: "Early detection in children and adolescents is key. For adults, maintaining strong core musculature, good bone health, and proper posture can help slow the progression or reduce the impact of degenerative spinal deformities.",
         why_choose_us: "Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across Florida, we offer a complimentary MRI or X-ray review and a free second opinion to create a plan that restores your natural alignment and balance.",
@@ -4528,7 +4528,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Symptoms include a 'pins and needles' sensation, a loss of feeling, burning, or prickling in the hands, arms, legs, or feet. This can be accompanied by weakness, clumsiness, or a feeling that the limbs are 'falling asleep.'",
         risk_fac: "Common risk factors include spinal issues like herniated discs and stenosis, as well as diabetes, repetitive motion injuries, autoimmune diseases, and vitamin deficiencies. A previous trauma can also lead to nerve-related symptoms.",
         diagnose: "A comprehensive clinical and neurological evaluation is key. We provide a complimentary MRI review to check for spinal causes, and we use electrodiagnostic testing (EMG/NCS) to assess nerve health directly. These tools help us differentiate between a peripheral issue (like carpal tunnel) and a spinal nerve root compression (radiculopathy).",
-        treatment: "Treatment is entirely guided by the underlying diagnosis. If the cause is spinal, care may include physical therapy referrals, anti-inflammatory medications, and targeted epidural steroid injections. If a structural issue like a herniated disc is the cause, minimally invasive surgery may be considered. For peripheral issues, treatments like wrist splinting or carpal tunnel release may be recommended.",
+        treatment: "Treatment is entirely guided by the underlying diagnosis. If the cause is spinal, care may include physical therapy, anti-inflammatory medications, and targeted epidural steroid injections. If a structural issue like a herniated disc is the cause, minimally invasive surgery may be considered. For peripheral issues, treatments like wrist splinting or carpal tunnel release may be recommended.",
         pain_info: "Tingling and numbness may be painless or accompanied by burning, aching, or sharp, shooting pain. Our approach targets both symptom relief and the underlying condition to protect long-term nerve health and improve daily function.",
         prevent: "Maintaining good posture, avoiding repetitive strain, managing blood sugar levels in the case of diabetes, and staying physically active can all help reduce the risk of developing nerve-related numbness and tingling.",
         why_choose_us: "At Mountain Spine & Orthopedics, our specialists are experts at getting to the root cause of numbness and tingling. We offer patients in Florida a comprehensive diagnostic workup, including a complimentary MRI review and a free second opinion. By identifying the exact source of your symptoms, we can provide the most effective treatment to restore healthy nerve function.",
@@ -4557,7 +4557,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Common symptoms include persistent back or neck pain, pain that radiates down an arm or leg (sciatica), and numbness or tingling in the extremities. Muscle weakness and difficulty with fine motor tasks can also occur.",
         risk_fac: "Risk factors include advancing age, occupations involving repetitive heavy lifting or bending, poor posture, smoking, and obesity. A genetic predisposition to disc degeneration can also play a significant role.",
         diagnose: "Diagnosis relies on a thorough clinical examination and imaging studies. We provide a complimentary MRI review, as MRI is the gold standard for visualizing the herniated disc and its effect on the nerves. Electromyography (EMG) and nerve conduction studies may also be used to assess the extent of nerve irritation and help guide treatment planning.",
-        treatment: "Conservative management is often successful and may include targeted physical therapy referrals, anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. For patients who do not respond to non-surgical care or who have severe neurologic deficits, our surgeons may perform a minimally invasive microdiscectomy to relieve the nerve compression while preserving spinal stability.",
+        treatment: "Conservative management is often successful and may include targeted physical therapy, anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. For patients who do not respond to non-surgical care or who have severe neurologic deficits, our surgeons may perform a minimally invasive microdiscectomy to relieve the nerve compression while preserving spinal stability.",
         pain_info: "Pain results from both the mechanical compression of the nerve root and the inflammatory chemicals released by the damaged disc material. Symptoms often worsen with sitting, bending, or coughing. Our multidisciplinary approach addresses both the inflammation and the structural issue to provide lasting relief.",
         prevent: "Patients can reduce their risk of herniation by maintaining good posture, practicing proper lifting techniques, engaging in regular core strengthening exercises, maintaining a healthy weight, and avoiding prolonged static positions.",
         why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating herniated discs. Our Florida clinics offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We prioritize non-surgical and minimally invasive options like microdiscectomy to help you recover faster and with less pain.",
@@ -4586,7 +4586,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Patients with RA typically experience persistent joint pain, swelling, warmth, and prolonged morning stiffness lasting more than an hour. Symptoms are often symmetrical (affecting both sides of the body) and may include systemic issues like fatigue and fever.",
         risk_fac: "Risk factors for rheumatoid arthritis include a family history of autoimmune disease, specific genetic markers, and being female. Environmental factors like smoking and obesity can also contribute to disease onset and progression.",
         diagnose: "Diagnosis follows established criteria, combining clinical findings with serologic markers. We perform comprehensive blood tests for rheumatoid factor and anti-CCP antibodies, and we use complimentary high-resolution MRI or ultrasound to detect early joint inflammation and erosions. Early detection allows for timely initiation of therapy to prevent irreversible joint damage.",
-        treatment: "Treatment focuses on achieving remission or low disease activity through early and aggressive therapy with medications known as DMARDs. Biologic agents and other targeted molecules may be introduced for more severe cases. Adjunctive measures include physical therapy referrals to preserve function and, in advanced cases with severe joint destruction, collaboration with our orthopedic surgeons to evaluate for joint replacement.",
+        treatment: "Treatment focuses on achieving remission or low disease activity through early and aggressive therapy with medications known as DMARDs. Biologic agents and other targeted molecules may be introduced for more severe cases. Adjunctive measures include physical therapy to preserve function and, in advanced cases with severe joint destruction, collaboration with our orthopedic surgeons to evaluate for joint replacement.",
         pain_info: "The inflammatory joint pain in RA arises from the autoimmune attack on the synovial lining and the release of inflammatory chemicals. The pain often worsens after periods of rest and improves with gentle movement. Our multidisciplinary team addresses both the inflammation and the pain through tailored pharmacologic regimens and supportive therapies.",
         prevent: "While there is no cure for RA, early intervention can slow progression. Patients can improve outcomes by quitting smoking, maintaining a healthy weight, and engaging in low-impact exercises to preserve joint mobility. Diligent management of the disease with a specialist is crucial.",
         why_choose_us: "At Mountain Spine & Orthopedics, our specialists work as part of a multidisciplinary team to provide comprehensive management of rheumatoid arthritis. For patients across Florida, we offer expert diagnosis, including complimentary imaging reviews and free second opinions, and state-of-the-art treatment plans designed to control your RA and help you reclaim an active, pain-free life.",
@@ -4615,7 +4615,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Patients commonly report pain and tenderness on the bony knob on the outside of the elbow. This pain can radiate down the forearm and may be accompanied by weakness when gripping objects, shaking hands, or turning a doorknob.",
         risk_fac: "Risk factors include repetitive wrist extension movements found in sports and certain occupations (like plumbing or painting), poor ergonomic setup, and being between the ages of 35 and 55. Smoking can also impair the tendon's ability to heal.",
         diagnose: "Diagnosis relies on a clinical assessment and physical tests like Cozen’s test to reproduce the symptoms. A high-resolution ultrasound offers a dynamic evaluation of the tendon structure, while a complimentary MRI review can provide detailed visualization of any tears or associated joint pathology if needed.",
-        treatment: "Conservative management is successful in most cases and includes activity modification, using a counterforce brace, and physical therapy referrals emphasizing eccentric strengthening of the wrist extensors. For persistent symptoms, our specialists may recommend image-guided interventions such as platelet-rich plasma (PRP) injections to enhance tendon healing. Surgery is rarely required.",
+        treatment: "Conservative management is successful in most cases and includes activity modification, using a counterforce brace, and physical therapy emphasizing eccentric strengthening of the wrist extensors. For persistent symptoms, our specialists may recommend image-guided interventions such as platelet-rich plasma (PRP) injections to enhance tendon healing. Surgery is rarely required.",
         pain_info: "The pain in tennis elbow stems from both the mechanical overload of the tendon fibers and the inflammatory mediators released during the degenerative process. This sensitizes local nerve endings, amplifying pain with even simple wrist movements.",
         prevent: "To prevent tennis elbow, patients should use proper technique and equipment in sports, incorporate a thorough warm-up and stretching routine, perform regular forearm strengthening exercises, and maintain optimal workstation ergonomics.",
         why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in treating overuse injuries like tennis elbow. We provide patients across Florida with accurate diagnoses, often aided by a complimentary imaging review, and advanced, non-surgical treatments like PRP injections. Our goal is to relieve your pain and restore full, pain-free function.",
@@ -4802,7 +4802,7 @@ export const conditions: ConditionInfoProp[] = [
                             nonsteroidal anti inflammatory medication. Night splints hold the
                             foot in gentle dorsiflexion during sleep, preventing painful
                             morning tightness. Custom orthotic inserts cushion the heel and
-                            support the arch, while targeted physical therapy referrals strengthens
+                            support the arch, while targeted physical therapy strengthens
                             intrinsic foot muscles for long term stability.
                             <br />
                             <br />
@@ -5129,7 +5129,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Symptoms include pain and stiffness along the back of the Achilles tendon, especially in the morning or after periods of rest. The pain typically worsens with activity, and there may be swelling or tenderness at the back of the heel.",
         risk_fac: "Risk factors include a sudden increase in the intensity or amount of physical activity, having tight calf muscles, and wearing improper footwear. Individuals with flat arches or bone spurs on the heel can also be more susceptible to Achilles tendonitis.",
         diagnose: "Diagnosis usually involves a physical exam where our specialist will assess the tendon for pain, swelling, and thickening. We may use a complimentary ultrasound or MRI review to get a more detailed view of the tendon and assess the extent of the damage or degeneration.",
-        treatment: "Treatment focuses on reducing pain and inflammation. The RICE protocol (Rest, Ice, Compression, Elevation) and physical therapy referrals are crucial. Therapy typically includes stretching and eccentric strengthening exercises like heel drops. If conservative treatments are not effective, we offer advanced options like extracorporeal shock wave therapy (ESWT) or platelet-rich plasma (PRP) injections.",
+        treatment: "Treatment focuses on reducing pain and inflammation. The RICE protocol (Rest, Ice, Compression, Elevation) and physical therapy are crucial. Therapy typically includes stretching and eccentric strengthening exercises like heel drops. If conservative treatments are not effective, we offer advanced options like extracorporeal shock wave therapy (ESWT) or platelet-rich plasma (PRP) injections.",
         pain_info: "Pain from Achilles tendonitis is typically felt along the back of the lower leg, near the heel. It often begins as a mild ache after activity and can gradually worsen to a more severe, burning pain. Morning pain and stiffness are characteristic symptoms.",
         prevent: "Prevention involves several key strategies: gradually increase your activity level, always warm up before exercising, and perform regular stretching for your calf muscles and Achilles tendons. Wearing appropriate, supportive footwear and strengthening your calf muscles are also crucial.",
         why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating Achilles tendonitis. We provide patients across Florida with a complimentary imaging review and a free second opinion. Our goal is to use the most effective conservative and regenerative treatments to help you avoid surgery and return to your active life.",
@@ -5551,7 +5551,8 @@ export const conditions: ConditionInfoProp[] = [
                             Early care focuses on non surgical measures. Custom molded
                             orthotics or ankle foot braces cradle the arch and limit
                             overpronation, while calf stretching and posterior tibial
-                            strengthening exercises improve muscular support. Working with a referred physical therapist, you will learn balance drills and gait retraining techniques that
+                            strengthening exercises improve muscular support. Physical therapy
+                            sessions teach balance drills and gait retraining techniques that
                             stabilize the entire lower limb chain. When painful flare ups
                             occur, short courses of anti inflammatory medication or precisely
                             guided corticosteroid injections reduce swelling and restore
@@ -5634,7 +5635,7 @@ export const conditions: ConditionInfoProp[] = [
         what_sym: "Ankle arthroscopy is a procedure, not a condition. It is recommended for symptoms like persistent ankle pain not relieved by conservative care, chronic instability or recurrent sprains, sensations of catching or locking in the joint, and stiffness or swelling that does not resolve.",
         risk_fac: "This is a treatment. Risks, while lower than open surgery, include infection, bleeding, blood clots, and nerve irritation around the ankle. Your surgeon will discuss these potential risks in detail before the procedure.",
         diagnose: "The decision to proceed with ankle arthroscopy is based on a thorough diagnostic process. This includes a physical exam and imaging studies. We offer a complimentary MRI review, as MRI provides detailed images of the soft tissues like ligaments and cartilage, helping to identify tears or damage that are amenable to arthroscopic treatment.",
-        treatment: "Ankle arthroscopy is itself a treatment method. During the procedure, our surgeons can debride damaged cartilage, remove loose bone or cartilage fragments, repair torn ligaments, treat osteochondral lesions, and remove bone spurs that cause impingement. Post-operative care involves rest, ice, and a critical physical therapy referrals program to restore range of motion, strength, and function.",
+        treatment: "Ankle arthroscopy is itself a treatment method. During the procedure, our surgeons can debride damaged cartilage, remove loose bone or cartilage fragments, repair torn ligaments, treat osteochondral lesions, and remove bone spurs that cause impingement. Post-operative care involves rest, ice, and a critical physical therapy program to restore range of motion, strength, and function.",
         pain_info: "Pain after ankle arthroscopy is expected but is generally less severe than after traditional open ankle surgery. The level of pain depends on the complexity of the procedure performed and is managed with prescribed medication. This initial pain and swelling subsides as healing progresses.",
         prevent: "Prevention focuses on avoiding the ankle injuries that might necessitate arthroscopy in the first place. This includes wearing supportive footwear, strengthening the muscles around theankle for better stability, and seeking prompt and appropriate treatment for any ankle sprains to prevent chronic problems.",
         why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are highly skilled in advanced, minimally invasive ankle arthroscopy. For patients in Florida, we offer a complimentary MRI review and a free second opinion to determine if this procedure is right for you. Our goal is to correct the underlying problem with less pain and a faster recovery.",
@@ -5783,7 +5784,7 @@ export const conditions: ConditionInfoProp[] = [
                             className="text-[#424959] text-md sm:text-xl"
                         >
                             Not every ankle problem requires surgery, so we exhaust
-                            nonsurgical measures first, including targeted physical therapy referrals,
+                            nonsurgical measures first, including targeted physical therapy,
                             ultrasound guided corticosteroid or platelet rich plasma
                             injections, custom bracing, and gait retraining. When imaging
                             shows mechanical impingement, unstable cartilage, or loose
@@ -6006,7 +6007,7 @@ export const conditions: ConditionInfoProp[] = [
                             while custom orthotic inserts offload the ball of the foot. Toe
                             spacers and prefabricated hammer toe pads cushion prominent joints
                             and night splints gently stretch the flexor tendons during sleep.
-                            A referred physical therapy program focuses on towel scrunches marble pickups and
+                            Physical therapy focuses on towel scrunches marble pickups and
                             resistance band exercises to strengthen the small muscles that
                             stabilize the toes. When discomfort persists or the toe becomes
                             rigid surgical correction offers a reliable solution. <br />
@@ -6450,7 +6451,7 @@ export const conditions: ConditionInfoProp[] = [
                             incision heals. Most patients begin gentle non weight bearing
                             range of motion exercises within days followed by progressive
                             partial weight bearing in a removable boot. By the sixth week
-                            supervised physical therapy referrals focuses on rebuilding strength balance
+                            supervised physical therapy focuses on rebuilding strength balance
                             and gait mechanics.
                             <br />
                             <br />

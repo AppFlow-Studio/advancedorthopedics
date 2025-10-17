@@ -9,7 +9,7 @@ export const carAccidentFaqs = [
     },
     {
         q: "Can whiplash or herniated discs heal without surgery?",
-        a: "Many accident-related injuries can be treated with non-surgical methods such as a referral for physical therapy, injections, or bracing. Our surgeons use minimally invasive procedures only when absolutely necessary.",
+        a: "Many accident-related injuries can be treated with non-surgical methods such as physical therapy, injections, or bracing. Our surgeons use minimally invasive procedures only when absolutely necessary.",
     },
     {
         q: "How soon after a car accident should I get an MRI or imaging?",

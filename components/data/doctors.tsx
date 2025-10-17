@@ -4,7 +4,6 @@ import Monica from '../../public/Monica.png';
 import David from '../../public/David.png';
 import Douglas from '../../public/DouglasSlaughter.png';
 import Christopher from '../../public/ChristopherMcarthy.png';
-import Shumway from '../../public/clay-shumway.png';
 import toporthokatzman from '../../public/toporthokatzman.webp';
 import toporthoslaughter from '../../public/toporthoslaughter.webp';
 
@@ -54,9 +53,9 @@ export const Doctors: DoctorProp[] = [
             'Clinical instructor for Biomet, Johnson & Johnson, Orthocore, Kyphon, and Clarus',
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Scott Katzman | Expert Spine Surgery & Minimally Invasive Procedures | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Scott Katzman at Mountain Spine Orthopedics performs advanced spine surgery including laser spine surgery, artificial disc replacement, and endoscopic procedures. Expert surgical care in Florida.',
-        keywords: ["Dr. Scott Katzman", "Mountain Spine Orthopedics", "spine surgery", "laser spine surgery", "artificial disc replacement", "endoscopic spine surgery", "minimally invasive spine surgery", "Florida spine surgeon"],
+        metaTitle: 'Dr. Scott Katzman | Board-Certified Spine Surgeon | Florida',
+        metaDescription: 'Meet Dr. Scott Katzman, a leading orthopedic spine surgeon specializing in comprehensive spine care. Schedule a consultation in Florida.',
+        keywords: ["Dr. Scott Katzman", "orthopedic spine surgeon", "board-certified surgeon", "orthopedic surgeon Florida", "spine specialist"],
         ogImage: "/" + (Katzman?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Spine Surgery"],
         specialties: ["Minimally Invasive Spine Surgery", "Laser Spine Surgery", "Artificial Disc Replacement", "Endoscopic Discectomy", "Microdiscectomy", "Endoscopic Foraminotomy", "Laminoforaminotomy"],
@@ -84,9 +83,9 @@ export const Doctors: DoctorProp[] = [
             'Undergraduate research in orthopedic surgery at Dartmouth College',
             'Experience treating both upper and lower extremities and spine conditions'],
         // --- SEO Data ---
-        metaTitle: 'Dr. David Cowin | Expert Orthopedic Surgery & Joint Reconstruction | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. David Cowin at Mountain Spine Orthopedics performs advanced orthopedic surgery including spine surgery, joint reconstruction, and endoscopic procedures. Expert surgical care in Florida.',
-        keywords: ["Dr. David Cowin", "Mountain Spine Orthopedics", "orthopedic surgery", "spine surgery", "joint reconstruction surgery", "endoscopic surgery", "TLIF surgery", "Florida orthopedic surgeon"],
+        metaTitle: 'Dr. David Cowin | Orthopedic Surgeon & Spine Specialist | Florida',
+        metaDescription: 'Dr. David Cowin is a board-certified orthopedic surgeon specializing in joint reconstruction and comprehensive spine care in Florida.',
+        keywords: ["Dr. David Cowin", "orthopedic surgeon", "spine specialist", "joint reconstruction", "Florida orthopedic doctor"],
         ogImage: "/" + (David?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery"],
         specialties: ["Laser Spine Surgery", "Orthopedic Surgery", "TLIF (Transforaminal Lumbar Interbody Fusion)", "Axial Fusion", "Endoscopic Discectomy", "Facet Fusion"],
@@ -118,9 +117,9 @@ export const Doctors: DoctorProp[] = [
             'Performed hundreds of major spine trauma surgeries at a top trauma center'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Christopher McCarthy | Expert Spine Surgery & Trauma Reconstruction | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Christopher McCarthy at Mountain Spine Orthopedics performs advanced spine surgery including trauma reconstruction, minimally invasive procedures, and complex spinal surgeries. Expert surgical care in Florida.',
-        keywords: ["Dr. Christopher McCarthy", "Mountain Spine Orthopedics", "spine surgery", "trauma spine surgery", "spinal reconstruction surgery", "minimally invasive spine surgery", "Harvard trained surgeon", "Florida spine surgeon"],
+        metaTitle: 'Dr. Christopher McCarthy | Spine Surgeon (Ortho & Trauma) | FL',
+        metaDescription: 'Meet Dr. Christopher McCarthy, an Ivy League-trained spine surgeon with dual expertise in orthopedics and emergency medicine. Specializing in comprehensive spinal care.',
+        keywords: ["Dr. Christopher McCarthy", "orthopedic spine surgeon", "spinal trauma specialist", "comprehensive spine surgery", "Harvard trained doctor"],
         ogImage: "/" + (Christopher?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Emergency Medicine", "Spine Surgery"],
         specialties: ["Minimally Invasive Spine Procedures", "Traditional 'Open' Decompression", "Reconstructive Spine Procedures", "Spinal Trauma Surgery"],
@@ -152,9 +151,9 @@ export const Doctors: DoctorProp[] = [
             'Key contributor to Mountain Spine & Orthopedics advanced medical and therapeutic procedures'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Monica McPhail-Pruitt | Expert Surgical Anesthesia & Pain Management | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Monica McPhail-Pruitt at Mountain Spine Orthopedics provides expert surgical anesthesia and pain management for orthopedic procedures. Advanced perioperative care in Florida.',
-        keywords: ["Dr. Monica McPhail-Pruitt", "Mountain Spine Orthopedics", "surgical anesthesia", "orthopedic surgery anesthesia", "pain management", "perioperative care", "surgical pain relief", "Florida anesthesiologist"],
+        metaTitle: 'Dr. Monica McPhail-Pruitt | Anesthesiology & Pain Management',
+        metaDescription: 'Dr. Monica McPhail-Pruitt is a double board-certified pain management specialist ensuring safe and effective perioperative care for patients.',
+        keywords: ["Dr. Monica McPhail-Pruitt", "pain management specialist", "anesthesiologist", "perioperative care", "medical pain relief"],
         ogImage: "/" + (Monica?.src || "newlogo4.png"),
         medicalSpecialty: ["Anesthesiology", "Pain Management"],
         specialties: ["Surgical Anesthesiology", "Post-Op Pain Management", "Perioperative Pain Management"],
@@ -187,47 +186,15 @@ export const Doctors: DoctorProp[] = [
             'Currently practicing at Mountain Spine & Orthopedics'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Douglas Slaughter | Expert Reconstructive Spine Surgery & Advanced Procedures | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Douglas Slaughter at Mountain Spine Orthopedics performs advanced reconstructive spine surgery and comprehensive spinal procedures. Expert surgical care in Florida.',
-        keywords: ["Dr. Douglas Slaughter", "Mountain Spine Orthopedics", "reconstructive spine surgery", "spinal reconstruction surgery", "orthopedic spine surgery", "minimally invasive surgery", "top spine surgeon", "Florida spine surgeon"],
+        metaTitle: 'Dr. Douglas Slaughter | Orthopedic & Reconstructive Spine Surgeon',
+        metaDescription: 'Dr. Douglas Slaughter, an award-winning orthopedic spine surgeon, offers expert comprehensive and reconstructive spine surgery in Florida.',
+        keywords: ["Dr. Douglas Slaughter", "reconstructive spine surgery", "top orthopedic surgeon", "comprehensive spine surgeon"],
         ogImage: "/" + (Douglas?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Spine Surgery"],
         specialties: ["Minimally Invasive Orthopedic Surgery", "Reconstructive Surgery for Spinal Injuries", "Spinal Reconstructive Surgery"],
         conditionsTreated: ["Sports Injuries", "High-Impact Activity Injuries", "Age-Related Spine Issues", "Musculoskeletal Conditions"],
         sameAs: [
             "https://www.healthgrades.com/physician/dr-douglas-slaughter-xc2mw"
-        ]
-    },
-    {
-        img: Shumway,
-        slug: 'dr-clay-shumway',
-        name: 'Dr. Clay Shumway',
-        practice: 'Foot & Ankle Orthopedic Surgeon',
-        socials: '',
-        short_bio: 'Dr. Clay Shumway is a fellowship-trained foot and ankle surgeon specializing in advanced, minimally invasive techniques, including total ankle replacement and 3D bunion correction. His patient-first philosophy prioritizes conservative care, utilizing surgery only when necessary to restore mobility and ensure lasting relief.',
-        desc: 'Dr. Clay Shumway is a board-qualified foot and ankle surgeon with prestigious fellowship training in advanced lower extremity reconstruction, sports medicine, and total ankle replacement. He is a leading expert in 3D bunion correction.',
-        aboutme: "Dr. Clay B. Shumway is a fellowship-trained foot and ankle surgeon dedicated to providing the most advanced, compassionate, and comprehensive care. Trained at the prestigious Pennsylvania Intensive Lower Extremity Fellowship, he specializes in complex reconstructions, sports medicine, and total ankle replacement. Dr. Shumway is a leader in 3D bunion correction, having performed nearly 250 Lapiplasty procedures. While an expert in the latest surgical techniques, he is a firm believer in conservative care and only recommends surgery when it provides the clearest path to recovery for his patients.",
-        bio: "Dr. Clay B. Shumway is a board-qualified foot and ankle surgeon trained in today's most advanced surgical and nonsurgical treatments. He completed his fellowship at the prestigious Pennsylvania Intensive Lower Extremity Fellowship in Philadelphia, where he mastered high-volume, complex cases including cavus foot reconstruction, pediatrics, sports medicine, and revision surgeries.\n\nDr. Shumway utilizes state-of-the-art sports medicine techniques, including arthroscopic lateral ankle stabilization, cartilage replacement, and total ankle replacement—a procedure in which few surgeons have extensive fellowship experience. He has a special interest in 3D bunion correction and is one of the most experienced surgeons in the nation with the Lapiplasty procedure.\n\nDuring his residency, Dr. Shumway trained under national leaders in complex foot and ankle reconstruction, gaining extensive experience in Charcot reconstruction and trauma at a level 1 trauma center. Though an expert surgeon, he believes many conditions can be alleviated with conservative treatment and recommends surgery only when clearly indicated. A passionate educator, Dr. Shumway contributes to the medical field by authoring journal articles and presenting at national meetings. When not working, he enjoys spending time with his wife and four young children.",
-        snapshot: [
-            'Fellowship-Trained in Foot & Ankle Surgery',
-            'Specialist in Total Ankle Replacement & Sports Medicine',
-            'National Leader in 3D Bunion Correction (Lapiplasty)',
-            'Trained in Complex Reconstruction & Revision Surgery',
-            'Level 1 Trauma Center Experience',
-            'Focus on Conservative, Non-Surgical Treatments First',
-            'Author of Peer-Reviewed Journal Articles',
-            'Completed Pennsylvania Intensive Lower Extremity Fellowship'
-        ],
-        // --- SEO Data ---
-        metaTitle: 'Dr. Clay Shumway | Expert Foot & Ankle Surgery & Advanced Procedures | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Clay Shumway at Mountain Spine Orthopedics performs advanced foot and ankle surgery including total ankle replacement, 3D bunion correction, and arthroscopic procedures. Expert surgical care in Florida.',
-        keywords: ["Dr. Clay Shumway", "Mountain Spine Orthopedics", "foot and ankle surgery", "total ankle replacement surgery", "3D bunion correction surgery", "Lapiplasty surgery", "arthroscopic ankle surgery", "Florida foot and ankle surgeon"],
-        ogImage: "/" + (Shumway?.src || "https://mountainspineortho.b-cdn.net/clay.png"),
-        medicalSpecialty: ["Orthopedic Surgery", "Foot and Ankle Surgery"],
-        specialties: ["Total Ankle Replacement", "3D Bunion Correction (Lapiplasty)", "Arthroscopic Lateral Ankle Stabilization", "Cartilage Replacement", "Cavus Foot Reconstruction", "Complex Revision Surgery", "Charcot Reconstruction"],
-        conditionsTreated: ["Bunions (Hallux Valgus)", "Ankle Arthritis", "Foot & Ankle Sports Injuries", "Cavus Foot Deformity", "Ankle Instability", "Cartilage Lesions", "Foot & Ankle Trauma"],
-        sameAs: [
-            "https://ossio.io/provider/clay-shumway/"
         ]
     },
 ]

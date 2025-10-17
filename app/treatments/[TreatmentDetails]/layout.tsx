@@ -151,7 +151,7 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                 'name': 'What is the recovery process like?',
                 'acceptedAnswer': {
                     '@type': 'Answer',
-                    'text': treatment.recovery_info || "Recovery may include referral to a licensed physical therapist and a gradual return to activities, depending on your specific treatment plan."
+                    'text': treatment.recovery_info || "Recovery often includes physical therapy and a gradual return to activities."
                 }
             }
         ]

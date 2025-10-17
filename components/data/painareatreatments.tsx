@@ -12,7 +12,7 @@ import pinchednerveside from '@/public/pinchednerveside.jpeg'
 export const PainAreaTreatments: ConditionInfoProp[] = [
     {
         title: "Back Pain Treatment Options",
-        body: "We offer a range of advanced back pain treatments, starting with non-surgical options and medication. When conservative care isn't enough, we provide minimally invasive procedures such as microdiscectomy, cervical discectomy, and artificial disc replacement to relieve nerve compression. For more complex cases, traditional surgeries like spinal fusion or laminectomy may be necessary. Our focus is on restoring mobility, reducing pain, and helping you get back to daily life with lasting relief.",
+        body: "We offer a range of advanced back pain treatments, starting with non-surgical options like physical therapy and medication. When conservative care isn't enough, we provide minimally invasive procedures such as microdiscectomy, cervical discectomy, and artificial disc replacement to relieve nerve compression. For more complex cases, traditional surgeries like spinal fusion or laminectomy may be necessary. Our focus is on restoring mobility, reducing pain, and helping you get back to daily life with lasting relief.",
         metaTitle: "Back Pain Treatment Options - Mountain Spine & Orthopedics",
         metaDesc: "Explore our comprehensive back pain treatments, from non-surgical options to advanced minimally invasive procedures. Get personalized care for lasting relief.",
         ogImage: "/backpaintreatment.png", // or another relevant imported image if available, else /newlogo4.png
@@ -36,7 +36,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-xl"
                             >
-                                At Mountain Spine & Orthopedics, we specialize in personalized back pain care, starting with conservative options like referrals for physical therapy, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
+                                At Mountain Spine & Orthopedics, we specialize in personalized back pain care, starting with conservative options like physical therapy, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
                             </p>
 
                             <GradientOverlayImage
@@ -266,9 +266,9 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                     fontWeight: 400,
                                 }}
                                 className="text-[#424959] text-xl">
-                                <p className="mb-4">Will I need physical therapy (if recommended) after surgery?</p>
+                                <p className="mb-4">Will I need physical therapy after surgery?</p>
                                 <ul className="list-disc pl-6 space-y-2">
-                                    <li>In most cases, yes. Your surgeon will refer you to trusted PT specialists who help strengthen muscles and improve mobility.</li>
+                                    <li>In most cases, yes PT helps strengthen muscles and improve mobility.</li>
                                 </ul>
                             </div>
 
@@ -369,7 +369,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                             >
                                 <p className="mb-4">We take a comprehensive approach to neck and shoulder care, beginning with a detailed evaluation and diagnosis. Treatments may include:</p>
                                 <ul className="list-disc pl-6 space-y-2">
-                                    <li>A referral for physical therapy to improve flexibility and reduce muscle strain</li>
+                                    <li>Physical therapy to improve flexibility and reduce muscle strain</li>
                                     <li>Anti-inflammatory medications and muscle relaxants</li>
                                     <li>Corticosteroid injections to reduce inflammation around joints or nerves</li>
                                     <li>Trigger point injections for myofascial pain</li>
@@ -459,7 +459,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                 className="text-[#424959] text-xl">
                                 <p className="mb-4">Many patients experience relief from conservative treatments without the need for surgery. Common non-invasive options include:</p>
                                 <ul className="list-disc pl-6 space-y-2">
-                                    <li>A referral for targeted physical therapy to stretch and strengthen key muscles</li>
+                                    <li>Targeted physical therapy to stretch and strengthen key muscles</li>
                                     <li>Ergonomic adjustments for work or sleep posture</li>
                                     <li>Anti-inflammatory and neuropathic medications</li>
                                     <li>Therapeutic massage or acupuncture</li>
@@ -490,7 +490,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                 }}
                                 className="text-[#424959] text-xl">
                                 <p className="mb-4"><span className="text-black">Do I need surgery for chronic neck or shoulder pain?</span></p>
-                                Not necessarily. Many conditions can be treated effectively with a referral for physical therapy, medications, or injections.
+                                Not necessarily. Many conditions can be treated effectively with physical therapy, medications, or injections.
                             </div>
                             <div
                                 style={{
@@ -516,8 +516,8 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontWeight: 400,
                                 }}
                                 className="text-[#424959] text-xl">
-                                <p className="mb-4"><span className="text-black">Will I need physical therapy (if recommended) after surgery?</span></p>
-                                In most cases, yes. We will coordinate a referral to a physical therapist, who helps improve range of motion and strengthen supporting muscles.
+                                <p className="mb-4"><span className="text-black">Will I need physical therapy after surgery?</span></p>
+                                In most cases, yes. Physical therapy helps improve range of motion and strengthen supporting muscles.
                             </div>
                         </div>
                     </div>

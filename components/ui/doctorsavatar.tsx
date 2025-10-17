@@ -5,25 +5,17 @@ import Monica from '../../public/Monica.png'
 import David from '../../public/David.png'
 import Douglas from '../../public/DouglasSlaughter.png'
 import Christopher from '../../public/ChristopherMcarthy.png'
-import Shumway from '../../public/clay-shumway.png'
 export default function DoctorsAvatar({tag, condition} : {tag : string, condition : string}) {
   console.log(tag)
-  if (tag === 'Foot' || tag === 'Ankle') {
+  if (tag === 'Foot') {
     return (
       <div className="flex -space-x-3">
-        <Image
-          className="rounded-full ring-2 ring-white"
-          src={Shumway}
-          width={40}
-          height={40}
-          alt="Avatar Dr. Clay Shumway"
-        />
         <Image
           className="rounded-full ring-2 ring-white"
           src={Katzman}
           width={40}
           height={40}
-          alt="Avatar Dr. Scott Katzman"
+          alt="Avatar 01"
         />
       </div>
     )

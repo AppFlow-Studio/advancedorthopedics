@@ -38,7 +38,7 @@ const treatmentPhases: TreatmentPhase[] = [
         icon: Activity,
         color: "blue",
         description: "Rebuild strength and mobility safely",
-        treatments: ["Rehabilitation referral", "Targeted exercises", "Manual therapy", "Progress tracking"],
+        treatments: ["Physical therapy", "Targeted exercises", "Manual therapy", "Progress tracking"],
     },
     {
         phase: "Protect",

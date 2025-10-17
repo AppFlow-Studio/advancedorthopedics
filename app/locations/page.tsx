@@ -13,7 +13,7 @@ export const metadata = {
     'orthopedic surgeon near me',
     'back pain clinic Florida',
     'sports injury doctor Florida',
-    'orthopedic same-day appointments',
+    'orthopedic walk-in clinic',
     'orthopedic care Florida',
     'orthopedic center Florida',
     'orthopedic doctor near me',
