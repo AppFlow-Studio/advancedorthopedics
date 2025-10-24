@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+/* In your global.css file */
+html, body {
+  overscroll-behavior: none;
+}
+
 /* Mobile optimization utilities */
 .scrollbar-hide {
   -ms-overflow-style: none;

@@ -23,10 +23,17 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { formatPhone, validatePhoneNumber, formatPhoneInput } from "@/lib/phone-formatter"
+
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
+    middleName: z.string().optional(),
     email: z.string().email("Invalid email address"),
-    phone: z.string().min(10, "Phone number must be at least 10 digits"),
+    phone: z.string()
+        .min(1, "Phone number is required")
+        .refine(validatePhoneNumber, {
+            message: "Please enter a valid 10-digit American phone number"
+        }),
     reason: z.string().min(2),
     bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
     insuranceCardFront: z.instanceof(File).optional().or(z.null()),
@@ -144,7 +151,9 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setDisabled(true)
-
+        if (values.middleName && values.middleName !== '') {
+            return
+        }
         // Handle file uploads - create FormData for files
         const formData = new FormData()
         formData.append('name', values.name)
@@ -236,7 +245,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                         {/* Contact Fields */}
                         <div className="w-full flex flex-col sm:space-y-6 space-y-4">
                             {/* Name Fields */}
-                            <div className="grid grid-cols-1 space-y-6">
+                            <div className="grid grid-cols-1">
                                 {header && <h2
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
@@ -270,7 +279,24 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                         </FormItem>
                                     )}
                                 />
-
+                                {/* HONEYPOT FIELD - Hidden from users but visible to bots */}
+                                <FormField
+                                    control={form.control}
+                                    name="middleName"
+                                    render={({ field }) => (
+                                        <FormItem className="hidden-honeypot">
+                                            <FormLabel>Middle Name (Optional)</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Enter your middle name"
+                                                    {...field}
+                                                    tabIndex={-1}
+                                                    autoComplete="off"
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
                             </div>
                             <FormField
                                 control={form.control}
@@ -316,7 +342,16 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                         </FormLabel>
                                         <FormControl>
                                             <div className=" flex  ">
-                                                <Input placeholder="+1 0123456789" startIcon={Phone} className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                <Input
+                                                    placeholder="(123) 456-7890"
+                                                    startIcon={Phone}
+                                                    className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
+                                                    {...field}
+                                                    onChange={(e) => {
+                                                        const formatted = formatPhoneInput(e.target.value);
+                                                        field.onChange(formatted);
+                                                    }}
+                                                />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -439,7 +474,16 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
 
                                                             </FormLabel>
                                                             <FormControl>
-                                                                <Input placeholder="+1 0123456789" startIcon={Phone} className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
+                                                                <Input
+                                                                    placeholder="(123) 456-7890"
+                                                                    startIcon={Phone}
+                                                                    className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
+                                                                    {...field}
+                                                                    onChange={(e) => {
+                                                                        const formatted = formatPhoneInput(e.target.value);
+                                                                        field.onChange(formatted);
+                                                                    }}
+                                                                />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
@@ -765,7 +809,18 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                     </div>
                 </DialogContent>
             </Dialog>
-
+            {/* CSS for honeypot field */}
+            <style jsx global>{`
+                .hidden-honeypot {
+                    position: absolute !important;
+                    left: -9999px !important;
+                    width: 1px !important;
+                    height: 1px !important;
+                    overflow: hidden !important;
+                    opacity: 0 !important;
+                    pointer-events: none !important;
+                }
+            `}</style>
         </div>
     )
 }
