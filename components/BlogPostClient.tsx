@@ -301,7 +301,7 @@ export default function BlogDetails({
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt={`Expert orthopedic insights from Mountain Spine & Orthopedics - ${blog.blog_info.title}`}
+          alt={`Expert orthopedic insights from Mountain Spine & Orthopedics - ${blog_details?.blog_info?.title}`}
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -320,27 +320,27 @@ export default function BlogDetails({
             <nav aria-label="Breadcrumb" className="mb-4 xl:flex hidden bg-white/50 rounded-full px-4 py-2 w-fit">
               <ol className="flex space-x-2 text-[#252932]">
                 <li><a href="/blogs">Blogs</a> /</li>
-                <li aria-current="page">{blog_details.blog_info.title}</li>
+                <li aria-current="page">{blog_details?.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full text-center self-center">{blog_details.blog_info.title}</TextAnimate>
-            <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-[#424959] mt-4 md:text-md text-sm xl:w-[55%] w-full text-center self-center">{blog_details.blog_info.desc}</p>
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full text-center self-center">{blog_details?.blog_info.title}</TextAnimate>
+            <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-[#424959] mt-4 md:text-md text-sm xl:w-[55%] w-full text-center self-center">{blog_details?.blog_info.desc}</p>
             <div className="flex flex-wrap gap-2 mt-2">
-              {blog_details.blog_info.tags.map((tag: string, index: number) => (
+              {blog_details?.blog_info.tags.map((tag: string, index: number) => (
                 <span key={index} className="bg-[#FAFAFA] text-[#424959] px-3 py-1 rounded-full text-sm">{tag}</span>
               ))}
             </div>
             <div className="flex items-center gap-6 mt-4 text-sm text-[#] mb-6">
-              {blog_details.blog_info.author && (
+              {blog_details?.blog_info.author && (
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  <span>{blog_details.blog_info.author}</span>
+                  <span>{blog_details?.blog_info.author}</span>
                 </div>
               )}
-              {blog_details.blog_info.date && (
+              {blog_details?.blog_info.date && (
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>{new Date(blog_details.blog_info.date).toLocaleDateString()}</span>
+                  <span>{new Date(blog_details?.blog_info.date).toLocaleDateString()}</span>
                 </div>
               )}
             </div>
@@ -349,7 +349,7 @@ export default function BlogDetails({
       </section>
       <main className='max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
         <article className='lg:w-[70%] w-full flex flex-col space-y-[60px] rounded-[24px]'>
-          {blog_details.blog_info.blog_info.map((section: any, idx: number) => (
+          {blog_details?.blog_info.blog_info.map((section: any, idx: number) => (
             <section key={idx} className="mb-8">
               <h2 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
               <div className='text-[#424959] text-lg mb-4'>{renderRichText(section.body)}</div>
@@ -389,9 +389,9 @@ export default function BlogDetails({
 
       {/* Related Posts */}
       <section className='max-w-[1440px] w-full px-6 xl:px-[80px] py-8'>
-        <RelatedPosts 
+        <RelatedPosts
           currentSlug={params}
-          currentTags={blog_details.blog_info.tags || []}
+          currentTags={blog_details?.blog_info.tags || []}
         />
       </section>
 
