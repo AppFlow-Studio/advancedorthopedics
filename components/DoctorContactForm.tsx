@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import { motion } from 'framer-motion'
@@ -24,6 +24,8 @@ import { redirect } from "next/navigation"
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 import { formatPhone, validatePhoneNumber, formatPhoneInput } from "@/lib/phone-formatter"
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
+import { verifyCaptcha } from "@/seo/verify-captcha"
 
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
@@ -37,7 +39,9 @@ const formSchema = z.object({
     reason: z.string().min(2),
     bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
     insuranceCardFront: z.instanceof(File).optional().or(z.null()),
-    insuranceCardBack: z.instanceof(File).optional().or(z.null())
+    insuranceCardBack: z.instanceof(File).optional().or(z.null()),
+    // HONEYPOT FIELD - bots will fill this
+    website: z.string().max(0, "Bot detected").optional(),
 })
 
 const TIME_SLOTS = [
@@ -73,6 +77,25 @@ interface DoctorContactFormProp {
     buttonText?: string
 }
 export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment' }: DoctorContactFormProp) {
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+
+    // Create an event handler so you can call the verification on button click event or form submit
+    const handleReCaptchaVerify = useCallback(async () => {
+        if (!executeRecaptcha) {
+            console.log('Execute recaptcha not yet available');
+            return;
+        }
+
+        const token = await executeRecaptcha('yourAction');
+        setRecaptchaToken(token);
+    }, [executeRecaptcha]);
+
+    // You can use useEffect to trigger the verification as soon as the component being loaded
+    useEffect(() => {
+        handleReCaptchaVerify();
+    }, [handleReCaptchaVerify]);
+
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
@@ -85,7 +108,9 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             email: "",
             phone: "",
             reason: "",
-            bestTime: ""
+            bestTime: "",
+            website: "", // honeypot
+
         },
     })
 
@@ -150,10 +175,18 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
     }
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        setDisabled(true)
-        if (values.middleName && values.middleName !== '') {
-            return
+        if (values.website && values.website.length > 0) {
+            return; // Silently reject
         }
+        // RECAPTCHA CHECK
+        if (!recaptchaToken) {
+            console.log('ReCAPTCHA not ready');
+            return;
+        }
+        console.log('Recaptcha Token:', recaptchaToken);
+
+        setDisabled(true)
+
         // Handle file uploads - create FormData for files
         const formData = new FormData()
         formData.append('name', values.name)
@@ -173,6 +206,12 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
         // Log the files for debugging
         console.log('Insurance Card Front:', values.insuranceCardFront)
         console.log('Insurance Card Back:', values.insuranceCardBack)
+
+        const isCaptchaValid = await verifyCaptcha(recaptchaToken);
+        if (!isCaptchaValid) {
+            console.log('Bot detected via ReCAPTCHA');
+            return;
+        }
 
         const data = await sendContactEmail({
             name: values.name,
@@ -195,8 +234,6 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             setOpenContactForm(false)
             //setAppointmentConfirm(true) 
             redirect('/thank-you')
-            form.reset()
-            setDisabled(false)
         }
     }
 
@@ -392,6 +429,24 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     </SelectGroup>
                                                 </SelectContent>
                                             </Select>
+                                        </FormControl>
+                                    </FormItem>
+                                )}
+                            />
+                            {/* HONEYPOT - Hidden from humans, visible to bots */}
+                            <FormField
+                                control={form.control}
+                                name="website"
+                                render={({ field }) => (
+                                    <FormItem className="hidden-honeypot">
+                                        <FormLabel>Website</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="Your website"
+                                                {...field}
+                                                tabIndex={-1}
+                                                autoComplete="off"
+                                            />
                                         </FormControl>
                                     </FormItem>
                                 )}

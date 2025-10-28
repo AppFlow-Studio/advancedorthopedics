@@ -11,6 +11,7 @@ import Script from "next/script";
 import TanstackProvider from "@/providers/tanstack";
 import { buildCanonical, SITE_URL, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
+import RecaptchaProvider from "@/providers/recaptchaprovider";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -168,7 +169,9 @@ export default function RootLayout({
           <NavBar />
           <MapProvider>
             <GeolocationProvider>
-              {children}
+              <RecaptchaProvider>
+                {children}
+              </RecaptchaProvider>
               <Footer />
               <DelayedLocationPopup delayInSeconds={8} />
             </GeolocationProvider>
