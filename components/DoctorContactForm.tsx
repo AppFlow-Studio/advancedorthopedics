@@ -87,7 +87,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             return;
         }
 
-        const token = await executeRecaptcha('yourAction');
+        const token = await executeRecaptcha('contact_form');
         setRecaptchaToken(token);
     }, [executeRecaptcha]);
 
@@ -183,7 +183,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             console.log('ReCAPTCHA not ready');
             return;
         }
-        console.log('Recaptcha Token:', recaptchaToken);
+        // console.log('Recaptcha Token:', recaptchaToken);
 
         setDisabled(true)
 
