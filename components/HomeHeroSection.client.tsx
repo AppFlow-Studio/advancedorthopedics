@@ -115,7 +115,7 @@ export default function HomeHeroSection() {
                 }}
                 className="text-[#424959] text-xl lg:text-2xl sm:text-left text-center"
               >
-                Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver fast, effective minimally invasive procedures.
+                Experience expert orthopedic surgeon specialists providing minimally invasive spine surgery, joint replacement surgery, and advanced back pain treatment in Orlando, Hollywood, Boca Raton, and South Florida. Book your orthopedic surgery consultation today.
               </p>
             </div>
           </SlidingDiv>

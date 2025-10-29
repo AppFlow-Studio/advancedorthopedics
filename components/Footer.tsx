@@ -50,7 +50,7 @@ export default function Footer() {
                             color: 'white'
                         }}
                         className=' text-white mt-[20px]'>
-                        Trusted by thousands of patients across Florida for comprehensive orthopedic care. Our board-certified specialists are committed to providing compassionate, expert treatment with state-of-the-art facilities and personalized attention to every patient's needs.
+                        Trusted <strong>orthopedic surgeon specialists</strong> serving Florida with <strong>minimally invasive spine surgery</strong>, <strong>joint replacement surgery</strong>, and advanced <strong>back pain treatment</strong>. Our board-certified <strong>orthopedic specialists</strong> provide expert <strong>orthopedic surgery</strong> in Orlando, Hollywood, Boca Raton, and all around South Florida. Book your <strong>orthopedic surgery consultation</strong> today.
                     </p>
 
                     <div className='mt-[40px] flex flex-col'>

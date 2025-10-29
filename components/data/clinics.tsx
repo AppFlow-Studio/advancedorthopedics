@@ -49,7 +49,7 @@ export const clinics: ClinicsProps[] = [
     lng: -80.178874,
     address: '3500 Tyler St Hollywood, FL 33021',
     phone: '(754) 212-8736',
-    link: 'https://g.co/kgs/z3Q7yBx',
+    link: 'https://share.google/giAltIq6B9PN45OiT',
     slug: 'hollywood-fl-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
@@ -207,7 +207,7 @@ export const clinics: ClinicsProps[] = [
     lng: -81.374192,
     address: '652 Palm Springs Dr Altamonte Springs, FL 32701',
     phone: '(407) 565-7598',
-    link: 'https://maps.app.goo.gl/PLXJnU1LYt19j1TX9',
+    link: 'https://share.google/pH4qgVruWeX11Bclb',
     slug: 'palm-springs-orthopedics',
     paragraph: `
     For the residents of Palm Springs and the surrounding Palm Beach County communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
@@ -333,7 +333,7 @@ export const clinics: ClinicsProps[] = [
     lng: -81.4658519,
     address: '6150 Metrowest Blvd Suite 102 Orlando, FL 32835',
     phone: '(407) 960-1717',
-    link: 'https://g.co/kgs/koPU6cZ',
+    link: 'https://share.google/BORdgqCbqb1hXnWVW',
     slug: 'orlando-orthopedics',
     paragraph: `
     Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center offering same-day appointments for all your needs.
@@ -476,7 +476,7 @@ export const clinics: ClinicsProps[] = [
     lat: 27.432531,
     lng: -80.344623,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
-    link: 'https://g.co/kgs/z3Q7yBx',
+    link: 'https://share.google/ggMko0WqGkyvyQO2H',
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
     paragraph: `
@@ -599,7 +599,7 @@ export const clinics: ClinicsProps[] = [
     lng: -80.0878284,
     address: '3355 Burns Road Suite 304, FL 33410',
     phone: '(561) 556-1802',
-    link: 'https://g.co/kgs/nzaxoVF',
+    link: 'https://share.google/yjjKB6UNnkcEkDw52',
     slug: 'palm-beach-gardens-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center, serving families
@@ -859,7 +859,7 @@ export const clinics: ClinicsProps[] = [
     lng: -80.125801,
     address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
     phone: '(561) 544-5501',
-    link: 'https://www.google.com/maps/place/1905+Clint+Moore+Rd+%23300,+Boca+Raton,+FL+33496/@26.4082259,-80.1260194,16.93z/data=!4m6!3m5!1s0x88d91fb4a0448137:0xfab345066623ba65!8m2!3d26.408839!4d-80.125999!16s%2Fg%2F11nsscsz7l?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D',
+    link: 'https://share.google/UBAHXGf65zRD5iLap',
     slug: 'boca-raton-orthopedics',
     paragraph: `
     Mountain Spine & Orthopedics is the definitive choice for Boca Raton residents seeking sophisticated and effective solutions from a leading Boca Raton orthopedic group. 
@@ -982,7 +982,7 @@ export const clinics: ClinicsProps[] = [
     lng: -81.374701,
     address: '499 E Central Pkwy #130 Altamonte Springs, FL 32701',
     phone: '(407) 960-1717',
-    link: 'https://g.co/kgs/RHk8nQb',
+    link: 'https://share.google/FCJ53cCghI3DdK5DQ',
     slug: 'altamonte-springs-orthopedics',
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center offering same-day appointments for all your needs.

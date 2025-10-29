@@ -202,8 +202,16 @@ export default function ClinicsMap({ startingClinic }: {
   }, [selectedClinc])
   return (
     <section className="bg-[#FAFCFF] w-full h-full py-[50px]">
+      {/* Section Header for SEO */}
+      <div className="max-w-[1440px] w-full px-4 md:px-[40px] mx-auto mb-6 md:mb-8">
+        <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
+          <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-base md:text-lg text-[#424959] text-center leading-relaxed px-2">
+            Looking for an <strong className="text-[#0A50EC]">orthopedic near me</strong>? Find your nearest Florida spine and joint specialist at <strong>Mountain Spine & Orthopedics</strong>.
+          </p>
+        </div>
+      </div>
       {/* This outer div needs to contain both map and overlay */}
-      <div className="max-w-[1440px] w-full  px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
+      <div className="max-w-[1440px] w-full px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
         <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange} />
@@ -298,18 +306,18 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic:
   return (
     <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
       <div >
-        <p
+        <h2
           style={{
             fontFamily: "var(--font-public-sans)",
-            fontWeight: 400,
+            fontWeight: 500,
           }}
           className="text-2xl font-semibold text-[#424959]">
-          Find your Clinic
-        </p>
+          Find Orthopedic Care Near You
+        </h2>
         {
           !location && (
-            <p className="text-lg text-[#2358AC] underline" onClick={AllowLocation}>
-              Find your nearest clinic
+            <p className="text-lg text-[#2358AC] underline cursor-pointer" onClick={AllowLocation}>
+              Find orthopedic near me
             </p>
           )
         }
