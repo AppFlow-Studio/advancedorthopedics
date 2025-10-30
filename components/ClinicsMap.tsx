@@ -29,8 +29,9 @@ const defaultMapOptions = {
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-export default function ClinicsMap({ startingClinic }: {
-  startingClinic?: { id: number, name: string, lat: number, lng: number, address: string },
+export default function ClinicsMap({ startingClinic, showEmbed = false }: {
+  startingClinic?: { id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string },
+  showEmbed?: boolean,
 }) {
   const { location } = useGeolocation();
   
@@ -42,7 +43,7 @@ export default function ClinicsMap({ startingClinic }: {
   });
   // Optional: State to hold map instance
   const [map, setMap] = useState(null);
-  const [selectedClinc, setSeletecedClinic] = useState<{ id: number, name: string, lat: number, lng: number, address: string } | undefined>(startingClinic ? startingClinic : undefined)
+  const [selectedClinc, setSeletecedClinic] = useState<{ id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string } | undefined>(startingClinic ? startingClinic : undefined)
 
   const [mapCenter, setMapCenter] = useState(startingClinic ? { lat: startingClinic.lat, lng: startingClinic.lng } : { lat: 28.670213, lng: -81.374701 })
   const isInitialMount = useRef(true); // <-- Add this ref, initially true
@@ -217,41 +218,53 @@ export default function ClinicsMap({ startingClinic }: {
         <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange} />
 
         {/* The Google Map */}
-        {isLoaded ? (
-          <GoogleMap
-            mapContainerStyle={defaultMapContainerStyle}
-            center={mapCenter}
-            zoom={defaultMapZoom}
-            options={defaultMapOptions}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            {/* Render Markers Inside */}
-            {clinics.map((clinic) => {
-              // Determine which icon to use
-              const isSelected = clinic.name == selectedClinc?.name;
-              const iconToUse = isSelected
-                ? createSelectedIcon(clinic.name) // Generate selected icon with name
-                : defaultMarkerIcon;             // Use default icon
-
-              // Ensure iconToUse is not null before rendering MarkerF
-              if (!iconToUse) return null;
-              return (
-                <MarkerF
-                  key={clinic.name}
-                  position={{ lat: clinic.lat, lng: clinic.lng }}
-                  icon={iconToUse} // Apply the determined icon
-                  title={clinic.name}
-                  onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
-                // Optional: Lower zIndex for non-selected markers if overlap is an issue
-                />
-              );
-            })}
-          </GoogleMap>
-        ) : (
-          <div className="flex items-center justify-center h-[680px] bg-gray-100 rounded-3xl">
-            <p className="text-gray-600">Loading map...</p>
+        {showEmbed && selectedClinc?.embedSrc ? (
+          <div className="rounded-3xl overflow-hidden" style={{ height: '680px' }}>
+            <iframe
+              title={`${selectedClinc.name} Map`}
+              src={selectedClinc.embedSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              style={{ width: '100%', height: '100%', border: 0 }}
+              allowFullScreen
+            />
           </div>
+        ) : (
+          isLoaded ? (
+            <GoogleMap
+              mapContainerStyle={defaultMapContainerStyle}
+              center={mapCenter}
+              zoom={defaultMapZoom}
+              options={defaultMapOptions}
+              onLoad={onLoad}
+              onUnmount={onUnmount}
+            >
+              {/* Render Markers Inside */}
+              {clinics.map((clinic) => {
+                // Determine which icon to use
+                const isSelected = clinic.name == selectedClinc?.name;
+                const iconToUse = isSelected
+                  ? createSelectedIcon(clinic.name) // Generate selected icon with name
+                  : defaultMarkerIcon;             // Use default icon
+
+                // Ensure iconToUse is not null before rendering MarkerF
+                if (!iconToUse) return null;
+                return (
+                  <MarkerF
+                    key={clinic.name}
+                    position={{ lat: clinic.lat, lng: clinic.lng }}
+                    icon={iconToUse} // Apply the determined icon
+                    title={clinic.name}
+                    onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
+                  />
+                );
+              })}
+            </GoogleMap>
+          ) : (
+            <div className="flex items-center justify-center h-[680px] bg-gray-100 rounded-3xl">
+              <p className="text-gray-600">Loading map...</p>
+            </div>
+          )
         )}
       </div>
     </section>
@@ -266,7 +279,7 @@ const DropdownIcon = () => (
 );
 
 
-function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic: { id: number, name: string, lat: number, lng: number, address: string, link: string }, handleMarkerClick: (name: string) => void }) {
+function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic?: { id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string }, handleMarkerClick: (name: string) => void }) {
   const { location, onSetLocation } = useGeolocation();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -304,7 +317,7 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic:
     }
   }
   return (
-    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
+    <div className="absolute md:top-2 md:left-12 z-30 bg-white p-6 rounded-lg shadow-lg  w-full -top-12 left-0 md:max-w-xl space-y-4">
       <div >
         <h2
           style={{

@@ -131,6 +131,8 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
       'description': location.metaDescription,
       'url': `https://mountainspineorthopedics.com/locations/${location.slug}`,
       'telephone': location.phone,
+      'sameAs': [location.link].filter(Boolean),
+      'hasMap': location.placeUrl || location.link,
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': streetAddress,

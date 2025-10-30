@@ -25,6 +25,8 @@ export interface ClinicsProps {
   phone: string;
   region: string;
   link: string;
+  embedSrc?: string; // Google Maps embed iframe src
+  placeUrl?: string; // Canonical Google Maps Place URL
   slug: string;
   paragraph: string;
   keywords: string[];
@@ -49,7 +51,9 @@ export const clinics: ClinicsProps[] = [
     lng: -80.178874,
     address: '3500 Tyler St Hollywood, FL 33021',
     phone: '(754) 212-8736',
-    link: 'https://share.google/giAltIq6B9PN45OiT',
+    link: 'https://maps.app.goo.gl/sEddhMjGYvcWCUVe9',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJB4w5HZ6r2YgRioDXW8nbjL0',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.6782637587435!2d-80.18148222454842!3d26.011354777195972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ab9e1d398c07%3A0xbd8cdbc95bd7808a!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847098545!5m2!1sen!2sus',
     slug: 'hollywood-fl-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
@@ -207,7 +211,9 @@ export const clinics: ClinicsProps[] = [
     lng: -81.374192,
     address: '652 Palm Springs Dr Altamonte Springs, FL 32701',
     phone: '(407) 565-7598',
-    link: 'https://share.google/pH4qgVruWeX11Bclb',
+    link: 'https://maps.app.goo.gl/aj8z81BVqczWk7c1A',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJjbW80Wpx54gRvJN9yDXP3jw',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847345934!5m2!1sen!2sus',
     slug: 'palm-springs-orthopedics',
     paragraph: `
     For the residents of Palm Springs and the surrounding Palm Beach County communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
@@ -333,7 +339,9 @@ export const clinics: ClinicsProps[] = [
     lng: -81.4658519,
     address: '6150 Metrowest Blvd Suite 102 Orlando, FL 32835',
     phone: '(407) 960-1717',
-    link: 'https://share.google/BORdgqCbqb1hXnWVW',
+    link: 'https://maps.app.goo.gl/Nd7doQdBDtQjfQwKA',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJvwlQvKN554gRbKjdi5IPAJM',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8682598319447!2d-81.46883192446174!3d28.51361107572991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e779a3bc5009bf%3A0x93000f928bdda86c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847256751!5m2!1sen!2sus',
     slug: 'orlando-orthopedics',
     paragraph: `
     Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center offering same-day appointments for all your needs.
@@ -476,7 +484,9 @@ export const clinics: ClinicsProps[] = [
     lat: 27.432531,
     lng: -80.344623,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
-    link: 'https://share.google/ggMko0WqGkyvyQO2H',
+    link: 'https://maps.app.goo.gl/ckuRiBAYkA5GWiJZA',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJt0ir7Mzx3ogRPKKGsVdXn4c',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.207042187583!2d-80.35092002450014!3d27.431657576341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88def1ccecab48b7%3A0x879f5757b186a23c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847379396!5m2!1sen!2sus',
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
     paragraph: `
@@ -599,7 +609,9 @@ export const clinics: ClinicsProps[] = [
     lng: -80.0878284,
     address: '3355 Burns Road Suite 304, FL 33410',
     phone: '(561) 556-1802',
-    link: 'https://share.google/yjjKB6UNnkcEkDw52',
+    link: 'https://maps.app.goo.gl/pduSNEN5vF3uDfVB7',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJSdUTGDAr34gRQzLE6KvLjIQ',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.285761930094!2d-80.09005942452085!3d26.830861876696165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88df2b301813d549%3A0x848ccbabe8c43243!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847227565!5m2!1sen!2sus',
     slug: 'palm-beach-gardens-orthopedics',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center, serving families
@@ -859,7 +871,9 @@ export const clinics: ClinicsProps[] = [
     lng: -80.125801,
     address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
     phone: '(561) 544-5501',
-    link: 'https://share.google/UBAHXGf65zRD5iLap',
+    link: 'https://maps.app.goo.gl/w5ZB8jY4uj934Dwj8',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJs170rR8f2YgR7A_sXyPlbtY',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.4534724799364!2d-80.12857392453517!3d26.408838976951078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91f1fadf45eb3%3A0xd66ee5235fec0fec!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847155755!5m2!1sen!2sus',
     slug: 'boca-raton-orthopedics',
     paragraph: `
     Mountain Spine & Orthopedics is the definitive choice for Boca Raton residents seeking sophisticated and effective solutions from a leading Boca Raton orthopedic group. 
@@ -982,7 +996,9 @@ export const clinics: ClinicsProps[] = [
     lng: -81.374701,
     address: '499 E Central Pkwy #130 Altamonte Springs, FL 32701',
     phone: '(407) 960-1717',
-    link: 'https://share.google/FCJ53cCghI3DdK5DQ',
+    link: 'https://maps.app.goo.gl/uuqp3fHk8GCaAGe3A',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJUbdY9Fxx54gRl00KhSxpTm8',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7715cf458b751%3A0x6f4e692c850a4d97!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847304711!5m2!1sen!2sus',
     slug: 'altamonte-springs-orthopedics',
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center offering same-day appointments for all your needs.
