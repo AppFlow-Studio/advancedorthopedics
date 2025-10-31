@@ -13,7 +13,7 @@ export async function verifyCaptcha(recaptchaToken: string) {
     const verifyData = await verifyResponse.json();
     console.log('Verify Data Captcha:', verifyData);
     // Check score (0.0-1.0, where 1.0 is very likely human)
-    if (!verifyData.success || verifyData.score < 0.2) {
+    if (!verifyData.success || verifyData.score <= 0.2) {
         return false
     }
     return true
