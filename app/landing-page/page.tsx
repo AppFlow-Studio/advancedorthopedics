@@ -171,7 +171,7 @@ const HomePage = () => {
                             },
                             {
                                 icon: Users,
-                                title: "Pediatric Orthopedics",
+                                title: " PediatricOrthopedics",
                                 description: "Specialized care for growing bones and developing bodies.",
                                 features: ["Growth Plate Injuries", "Scoliosis Treatment", "Congenital Conditions"],
                             },
@@ -282,7 +282,7 @@ const HomePage = () => {
                                     <div className="text-sm text-warm-gray-600">fellowship-trained specialists</div>
                                 </div>
                                 <div className="bg-pure-white p-6 rounded-xl shadow-md text-center">
-                                    <div className="text-3xl font-bold text-healing-green-600 mb-2">9</div>
+                                    <div className="text-3xl font-bold text-healing-green-600 mb-2">10</div>
                                     <div className="text-sm text-warm-gray-600">Convenient Locations</div>
                                 </div>
                             </div>

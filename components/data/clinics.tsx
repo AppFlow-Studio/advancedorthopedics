@@ -47,8 +47,8 @@ export const clinics: ClinicsProps[] = [
     id: 4,
     name: 'Mountain Spine & Orthopedics Hollywood, FL',
     region: 'Hollywood, FL',
-    lat: 26.011352,
-    lng: -80.178874,
+    lat: 33.9086284,
+    lng: -117.4561894,
     address: '3500 Tyler St Hollywood, FL 33021',
     phone: '(754) 212-8736',
     link: 'https://maps.app.goo.gl/sEddhMjGYvcWCUVe9',
@@ -73,7 +73,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist hollywood fl',
       'orthopedic doctor hollywood fl',
       'orthopedic laser spine surgery hollywood fl',
-      'pediatric orthopedic hollywood fl',
+      'foot and ankle surgeon hollywood fl',
       'orthopedic in hollywood fl',
       'orthopedic surgeon in hollywood florida',
       'anterior hip replacement surgeon hollywood fl',
@@ -111,7 +111,7 @@ export const clinics: ClinicsProps[] = [
           <li>Free parking and wheelchair-accessible medical facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation claims</li>
           <li>Sports medicine orthopedic specialists in Hollywood, specializing in <a href='/area-of-specialty/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
-          <li>Specialized pediatric orthopedic services for children and adolescents</li>
+          <li>Specialized foot and ankle orthopedic services</li>
         </ul>
       </div>
     ),
@@ -196,7 +196,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial
             name="Sarah M."
             role="Parent from Aventura"
-            testimonial="My teenage son needed specialized pediatric orthopedic care in Hollywood FL after a sports-related ACL injury. The team's expertise with young athletes was incredible - he's back on the field stronger than ever."
+            testimonial="After a severe ankle injury during basketball, I came to Mountain Spine & Orthopedics in Hollywood FL. Their foot and ankle specialists used advanced minimally invasive techniques that had me back on the court in just 6 weeks. The team's expertise in athletic injuries was incredible."
           />
         </div>
       </div>
@@ -207,8 +207,8 @@ export const clinics: ClinicsProps[] = [
     id: 3,
     name: 'Mountain Spine & Orthopedics Palm Springs, FL',
     region: 'Palm Springs, FL',
-    lat: 28.674217,
-    lng: -81.374192,
+    lat: 28.6742451,
+    lng: -81.374189,
     address: '652 Palm Springs Dr Altamonte Springs, FL 32701',
     phone: '(407) 565-7598',
     link: 'https://maps.app.goo.gl/aj8z81BVqczWk7c1A',
@@ -234,7 +234,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist palm springs fl',
       'orthopedic doctor palm springs fl',
       'orthopedic laser spine surgery palm springs fl',
-      'pediatric orthopedic palm springs fl',
+      'foot and ankle surgeon palm springs fl',
       'orthopedic in palm springs fl',
       'orthopedic surgeon in palm springs florida',
       'best orthopedic surgeon palm springs fl',
@@ -335,8 +335,8 @@ export const clinics: ClinicsProps[] = [
     id: 5,
     name: 'Mountain Spine & Orthopedics Orlando',
     region: 'Orlando, FL',
-    lat: 28.5144368,
-    lng: -81.4658519,
+    lat: 28.5136111,
+    lng: -81.466257,
     address: '6150 Metrowest Blvd Suite 102 Orlando, FL 32835',
     phone: '(407) 960-1717',
     link: 'https://maps.app.goo.gl/Nd7doQdBDtQjfQwKA',
@@ -362,7 +362,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist orlando fl',
       'orthopedic doctor orlando fl',
       'orthopedic laser spine surgery orlando fl',
-      'pediatric orthopedic orlando fl',
+      'foot and ankle surgeon orlando fl',
       'orthopedic in orlando fl',
       'orthopedic surgeon in orlando florida',
       'best orthopedic surgeon orlando',
@@ -481,8 +481,8 @@ export const clinics: ClinicsProps[] = [
     id: 9,
     name: 'Mountain Spine & Orthopedics Fort Pierce',
     region: 'Fort Pierce, FL',
-    lat: 27.432531,
-    lng: -80.344623,
+    lat: 27.4316576,
+    lng: -80.3483451,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
     link: 'https://maps.app.goo.gl/ckuRiBAYkA5GWiJZA',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJt0ir7Mzx3ogRPKKGsVdXn4c',
@@ -507,7 +507,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist fort pierce fl',
       'orthopedic doctor fort pierce fl',
       'orthopedic laser spine surgery fort pierce fl',
-      'pediatric orthopedic fort pierce fl',
+      'foot and ankle surgeon fort pierce fl',
       'orthopedic in fort pierce fl',
       'orthopedic surgeon in fort pierce florida',
       'orthopedic fort pierce',
@@ -605,8 +605,8 @@ export const clinics: ClinicsProps[] = [
     id: 6,
     name: 'Mountain Spine & Orthopedics Palm Beach Gardens',
     region: 'Palm Beach Gardens, FL',
-    lat: 26.8307353,
-    lng: -80.0878284,
+    lat: 26.8308619,
+    lng: -80.0874845,
     address: '3355 Burns Road Suite 304, FL 33410',
     phone: '(561) 556-1802',
     link: 'https://maps.app.goo.gl/pduSNEN5vF3uDfVB7',
@@ -630,7 +630,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist palm beach gardens fl',
       'orthopedic doctor palm beach gardens fl',
       'orthopedic laser spine surgery palm beach gardens fl',
-      'pediatric orthopedic bracing palm beach gardens fl',
+      'foot and ankle specialist palm beach gardens fl',
       'orthopedic in palm beach gardens fl',
       'orthopedic surgeon in palm beach gardens florida',
       'best shoulder surgeon palm beach gardens',
@@ -673,8 +673,8 @@ export const clinics: ClinicsProps[] = [
           <li>Free parking and a wheelchair-accessible medical facility</li>
           <li>Most insurance plans are accepted, including Workers' Compensation claims</li>
           <li>Sports medicine orthopedic specialists throughout the Palm Beach Gardens region specialize in athletic injuries</li>
-          <li>Advanced pediatric orthopedic services at our Palm Beach Gardens center. </li>
-          <li>Specialized pediatric orthopedic bracing near the Palm Beach Gardens facility for growing children</li>
+          <li>Advanced foot and ankle orthopedic services at our Palm Beach Gardens center</li>
+          <li>Specialized foot and ankle orthopedic care and bracing services</li>
         </ul>
       </div>
     ),
@@ -735,7 +735,7 @@ export const clinics: ClinicsProps[] = [
           <Testimonial name="Mark S." role="Construction Supervisor, Wellington" testimonial="Three different centers couldn't address my persistent lumbar radiculopathy until I found Mountain Spine & Orthopedics. The skilled sports orthopedic team in Palm Beach Gardens got me back to work in just one month." />
           <Testimonial name="Maria L." role="Nurse, Palm Beach Gardens Medical Center" testimonial="As a healthcare professional, I was incredibly impressed by the exceptional orthopedic treatment in Palm Beach Gardens. Dr. Katzman's clinical expertise and the team's dedication made my post-operative recovery seamless." />
           <Testimonial name="Carlos R." role="Palm Beach County Sheriff's Deputy" testimonial="Being in law enforcement demands peak physical condition. When I injured my lumbar spine, the professional orthopedic team in Palm Beach Gardens got me back to protecting our community in record time." />
-          <Testimonial name="Sarah M." role="Parent from Jupiter" testimonial="My teenage daughter needed specialized pediatric orthopedic care in Palm Beach Gardens after a gymnastics injury. The team's expertise with young athletes was incredible – she's back competing stronger than ever!" />
+          <Testimonial name="Sarah M." role="Runner from Jupiter" testimonial="After developing plantar fasciitis from running, I sought treatment at Mountain Spine & Orthopedics in Palm Beach Gardens. Their foot and ankle specialists provided advanced treatment options that eliminated my pain completely. I'm back running without any issues!" />
           <Testimonial name="Dr. Lisa K." role="Physical Therapist, Palm Beach Gardens" testimonial="When I needed urgent orthopedic care in Palm Beach Gardens for my own rotator cuff pathology, I chose Mountain Spine & Orthopedics. Their same-day availability and expert clinical treatment surpassed my professional expectations." />
           <Testimonial name="Michael R." role="Golf Pro, PGA National" testimonial="As a golf professional, I needed the best comprehensive orthopedic specialist in Palm Beach Gardens when I developed persistent back pain. Dr. Katzman's expertise had me back on the course within a month." />
         </div>
@@ -747,11 +747,11 @@ export const clinics: ClinicsProps[] = [
     id: 7,
     name: 'Mountain Spine & Orthopedics Miami Beach',
     region: 'Miami Beach, FL',
-    lat: 25.696306,
-    lng: -80.30121,
-    address: '8000 SW 67TH Ave, 2nd Floor Miami, Florida 33143',
+    lat: 25.7053911,
+    lng: -80.2936699,
+    address: '7000 SW 62 AVE, Suite 330 South Miami, FL 33143-4716',
     phone: '(954) 987-2047',
-    link: 'https://www.google.com/maps/place/8000+SW+67th+Ave+2nd+Floor,+Miami,+FL+33143,+USA/@25.6960207,-80.3012753,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9c7950e5118eb:0xfe7d082cdf8a27ac!8m2!3d25.6960207!4d-80.3012753!16s%2Fg%2F11nss9lqm0?entry=tts&g_ep=EgoyMDI0MDgyMy4wKgBIAVAD',
+    link: 'https://www.google.com/maps/place/7000+SW+62+AVE+Suite+330,+South+Miami,+FL+33143-4716',
     slug: 'miami-beach-orthopedics',
     paragraph: `
     South Florida's most trusted spine and joint care center.
@@ -770,7 +770,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist miami beach fl',
       'orthopedic doctor miami beach fl',
       'orthopedic laser spine surgery miami beach fl',
-      'pediatric orthopedic miami beach fl',
+      'foot and ankle surgeon miami beach fl',
       'orthopedic in miami beach fl',
       'orthopedic surgeon in miami beach florida',
       'minimally invasive spine surgery miami',
@@ -867,8 +867,8 @@ export const clinics: ClinicsProps[] = [
     id: 8,
     name: 'Mountain Spine & Orthopedics Boca Raton',
     region: 'Boca Raton, FL',
-    lat: 26.408449,
-    lng: -80.125801,
+    lat: 26.408839,
+    lng: -80.125999,
     address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
     phone: '(561) 544-5501',
     link: 'https://maps.app.goo.gl/w5ZB8jY4uj934Dwj8',
@@ -894,7 +894,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist boca raton fl',
       'orthopedic doctor boca raton fl',
       'orthopedic laser spine surgery boca raton fl',
-      'pediatric orthopedic boca raton fl',
+      'foot and ankle surgeon boca raton fl',
       'orthopedic in boca raton fl',
       'orthopedic surgeon in boca raton florida',
       'boca raton orthopedic group',
@@ -932,7 +932,7 @@ export const clinics: ClinicsProps[] = [
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
           <li>Leading Boca Raton sports & orthopedic specialists focusing on athletic injuries.</li>
-          <li>Expert pediatric <Link href="/locations/palm-spring-orthopedics" className="text-[#0A50EC] underline">orthopedic care</Link> for children and adolescents.</li>
+          <li>Expert foot and ankle <Link href="/locations/palm-spring-orthopedics" className="text-[#0A50EC] underline">orthopedic care</Link> and podiatry services.</li>
         </ul>
       </div>
     ),
@@ -992,8 +992,8 @@ export const clinics: ClinicsProps[] = [
     id: 1,
     name: 'Mountain Spine & Orthopedics Altamonte Springs',
     region: 'Central Pkwy Altamonte Springs, FL',
-    lat: 28.670213,
-    lng: -81.374701,
+    lat: 28.6701508,
+    lng: -81.3745803,
     address: '499 E Central Pkwy #130 Altamonte Springs, FL 32701',
     phone: '(407) 960-1717',
     link: 'https://maps.app.goo.gl/uuqp3fHk8GCaAGe3A',
@@ -1019,7 +1019,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist altamonte springs fl',
       'orthopedic doctor altamonte springs fl',
       'orthopedic laser spine surgery altamonte springs fl',
-      'pediatric orthopedic altamonte springs fl',
+      'foot and ankle surgeon altamonte springs fl',
       'orthopedic in altamonte springs fl',
       'orthopedic surgeon in altamonte springs florida',
       'orthopedic altamonte springs',
@@ -1152,8 +1152,8 @@ export const clinics: ClinicsProps[] = [
     id: 2,
     name: 'Mountain Spine & Orthopedics Davenport',
     region: 'Davenport, FL',
-    lat: 28.167513,
-    lng: -81.638889,
+    lat: 28.1657874,
+    lng: -81.6388572,
     address: '2400 North Blvd W Suite C, Davenport, FL 33837',
     phone: '(863) 777-5805',
     link: 'https://www.google.com/maps/place/2400+North+Blvd+W,+Davenport,+FL+33837,+USA/@28.1674336,-81.6414992,17z/data=!3m1!4b1!4m6!3m5!1s0x88dd710dcdc14069:0x95933b5620dfb1e2!8m2!3d28.1674289!4d-81.6389243!16s%2Fg%2F11h08yw72b?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
@@ -1177,7 +1177,7 @@ export const clinics: ClinicsProps[] = [
       'spine specialist davenport fl',
       'orthopedic doctor davenport fl',
       'orthopedic laser spine surgery davenport fl',
-      'pediatric orthopedic davenport fl',
+      'foot and ankle surgeon davenport fl',
       'orthopedic in davenport fl',
       'orthopedic surgeon in davenport florida',
       'orthopedic davenport fl',
@@ -1303,6 +1303,141 @@ export const clinics: ClinicsProps[] = [
       </div>
     ),
     ogImage: "/newlogo4.png",
+  },
+  {
+    id: 10,
+    name: 'Mountain Spine & Orthopedics Jacksonville, FL',
+    region: 'Jacksonville, FL',
+    lat: 30.3418103,
+    lng: -81.5382893,
+    address: '1205 Monument Rd Jacksonville, FL 32225',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/iV8NEiErNEPKsmY7A',
+    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJbexYmoC15YgRC4cJ_NR_NHo',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.8307642541345!2d-81.54979192450683!3d30.334084408520497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b7cd9a1e1d05%3A0x9b6c8c8392e55d87!2s1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225!5e0!3m2!1sen!2sus!4v1761865000000!5m2!1sen!2sus',
+    slug: 'jacksonville-orthopedics',
+    paragraph: `
+    Mountain Spine & Orthopedics is proud to expand its advanced spine and orthopedic expertise to Jacksonville, Florida. Our Jacksonville orthopedic clinic delivers the same trusted, minimally invasive surgical care available at our other Florida locations—now convenient for residents of Arlington, Regency, Southside, and Atlantic Beach.
+    [PARAGRAPH BREAK]
+    Patients in Jacksonville can expect board-certified spine and orthopedic surgeons experienced in treating back pain, herniated discs, spinal stenosis, and degenerative disc disease. Our goal is to reduce pain, restore motion, and improve quality of life through advanced diagnostics, evidence-based medicine, and compassionate care.
+    [PARAGRAPH BREAK]
+    Located at 1205 Monument Rd, our Jacksonville office features state-of-the-art facilities, on-site evaluations, and surgical consultation services. Whether you need a spine specialist, a second surgical opinion, or targeted pain management, Mountain Spine & Orthopedics Jacksonville is your destination for world-class orthopedic care close to home.
+    `,
+    keywords: [
+      'orthopedic surgeon jacksonville fl',
+      'spine specialist jacksonville fl',
+      'orthopedic doctor jacksonville fl',
+      'back pain specialist jacksonville',
+      'minimally invasive spine surgery jacksonville',
+      'herniated disc treatment jacksonville fl',
+      'sciatica doctor jacksonville',
+      'orthopedic clinic jacksonville fl',
+      'orthopedic surgeon near me jacksonville',
+      'spine surgery jacksonville fl',
+      'joint replacement jacksonville fl',
+      'orthopedic surgery jacksonville',
+      'jacksonville orthopedic center',
+      'jacksonville spine doctor',
+      'best orthopedic surgeon jacksonville fl',
+      'mountain spine and orthopedics jacksonville',
+      'orthopedic care jacksonville fl',
+      'orthopedic near me jacksonville',
+      'spine surgeon near me jacksonville',
+      'orthopedic doctor near me jacksonville',
+      'orthopedic same-day appointments jacksonville fl',
+      'foot and ankle surgeon jacksonville fl',
+      'ankle specialist jacksonville fl'
+    ],
+    metaTitle: 'Orthopedic & Spine Specialists in Jacksonville, FL | Mountain Spine & Orthopedics',
+    metaDescription: 'Mountain Spine & Orthopedics in Jacksonville, FL offers minimally invasive spine surgery, herniated disc care, and orthopedic treatment. Board-certified specialists with same-day appointments. Trusted orthopedic surgeons near Arlington & Regency. Call (561) 223-9959.',
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Jacksonville Spine and Orthopedic Specialists of Northeast Florida</h2>
+        <p className='text-lg'>Our Jacksonville orthopedic surgeons are board-certified experts in spine, joint, and musculoskeletal conditions. We provide advanced diagnostics and minimally invasive treatments that help patients across Duval County find lasting relief from chronic back, neck, and joint pain.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Jacksonville & Surrounding Areas</h2>
+        <p className='text-lg'>Our spine specialists in Jacksonville are leaders in <Link href="/treatments/endoscopic-foraminotomy-surgery" className='text-[#0A50EC] underline'>endoscopic spine surgery</Link>, <Link href="/treatments/lumbar-fusion-surgery" className='text-[#0A50EC] underline'>lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className='text-[#0A50EC] underline'>artificial disc replacement</Link>, and <Link href="/treatments/epidural-steroid-injection" className='text-[#0A50EC] underline'>epidural steroid injections</Link>. We treat herniated discs, spinal stenosis, pinched nerves, arthritis, and sciatica with personalized, evidence-based care designed for quicker recovery and long-term success.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Jacksonville Patients Choose Mountain Spine & Orthopedics:</h2>
+        <ul className='text-lg list-disc pl-5 space-y-2'>
+          <li>Board-certified spine and orthopedic surgeons</li>
+          <li>Specialized in minimally invasive procedures</li>
+          <li>High success rates and faster recovery times</li>
+          <li>On-site evaluations and advanced imaging available</li>
+          <li>Same-day appointments available for orthopedic consultations</li>
+          <li>Comprehensive spine, joint, and pain management solutions</li>
+          <li>Specialized foot and ankle orthopedic services</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Easily Accessible From Across Jacksonville:</h2>
+        <ul className='list-disc pl-5 space-y-2 text-lg'>
+          <li>Arlington – 5 minutes via Monument Rd</li>
+          <li>Regency – 8 minutes via Atlantic Blvd</li>
+          <li>Southside – 15 minutes via I-295</li>
+          <li>Jacksonville Beach – 22 minutes via Beach Blvd</li>
+          <li>Downtown Jacksonville – 18 minutes via Arlington Expy</li>
+          <li>Ponte Vedra Beach – 30 minutes via Butler Blvd</li>
+          <li>St. Johns – 35 minutes via FL-9B</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Arlington, Regency & Southside Residents</h2>
+        <p className='text-lg'>Our Jacksonville orthopedic clinic is strategically located on Monument Rd, making it easy for patients from Arlington, Regency, and the Southside area to access world-class orthopedic and spine care without traveling far. We also welcome patients from Jacksonville Beach, Ponte Vedra, and St. Johns seeking advanced spine surgery options.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Advanced Orthopedic & Spine Treatment Technologies</h2>
+        <p className='text-lg'>Our Jacksonville orthopedic surgeons offer cutting-edge surgical and non-surgical solutions using advanced technology. We specialize in minimally invasive procedures that minimize scarring and speed up recovery times.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Innovative Non-Surgical & Surgical Options:</h3>
+        <ul className='text-lg list-disc pl-5 space-y-2'>
+          <li><span className='font-bold'>Pain Relief Injections:</span> <Link href="/treatments/epidural-steroid-injection" className='text-[#0A50EC] underline'>Epidural steroid injections</Link> | <Link href="/treatments/facet-ablation-rhizotomy-treatment" className='text-[#0A50EC] underline'>Facet rhizotomy</Link> | <Link href="/treatments/cortisone-injections-for-back-pain" className='text-[#0A50EC] underline'>Cortisone treatments</Link></li>
+          <li><span className='font-bold'>Minimally Invasive Spine Surgery:</span> <Link href="/treatments/lumbar-microendoscopic-discectomy-surgery" className='text-[#0A50EC] underline'>Microendoscopic discectomy</Link> | <Link href="/treatments/endoscopic-foraminotomy-surgery" className='text-[#0A50EC] underline'>Endoscopic foraminotomy</Link></li>
+          <li><span className='font-bold'>Advanced Reconstruction:</span> <Link href="/treatments/lumbar-fusion-surgery" className='text-[#0A50EC] underline'>Lumbar fusion</Link> | <Link href="/treatments/artificial-disc-replacement-surgery" className='text-[#0A50EC] underline'>Artificial disc replacement</Link> | <Link href="/treatments/acdf-surgery" className='text-[#0A50EC] underline'>ACDF surgery</Link></li>
+        </ul>
+        <p className='text-lg'>Patients from Duval County and the surrounding regions choose Mountain Spine Jacksonville for innovative techniques like motion-preserving spinal surgery, robotic-assisted fusion, and same-day outpatient procedures.</p>
+        <p className='text-lg'><Link href="/find-care/candidacy-check" className='text-[#0A50EC] underline'>Check your treatment candidacy today</Link> to see if you qualify for minimally invasive surgery options.</p>
+      </div>
+    ),
+    whatOurPatientsSay: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Jacksonville Patients Say</h2>
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <Testimonial
+            name="Maria P."
+            role="Teacher, Jacksonville FL"
+            testimonial="After months of sciatica pain, the team at Mountain Spine Jacksonville helped me find relief with a minimally invasive procedure. Their compassion and expertise made the entire process stress-free."
+          />
+          <Testimonial
+            name="James R."
+            role="Contractor, Arlington"
+            testimonial="The orthopedic surgeons at Mountain Spine Jacksonville explained every detail of my lumbar surgery and had me walking comfortably again within weeks. The recovery was faster than I imagined."
+          />
+          <Testimonial
+            name="Samantha L."
+            role="Nurse, Regency Area"
+            testimonial="I visited Mountain Spine Jacksonville for a second opinion. Dr. Katzman was thorough and professional. He offered a less invasive alternative to fusion that worked perfectly. Highly recommend!"
+          />
+          <Testimonial
+            name="David M."
+            role="Veteran, Southside"
+            testimonial="Finally found a Jacksonville orthopedic clinic that actually listens. They helped me manage my chronic neck pain and explained my MRI better than anyone else had. True professionals."
+          />
+        </div>
+      </div>
+    ),
+    ogImage: '/newlogo4.png',
   },
 ];
 

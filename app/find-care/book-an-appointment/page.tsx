@@ -115,10 +115,10 @@ const BookAppointmentJsonLdSchema = () => {
       },
       {
         "@type": "PostalAddress",
-        "streetAddress": "8000 SW 67TH Ave, 2nd Floor",
-        "addressLocality": "Miami",
+        "streetAddress": "7000 SW 62 AVE, Suite 330",
+        "addressLocality": "South Miami",
         "addressRegion": "FL",
-        "postalCode": "33143",
+        "postalCode": "33143-4716",
         "addressCountry": "US"
       },
       {
