@@ -51,8 +51,8 @@ const MRI3 = 'https://mountainspineortho.b-cdn.net/public/MRI3.png';
 
 // ✅ Server-Rendered Metadata for Homepage SEO (This part is correct)
 export const metadata: Metadata = {
-  title: 'Mountain Spine & Orthopedics | Top Florida Spine & Joint Pain Specialists',
-  description: 'Trusted orthopedic and spine care across Florida. Experts in minimally invasive surgery, arthritis, and joint pain relief. Book your free MRI review or second opinion today.',
+  title: 'Mountain Spine & Orthopedics | Top Florida Spine & Joint Pain Specialists | Orthopedic Surgery Consultation',
+  description: 'Trusted orthopedic surgeon specialists providing minimally invasive spine surgery, joint replacement surgery, and back pain treatment in Orlando, Hollywood, Boca Raton, and South Florida. Book your orthopedic surgery consultation today.',
   openGraph: {
     title: 'Mountain Spine & Orthopedics | Advanced Spine, Neck, and Joint Pain Relief in Florida',
     description: 'Florida\'s leader in orthopedic care. Book a consultation for spinal stenosis, sciatica, herniated disc, and joint pain treatments. Now accepting new patients in all locations.',
@@ -76,15 +76,21 @@ export const metadata: Metadata = {
     images: [getOgImageForPath('/')],
   },
   keywords: [
+    "orthopedic surgeon specialists",
     "minimally invasive spine surgery Florida",
+    "joint replacement surgery",
+    "back pain treatment",
+    "orthopedic surgery consultation",
     "orthopedic surgeon near me",
-    "back pain doctor Florida",
+    "orthopedic specialists Florida",
+    "orthopedic surgery Orlando",
+    "spine surgery Hollywood",
+    "orthopedic surgeon Boca Raton",
+    "South Florida orthopedic surgery",
     "herniated disc specialist Florida",
     "cervical disc replacement expert",
     "spinal stenosis treatment Florida",
     "sciatica pain relief Florida",
-    "orthopedic clinic Altamonte Springs",
-    "free MRI review orthopedic",
     "Florida spine specialist",
     "joint pain relief Florida",
     "neck pain treatment Florida",
@@ -92,6 +98,23 @@ export const metadata: Metadata = {
     "knee pain doctor Florida",
     "foot pain treatment Florida"
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: buildCanonical('/'),
+    languages: {
+      'en-US': buildCanonical('/'),
+    },
+  },
 };
 
 // ✅ Enhanced JSON-LD Schema with Multiple Locations
@@ -102,7 +125,7 @@ const HomePageJsonLdSchema = () => {
     'name': 'Mountain Spine & Orthopedics',
     'url': 'https://mountainspineorthopedics.com/',
     'logo': 'https://mountainspineorthopedics.com/newlogo4.png',
-    'description': 'Board-certified orthopedic and spine specialists providing comprehensive care across Florida. Experts in minimally invasive surgery, joint replacement, and pain management.',
+    'description': 'Board-certified orthopedic surgeon specialists providing minimally invasive spine surgery, joint replacement surgery, and advanced back pain treatment across Orlando, Hollywood, Boca Raton, and South Florida. Expert orthopedic surgery consultations available.',
     'image': 'https://mountainspineorthopedics.com/default_og.png',
     'telephone': '+1-561-223-9959',
     'priceRange': '$$',
@@ -186,6 +209,9 @@ export default function Home() {
         {/* Hero Section - Interactive */}
         <HomeHeroSection />
 
+        {/* Statistics/Testimonials Bar - Interactive - MOVED UP FOR IMMEDIATE SOCIAL PROOF */}
+        <HomeStatisticsBar />
+
         {/* Services & Expertise */}
         <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-3 md:px-[40px]">
           <div className="xl:grid xl:grid-cols-3 flex flex-col gap-[32px]">
@@ -240,9 +266,9 @@ export default function Home() {
                   }}
                   className="md:px-6 sm:text-2xl text-lg"
                 >
-                  We combine cutting-edge orthopedic innovations with compassionate care to treat spine disorders, fractures, arthritis,
-                  sports injuries, and joint pain. Using minimally invasive techniques
-                  and evidence-based treatments, our specialists provide personalised solutions for faster recovery and lasting mobility.
+                  Leading Florida orthopedic specialists combining cutting-edge innovations with compassionate care to treat spine disorders, fractures, arthritis,
+                  sports injuries, and joint pain across Orlando, Hollywood, Boca Raton, and South Florida. Using minimally invasive techniques
+                  and evidence-based treatments, our board-certified specialists provide personalized solutions for faster recovery and lasting mobility.
                 </p>
               </div>
 
@@ -257,9 +283,6 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Expert Orthopedic Conditions We Treat - Interactive */}
-        <HomeInteractiveAnatomy />
-
         {/* Why Choose Mountain Spine & Orthopedics */}
         <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
           <Reveal className="w-full" width="100%">
@@ -269,7 +292,7 @@ export default function Home() {
               </h2>
               <div>
                 <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400, color: '#424959' }} className="text-lg">
-                  Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
+                  Trust Mountain Spine & Orthopedics, Florida's leading orthopedic specialists, for expert spine and joint care across Hollywood, Orlando, Boca Raton, and South Florida. We provide compassionate service with minimally invasive techniques that deliver faster recovery times. Your mobility and well-being are our top priority!
                 </p>
                 <div className="mt-[40px] xl:w-[50%] w-full md:w-fit">
                   <BookAnAppoitmentButton />
@@ -288,7 +311,7 @@ export default function Home() {
                     Our Specialty
                   </h3>
                   <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#424959' }} className="text-lg">
-                    At Mountain Spine & Orthopedics, we are dedicated to providing exceptional care with cutting-edge treatments and a patient-first approach. Here's why we stand out:
+                    At Mountain Spine & Orthopedics, Florida's trusted orthopedic practice, we are dedicated to providing exceptional spine and joint care with cutting-edge minimally invasive treatments and a patient-first approach. Serving patients across Orlando, Hollywood, Boca Raton, and throughout South Florida. Here's why we stand out:
                   </p>
                 </div>
               </Reveal>
@@ -297,21 +320,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Statistics/Testimonials Bar - Interactive */}
-        <HomeStatisticsBar />
-
-        {/* What Our Patients Say */}
-        <RatingsAndReviews />
+        {/* Expert Orthopedic Conditions We Treat - Interactive */}
+        <HomeInteractiveAnatomy />
 
         {/* Meet Our Experts */}
         <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-[40px]">
           <div className="flex md:flex-row flex-col mb-6">
             <div className="flex flex-col space-y-[24px] md:w-[50%] w-full">
               <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-black text-5xl text-left w-full">
-                Meet Our Experts
+                Meet Our Expert Florida Orthopedic Specialists
               </h2>
               <p style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }} className="text-[#54535C] md:w-[50%] w-full">
-                Highly skilled and compassionate professionals ready to care for you
+                Board-certified orthopedic surgeons and spine specialists serving patients throughout Florida with 20+ years of combined experience
               </p>
             </div>
             <div className="md:w-[50%] flex items-center md:justify-end w-full md:mt-0 mt-4">
@@ -326,15 +346,21 @@ export default function Home() {
           <FeaturedDoctorsSection />
         </section>
 
+        {/* From Pain to Progress - Interactive - MOVED UP BEFORE TESTIMONIALS */}
+        <HomePainToProgress />
+
+        {/* What Our Patients Say */}
+        <RatingsAndReviews />
+
         {/* Complimentary Perks */}
         <section className="w-full max-w-[1440px] flex xl:flex-row flex-col py-[50px] h-full px-2 md:px-[40px] space-x-[32px]">
           <div className="rounded-[24px] bg-[#FAFAFA] p-[24px] flex flex-col xl:w-[50%] w-full h-full">
             <div className="flex flex-col space-y-[24px]">
               <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black' }} className="text-5xl">
-                Top Florida Clinic Free Second Opinion & MRI Reading
+                Top Florida Orthopedic Clinic: Free Second Opinion & MRI Reading
               </h2>
               <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#424959', lineHeight: 1.5 }} className="">
-                <span className="text-[#0A50EC]">Free Second Opinion.</span>Persistent pain concerns despite multiple treatments? At Mountain Spine & Orthopedics we <span className="text-[#0A50EC]">offer a free second opinion</span> and cutting-edge, minimally invasive procedures for pain management, mobility restoration, and quality of life enhancement.
+                <span className="text-[#0A50EC]">Free Second Opinion.</span> Persistent pain concerns despite multiple treatments? At Mountain Spine & Orthopedics, Florida's leading orthopedic practice serving Orlando, Hollywood, Boca Raton, and South Florida, we <span className="text-[#0A50EC]">offer a free second opinion</span> and cutting-edge minimally invasive procedures for pain management, mobility restoration, and quality of life enhancement. Book your consultation today!
               </p>
               <div className="flex md:flex-row flex-col w-full md:space-x-[11px] md:space-y-0 space-y-4 justify-center items-center">
                 <div className="md:w-[45%] w-full">
@@ -361,8 +387,8 @@ export default function Home() {
                   <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: 'black', lineHeight: 1.2 }} className="text-2xl">
                     Complimentary MRI Reading
                   </h3>
-                  <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#424959' }} className="lg">
-                    Get a free MRI reading from our experts to tailor your treatment plan.
+                  <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#424959' }} className="text-lg">
+                    Get a free MRI reading from our board-certified Florida orthopedic specialists to tailor your personalized treatment plan.
                   </p>
                 </div>
                 <div className="grid grid-cols-3 gap-x-[16px]">
@@ -401,9 +427,6 @@ export default function Home() {
             </div>
           </Reveal>
         </section>
-
-        {/* From Pain to Progress - Interactive */}
-        <HomePainToProgress />
 
         {/* ClinicsMap */}
         <ClinicsMap />

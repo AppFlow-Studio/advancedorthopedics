@@ -54,7 +54,14 @@ export const metadata = {
 };
 
 import LocationsClient from './LocationsClient';
+import { clinics } from '@/components/data/clinics';
+import { LocationItemListSchema } from '@/components/LocationItemListSchema';
 
 export default function LocationsPage() {
-  return <LocationsClient />;
+  return (
+    <>
+      <LocationItemListSchema clinics={clinics} />
+      <LocationsClient />
+    </>
+  );
 }

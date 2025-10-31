@@ -26,8 +26,41 @@ function resolveSpecialtySlug(painSlug: string, allSpecialtySlugs: string[]): st
 }
 
 function stripTags(html: string | React.ReactNode): string {
-  if (typeof html !== 'string') return '';
-  return html.replace(/<[^>]*>/g, '');
+  if (typeof html === 'string') {
+    return html.replace(/<[^>]*>/g, '');
+  }
+  
+  // Handle ReactNode/JSX - extract text content
+  if (html && typeof html === 'object' && 'props' in html) {
+    // If it's a React element with children, extract text recursively
+    if (html.props && html.props.children) {
+      return extractTextFromReactNode(html.props.children);
+    }
+  }
+  
+  return '';
+}
+
+function extractTextFromReactNode(node: React.ReactNode): string {
+  if (typeof node === 'string') {
+    return node;
+  }
+  
+  if (typeof node === 'number') {
+    return String(node);
+  }
+  
+  if (Array.isArray(node)) {
+    return node.map(extractTextFromReactNode).join(' ');
+  }
+  
+  if (node && typeof node === 'object' && 'props' in node) {
+    if (node.props && node.props.children) {
+      return extractTextFromReactNode(node.props.children);
+    }
+  }
+  
+  return '';
 }
 
 function buildFaq(condition: any) {

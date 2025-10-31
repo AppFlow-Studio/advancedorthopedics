@@ -29,8 +29,9 @@ const defaultMapOptions = {
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-export default function ClinicsMap({ startingClinic }: {
-  startingClinic?: { id: number, name: string, lat: number, lng: number, address: string },
+export default function ClinicsMap({ startingClinic, showEmbed = false }: {
+  startingClinic?: { id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string },
+  showEmbed?: boolean,
 }) {
   const { location } = useGeolocation();
   
@@ -42,7 +43,7 @@ export default function ClinicsMap({ startingClinic }: {
   });
   // Optional: State to hold map instance
   const [map, setMap] = useState(null);
-  const [selectedClinc, setSeletecedClinic] = useState<{ id: number, name: string, lat: number, lng: number, address: string } | undefined>(startingClinic ? startingClinic : undefined)
+  const [selectedClinc, setSeletecedClinic] = useState<{ id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string } | undefined>(startingClinic ? startingClinic : undefined)
 
   const [mapCenter, setMapCenter] = useState(startingClinic ? { lat: startingClinic.lat, lng: startingClinic.lng } : { lat: 28.670213, lng: -81.374701 })
   const isInitialMount = useRef(true); // <-- Add this ref, initially true
@@ -202,48 +203,68 @@ export default function ClinicsMap({ startingClinic }: {
   }, [selectedClinc])
   return (
     <section className="bg-[#FAFCFF] w-full h-full py-[50px]">
+      {/* Section Header for SEO */}
+      <div className="max-w-[1440px] w-full px-4 md:px-[40px] mx-auto mb-6 md:mb-8">
+        <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
+          <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-base md:text-lg text-[#424959] text-center leading-relaxed px-2">
+            Looking for an <strong className="text-[#0A50EC]">orthopedic near me</strong>? Find your nearest Florida spine and joint specialist at <strong>Mountain Spine & Orthopedics</strong>.
+          </p>
+        </div>
+      </div>
       {/* This outer div needs to contain both map and overlay */}
-      <div className="max-w-[1440px] w-full  px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
+      <div className="max-w-[1440px] w-full px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
         <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange} />
 
         {/* The Google Map */}
-        {isLoaded ? (
-          <GoogleMap
-            mapContainerStyle={defaultMapContainerStyle}
-            center={mapCenter}
-            zoom={defaultMapZoom}
-            options={defaultMapOptions}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            {/* Render Markers Inside */}
-            {clinics.map((clinic) => {
-              // Determine which icon to use
-              const isSelected = clinic.name == selectedClinc?.name;
-              const iconToUse = isSelected
-                ? createSelectedIcon(clinic.name) // Generate selected icon with name
-                : defaultMarkerIcon;             // Use default icon
-
-              // Ensure iconToUse is not null before rendering MarkerF
-              if (!iconToUse) return null;
-              return (
-                <MarkerF
-                  key={clinic.name}
-                  position={{ lat: clinic.lat, lng: clinic.lng }}
-                  icon={iconToUse} // Apply the determined icon
-                  title={clinic.name}
-                  onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
-                // Optional: Lower zIndex for non-selected markers if overlap is an issue
-                />
-              );
-            })}
-          </GoogleMap>
-        ) : (
-          <div className="flex items-center justify-center h-[680px] bg-gray-100 rounded-3xl">
-            <p className="text-gray-600">Loading map...</p>
+        {showEmbed && selectedClinc?.embedSrc ? (
+          <div className="rounded-3xl overflow-hidden" style={{ height: '680px' }}>
+            <iframe
+              title={`${selectedClinc.name} Map`}
+              src={selectedClinc.embedSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              style={{ width: '100%', height: '100%', border: 0 }}
+              allowFullScreen
+            />
           </div>
+        ) : (
+          isLoaded ? (
+            <GoogleMap
+              mapContainerStyle={defaultMapContainerStyle}
+              center={mapCenter}
+              zoom={defaultMapZoom}
+              options={defaultMapOptions}
+              onLoad={onLoad}
+              onUnmount={onUnmount}
+            >
+              {/* Render Markers Inside */}
+              {clinics.map((clinic) => {
+                // Determine which icon to use
+                const isSelected = clinic.name == selectedClinc?.name;
+                const iconToUse = isSelected
+                  ? createSelectedIcon(clinic.name) // Generate selected icon with name
+                  : defaultMarkerIcon;             // Use default icon
+
+                // Ensure iconToUse is not null before rendering MarkerF
+                if (!iconToUse) return null;
+                return (
+                  <MarkerF
+                    key={clinic.name}
+                    position={{ lat: clinic.lat, lng: clinic.lng }}
+                    icon={iconToUse} // Apply the determined icon
+                    title={clinic.name}
+                    onClick={() => handleMarkerClick(clinic)} // Set this marker as selected on click
+                  />
+                );
+              })}
+            </GoogleMap>
+          ) : (
+            <div className="flex items-center justify-center h-[680px] bg-gray-100 rounded-3xl">
+              <p className="text-gray-600">Loading map...</p>
+            </div>
+          )
         )}
       </div>
     </section>
@@ -258,7 +279,7 @@ const DropdownIcon = () => (
 );
 
 
-function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic: { id: number, name: string, lat: number, lng: number, address: string, link: string }, handleMarkerClick: (name: string) => void }) {
+function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic?: { id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string }, handleMarkerClick: (name: string) => void }) {
   const { location, onSetLocation } = useGeolocation();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -296,20 +317,20 @@ function MapOverlayCard({ selectedClinic, handleMarkerClick }: { selectedClinic:
     }
   }
   return (
-    <div className="absolute md:top-5 md:left-14 z-10 bg-white p-6 rounded-lg shadow-lg  w-full -top-10 left-0 md:max-w-xl space-y-4">
+    <div className="absolute md:top-2 md:left-12 z-30 bg-white p-6 rounded-lg shadow-lg  w-full -top-12 left-0 md:max-w-xl space-y-4">
       <div >
-        <p
+        <h2
           style={{
             fontFamily: "var(--font-public-sans)",
-            fontWeight: 400,
+            fontWeight: 500,
           }}
           className="text-2xl font-semibold text-[#424959]">
-          Find your Clinic
-        </p>
+          Find Orthopedic Care Near You
+        </h2>
         {
           !location && (
-            <p className="text-lg text-[#2358AC] underline" onClick={AllowLocation}>
-              Find your nearest clinic
+            <p className="text-lg text-[#2358AC] underline cursor-pointer" onClick={AllowLocation}>
+              Find orthopedic near me
             </p>
           )
         }
