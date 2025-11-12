@@ -296,7 +296,7 @@ export default function BlogDetails({
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
         <Image
-          src={'/herosectionimg.jpg'}
+          src={blog_details?.blog_info?.img || '/herosectionimg.jpg'}
           priority={true}
           fetchPriority="high"
           layout='fill'
@@ -306,7 +306,19 @@ export default function BlogDetails({
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
           style={{
-            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.35) 0%, rgba(255, 255, 255, 0.35) 100%)',
+          }}
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(90deg, rgba(12, 20, 46, 0.55) 0%, rgba(12, 20, 46, 0.00) 65%)',
+          }}
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full opacity-70"
+          style={{
+            background: 'linear-gradient(180deg, rgba(148, 196, 255, 0.45) 0%, rgba(255, 255, 255, 0.25) 100%)',
           }}
         />
         {/* <div
@@ -316,21 +328,22 @@ export default function BlogDetails({
         }}
       /> */}
         <div className="z-[1] flex flex-col w-full h-full text-center relative sm:pt-60 sm:pb-20 pt-30 pb-0">
-          <div className='px-6 xl:px-[80px] z-[2] w-full flex flex-col space-y-4 items-center justify-center'>
-            <nav aria-label="Breadcrumb" className="mb-4 xl:flex hidden bg-white/50 rounded-full px-4 py-2 w-fit">
+          <div className='px-6 xl:px-[80px] z-[2] w-full flex flex-col items-center justify-center'>
+            <div className="bg-white/40 backdrop-blur-md border border-white/50 rounded-[18px] px-6 md:px-12 py-8 flex flex-col items-center justify-center shadow-[0_18px_55px_rgba(12,20,46,0.12)] max-w-5xl w-full space-y-4">
+            <nav aria-label="Breadcrumb" className="xl:flex hidden bg-white/55 rounded-full px-4 py-2 w-fit">
               <ol className="flex space-x-2 text-[#252932]">
                 <li><a href="/blogs">Blogs</a> /</li>
                 <li aria-current="page">{blog_details?.blog_info.title}</li>
               </ol>
             </nav>
-            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#252932] text-2xl md:text-5xl lg:text-6xl xl:w-[80%] w-full text-center self-center">{blog_details?.blog_info.title}</TextAnimate>
-            <p style={{ fontWeight: 400, lineHeight: "148%" }} className="text-[#424959] mt-4 md:text-md text-sm xl:w-[55%] w-full text-center self-center">{blog_details?.blog_info.desc}</p>
-            <div className="flex flex-wrap gap-2 mt-2">
+            <TextAnimate by='word' style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#1C2340] text-2xl md:text-5xl lg:text-6xl w-full text-center">{blog_details?.blog_info.title}</TextAnimate>
+            <p style={{ fontWeight: 400, lineHeight: "150%" }} className="text-[#394257] md:text-lg text-base w-full text-center">{blog_details?.blog_info.desc}</p>
+            <div className="flex flex-wrap gap-2 mt-2 justify-center">
               {blog_details?.blog_info.tags.map((tag: string, index: number) => (
-                <span key={index} className="bg-[#FAFAFA] text-[#424959] px-3 py-1 rounded-full text-sm">{tag}</span>
+                <span key={index} className="bg-[#f3f6ff] text-[#1C2340] px-3 py-1 rounded-full text-sm border border-[#d9e2ff]">{tag}</span>
               ))}
             </div>
-            <div className="flex items-center gap-6 mt-4 text-sm text-[#] mb-6">
+            <div className="flex items-center gap-6 mt-4 text-sm text-[#1C2340] flex-wrap justify-center">
               {blog_details?.blog_info.author && (
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
@@ -343,6 +356,7 @@ export default function BlogDetails({
                   <span>{new Date(blog_details?.blog_info.date).toLocaleDateString()}</span>
                 </div>
               )}
+            </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { conditions } from "@/components/data/conditions";
 import { AllTreatments } from "@/components/data/treatments";
 import { buildCanonical } from "@/lib/seo";
 
-export const dynamic = 'force-static';
+export const revalidate = 300;
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
