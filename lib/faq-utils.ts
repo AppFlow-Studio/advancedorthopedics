@@ -1,42 +1,97 @@
 // Utility function to detect FAQ content in blog posts
+const QUESTION_PREFIXES = ['what', 'how', 'why', 'when', 'where', 'can', 'should', 'is', 'are', 'do', 'does'];
+
+function stripHtml(html: string) {
+  return html
+    .replace(/<\/?br\s*\/?>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function extractFaqsFromHtml(html: string | undefined): { question: string; answer: string }[] {
+  if (!html) return [];
+
+  const cleanedHtml = html.replace(/\r?\n|\r/g, ' ');
+  const faqMatches = cleanedHtml.matchAll(/<strong>(.*?)<\/strong>(.*?)(?=<strong>|$)/gis);
+  const results: { question: string; answer: string }[] = [];
+
+  for (const match of faqMatches) {
+    const rawQuestion = match[1];
+    let rawAnswer = match[2] ?? '';
+
+    const question = stripHtml(rawQuestion);
+    const answer = stripHtml(rawAnswer);
+
+    if (!question || !answer) continue;
+
+    const normalized = question.toLowerCase();
+    const isQuestion =
+      normalized.includes('?') ||
+      QUESTION_PREFIXES.some((prefix) => normalized.startsWith(prefix));
+
+    if (!isQuestion) continue;
+
+    results.push({ question, answer });
+  }
+
+  return results;
+}
+
 export function detectFAQContent(blogInfo: any): { question: string; answer: string }[] | null {
-  if (!blogInfo?.blog_info) return null;
-  
-  const faqs: { question: string; answer: string }[] = [];
-  
-  // Handle both array and object structures
-  const blogInfoData = Array.isArray(blogInfo.blog_info) 
-    ? blogInfo.blog_info 
-    : [blogInfo.blog_info];
-  
-  // Check if blog_info contains FAQ-like content
-  blogInfoData.forEach((section: any) => {
-    if (section.sub_stories) {
-      section.sub_stories.forEach((sub: any) => {
-        // Look for question-like patterns in headers
-        const header = sub.header?.toLowerCase() || '';
-        const isQuestion = header.includes('?') || 
-                          header.includes('what') || 
-                          header.includes('how') || 
-                          header.includes('why') || 
-                          header.includes('when') || 
-                          header.includes('where') ||
-                          header.includes('can') ||
-                          header.includes('should') ||
-                          header.includes('is') ||
-                          header.includes('are');
-        
-        if (isQuestion && sub.body) {
-          faqs.push({
-            question: sub.header,
-            answer: sub.body.replace(/<[^>]*>/g, '') // Strip HTML tags
-          });
-        }
+  const content = blogInfo?.blog_info;
+  const sections = Array.isArray(content?.blog_info) ? content.blog_info : [];
+
+  if (!sections.length) return null;
+
+  const htmlFaqs: { question: string; answer: string }[] = [];
+  const htmlSeen = new Set<string>();
+  const fallbackFaqs: { question: string; answer: string }[] = [];
+  const fallbackSeen = new Set<string>();
+
+  sections.forEach((section: any) => {
+    extractFaqsFromHtml(section?.body).forEach((faq) => {
+      const key = `${faq.question}|${faq.answer}`;
+      if (htmlSeen.has(key)) return;
+      htmlSeen.add(key);
+      htmlFaqs.push(faq);
+    });
+
+    const candidates = Array.isArray(section?.sub_stories) ? section.sub_stories : [];
+
+    candidates.forEach((item: any) => {
+      const header = item?.header?.trim();
+      const body = item?.body;
+      if (!header || !body) return;
+
+      const normalizedHeader = header.toLowerCase();
+      const isQuestion =
+        normalizedHeader.includes('?') ||
+        QUESTION_PREFIXES.some((word) => normalizedHeader.startsWith(word));
+
+      if (!isQuestion) return;
+
+      const question = header;
+      const answer = stripHtml(body);
+      if (!answer) return;
+
+      const key = `${question}|${answer}`;
+      if (fallbackSeen.has(key)) return;
+      fallbackSeen.add(key);
+
+      fallbackFaqs.push({
+        question,
+        answer
       });
-    }
+    });
   });
-  
-  return faqs.length > 0 ? faqs : null;
+
+  if (htmlFaqs.length) {
+    return htmlFaqs;
+  }
+
+  return fallbackFaqs.length ? fallbackFaqs : null;
 }
 
 // Generate FAQPage schema

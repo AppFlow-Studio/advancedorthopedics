@@ -1,31 +1,47 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+const ALLOWED_COUNTRIES = ["US"];
+
+const PROTECTED_PATHS = [
+  "/find-care",
+  "/contact",
+  "/book-appointment",
+  "/candidacy-check",
+  "/treatments",
+  "/area-of-specialty",
+  "/locations",
+  "/about/meetourdoctors",
+];
+
+const CRAWLER_USER_AGENT_REGEX =
+  /Googlebot|Bingbot|DuckDuckBot|AhrefsBot|LinkedInBot/i;
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const hostname = req.headers.get('host') || '';
+  const hostname = req.headers.get("host") || "";
   
   // === SKIP MIDDLEWARE FOR WWW REDIRECTS ===
   // Let next.config.ts handle www → non-www redirect in production
   // This prevents redirect loops
-  if (hostname.startsWith('www.')) {
+  if (hostname.startsWith("www.")) {
     return NextResponse.next();
   }
   
   // === SKIP MIDDLEWARE FOR SPECIFIC PATHS ===
   
   // 1. Next.js internal paths (build assets, data fetching, HMR)
-  if (pathname.startsWith('/_next')) {
+  if (pathname.startsWith("/_next")) {
     return NextResponse.next();
   }
   
   // 2. API routes
-  if (pathname.startsWith('/api')) {
+  if (pathname.startsWith("/api")) {
     return NextResponse.next();
   }
   
   // 3. PostHog analytics ingest paths
-  if (pathname.startsWith('/ingest')) {
+  if (pathname.startsWith("/ingest")) {
     return NextResponse.next();
   }
   
@@ -36,12 +52,12 @@ export function middleware(req: NextRequest) {
   }
   
   // 5. Sitemap paths
-  if (pathname.startsWith('/sitemap')) {
+  if (pathname.startsWith("/sitemap")) {
     return NextResponse.next();
   }
   
   // 6. robots.txt
-  if (pathname === '/robots.txt') {
+  if (pathname === "/robots.txt") {
     return NextResponse.next();
   }
   
@@ -59,6 +75,21 @@ export function middleware(req: NextRequest) {
     url.hash = req.nextUrl.hash;
     return NextResponse.redirect(url, 301);
   }
+
+  const testCountry =
+    req.headers.get("x-geo-test") || req.headers.get("x-vercel-ip-country");
+  const country = req.geo?.country || testCountry || "US";
+  const userAgent = req.headers.get("user-agent") || "";
+
+  if (CRAWLER_USER_AGENT_REGEX.test(userAgent)) {
+    return NextResponse.next();
+  }
+
+  if (PROTECTED_PATHS.some((path) => normalized.startsWith(path))) {
+    if (!ALLOWED_COUNTRIES.includes(country)) {
+      return NextResponse.redirect(new URL("/unavailable", req.url));
+    }
+  }
   
   // No changes needed, continue
   return NextResponse.next();
@@ -74,6 +105,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ]
 };

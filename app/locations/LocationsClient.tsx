@@ -210,7 +210,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
     <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10'>
       <section className=' bg-[#6FC2ED] w-full flex flex-row' id="Locations">
         <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-          <TextAnimate animation="blurInUp" by="character" once
+          <TextAnimate animation="blurInUp" by="character" once as="h1"
             style={{
               fontFamily: 'var(--font-reem-kufi)',
               fontWeight: 500,
@@ -220,13 +220,23 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           >
             Locations
           </TextAnimate>
+          <h2
+            style={{
+              fontFamily: 'var(--font-reem-kufi)',
+              fontWeight: 500,
+
+            }}
+            className='text-white text-2xl mt-2'
+          >
+            Find Orthopedic Care Near You
+          </h2>
           <p
             style={{
               fontFamily: 'var(--font-reem-kufi)',
               fontWeight: 500,
 
             }}
-            className='text-white text-xl'
+            className='text-white text-xl mt-2'
           >
             Mountain Spine & Orthopedics delivers expert spine care across Florida with 10 Locations and an Ambulatory Surgery Center.
           </p>
@@ -242,9 +252,9 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-[#252932] my-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#252932] my-6">
             Our Locations
-          </h1>
+          </h2>
           <p className="text-lg md:text-xl text-[#424959] max-w-3xl mx-auto">
             Visit any of our state-of-the-art facilities across Florida for expert orthopedic care and personalized treatment.
           </p>

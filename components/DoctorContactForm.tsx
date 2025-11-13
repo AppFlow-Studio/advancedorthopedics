@@ -77,24 +77,24 @@ interface DoctorContactFormProp {
     buttonText?: string
 }
 export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment' }: DoctorContactFormProp) {
-    const { executeRecaptcha } = useGoogleReCaptcha();
-    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    // const { executeRecaptcha } = useGoogleReCaptcha();
+    // const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
     // Create an event handler so you can call the verification on button click event or form submit
-    const handleReCaptchaVerify = useCallback(async () => {
-        if (!executeRecaptcha) {
-            console.log('Execute recaptcha not yet available');
-            return;
-        }
+    // const handleReCaptchaVerify = useCallback(async () => {
+    //     if (!executeRecaptcha) {
+    //         console.log('Execute recaptcha not yet available');
+    //         return;
+    //     }
 
-        const token = await executeRecaptcha('contact_form');
-        setRecaptchaToken(token);
-    }, [executeRecaptcha]);
+    //     const token = await executeRecaptcha('contact_form');
+    //     setRecaptchaToken(token);
+    // }, [executeRecaptcha]);
 
-    // You can use useEffect to trigger the verification as soon as the component being loaded
-    useEffect(() => {
-        handleReCaptchaVerify();
-    }, [handleReCaptchaVerify]);
+    // // You can use useEffect to trigger the verification as soon as the component being loaded
+    // useEffect(() => {
+    //     handleReCaptchaVerify();
+    // }, [handleReCaptchaVerify]);
 
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
@@ -179,10 +179,10 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             return; // Silently reject
         }
         // RECAPTCHA CHECK
-        if (!recaptchaToken) {
-            console.log('ReCAPTCHA not ready');
-            return;
-        }
+        // if (!recaptchaToken) {
+        //     console.log('ReCAPTCHA not ready');
+        //     return;
+        // }
         // console.log('Recaptcha Token:', recaptchaToken);
 
         setDisabled(true)
@@ -207,11 +207,11 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
         console.log('Insurance Card Front:', values.insuranceCardFront)
         console.log('Insurance Card Back:', values.insuranceCardBack)
 
-        const isCaptchaValid = await verifyCaptcha(recaptchaToken);
-        if (!isCaptchaValid) {
-            console.log('Bot detected via ReCAPTCHA');
-            return;
-        }
+        // const isCaptchaValid = await verifyCaptcha(recaptchaToken);
+        // if (!isCaptchaValid) {
+        //     console.log('Bot detected via ReCAPTCHA');
+        //     return;
+        // }
 
         const data = await sendContactEmail({
             name: values.name,
