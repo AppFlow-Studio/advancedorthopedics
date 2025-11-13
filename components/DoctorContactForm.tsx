@@ -13,14 +13,12 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { useState, useEffect, useRef, useCallback } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
-import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import { motion } from 'framer-motion'
 import Link from "next/link"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 import { formatPhone, validatePhoneNumber, formatPhoneInput } from "@/lib/phone-formatter"
@@ -101,6 +99,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
     const [disabled, setDisabled] = useState(false)
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
     const formRef = useRef<HTMLFormElement>(null)
+    const router = useRouter()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -187,53 +186,66 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
 
         setDisabled(true)
 
-        // Handle file uploads - create FormData for files
-        const formData = new FormData()
-        formData.append('name', values.name)
-        formData.append('email', values.email)
-        formData.append('phone', values.phone)
-        formData.append('reason', values.reason)
-        formData.append('bestTime', values.bestTime)
+        const toFilePayload = async (file?: File | null) => {
+            if (!file) {
+                return null
+            }
 
-        // Add insurance card files if they exist
-        if (values.insuranceCardFront) {
-            formData.append('insuranceCardFront', values.insuranceCardFront)
+            const base64 = await new Promise<string>((resolve, reject) => {
+                const reader = new FileReader()
+                reader.onload = () => {
+                    const result = reader.result?.toString() || ""
+                    const [, content] = result.split(",")
+                    resolve(content || "")
+                }
+                reader.onerror = (event) => reject(event)
+                reader.readAsDataURL(file)
+            })
+
+            return {
+                name: file.name,
+                type: file.type,
+                base64,
+            }
         }
-        if (values.insuranceCardBack) {
-            formData.append('insuranceCardBack', values.insuranceCardBack)
-        }
 
-        // Log the files for debugging
-        console.log('Insurance Card Front:', values.insuranceCardFront)
-        console.log('Insurance Card Back:', values.insuranceCardBack)
+        try {
+            const payload = {
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                reason: values.reason,
+                bestTime: values.bestTime,
+                insuranceCardFront: await toFilePayload(values.insuranceCardFront),
+                insuranceCardBack: await toFilePayload(values.insuranceCardBack),
+            }
 
-        // const isCaptchaValid = await verifyCaptcha(recaptchaToken);
-        // if (!isCaptchaValid) {
-        //     console.log('Bot detected via ReCAPTCHA');
-        //     return;
-        // }
+            const res = await fetch("/api/forms/doctor", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            })
 
-        const data = await sendContactEmail({
-            name: values.name,
-            email: values.email,
-            phone: values.phone,
-            reason: values.reason,
-            bestTime: values.bestTime,
-            insuranceCardFront: values.insuranceCardFront || undefined,
-            insuranceCardBack: values.insuranceCardBack || undefined
-        })
-        await sendUserEmail({ name: values.name, email: values.email, phone: values.phone })
+            if (res.redirected) {
+                router.push(res.url)
+                return
+            }
 
-        // Enhanced Conversions
-        persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-        pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-        pushEvent('lead_form_submit', { form_name: 'DoctorContactForm' });
+            if (!res.ok) {
+                return
+            }
 
-        setDisabled(false)
-        if (data) {
+            // Enhanced Conversions
+            persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+            pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+            pushEvent('lead_form_submit', { form_name: 'DoctorContactForm' });
+
             setOpenContactForm(false)
-            //setAppointmentConfirm(true) 
-            redirect('/thank-you')
+            router.push('/thank-you')
+        } catch (error) {
+            console.error("[DoctorContactForm] Submit failed", error)
+        } finally {
+            setDisabled(false)
         }
     }
 

@@ -20,10 +20,9 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { useState, useEffect, useRef } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
-import { sendContactEmail, sendUserEmail } from './email/sendcontactemail'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { FileUpload } from './ui/file-upload'
@@ -73,6 +72,7 @@ export default function BookAnAppoitmentButton({
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+    const router = useRouter()
     const formRef = useRef<HTMLFormElement>(null)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -164,52 +164,75 @@ export default function BookAnAppoitmentButton({
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setDisabled(true)
-        console.log('Called')
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+        const toFilePayload = async (file?: File | null) => {
+            if (!file) {
+                return null
+            }
 
-        // Handle file uploads - create FormData for files
-        const formData = new FormData()
-        formData.append('name', values.name)
-        formData.append('email', values.email)
-        formData.append('phone', values.phone)
-        formData.append('reason', values.reason)
-        formData.append('bestTime', values.bestTime)
+            const base64 = await new Promise<string>((resolve, reject) => {
+                const reader = new FileReader()
+                reader.onload = () => {
+                    const result = reader.result?.toString() || ""
+                    const [, content] = result.split(",")
+                    resolve(content || "")
+                }
+                reader.onerror = (event) => reject(event)
+                reader.readAsDataURL(file)
+            })
 
-        // Add insurance card files if they exist
-        if (values.insuranceCardFront) {
-            formData.append('insuranceCardFront', values.insuranceCardFront)
-        }
-        if (values.insuranceCardBack) {
-            formData.append('insuranceCardBack', values.insuranceCardBack)
-        }
-
-        // Log the files for debugging
-        console.log('Insurance Card Front:', values.insuranceCardFront)
-        console.log('Insurance Card Back:', values.insuranceCardBack)
-
-        const data = await sendContactEmail(values)
-        await sendUserEmail(values)
-
-        // Enhanced Conversions
-        persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-        pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-        pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
-
-        if (typeof window !== 'undefined' && window.dataLayer) {
-            window.dataLayer.push({
-                event: 'form_submission',
-                formName: 'BookAnAppointmentForm',
-                pagePath: window.location.pathname,
-            });
+            return {
+                name: file.name,
+                type: file.type,
+                base64,
+            }
         }
 
-        if (data) {
+        try {
+            const payload = {
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                reason: values.reason,
+                bestTime: values.bestTime,
+                insuranceCardFront: await toFilePayload(values.insuranceCardFront),
+                insuranceCardBack: await toFilePayload(values.insuranceCardBack),
+            }
+
+            const res = await fetch("/api/forms/book-appointment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            })
+
+            if (res.redirected) {
+                router.push(res.url)
+                return
+            }
+
+            if (!res.ok) {
+                return
+            }
+
+            // Enhanced Conversions
+            persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+            pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+            pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
+
+            if (typeof window !== 'undefined' && window.dataLayer) {
+                window.dataLayer.push({
+                    event: 'form_submission',
+                    formName: 'BookAnAppointmentForm',
+                    pagePath: window.location.pathname,
+                });
+            }
+
             setOpen(false)
-            //setAppointmentConfirm(true) 
             form.reset()
-            redirect('/thank-you')
+            router.push('/thank-you')
+        } catch (error) {
+            console.error("[BookAppointment] Submit failed", error)
+        } finally {
+            setDisabled(false)
         }
     }
     return (

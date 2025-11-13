@@ -1,0 +1,53 @@
+import { NextResponse } from "next/server";
+import { geolocation } from "@vercel/functions";
+import {
+  sendLawyerConfirmationEmail,
+  sendLawyerContactEmail,
+} from "@/components/email/sendlawyeremail";
+
+type LawyerPayload = {
+  firmName: string;
+  attorneyName: string;
+  email: string;
+  phone: string;
+  barNumber?: string;
+  practiceAreas: string;
+  caseType: string;
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string;
+  accidentDate: string;
+  injuryDescription: string;
+  urgency: string;
+  additionalInfo?: string;
+};
+
+export async function POST(request: Request) {
+  const { country } = geolocation(request) || {};
+  const requestCountry =
+    country || request.headers.get("x-vercel-ip-country") || "US";
+
+  if (requestCountry !== "US") {
+    console.warn("[GeoBlock] Blocked non-US submission:", requestCountry);
+    return NextResponse.redirect(new URL("/unavailable", request.url));
+  }
+
+  try {
+    const body: LawyerPayload = await request.json();
+
+    await sendLawyerContactEmail(body);
+    await sendLawyerConfirmationEmail({
+      attorneyName: body.attorneyName,
+      email: body.email,
+      firmName: body.firmName,
+      clientName: body.clientName,
+    });
+
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    console.error("[LawyerForm] Submission failed", error);
+    return NextResponse.json({ ok: false }, { status: 500 });
+  }
+}
+
+

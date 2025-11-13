@@ -13,13 +13,12 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
-import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
 import { motion } from "framer-motion"
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
@@ -41,6 +40,7 @@ const timeSlots = [
 export function PatientAdvocateForm() {
   const [appointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,17 +55,32 @@ export function PatientAdvocateForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    const data = await sendContactEmail(values)
-    await sendUserEmail({ name: values.name, email: values.email, phone: values.phone })
-    
-    // Enhanced Conversions
-    persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-    pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-    pushEvent('lead_form_submit', { form_name: 'PatientAdvocateForm' });
-    
-    if (data) {
+    try {
+      const res = await fetch("/api/forms/patient-advocate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      })
+
+      if (res.redirected) {
+        router.push(res.url)
+        return
+      }
+
+      if (!res.ok) {
+        return
+      }
+
+      // Enhanced Conversions
+      persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+      pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+      pushEvent('lead_form_submit', { form_name: 'PatientAdvocateForm' });
+
       setAppointmentConfirm(true)
       form.reset()
+    } catch (error) {
+      console.error("[PatientAdvocateForm] Submit failed", error)
+    } finally {
       setDisabled(false)
     }
   }
