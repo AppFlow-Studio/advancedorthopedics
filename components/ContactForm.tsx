@@ -13,13 +13,12 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
-import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import { User, Mail, Phone } from "lucide-react"
 import { DialogContent, DialogTitle } from "./ui/dialog"
 import { Dialog } from "./ui/dialog"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 
 const formSchema = z.object({
@@ -33,6 +32,7 @@ const formSchema = z.object({
 export function ConsultationForm() {
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,18 +47,34 @@ export function ConsultationForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    const data = await sendUserEmail(values)
-    await sendContactEmail(values)
-    
-    // Enhanced Conversions
-    persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-    pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-    pushEvent('lead_form_submit', { form_name: 'ConsultationForm' });
-    
-    if (data) {
-      //setAppointmentConfirm(true) 
+    try {
+      const res = await fetch("/api/forms/consultation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      })
+
+      if (res.redirected) {
+        router.push(res.url)
+        return
+      }
+
+      if (!res.ok) {
+        setDisabled(false)
+        return
+      }
+
+      // Enhanced Conversions
+      persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+      pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+      pushEvent('lead_form_submit', { form_name: 'ConsultationForm' });
+
       form.reset()
-      redirect('/thank-you')
+      router.push('/thank-you')
+    } catch (error) {
+      console.error("[ConsultationForm] Submit failed", error)
+      setDisabled(false)
+    } finally {
       setDisabled(false)
     }
   }
