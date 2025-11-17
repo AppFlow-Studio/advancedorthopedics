@@ -15,8 +15,7 @@ import { Calendar, Clock, User, Mail, Phone, Building, FileText, Scale } from "l
 import { BorderBeam } from "@/components/magicui/border-beam"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { sendLawyerContactEmail, sendLawyerConfirmationEmail } from "@/components/email/sendlawyeremail"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 const lawyerSchema = z.object({
     firmName: z.string().min(2, "Firm name is required"),
@@ -72,6 +71,7 @@ export function LawyerContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [openDialog, setOpenDialog] = useState(false)
+    const router = useRouter()
 
     const form = useForm<LawyerFormData>({
         resolver: zodResolver(lawyerSchema),
@@ -96,38 +96,27 @@ export function LawyerContactForm() {
     const onSubmit = async (values: LawyerFormData) => {
         setIsSubmitting(true)
         try {
-            // Send to office
-            await sendLawyerContactEmail({
-                firmName: values.firmName,
-                attorneyName: values.attorneyName,
-                email: values.email,
-                phone: values.phone,
-                barNumber: values.barNumber || "",
-                practiceAreas: values.practiceAreas,
-                caseType: values.caseType,
-                clientName: values.clientName,
-                clientEmail: values.clientEmail,
-                clientPhone: values.clientPhone,
-                accidentDate: values.accidentDate,
-                injuryDescription: values.injuryDescription,
-                urgency: values.urgency,
-                additionalInfo: values.additionalInfo || "",
+            const res = await fetch("/api/forms/lawyer", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
             })
 
-            // Send confirmation to lawyer
-            await sendLawyerConfirmationEmail({
-                attorneyName: values.attorneyName,
-                email: values.email,
-                firmName: values.firmName,
-                clientName: values.clientName,
-            })
+            if (res.redirected) {
+                router.push(res.url)
+                return
+            }
 
-            setIsSubmitting(false)
+            if (!res.ok) {
+                return
+            }
+
             setOpenDialog(false)
             setIsSubmitted(true)
-            redirect('/thank-you')
+            router.push('/thank-you')
         } catch (error) {
             console.error('Error submitting form:', error)
+        } finally {
             setIsSubmitting(false)
         }
     }
