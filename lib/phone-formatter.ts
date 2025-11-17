@@ -162,15 +162,15 @@ export function formatPhone(phone: string): PhoneFormatterResult {
         };
     }
 
-    // Validate American phone format
-    if (!isValidAmericanPhone(phone)) {
-        return {
-            formatted: formatPhoneNumber(phone),
-            isValid: false,
-            isBot: false,
-            error: 'Please enter a valid 10-digit American phone number'
-        };
-    }
+    // // Validate American phone format
+    // if (!isValidAmericanPhone(phone)) {
+    //     return {
+    //         formatted: formatPhoneNumber(phone),
+    //         isValid: false,
+    //         isBot: false,
+    //         error: 'Please enter a valid 10-digit American phone number'
+    //     };
+    // }
 
     return {
         formatted: formatPhoneNumber(phone),

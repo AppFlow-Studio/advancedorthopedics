@@ -33,9 +33,10 @@ const formSchema = z.object({
     email: z.string().email("Invalid email address"),
     phone: z.string()
         .min(1, "Phone number is required")
-        .refine(validatePhoneNumber, {
-            message: "Please enter a valid 10-digit American phone number"
-        }),
+        // .refine(validatePhoneNumber, {
+        //     message: "Please enter a valid 10-digit American phone number"
+        // }),
+        ,
     reason: z.string().min(2),
     bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
     insuranceCardFront: z.instanceof(File).optional().or(z.null()),
@@ -75,26 +76,9 @@ interface DoctorContactFormProp {
     backgroundcolor: string
     header?: string
     buttonText?: string
+    timePeriod?: string
 }
-export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment' }: DoctorContactFormProp) {
-    // const { executeRecaptcha } = useGoogleReCaptcha();
-    // const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-
-    // Create an event handler so you can call the verification on button click event or form submit
-    // const handleReCaptchaVerify = useCallback(async () => {
-    //     if (!executeRecaptcha) {
-    //         console.log('Execute recaptcha not yet available');
-    //         return;
-    //     }
-
-    //     const token = await executeRecaptcha('contact_form');
-    //     setRecaptchaToken(token);
-    // }, [executeRecaptcha]);
-
-    // // You can use useEffect to trigger the verification as soon as the component being loaded
-    // useEffect(() => {
-    //     handleReCaptchaVerify();
-    // }, [handleReCaptchaVerify]);
+export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment', timePeriod = 'day' }: DoctorContactFormProp) {
 
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
@@ -302,7 +286,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                         fontFamily: 'var(--font-public-sans)',
                                                         fontWeight: 500,
                                                     }}
-                                                    className='text-[#111315] sm:text-md text-sm'
+                                                    className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
                                                 >
                                                     Name
                                                 </span>
@@ -346,7 +330,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     fontFamily: 'var(--font-public-sans)',
                                                     fontWeight: 500,
                                                 }}
-                                                className='text-[#111315] sm:text-md text-sm'
+                                                className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
                                             >
                                                 Email
                                             </span>
@@ -372,7 +356,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     fontFamily: 'var(--font-public-sans)',
                                                     fontWeight: 500,
                                                 }}
-                                                className='text-[#111315] sm:text-md text-sm'
+                                                className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
                                             >
                                                 Phone Number
                                             </span>
@@ -407,7 +391,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     fontFamily: 'var(--font-public-sans)',
                                                     fontWeight: 500,
                                                 }}
-                                                className='text-[#111315] sm:text-md text-sm'
+                                                className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
                                             >
                                                 Best Time To Contact
                                             </span>
@@ -498,7 +482,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                         fontFamily: 'var(--font-public-sans)',
                                                                         fontWeight: 500,
                                                                     }}
-                                                                    className='text-[#111315] sm:text-md text-sm'
+                                                                    className={`text-[#111315] sm:text-md text-sm`}
                                                                 >
                                                                     Email Address
                                                                 </span>
@@ -522,7 +506,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                         fontFamily: 'var(--font-public-sans)',
                                                                         fontWeight: 500,
                                                                     }}
-                                                                    className='text-[#111315] sm:text-md text-sm'
+                                                                    className={`text-[#111315]sm:text-md text-sm`}
                                                                 >
                                                                     Phone Number
                                                                 </span>
@@ -557,7 +541,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                     fontFamily: 'var(--font-public-sans)',
                                                                     fontWeight: 500,
                                                                 }}
-                                                                className='text-[#111315] sm:text-md text-sm'
+                                                                className={`text-[#111315] sm:text-md text-sm`}
                                                             >
                                                                 Best Time To Contact
                                                             </span>

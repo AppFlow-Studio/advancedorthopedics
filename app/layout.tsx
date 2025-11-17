@@ -183,9 +183,9 @@ export default function RootLayout({
           <NavBar />
           <MapProvider>
             <GeolocationProvider>
-              <RecaptchaProvider>
+              {/* <RecaptchaProvider> */}
                 {children}
-              </RecaptchaProvider>
+              {/* </RecaptchaProvider> */}
               <Footer />
               <DelayedLocationPopup delayInSeconds={8} />
             </GeolocationProvider>
