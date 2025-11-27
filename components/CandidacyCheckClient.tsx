@@ -178,108 +178,137 @@ export default function CandidacyCheckClient() {
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-      <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-        <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-          <TextAnimate animation="blurInUp" by="word" once
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-[#252932] text-3xl md:text-6xl'
-          >
-            Candidacy Check
-          </TextAnimate>
-          <p
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-white text-lg md:text-xl'
-          >
-            This tool is designed to quickly and easily provide you with information on specific treatments for which you may be a candidate.
-          </p>
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Check your candidacy for spine surgery treatments at Mountain Spine & Orthopedics"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        <div
+          className="w-full h-[100px] absolute bottom-0 z-[1]"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)',
+          }}
+        />
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+          <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+            <TextAnimate animation="blurInUp" by="word" once
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#252932] text-3xl md:text-6xl'
+            >
+              Candidacy Check
+            </TextAnimate>
+            <p
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#252932] text-lg md:text-xl mt-2'
+            >
+              This tool is designed to quickly and easily provide you with information on specific treatments for which you may be a candidate.
+            </p>
+          </div>
         </div>
       </section>
-      <section className='w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] bg-[#FAFAFA] py-[50px] px-6 xl:px-[80px]'>
-        <div className='z-[2] flex w-full'>
-          <nav className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-6'
-            style={{
-              background: 'rgba(255, 255, 255, 0.50)'
-            }}
-            aria-label="Breadcrumb"
-          >
-            <span
+      <section className='w-full h-full flex flex-col relative overflow-hidden bg-white py-[50px] px-6 xl:px-[80px]'>
+        <div className='flex flex-col items-center justify-center w-full max-w-screen-xl mx-auto'>
+          <div className='w-full mb-6'>
+            <nav className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
               style={{
-                fontFamily: "var(--font-public-sans)",
-                fontWeight: 400,
+                background: 'rgba(255, 255, 255, 0.50)'
               }}
-              className="text-black"
+              aria-label="Breadcrumb"
             >
-              Find Care
-            </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 400,
+                }}
+                className="text-black"
+              >
+                Find Care
+              </span>
 
-            <span
-              style={{
-                fontFamily: "var(--font-public-sans)",
-                fontWeight: 400,
-              }}
-              className="text-black"
-            >
-              /
-            </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 400,
+                }}
+                className="text-black"
+              >
+                /
+              </span>
 
-            <span
-              style={{
-                fontFamily: "var(--font-public-sans)",
-                fontWeight: 400,
-              }}
-              className="text-[#2358AC]"
-            >
-              Learn Treatment Candidacy
-            </span>
-          </nav>
-        </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-public-sans)",
+                  fontWeight: 400,
+                }}
+                className="text-[#2358AC]"
+              >
+                Learn Treatment Candidacy
+              </span>
+            </nav>
+          </div>
+          <div className=' flex flex-row space-x-[20px] items-center justify-center w-full'>
+            {
+              CandidacyCheckSteps.map((step, index) => (
+                <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index}>
+                  <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${conditionStep == index + 1 ? ' bg-[#0A50EC] text-white ' : 'bg-[#EFF1F4] text-[#0A50EC] md:flex hidden'}`}>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className=' text-lg'
+                    >
+                      {index + 1}
+                    </span>
+                  </div>
 
-        <div className=' flex flex-row space-x-[20px] items-center justify-center max-w-[1440px]'>
-          {
-            CandidacyCheckSteps.map((step, index) => (
-              <div className=' flex flex-row space-x-[12px] items-center justify-center' key={index}>
-                <div className={` h-[40px] w-[40px] flex items-center  justify-center rounded-full ${conditionStep == index + 1 ? ' bg-[#0A50EC] text-white ' : 'bg-[#EFF1F4] text-[#0A50EC] md:flex hidden'}`}>
-                  <span
+                  <h2
                     style={{
-                      fontFamily: 'var(--font-public-sans)',
+                      fontFamily: "var(--font-public-sans)",
                       fontWeight: 500,
                     }}
-                    className=' text-lg'
-                  >
-                    {index + 1}
-                  </span>
+                    className={`text-black text-xl ${conditionStep == index + 1 ? 'flex' : ' md:flex hidden'}`}>
+                    {step.step}
+                  </h2>
+
+                  {
+                    index + 1 != 3 ?
+                      <div className='md:flex hidden'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="122" height="10" viewBox="0 0 122 8" fill="none">
+                          <path d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5V3.5ZM121.354 4.35355C121.549 4.15829 121.549 3.84171 121.354 3.64645L118.172 0.464466C117.976 0.269204 117.66 0.269204 117.464 0.464466C117.269 0.659728 117.269 0.976311 117.464 1.17157L120.293 4L117.464 6.82843C117.269 7.02369 117.269 7.34027 117.464 7.53553C117.66 7.7308 117.976 7.7308 118.172 7.53553L121.354 4.35355ZM1 4.5H121V3.5H1V4.5Z" fill="#838890" />
+                        </svg>
+                      </div>
+                      : <></>
+                  }
                 </div>
-
-                <h2
-                  style={{
-                    fontFamily: "var(--font-public-sans)",
-                    fontWeight: 500,
-                  }}
-                  className={`text-black text-xl ${conditionStep == index + 1 ? 'flex' : ' md:flex hidden'}`}>
-                  {step.step}
-                </h2>
-
-                {
-                  index + 1 != 3 ?
-                    <div className='md:flex hidden'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="122" height="10" viewBox="0 0 122 8" fill="none">
-                        <path d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5V3.5ZM121.354 4.35355C121.549 4.15829 121.549 3.84171 121.354 3.64645L118.172 0.464466C117.976 0.269204 117.66 0.269204 117.464 0.464466C117.269 0.659728 117.269 0.976311 117.464 1.17157L120.293 4L117.464 6.82843C117.269 7.02369 117.269 7.34027 117.464 7.53553C117.66 7.7308 117.976 7.7308 118.172 7.53553L121.354 4.35355ZM1 4.5H121V3.5H1V4.5Z" fill="#838890" />
-                      </svg>
-                    </div>
-                    : <></>
-                }
-              </div>
-            ))
-          }
+              ))
+            }
+          </div>
         </div>
 
-        <motion.div className='flex flex-col items-center justify-center w-full max-w-screen-xl mt-[50px] overflow-hidden' layout transition={{ duration: 0.3, ease: "easeInOut" }}>
+        <motion.div className='flex flex-col items-center justify-center w-full max-w-screen-xl mx-auto mt-[50px] overflow-hidden' layout transition={{ duration: 0.3, ease: "easeInOut" }}>
           <div className=' bg-[#252932] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
             <h3
               style={{
@@ -288,11 +317,11 @@ export default function CandidacyCheckClient() {
               }}
               className="text-white text-3xl text-center self-center"
             >
-              Step{conditionStep}:{CandidacyCheckSteps[conditionStep - 1].step}
+              Step {conditionStep}: {CandidacyCheckSteps[conditionStep - 1].step}
             </h3>
           </div>
 
-          <div className='bg-white p-[16px] space-y-[24px] flex flex-col w-full'>
+          <div className='bg-[#E0F5FF] border border-black rounded-b-[24px] p-[16px] space-y-[24px] flex flex-col w-full'>
             <p
               style={{
                 fontFamily: "var(--font-public-sans)",
@@ -378,9 +407,8 @@ export default function CandidacyCheckClient() {
                 ))}
               </form>
             </Form>
-          </div>
 
-          <div className=' flex flex-row p-[16px] w-full rounded-b-[24px] justify-between bg-white'>
+            <div className=' flex flex-row pt-[16px] justify-between'>
             {
               conditionStep != 1 ?
                 <button
@@ -443,6 +471,7 @@ export default function CandidacyCheckClient() {
                   >{disabled ? "Sending..." : "Get my Result"}</span>
               }
             </button>
+            </div>
           </div>
         </motion.div>
       </section>

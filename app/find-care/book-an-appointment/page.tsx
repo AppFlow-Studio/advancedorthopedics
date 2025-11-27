@@ -292,26 +292,48 @@ export default function BookAnAppointment() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* MedicalOrganization Schema for SEO */}
       <BookAppointmentJsonLdSchema />
-      <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-        <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-          <TextAnimate animation="blurInUp" by="word" once
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-[#252932] text-3xl md:text-6xl'
-          >
-            Book an Appointment
-          </TextAnimate>
-          <p
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-white md:text-xl text-lg mt-2'
-          >
-            Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
-          </p>
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Book an appointment with Mountain Spine & Orthopedics specialists"
+        />
+        <div
+          className="w-full h-[100px] absolute bottom-0 z-[1]"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1) 100%)',
+          }}
+        />
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+          <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+            <TextAnimate animation="blurInUp" by="word" once
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#252932] text-3xl md:text-6xl'
+            >
+              Book an Appointment
+            </TextAnimate>
+            <p
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#252932] md:text-xl text-lg mt-2'
+            >
+              Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
+            </p>
+          </div>
         </div>
       </section>
       <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />

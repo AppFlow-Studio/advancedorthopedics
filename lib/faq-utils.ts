@@ -43,7 +43,27 @@ export function detectFAQContent(blogInfo: any): { question: string; answer: str
   const content = blogInfo?.blog_info;
   const sections = Array.isArray(content?.blog_info) ? content.blog_info : [];
 
-  if (!sections.length) return null;
+  const explicitFaqs: { question: string; answer: string }[] = [];
+  const explicitSeen = new Set<string>();
+
+  if (Array.isArray(content?.faqs)) {
+    content.faqs.forEach((item: any) => {
+      const question = stripHtml(typeof item?.question === 'string' ? item.question : '');
+      const answer = stripHtml(typeof item?.answer === 'string' ? item.answer : '');
+
+      if (!question || !answer) return;
+
+      const key = `${question.toLowerCase()}|${answer.toLowerCase()}`;
+      if (explicitSeen.has(key)) return;
+      explicitSeen.add(key);
+
+      explicitFaqs.push({ question, answer });
+    });
+  }
+
+  if (explicitFaqs.length) {
+    return explicitFaqs;
+  }
 
   const htmlFaqs: { question: string; answer: string }[] = [];
   const htmlSeen = new Set<string>();
@@ -101,10 +121,10 @@ export function generateFAQPageSchema(faqs: { question: string; answer: string }
     "@type": "FAQPage",
     "mainEntity": faqs.map(faq => ({
       "@type": "Question",
-      "name": faq.question,
+      "name": stripHtml(faq.question),
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer
+        "text": stripHtml(faq.answer)
       }
     })),
     "url": url

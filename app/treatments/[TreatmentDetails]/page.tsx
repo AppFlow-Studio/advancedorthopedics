@@ -9,6 +9,7 @@ import DoctorCard from '@/components/DoctorCard';
 import TreatmentsList from '@/components/TreatmentsList';
 import Link from 'next/link';
 import { conditions } from '@/components/data/conditions';
+import InternalLinkingSection from '@/components/InternalLinkingSection';
 
 // Helper: Build a map of all condition/treatment titles to their slugs and type
 const conditionMap = Object.fromEntries(
@@ -213,6 +214,9 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }
             </div>
           </section>
+          <div className='lg:hidden flex flex-col mt-6'>
+            <InternalLinkingSection currentSlug={treatment.slug} pageType="treatment" />
+          </div>
 
         </div>
 
@@ -426,6 +430,9 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }
             </div>
           </section>
+          <div className='lg:flex hidden flex-col'>
+            <InternalLinkingSection currentSlug={treatment.slug} pageType="treatment" />
+          </div>
           <div>
 
           </div>

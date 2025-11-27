@@ -116,18 +116,30 @@ export default function PatientForms() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
             
             {/* Landing */}
-            <section className=" w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
-                <Image src={PatientFormsLanding} className=" xl:max-h-[945px] h-full absolute top-0 object-cover object-center self-end w-full pl-[100px]" alt="Mountain Spine & Orthopedics patient forms and consultation desk with friendly medical staff" />
-
-                <div className="z-[1] flex flex-col w-full h-full text-left relative pt-60">
-                    <div className="w-[565px] h-full absolute left-0 top-0"
-                        style={{
-                            background: 'linear-gradient(90deg, #5FBBEC 20.16%, rgba(95, 187, 236, 0.26) 90%,  rgba(255,0,0,0) 100%)',
-                        }}
-                    />
-
-                    <div className=' px-6 xl:px-[80px] z-[2]'>
-                        <div className=' xl:mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+            <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+                <div
+                    style={{
+                        filter: 'blur(30px)'
+                    }}
+                    className="w-full h-[120px] absolute top-0 z-[1]"
+                />
+                <Image
+                    src={'/herosectionimg.jpg'}
+                    priority={true}
+                    fetchPriority="high"
+                    layout='fill'
+                    className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+                    alt="Mountain Spine & Orthopedics patient forms and consultation desk with friendly medical staff"
+                />
+                <div
+                    className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+                    style={{
+                        background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+                    }}
+                />
+                <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+                    <div className='px-6 xl:px-[80px] z-[2]'>
+                        <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
                             style={{
                                 background: 'rgba(255, 255, 255, 0.50)'
                             }}
@@ -163,7 +175,7 @@ export default function PatientForms() {
                             </span>
                         </div>
                     </div>
-                    <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[55%]">
+                    <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px]">
                         <h1
                             style={{
                                 fontFamily: "var(--font-public-sans)",
@@ -175,14 +187,14 @@ export default function PatientForms() {
                         </h1>
                     </div>
 
-                    <div className="z-[2] px-6 xl:px-[80px] mt-[24px] md:w-[55%] xl:w-[45%] pb-8">
+                    <div className="z-[2] px-6 xl:px-[80px] mt-[24px] w-full pb-8">
                         <p
                             style={{
                                 fontWeight: 400,
                                 fontSize: "20px",
                                 lineHeight: "148%",
                             }}
-                            className="text-white text-shadow-sm text-xl lg:text-2xl"
+                            className="text-[#252932] text-shadow-sm text-xl lg:text-2xl w-full"
                         >
                             If you have been told to use one of our online forms prior to a visit or treatment, please look below. If you have any questions, or do not see the specific form you are looking for, please don't hesitate to call or email us.
                         </p>

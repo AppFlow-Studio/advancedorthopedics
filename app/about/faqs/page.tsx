@@ -153,10 +153,10 @@ const faqSections = [
         ),
       },
       {
-        question: 'Will I need physical therapy after surgery?',
+        question: 'Will I need rehabilitation after surgery?',
         answer: (
           <p>
-            Often, rehabilitation is part of recovery. Your orthopedic surgeon may recommend physical therapy to help restore strength, flexibility, and range of motion. If appropriate, we'll coordinate a referral to a licensed physical therapist.
+            Often, rehabilitation is part of recovery. Your orthopedic surgeon may recommend exercises and activities to help restore strength, flexibility, and range of motion. Your provider will discuss the appropriate recovery plan for your specific procedure.
           </p>
         ),
       },
@@ -193,7 +193,7 @@ const faqSections = [
         question: 'Can I avoid surgery with non-surgical treatments?',
         answer: (
           <p>
-            Yes. Many patients improve with non-surgical care such as <strong>a referral for physical therapy (if recommended)</strong>, <Link href="/treatments/epidural-steroid-injection" className="text-blue-600 hover:underline">injections</Link>, and medication before surgery is considered.
+            Yes. Many patients improve with non-surgical care such as <Link href="/treatments/epidural-steroid-injection" className="text-blue-600 hover:underline">injections</Link>, medication, and bracing before surgery is considered.
           </p>
         ),
       },
@@ -238,7 +238,7 @@ const faqSections = [
         question: 'What insurance plans do you accept?',
         answer: (
           <p>
-            We accept most major insurance providers in Florida, including Medicare and many PPO plans. Please <Link href="/insurance-policy" className="text-blue-600 hover:underline">review our insurance policy</Link> or call ahead to confirm coverage for your specific plan.
+            We accept most major insurance providers in Florida, including many PPO plans. Please <Link href="/insurance-policy" className="text-blue-600 hover:underline">review our insurance policy</Link> or call ahead to confirm coverage for your specific plan.
           </p>
         ),
       },

@@ -129,6 +129,30 @@ export default function RootLayout({
     }
   };
 
+  const medicalOrgSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Mountain Spine & Orthopedics",
+    "url": "https://mountainspineorthopedics.com",
+    "medicalSpecialty": [
+      "Orthopedic Surgery",
+      "Spine Surgery",
+      "Minimally Invasive Surgery",
+      "Joint Replacement",
+      "Sports Medicine"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-561-223-9959",
+    "sameAs": [
+      "https://www.facebook.com/mountainspineorthopedics",
+      "https://www.linkedin.com/company/mountain-spine-orthopedics"
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -168,11 +192,17 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} ${sora.variable} ${publicSans.variable} antialiased  overscroll-none `}
+        suppressHydrationWarning
       >
         {/* WebSite Schema for Search Functionality */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        {/* MedicalOrganization Schema for Homepage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrgSchema) }}
         />
         {/* Google Tag Manager (noscript) */}
         <noscript>

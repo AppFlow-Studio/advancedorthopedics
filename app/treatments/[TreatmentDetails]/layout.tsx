@@ -5,7 +5,7 @@ import React from "react";
 
 // Import the list of all treatments
 import { AllTreatments } from "@/components/data/treatments";
-import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 // Helper function to safely get the image source URL as a string

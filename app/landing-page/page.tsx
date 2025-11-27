@@ -30,6 +30,7 @@ import { DoctorContactForm } from "@/components/DoctorContactForm"
 import Testimonials from "./components/Testimonials"
 import { clinics } from "@/components/data/clinics"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
+import { PhoneTextLink } from "@/components/PhoneTextLink"
 const HomePage = () => {
 
     return (
@@ -74,14 +75,12 @@ const HomePage = () => {
                                     </p>
                                 </div>
 
-                                <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 ">
+                                <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 items-center">
                                     <BookAnAppoitmentButton />
-                                    <Link href="tel:5612239959">
-                                        <OrthoButton variant="outline" size="lg" className="w-full">
-                                            <Phone className="w-4 h-4 mr-2" />
-                                            Call (561) 223-9959
-                                        </OrthoButton>
-                                    </Link>
+                                    <PhoneTextLink 
+                                        trackLocation="LandingPageHero"
+                                        className="justify-center sm:justify-start"
+                                    />
                                 </div>
 
                                 <div className="flex items-center gap-8 pt-4">
@@ -367,7 +366,7 @@ const HomePage = () => {
                             </p>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             {/* <Link href="https://www.mountainspineorthopedics.com">
                                 <OrthoButton
                                     size="lg"
@@ -379,16 +378,12 @@ const HomePage = () => {
                                 </OrthoButton>
                             </Link> */}
                             <BookAnAppoitmentButton className="w-1/3"/>
-                            <Link href="tel:5612239959">
-                                <OrthoButton
-                                    size="lg"
-                                    variant="outline"
-                                    className="hover:text-medical-blue-600 w-full"
-                                >
-                                    <Phone className="w-5 h-5 mr-2" />
-                                    Call (561) 223-9959
-                                </OrthoButton>
-                            </Link>
+                            <PhoneTextLink 
+                                trackLocation="LandingPageCTA"
+                                textColor="text-white"
+                                iconColor="#FFFFFF"
+                                className="justify-center"
+                            />
                         </div>
 
                         <p className="text-sm text-medical-blue-200">

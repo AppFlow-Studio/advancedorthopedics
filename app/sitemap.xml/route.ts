@@ -114,6 +114,7 @@ export async function GET() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${generateUrlEntry("/")}
   ${generateUrlEntry("/about")}
+  ${generateUrlEntry("/about/faqs")}
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/privacy-policy")}
   ${generateUrlEntry("/area-of-specialty")}

@@ -1,13 +1,13 @@
 'use client'
-import React, { useEffect, useState, cache } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
-import { ConditionInfoProp } from '@/components/ConditionCard'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
 import DoctorCard from '@/components/DoctorCard'
-import BlogPostCard, { BlogPostProp, supabaseBlogPostProp } from '@/components/BlogPostCard'
+import BlogPostCard from '@/components/BlogPostCard'
+import type { BlogFAQItem } from '@/components/BlogPostCard'
 import ClinicsMap from '@/components/ClinicsMap'
 import ContactUsSection from '@/components/ContactUsSection'
 import RelatedPosts from '@/components/RelatedPosts'
@@ -31,6 +31,30 @@ export default function BlogDetails({
     queryKey: ['recentPosts'],
     queryFn: () => GetBlogs(),
   });
+  const faqs: BlogFAQItem[] = (() => {
+    const seen = new Set<string>();
+    const items = Array.isArray(blog_details?.blog_info?.faqs) ? blog_details.blog_info.faqs : [];
+    const normalized: BlogFAQItem[] = [];
+
+    items.forEach((item: any) => {
+      const question = typeof item?.question === 'string' ? item.question.trim() : '';
+      const rawAnswer = typeof item?.answer === 'string' ? item.answer : '';
+      const answer = rawAnswer.trim();
+
+      if (!question || !answer) return;
+
+      const key = `${question.toLowerCase()}|${answer.toLowerCase()}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+
+      normalized.push({
+        question,
+        answer: rawAnswer,
+      });
+    });
+
+    return normalized;
+  })();
 
   if (isLoading) {
     return (
@@ -383,6 +407,63 @@ export default function BlogDetails({
               )}
             </section>
           ))}
+          {faqs.length > 0 && (
+            <section 
+              className="rounded-[24px] border border-blue-100 bg-blue-50/60 px-4 sm:px-6 py-6 sm:py-8 shadow-sm"
+              itemScope 
+              itemType="https://schema.org/FAQPage"
+            >
+              <div className="flex flex-col gap-2 mb-6 sm:mb-8">
+                <h2 
+                  style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} 
+                  className="text-[#111315] text-2xl sm:text-3xl"
+                >
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-sm sm:text-base text-[#394257]">
+                  Answers to the most common patient questions about this topic.
+                </p>
+              </div>
+              <div className="space-y-4 sm:space-y-6">
+                {faqs.map((faq, index) => {
+                  const answerId = `faq-answer-${index}`;
+                  const questionId = `faq-question-${index}`;
+                  const answerContent = renderRichText(faq.answer);
+
+                  return (
+                    <article
+                      key={`${faq.question}-${index}`}
+                      className="rounded-2xl border border-blue-100 bg-white/95 shadow-sm transition-shadow duration-200 hover:shadow-md"
+                      itemScope
+                      itemType="https://schema.org/Question"
+                      itemProp="mainEntity"
+                    >
+                      <div className="px-4 sm:px-6 py-4 sm:py-5">
+                        <h3 
+                          id={questionId}
+                          className="text-base sm:text-lg font-semibold text-[#1C2340] mb-3 sm:mb-4"
+                          itemProp="name"
+                        >
+                          {faq.question}
+                        </h3>
+                        <div
+                          id={answerId}
+                          className="text-sm sm:text-base leading-relaxed text-[#424959] space-y-2"
+                          itemScope
+                          itemType="https://schema.org/Answer"
+                          itemProp="acceptedAnswer"
+                        >
+                          <div itemProp="text">
+                            {answerContent}
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          )}
         </article>
         <aside className='lg:w-[30%] w-full flex flex-col space-y-8'>
           <h2 className='text-[#252932] text-2xl font-bold mb-4'>Recent Posts</h2>

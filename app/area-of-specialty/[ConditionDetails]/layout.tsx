@@ -1,6 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
-import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 function capitalizeWords(str: string): string {
@@ -34,16 +34,27 @@ export async function generateMetadata(
         ? condition.card_img 
         : condition.card_img?.src || getOgImageForPath('/area-of-specialty');
 
+    // Normalize and clean metadata
+    const normalizedTitle = condition.metaTitle 
+      ? normalizeUTF8(condition.metaTitle)
+      : `${condition.title} | Mountain Spine Orthopedics`;
+    const normalizedDesc = condition.metaDesc 
+      ? normalizeUTF8(condition.metaDesc)
+      : condition.body;
+
+    const finalTitle = safeTitle(normalizedTitle, `${condition.title} | Mountain Spine Orthopedics`);
+    const finalDescription = safeDescription(normalizedDesc, condition.body);
+
     return {
-      title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
-      description: safeDescription(condition.metaDesc, condition.body),
+      title: finalTitle,
+      description: finalDescription,
       keywords: condition.keywords || [condition.title, "orthopedic condition", "spine condition"],
       alternates: {
         canonical: canonicalUrl,
       },
       openGraph: {
-        title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
-        description: safeDescription(condition.metaDesc, condition.body),
+        title: finalTitle,
+        description: finalDescription,
         url: canonicalUrl,
         siteName: 'Mountain Spine & Orthopedics',
         type: "article",
@@ -56,8 +67,8 @@ export async function generateMetadata(
       },
       twitter: {
         card: "summary_large_image",
-        title: safeTitle(condition.metaTitle, `${condition.title} | Mountain Spine & Orthopedics`),
-        description: safeDescription(condition.metaDesc, condition.body),
+        title: finalTitle,
+        description: finalDescription,
         images: [ogImage],
       },
     };

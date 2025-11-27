@@ -202,7 +202,7 @@ export default function ClinicsMap({ startingClinic, showEmbed = false }: {
     }
   }, [selectedClinc])
   return (
-    <section className="bg-[#FAFCFF] w-full h-full py-[50px]">
+    <section className="bg-white w-full h-full py-[50px]">
       {/* Section Header for SEO */}
       <div className="max-w-[1440px] w-full px-4 md:px-[40px] mx-auto mb-6 md:mb-8">
         <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">

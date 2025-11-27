@@ -1,12 +1,15 @@
     // app/page.tsx
     import { notFound } from 'next/navigation';
     import { GetBlogInfo } from '@/app/blogs/api/get-blog-info';
-    import BlogPostClient from '@/components/BlogPostClient';
+    import BlogContent from '@/components/BlogContent';
+    import BlogSections from '@/components/BlogSections';
+    import BlogFAQSection from '@/components/BlogFAQSection';
+    import BlogRecentPosts from '@/components/BlogRecentPosts';
     import RelatedPosts from '@/components/RelatedPosts';
-    import EATAuthorBlock from '@/components/EATAuthorBlock';
+    import ContactUsSection from '@/components/ContactUsSection';
     import { QueryClient, dehydrate, HydrationBoundary } from '@tanstack/react-query';
-    import { createClient } from '@/utils/supabase/server';
     import { staticSupabase } from '@/utils/supabase/static';
+    import { normalizeFAQs } from '@/lib/normalize-faqs';
 
     export const dynamicParams = false;
 
@@ -29,12 +32,43 @@
   const blog = await GetBlogInfo(resolvedParams.BlogSlug);
   if (!blog) return notFound();
 
+  // Normalize FAQs on server
+  const faqs = normalizeFAQs(blog.blog_info?.faqs || []);
+
+  // Prefetch for client components that need it
   const qc = new QueryClient();
   await qc.prefetchQuery({ queryKey: ['posts', resolvedParams.BlogSlug], queryFn: () => blog });
 
   return (
     <HydrationBoundary state={dehydrate(qc)}>
-      <BlogPostClient params={resolvedParams.BlogSlug} />
+      <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+        {/* Server-rendered blog content (hero section) */}
+        <BlogContent blog={blog} />
+        
+        {/* Main content area with sidebar */}
+        <div className='max-w-[1440px] w-full h-full flex lg:flex-row flex-col relative overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
+          <article className='lg:w-[70%] w-full flex flex-col space-y-[60px] rounded-[24px]'>
+            {/* Server-rendered blog sections */}
+            <BlogSections sections={blog.blog_info.blog_info} />
+            
+            {/* Server-rendered FAQ section */}
+            {faqs.length > 0 && <BlogFAQSection faqs={faqs} />}
+          </article>
+          
+          {/* Client-rendered Recent Posts sidebar */}
+          <BlogRecentPosts />
+        </div>
+
+        {/* Related Posts - Client component */}
+        <section className='max-w-[1440px] w-full px-6 xl:px-[80px] py-8'>
+          <RelatedPosts
+            currentSlug={resolvedParams.BlogSlug}
+            currentTags={blog.blog_info.tags || []}
+          />
+        </section>
+
+        <ContactUsSection />
+      </main>
     </HydrationBoundary>
   );
 }

@@ -113,30 +113,52 @@ export default function FindADoctor() {
       {/* JSON-LD Schema Markup for SEO */}
       <PhysicianSchema doctors={Doctors} wrapInItemList={true} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} />
-      <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-        <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-          <TextAnimate 
-            animation="blurInUp" 
-            by="word" 
-            once
-            as="h1"
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-[#252932] text-3xl md:text-6xl'
-          >
-            Find a Doctor
-          </TextAnimate>
-          <p
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-white text-lg md:text-xl mt-2'
-          >
-            Connect With a Top Spine Surgeon or Orthopedic Specialist
-          </p>
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Find a board-certified orthopedic doctor or spine surgeon at Mountain Spine & Orthopedics"
+        />
+        <div
+          className="w-full h-[100px] absolute bottom-0 z-[1]"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1) 100%)',
+          }}
+        />
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+          <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+            <TextAnimate 
+              animation="blurInUp" 
+              by="word" 
+              once
+              as="h1"
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#252932] text-3xl md:text-6xl'
+            >
+              Find a Doctor
+            </TextAnimate>
+            <p
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#252932] text-lg md:text-xl mt-2'
+            >
+              Connect With a Top Spine Surgeon or Orthopedic Specialist
+            </p>
+          </div>
         </div>
       </section>
       <FindCareContactUsSection page={'Find a Doctor'} backgroundcolor="white" />
