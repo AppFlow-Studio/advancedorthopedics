@@ -17,6 +17,7 @@ import { TextAnimate } from '@/components/magicui/text-animate'
 import { Calendar, User } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query';
 import { GetBlogs } from '@/app/blogs/api/get-blogs'
+import { getAspectRatioClass } from '@/lib/image-utils'
 
 export default function BlogDetails({
   params,
@@ -390,15 +391,53 @@ export default function BlogDetails({
           {blog_details?.blog_info.blog_info.map((section: any, idx: number) => (
             <section key={idx} className="mb-8">
               <h2 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
+              {section.img && (
+                <div className={`w-full relative rounded-2xl overflow-hidden mb-6 ${getAspectRatioClass(section.imgRatio)}`}>
+                  {section.imgRatio === 'original' ? (
+                    <Image 
+                      src={section.img} 
+                      alt={section.header || ''} 
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className='w-full h-auto object-contain'
+                    />
+                  ) : (
+                    <Image 
+                      src={section.img} 
+                      alt={section.header || ''} 
+                      fill 
+                      className='object-cover object-center' 
+                    />
+                  )}
+                </div>
+              )}
               <div className='text-[#424959] text-lg mb-4'>{renderRichText(section.body)}</div>
               {section.sub_stories && section.sub_stories.length > 0 && (
                 <div className="space-y-4">
                   {section.sub_stories.map((sub: any, subIdx: number) => (
                     <div key={subIdx} className="ml-4">
                       {sub.img && (
-                        <div className='w-full h-100 relative rounded-2xl overflow-hidden mb-6'>
-                          <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
-                        </div>)}
+                        <div className={`w-full relative rounded-2xl overflow-hidden mb-6 ${getAspectRatioClass(sub.imgRatio)}`}>
+                          {sub.imgRatio === 'original' ? (
+                            <Image 
+                              src={sub.img} 
+                              alt={sub.header || ''} 
+                              width={0}
+                              height={0}
+                              sizes="100vw"
+                              className='w-full h-auto object-contain'
+                            />
+                          ) : (
+                            <Image 
+                              src={sub.img} 
+                              alt={sub.header || ''} 
+                              fill 
+                              className='object-cover object-center' 
+                            />
+                          )}
+                        </div>
+                      )}
                       <h3 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#252932] text-xl mb-1'>{sub.header}</h3>
                       <div className='text-[#424959] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base'>{renderRichText(sub.body)}</div>
                     </div>

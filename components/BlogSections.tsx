@@ -1,15 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
 import { processBlogHTML } from '@/lib/process-blog-html';
+import { getAspectRatioClass } from '@/lib/image-utils';
 
 interface BlogSectionsProps {
   sections: Array<{
     header: string;
     body: string;
+    img?: string;
+    imgRatio?: string;
     sub_stories?: Array<{
       header: string;
       body: string;
       img?: string;
+      imgRatio?: string;
     }>;
   }>;
 }
@@ -27,6 +31,27 @@ export default function BlogSections({ sections }: BlogSectionsProps) {
           {section.header && (
             <h2 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#111315] text-3xl mb-2'>{section.header}</h2>
           )}
+          {section.img && (
+            <div className={`w-full relative rounded-2xl overflow-hidden mb-6 ${getAspectRatioClass(section.imgRatio)}`}>
+              {section.imgRatio === 'original' ? (
+                <Image 
+                  src={section.img} 
+                  alt={section.header || ''} 
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className='w-full h-auto object-contain'
+                />
+              ) : (
+                <Image 
+                  src={section.img} 
+                  alt={section.header || ''} 
+                  fill 
+                  className='object-cover object-center' 
+                />
+              )}
+            </div>
+          )}
           <div 
             className='text-[#424959] text-lg mb-4 [&_p]:mb-4 [&_br]:block'
             dangerouslySetInnerHTML={{ __html: processBlogHTML(section.body) }}
@@ -36,8 +61,24 @@ export default function BlogSections({ sections }: BlogSectionsProps) {
               {section.sub_stories.map((sub: any, subIdx: number) => (
                 <div key={subIdx} className="ml-4">
                   {sub.img && (
-                    <div className='w-full h-100 relative rounded-2xl overflow-hidden mb-6'>
-                      <Image src={sub.img} alt={sub.header} fill className='object-cover object-center' />
+                    <div className={`w-full relative rounded-2xl overflow-hidden mb-6 ${getAspectRatioClass(sub.imgRatio)}`}>
+                      {sub.imgRatio === 'original' ? (
+                        <Image 
+                          src={sub.img} 
+                          alt={sub.header || ''} 
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          className='w-full h-auto object-contain'
+                        />
+                      ) : (
+                        <Image 
+                          src={sub.img} 
+                          alt={sub.header || ''} 
+                          fill 
+                          className='object-cover object-center' 
+                        />
+                      )}
                     </div>
                   )}
                   {sub.header && (
