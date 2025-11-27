@@ -39,11 +39,10 @@ export function safeTitle(primary?: string, fallback?: string): string {
   const text = normalizeUTF8(primary || fallback || "Mountain Spine & Orthopedics");
   const cleaned = removeHTML(text).trim();
   
-  // Ensure title ends with "Mountain Spine Orthopedics" or variant if space permits
-  if (cleaned.length <= 70 && !cleaned.includes("Mountain Spine")) {
-    // If title is short enough and doesn't include brand, add it
-    const withBrand = `${cleaned} | Mountain Spine Orthopedics`;
-    return withBrand.length <= 70 ? withBrand : cleaned;
+  // Ensure title ends with "Mountain Spine Orthopedics" or variant if not already included
+  if (!cleaned.includes("Mountain Spine")) {
+    // If title doesn't include brand, add it
+    return `${cleaned} | Mountain Spine Orthopedics`;
   }
   
   return cleaned;
@@ -53,8 +52,7 @@ export function safeDescription(primary?: string, fallback?: string): string {
   const text = normalizeUTF8(primary || fallback || "");
   const cleaned = removeHTML(text)
     .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 158);
+    .trim();
   return cleaned || "Trusted orthopedic and spine care across Florida.";
 }
 
