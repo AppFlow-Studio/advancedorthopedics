@@ -2,7 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { conditions as painconditions } from "@/components/data/painconditions";
 import { PainAreaTreatments } from "@/components/data/painareatreatments";
-import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
@@ -63,11 +63,15 @@ export async function generateMetadata(
   // Compute pain area in Title-Case
   const painArea = conditionSlug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
   
+  // Normalize and clean metadata
+  const normalizedTitle = data.metaTitle ? normalizeUTF8(data.metaTitle) : undefined;
+  const normalizedDesc = data.metaDesc ? normalizeUTF8(data.metaDesc) : undefined;
+  
   // Title pattern - prefer data.metaTitle if available
-  const title = safeTitle(data.metaTitle, `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`);
+  const title = safeTitle(normalizedTitle, `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`);
   
   // Description - prefer data.metaDesc if available
-  const description = safeDescription(data.metaDesc, `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`);
+  const description = safeDescription(normalizedDesc, `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`);
 
   return {
     title,

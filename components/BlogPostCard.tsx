@@ -3,6 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 
+export interface BlogFAQItem {
+    question: string
+    answer: string
+}
+
 export interface BlogPostProp {
     title: string
     desc: string
@@ -17,6 +22,7 @@ export interface BlogPostProp {
     slug: string
     modified_at?: string
     featured?: boolean
+    faqs?: BlogFAQItem[]
     blog_info: {
         header: string,
         body: string,

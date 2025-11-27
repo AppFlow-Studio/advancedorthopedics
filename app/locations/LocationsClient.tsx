@@ -6,6 +6,7 @@ import { MapPin, Phone, Clock, Building2 } from 'lucide-react'
 import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   Carousel,
@@ -208,43 +209,72 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10'>
-      <section className=' bg-[#6FC2ED] w-full flex flex-row' id="Locations">
-        <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-          <TextAnimate animation="blurInUp" by="character" once as="h1"
-            style={{
-              fontFamily: 'var(--font-reem-kufi)',
-              fontWeight: 500,
+      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" id="Locations">
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Find Mountain Spine & Orthopedics clinic locations across Florida"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        <div
+          className="w-full h-[100px] absolute bottom-0 z-[1]"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)',
+          }}
+        />
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+          <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+            <TextAnimate animation="blurInUp" by="character" once as="h1"
+              style={{
+                fontFamily: 'var(--font-reem-kufi)',
+                fontWeight: 500,
 
-            }}
-            className='text-[#252932] text-6xl'
-          >
-            Locations
-          </TextAnimate>
-          <h2
-            style={{
-              fontFamily: 'var(--font-reem-kufi)',
-              fontWeight: 500,
+              }}
+              className='text-[#252932] text-6xl'
+            >
+              Locations
+            </TextAnimate>
+            <h2
+              style={{
+                fontFamily: 'var(--font-reem-kufi)',
+                fontWeight: 500,
 
-            }}
-            className='text-white text-2xl mt-2'
-          >
-            Find Orthopedic Care Near You
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--font-reem-kufi)',
-              fontWeight: 500,
+              }}
+              className='text-[#252932] text-2xl mt-2'
+            >
+              Find Orthopedic Care Near You
+            </h2>
+            <p
+              style={{
+                fontFamily: 'var(--font-reem-kufi)',
+                fontWeight: 500,
 
-            }}
-            className='text-white text-xl mt-2'
-          >
-            Mountain Spine & Orthopedics delivers expert spine care across Florida with 10 Locations and an Ambulatory Surgery Center.
-          </p>
+              }}
+              className='text-[#252932] text-xl mt-2'
+            >
+              Mountain Spine & Orthopedics delivers expert spine care across Florida with 10 Locations and an Ambulatory Surgery Center.
+            </p>
+          </div>
         </div>
       </section>
 
-      <ClinicsMap startingClinic={currentSelectedLocation} />
-      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
+      <div className="bg-white w-full">
+        <ClinicsMap startingClinic={currentSelectedLocation} />
+        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -347,6 +377,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             </div>
           </div>
         </motion.div>
+        </div>
       </div>
     </main>
   )

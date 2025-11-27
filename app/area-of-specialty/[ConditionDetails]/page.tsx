@@ -16,6 +16,7 @@ import Logo from '@/public/newlogo4.png'
 import { notFound } from 'next/navigation';
 import { AllTreatments } from '@/components/data/treatments';
 import { srOnly } from '@/lib/seo';
+import InternalLinkingSection from '@/components/InternalLinkingSection';
 
 // Helper: Build a map of all condition/treatment titles to their slugs and type
 const conditionMap = Object.fromEntries(
@@ -227,6 +228,9 @@ export default async function ConditionDetails({
               }
             </div>
           </section>
+          <div className='lg:hidden flex flex-col mt-6'>
+            <InternalLinkingSection currentSlug={condition_details.slug} pageType="condition" />
+          </div>
 
         </div>
 
@@ -376,6 +380,9 @@ export default async function ConditionDetails({
               }
             </div>
           </section>
+          <div className='lg:flex hidden flex-col'>
+            <InternalLinkingSection currentSlug={condition_details.slug} pageType="condition" />
+          </div>
           <div>
 
           </div>

@@ -31,11 +31,15 @@ export async function generateMetadata(
     // Extract city name from location data
     const cityName = location.region.split(',')[0].trim();
     
-    // Create consistent title format
-    const consistentTitle = safeTitle(location.metaTitle, `Mountain Spine & Orthopedics in ${cityName}, FL | Official Site`);
+    // Create consistent title format: "Orthopedic & Spine Specialists in [City], FL | Mountain Spine Orthopedics"
+    const standardizedTitle = `Orthopedic & Spine Specialists in ${cityName}, FL | Mountain Spine Orthopedics`;
+    const consistentTitle = safeTitle(location.metaTitle, standardizedTitle);
     
-    // Use FULL meta description directly (no truncation for location pages)
-    const consistentDescription = location.metaDescription || `Trusted orthopedic care in ${cityName}, FL—board-certified surgeons, compassionate staff, and convenient appointments at Mountain Spine & Orthopedics.`;
+    // Standardized description format with rating mention
+    const standardizedDescription = location.rating && location.reviewCount 
+      ? `Top-rated orthopedic and spine specialists in ${cityName}, FL. Mountain Spine Orthopedics offers minimally invasive spine surgery, joint care, and advanced treatments. Rated ${location.rating} stars by over ${location.reviewCount} patients. Book an appointment today.`
+      : `Visit our orthopedic and spine clinic in ${cityName}, FL. Our specialists provide minimally invasive spine surgery, joint pain care, and advanced orthopedic treatments. Book an appointment today.`;
+    const consistentDescription = safeDescription(location.metaDescription, standardizedDescription);
     
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
     return {
@@ -124,6 +128,15 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
     
     const { streetAddress, addressLocality, addressRegion, postalCode } = parseAddress(location.address);
 
+    // Extract iframe src from mapEmbed
+    const extractMapSrc = (mapEmbed?: string): string | undefined => {
+      if (!mapEmbed) return undefined;
+      const srcMatch = mapEmbed.match(/src="([^"]+)"/);
+      return srcMatch ? srcMatch[1] : undefined;
+    };
+
+    const mapSrc = extractMapSrc(location.mapEmbed) || location.placeUrl || location.link;
+
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'MedicalClinic', // More specific than MedicalOrganization for a location page
@@ -132,7 +145,8 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
       'url': `https://mountainspineorthopedics.com/locations/${location.slug}`,
       'telephone': location.phone,
       'sameAs': [location.link].filter(Boolean),
-      'hasMap': location.placeUrl || location.link,
+      'hasMap': mapSrc,
+      'map': mapSrc,
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': streetAddress,
@@ -145,6 +159,22 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
           '@type': 'GeoCoordinates',
           'latitude': location.lat,
           'longitude': location.lng
+      },
+      'location': {
+        '@type': 'Place',
+        'geo': {
+          '@type': 'GeoCoordinates',
+          'latitude': location.lat,
+          'longitude': location.lng
+        },
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': streetAddress,
+          'addressLocality': addressLocality,
+          'addressRegion': addressRegion,
+          'postalCode': postalCode,
+          'addressCountry': 'US'
+        }
       },
       // Enhanced medical specialties
       'medicalSpecialty': [
@@ -170,17 +200,23 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         'Sa 08:00-20:00',
         'Su 08:00-20:00'
       ],
+      'openingHoursSpecification': [{
+        '@type': 'OpeningHoursSpecification',
+        'dayOfWeek': [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        'opens': '09:00',
+        'closes': '17:00'
+      }],
+      'priceRange': '$$',
       // This links each clinic back to the main organization
-      'parentOrganization': {
-          '@type': 'MedicalOrganization',
-          'name': 'Mountain Spine & Orthopedics',
-          'url': 'https://mountainspineorthopedics.com/',
-          'medicalSpecialty': [
-            'Orthopedic Surgery',
-            'Spine Surgery',
-            'Minimally Invasive Surgery'
-          ]
-      },
+      'parentOrganization': 'Mountain Spine & Orthopedics',
       // Enhanced services offered
       'hasOfferCatalog': {
         '@type': 'OfferCatalog',
@@ -266,7 +302,30 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         ]
       },
       // Add a generic image or create a location-specific one
-      'image': 'https://mountainspineorthopedics.com/locations_og.png',
+      'image': location.ogImage ? `https://mountainspineorthopedics.com${location.ogImage}` : 'https://mountainspineorthopedics.com/locations_og.png',
+      // AggregateRating for 5-star rating
+      'aggregateRating': location.rating && location.reviewCount ? {
+        '@type': 'AggregateRating',
+        'ratingValue': location.rating,
+        'bestRating': 5,
+        'worstRating': 1,
+        'reviewCount': location.reviewCount
+      } : undefined,
+      // Review array for patient reviews
+      'review': location.reviews && location.reviews.length > 0 ? location.reviews.map((r) => ({
+        '@type': 'Review',
+        'author': {
+          '@type': 'Person',
+          'name': r.author
+        },
+        'reviewBody': r.reviewBody,
+        'reviewRating': {
+          '@type': 'Rating',
+          'ratingValue': r.reviewRating,
+          'bestRating': 5,
+          'worstRating': 1
+        }
+      })) : undefined,
     };
   
     // FAQ Schema for location-specific questions
@@ -335,54 +394,17 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
       ]
     };
 
-    // Review Schema for location ratings
-    const reviewSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'MedicalClinic',
-      'name': location.name,
-      'url': `https://mountainspineorthopedics.com/locations/${location.slug}`,
-      'aggregateRating': {
-        '@type': 'AggregateRating',
-        'ratingValue': '5.0',
-        'reviewCount': '200',
-        'bestRating': '5',
-        'worstRating': '1'
-      },
-      'review': [
-        {
-          '@type': 'Review',
-          'reviewRating': {
-            '@type': 'Rating',
-            'ratingValue': '5',
-            'bestRating': '5'
-          },
-          'author': {
-            '@type': 'Person',
-            'name': 'Patient Review'
-          },
-          'reviewBody': `Excellent orthopedic care at ${location.name}. The minimally invasive spine surgery and Band-Aid Back Surgery techniques provided faster recovery than expected. Highly recommend for orthopedic needs.`
-        },
-        {
-          '@type': 'Review',
-          'reviewRating': {
-            '@type': 'Rating',
-            'ratingValue': '5',
-            'bestRating': '5'
-          },
-          'author': {
-            '@type': 'Person',
-            'name': 'Patient Review'
-          },
-          'reviewBody': `Professional and caring orthopedic specialists at ${location.name}. Same-day appointments made it convenient, and the comprehensive orthopedic care exceeded expectations.`
-        }
-      ]
-    };
+
+    // Remove undefined values from schema before stringifying
+    const cleanSchema = Object.fromEntries(
+      Object.entries(schema).filter(([_, value]) => value !== undefined)
+    );
 
     return (
       <>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(cleanSchema) }}
         />
         <script
           type="application/ld+json"
@@ -391,10 +413,6 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
         />
       </>
     );

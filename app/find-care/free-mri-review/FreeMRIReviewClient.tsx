@@ -257,41 +257,63 @@ export default function FreeMRIReviewClient() {
   return (
     <>
       <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-        <section className=' bg-[#6FC2ED] w-full flex flex-row'>
-          <div className=' max-w-[1440px] w-full flex flex-col items-start justfiy-start p-[16px] pt-32 lg:pt-26 px-6 lg:px-[80px]'>
-            <h1
-              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-              className='text-[#252932] text-3xl md:text-6xl'
-            >
-              Get a Free MRI Review
-            </h1>
-            <p
-              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-              className='text-white text-lg md:text-xl'
-            >
-              This tool enables you to easily and securely send us those results, where they will be reviewed by a certified orthopedic specialist.
-            </p>
+        <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+          <div
+            style={{
+              filter: 'blur(30px)'
+            }}
+            className="w-full h-[120px] absolute top-0 z-[1]"
+          />
+          <Image
+            src={'/herosectionimg.jpg'}
+            priority={true}
+            fetchPriority="high"
+            layout='fill'
+            className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+            alt="Get a free MRI review from Mountain Spine & Orthopedics orthopedic specialists"
+          />
+          <div
+            className="w-full h-[100px] absolute bottom-0 z-[1]"
+            style={{
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1) 100%)',
+            }}
+          />
+          <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+            <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+              <h1
+                style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+                className='text-[#252932] text-3xl md:text-6xl'
+              >
+                Get a Free MRI Review
+              </h1>
+              <p
+                style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+                className='text-[#252932] text-lg md:text-xl mt-2'
+              >
+                This tool enables you to easily and securely send us those results, where they will be reviewed by a certified orthopedic specialist.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className='w-full h-full flex flex-col items-center relative overflow-hidden bg-[#FAFAFA] py-[50px] px-6 xl:px-[80px]'>
-          <div className='px-6 xl:px-[80px] z-[2] flex w-full'>
-            <div
-              className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center self-start justify-center px-[20px] py-[10px] mb-6'
-              style={{ background: 'rgba(255, 255, 255, 0.5)' }}
-            >
-              <span className='text-black' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}>Find Care</span>
-              <span className='text-black' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}>/</span>
-              <span className='text-[#2358AC]' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}>Get a Free MRI Review</span>
+        <section className='w-full h-full flex flex-col items-center relative overflow-hidden bg-white py-[50px] px-6 xl:px-[80px]'>
+          <div className='flex flex-col items-center justify-center max-w-[1440px] w-full lg:px-[200px]'>
+            <div className='w-full mb-6'>
+              <div
+                className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
+                style={{ background: 'rgba(255, 255, 255, 0.5)' }}
+              >
+                <span className='text-black' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}>Find Care</span>
+                <span className='text-black' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}>/</span>
+                <span className='text-[#2358AC]' style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}>Get a Free MRI Review</span>
+              </div>
             </div>
-          </div>
-          <div className='flex flex-col items-center justify-center max-w-[1440px] mt-[50px] w-full lg:px-[200px]'>
             <div className=' bg-[#252932] rounded-t-[24px] rounded-b-0 w-full p-[16px]'>
               <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-white text-3xl text-center self-center">
                 Step {ConditionStep}: {FreeMriReviewSteps[ConditionStep - 1].step}
               </h2>
             </div>
-            <div className='bg-white p-[16px] space-y-[24px] flex flex-col w-full'>
+            <div className='bg-[#E0F5FF] border border-black rounded-b-[24px] p-[16px] space-y-[24px] flex flex-col w-full'>
               <h3 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#424959] text-lg text-left w-full">
                 {FreeMriReviewSteps[ConditionStep - 1].caption}
               </h3>
@@ -445,8 +467,8 @@ export default function FreeMRIReviewClient() {
                   }
                 </form>
               </Form>
-            </div>
-            <div className=' flex flex-row p-[16px] w-full rounded-b-[24px] justify-between bg-white'>
+
+              <div className=' flex flex-row pt-[16px] justify-between'>
               {
                 ConditionStep != 1 ?
                   <button
@@ -499,18 +521,15 @@ export default function FreeMRIReviewClient() {
                     <p
                       style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}
                     >{disabled ? "Sending..." : "Claim my FREE Review"}</p>
-                }
-              </button>
+              }
+            </button>
+              </div>
             </div>
           </div>
         </section>
 
         <ContactUsSection />
-        <div className="w-full flex flex-row items-center justify-evenly bg-white py-20 "
-          style={{
-            background: 'linear-gradient(0deg, #6FC2ED 47.98%, rgba(118, 197, 238, 0.00) 100%)',
-          }}
-        >
+        <div className="w-full flex flex-row items-center justify-evenly bg-white py-20 ">
           <Marquee pauseOnHover className='w-full' >
             {
               [

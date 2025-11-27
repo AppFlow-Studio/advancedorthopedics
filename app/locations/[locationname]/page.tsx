@@ -32,6 +32,11 @@ import { Doctors } from '@/components/data/doctors'
 import SlidingDiv from '@/components/SlidingAnimation'
 import { DoctorContactForm } from '@/components/DoctorContactForm'
 import LocationLanding from '@/public/ConditionDetails.jpeg'
+import { Testimonial } from '@/components/ui/testimonial-card'
+import ReviewsCarousel from '@/components/ReviewsCarousel.client'
+import { PhoneTextLink } from '@/components/PhoneTextLink'
+import LocationFAQSection from '@/components/LocationFAQSection'
+import { generateFAQPageSchema } from '@/lib/faq-utils'
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -200,17 +205,13 @@ export default async function LocationDetails(
                                     <span className="mt-[1px]">Get Directions</span>
                                 </Link>
 
-                                {/* Contact Us - white outline to match desktop style */}
-                                <a
-                                    href="tel:5612239959"
-                                    className="w-full h-[52px] rounded-[16px] bg-white text-[#0A50EC] border border-[#0A50EC] flex items-center justify-center gap-2 font-[500] text-[15px] shadow-sm active:scale-[0.98] transition-all duration-200"
-                                    style={{ fontFamily: 'var(--font-public-sans)' }}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 12" fill="none">
-                                        <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.3735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#0A50EC" />
-                                    </svg>
-                                    <span className="mt-[1px]">Contact Us</span>
-                                </a>
+                                {/* Phone Text Link */}
+                                <div className="w-full flex justify-center">
+                                    <PhoneTextLink 
+                                        trackLocation="LocationPageMobile"
+                                        className="justify-center"
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -234,16 +235,11 @@ export default async function LocationDetails(
                                     </svg>
                                   </div>
                                 </Link>
-                                <a href="tel:5612239959"
-                                    className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden px-[32px] py-[16px] rounded-[62px] relative items-center justify-center md:justify-between bg-[white] text-[#0A50EC] w-full md:w-fit font-[500] text-[14px]"
-                                >
-                                    <p className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out">Contact Us</p>
-                                    <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                                            <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.3735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="currentColor" />
-                                    </svg>
-                                    </div>
-                                </a>
+                                <div className="lg:flex hidden">
+                                    <PhoneTextLink 
+                                        trackLocation="LocationPageDesktop"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -275,6 +271,7 @@ export default async function LocationDetails(
                 </div>
 
             </section>
+            <ClinicsMap startingClinic={location} />
             {/* Our Specialty */}
             <section className=" w-full flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
                 <Reveal className="w-full" width="100%">
@@ -367,7 +364,6 @@ export default async function LocationDetails(
                     </div>
                 </div>
             </section>
-            <ClinicsMap startingClinic={location} />
             {/* Removed duplicate certificates marquee under the map */}
  
             <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]">
@@ -432,10 +428,44 @@ export default async function LocationDetails(
                 {location.specialists}
                 {location.skilled}
                 {location.whyChoose}
-                {location.easyToReach}
+                <div className="w-full flex flex-col md:flex-row md:items-start mt-10 relative">
+                  <div className="md:w-1/5 w-full md:pr-4">
+                    {location.easyToReach}
+                  </div>
+                  {location.mapEmbed && (
+                    <div
+                      className="md:w-4/5 w-full mt-6 md:mt-0 md:ml-6 md:absolute md:right-0 md:top-0"
+                      style={{ 
+                        right: 'calc((100vw - min(100vw, 1440px)) / 2 - 40px)',
+                        width: 'calc(50vw - ((100vw - min(100vw, 1440px)) / 2) + 40px)',
+                        maxWidth: 'calc(50vw - ((100vw - min(100vw, 1440px)) / 2) + 40px)'
+                      }}
+                      dangerouslySetInnerHTML={{ __html: location.mapEmbed }}
+                    />
+                  )}
+                </div>
                 {location.nearby}
                 {location.advancedTreatments}
-                {location.whatOurPatientsSay}
+            </section>
+            
+            {/* FAQ Section */}
+            {location.faqs && location.faqs.length > 0 && (
+                <LocationFAQSection
+                    faqs={location.faqs}
+                    locationName={location.region.split(',')[0]}
+                    pageUrl={`/locations/${location.slug}`}
+                />
+            )}
+            
+            <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
+                {location && location.reviews && location.reviews.length > 0 && (
+                    <ReviewsCarousel
+                        reviews={location.reviews}
+                        cityName={location.region.split(',')[0]}
+                        rating={location.rating}
+                        reviewCount={location.reviewCount}
+                    />
+                )}
             </section>
             {/* <RatingsAndReviews /> */}
         </main>
