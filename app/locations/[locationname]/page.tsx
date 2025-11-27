@@ -13,12 +13,12 @@ import SMIS from '@/public/SMIS.png';
 
 // Professional association logo alt text mapping
 const associationLogoAlt: Record<string, string> = {
-  'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
-  'ACP': 'American College of Physicians (ACP) certification',
-  'AOA': 'American Osteopathic Association (AOA) accreditation',
-  'NASS': 'North American Spine Society (NASS) membership badge',
-  'Serpent': 'Medical caduceus symbol representing healthcare excellence',
-  'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
+    'AAOS': 'American Academy of Orthopaedic Surgeons (AAOS) member logo',
+    'ACP': 'American College of Physicians (ACP) certification',
+    'AOA': 'American Osteopathic Association (AOA) accreditation',
+    'NASS': 'North American Spine Society (NASS) membership badge',
+    'Serpent': 'Medical caduceus symbol representing healthcare excellence',
+    'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
 };
 import Image from 'next/image'
 import { Marquee } from '@/components/magicui/marquee'
@@ -199,15 +199,15 @@ export default async function LocationDetails(
                                     style={{ fontFamily: 'var(--font-public-sans)' }}
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
                                     </svg>
                                     <span className="mt-[1px]">Get Directions</span>
                                 </Link>
 
                                 {/* Phone Text Link */}
                                 <div className="w-full flex justify-center">
-                                    <PhoneTextLink 
+                                    <PhoneTextLink
                                         trackLocation="LocationPageMobile"
                                         className="justify-center"
                                     />
@@ -216,30 +216,33 @@ export default async function LocationDetails(
                         </div>
 
                         <div className="z-[2] sm:block hidden">
-                            <div className="xl:px-[80px] px-8 my-[16px] xl:w-full flex md:flex-row flex-col md:space-y-0 space-y-4 md:space-x-[16px]">
-                                <div className=""><BookAnAppoitmentButton /></div>
-                                <Link href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))} target="_blank" rel="noopener noreferrer" className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden px-[24px] py-[16px] rounded-[62px] relative items-center justify-center bg-[#E5E7EB] text-[#252932] w-full md:w-fit font-[500] text-[14px] hover:bg-[#D1D5DB] transition-colors">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                  </svg>
-                                  <span
-                                    style={{ fontFamily: 'var(--font-public-sans)' }}
-                                    className="group-hover:scale-[1.05] transition-transform duration-300 ease-in-out"
-                                  >
-                                    Get Directions
-                                  </span>
-                                  <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
-                                      <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.3735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="currentColor" />
-                                    </svg>
-                                  </div>
-                                </Link>
-                                <div className="lg:flex hidden">
-                                    <PhoneTextLink 
+                            <div className="xl:px-[80px] px-8 my-[16px] xl:w-full flex flex-col space-y-6 ">
+                                <div className='flex flex-row md:space-x-[16px]'>
+                                    <div className=""><BookAnAppoitmentButton /></div>
+                                    <Link href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))} target="_blank" rel="noopener noreferrer" className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden px-[24px] py-[16px] rounded-[62px] relative items-center justify-center bg-[#E5E7EB] text-[#252932] w-full md:w-fit font-[500] text-[14px] hover:bg-[#D1D5DB] transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <span
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="group-hover:scale-[1.05] transition-transform duration-300 ease-in-out"
+                                        >
+                                            Get Directions
+                                        </span>
+                                        <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+                                                <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.3735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="currentColor" />
+                                            </svg>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className="lg:flex hidden px-2">
+                                    <PhoneTextLink
                                         trackLocation="LocationPageDesktop"
                                     />
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -365,7 +368,7 @@ export default async function LocationDetails(
                 </div>
             </section>
             {/* Removed duplicate certificates marquee under the map */}
- 
+
             <section className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]">
                 <div className=" flex md:flex-row flex-col">
                     <div className=" flex flex-col space-y-[24px] lg:w-[50%] w-full">
@@ -428,26 +431,24 @@ export default async function LocationDetails(
                 {location.specialists}
                 {location.skilled}
                 {location.whyChoose}
-                <div className="w-full flex flex-col md:flex-row md:items-start mt-10 relative">
-                  <div className="md:w-1/5 w-full md:pr-4">
-                    {location.easyToReach}
-                  </div>
-                  {location.mapEmbed && (
-                    <div
-                      className="md:w-4/5 w-full mt-6 md:mt-0 md:ml-6 md:absolute md:right-0 md:top-0"
-                      style={{ 
-                        right: 'calc((100vw - min(100vw, 1440px)) / 2 - 40px)',
-                        width: 'calc(50vw - ((100vw - min(100vw, 1440px)) / 2) + 40px)',
-                        maxWidth: 'calc(50vw - ((100vw - min(100vw, 1440px)) / 2) + 40px)'
-                      }}
-                      dangerouslySetInnerHTML={{ __html: location.mapEmbed }}
-                    />
-                  )}
+                <div className="w-full flex flex-col xl:flex-row xl:items-start mt-10 relative">
+                    <div className="xl:w-1/5 w-full xl:pr-4">
+                        {location.easyToReach}
+                    </div>
+                    {location.mapEmbed && (
+                        <div
+                            className="xl:w-4/5 w-full mt-6 xl:mt-0 xl:ml-6 xl:absolute xl:right-0 xl:top-0  flex justify-center items-center"
+                            style={{
+                                width: 'calc(50vw - ((100vw - min(100vw, 1440px)) / 2) + 40px)',
+                            }}
+                            dangerouslySetInnerHTML={{ __html: location.mapEmbed }}
+                        />
+                    )}
                 </div>
                 {location.nearby}
                 {location.advancedTreatments}
             </section>
-            
+
             {/* FAQ Section */}
             {location.faqs && location.faqs.length > 0 && (
                 <LocationFAQSection
@@ -456,7 +457,7 @@ export default async function LocationDetails(
                     pageUrl={`/locations/${location.slug}`}
                 />
             )}
-            
+
             <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
                 {location && location.reviews && location.reviews.length > 0 && (
                     <ReviewsCarousel
