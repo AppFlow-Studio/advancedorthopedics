@@ -17,8 +17,6 @@ export default function BlogFAQSection({ faqs }: BlogFAQSectionProps) {
   return (
     <section 
       className="rounded-[24px] border border-blue-100 bg-blue-50/60 px-4 sm:px-6 py-6 sm:py-8 shadow-sm"
-      itemScope 
-      itemType="https://schema.org/FAQPage"
     >
       <div className="flex flex-col gap-2 mb-6 sm:mb-8">
         <h2 
@@ -40,27 +38,19 @@ export default function BlogFAQSection({ faqs }: BlogFAQSectionProps) {
             <article
               key={`${faq.question}-${index}`}
               className="rounded-2xl border border-blue-100 bg-white/95 shadow-sm transition-shadow duration-200 hover:shadow-md"
-              itemScope
-              itemType="https://schema.org/Question"
-              itemProp="mainEntity"
             >
               <div className="px-4 sm:px-6 py-4 sm:py-5">
                 <h3 
                   id={questionId}
                   className="text-base sm:text-lg font-semibold text-[#1C2340] mb-3 sm:mb-4"
-                  itemProp="name"
                 >
                   {faq.question}
                 </h3>
                 <div
                   id={answerId}
                   className="text-sm sm:text-base leading-relaxed text-[#424959] space-y-2 [&_p]:mb-4 [&_br]:block"
-                  itemScope
-                  itemType="https://schema.org/Answer"
-                  itemProp="acceptedAnswer"
                 >
                   <div 
-                    itemProp="text"
                     dangerouslySetInnerHTML={{ __html: processBlogHTML(faq.answer) }}
                   />
                 </div>
