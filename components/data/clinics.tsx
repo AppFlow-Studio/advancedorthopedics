@@ -99,7 +99,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me hollywood',
       'best orthopedic near me hollywood'
     ],
-    metaTitle: 'Top Hollywood Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Hollywood | Mountain Spine & Orthopedics',
     metaDescription: "Top-rated orthopedic and spine specialists in Hollywood. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.",
     neighborhoodsWeServe: ['Emerald Hills', 'Hollywood Hills', 'Hillcrest', 'Dania Beach'],
     specialists: (
@@ -617,7 +617,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me palm springs',
       'best orthopedic near me palm springs'
     ],
-    metaTitle: 'Top Palm Springs Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Palm Springs | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Palm Springs. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -1087,7 +1087,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me orlando',
       'best orthopedic near me orlando'
     ],
-    metaTitle: 'Top Orlando Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Orlando | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Orlando. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -1564,7 +1564,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me fort pierce',
       'best orthopedic near me fort pierce'
     ],
-    metaTitle: 'Top Fort Pierce Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Fort Pierce | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Fort Pierce. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -2034,7 +2034,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me palm beach gardens',
       'best orthopedic near me palm beach gardens'
     ],
-    metaTitle: 'Top Palm Beach Gardens Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Palm Beach Gardens | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Palm Beach Gardens. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -2522,7 +2522,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me miami beach',
       'best orthopedic near me miami beach'
     ],
-    metaTitle: 'Top Miami Beach Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Miami Beach | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Miami Beach. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -2999,7 +2999,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me boca raton',
       'best orthopedic near me boca raton'
     ],
-    metaTitle: 'Top Boca Raton Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Boca Raton | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Boca Raton. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -3472,7 +3472,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me altamonte springs',
       'best orthopedic near me altamonte springs'
     ],
-    metaTitle: 'Top Altamonte Springs Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Altamonte Springs | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Altamonte Springs. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -3970,7 +3970,7 @@ export const clinics: ClinicsProps[] = [
       'orthopedic doctor near me davenport',
       'best orthopedic near me davenport'
     ],
-    metaTitle: 'Top Davenport Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Davenport | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Davenport. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
@@ -4469,7 +4469,7 @@ export const clinics: ClinicsProps[] = [
       'foot and ankle surgeon jacksonville fl',
       'ankle specialist jacksonville fl'
     ],
-    metaTitle: 'Top Jacksonville Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Jacksonville | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Jacksonville. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>

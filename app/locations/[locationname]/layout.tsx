@@ -31,8 +31,8 @@ export async function generateMetadata(
     // Extract city name from location data
     const cityName = location.region.split(',')[0].trim();
     
-    // Create consistent title format: "Orthopedic & Spine Specialists in [City], FL | Mountain Spine Orthopedics"
-    const standardizedTitle = `Orthopedic & Spine Specialists in ${cityName}, FL | Mountain Spine Orthopedics`;
+    // Create consistent title format: "Top Orthopedic Surgeons & Spine Specialists in [City] | Mountain Spine & Orthopedics"
+    const standardizedTitle = `Top Orthopedic Surgeons & Spine Specialists in ${cityName} | Mountain Spine & Orthopedics`;
     const consistentTitle = safeTitle(location.metaTitle, standardizedTitle);
     
     // Standardized description format with rating mention
