@@ -41,6 +41,7 @@ export interface ClinicsProps {
   rating: number;
   reviewCount: number;
   reviews: Review[];
+  neighborhoodsWeServe?: string[];
   specialists?: React.ReactNode;
   skilled?: React.ReactNode;
   whyChoose?: React.ReactNode;
@@ -99,7 +100,8 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me hollywood'
     ],
     metaTitle: 'Top Hollywood Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: "Top-rated orthopedic and spine specialists in Hollywood. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.",
+    metaDescription: "Top-rated orthopedic and spine specialists in Hollywood. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.",
+    neighborhoodsWeServe: ['Emerald Hills', 'Hollywood Hills', 'Hillcrest', 'Dania Beach'],
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h2>
@@ -114,7 +116,7 @@ export const clinics: ClinicsProps[] = [
     ),
     whyChoose: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h2>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Hollywood, FL:</h2>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving South Florida families with high patient satisfaction rates</li>
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
@@ -128,8 +130,16 @@ export const clinics: ClinicsProps[] = [
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Easily Accessible From Throughout South Florida:</h2>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Hollywood, FL Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Hollywood clinic is centrally located in the medical district, <strong>just three blocks west of Memorial Regional Hospital</strong>. We are located on Tyler Street, offering easy access for patients coming from <strong>Emerald Hills</strong> and <strong>Hollywood Hills</strong> via Hollywood Blvd.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-95:</strong> Take exit for Hollywood Boulevard, head west. Our clinic is located on Tyler Street, just minutes from the interstate.</li>
+          <li><strong>From US-1 (Federal Highway):</strong> Head to Hollywood Boulevard, then turn onto Tyler Street. Free parking available on-site.</li>
+          <li><strong>From Florida's Turnpike:</strong> Take exit for I-95 South, then follow directions above.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
           <li>Miami - 25 minutes via I-95</li>
           <li>Fort Lauderdale - 20 minutes via I-95</li>
           <li>Miami International Airport - 40 minutes via I-95</li>
@@ -139,19 +149,19 @@ export const clinics: ClinicsProps[] = [
           <li>Davie - 12 minutes via State Road 84</li>
           <li>Miramar - 18 minutes via Miramar Parkway</li>
         </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>Central Florida Theme Park Access:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2'>
-          <li>Disney World (Orlando) - 3.5 hours via Florida's Turnpike</li>
-          <li>Universal Studios (Orlando) - 3.5 hours via Florida's Turnpike</li>
-          <li>Orlando International Airport - 3.5 hours via Florida's Turnpike</li>
-          <li>Downtown Orlando - 3.5 hours via I-4</li>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Emerald Hills</strong> - 3 minutes (Immediate vicinity)</li>
+          <li><strong>T.Y. Park</strong> - 5 minutes (Local landmark)</li>
+          <li><strong>Memorial Regional Hospital</strong> - 2 minutes (Anchor Entity)</li>
+          <li>Hollywood Beach - 15 minutes</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Hollywood & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Hollywood FL is perfectly positioned to serve Hollywood, Aventura, Hallandale Beach, and Pembroke Pines residents who need expert spine care. We're easily accessible from I-95, US-1, and major South Florida highways, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Hollywood FL is perfectly positioned to serve <strong>Emerald Hills</strong>, <strong>Hollywood Hills</strong>, <strong>Hillcrest</strong>, Aventura, Hallandale Beach, and Pembroke Pines residents who need expert spine care. Located just three blocks west of Memorial Regional Hospital, we're easily accessible from I-95, US-1, and major South Florida highways, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -608,7 +618,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me palm springs'
     ],
     metaTitle: 'Top Palm Springs Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Palm Springs. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Palm Springs. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Palm Springs Spine and Orthopedic Specialists of Palm Beach County</h2>
@@ -1078,7 +1088,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me orlando'
     ],
     metaTitle: 'Top Orlando Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Orlando. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Orlando. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Orlando Spine and Orthopedic Specialists of Central FL</h2>
@@ -1555,7 +1565,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me fort pierce'
     ],
     metaTitle: 'Top Fort Pierce Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Fort Pierce. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Fort Pierce. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
@@ -2025,7 +2035,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me palm beach gardens'
     ],
     metaTitle: 'Top Palm Beach Gardens Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Palm Beach Gardens. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Palm Beach Gardens. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
@@ -2513,7 +2523,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me miami beach'
     ],
     metaTitle: 'Top Miami Beach Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Miami Beach. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Miami Beach. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Miami Beach Spine and Orthopedic Specialists</h2>
@@ -2990,7 +3000,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me boca raton'
     ],
     metaTitle: 'Top Boca Raton Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Boca Raton. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Boca Raton. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Boca Raton Spine and Orthopedic Specialists</h2>
@@ -3463,7 +3473,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me altamonte springs'
     ],
     metaTitle: 'Top Altamonte Springs Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Altamonte Springs. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Altamonte Springs. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in Central Florida</h2>
@@ -3961,7 +3971,7 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me davenport'
     ],
     metaTitle: 'Top Davenport Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Davenport. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Davenport. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in Central Florida</h2>
@@ -4460,7 +4470,7 @@ export const clinics: ClinicsProps[] = [
       'ankle specialist jacksonville fl'
     ],
     metaTitle: 'Top Jacksonville Orthopedic Surgeons & Spine Specialists | Mountain Spine Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Jacksonville. Mountain Spine Orthopedics provides advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Jacksonville. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Jacksonville Spine and Orthopedic Specialists of Northeast Florida</h2>

@@ -53,6 +53,7 @@ export const metadata: Metadata = {
 }
 
 // MedicalOrganization Schema for Book an Appointment page
+// Refactored to use department property with nested MedicalClinic objects for proper data integrity
 const BookAppointmentJsonLdSchema = () => {
   const schema = {
     "@context": "https://schema.org",
@@ -62,137 +63,7 @@ const BookAppointmentJsonLdSchema = () => {
     "url": "https://mountainspineorthopedics.com",
     "logo": "https://mountainspineorthopedics.com/newlogo4.png",
     "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
-    "telephone": [
-      "(561) 223-9959",
-      "(754) 212-8736", 
-      "(407) 565-7598",
-      "(407) 960-1717",
-      "(863) 777-5805",
-      "(561) 556-1802",
-      "(954) 987-2047",
-      "(561) 544-5501"
-    ],
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "3500 Tyler St",
-        "addressLocality": "Hollywood",
-        "addressRegion": "FL",
-        "postalCode": "33021",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress", 
-        "streetAddress": "652 Palm Springs Dr",
-        "addressLocality": "Altamonte Springs",
-        "addressRegion": "FL",
-        "postalCode": "32701",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "6150 Metrowest Blvd Suite 102",
-        "addressLocality": "Orlando",
-        "addressRegion": "FL", 
-        "postalCode": "32835",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "2215 Nebraska Ave Suite 1C",
-        "addressLocality": "Fort Pierce",
-        "addressRegion": "FL",
-        "postalCode": "34950",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "3355 Burns Road Suite 304",
-        "addressLocality": "Palm Beach Gardens",
-        "addressRegion": "FL",
-        "postalCode": "33410",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "7000 SW 62 AVE, Suite 330",
-        "addressLocality": "South Miami",
-        "addressRegion": "FL",
-        "postalCode": "33143-4716",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "1905 Clint Moore Rd #300",
-        "addressLocality": "Boca Raton",
-        "addressRegion": "FL",
-        "postalCode": "33496",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "499 E Central Pkwy #130",
-        "addressLocality": "Altamonte Springs",
-        "addressRegion": "FL",
-        "postalCode": "32701",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "2400 North Blvd W Suite C",
-        "addressLocality": "Davenport",
-        "addressRegion": "FL",
-        "postalCode": "33837",
-        "addressCountry": "US"
-      }
-    ],
-    "geo": [
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 26.011352,
-        "longitude": -80.178874
-      },
-      {
-        "@type": "GeoCoordinates", 
-        "latitude": 28.674217,
-        "longitude": -81.374192
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 28.5144368,
-        "longitude": -81.4658519
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 27.432531,
-        "longitude": -80.344623
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 26.8307353,
-        "longitude": -80.0878284
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 25.696306,
-        "longitude": -80.30121
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 26.408449,
-        "longitude": -80.125801
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 28.670213,
-        "longitude": -81.374701
-      },
-      {
-        "@type": "GeoCoordinates",
-        "latitude": 28.167513,
-        "longitude": -81.638889
-      }
-    ],
+    "telephone": "(561) 223-9959",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
@@ -252,30 +123,250 @@ const BookAppointmentJsonLdSchema = () => {
         }
       ]
     },
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 27.7663,
-        "longitude": -82.6404
-      },
-      "geoRadius": "300000"
-    },
     "areaServed": [
-      "Florida",
-      "Hollywood, FL",
-      "Orlando, FL", 
-      "Altamonte Springs, FL",
-      "Davenport, FL",
-      "Fort Pierce, FL",
-      "Palm Beach Gardens, FL",
-      "Miami Beach, FL",
-      "Boca Raton, FL"
+      {
+        "@type": "Neighborhood",
+        "name": "Emerald Hills"
+      },
+      {
+        "@type": "Neighborhood",
+        "name": "MetroWest"
+      },
+      {
+        "@type": "Neighborhood",
+        "name": "ChampionsGate"
+      },
+      {
+        "@type": "Neighborhood",
+        "name": "Lawnwood"
+      },
+      {
+        "@type": "State",
+        "name": "Florida"
+      },
+      {
+        "@type": "City",
+        "name": "Hollywood"
+      },
+      {
+        "@type": "City",
+        "name": "Miami"
+      },
+      {
+        "@type": "City",
+        "name": "Orlando"
+      },
+      {
+        "@type": "City",
+        "name": "Altamonte Springs"
+      },
+      {
+        "@type": "City",
+        "name": "Davenport"
+      },
+      {
+        "@type": "City",
+        "name": "Fort Pierce"
+      },
+      {
+        "@type": "City",
+        "name": "Palm Beach Gardens"
+      },
+      {
+        "@type": "City",
+        "name": "Boca Raton"
+      },
+      {
+        "@type": "City",
+        "name": "Jacksonville"
+      }
     ],
     "sameAs": [
       "https://www.facebook.com/mountainspineorthopedics",
       "https://www.instagram.com/mountainspineorthopedics",
       "https://www.linkedin.com/company/mountainspineorthopedics"
+    ],
+    "department": [
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Hollywood, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3500 Tyler St",
+          "addressLocality": "Hollywood",
+          "addressRegion": "FL",
+          "postalCode": "33021",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.01135,
+          "longitude": -80.1789
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Miami, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8000 SW 67th Ave",
+          "addressLocality": "Miami",
+          "addressRegion": "FL",
+          "postalCode": "33143",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.69607,
+          "longitude": -80.3014
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Palm Beach Gardens, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3355 Burns Rd",
+          "addressLocality": "Palm Beach Gardens",
+          "addressRegion": "FL",
+          "postalCode": "33410",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.83131,
+          "longitude": -80.0846
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Fort Pierce, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2215 Nebraska Ave",
+          "addressLocality": "Fort Pierce",
+          "addressRegion": "FL",
+          "postalCode": "34950",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 27.43259,
+          "longitude": -80.3448
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Jacksonville, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1205 Monument Rd",
+          "addressLocality": "Jacksonville",
+          "addressRegion": "FL",
+          "postalCode": "32225",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 30.34176,
+          "longitude": -81.5381
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Altamonte Springs - Central Parkway, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "499 E Central Pkwy",
+          "addressLocality": "Altamonte Springs",
+          "addressRegion": "FL",
+          "postalCode": "32701",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.67008,
+          "longitude": -81.3747
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Altamonte Springs - Palm Springs Dr, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "652 Palm Springs Dr",
+          "addressLocality": "Altamonte Springs",
+          "addressRegion": "FL",
+          "postalCode": "32701",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.6742,
+          "longitude": -81.3742
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Orlando, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6150 Metrowest Blvd",
+          "addressLocality": "Orlando",
+          "addressRegion": "FL",
+          "postalCode": "32835",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.51362,
+          "longitude": -81.4662
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Boca Raton, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1905 Clint Moore Rd",
+          "addressLocality": "Boca Raton",
+          "addressRegion": "FL",
+          "postalCode": "33496",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.40853,
+          "longitude": -80.1258
+        }
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Mountain Spine & Orthopedics Davenport, FL",
+        "telephone": "(561) 223-9959",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2400 North Blvd W",
+          "addressLocality": "Davenport",
+          "addressRegion": "FL",
+          "postalCode": "33837",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.16742,
+          "longitude": -81.6389
+        }
+      }
     ]
   };
 

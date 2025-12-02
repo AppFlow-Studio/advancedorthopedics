@@ -27,38 +27,10 @@ interface ReviewsCarouselProps {
 export default function ReviewsCarousel({ reviews, cityName, rating, reviewCount }: ReviewsCarouselProps) {
   const [hasMounted, setHasMounted] = useState(false)
   const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(0)
-  const [itemsPerView, setItemsPerView] = useState(1)
 
   useEffect(() => {
     setHasMounted(true)
-    
-    const updateItemsPerView = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerView(3)
-      } else if (window.innerWidth >= 640) {
-        setItemsPerView(2)
-      } else {
-        setItemsPerView(1)
-      }
-    }
-
-    updateItemsPerView()
-    window.addEventListener('resize', updateItemsPerView)
-    return () => window.removeEventListener('resize', updateItemsPerView)
   }, [])
-
-  useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
-  }, [api])
-
-  const totalSlides = Math.ceil(reviews.length / itemsPerView)
 
   return (
     <section className="w-full max-w-[1440px] mx-auto flex flex-col py-10 space-y-6 h-full px-2 md:px-[40px]" aria-labelledby="patient-reviews-heading">
@@ -123,23 +95,6 @@ export default function ReviewsCarousel({ reviews, cityName, rating, reviewCount
                 aria-label="Next reviews"
               />
             </Carousel>
-            
-            {/* Mobile navigation dots */}
-            <div className="flex justify-center items-center gap-2 mt-8 sm:hidden">
-              {Array.from({ length: totalSlides }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index * itemsPerView)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    Math.floor(current / itemsPerView) === index
-                      ? 'w-10 bg-[#0A50EC]'
-                      : 'w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]'
-                  }`}
-                  aria-label={`Go to slide ${index + 1} of ${totalSlides}`}
-                />
-              ))}
-            </div>
-
           </>
         ) : (
           // SSR fallback: Show all reviews in a grid for SEO (all reviews visible in HTML)

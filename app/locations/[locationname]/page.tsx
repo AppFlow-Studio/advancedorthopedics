@@ -164,7 +164,7 @@ export default async function LocationDetails(
                                     }}
                                     className="text-[#252932] text-3xl sm:text-5xl xl:text-6xl text-shadow-sm md:mt-0 mt-16"
                                 >
-                                    Welcome to Mountain Spine & Orthopedics {location.name.replace('Mountain Spine & Orthopedics', '').trim()}
+                                    Orthopedic Surgeons & Spine Specialists in {location.region}
                                 </h1>
                             </div>
                         </SlidingDiv>
@@ -190,21 +190,6 @@ export default async function LocationDetails(
                         {/* Mobile CTA row (under paragraph, above certificates) */}
                         <div className="z-[2] px-4 mt-4 sm:hidden block">
                             <div className="flex flex-col space-y-3 w-full max-w-[480px] mx-auto">
-                                {/* Get Directions - light grey */}
-                                <Link
-                                    href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full h-[52px] rounded-[16px] bg-[#E5E7EB] text-[#252932] flex items-center justify-center gap-2 font-[500] text-[15px] shadow-sm active:scale-[0.98] transition-all duration-200"
-                                    style={{ fontFamily: 'var(--font-public-sans)' }}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
-                                    <span className="mt-[1px]">Get Directions</span>
-                                </Link>
-
                                 {/* Phone Text Link */}
                                 <div className="w-full flex justify-center">
                                     <PhoneTextLink
@@ -212,37 +197,120 @@ export default async function LocationDetails(
                                         className="justify-center"
                                     />
                                 </div>
+
+                                {/* Get Directions - light grey */}
+                                <Link
+                                    href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full h-[52px] rounded-[16px] bg-[#E5E7EB] text-[#252932] flex flex-row items-center justify-center gap-2 font-[500] text-[15px] shadow-sm active:scale-[0.98] transition-all duration-200"
+                                    style={{ fontFamily: 'var(--font-public-sans)' }}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    <span className="whitespace-nowrap">Get Directions</span>
+                                </Link>
+
+                                {/* Checkmark Items - Mobile */}
+                                <div className="flex flex-col space-y-2 mt-4 w-full">
+                                    <div className="flex items-start space-x-2">
+                                        <span className="text-green-600 text-lg font-bold flex-shrink-0 mt-0.5">✓</span>
+                                        <p
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="text-[#252932] text-sm sm:text-base font-[400] leading-relaxed"
+                                        >
+                                            Same-Day Appointments Available in {location.region.split(',')[0]}
+                                        </p>
+                                    </div>
+                                    <div className="flex items-start space-x-2">
+                                        <span className="text-green-600 text-lg font-bold flex-shrink-0 mt-0.5">✓</span>
+                                        <p
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="text-[#252932] text-sm sm:text-base font-[400] leading-relaxed"
+                                        >
+                                            Urgent Evaluation for Severe Back or Neck Pain
+                                        </p>
+                                    </div>
+                                    <div className="flex items-start space-x-2">
+                                        <span className="text-green-600 text-lg font-bold flex-shrink-0 mt-0.5">✓</span>
+                                        <p
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="text-[#252932] text-sm sm:text-base font-[400] leading-relaxed"
+                                        >
+                                            Complimentary MRI Review Available
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div className="z-[2] sm:block hidden">
                             <div className="xl:px-[80px] px-8 my-[16px] xl:w-full flex flex-col space-y-6 ">
-                                <div className='flex flex-row md:space-x-[16px]'>
-                                    <div className=""><BookAnAppoitmentButton /></div>
-                                    <Link href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))} target="_blank" rel="noopener noreferrer" className="h-full max-h-[56px] group flex-row hover:cursor-pointer lg:flex hidden px-[24px] py-[16px] rounded-[62px] relative items-center justify-center bg-[#E5E7EB] text-[#252932] w-full md:w-fit font-[500] text-[14px] hover:bg-[#D1D5DB] transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                                <div className='flex flex-row md:space-x-[16px] flex-wrap items-center'>
+                                    <div className="flex-shrink-0"><BookAnAppoitmentButton /></div>
+                                    <div className="flex-shrink-0 lg:flex hidden">
+                                        <PhoneTextLink
+                                            trackLocation="LocationPageDesktop"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="lg:flex hidden">
+                                    <Link 
+                                        href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="h-full max-h-[56px] group flex flex-row items-center justify-center hover:cursor-pointer px-[24px] py-[16px] rounded-[62px] bg-[#E5E7EB] text-[#252932] w-fit font-[500] text-[14px] hover:bg-[#D1D5DB] transition-colors"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 flex-shrink-0">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
                                             <circle cx="12" cy="10" r="3" />
                                         </svg>
                                         <span
                                             style={{ fontFamily: 'var(--font-public-sans)' }}
-                                            className="group-hover:scale-[1.05] transition-transform duration-300 ease-in-out"
+                                            className="group-hover:scale-[1.05] transition-transform duration-300 ease-in-out whitespace-nowrap"
                                         >
                                             Get Directions
                                         </span>
-                                        <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out'>
+                                        <div className='pl-[10px] group-hover:translate-x-1 transition-all duration-300 ease-in-out flex-shrink-0'>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                                                 <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.3735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="currentColor" />
                                             </svg>
                                         </div>
                                     </Link>
                                 </div>
-                                <div className="lg:flex hidden px-2">
-                                    <PhoneTextLink
-                                        trackLocation="LocationPageDesktop"
-                                    />
-                                </div>
 
+                                {/* Checkmark Items - Desktop */}
+                                <div className="flex flex-row flex-wrap items-center gap-x-6 gap-y-2 mt-4 lg:mt-6">
+                                    <div className="flex items-center space-x-2">
+                                        <span className="text-green-600 text-base font-bold flex-shrink-0">✓</span>
+                                        <p
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="text-[#252932] text-sm md:text-base font-[400] whitespace-nowrap"
+                                        >
+                                            Same-Day Appointments Available in {location.region.split(',')[0]}
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                        <span className="text-green-600 text-base font-bold flex-shrink-0">✓</span>
+                                        <p
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="text-[#252932] text-sm md:text-base font-[400] whitespace-nowrap"
+                                        >
+                                            Urgent Evaluation for Severe Back or Neck Pain
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                        <span className="text-green-600 text-base font-bold flex-shrink-0">✓</span>
+                                        <p
+                                            style={{ fontFamily: 'var(--font-public-sans)' }}
+                                            className="text-[#252932] text-sm md:text-base font-[400] whitespace-nowrap"
+                                        >
+                                            Complimentary MRI Review Available
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -431,18 +499,29 @@ export default async function LocationDetails(
                 {location.specialists}
                 {location.skilled}
                 {location.whyChoose}
-                <div className="w-full flex flex-col xl:flex-row xl:items-start mt-10 relative">
-                    <div className="xl:w-1/5 w-full xl:pr-4">
+                <div className="w-full flex flex-col lg:flex-row lg:items-start mt-10 gap-6">
+                    <div className="lg:w-1/3 xl:w-1/4 w-full">
                         {location.easyToReach}
                     </div>
                     {location.mapEmbed && (
-                        <div
-                            className="xl:w-4/5 w-full mt-6 xl:mt-0 xl:ml-6 xl:absolute xl:right-0 xl:top-0  flex justify-center items-center"
-                            style={{
-                                width: 'calc(50vw - ((100vw - min(100vw, 1440px)) / 2) + 40px)',
-                            }}
-                            dangerouslySetInnerHTML={{ __html: location.mapEmbed }}
-                        />
+                        <div className="lg:w-2/3 xl:w-3/4 w-full">
+                            <div 
+                                className="w-full rounded-lg overflow-hidden shadow-lg responsive-map-wrapper"
+                                style={{ 
+                                    height: 0,
+                                }}
+                            >
+                                <div
+                                    className="absolute inset-0 w-full h-full"
+                                    dangerouslySetInnerHTML={{ 
+                                        __html: location.mapEmbed
+                                            .replace(/width="[^"]*"/gi, 'width="100%"')
+                                            .replace(/height="[^"]*"/gi, 'height="100%"')
+                                            .replace(/style="[^"]*"/gi, 'style="width: 100%; height: 100%; border: 0; position: absolute; top: 0; left: 0;"')
+                                    }} 
+                                />
+                            </div>
+                        </div>
                     )}
                 </div>
                 {location.nearby}
