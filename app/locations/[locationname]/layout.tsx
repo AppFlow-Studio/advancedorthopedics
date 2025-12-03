@@ -334,46 +334,6 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
       })) : undefined,
     };
   
-    // FAQ Schema for location-specific questions
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      'mainEntity': [
-        {
-          '@type': 'Question',
-          'name': `What orthopedic services are available at ${location.name}?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': `${location.name} offers comprehensive orthopedic care including minimally invasive spine surgery, Band-Aid Back Surgery, joint replacement, and orthopedic consultations. Our board-certified specialists provide same-day appointments for urgent orthopedic needs.`
-          }
-        },
-        {
-          '@type': 'Question',
-          'name': `Do you offer same-day appointments at ${location.name}?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': `Yes, ${location.name} offers same-day appointments for orthopedic consultations and urgent care. Our board-certified specialists are available to provide immediate evaluation and treatment for orthopedic conditions.`
-          }
-        },
-        {
-          '@type': 'Question',
-          'name': `What makes ${location.name} different from other orthopedic clinics?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': `${location.name} specializes in minimally invasive spine surgery and Band-Aid Back Surgery techniques. Our board-certified orthopedic surgeons use advanced technology to provide faster recovery times and reduced downtime for patients.`
-          }
-        },
-        {
-          '@type': 'Question',
-          'name': `How do I schedule an appointment at ${location.name}?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': `You can schedule an appointment at ${location.name} by calling ${location.phone} or visiting our website. We offer same-day appointments and accept most major insurance plans. Our team will help you find the earliest available appointment time.`
-          }
-        }
-      ]
-    };
-
     // Breadcrumb Schema for navigation
     const breadcrumbSchema = {
       '@context': 'https://schema.org',
@@ -411,10 +371,6 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(cleanSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <script
           type="application/ld+json"

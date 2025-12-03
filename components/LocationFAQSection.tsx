@@ -29,8 +29,6 @@ export default function LocationFAQSection({ faqs, locationName, pageUrl }: Loca
       
       <section 
         className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]"
-        itemScope 
-        itemType="https://schema.org/FAQPage"
         aria-labelledby="location-faq-heading"
       >
         <h2 
@@ -53,9 +51,6 @@ export default function LocationFAQSection({ faqs, locationName, pageUrl }: Loca
                 <article
                   key={`${faq.question}-${index}`}
                   className={index !== faqs.length - 1 ? "pb-6 border-b border-[#DCDEE1]" : ""}
-                  itemScope
-                  itemType="https://schema.org/Question"
-                  itemProp="mainEntity"
                 >
                   <h3 
                     id={questionId}
@@ -64,7 +59,6 @@ export default function LocationFAQSection({ faqs, locationName, pageUrl }: Loca
                       fontWeight: 500,
                     }}
                     className="text-[#111315] text-base sm:text-lg mb-3"
-                    itemProp="name"
                   >
                     {faq.question}
                   </h3>
@@ -75,12 +69,8 @@ export default function LocationFAQSection({ faqs, locationName, pageUrl }: Loca
                       fontWeight: 400,
                     }}
                     className="text-[#424959] text-base leading-relaxed"
-                    itemScope
-                    itemType="https://schema.org/Answer"
-                    itemProp="acceptedAnswer"
                   >
                     <div 
-                      itemProp="text"
                       className="[&_p]:mb-2 [&_p:last-child]:mb-0"
                     >
                       {faq.answer}

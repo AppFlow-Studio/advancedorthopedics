@@ -290,27 +290,37 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                 <FormField
                                     control={form.control}
                                     name="name"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel className="text-sm text-[#838890] font-semibold ">
-                                                <span
-                                                    style={{
-                                                        fontFamily: 'var(--font-public-sans)',
-                                                        fontWeight: 500,
-                                                    }}
-                                                    className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
-                                                >
-                                                    Name
-                                                </span>
-                                            </FormLabel>
-                                            <FormControl>
-                                                <div className=" flex  ">
-                                                    <Input placeholder="Name" startIcon={User} className="sm:h-12 h-10 text-lg border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
-                                                </div>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
+                                    render={({ field }) => {
+                                        const { name: _, ...fieldProps } = field;
+                                        return (
+                                            <FormItem>
+                                                <FormLabel className="text-sm text-[#838890] font-semibold ">
+                                                    <span
+                                                        style={{
+                                                            fontFamily: 'var(--font-public-sans)',
+                                                            fontWeight: 500,
+                                                        }}
+                                                        className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
+                                                    >
+                                                        Name
+                                                    </span>
+                                                </FormLabel>
+                                                <FormControl>
+                                                    <div className=" flex  ">
+                                                        <Input
+                                                            id="full_name"
+                                                            name="name"
+                                                            placeholder="Name"
+                                                            startIcon={User}
+                                                            className="sm:h-12 h-10 text-lg border-[#DCDEE1] bg-[#FAFAFA]"
+                                                            {...fieldProps}
+                                                        />
+                                                    </div>
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        );
+                                    }}
                                 />
                                 {/* HONEYPOT FIELD - Hidden from users but visible to bots */}
                                 <FormField
@@ -334,62 +344,79 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                             <FormField
                                 control={form.control}
                                 name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="">
-                                            <span
-                                                style={{
-                                                    fontFamily: 'var(--font-public-sans)',
-                                                    fontWeight: 500,
-                                                }}
-                                                className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
-                                            >
-                                                Email
-                                            </span>
-                                        </FormLabel>
-                                        <FormControl>
-                                            <div className=" flex  ">
-                                                <Input placeholder="Example@gmail.com" startIcon={Mail} className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
-                                            </div>
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
+                                render={({ field }) => {
+                                    const { name: _, ...fieldProps } = field;
+                                    return (
+                                        <FormItem>
+                                            <FormLabel className="">
+                                                <span
+                                                    style={{
+                                                        fontFamily: 'var(--font-public-sans)',
+                                                        fontWeight: 500,
+                                                    }}
+                                                    className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
+                                                >
+                                                    Email
+                                                </span>
+                                            </FormLabel>
+                                            <FormControl>
+                                                <div className=" flex  ">
+                                                    <Input
+                                                        id="email"
+                                                        name="email"
+                                                        type="email"
+                                                        placeholder="Example@gmail.com"
+                                                        startIcon={Mail}
+                                                        className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
+                                                        {...fieldProps}
+                                                    />
+                                                </div>
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    );
+                                }}
                             />
 
                             <FormField
                                 control={form.control}
                                 name="phone"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="">
-                                            <span
-                                                style={{
-                                                    fontFamily: 'var(--font-public-sans)',
-                                                    fontWeight: 500,
-                                                }}
-                                                className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
-                                            >
-                                                Phone Number
-                                            </span>
-                                        </FormLabel>
-                                        <FormControl>
-                                            <div className=" flex  ">
-                                                <Input
-                                                    placeholder="(123) 456-7890"
-                                                    startIcon={Phone}
-                                                    className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
-                                                    {...field}
-                                                    onChange={(e) => {
-                                                        const formatted = formatPhoneInput(e.target.value);
-                                                        field.onChange(formatted);
+                                render={({ field }) => {
+                                    const { name: _, ...fieldProps } = field;
+                                    return (
+                                        <FormItem>
+                                            <FormLabel className="">
+                                                <span
+                                                    style={{
+                                                        fontFamily: 'var(--font-public-sans)',
+                                                        fontWeight: 500,
                                                     }}
-                                                />
-                                            </div>
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
+                                                    className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
+                                                >
+                                                    Phone Number
+                                                </span>
+                                            </FormLabel>
+                                            <FormControl>
+                                                <div className=" flex  ">
+                                                    <Input
+                                                        id="phone"
+                                                        name="phone"
+                                                        type="tel"
+                                                        placeholder="(123) 456-7890"
+                                                        startIcon={Phone}
+                                                        className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
+                                                        {...fieldProps}
+                                                        onChange={(e) => {
+                                                            const formatted = formatPhoneInput(e.target.value);
+                                                            field.onChange(formatted);
+                                                        }}
+                                                    />
+                                                </div>
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    );
+                                }}
                             />
 
                             <FormField
@@ -468,15 +495,25 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     control={form.control}
                                                     name="name"
 
-                                                    render={({ field }) => (
-                                                        <FormItem>
-                                                            <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
-                                                            <FormControl>
-                                                                <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
+                                                    render={({ field }) => {
+                                                        const { name: _, ...fieldProps } = field;
+                                                        return (
+                                                            <FormItem>
+                                                                <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
+                                                                <FormControl>
+                                                                    <Input
+                                                                        id="full_name"
+                                                                        name="name"
+                                                                        placeholder="Name"
+                                                                        startIcon={User}
+                                                                        className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]"
+                                                                        {...fieldProps}
+                                                                    />
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        );
+                                                    }}
                                                 />
 
                                             </div>
@@ -486,59 +523,76 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                 <FormField
                                                     control={form.control}
                                                     name="email"
-                                                    render={({ field }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                <span
-                                                                    style={{
-                                                                        fontFamily: 'var(--font-public-sans)',
-                                                                        fontWeight: 500,
-                                                                    }}
-                                                                    className={`text-[#111315] sm:text-md text-sm`}
-                                                                >
-                                                                    Email Address
-                                                                </span>
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <Input placeholder="Enter your email" startIcon={Mail} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
+                                                    render={({ field }) => {
+                                                        const { name: _, ...fieldProps } = field;
+                                                        return (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    <span
+                                                                        style={{
+                                                                            fontFamily: 'var(--font-public-sans)',
+                                                                            fontWeight: 500,
+                                                                        }}
+                                                                        className={`text-[#111315] sm:text-md text-sm`}
+                                                                    >
+                                                                        Email Address
+                                                                    </span>
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <Input
+                                                                        id="email"
+                                                                        name="email"
+                                                                        type="email"
+                                                                        placeholder="Enter your email"
+                                                                        startIcon={Mail}
+                                                                        className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]"
+                                                                        {...fieldProps}
+                                                                    />
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        );
+                                                    }}
                                                 />
 
                                                 <FormField
                                                     control={form.control}
                                                     name="phone"
-                                                    render={({ field }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                <span
-                                                                    style={{
-                                                                        fontFamily: 'var(--font-public-sans)',
-                                                                        fontWeight: 500,
-                                                                    }}
-                                                                    className={`text-[#111315]sm:text-md text-sm`}
-                                                                >
-                                                                    Phone Number
-                                                                </span>
+                                                    render={({ field }) => {
+                                                        const { name: _, ...fieldProps } = field;
+                                                        return (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    <span
+                                                                        style={{
+                                                                            fontFamily: 'var(--font-public-sans)',
+                                                                            fontWeight: 500,
+                                                                        }}
+                                                                        className={`text-[#111315]sm:text-md text-sm`}
+                                                                    >
+                                                                        Phone Number
+                                                                    </span>
 
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <Input
-                                                                    placeholder="(123) 456-7890"
-                                                                    startIcon={Phone}
-                                                                    className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
-                                                                    {...field}
-                                                                    onChange={(e) => {
-                                                                        const formatted = formatPhoneInput(e.target.value);
-                                                                        field.onChange(formatted);
-                                                                    }}
-                                                                />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <Input
+                                                                        id="phone"
+                                                                        name="phone"
+                                                                        type="tel"
+                                                                        placeholder="(123) 456-7890"
+                                                                        startIcon={Phone}
+                                                                        className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
+                                                                        {...fieldProps}
+                                                                        onChange={(e) => {
+                                                                            const formatted = formatPhoneInput(e.target.value);
+                                                                            field.onChange(formatted);
+                                                                        }}
+                                                                    />
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        );
+                                                    }}
                                                 />
                                             </div>
 
