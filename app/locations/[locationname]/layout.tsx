@@ -31,14 +31,14 @@ export async function generateMetadata(
     // Extract city name from location data
     const cityName = location.region.split(',')[0].trim();
     
-    // Create consistent title format: "Orthopedic & Spine Specialists in [City], FL | Mountain Spine Orthopedics"
-    const standardizedTitle = `Orthopedic & Spine Specialists in ${cityName}, FL | Mountain Spine Orthopedics`;
+    // Create consistent title format: "Top Orthopedic Surgeons & Spine Specialists in [City] | Mountain Spine & Orthopedics"
+    const standardizedTitle = `Top Orthopedic Surgeons & Spine Specialists in ${cityName} | Mountain Spine & Orthopedics`;
     const consistentTitle = safeTitle(location.metaTitle, standardizedTitle);
     
     // Standardized description format with rating mention
     const standardizedDescription = location.rating && location.reviewCount 
-      ? `Top-rated orthopedic and spine specialists in ${cityName}, FL. Mountain Spine Orthopedics offers minimally invasive spine surgery, joint care, and advanced treatments. Rated ${location.rating} stars by over ${location.reviewCount} patients. Book an appointment today.`
-      : `Visit our orthopedic and spine clinic in ${cityName}, FL. Our specialists provide minimally invasive spine surgery, joint pain care, and advanced orthopedic treatments. Book an appointment today.`;
+      ? `Top-rated orthopedic and spine specialists in ${cityName}, FL. Mountain Spine Orthopedics offers back pain, neck pain treatment, minimally invasive spine surgery, and joint pain treatment. Rated ${location.rating} stars by over ${location.reviewCount} patients. Book an appointment today.`
+      : `Visit our orthopedic and spine clinic in ${cityName}, FL. Our specialists provide back pain, neck pain treatment, minimally invasive spine surgery, and joint pain treatment. Book an appointment today.`;
     const consistentDescription = safeDescription(location.metaDescription, standardizedDescription);
     
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
@@ -184,16 +184,22 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         'Joint Replacement',
         'Sports Medicine'
       ],
-      // Service area definition
-      'serviceArea': {
-        '@type': 'GeoCircle',
-        'geoMidpoint': {
-          '@type': 'GeoCoordinates',
-          'latitude': location.lat,
-          'longitude': location.lng
-        },
-        'geoRadius': '50000' // 50km radius
-      },
+      // Hyper-local service area using named neighborhoods and cities
+      'areaServed': location.neighborhoodsWeServe && location.neighborhoodsWeServe.length > 0 ? [
+        ...location.neighborhoodsWeServe.map((neighborhood: string) => ({
+          '@type': 'Neighborhood',
+          'name': neighborhood
+        })),
+        {
+          '@type': 'City',
+          'name': addressLocality
+        }
+      ] : [
+        {
+          '@type': 'City',
+          'name': addressLocality
+        }
+      ],
       // Operating hours
       'openingHours': [
         'Mo-Fr 08:00-20:00',

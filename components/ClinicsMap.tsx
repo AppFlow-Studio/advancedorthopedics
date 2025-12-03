@@ -11,7 +11,7 @@ import Link from 'next/link';
 //Map's styling
 export const defaultMapContainerStyle = {
   width: '100%',
-  height: '680px',
+  height: '100%',
   borderRadius: '24px',
 };
 const defaultMapZoom = 18
@@ -212,20 +212,20 @@ export default function ClinicsMap({ startingClinic, showEmbed = false }: {
         </div>
       </div>
       {/* This outer div needs to contain both map and overlay */}
-      <div className="max-w-[1440px] w-full px-2 md:px-[40px] mx-auto h-[680px] relative"> {/* Added position: relative */}
+      <div className="max-w-[1440px] w-full px-2 md:px-[40px] mx-auto h-[400px] sm:h-[500px] md:h-[600px] lg:h-[680px] relative"> {/* Added position: relative */}
 
         {/* The Overlay Card */}
         <MapOverlayCard selectedClinic={selectedClinc} handleMarkerClick={handleClinicChange} />
 
         {/* The Google Map */}
         {showEmbed && selectedClinc?.embedSrc ? (
-          <div className="rounded-3xl overflow-hidden" style={{ height: '680px' }}>
+          <div className="rounded-3xl overflow-hidden w-full h-full">
             <iframe
               title={`${selectedClinc.name} Map`}
               src={selectedClinc.embedSrc}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              style={{ width: '100%', height: '100%', border: 0 }}
+              className="w-full h-full border-0"
               allowFullScreen
             />
           </div>
@@ -261,7 +261,7 @@ export default function ClinicsMap({ startingClinic, showEmbed = false }: {
               })}
             </GoogleMap>
           ) : (
-            <div className="flex items-center justify-center h-[680px] bg-gray-100 rounded-3xl">
+            <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-3xl">
               <p className="text-gray-600">Loading map...</p>
             </div>
           )

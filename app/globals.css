@@ -30,6 +30,39 @@ select:focus-visible {
   @apply outline-none ring-2 ring-blue-500 ring-offset-2;
 }
 
+/* Responsive Google Maps embed */
+.responsive-map-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.responsive-map-wrapper iframe {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  border: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Responsive aspect ratios for different screen sizes */
+.responsive-map-wrapper {
+  padding-bottom: 75%; /* 4:3 aspect ratio - default for mobile */
+}
+
+@media (min-width: 640px) {
+  .responsive-map-wrapper {
+    padding-bottom: 65%; /* Slightly taller on small tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-map-wrapper {
+    padding-bottom: 56.25%; /* 16:9 aspect ratio on desktop */
+  }
+}
+
 /* Skip links */
 .sr-only {
   position: absolute;

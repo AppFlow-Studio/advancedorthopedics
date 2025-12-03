@@ -11,7 +11,32 @@ import { restoreECFromSession } from "@/utils/enhancedConversions";
 
 export default function ThankYouPage() {
   useEffect(() => {
+    // Restore enhanced conversion data from sessionStorage immediately
+    // This ensures the data is available when Google Ads conversion tags fire
     restoreECFromSession(); // pushes {event:'ec_restore', enhanced_conversion_data:{...}}
+    
+    // Also push the data silently (without event) to ensure it's in dataLayer
+    // This helps with cases where the conversion tag fires before the event
+    if (typeof window !== 'undefined') {
+      try {
+        const ec = {
+          email: (sessionStorage.getItem('ec_email') || '').trim().toLowerCase(),
+          phone_number: (sessionStorage.getItem('ec_phone') || '').replace(/\D/g, ''),
+          first_name: (sessionStorage.getItem('ec_first') || '').trim(),
+          last_name: (sessionStorage.getItem('ec_last') || '').trim(),
+        };
+        
+        // Check if we have valid data before pushing
+        if (ec.email || ec.phone_number) {
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer.push({
+            enhanced_conversion_data: ec,
+          });
+        }
+      } catch (error) {
+        // Silently fail if sessionStorage is not available
+      }
+    }
   }, []);
 
   return (
