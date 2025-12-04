@@ -36,7 +36,6 @@ import { Testimonial } from '@/components/ui/testimonial-card'
 import ReviewsCarousel from '@/components/ReviewsCarousel.client'
 import { PhoneTextLink } from '@/components/PhoneTextLink'
 import LocationFAQSection from '@/components/LocationFAQSection'
-import { generateFAQPageSchema } from '@/lib/faq-utils'
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
