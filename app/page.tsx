@@ -52,10 +52,10 @@ const MRI3 = 'https://mountainspineortho.b-cdn.net/public/MRI3.png';
 // ✅ Server-Rendered Metadata for Homepage SEO (This part is correct)
 export const metadata: Metadata = {
   title: 'Mountain Spine & Orthopedics | Top Florida Orthopedic & Spine Surgeons',
-  description: 'Florida's leading orthopedic and spine surgeons specializing in minimally invasive back surgery, joint replacement, and advanced back and neck pain treatment. Get expert orthopedic care and book your consultation today.',
+  description: "Florida's leading orthopedic and spine surgeons specializing in minimally invasive back surgery, joint replacement, and advanced back and neck pain treatment. Get expert orthopedic care and book your consultation today.",
   openGraph: {
     title: 'Mountain Spine & Orthopedics | Top Florida Orthopedic & Spine Surgeons',
-    description: 'Florida's leading orthopedic and spine surgeons specializing in minimally invasive back surgery, joint replacement, and advanced back and neck pain treatment. Get expert orthopedic care and book your consultation today.',
+    description: "Florida's leading orthopedic and spine surgeons specializing in minimally invasive back surgery, joint replacement, and advanced back and neck pain treatment. Get expert orthopedic care and book your consultation today.",
     url: buildCanonical('/'),
     siteName: 'Mountain Spine & Orthopedics',
     images: [
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mountain Spine & Orthopedics | Top Florida Orthopedic & Spine Surgeons',
-    description: 'Florida's leading orthopedic and spine surgeons specializing in minimally invasive back surgery, joint replacement, and advanced back and neck pain treatment. Get expert orthopedic care and book your consultation today.',
+    description: "Florida\'s leading orthopedic and spine surgeons specializing in minimally invasive back surgery, joint replacement, and advanced back and neck pain treatment. Get expert orthopedic care and book your consultation today.",
     images: [getOgImageForPath('/')],
   },
   keywords: [
