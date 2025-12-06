@@ -234,7 +234,7 @@ export default function HomeHeroSection() {
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
-                className={`${timePeriod !== 'night' ? 'text-[#252932]' : 'text-white'} text-4xl sm:text-6xl xl:text-6xl sm:text-left text-center`}
+                className={`${timePeriod !== 'night'  ? 'text-[#252932]' : 'text-white'} text-4xl sm:text-6xl xl:text-6xl sm:text-left text-center`}
               >
                 Welcome to<br /> Mountain <br /> Spine & Orthopedics
               </p>

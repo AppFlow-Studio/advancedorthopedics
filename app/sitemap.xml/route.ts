@@ -1,4 +1,4 @@
-import { GetBlogs } from "@/app/blogs/api/get-blogs";
+import { GetBlogsPublic } from "@/app/blogs/api/get-blogs";
 import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
 import { conditions } from "@/components/data/conditions";
@@ -39,8 +39,8 @@ function slugify(text: string): string {
   return text
     .toLowerCase()
     .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-") 
-    .replace(/^-+|-+$/g, "")    
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
     .replace(/-+/g, "-");
 }
 
@@ -53,7 +53,7 @@ const FindCare = [
   "patient-forms",
 ];
 
-const BackPainPages =[
+const BackPainPages = [
   "lower-back-pain",
   'lumbar-degenerative-disc-disease',
   'lumbar-herniated-disc',
@@ -73,7 +73,7 @@ const NeckPainPages = [
 ];
 
 
-const FootPainPages =[
+const FootPainPages = [
   'bunion-pain-hallux-valgus',
   'heel-pain-plantar-fasciitis',
   'flat-feet-pain',
@@ -100,11 +100,11 @@ export async function GET() {
 
   let blogsData: any[] = [];
   try {
-    const fetchedBlogs = await GetBlogs();
+    const fetchedBlogs = await GetBlogsPublic();
     if (Array.isArray(fetchedBlogs)) {
       blogsData = fetchedBlogs;
     } else {
-      console.warn("Warning: GetBlogs did not return an array. Proceeding with empty blogs list for sitemap.");
+      console.warn("Warning: GetBlogsPublic did not return an array. Proceeding with empty blogs list for sitemap.");
     }
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);
@@ -138,23 +138,23 @@ export async function GET() {
   ${InjuryPages.map(slug => generateUrlEntry(`/injuries/${slug}`)).join('')}
 
   ${Doctors.filter(doctor => isValidSlug(doctor.slug))
-    .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
-    .join('')}
+      .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
+      .join('')}
 
   ${conditions.filter(condition => isValidSlug(condition.slug))
-    .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
-    .join('')}
+      .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
+      .join('')}
 
   ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))
-    .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
-    .join('')}
+      .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
+      .join('')}
 
   ${generateUrlEntry("/blogs")}
   
   ${blogsData
-    .filter(blog => blog?.slug)
-    .map(blog => generateUrlEntry(`/blogs/${blog.slug}`, blog.modified_at, "monthly"))
-    .join('')}
+      .filter(blog => blog?.slug)
+      .map(blog => generateUrlEntry(`/blogs/${blog.slug}`, blog.modified_at, "monthly"))
+      .join('')}
 </urlset>`;
 
   return new Response(xmlContent, {

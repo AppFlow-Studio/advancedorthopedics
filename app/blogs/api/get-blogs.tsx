@@ -1,11 +1,12 @@
 'use server'
 import { createClient } from "@/utils/supabase/server";
+import { staticSupabase } from "@/utils/supabase/static";
 
 export async function GetBlogs() {
   try {
     const supabase = await createClient();
     const { data, error } = await supabase.from("blogs").select("*").order("created_at", { ascending: false });
-    if(error) {
+    if (error) {
       console.error("Supabase error in GetBlogs:", error);
       return [];
     }
@@ -16,11 +17,26 @@ export async function GetBlogs() {
   }
 }
 
+// Public version for static generation (sitemap, etc.) - doesn't use cookies
+export async function GetBlogsPublic() {
+  try {
+    const { data, error } = await staticSupabase.from("blogs").select("*").order("created_at", { ascending: false });
+    if (error) {
+      console.error("Supabase error in GetBlogsPublic:", error);
+      return [];
+    }
+    return data;
+  } catch (err) {
+    console.error("Unexpected error in GetBlogsPublic:", err);
+    return [];
+  }
+}
+
 export async function GetLatestBlog() {
   try {
     const supabase = await createClient();
     const { data, error } = await supabase.from("blogs").select("*").order("created_at", { ascending: false }).limit(1).single();
-    if(error) {
+    if (error) {
       console.error("Supabase error in GetLatestBlog:", error);
       return null;
     }
@@ -64,7 +80,7 @@ export async function GetBlogsPaginated(page = 1, perPage = 9, tag?: string) {
       console.error("Supabase error in GetBlogsPaginated:", error);
       return { data: [], total: 0, page, perPage, tag };
     }
-    
+
     return { data: data as BlogRow[], total: count ?? 0, page, perPage, tag };
   } catch (err) {
     console.error("Unexpected error in GetBlogsPaginated:", err);
