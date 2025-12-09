@@ -3,6 +3,7 @@ import { clinics } from "@/components/data/clinics";
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { generateLocationSchema } from "@/lib/generateLocationSchema";
+import { generateFAQPageSchema } from "@/lib/faq-utils";
 
 // This function dynamically generates metadata for each location page.
 export async function generateMetadata(
@@ -117,6 +118,11 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
       ]
     };
 
+    // FAQPage Schema (if FAQs exist)
+    const faqSchema = location.faqs && location.faqs.length > 0
+      ? generateFAQPageSchema(location.faqs, `https://mountainspineorthopedics.com/locations/${location.slug}`)
+      : null;
+
     return (
       <>
         <script
@@ -127,6 +133,12 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
       </>
     );
   };
