@@ -21,11 +21,15 @@ import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
-  name: z.string().min(2, "name must be at least 2 characters"),
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
   reason: z.string().min(2, "Please provide more detail about your consultation needs"),
-  bestTime: z.string().min(1, "Please provide more detail about your consultation needs")
+  bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
+  postalCode: z.string()
+    .regex(/^\d{5}(?:-\d{4})?$/, "Please enter a valid ZIP code"),
+  country: z.literal("US").default("US"),
 })
 const timeSlots = [
   "9:00 AM - 10:00 AM",
@@ -44,11 +48,14 @@ export function PatientAdvocateForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       reason: "",
-      bestTime: ""
+      bestTime: "",
+      postalCode: "",
+      country: "US",
     },
   })
 
@@ -59,7 +66,16 @@ export function PatientAdvocateForm() {
       const res = await fetch("/api/forms/patient-advocate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          reason: values.reason,
+          bestTime: values.bestTime,
+          postalCode: values.postalCode,
+          country: values.country,
+        }),
       })
 
       if (res.redirected) {
@@ -72,8 +88,22 @@ export function PatientAdvocateForm() {
       }
 
       // Enhanced Conversions
-      persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-      pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+      persistEC({
+        email: values.email,
+        phone: values.phone,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        postalCode: values.postalCode,
+        country: "US",
+      });
+      pushEC({
+        email: values.email,
+        phone: values.phone,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        postalCode: values.postalCode,
+        country: "US",
+      });
       pushEvent('lead_form_submit', { form_name: 'PatientAdvocateForm' });
 
       setAppointmentConfirm(true)
@@ -93,6 +123,7 @@ export function PatientAdvocateForm() {
 
       >
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 px-1">
+          <input type="hidden" name="country" value="US" />
           <h2
             style={{
               fontFamily: 'var(--font-public-sans)',
@@ -110,21 +141,55 @@ export function PatientAdvocateForm() {
             Lets get in contact
           </p>
           {/* Name Fields */}
-          <div className="grid grid-cols-1  gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField
               control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm text-[#838890] font-semibold ">Full Name<span className="text-red-500">*</span></FormLabel>
-                  <FormControl>
-                    <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              name="firstName"
+              render={({ field }) => {
+                const { name: _, ...fieldProps } = field;
+                return (
+                  <FormItem>
+                    <FormLabel className="text-sm text-[#838890] font-semibold ">First Name<span className="text-red-500">*</span></FormLabel>
+                    <FormControl>
+                      <Input 
+                        id="first_name"
+                        name="firstName"
+                        placeholder="First Name" 
+                        autoComplete="given-name"
+                        startIcon={User} 
+                        className="h-12 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" 
+                        {...fieldProps} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
             />
-
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => {
+                const { name: _, ...fieldProps } = field;
+                return (
+                  <FormItem>
+                    <FormLabel className="text-sm text-[#838890] font-semibold ">Last Name<span className="text-red-500">*</span></FormLabel>
+                    <FormControl>
+                      <Input 
+                        id="last_name"
+                        name="lastName"
+                        placeholder="Last Name" 
+                        autoComplete="family-name"
+                        startIcon={User} 
+                        className="h-12 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" 
+                        {...fieldProps} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            />
           </div>
 
           {/* Contact Fields */}
@@ -154,6 +219,30 @@ export function PatientAdvocateForm() {
                   <FormMessage />
                 </FormItem>
               )}
+            />
+            <FormField
+              control={form.control}
+              name="postalCode"
+              render={({ field }) => {
+                const { name: _, ...fieldProps } = field;
+                return (
+                  <FormItem>
+                    <FormLabel className="text-sm text-[#838890] font-semibold">ZIP / Postal Code<span className="text-red-500">*</span></FormLabel>
+                    <FormControl>
+                      <Input 
+                        id="postal_code"
+                        name="postalCode"
+                        inputMode="numeric"
+                        autoComplete="postal-code"
+                        placeholder="e.g., 33463" 
+                        className="h-12 text-lg border-[#DCDEE1] bg-[#FAFAFA]" 
+                        {...fieldProps} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
             />
           </div>
 

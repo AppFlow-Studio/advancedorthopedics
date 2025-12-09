@@ -1,5 +1,4 @@
 'use client';
-import InjectFaqSchema from '@/components/InjectFaqSchema';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
@@ -48,39 +47,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
         document.head.appendChild(script);
     }
     // ✅ End of JSON-LD schema for MedicalProcedure, BIlal Addition
-
-    const faqSchema = treatment
-        ? {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-                {
-                    "@type": "Question",
-                    name: `What are the benefits of ${treatment.title}?`,
-                    acceptedAnswer: {
-                        "@type": "Answer",
-                        text: treatment.benefits || "Relieves spine and joint pain.",
-                    },
-                },
-                {
-                    "@type": "Question",
-                    name: `What conditions does ${treatment.title} treat?`,
-                    acceptedAnswer: {
-                        "@type": "Answer",
-                        text: treatment.conditions_treated || "Treats orthopedic and spinal conditions.",
-                    },
-                },
-                {
-                    "@type": "Question",
-                    name: "What is the recovery process like?",
-                    acceptedAnswer: {
-                        "@type": "Answer",
-                        text: treatment.recovery_info || "Often includes a referral for a structured physical therapy program.",
-                    },
-                },
-            ],
-        }
-        : null;
+    // Note: FAQPage schema is handled in layout.tsx to avoid duplicates
 
     // Function to perform a Fisher-Yates shuffle on the array
     function shuffleArray<T>(array: T[]): T[] {
@@ -97,7 +64,6 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
 
     return (
         <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
-            {faqSchema && <InjectFaqSchema schema={faqSchema} />}
             {/* Landing */}
             <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" >
                 <div

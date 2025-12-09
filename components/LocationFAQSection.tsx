@@ -1,5 +1,4 @@
 import React from 'react';
-import { generateFAQPageSchema } from '@/lib/faq-utils';
 
 interface LocationFAQSectionProps {
   faqs: { question: string; answer: string }[];
@@ -9,25 +8,14 @@ interface LocationFAQSectionProps {
 
 /**
  * Server component for location page FAQ rendering with SEO-optimized structure
- * Includes FAQPage schema markup for search engines
+ * Note: FAQPage schema is now handled in layout.tsx to avoid duplicates
  * All FAQs in a single container for compact design
  */
 export default function LocationFAQSection({ faqs, locationName, pageUrl }: LocationFAQSectionProps) {
   if (!faqs || faqs.length === 0) return null;
 
-  const faqSchema = generateFAQPageSchema(faqs, pageUrl);
-
   return (
-    <>
-      {/* FAQ Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
-      />
-      
-      <section 
+    <section 
         className="w-full max-w-[1440px] flex flex-col py-[50px] h-full px-2 md:px-[40px]"
         aria-labelledby="location-faq-heading"
       >
@@ -82,7 +70,6 @@ export default function LocationFAQSection({ faqs, locationName, pageUrl }: Loca
           </div>
         </div>
       </section>
-    </>
   );
 }
 

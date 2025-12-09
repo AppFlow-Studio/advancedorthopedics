@@ -52,6 +52,13 @@ export interface ClinicsProps {
   faqs?: { question: string; answer: string }[];
   ogImage: string;
   mapEmbed?: string;
+  // GBP (Google Business Profile) fields
+  placeId?: string;
+  cid?: string;
+  businessProfileId?: string;
+  kgId?: string;
+  categories?: string[];
+  formattedAddress?: string;
 }
 
 export const clinics: ClinicsProps[] = [
@@ -59,9 +66,9 @@ export const clinics: ClinicsProps[] = [
     id: 4,
     name: 'Mountain Spine & Orthopedics Hollywood, FL',
     region: 'Hollywood, FL',
-    lat: 33.9086284,
-    lng: -117.4561894,
-    address: '3500 Tyler St Hollywood, FL 33021',
+    lat: 26.01135480,
+    lng: -80.17890730,
+    address: '3500 Tyler St, Hollywood, FL 33021',
     phone: '(754) 212-8736',
     link: 'https://maps.app.goo.gl/sEddhMjGYvcWCUVe9',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJB4w5HZ6r2YgRioDXW8nbjL0',
@@ -571,14 +578,21 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.6782655543784!2d-80.18377821793146!3d26.011354718397076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ab9e1d398c07%3A0xbd8cdbc95bd7808a!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186369851!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJB4w5HZ6r2YgRioDXW8nbjL0',
+    cid: '13658533427783630986',
+    businessProfileId: '4195626959702257371',
+    kgId: '/g/11xdh045lm',
+    categories: ['Orthopedic clinic', 'Orthopedic surgeon', 'Pain management physician', 'Physiatrist', 'Podiatrist', 'Sports medicine clinic'],
+    formattedAddress: '3500 Tyler St, Hollywood, FL 33021',
   },
   {
     id: 3,
     name: 'Mountain Spine & Orthopedics Palm Springs, FL',
     region: 'Palm Springs, FL',
-    lat: 28.6742451,
-    lng: -81.374189,
-    address: '652 Palm Springs Dr Altamonte Springs, FL 32701',
+    lat: 28.67424510,
+    lng: -81.37418900,
+    address: '652 Palm Springs Dr, Altamonte Springs, FL 32701',
     phone: '(407) 565-7598',
     link: 'https://maps.app.goo.gl/aj8z81BVqczWk7c1A',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJjbW80Wpx54gRvJN9yDXP3jw',
@@ -1048,7 +1062,7 @@ export const clinics: ClinicsProps[] = [
     region: 'Orlando, FL',
     lat: 28.5136111,
     lng: -81.466257,
-    address: '6150 Metrowest Blvd Suite 102 Orlando, FL 32835',
+    address: '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
     phone: '(407) 960-1717',
     link: 'https://maps.app.goo.gl/Nd7doQdBDtQjfQwKA',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJvwlQvKN554gRbKjdi5IPAJM',
@@ -1519,13 +1533,20 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8682598319447!2d-81.46883192446174!3d28.51361107572991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e779a3bc5009bf%3A0x93000f928bdda86c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186387828!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJvwlQvKN554gRbKjdi5IPAJM',
+    cid: '10592483445661608044',
+    businessProfileId: '524481398757325864',
+    kgId: '/g/11xdg4yhhx',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist'],
+    formattedAddress: '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
   },
   {
     id: 9,
     name: 'Mountain Spine & Orthopedics Fort Pierce',
     region: 'Fort Pierce, FL',
-    lat: 27.4316576,
-    lng: -80.3483451,
+    lat: 27.43165760,
+    lng: -80.34834510,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
     link: 'https://maps.app.goo.gl/ckuRiBAYkA5GWiJZA',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJt0ir7Mzx3ogRPKKGsVdXn4c',
@@ -1990,14 +2011,21 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.2857638186815!2d-80.09235541774463!3d26.8308618166085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88df2b301813d549%3A0x848ccbabe8c43243!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186670783!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJt0ir7Mzx3ogRPKKGsVdXn4c',
+    cid: '9772625750569427516',
+    businessProfileId: '557058695312835245',
+    kgId: '/g/11ycy0xs6d',
+    categories: ['Orthopedic surgeon', 'Medical clinic', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
+    formattedAddress: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
   },
   {
     id: 6,
     name: 'Mountain Spine & Orthopedics Palm Beach Gardens',
     region: 'Palm Beach Gardens, FL',
-    lat: 26.8308619,
-    lng: -80.0874845,
-    address: '3355 Burns Road Suite 304, FL 33410',
+    lat: 26.83086190,
+    lng: -80.08748450,
+    address: '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
     phone: '(561) 556-1802',
     link: 'https://maps.app.goo.gl/pduSNEN5vF3uDfVB7',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJSdUTGDAr34gRQzLE6KvLjIQ',
@@ -2480,14 +2508,21 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.207042187583!2d-80.35092002450014!3d27.431657576341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88def1ccecab48b7%3A0x879f5757b186a23c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186735573!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJSdUTGDAr34gRQzLE6KvLjIQ',
+    cid: '9551232848950997571',
+    businessProfileId: '3692978161042033907',
+    kgId: '/g/11xg39r2lw',
+    categories: ['Orthopedic surgeon', 'Medical clinic', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
+    formattedAddress: '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
   },
   {
     id: 7,
     name: 'Mountain Spine & Orthopedics Miami Beach',
     region: 'Miami Beach, FL',
-    lat: 25.7053911,
-    lng: -80.2936699,
-    address: '7000 SW 62 AVE, Suite 330 South Miami, FL 33143-4716',
+    lat: 25.69602070,
+    lng: -80.30127530,
+    address: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
     phone: '(954) 987-2047',
     link: 'https://www.google.com/maps/place/7000+SW+62+AVE+Suite+330,+South+Miami,+FL+33143-4716',
     slug: 'miami-beach-orthopedics',
@@ -2953,6 +2988,13 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.2537668334203!2d-80.30385022455886!3d25.696020677393292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9c7231a96fdfd%3A0x4664475ce3ef794b!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186588208!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJ_f2WGiPH2YgRS3nv41xHZEY',
+    cid: '5072257544612706635',
+    businessProfileId: '8553019631701086019',
+    kgId: '/g/11xg49h3z1',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
+    formattedAddress: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
   },
   {
     id: 8,
@@ -3426,6 +3468,13 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.4534743206004!2d-80.13086991784148!3d26.408838917521138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91f1fadf45eb3%3A0xd66ee5235fec0fec!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186820033!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJs170rR8f2YgR7A_sXyPlbtY',
+    cid: '15451539311650672620',
+    businessProfileId: '9404691146425126580',
+    kgId: '/g/11x_gt001t',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist'],
+    formattedAddress: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
   },
   {
     id: 1,
@@ -3433,7 +3482,7 @@ export const clinics: ClinicsProps[] = [
     region: 'Central Pkwy Altamonte Springs, FL',
     lat: 28.6701508,
     lng: -81.3745803,
-    address: '499 E Central Pkwy #130 Altamonte Springs, FL 32701',
+    address: '499 E Central Pkwy, Altamonte Springs, FL 32701',
     phone: '(407) 960-1717',
     link: 'https://maps.app.goo.gl/uuqp3fHk8GCaAGe3A',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJUbdY9Fxx54gRl00KhSxpTm8',
@@ -3926,6 +3975,13 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: "/newlogo4.png",
+    // GBP data
+    placeId: 'ChIJUbdY9Fxx54gRl00KhSxpTm8',
+    cid: '8020463626324954519',
+    businessProfileId: '5055918125423290349',
+    kgId: '/g/11ydkt_ghw',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
+    formattedAddress: '499 E Central Pkwy, Altamonte Springs, FL 32701',
   },
   {
     id: 2,
@@ -4424,14 +4480,21 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.651627743948!2d-81.377155224456!3d28.670147975644227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7715cf458b751%3A0x6f4e692c850a4d97!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186436408!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJjbW80Wpx54gRvJN9yDXP3jw',
+    cid: '4386170917009331132',
+    businessProfileId: '12135909678335605998',
+    kgId: '/g/11xdg50fw8',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
+    formattedAddress: '652 Palm Springs Dr, Altamonte Springs, FL 32701',
   },
   {
     id: 10,
     name: 'Mountain Spine & Orthopedics Jacksonville, FL',
     region: 'Jacksonville, FL',
-    lat: 30.3418103,
-    lng: -81.5382893,
-    address: '1205 Monument Rd Jacksonville, FL 32225',
+    lat: 30.34181030,
+    lng: -81.53828930,
+    address: '1205 Monument Rd, Jacksonville, FL 32225',
     phone: '(561) 223-9959',
     link: 'https://maps.app.goo.gl/iV8NEiErNEPKsmY7A',
     placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJbexYmoC15YgRC4cJ_NR_NHo',
@@ -4918,6 +4981,13 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: '/newlogo4.png',
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.321547399935!2d-81.5408642243937!3d30.341810274775245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b5809a58ec6d%3A0x7a347fd4fc09870b!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186780156!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJbexYmoC15YgRC4cJ_NR_NHo',
+    cid: '8805803724154439435',
+    businessProfileId: '1603346268883025043',
+    kgId: '/g/11mk_m9mj_',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
+    formattedAddress: '1205 Monument Rd, Jacksonville, FL 32225',
   },
 ];
 
