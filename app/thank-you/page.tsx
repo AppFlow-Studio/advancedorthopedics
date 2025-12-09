@@ -22,15 +22,28 @@ export default function ThankYouPage() {
         const ec = {
           email: (sessionStorage.getItem('ec_email') || '').trim().toLowerCase(),
           phone_number: (sessionStorage.getItem('ec_phone') || '').replace(/\D/g, ''),
-          first_name: (sessionStorage.getItem('ec_first') || '').trim(),
-          last_name: (sessionStorage.getItem('ec_last') || '').trim(),
+          address: {
+            first_name: (sessionStorage.getItem('ec_first') || '').trim(),
+            last_name: (sessionStorage.getItem('ec_last') || '').trim(),
+            country: (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase(),
+            postal_code: (sessionStorage.getItem('ec_postal') || '').trim(),
+          },
         };
         
         // Check if we have valid data before pushing
         if (ec.email || ec.phone_number) {
           (window as any).dataLayer = (window as any).dataLayer || [];
           (window as any).dataLayer.push({
-            enhanced_conversion_data: ec,
+            enhanced_conversion_data: {
+              email: ec.email || undefined,
+              phone_number: ec.phone_number || undefined,
+              address: {
+                first_name: ec.address.first_name || undefined,
+                last_name: ec.address.last_name || undefined,
+                country: ec.address.country || "US",
+                postal_code: ec.address.postal_code || undefined,
+              },
+            },
           });
         }
       } catch (error) {

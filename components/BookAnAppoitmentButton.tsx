@@ -27,13 +27,17 @@ import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { FileUpload } from './ui/file-upload'
 const formSchema = z.object({
-    name: z.string().min(2, "name must be at least 2 characters"),
+    firstName: z.string().min(2, "First name must be at least 2 characters"),
+    lastName: z.string().min(1, "Last name is required"),
     email: z.string().email("Invalid email address"),
     phone: z.string().min(10, "Phone number must be at least 10 digits"),
     reason: z.string().min(2),
     bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
     insuranceCardFront: z.instanceof(File).optional().or(z.null()),
-    insuranceCardBack: z.instanceof(File).optional().or(z.null())
+    insuranceCardBack: z.instanceof(File).optional().or(z.null()),
+    postalCode: z.string()
+        .regex(/^\d{5}(?:-\d{4})?$/, "Please enter a valid ZIP code"),
+    country: z.literal("US").default("US"),
 })
 const TIME_SLOTS = [
     "9:00 AM",
@@ -77,11 +81,16 @@ export default function BookAnAppoitmentButton({
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
+            firstName: "",
+            lastName: "",
             email: "",
             phone: "",
             reason: "",
-            bestTime: ""
+            bestTime: "",
+            insuranceCardFront: null,
+            insuranceCardBack: null,
+            postalCode: "",
+            country: "US",
         },
     })
 
@@ -189,11 +198,14 @@ export default function BookAnAppoitmentButton({
 
         try {
             const payload = {
-                name: values.name,
+                firstName: values.firstName,
+                lastName: values.lastName,
                 email: values.email,
                 phone: values.phone,
                 reason: values.reason,
                 bestTime: values.bestTime,
+                postalCode: values.postalCode,
+                country: values.country,
                 insuranceCardFront: await toFilePayload(values.insuranceCardFront),
                 insuranceCardBack: await toFilePayload(values.insuranceCardBack),
             }
@@ -214,8 +226,22 @@ export default function BookAnAppoitmentButton({
             }
 
             // Enhanced Conversions
-            persistEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
-            pushEC({ email: values.email, phone: values.phone, firstName: values.name, lastName: '' });
+            persistEC({
+                email: values.email,
+                phone: values.phone,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                postalCode: values.postalCode,
+                country: "US",
+            });
+            pushEC({
+                email: values.email,
+                phone: values.phone,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                postalCode: values.postalCode,
+                country: "US",
+            });
             pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
 
             if (typeof window !== 'undefined' && window.dataLayer) {
@@ -272,6 +298,7 @@ export default function BookAnAppoitmentButton({
                             className="space-y-6 p-1 sm:p-1 overflow-y-auto flex-1 pr-2 relative"
                             onSubmit={form.handleSubmit(onSubmit, () => { console.log('error') })}
                         >
+                            <input type="hidden" name="country" value="US" />
                             {/* <ScrollProgress className="top-[65px]" color="#0A50EC" /> */}
 
 
@@ -279,22 +306,55 @@ export default function BookAnAppoitmentButton({
                             <div className="w-full  space-y-6"
                             >
                                 {/* Name Fields */}
-                                <div className="grid grid-cols-1  gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <FormField
                                         control={form.control}
-                                        name="name"
-
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="text-sm text-[#111315] font-semibold ">Full Name</FormLabel>
-                                                <FormControl>
-                                                    <Input placeholder="Name" startIcon={User} className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
+                                        name="firstName"
+                                        render={({ field }) => {
+                                            const { name: _, ...fieldProps } = field;
+                                            return (
+                                                <FormItem>
+                                                    <FormLabel className="text-sm text-[#111315] font-semibold ">First Name</FormLabel>
+                                                    <FormControl>
+                                                        <Input 
+                                                            id="first_name"
+                                                            name="firstName"
+                                                            placeholder="First Name" 
+                                                            autoComplete="given-name"
+                                                            startIcon={User} 
+                                                            className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" 
+                                                            {...fieldProps} 
+                                                        />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            );
+                                        }}
                                     />
-
+                                    <FormField
+                                        control={form.control}
+                                        name="lastName"
+                                        render={({ field }) => {
+                                            const { name: _, ...fieldProps } = field;
+                                            return (
+                                                <FormItem>
+                                                    <FormLabel className="text-sm text-[#111315] font-semibold ">Last Name</FormLabel>
+                                                    <FormControl>
+                                                        <Input 
+                                                            id="last_name"
+                                                            name="lastName"
+                                                            placeholder="Last Name" 
+                                                            autoComplete="family-name"
+                                                            startIcon={User} 
+                                                            className="h-10 text-lg border-[#DCDEE1]  bg-[#FAFAFA]" 
+                                                            {...fieldProps} 
+                                                        />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            );
+                                        }}
+                                    />
                                 </div>
 
                                 {/* Contact Fields */}
@@ -346,6 +406,40 @@ export default function BookAnAppoitmentButton({
                                                 <FormMessage />
                                             </FormItem>
                                         )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="postalCode"
+                                        render={({ field }) => {
+                                            const { name: _, ...fieldProps } = field;
+                                            return (
+                                                <FormItem>
+                                                    <FormLabel>
+                                                        <span
+                                                            style={{
+                                                                fontFamily: 'var(--font-public-sans)',
+                                                                fontWeight: 500,
+                                                            }}
+                                                            className='text-[#111315] text-md'
+                                                        >
+                                                            ZIP / Postal Code
+                                                        </span>
+                                                    </FormLabel>
+                                                    <FormControl>
+                                                        <Input 
+                                                            id="postal_code"
+                                                            name="postalCode"
+                                                            inputMode="numeric"
+                                                            autoComplete="postal-code"
+                                                            placeholder="e.g., 33463" 
+                                                            className="h-10 text-lg border-[#DCDEE1] bg-[#FAFAFA]" 
+                                                            {...fieldProps} 
+                                                        />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            );
+                                        }}
                                     />
                                 </div>
 

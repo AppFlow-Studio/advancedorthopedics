@@ -36,6 +36,7 @@ import { Testimonial } from '@/components/ui/testimonial-card'
 import ReviewsCarousel from '@/components/ReviewsCarousel.client'
 import { PhoneTextLink } from '@/components/PhoneTextLink'
 import LocationFAQSection from '@/components/LocationFAQSection'
+import { LocationNAP } from '@/components/LocationNAP'
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -184,10 +185,18 @@ export default async function LocationDetails(
                                     {location.region} most trusted spine and joint care center, serving Florida families at their convenience.
                                 </p>
                             </div>
+                            {/* NAP Block - Mobile */}
+                            <div className="xl:px-[80px] px-8 mt-1 sm:hidden block">
+                                <LocationNAP slug={location.slug} />
+                            </div>
+                            {/* NAP Block - Desktop */}
+                            <div className="xl:px-[80px] px-8 mt-1 sm:block hidden">
+                                <LocationNAP slug={location.slug} />
+                            </div>
                         </SlidingDiv>
 
                         {/* Mobile CTA row (under paragraph, above certificates) */}
-                        <div className="z-[2] px-4 mt-4 sm:hidden block">
+                        <div className="z-[2] px-4 mt-3 sm:hidden block">
                             <div className="flex flex-col space-y-3 w-full max-w-[480px] mx-auto">
                                 {/* Phone Text Link */}
                                 <div className="w-full flex justify-center">

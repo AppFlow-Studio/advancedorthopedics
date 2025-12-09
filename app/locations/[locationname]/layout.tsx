@@ -2,6 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { clinics } from "@/components/data/clinics";
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
+import { generateLocationSchema } from "@/lib/generateLocationSchema";
 
 // This function dynamically generates metadata for each location page.
 export async function generateMetadata(
@@ -78,7 +79,7 @@ export async function generateMetadata(
 }
 
 // --- SEO ENHANCEMENT: DYNAMIC JSON-LD SCHEMA FOR EACH CLINIC ---
-// This component generates a unique schema for each medical clinic location.
+// This component generates a unique schema for each medical clinic location using GBP data.
 const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname: string }> }) => {
     const resolvedParams = await params;
     const location = clinics.find(clinic => clinic.slug === resolvedParams.locationname);
@@ -87,252 +88,8 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
         return null;
     }
 
-    // Robust address parsing for schema
-    // This function reliably parses US addresses into schema components.
-    const parseAddress = (fullAddress: string) => {
-        const addressParts = fullAddress.split(', ');
-        
-        let streetAddress = fullAddress;
-        let addressLocality = '';
-        let addressRegion = 'FL';
-        let postalCode = '';
-
-        if (addressParts.length >= 2) {
-            // Handles formats like "Street, City, State ZIP" or "Street, City"
-            streetAddress = addressParts[0];
-            addressLocality = addressParts[1];
-
-            if (addressParts.length === 3) {
-                const stateZip = addressParts[2].split(' ');
-                addressRegion = stateZip[0];
-                postalCode = stateZip[1];
-            }
-        } else if (addressParts.length === 1) {
-            // Fallback for formats like "Street City State ZIP" without commas
-            const stateMatch = fullAddress.match(/\b([A-Z]{2})\s+(\d{5}(?:-\d{4})?)\s*$/);
-            if (stateMatch) {
-                addressRegion = stateMatch[1];
-                postalCode = stateMatch[2];
-                const cityAndStreet = fullAddress.substring(0, stateMatch.index).trim();
-                const lastSpaceIndex = cityAndStreet.lastIndexOf(' ');
-                
-                if (lastSpaceIndex > -1) {
-                    streetAddress = cityAndStreet.substring(0, lastSpaceIndex);
-                    addressLocality = cityAndStreet.substring(lastSpaceIndex + 1);
-                }
-            }
-        }
-
-        return { streetAddress, addressLocality, addressRegion, postalCode };
-    };
-    
-    const { streetAddress, addressLocality, addressRegion, postalCode } = parseAddress(location.address);
-
-    // Extract iframe src from mapEmbed
-    const extractMapSrc = (mapEmbed?: string): string | undefined => {
-      if (!mapEmbed) return undefined;
-      const srcMatch = mapEmbed.match(/src="([^"]+)"/);
-      return srcMatch ? srcMatch[1] : undefined;
-    };
-
-    const mapSrc = extractMapSrc(location.mapEmbed) || location.placeUrl || location.link;
-
-    const schema = {
-      '@context': 'https://schema.org',
-      '@type': 'MedicalClinic', // More specific than MedicalOrganization for a location page
-      'name': location.name,
-      'description': location.metaDescription,
-      'url': `https://mountainspineorthopedics.com/locations/${location.slug}`,
-      'telephone': location.phone,
-      'sameAs': [location.link].filter(Boolean),
-      'hasMap': mapSrc,
-      'map': mapSrc,
-      'address': {
-        '@type': 'PostalAddress',
-        'streetAddress': streetAddress,
-        'addressLocality': addressLocality,
-        'addressRegion': addressRegion,
-        'postalCode': postalCode,
-        'addressCountry': 'US'
-      },
-      'geo': {
-          '@type': 'GeoCoordinates',
-          'latitude': location.lat,
-          'longitude': location.lng
-      },
-      'location': {
-        '@type': 'Place',
-        'geo': {
-          '@type': 'GeoCoordinates',
-          'latitude': location.lat,
-          'longitude': location.lng
-        },
-        'address': {
-          '@type': 'PostalAddress',
-          'streetAddress': streetAddress,
-          'addressLocality': addressLocality,
-          'addressRegion': addressRegion,
-          'postalCode': postalCode,
-          'addressCountry': 'US'
-        }
-      },
-      // Enhanced medical specialties
-      'medicalSpecialty': [
-        'Orthopedic Surgery',
-        'Spine Surgery',
-        'Minimally Invasive Surgery',
-        'Joint Replacement',
-        'Sports Medicine'
-      ],
-      // Hyper-local service area using named neighborhoods and cities
-      'areaServed': location.neighborhoodsWeServe && location.neighborhoodsWeServe.length > 0 ? [
-        ...location.neighborhoodsWeServe.map((neighborhood: string) => ({
-          '@type': 'Neighborhood',
-          'name': neighborhood
-        })),
-        {
-          '@type': 'City',
-          'name': addressLocality
-        }
-      ] : [
-        {
-          '@type': 'City',
-          'name': addressLocality
-        }
-      ],
-      // Operating hours
-      'openingHours': [
-        'Mo-Fr 08:00-20:00',
-        'Sa 08:00-20:00',
-        'Su 08:00-20:00'
-      ],
-      'openingHoursSpecification': [{
-        '@type': 'OpeningHoursSpecification',
-        'dayOfWeek': [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
-        ],
-        'opens': '09:00',
-        'closes': '17:00'
-      }],
-      'priceRange': '$$',
-      // This links each clinic back to the main organization
-      'parentOrganization': 'Mountain Spine & Orthopedics',
-      // Enhanced services offered
-      'hasOfferCatalog': {
-        '@type': 'OfferCatalog',
-        'name': 'Orthopedic & Spine Surgery Services',
-        'itemListElement': [
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Minimally Invasive Spine Surgery'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Band-Aid Back Surgery'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Microdiscectomy'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Laminectomy'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Spinal Fusion'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Artificial Disc Replacement'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Kyphoplasty'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Vertebroplasty'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Endoscopic Spine Surgery'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Joint Replacement Surgery'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'MedicalProcedure',
-              'name': 'Orthopedic Consultation'
-            }
-          }
-        ]
-      },
-      // Add a generic image or create a location-specific one
-      'image': location.ogImage ? `https://mountainspineorthopedics.com${location.ogImage}` : 'https://mountainspineorthopedics.com/locations_og.png',
-      // AggregateRating for 5-star rating
-      'aggregateRating': location.rating && location.reviewCount ? {
-        '@type': 'AggregateRating',
-        'ratingValue': location.rating,
-        'bestRating': 5,
-        'worstRating': 1,
-        'reviewCount': location.reviewCount
-      } : undefined,
-      // Review array for patient reviews
-      'review': location.reviews && location.reviews.length > 0 ? location.reviews.map((r) => ({
-        '@type': 'Review',
-        'author': {
-          '@type': 'Person',
-          'name': r.author
-        },
-        'reviewBody': r.reviewBody,
-        'reviewRating': {
-          '@type': 'Rating',
-          'ratingValue': r.reviewRating,
-          'bestRating': 5,
-          'worstRating': 1
-        }
-      })) : undefined,
-    };
+    // Generate enhanced schema using utility function (includes GBP data)
+    const schema = generateLocationSchema(location);
   
     // Breadcrumb Schema for navigation
     const breadcrumbSchema = {
@@ -360,17 +117,11 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ locationname
       ]
     };
 
-
-    // Remove undefined values from schema before stringifying
-    const cleanSchema = Object.fromEntries(
-      Object.entries(schema).filter(([_, value]) => value !== undefined)
-    );
-
     return (
       <>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(cleanSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
         <script
           type="application/ld+json"

@@ -6,11 +6,14 @@ import {
 } from "@/components/email/sendcontactemail";
 
 type PatientAdvocatePayload = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   reason: string;
   bestTime: string;
+  postalCode?: string;
+  country?: string;
 };
 
 export async function POST(request: Request) {
@@ -26,9 +29,17 @@ export async function POST(request: Request) {
   try {
     const body: PatientAdvocatePayload = await request.json();
 
-    await sendContactEmail(body);
+    const fullName = `${body.firstName} ${body.lastName}`.trim();
+
+    await sendContactEmail({
+      name: fullName,
+      email: body.email,
+      phone: body.phone,
+      reason: body.reason,
+      bestTime: body.bestTime,
+    });
     await sendUserEmail({
-      name: body.name,
+      name: fullName,
       email: body.email,
       phone: body.phone,
     });

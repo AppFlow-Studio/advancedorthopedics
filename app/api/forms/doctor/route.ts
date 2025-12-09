@@ -13,11 +13,14 @@ type FilePayload = {
 } | null;
 
 type DoctorPayload = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   reason: string;
   bestTime: string;
+  postalCode?: string;
+  country?: string;
   insuranceCardFront?: FilePayload;
   insuranceCardBack?: FilePayload;
 };
@@ -57,8 +60,10 @@ export async function POST(request: Request) {
   try {
     const body: DoctorPayload = await request.json();
 
+    const fullName = `${body.firstName} ${body.lastName}`.trim();
+
     await sendContactEmail({
-      name: body.name,
+      name: fullName,
       email: body.email,
       phone: body.phone,
       reason: body.reason,
@@ -68,7 +73,7 @@ export async function POST(request: Request) {
     });
 
     await sendUserEmail({
-      name: body.name,
+      name: fullName,
       email: body.email,
       phone: body.phone,
     });

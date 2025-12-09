@@ -16,6 +16,8 @@ type ECIn = {
   phone?: string;
   firstName?: string;
   lastName?: string;
+  postalCode?: string;
+  country?: string;
   address?: {
     street?: string;
     city?: string;
@@ -28,14 +30,11 @@ type ECIn = {
 type ECOut = {
   email: string;
   phone_number: string;
-  first_name: string;
-  last_name: string;
-  address?: {
-    street_address?: string;
-    city?: string;
-    region?: string;
-    postal_code?: string;
-    country?: string;
+  address: {
+    first_name: string;
+    last_name: string;
+    country: string;
+    postal_code: string;
   };
 };
 
@@ -45,32 +44,21 @@ type ECOut = {
 export function normalizeEC(v: ECIn): ECOut {
   const email = (v.email ?? '').trim().toLowerCase();
   const phone_number = (v.phone ?? '').replace(/\D/g, '');
-  const first_name = (v.firstName ?? '').trim();
-  const last_name = (v.lastName ?? '').trim();
-  
+  const normalizedFirstName = (v.firstName ?? '').trim();
+  const normalizedLastName = (v.lastName ?? '').trim();
+  const normalizedPostal = (v.postalCode || '').replace(/\D/g, '').slice(0, 10);
+  const normalizedCountry = (v.country || "US").trim().toUpperCase();
+
   const result: ECOut = {
     email,
     phone_number,
-    first_name,
-    last_name,
+    address: {
+      first_name: normalizedFirstName,
+      last_name: normalizedLastName,
+      country: normalizedCountry || "US",
+      postal_code: normalizedPostal,
+    },
   };
-
-  // Add address data if provided
-  if (v.address) {
-    result.address = {
-      street_address: v.address.street?.trim() || '',
-      city: v.address.city?.trim() || '',
-      region: v.address.region?.trim() || '',
-      postal_code: v.address.postalCode?.replace(/\D/g, '') || '',
-      country: v.address.country?.trim() || '',
-    };
-    
-    // Remove empty address fields
-    if (!result.address.street_address && !result.address.city && 
-        !result.address.region && !result.address.postal_code && !result.address.country) {
-      delete result.address;
-    }
-  }
 
   return result;
 }
@@ -84,11 +72,10 @@ export function persistEC(v: ECIn) {
   try {
     sessionStorage.setItem('ec_email', n.email || '');
     sessionStorage.setItem('ec_phone', n.phone_number || '');
-    sessionStorage.setItem('ec_first', n.first_name || '');
-    sessionStorage.setItem('ec_last', n.last_name || '');
-    if (n.address) {
-      sessionStorage.setItem('ec_address', JSON.stringify(n.address));
-    }
+    sessionStorage.setItem('ec_first', n.address.first_name || '');
+    sessionStorage.setItem('ec_last', n.address.last_name || '');
+    sessionStorage.setItem('ec_postal', n.address.postal_code || '');
+    sessionStorage.setItem('ec_country', n.address.country || 'US');
   } catch {}
 }
 
@@ -112,7 +99,16 @@ export function pushEC(v: ECIn, eventName: string = 'ec_capture') {
   // Google Tag Manager will automatically hash this data before sending to Google Ads
   (window as any).dataLayer.push({
     event: eventName,
-    enhanced_conversion_data: n,
+    enhanced_conversion_data: {
+      email: n.email || undefined,
+      phone_number: n.phone_number || undefined,
+      address: {
+        first_name: n.address.first_name || undefined,
+        last_name: n.address.last_name || undefined,
+        country: n.address.country || "US",
+        postal_code: n.address.postal_code || undefined,
+      },
+    },
   });
 }
 
@@ -126,7 +122,16 @@ export function pushECSilent(v: ECIn) {
   const n = normalizeEC(v);
   (window as any).dataLayer = (window as any).dataLayer || [];
   (window as any).dataLayer.push({
-    enhanced_conversion_data: n,
+    enhanced_conversion_data: {
+      email: n.email || undefined,
+      phone_number: n.phone_number || undefined,
+      address: {
+        first_name: n.address.first_name || undefined,
+        last_name: n.address.last_name || undefined,
+        country: n.address.country || "US",
+        postal_code: n.address.postal_code || undefined,
+      },
+    },
   });
 }
 
@@ -144,24 +149,29 @@ export function restoreECFromSession(eventName: string = 'ec_restore') {
     const ec: ECOut = {
       email: (sessionStorage.getItem('ec_email') || '').trim().toLowerCase(),
       phone_number: (sessionStorage.getItem('ec_phone') || '').replace(/\D/g, ''),
-      first_name: (sessionStorage.getItem('ec_first') || '').trim(),
-      last_name: (sessionStorage.getItem('ec_last') || '').trim(),
+      address: {
+        first_name: (sessionStorage.getItem('ec_first') || '').trim(),
+        last_name: (sessionStorage.getItem('ec_last') || '').trim(),
+        country: (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase(),
+        postal_code: (sessionStorage.getItem('ec_postal') || '').trim(),
+      },
     };
-
-    // Restore address if available
-    const addressStr = sessionStorage.getItem('ec_address');
-    if (addressStr) {
-      try {
-        ec.address = JSON.parse(addressStr);
-      } catch {}
-    }
 
     (window as any).dataLayer = (window as any).dataLayer || [];
     
     // Push the data to dataLayer so conversion tags can access it
     (window as any).dataLayer.push({
       event: eventName,
-      enhanced_conversion_data: ec,
+      enhanced_conversion_data: {
+        email: ec.email || undefined,
+        phone_number: ec.phone_number || undefined,
+        address: {
+          first_name: ec.address.first_name || undefined,
+          last_name: ec.address.last_name || undefined,
+          country: ec.address.country || "US",
+          postal_code: ec.address.postal_code || undefined,
+        },
+      },
     });
   } catch {}
 }
