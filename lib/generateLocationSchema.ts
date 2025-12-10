@@ -129,10 +129,11 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
   if (clinic.link) {
     sameAs.push(clinic.link);
   }
+  // placeUrl is now a CID URL, so use it if available; otherwise generate CID URL
   if (clinic.placeUrl) {
     sameAs.push(clinic.placeUrl);
-  }
-  if (clinic.cid) {
+  } else if (clinic.cid) {
+    // Only generate CID URL if placeUrl doesn't exist
     sameAs.push(`https://www.google.com/maps?cid=${clinic.cid}`);
   }
   if (clinic.kgId) {
