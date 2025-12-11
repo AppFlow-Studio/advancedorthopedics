@@ -71,7 +71,7 @@ export const clinics: ClinicsProps[] = [
     address: '3500 Tyler St, Hollywood, FL 33021',
     phone: '(754) 212-8736',
     link: 'https://maps.app.goo.gl/sEddhMjGYvcWCUVe9',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJB4w5HZ6r2YgRioDXW8nbjL0',
+    placeUrl: 'https://www.google.com/maps?cid=13658533427783630986',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.6782637587435!2d-80.18148222454842!3d26.011354777195972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ab9e1d398c07%3A0xbd8cdbc95bd7808a!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847098545!5m2!1sen!2sus',
     slug: 'hollywood-fl-orthopedics',
     paragraph: `
@@ -595,7 +595,7 @@ export const clinics: ClinicsProps[] = [
     address: '652 Palm Springs Dr, Altamonte Springs, FL 32701',
     phone: '(407) 565-7598',
     link: 'https://maps.app.goo.gl/aj8z81BVqczWk7c1A',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJjbW80Wpx54gRvJN9yDXP3jw',
+    placeUrl: 'https://www.google.com/maps?cid=4386170917009331132',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847345934!5m2!1sen!2sus',
     slug: 'palm-springs-orthopedics',
     paragraph: `
@@ -1065,7 +1065,7 @@ export const clinics: ClinicsProps[] = [
     address: '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
     phone: '(407) 960-1717',
     link: 'https://maps.app.goo.gl/Nd7doQdBDtQjfQwKA',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJvwlQvKN554gRbKjdi5IPAJM',
+    placeUrl: 'https://www.google.com/maps?cid=10592483445661608044',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8682598319447!2d-81.46883192446174!3d28.51361107572991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e779a3bc5009bf%3A0x93000f928bdda86c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847256751!5m2!1sen!2sus',
     slug: 'orlando-orthopedics',
     paragraph: `
@@ -1549,7 +1549,7 @@ export const clinics: ClinicsProps[] = [
     lng: -80.34834510,
     address: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
     link: 'https://maps.app.goo.gl/ckuRiBAYkA5GWiJZA',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJt0ir7Mzx3ogRPKKGsVdXn4c',
+    placeUrl: 'https://www.google.com/maps?cid=9772625750569427516',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.207042187583!2d-80.35092002450014!3d27.431657576341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88def1ccecab48b7%3A0x879f5757b186a23c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847379396!5m2!1sen!2sus',
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
@@ -2028,7 +2028,7 @@ export const clinics: ClinicsProps[] = [
     address: '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
     phone: '(561) 556-1802',
     link: 'https://maps.app.goo.gl/pduSNEN5vF3uDfVB7',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJSdUTGDAr34gRQzLE6KvLjIQ',
+    placeUrl: 'https://www.google.com/maps?cid=9551232848950997571',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.285761930094!2d-80.09005942452085!3d26.830861876696165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88df2b301813d549%3A0x848ccbabe8c43243!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847227565!5m2!1sen!2sus',
     slug: 'palm-beach-gardens-orthopedics',
     paragraph: `
@@ -2995,6 +2995,7 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11xg49h3z1',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
     formattedAddress: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
+    placeUrl: 'https://www.google.com/maps?cid=5072257544612706635',
   },
   {
     id: 8,
@@ -3005,7 +3006,7 @@ export const clinics: ClinicsProps[] = [
     address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
     phone: '(561) 544-5501',
     link: 'https://maps.app.goo.gl/w5ZB8jY4uj934Dwj8',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJs170rR8f2YgR7A_sXyPlbtY',
+    placeUrl: 'https://www.google.com/maps?cid=15451539311650672620',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.4534724799364!2d-80.12857392453517!3d26.408838976951078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91f1fadf45eb3%3A0xd66ee5235fec0fec!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847155755!5m2!1sen!2sus',
     slug: 'boca-raton-orthopedics',
     paragraph: `
@@ -3485,7 +3486,7 @@ export const clinics: ClinicsProps[] = [
     address: '499 E Central Pkwy, Altamonte Springs, FL 32701',
     phone: '(407) 960-1717',
     link: 'https://maps.app.goo.gl/uuqp3fHk8GCaAGe3A',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJUbdY9Fxx54gRl00KhSxpTm8',
+    placeUrl: 'https://www.google.com/maps?cid=8020463626324954519',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7715cf458b751%3A0x6f4e692c850a4d97!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847304711!5m2!1sen!2sus',
     slug: 'altamonte-springs-orthopedics',
     paragraph: `
@@ -4497,7 +4498,7 @@ export const clinics: ClinicsProps[] = [
     address: '1205 Monument Rd, Jacksonville, FL 32225',
     phone: '(561) 223-9959',
     link: 'https://maps.app.goo.gl/iV8NEiErNEPKsmY7A',
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJbexYmoC15YgRC4cJ_NR_NHo',
+    placeUrl: 'https://www.google.com/maps?cid=8805803724154439435',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.8307642541345!2d-81.54979192450683!3d30.334084408520497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b7cd9a1e1d05%3A0x9b6c8c8392e55d87!2s1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225!5e0!3m2!1sen!2sus!4v1761865000000!5m2!1sen!2sus',
     slug: 'jacksonville-orthopedics',
     paragraph: `
