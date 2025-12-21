@@ -40,6 +40,25 @@ const TAG_METADATA: Record<string, { title: string; desc: string }> = {
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
   const url = new URL(headersList.get("x-url") || "https://mountainspineorthopedics.com/blogs");
+  
+  // *** FIX: Check if this is an individual blog post route ***
+  // If pathname is like /blogs/some-slug (not just /blogs or /blogs/tag/...), skip metadata generation
+  // The child layout will handle individual blog posts
+  const pathname = url.pathname.toLowerCase();
+  const isIndividualBlogPost = pathname.startsWith('/blogs/') && 
+    pathname !== '/blogs' && 
+    !pathname.startsWith('/blogs/tag/');
+  
+  // If this is an individual blog post, return minimal metadata without canonical
+  // The child layout's generateMetadata will override with correct canonical
+  if (isIndividualBlogPost) {
+    return {
+      title: "Orthopedic Blog | Mountain Spine & Orthopedics",
+      description: "Stay updated with the latest orthopedic articles, spine health insights, and minimally invasive treatment updates from Mountain Spine & Orthopedics.",
+      // DO NOT set alternates.canonical here - let child layout handle it
+    };
+  }
+  
   const tag = url.searchParams.get("tag");
   const page = parseInt(url.searchParams.get("page") || "1", 10);
   const perPage = 6; // Ensure this matches the page size
@@ -123,6 +142,19 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BlogLayout({ children }: { children: ReactNode }) {
   const headersList = await headers();
   const url = new URL(headersList.get("x-url") || "https://mountainspineorthopedics.com/blogs");
+  
+  // *** FIX: Check if this is an individual blog post route ***
+  // JSON-LD schemas should only render on hub pages, not individual blog posts
+  const pathname = url.pathname.toLowerCase();
+  const isIndividualBlogPost = pathname.startsWith('/blogs/') && 
+    pathname !== '/blogs' && 
+    !pathname.startsWith('/blogs/tag/');
+  
+  // If this is an individual blog post, skip schema generation (child layout handles it)
+  if (isIndividualBlogPost) {
+    return <>{children}</>;
+  }
+  
   const tag = url.searchParams.get("tag");
   const page = parseInt(url.searchParams.get("page") || "1", 10);
   const perPage = 6;
