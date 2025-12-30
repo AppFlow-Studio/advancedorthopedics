@@ -219,8 +219,8 @@ export default function HomeHeroSection() {
         }}
       /> */}
 
-      <div className="w-full h-full flex flex-row relative overflow-hidden justify-between  xl:pb-[160px]">
-        <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 xl:py-8 relative">
+      <div className="w-full h-full flex flex-row relative overflow-hidden justify-between  xl:pb-[160px] xl:py-0 lg:py-10">
+        <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 xl:py-8 relative ">
           <SlidingDiv position="left" className="z-[2] sm:mt-30 mt-16">
             <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]">
               {/* SEO-Optimized H1 - Hidden but accessible */}
@@ -246,13 +246,13 @@ export default function HomeHeroSection() {
               <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod}/>
             </div>
           </div>
-          <SlidingDiv position="left" className="z-[2]">
+          <SlidingDiv position="left" className="z-[2] ">
             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
               <p
                 style={{
                   fontWeight: 400,
                 }}
-                className={`${timePeriod !== 'night' ? 'text-[#424959]' : 'text-white'} text-xl lg:text-2xl sm:text-left text-center`}
+                className={`${timePeriod !== 'night' ? 'sm:text-[#424959] text-[#252932]' : 'text-white'} text-xl lg:text-2xl sm:text-left text-center`}
               >
                 Experience expert orthopedic surgeon specialists providing minimally invasive spine surgery, joint replacement surgery, and advanced back pain treatment in Orlando, Hollywood, Boca Raton, and South Florida. Book your orthopedic surgery consultation today.
               </p>
@@ -260,7 +260,7 @@ export default function HomeHeroSection() {
           </SlidingDiv>
 
           <SlidingDiv position="left" className="z-[2]">
-            <div className="xl:px-[80px] px-8 my-[24px] xl:w-full md:flex-row sm:flex hidden flex-col md:space-y-0 space-y-4 md:space-x-[16px] items-center">
+            <div className="xl:px-[80px] px-8 mt-[24px] xl:w-full md:flex-row sm:flex hidden flex-col md:space-y-0 space-y-4 md:space-x-[16px] items-center">
               <div className="">
                 <BookAnAppoitmentButton />
               </div>
@@ -291,8 +291,8 @@ export default function HomeHeroSection() {
           </SlidingDiv>
         </div>
 
-        <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] mb-20">
-          <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto">
+        <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] mb-2 relative">
+          <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto ">
             <div className="text-center mb-4">
               <div
                 style={{
