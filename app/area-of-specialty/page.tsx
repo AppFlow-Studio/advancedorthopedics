@@ -1,7 +1,7 @@
 // app/area-of-specialty/page.tsx
 'use client'
 
-import React, { useState, useRef, useEffect, useMemo } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown, Filter, User, BicepsFlexed, Bone, Footprints, Hand, TorusIcon, TextCursorInputIcon } from 'lucide-react'
@@ -16,7 +16,6 @@ import { conditions } from '@/components/data/conditions' // Import the data arr
 import { AnimatedList } from '@/components/magicui/animated-list' // Assuming component exists
 import { TextAnimate } from '@/components/magicui/text-animate' // Assuming component exists
 import { useSearchParams } from 'next/navigation'
-import { buildCanonical } from '@/lib/seo'
 
 export default function AreaOfSpecialty() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -129,88 +128,8 @@ export default function AreaOfSpecialty() {
     setCurrentPage(1);    // Reset to page 1
   };
 
-  // Generate consolidated JSON-LD schema with BreadcrumbList, CollectionPage, and ItemList
-  const areaOfSpecialtySchema = useMemo(() => {
-    const baseUrl = 'https://mountainspineorthopedics.com';
-    const pageUrl = buildCanonical('/area-of-specialty');
-    
-    // Build BreadcrumbList
-    const breadcrumbList = {
-      "@type": "BreadcrumbList",
-      "@id": `${pageUrl}#breadcrumb`,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": `${baseUrl}/`
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Area of Specialty",
-          "item": pageUrl
-        }
-      ]
-    };
-
-    // Build ItemList with all 56 conditions
-    const itemList = {
-      "@type": "ItemList",
-      "@id": `${pageUrl}#conditions`,
-      "name": "Orthopedic Conditions Treated",
-      "description": "Comprehensive list of orthopedic, spine, joint, nerve, and musculoskeletal conditions treated by board-certified orthopedic specialists.",
-      "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": conditions.length,
-      "itemListElement": conditions.map((condition, index) => {
-        const conditionUrl = buildCanonical(`/area-of-specialty/${condition.slug}`);
-        return {
-          "@type": "ListItem",
-          "position": index + 1,
-          "item": {
-            "@type": "MedicalCondition",
-            "@id": conditionUrl,
-            "name": condition.title,
-            "description": condition.body || condition.title,
-            "url": conditionUrl
-          }
-        };
-      })
-    };
-
-    // Build CollectionPage
-    const collectionPage = {
-      "@type": "CollectionPage",
-      "@id": `${pageUrl}#collectionpage`,
-      "url": pageUrl,
-      "name": "Area of Specialty | Orthopedic Conditions & Spine and Joint Pain Care",
-      "description": "Browse orthopedic, spine, joint, and sports injury conditions treated by Mountain Spine & Orthopedics. Find high-intent condition pages for back pain, neck pain, sciatica, herniated discs, arthritis, shoulder injuries, and foot & ankle problems.",
-      "breadcrumb": {
-        "@id": `${pageUrl}#breadcrumb`
-      },
-      "mainEntity": {
-        "@id": `${pageUrl}#conditions`
-      }
-    };
-
-    // Return consolidated @graph schema
-    return {
-      "@context": "https://schema.org",
-      "@graph": [
-        breadcrumbList,
-        collectionPage,
-        itemList
-      ]
-    };
-  }, []);
-
   return (
     <main className="w-full flex flex-col items-center justify-center bg-white h-full">
-      {/* Consolidated JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaOfSpecialtySchema) }}
-      />
       {/* Landing Section */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
 

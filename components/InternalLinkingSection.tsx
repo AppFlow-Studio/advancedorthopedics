@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { conditions } from '@/components/data/conditions';
-import { AllTreatments } from '@/components/data/treatments';
+import { AllTreatmentsCombined } from '@/components/data/treatments';
 import { ConditionInfoProp } from './ConditionCard';
 import { TreatmentsCardProp } from './data/treatments';
 
@@ -57,7 +57,7 @@ function findRelatedConditions(currentSlug: string, currentCondition: ConditionI
 function findRelatedTreatments(currentSlug: string, currentTreatment: TreatmentsCardProp): TreatmentsCardProp[] {
   const related: Array<{ treatment: TreatmentsCardProp; score: number }> = [];
   
-  AllTreatments.forEach(treatment => {
+  AllTreatmentsCombined.forEach(treatment => {
     if (treatment.slug === currentSlug) return; // Skip current treatment
     
     let score = 0;
@@ -121,7 +121,7 @@ export default function InternalLinkingSection({ currentSlug, pageType }: Intern
       }));
     }
   } else if (pageType === 'treatment') {
-    const currentTreatment = AllTreatments.find(t => t.slug === currentSlug);
+    const currentTreatment = AllTreatmentsCombined.find(t => t.slug === currentSlug);
     if (currentTreatment) {
       const related = findRelatedTreatments(currentSlug, currentTreatment);
       relatedItems = related.map(treatment => ({

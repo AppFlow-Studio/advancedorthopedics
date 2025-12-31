@@ -297,7 +297,15 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                                 Benefits of {treatment.title}
                             </h2>
                             {typeof treatment.benefits === 'string' ? (
-                                <ul><li>{treatment.benefits}</li></ul>
+                                <ul className="list-disc list-inside space-y-2 text-[#424959] sm:text-xl text-sm">
+                                    <li>{treatment.benefits}</li>
+                                </ul>
+                            ) : Array.isArray(treatment.benefits) ? (
+                                <ul className="list-disc list-inside space-y-2 text-[#424959] sm:text-xl text-sm">
+                                    {treatment.benefits.map((benefit, index) => (
+                                        <li key={index}>{benefit}</li>
+                                    ))}
+                                </ul>
                             ) : (
                                 treatment.benefits
                             )}
@@ -365,12 +373,28 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                             >
                                 {treatment.schedule}
                             </p>
-                            <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
+                            <Link href="/find-care/candidacy-check">
+                              <button
+                                style={{
+                                  fontFamily: 'var(--font-public-sans)',
+                                  fontWeight: 500,
+                                }}
+                                className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+                              >
+                                Take our quick candidacy check form
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </button>
+                            </Link>
                         </div>
                     </section>
 
-                    <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden'>
-                        <h2
+                    <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden' aria-labelledby="doctors-desktop">
+                        <p
+                            id="doctors-desktop"
+                            role="heading"
+                            aria-level={2}
                             style={{
                                 fontFamily: "var(--font-public-sans)",
                                 fontWeight: 400,
@@ -378,7 +402,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                             className="text-[#111315] sm:text-5xl text-3xl"
                         >
                             Meet our Doctors
-                        </h2>
+                        </p>
                         <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
                             {
                                 randomDoctors.map((doctor) => (

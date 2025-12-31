@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { AllTreatments } from '@/components/data/treatments';
+import { AllTreatmentsCombined } from '@/components/data/treatments';
 import { conditions } from '@/components/data/conditions';
 import { clinics } from '@/components/data/clinics';
 import { Doctors } from '@/components/data/doctors';
@@ -185,7 +185,7 @@ export default async function SitemapPage() {
     .sort((a, b) => a.title.localeCompare(b.title));
 
   // Prepare treatment links
-  const treatmentLinks = AllTreatments
+  const treatmentLinks = AllTreatmentsCombined
     .filter(t => t.slug && t.slug !== 'undefined')
     .map(treatment => ({
       url: `/treatments/${treatment.slug}`,

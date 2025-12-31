@@ -162,9 +162,8 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
-                            >
-                                {condition?.detail}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: condition?.detail || '' }}
+                            />
                         </div>
 
                         {/* What are symptoms of */}
@@ -184,9 +183,8 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
-                            >
-                                {condition?.what_sym}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: condition?.what_sym || '' }}
+                            />
                         </div>
 
                         {/* Video */}
@@ -219,9 +217,8 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
-                            >
-                                {condition?.risk_fac}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: condition?.risk_fac || '' }}
+                            />
                         </div>
 
                         {/*  Diagnosing */}
@@ -235,15 +232,19 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                             >
                                 Diagnosing {condition.title}?
                             </h2>
-                            <p
+                            <div
                                 style={{
                                     fontFamily: 'var(--font-inter)',
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
                             >
-                                {condition?.diagnose}
-                            </p>
+                                {typeof condition?.diagnose === 'string' ? (
+                                    <p dangerouslySetInnerHTML={{ __html: condition.diagnose }} />
+                                ) : (
+                                    condition?.diagnose
+                                )}
+                            </div>
                         </div>
 
                         {/* Treatment for  */}
@@ -263,9 +264,8 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
-                            >
-                                {condition?.treatment}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: condition?.treatment || '' }}
+                            />
                         </div>
 
                         {/* Does ... Cause Pain? */}
@@ -308,9 +308,8 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
-                            >
-                                {condition?.prevent}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: condition?.prevent || '' }}
+                            />
                         </div>
 
                         {/* Schedule a Consultation Today */}
@@ -330,9 +329,8 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                                     fontWeight: 400,
                                 }}
                                 className='text-[#424959] sm:text-xl text-sm'
-                            >
-                                {condition?.schedule}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: condition?.schedule || '' }}
+                            />
                             <Link href="/find-care/candidacy-check">
                               <button
                                 style={{
@@ -350,8 +348,11 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                         </div>
                     </section>
 
-                    <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden '>
-                        <h2
+                    <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden' aria-labelledby="doctors-desktop">
+                        <p
+                            id="doctors-desktop"
+                            role="heading"
+                            aria-level={2}
                             style={{
                                 fontFamily: "var(--font-public-sans)",
                                 fontWeight: 400,
@@ -359,7 +360,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                             className="text-[#111315] text-5xl"
                         >
                             Meet our Doctors
-                        </h2>
+                        </p>
                         <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px]'>
                             {
                                 randomDoctors.map((doctor) => (

@@ -117,8 +117,13 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://mountainspineorthopedics.com#website",
     "url": "https://mountainspineorthopedics.com/",
     "name": "Mountain Spine & Orthopedics",
+    "description": "Florida's trusted experts in spine and joint care. Board-certified orthopedic surgeons specializing in minimally invasive spine surgery, joint replacement, and sports medicine.",
+    "publisher": {
+      "@id": "https://mountainspineorthopedics.com#medicalorganization"
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -132,21 +137,70 @@ export default function RootLayout({
   const medicalOrgSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalOrganization",
+    "@id": "https://mountainspineorthopedics.com#medicalorganization",
     "name": "Mountain Spine & Orthopedics",
     "url": "https://mountainspineorthopedics.com",
+    "logo": {
+      "@type": "ImageObject",
+      "@id": "https://mountainspineorthopedics.com#logo",
+      "url": "https://mountainspineorthopedics.com/newlogo4.png",
+      "width": 300,
+      "height": 60,
+      "caption": "Mountain Spine & Orthopedics Logo"
+    },
+    "image": "https://mountainspineorthopedics.com/newlogo4.png",
+    "description": "Mountain Spine & Orthopedics provides expert orthopedic care across Florida, specializing in spine surgery, joint replacement, and minimally invasive procedures.",
     "medicalSpecialty": [
       "Orthopedic Surgery",
       "Spine Surgery",
       "Minimally Invasive Surgery",
       "Joint Replacement",
-      "Sports Medicine"
+      "Sports Medicine",
+      "Pain Management"
     ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "FL",
-      "addressCountry": "US"
-    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressRegion": "NJ",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      }
+    ],
     "telephone": "+1-561-223-9959",
+    "email": "info@mountainspineorthopedics.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-561-223-9959",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Spanish"],
+      "areaServed": "US"
+    },
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Florida",
+        "sameAs": "https://en.wikipedia.org/wiki/Florida"
+      },
+      {
+        "@type": "State",
+        "name": "New Jersey",
+        "sameAs": "https://en.wikipedia.org/wiki/New_Jersey"
+      },
+      {
+        "@type": "State",
+        "name": "New York",
+        "sameAs": "https://en.wikipedia.org/wiki/New_York_(state)"
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/mountainspineorthopedics",
       "https://www.linkedin.com/company/mountain-spine-orthopedics"
