@@ -140,16 +140,17 @@ export default function InternalLinkingSection({ currentSlug, pageType }: Intern
   const sectionTitle = pageType === 'condition' ? 'Related Conditions' : 'Related Treatments';
   
   return (
-    <section className="bg-white space-y-[40px] flex flex-col w-full">
-      <h2
+    <nav aria-label={sectionTitle} className="bg-white space-y-[40px] flex flex-col w-full">
+      <p
         style={{
           fontFamily: "var(--font-public-sans)",
           fontWeight: 400,
         }}
         className="text-[#111315] sm:text-5xl text-3xl"
+        aria-hidden="true"
       >
         {sectionTitle}
-      </h2>
+      </p>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[24px]">
         {relatedItems.map((item) => (
           <Link
@@ -157,7 +158,7 @@ export default function InternalLinkingSection({ currentSlug, pageType }: Intern
             href={item.href}
             className="group flex flex-col p-6 bg-[#FAFAFA] rounded-[16px] border border-gray-200 hover:border-[#0A50EC] transition-all duration-300 hover:shadow-md"
           >
-            <h3
+            <span
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500,
@@ -165,7 +166,7 @@ export default function InternalLinkingSection({ currentSlug, pageType }: Intern
               className="text-[#111315] text-xl group-hover:text-[#0A50EC] transition-colors duration-300"
             >
               {item.title}
-            </h3>
+            </span>
             <div className="mt-4 flex items-center text-[#0A50EC] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span
                 style={{
@@ -193,7 +194,7 @@ export default function InternalLinkingSection({ currentSlug, pageType }: Intern
           </Link>
         ))}
       </div>
-    </section>
+    </nav>
   );
 }
 
