@@ -74,7 +74,7 @@ export default function ConditionCard({ ConditionInfo }: { ConditionInfo: Condit
               color: '#424959',
             }}
           >
-            {ConditionInfo.tag === 'Foot' ? '1 Specialist Doctor' : ConditionInfo.title.includes('Injections') ? '5 Specialist Doctors' : '4 Specialist Doctors'}
+            {ConditionInfo.tag === 'Foot' || ConditionInfo.tag === 'Ankle' ? '2 Specialist Doctors' : ConditionInfo.title.includes('Injections') ? '5 Specialist Doctors' : '4 Specialist Doctors'}
           </span>
         </div>
         <button className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px] w-full">

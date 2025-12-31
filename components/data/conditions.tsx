@@ -46,6 +46,55 @@ import { StaticImageData } from "next/image";
 // schedule? : string
 // }
 
+// SEO-Optimized Interfaces for Semantic Content Structure
+export interface FAQItem {
+  question: string;
+  answer: string; // Keep concise for Voice Search
+}
+
+export interface ConditionContent {
+  title: string;
+  slug: string;
+  subtitle?: string;
+  overview: {
+    heading: string;
+    body: string;
+  };
+  detailedOverview?: string;
+  symptoms: {
+    heading: string;
+    intro: string;
+    list: string[];
+  };
+  heroImage: StaticImageData | string;
+  heroImageAlt: string;
+  causes: {
+    heading: string;
+    body: string;
+  };
+  conservativeCare: {
+    heading: string;
+    body: string;
+    methods: string[];
+  };
+  surgeryOption?: {
+    heading: string;
+    description: string;
+    slug: string;
+  };
+  internalLinks?: Array<{
+    slug: string;
+    text: string;
+  }>;
+  faqs?: FAQItem[];
+  keywords?: string[];
+  metaTitle?: string;
+  metaDesc?: string;
+}
+
+// Legacy placeholder fallback (kept for backwards compatibility, but array is now empty)
+export const conditionContentPlaceholders: ConditionContent[] = [];
+
 export const conditions: ConditionInfoProp[] = [
     {
         title: "Adult Degenerative Scoliosis",

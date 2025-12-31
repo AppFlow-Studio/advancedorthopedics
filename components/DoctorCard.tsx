@@ -40,13 +40,13 @@ export default function DoctorCard({ doctor }: { doctor: DoctorProp }) {
           />
           <div className='flex flex-col space-y-[4px] mt-[16px] flex-grow sm:px-4 px-2'>
             <div className='space-y-[10px] flex flex-col'>
-              <h3
+              <span
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
-                className="text-black text-3xl text-left w-full"
-              >{doctor.name}</h3>
+                className="text-black text-3xl text-left w-full block"
+              >{doctor.name}</span>
               <p
                 style={{
                   fontFamily: "var(--font-inter)",

@@ -1,7 +1,7 @@
 // app/area-of-specialty/page.tsx
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown, Filter, User, BicepsFlexed, Bone, Footprints, Hand, TorusIcon, TextCursorInputIcon } from 'lucide-react'
@@ -16,6 +16,7 @@ import { conditions } from '@/components/data/conditions' // Import the data arr
 import { AnimatedList } from '@/components/magicui/animated-list' // Assuming component exists
 import { TextAnimate } from '@/components/magicui/text-animate' // Assuming component exists
 import { useSearchParams } from 'next/navigation'
+import { buildCanonical } from '@/lib/seo'
 
 export default function AreaOfSpecialty() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -128,8 +129,88 @@ export default function AreaOfSpecialty() {
     setCurrentPage(1);    // Reset to page 1
   };
 
+  // Generate consolidated JSON-LD schema with BreadcrumbList, CollectionPage, and ItemList
+  const areaOfSpecialtySchema = useMemo(() => {
+    const baseUrl = 'https://mountainspineorthopedics.com';
+    const pageUrl = buildCanonical('/area-of-specialty');
+    
+    // Build BreadcrumbList
+    const breadcrumbList = {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${baseUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Area of Specialty",
+          "item": pageUrl
+        }
+      ]
+    };
+
+    // Build ItemList with all 56 conditions
+    const itemList = {
+      "@type": "ItemList",
+      "@id": `${pageUrl}#conditions`,
+      "name": "Orthopedic Conditions Treated",
+      "description": "Comprehensive list of orthopedic, spine, joint, nerve, and musculoskeletal conditions treated by board-certified orthopedic specialists.",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": conditions.length,
+      "itemListElement": conditions.map((condition, index) => {
+        const conditionUrl = buildCanonical(`/area-of-specialty/${condition.slug}`);
+        return {
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "MedicalCondition",
+            "@id": conditionUrl,
+            "name": condition.title,
+            "description": condition.body || condition.title,
+            "url": conditionUrl
+          }
+        };
+      })
+    };
+
+    // Build CollectionPage
+    const collectionPage = {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}#collectionpage`,
+      "url": pageUrl,
+      "name": "Area of Specialty | Orthopedic Conditions & Spine and Joint Pain Care",
+      "description": "Browse orthopedic, spine, joint, and sports injury conditions treated by Mountain Spine & Orthopedics. Find high-intent condition pages for back pain, neck pain, sciatica, herniated discs, arthritis, shoulder injuries, and foot & ankle problems.",
+      "breadcrumb": {
+        "@id": `${pageUrl}#breadcrumb`
+      },
+      "mainEntity": {
+        "@id": `${pageUrl}#conditions`
+      }
+    };
+
+    // Return consolidated @graph schema
+    return {
+      "@context": "https://schema.org",
+      "@graph": [
+        breadcrumbList,
+        collectionPage,
+        itemList
+      ]
+    };
+  }, []);
+
   return (
     <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+      {/* Consolidated JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaOfSpecialtySchema) }}
+      />
       {/* Landing Section */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
 
@@ -206,42 +287,6 @@ export default function AreaOfSpecialty() {
               </span>
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Tell us Your Story Section */}
-      <section className="max-w-[1440px] w-full flex flex-col py-[50px] px-6 xl:px-[80px] space-y-[24px]">
-        {/* ... (rest of your 'Tell us Your Story' JSX - no changes needed here) ... */}
-        <div className="flex flex-col space-y-[16px]">
-          <h2
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className="text-[#111315] sm:text-5xl text-3xl"
-          >
-            We are Here to Listen, Tell us your Story
-          </h2>
-          <p
-            style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
-            className="text-[#424959] sm:text-xl text-md lg:w-[75%]"
-          >
-            Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
-          </p>
-        </div>
-        <div className="flex flex-col space-y-[16px]">
-          <h3
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className="text-[#111315] sm:text-2xl text-xl "
-          >
-            WELL, YOU'RE NOT ALONE.
-          </h3>
-          <p
-            style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
-            className="text-[#424959] sm:text-xl text-md lg:w-[75%]"
-          >
-            Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year.
-            <br />
-            <br />
-            At Mountain Spine & Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
-          </p>
         </div>
       </section>
 
@@ -372,6 +417,66 @@ export default function AreaOfSpecialty() {
               <path d="M12.7071 11.7071C12.3166 12.0976 11.6834 12.0976 11.2929 11.7071C10.9024 11.3166 10.9024 10.6834 11.2929 10.2929L14.5858 7L1 7C0.447716 7 0 6.55228 0 6C0 5.44771 0.447716 5 1 5L14.5858 5L11.2929 1.7071C10.9024 1.31657 10.9024 0.683409 11.2929 0.292888C11.6835 -0.0976335 12.3166 -0.0976287 12.7072 0.292899L17.7018 5.2876C17.7202 5.30578 17.738 5.32468 17.755 5.34424C17.8225 5.42185 17.8761 5.50741 17.9158 5.59762C17.9696 5.71989 17.9996 5.85497 18 5.99702L18 6C18 6.00309 18 6.00617 18 6.00925C17.9988 6.13503 17.9745 6.25525 17.931 6.36586C17.8822 6.49017 17.8076 6.60669 17.7071 6.70715L12.7071 11.7071Z" fill="#111315" />
             </svg>
           </button>
+        </div>
+
+        {/* HTML Fallback List - Visible only when JavaScript doesn't load (for Crawl Depth, Accessibility, and Older Parsers) */}
+        <noscript>
+          <div className="mt-[50px] px-4">
+            <h3
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+              className="text-[#111315] text-2xl mb-4"
+            >
+              All Orthopedic Conditions Treated
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 text-sm">
+              {conditions.map((condition) => (
+                <li key={condition.slug}>
+                  <a
+                    href={`/area-of-specialty/${condition.slug}`}
+                    className="text-[#0A50EC] hover:text-[#0840C0] hover:underline transition-colors duration-200"
+                    aria-label={`Learn more about ${condition.title}`}
+                  >
+                    {condition.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </noscript>
+      </section>
+
+      {/* Tell us Your Story Section */}
+      <section className="max-w-[1440px] w-full flex flex-col py-[50px] px-6 xl:px-[80px] space-y-[24px]">
+        <div className="flex flex-col space-y-[16px]">
+          <h2
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+            className="text-[#111315] sm:text-5xl text-3xl"
+          >
+            We are Here to Listen, Tell us your Story
+          </h2>
+          <p
+            style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
+            className="text-[#424959] sm:text-xl text-md lg:w-[75%]"
+          >
+            Do you have a spinal condition that's causing you chronic pain intense enough to interfere with your life or day-to-day activities? Are you afraid you'll never be able to get your pain under control or that it might continue to worsen as you age?
+          </p>
+        </div>
+        <div className="flex flex-col space-y-[16px]">
+          <h3
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+            className="text-[#111315] sm:text-2xl text-xl "
+          >
+            WELL, YOU'RE NOT ALONE.
+          </h3>
+          <p
+            style={{ fontFamily: 'var(--font-inter)', fontWeight: 500 }}
+            className="text-[#424959] sm:text-xl text-md lg:w-[75%]"
+          >
+            Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year.
+            <br />
+            <br />
+            At Mountain Spine & Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
+          </p>
         </div>
       </section>
 
