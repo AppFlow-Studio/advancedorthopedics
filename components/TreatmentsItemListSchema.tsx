@@ -93,10 +93,23 @@ export function TreatmentsItemListSchema() {
       "Spinal Fusion",
       "Discectomy"
     ],
-    "areaServed": {
-      "@type": "State",
-      "name": "Florida"
-    },
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Florida",
+        "sameAs": "https://en.wikipedia.org/wiki/Florida"
+      },
+      {
+        "@type": "State",
+        "name": "New Jersey",
+        "sameAs": "https://en.wikipedia.org/wiki/New_Jersey"
+      },
+      {
+        "@type": "State",
+        "name": "New York",
+        "sameAs": "https://en.wikipedia.org/wiki/New_York_(state)"
+      }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Orthopedic Treatment Services",

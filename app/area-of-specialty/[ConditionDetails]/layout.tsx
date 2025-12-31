@@ -191,15 +191,21 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
             'geoRadius': '300000'
         },
         'areaServed': [
-            'Florida',
-            'Hollywood, FL',
-            'Orlando, FL',
-            'Altamonte Springs, FL',
-            'Davenport, FL',
-            'Fort Pierce, FL',
-            'Palm Beach Gardens, FL',
-            'Miami Beach, FL',
-            'Boca Raton, FL'
+            {
+                '@type': 'State',
+                'name': 'Florida',
+                'sameAs': 'https://en.wikipedia.org/wiki/Florida'
+            },
+            {
+                '@type': 'State',
+                'name': 'New Jersey',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_Jersey'
+            },
+            {
+                '@type': 'State',
+                'name': 'New York',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            }
         ]
     };
 
@@ -319,10 +325,23 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
             'Spine Care',
             'Pain Management'
         ],
-        'areaServed': {
-            '@type': 'State',
-            'name': 'Florida'
-        },
+        'areaServed': [
+            {
+                '@type': 'State',
+                'name': 'Florida',
+                'sameAs': 'https://en.wikipedia.org/wiki/Florida'
+            },
+            {
+                '@type': 'State',
+                'name': 'New Jersey',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_Jersey'
+            },
+            {
+                '@type': 'State',
+                'name': 'New York',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            }
+        ],
         'hasOfferCatalog': {
             '@type': 'OfferCatalog',
             'name': `${conditionTitle} Treatment Services`,

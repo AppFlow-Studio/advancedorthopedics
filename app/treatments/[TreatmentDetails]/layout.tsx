@@ -175,15 +175,21 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
             'Arthroscopy'
         ],
         'areaServed': [
-            'Florida',
-            'Hollywood, FL',
-            'Orlando, FL',
-            'Altamonte Springs, FL',
-            'Davenport, FL',
-            'Fort Pierce, FL',
-            'Palm Beach Gardens, FL',
-            'Miami Beach, FL',
-            'Boca Raton, FL'
+            {
+                '@type': 'State',
+                'name': 'Florida',
+                'sameAs': 'https://en.wikipedia.org/wiki/Florida'
+            },
+            {
+                '@type': 'State',
+                'name': 'New Jersey',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_Jersey'
+            },
+            {
+                '@type': 'State',
+                'name': 'New York',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            }
         ]
     };
 
@@ -262,10 +268,23 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
             'Spine Care',
             'Pain Management'
         ],
-        'areaServed': {
-            '@type': 'State',
-            'name': 'Florida'
-        },
+        'areaServed': [
+            {
+                '@type': 'State',
+                'name': 'Florida',
+                'sameAs': 'https://en.wikipedia.org/wiki/Florida'
+            },
+            {
+                '@type': 'State',
+                'name': 'New Jersey',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_Jersey'
+            },
+            {
+                '@type': 'State',
+                'name': 'New York',
+                'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            }
+        ],
         'hasOfferCatalog': {
             '@type': 'OfferCatalog',
             'name': `${treatmentTitle} Services`,
