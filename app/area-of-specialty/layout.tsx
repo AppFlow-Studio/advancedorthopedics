@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { buildCanonical, canonicalForOg, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
-import { ConditionsItemListSchema } from '@/components/ConditionsItemListSchema';
 
 export const metadata: Metadata = {
   title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
@@ -40,7 +39,6 @@ export default function AreaOfSpecialtyLayout({
 }) {
   return (
     <div>
-      <ConditionsItemListSchema />
       {children}
     </div>
   );

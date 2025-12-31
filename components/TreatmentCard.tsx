@@ -58,7 +58,7 @@ export default function TreatmentCard({ ConditionInfo }: { ConditionInfo: Treatm
                             color: '#424959',
                         }}
                     >
-                        {ConditionInfo.tag === 'Foot' ? '1 Specialist Doctor' : ConditionInfo.title.includes('Injections') ? '5 Specialist Doctors' : '4 Specialist Doctors'}
+                        {ConditionInfo.tag === 'Foot' || ConditionInfo.tag === 'Ankle' ? '2 Specialist Doctors' : ConditionInfo.title.includes('Injections') ? '5 Specialist Doctors' : '4 Specialist Doctors'}
                     </span>
                 </div>
 

@@ -306,14 +306,15 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                         <div className="w-full flex flex-col sm:space-y-6 space-y-4">
                             {/* Name Fields */}
                             <div className="grid grid-cols-1">
-                                {header && <h2
+                                {header && <p
                                     style={{
                                         fontFamily: 'var(--font-public-sans)',
                                         fontWeight: 500,
                                     }}
-                                    className='text-[#111315] text-2xl'>
+                                    className='text-[#111315] text-2xl'
+                                    aria-label="Form section title">
                                     {header}
-                                </h2>}
+                                </p>}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <FormField
                                         control={form.control}

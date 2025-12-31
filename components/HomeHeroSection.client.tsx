@@ -151,7 +151,7 @@ export default function HomeHeroSection() {
   }, [timePeriod, initialLoad]);
 
   return (
-    <section className={`w-full h-full flex flex-col relative overflow-hidden  justify-between ${timePeriod === 'day' ? '[mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]' : '[mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_2rem)]'}`}>
+    <section className={`w-full h-full flex flex-col relative overflow-hidden justify-between lg:pt-[60px] ${timePeriod === 'day' ? '[mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]' : '[mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_2rem)]'}`}>
       <div
         style={{
           filter: 'blur(30px)'
@@ -163,7 +163,7 @@ export default function HomeHeroSection() {
         {/* Daytime image - homemountain1.png */}
         <Image
           key="day-image"
-          src={'/homemountain1.png'}
+          src={'https://mountainspineortho.b-cdn.net/public/homemountain1.png'}
           priority={true}
           fetchPriority="high"
           fill
@@ -182,7 +182,7 @@ export default function HomeHeroSection() {
         {/* Sunset image - homemountain2.png */}
         <Image
           key="sunset-image"
-          src={'/homemountain2.png'}
+          src={'https://mountainspineortho.b-cdn.net/public/homemountain2.png'}
           fill
           className={`absolute inset-0 object-cover object-center md:object-center transition-opacity duration-[1500ms] ease-in-out ${timePeriod === 'sunset' ? 'opacity-100' : 'opacity-0'
             }`}
@@ -195,7 +195,7 @@ export default function HomeHeroSection() {
         {/* Night image - homemountain3.png */}
         <Image
           key="night-image"
-          src={'/homemountain3.png'}
+          src={'https://mountainspineortho.b-cdn.net/public/homemountain3.png'}
           fill
           className={`absolute inset-0 object-cover object-center md:object-center transition-opacity duration-[1500ms] ease-in-out ${timePeriod === 'night' ? 'opacity-100' : 'opacity-0'
             }`}

@@ -5,6 +5,7 @@ import { conditions } from '@/components/data/conditions';
 import { clinics } from '@/components/data/clinics';
 import { Doctors } from '@/components/data/doctors';
 import { buildCanonical } from '@/lib/seo';
+import { GetBlogsPublic } from '@/app/blogs/api/get-blogs';
 
 export const metadata: Metadata = {
   title: 'Complete Website Sitemap | Mountain Spine & Orthopedics',
@@ -91,8 +92,8 @@ const injuryPages = [
   { url: '/injuries/slip-and-fall', title: 'Slip and Fall Injuries & Treatment' },
 ];
 
-// Blog pages
-const blogPages = [
+// Blog category pages (for reference)
+const blogCategoryPages = [
   { url: '/blogs', title: 'Health & Wellness Blog' },
   { url: '/blogs/tag/back-pain', title: 'Blog: Back Pain Articles' },
   { url: '/blogs/tag/neck-pain', title: 'Blog: Neck Pain Articles' },
@@ -149,7 +150,19 @@ function SitemapSection({ title, links, columns = 3 }: {
   );
 }
 
-export default function SitemapPage() {
+export default async function SitemapPage() {
+  // Fetch all blog posts
+  const allBlogs = await GetBlogsPublic();
+  
+  // Prepare blog post links
+  const blogPostLinks = allBlogs
+    .filter(blog => blog.slug && blog.blog_info?.title)
+    .map(blog => ({
+      url: `/blogs/${blog.slug}`,
+      title: blog.blog_info.title,
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+
   // Prepare location links
   const locationLinks = clinics.map(clinic => ({
     url: `/locations/${clinic.slug}`,
@@ -207,7 +220,7 @@ export default function SitemapPage() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
           <div className="bg-[#EDEEE9] rounded-2xl p-6 text-center">
             <div className="text-4xl font-bold text-[#0A50EC]" style={{ fontFamily: 'var(--font-public-sans)' }}>
               {treatmentLinks.length}
@@ -238,6 +251,14 @@ export default function SitemapPage() {
             </div>
             <div className="text-sm text-[#424959] mt-2" style={{ fontFamily: 'var(--font-inter)' }}>
               Specialists
+            </div>
+          </div>
+          <div className="bg-[#EDEEE9] rounded-2xl p-6 text-center">
+            <div className="text-4xl font-bold text-[#0A50EC]" style={{ fontFamily: 'var(--font-public-sans)' }}>
+              {blogPostLinks.length}
+            </div>
+            <div className="text-sm text-[#424959] mt-2" style={{ fontFamily: 'var(--font-inter)' }}>
+              Blog Posts
             </div>
           </div>
         </div>
@@ -271,7 +292,13 @@ export default function SitemapPage() {
         
         <SitemapSection title="Injury Treatment" links={injuryPages} columns={2} />
         
-        <SitemapSection title="Blog & Educational Resources" links={blogPages} columns={3} />
+        <SitemapSection title="Blog Categories" links={blogCategoryPages} columns={3} />
+        
+        <SitemapSection 
+          title={`All Blog Posts (${blogPostLinks.length})`} 
+          links={blogPostLinks} 
+          columns={3} 
+        />
 
         {/* Footer CTA */}
         <div className="mt-20 text-center bg-[#EDEEE9] rounded-3xl p-12">

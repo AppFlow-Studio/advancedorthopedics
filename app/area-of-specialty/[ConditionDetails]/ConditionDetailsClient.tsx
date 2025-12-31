@@ -333,7 +333,20 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                             >
                                 {condition?.schedule}
                             </p>
-                            <p className="mt-4"><a href="/find-care/candidacy-check" className="text-blue-600 hover:underline">Take our quick candidacy check form&nbsp;↗</a></p>
+                            <Link href="/find-care/candidacy-check">
+                              <button
+                                style={{
+                                  fontFamily: 'var(--font-public-sans)',
+                                  fontWeight: 500,
+                                }}
+                                className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+                              >
+                                Take our quick candidacy check form
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </button>
+                            </Link>
                         </div>
                     </section>
 
