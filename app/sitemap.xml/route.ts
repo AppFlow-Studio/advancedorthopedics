@@ -2,7 +2,7 @@ import { GetBlogsPublic } from "@/app/blogs/api/get-blogs";
 import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
 import { conditions } from "@/components/data/conditions";
-import { AllTreatments } from "@/components/data/treatments";
+import { AllTreatmentsCombined } from "@/components/data/treatments";
 import { buildCanonical } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -145,7 +145,7 @@ export async function GET() {
       .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
       .join('')}
 
-  ${AllTreatments.filter(treatment => isValidSlug(treatment.slug))
+  ${AllTreatmentsCombined.filter(treatment => isValidSlug(treatment.slug))
       .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
       .join('')}
 

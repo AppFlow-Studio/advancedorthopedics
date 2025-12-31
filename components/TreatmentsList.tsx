@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { AllTreatments, TreatmentsCardProp } from './data/treatments';
+import { AllTreatmentsCombined, TreatmentsCardProp } from './data/treatments';
 import TreatmentsSearchBar from './ui/TreatmentsSearchBar';
 // Your data - replace with your actual list items
 
@@ -10,13 +10,13 @@ import TreatmentsSearchBar from './ui/TreatmentsSearchBar';
 const INITIAL_VISIBLE_COUNT = 4; // Adjust as needed
 
 function TreatmentsList({ currentTreatment }: { currentTreatment: string }) {
-  const [data, setData] = useState(AllTreatments)
+  const [data, setData] = useState(AllTreatmentsCombined)
   const [isExpanded, setIsExpanded] = useState(false);
   const [VisibilityCount, setVisibilityCount] = useState(INITIAL_VISIBLE_COUNT);
   const handleShowMore = () => {
     setIsExpanded(true);
     setVisibilityCount(VisibilityCount + 4); // Show all items
-    if (VisibilityCount + 4 < AllTreatments.length) {
+    if (VisibilityCount + 4 < AllTreatmentsCombined.length) {
       setIsExpanded(false);
     }
   };
@@ -27,7 +27,7 @@ function TreatmentsList({ currentTreatment }: { currentTreatment: string }) {
 
   // Function called when the search bar is cleared (X button or empty input)
   const handleClearSearch = () => {
-    setData(AllTreatments); // Reset to show all treatments
+    setData(AllTreatmentsCombined); // Reset to show all treatments
   };
 
 
@@ -72,7 +72,7 @@ function TreatmentsList({ currentTreatment }: { currentTreatment: string }) {
       {/* Show the "More" button only if:
           1. The list is not currently expanded.
           2. There are more items than initially shown. */}
-      {!isExpanded && AllTreatments.length > VisibilityCount && (
+      {!isExpanded && AllTreatmentsCombined.length > VisibilityCount && (
         <button
           onClick={handleShowMore}
           // Button is visible by default ('block'), but hidden on medium screens and up ('md:hidden')

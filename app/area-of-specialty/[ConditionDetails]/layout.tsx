@@ -4,6 +4,7 @@ import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib
 import { getOgImageForPath } from "@/lib/og";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { conditionFAQs } from "@/components/data/conditionFAQs";
+import { getConditionMetadata, generateConditionMetadataFallback } from "@/lib/metadata-seo";
 
 // Helper to strip HTML and markdown from text for schema
 function stripHtmlAndMarkdown(text: string): string {
@@ -49,31 +50,23 @@ export async function generateMetadata(
     const isNewFormat = !!conditionContent;
     const canonicalUrl = buildCanonical(`/area-of-specialty/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
     
-    // Use cardImage for OpenGraph (better for social sharing - unique per condition)
-    // Falls back to heroImage if cardImage not available
+    // Use heroImage for OpenGraph (social sharing)
     const ogImage = isNewFormat
-        ? (conditionContent!.cardImage || 
-           (conditionContent!.heroImage 
+        ? (conditionContent!.heroImage 
                ? (typeof conditionContent!.heroImage === 'string' ? conditionContent!.heroImage : conditionContent!.heroImage.src)
-               : getOgImageForPath('/area-of-specialty')))
+               : getOgImageForPath('/area-of-specialty'))
         : (typeof condition!.card_img === 'string' 
             ? condition!.card_img 
             : condition!.card_img?.src || getOgImageForPath('/area-of-specialty'));
 
-    // Normalize and clean metadata
-    const normalizedTitle = isNewFormat
-        ? (conditionContent!.metaTitle ? normalizeUTF8(conditionContent!.metaTitle) : `${conditionContent!.title} | Mountain Spine Orthopedics`)
-        : (condition!.metaTitle 
-            ? normalizeUTF8(condition!.metaTitle)
-            : `${condition!.title} | Mountain Spine Orthopedics`);
-    const normalizedDesc = isNewFormat
-        ? (conditionContent!.metaDescription ? normalizeUTF8(conditionContent!.metaDescription) : conditionContent!.overview.body)
-        : (condition!.metaDesc 
-            ? normalizeUTF8(condition!.metaDesc)
-            : condition!.body);
-
-    const finalTitle = safeTitle(normalizedTitle, `${isNewFormat ? conditionContent!.title : condition!.title} | Mountain Spine Orthopedics`);
-    const finalDescription = safeDescription(normalizedDesc, isNewFormat ? conditionContent!.overview.body : condition!.body);
+    // Get SEO-optimized metadata from centralized helper
+    const slug = isNewFormat ? conditionContent!.slug : condition!.slug;
+    const title = isNewFormat ? conditionContent!.title : condition!.title;
+    const seoMetadata = getConditionMetadata(slug) || generateConditionMetadataFallback(title);
+    
+    // Use SEO metadata with normalization
+    const finalTitle = normalizeUTF8(seoMetadata.metaTitle);
+    const finalDescription = normalizeUTF8(seoMetadata.metaDescription);
 
     return {
       title: finalTitle,
@@ -369,7 +362,7 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
     };
 
     // 6. FAQPage Schema - Prioritize dedicated FAQ data file, then fallback to conditionContent.faqs
-    let faqSchema = null;
+    let faqSchema: any = null;
     
     // First check if FAQs exist in the dedicated data file (Priority)
     const conditionSlug = isNewFormat ? conditionContent!.slug : condition!.slug;

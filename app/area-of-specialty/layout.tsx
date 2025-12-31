@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { buildCanonical, canonicalForOg, safeTitle, safeDescription, srOnly } from "@/lib/seo";
+import { buildCanonical, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
+import { ConditionsItemListSchema } from '@/components/ConditionsItemListSchema';
 
 export const metadata: Metadata = {
-  title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
-  description: 'Comprehensive guide to orthopedic conditions, spine disorders, and joint problems. Expert diagnosis and treatment options from board-certified specialists.',
+  title: 'Orthopedic Conditions We Treat | Spine & Joint Specialists',
+  description: 'Explore orthopedic conditions we treat, including spine, joint, and nerve-related pain. Learn symptoms, causes, and treatment pathways guided by specialists.',
   openGraph: {
-    title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
-    description: 'Comprehensive guide to orthopedic conditions, spine disorders, and joint problems. Expert diagnosis and treatment options from board-certified specialists.',
+    title: 'Orthopedic Conditions We Treat | Spine & Joint Specialists',
+    description: 'Explore orthopedic conditions we treat, including spine, joint, and nerve-related pain. Learn symptoms, causes, and treatment pathways guided by specialists.',
     url: canonicalForOg('/area-of-specialty'),
     siteName: 'Mountain Spine & Orthopedics',
     type: 'website',
@@ -16,14 +17,14 @@ export const metadata: Metadata = {
         url: getOgImageForPath('/area-of-specialty'),
         width: 1200,
         height: 630,
-        alt: 'Orthopedic conditions and treatments',
+        alt: 'Orthopedic conditions we treat',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Orthopedic Conditions & Treatments | Mountain Spine & Orthopedics',
-    description: 'Comprehensive guide to orthopedic conditions, spine disorders, and joint problems. Expert diagnosis and treatment options from board-certified specialists.',
+    title: 'Orthopedic Conditions We Treat | Spine & Joint Specialists',
+    description: 'Explore orthopedic conditions we treat, including spine, joint, and nerve-related pain. Learn symptoms, causes, and treatment pathways guided by specialists.',
     images: [getOgImageForPath('/area-of-specialty')],
   },
   alternates: {
@@ -39,6 +40,7 @@ export default function AreaOfSpecialtyLayout({
 }) {
   return (
     <div>
+      <ConditionsItemListSchema />
       {children}
     </div>
   );

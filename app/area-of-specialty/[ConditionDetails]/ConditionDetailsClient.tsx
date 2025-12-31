@@ -350,8 +350,11 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                         </div>
                     </section>
 
-                    <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden '>
-                        <h2
+                    <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden' aria-labelledby="doctors-desktop">
+                        <p
+                            id="doctors-desktop"
+                            role="heading"
+                            aria-level={2}
                             style={{
                                 fontFamily: "var(--font-public-sans)",
                                 fontWeight: 400,
@@ -359,7 +362,7 @@ export default function ConditionDetailsClient({ condition }: ConditionDetailsCl
                             className="text-[#111315] text-5xl"
                         >
                             Meet our Doctors
-                        </h2>
+                        </p>
                         <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px]'>
                             {
                                 randomDoctors.map((doctor) => (

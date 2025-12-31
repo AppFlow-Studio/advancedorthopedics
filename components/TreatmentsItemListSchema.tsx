@@ -1,12 +1,12 @@
 // components/TreatmentsItemListSchema.tsx
-import { AllTreatments, treatmentContentPlaceholders } from '@/components/data/treatments';
+import { AllTreatments, allTreatmentContent } from '@/components/data/treatments';
 import { buildCanonical } from '@/lib/seo';
 
 export function TreatmentsItemListSchema() {
   // Combine both old and new format treatments for the ItemList
   const allTreatments = [
     ...AllTreatments,
-    ...treatmentContentPlaceholders
+    ...allTreatmentContent
   ];
   
   const baseUrl = 'https://mountainspineorthopedics.com';
