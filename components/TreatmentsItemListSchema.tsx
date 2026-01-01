@@ -1,12 +1,12 @@
 // components/TreatmentsItemListSchema.tsx
-import { AllTreatments, treatmentContentPlaceholders } from '@/components/data/treatments';
+import { AllTreatments, allTreatmentContent } from '@/components/data/treatments';
 import { buildCanonical } from '@/lib/seo';
 
 export function TreatmentsItemListSchema() {
   // Combine both old and new format treatments for the ItemList
   const allTreatments = [
     ...AllTreatments,
-    ...treatmentContentPlaceholders
+    ...allTreatmentContent
   ];
   
   const baseUrl = 'https://mountainspineorthopedics.com';
@@ -93,10 +93,23 @@ export function TreatmentsItemListSchema() {
       "Spinal Fusion",
       "Discectomy"
     ],
-    "areaServed": {
-      "@type": "State",
-      "name": "Florida"
-    },
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Florida",
+        "sameAs": "https://en.wikipedia.org/wiki/Florida"
+      },
+      {
+        "@type": "State",
+        "name": "New Jersey",
+        "sameAs": "https://en.wikipedia.org/wiki/New_Jersey"
+      },
+      {
+        "@type": "State",
+        "name": "New York",
+        "sameAs": "https://en.wikipedia.org/wiki/New_York_(state)"
+      }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Orthopedic Treatment Services",

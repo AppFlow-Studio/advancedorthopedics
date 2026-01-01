@@ -1,6 +1,6 @@
 import React from 'react';
 import { FAQItem, conditions, conditionContentPlaceholders } from './data/conditions';
-import { AllTreatments, treatmentContentPlaceholders } from './data/treatments';
+import { AllTreatments, allTreatmentContent } from './data/treatments';
 
 interface ConditionTreatmentFAQSectionProps {
   faqs: FAQItem[];
@@ -22,13 +22,13 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
   ]);
   const treatmentMap = Object.fromEntries([
     ...AllTreatments.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }]),
-    ...treatmentContentPlaceholders.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
+    ...allTreatmentContent.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
   ]);
   const allTitles = [
     ...conditions.map(c => c.title),
     ...conditionContentPlaceholders.map(c => c.title),
     ...AllTreatments.map(t => t.title),
-    ...treatmentContentPlaceholders.map(t => t.title)
+    ...allTreatmentContent.map(t => t.title)
   ];
   
   // Step 3: Split text into segments (text and HTML tags) to avoid linking inside HTML

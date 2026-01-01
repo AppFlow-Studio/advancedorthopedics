@@ -3,7 +3,7 @@ import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
 import { ConditionInfoProp } from '@/components/ConditionCard'
 import { conditions, conditionContentPlaceholders, ConditionContent } from '@/components/data/conditions'
-import { AllTreatments, treatmentContentPlaceholders } from '@/components/data/treatments'
+import { AllTreatments, allTreatmentContent } from '@/components/data/treatments'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -28,13 +28,13 @@ const conditionMap = Object.fromEntries([
 ]);
 const treatmentMap = Object.fromEntries([
   ...AllTreatments.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }]),
-  ...treatmentContentPlaceholders.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
+  ...allTreatmentContent.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
 ]);
 const allTitles = [
   ...conditions.map(c => c.title),
   ...conditionContentPlaceholders.map(c => c.title),
   ...AllTreatments.map(t => t.title),
-  ...treatmentContentPlaceholders.map(t => t.title)
+  ...allTreatmentContent.map(t => t.title)
 ];
 
 // Enhanced function to handle both bold text conversion and internal linking
@@ -567,7 +567,7 @@ export default async function ConditionDetails({
                       {conditionContent!.internalLinks.map((link, index) => {
                         // Check if slug exists in conditions or treatments arrays
                         const isCondition = conditions.some(c => c.slug === link.slug) || conditionContentPlaceholders.some(c => c.slug === link.slug);
-                        const isTreatment = AllTreatments.some(t => t.slug === link.slug) || treatmentContentPlaceholders.some(t => t.slug === link.slug);
+                        const isTreatment = AllTreatments.some(t => t.slug === link.slug) || allTreatmentContent.some(t => t.slug === link.slug);
                         
                         // Default to treatment if not found in conditions (most internal links are treatments)
                         const href = isCondition ? `/area-of-specialty/${link.slug}` : `/treatments/${link.slug}`;

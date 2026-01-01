@@ -2,7 +2,6 @@ import { ConditionInfoProp } from "../ConditionCard";
 import LowerBackImage from "@/public/lowerbackpain.png";
 import LowerBackSide from "@/public/lowerbackpainside.jpeg";
 import Image from "next/image";
-import Link from "next/link";
 import OutlinedButton from "@/components/OutlinedButton";
 import cervicalspinalstenosis1 from "@/public/cervicalspinal.jpeg";
 import cervicalspinalstenosis2 from "@/public/cervicalspinal2.png";
@@ -47,55 +46,6 @@ import { StaticImageData } from "next/image";
 // schedule? : string
 // }
 
-// SEO-Optimized Interfaces for Semantic Content Structure
-export interface FAQItem {
-  question: string;
-  answer: string; // Keep concise for Voice Search
-}
-
-export interface ConditionContent {
-  title: string;
-  slug: string;
-  subtitle?: string;
-  overview: {
-    heading: string;
-    body: string;
-  };
-  detailedOverview?: string;
-  symptoms: {
-    heading: string;
-    intro: string;
-    list: string[];
-  };
-  heroImage: StaticImageData | string;
-  heroImageAlt: string;
-  causes: {
-    heading: string;
-    body: string;
-  };
-  conservativeCare: {
-    heading: string;
-    body: string;
-    methods: string[];
-  };
-  surgeryOption?: {
-    heading: string;
-    description: string;
-    slug: string;
-  };
-  internalLinks?: Array<{
-    slug: string;
-    text: string;
-  }>;
-  faqs?: FAQItem[];
-  keywords?: string[];
-  metaTitle?: string;
-  metaDesc?: string;
-}
-
-// Legacy placeholder fallback (kept for backwards compatibility, but array is now empty)
-export const conditionContentPlaceholders: ConditionContent[] = [];
-
 export const conditions: ConditionInfoProp[] = [
     {
         title: "Adult Degenerative Scoliosis",
@@ -105,22 +55,22 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/AdultDegenerativeScoliosisArti.png",
         body: "Adult degenerative scoliosis is a sideways spinal curve that develops with age, often causing back pain and stiffness.",
-        detail: "<strong>Adult degenerative scoliosis</strong> occurs when age-related wear on the <strong>spinal discs</strong> and <strong>facet joints</strong> causes the spine to develop a sideways curve. This condition, typically affecting adults over 50, can lead to <strong>chronic back pain</strong>, <strong>nerve compression</strong>, and difficulty with daily activities as the spine tilts and rotates. At Mountain Spine & Orthopedics, our team uses precise diagnostics to measure the curvature and create a personalized treatment plan.",
-        what_sym: "Symptoms often include <strong>chronic <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">lower back pain</a></strong>, visibly uneven shoulders or hips, a noticeable <strong>spinal curve</strong>, and stiffness. Some individuals experience <strong>radiating pain</strong>, numbness, or weakness in the legs due to <strong>nerve compression</strong>.",
+        detail: "Adult degenerative scoliosis occurs when age-related wear on the spinal discs and facet joints causes the spine to develop a sideways curve. This condition, typically affecting adults over 50, can lead to chronic back pain, nerve compression, and difficulty with daily activities as the spine tilts and rotates. At Mountain Spine & Orthopedics, our team uses precise diagnostics to measure the curvature and create a personalized treatment plan.",
+        what_sym: "Symptoms often include chronic lower back pain, visibly uneven shoulders or hips, a noticeable spinal curve, and stiffness. Some individuals experience radiating pain, numbness, or weakness in the legs due to nerve compression.",
         risk_fac:
-            "The risk of developing this condition increases with advanced age, a history of <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a> or spinal arthritis, low bone density (osteoporosis), and previous spinal surgery or significant injury. A sedentary lifestyle and smoking can also accelerate degenerative spinal changes.",
+            "The risk of developing this condition increases with advanced age, a history of degenerative disc disease or spinal arthritis, low bone density (osteoporosis), and previous spinal surgery or significant injury. A sedentary lifestyle and smoking can also accelerate degenerative spinal changes.",
         diagnose:
-            "A thorough diagnosis begins with a comprehensive medical history and physical examination. Our specialists then use advanced imaging, such as complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI scans</a> and standing X-rays, to map the precise curve, assess spinal balance, and create the most effective, individualized treatment plan.",
+            "A thorough diagnosis begins with a comprehensive medical history and physical examination. Our specialists then use advanced imaging, such as complimentary MRI scans and standing X-rays, to map the precise curve, assess spinal balance, and create the most effective, individualized treatment plan.",
         treatment:
-            "Treatment plans often start with conservative care, such as physical therapy referrals, targeted low-impact exercises, pain management medication, or <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">spinal injections</a>. Supportive bracing may also be recommended. When non-surgical care is not enough to relieve symptoms or halt progression, our surgeons may suggest minimally invasive surgery to correct the deformity and stabilize the spine, promoting a faster recovery.",
+            "Treatment plans often start with conservative care, such as physical therapy referrals, targeted low-impact exercises, pain management medication, or spinal injections. Supportive bracing may also be recommended. When non-surgical care is not enough to relieve symptoms or halt progression, our surgeons may suggest minimally invasive surgery to correct the deformity and stabilize the spine, promoting a faster recovery.",
         pain_info:
             "Discomfort primarily results from pressure on spinal nerves, inflammation in the facet joints, and mechanical instability in the curved spinal segments. The pain can range from a mild, persistent ache to severe, chronic pain. Targeted care from our specialists can significantly lower these symptoms and help patients move with greater comfort and confidence.",
         prevent:
             "While the natural aging process of the spine cannot be stopped, certain measures can help slow scoliosis progression. These include practicing good posture, participating in regular low-impact exercise, strengthening core and back muscles, avoiding tobacco, and maintaining healthy levels of calcium and vitamin D to support bone density.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our board-certified specialists offer unparalleled expertise in diagnosing and managing complex spinal conditions like adult degenerative scoliosis. Our Florida-based practice is equipped with advanced diagnostics, and we provide every patient with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. We are committed to developing personalized, patient-focused care plans that prioritize the least invasive yet most effective treatments available.",
+            "At Mountain Spine & Orthopedics, our board-certified specialists offer unparalleled expertise in diagnosing and managing complex spinal conditions like adult degenerative scoliosis. Our Florida-based practice is equipped with advanced diagnostics, and we provide every patient with a complimentary MRI review and a free second opinion. We are committed to developing personalized, patient-focused care plans that prioritize the least invasive yet most effective treatments available.",
         schedule:
-            "<a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Book a consultation</a> with Mountain Spine & Orthopedics today to explore lasting relief from adult degenerative scoliosis. Take advantage of our complimentary MRI review and free second opinion to better understand your condition and treatment options.",
+            "Book a consultation with Mountain Spine & Orthopedics today to explore lasting relief from adult degenerative scoliosis. Take advantage of our complimentary MRI review and free second opinion to better understand your condition and treatment options.",
         slug: "adult-degenerative-scoliosis",
         keywords: [
             "adult degenerative scoliosis",
@@ -133,7 +83,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal deformity",
         ],
         metaTitle:
-            "Adult Degenerative Scoliosis | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
+            "Adult Degenerative Scoliosis | Mountain Spine & Orthopedics ΓÇô Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Adult degenerative scoliosis causes a sideways spinal curve and back pain. Our Florida spine specialists offer advanced diagnosis and minimally invasive care.",
     },
@@ -144,22 +94,22 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/AdjacentSegmentDisease2.png",
         body: "Adjacent Segment Disease (ASD) is a condition that can cause new pain and degeneration at spinal levels next to a previous surgical fusion.",
-        detail: "<strong>Adjacent Segment Disease (ASD)</strong> refers to the accelerated degeneration of spinal segments directly above or below a previous <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">surgical fusion</a>. The fusion alters <strong>spinal biomechanics</strong>, placing additional stress on these neighboring levels and making them more susceptible to wear and tear. At Mountain Spine & Orthopedics, our specialists provide thorough evaluations, including complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a>, to deliver precise diagnoses and create effective, individualized care plans for ASD.",
-        what_sym: "Common symptoms include the return of <strong><a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck</a> or <a href=\"/area-of-specialty/back-pain\" class=\"text-blue-600 hover:underline\">back pain</a></strong>, new stiffness near the original surgery site, reduced range of motion, and <strong>radiating numbness</strong>, <a href=\"/area-of-specialty/tingling-numbness\" class=\"text-blue-600 hover:underline\">tingling</a>, or <strong>muscle weakness</strong> in the arms or legs. These issues can worsen over time.",
+        detail: "Adjacent Segment Disease (ASD) refers to the accelerated degeneration of spinal segments directly above or below a previous surgical fusion. The fusion alters spinal biomechanics, placing additional stress on these neighboring levels and making them more susceptible to wear and tear. At Mountain Spine & Orthopedics, our specialists provide thorough evaluations, including complimentary MRI reviews, to deliver precise diagnoses and create effective, individualized care plans for ASD.",
+        what_sym: "Common symptoms include the return of neck or back pain, new stiffness near the original surgery site, reduced range of motion, and radiating numbness, tingling, or muscle weakness in the arms or legs. These issues can worsen over time.",
         risk_fac:
             "Key risk factors for developing ASD include pre-existing degenerative changes, multi-level fusions, obesity, poor posture, osteoporosis, and smoking. Recognizing these factors allows for proactive monitoring and management to potentially slow the onset of adjacent segment degeneration.",
         diagnose:
-            "Diagnosis at our clinic begins with a detailed medical history and a comprehensive physical exam. This is followed by advanced imaging, such as X-rays and MRI scans. A complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> allows our experts to accurately check spinal integrity, identify any adjacent segment degeneration, and differentiate it from other potential causes of pain.",
+            "Diagnosis at our clinic begins with a detailed medical history and a comprehensive physical exam. This is followed by advanced imaging, such as X-rays and MRI scans. A complimentary MRI review allows our experts to accurately check spinal integrity, identify any adjacent segment degeneration, and differentiate it from other potential causes of pain.",
         treatment:
-            "Treatment for Adjacent Segment Disease depends on symptom severity. Conservative options like physical therapy referrals, anti-inflammatory medications, <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">targeted injections</a>, and lifestyle changes often provide relief. If symptoms persist or worsen, our care team may recommend advanced treatments, including minimally invasive <a href=\"/treatments/revision-spinal-surgery\" class=\"text-blue-600 hover:underline\">revision surgery</a>. We always offer a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure patients can move forward with confidence in their chosen treatment path.",
+            "Treatment for Adjacent Segment Disease depends on symptom severity. Conservative options like physical therapy referrals, anti-inflammatory medications, targeted injections, and lifestyle changes often provide relief. If symptoms persist or worsen, our care team may recommend advanced treatments, including minimally invasive revision surgery. We always offer a free second opinion to ensure patients can move forward with confidence in their chosen treatment path.",
         pain_info:
             "Pain is a primary symptom of ASD, resulting from increased mechanical stress, nerve irritation, or inflammation at the affected levels. The discomfort is typically centered near the previously operated region and can radiate along the impacted nerve pathways, mimicking the original symptoms that led to surgery.",
         prevent:
             "Helpful prevention strategies include maintaining a healthy weight, engaging in low-impact exercises to strengthen core and spinal muscles, practicing good posture, and managing chronic conditions like diabetes and osteoporosis. Following a structured post-operative rehabilitation program after the initial surgery is also crucial.",
         why_choose_us:
-            "Patients suffering from persistent pain after a previous surgery require specialized care. The board-certified specialists at Mountain Spine & Orthopedics have extensive experience in diagnosing and treating Adjacent Segment Disease. Our Florida orthopedic practice provides complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinions</a> to ensure an accurate diagnosis, exploring all non-surgical and minimally invasive options to restore your quality of life.",
+            "Patients suffering from persistent pain after a previous surgery require specialized care. The board-certified specialists at Mountain Spine & Orthopedics have extensive experience in diagnosing and treating Adjacent Segment Disease. Our Florida orthopedic practice provides complimentary MRI reviews and free second opinions to ensure an accurate diagnosis, exploring all non-surgical and minimally invasive options to restore your quality of life.",
         schedule:
-            "If you've had spine surgery and are experiencing new or worsening symptoms, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Let us help you understand the cause of your pain with a complimentary MRI review and expert second opinion.",
+            "If you've had spine surgery and are experiencing new or worsening symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Let us help you understand the cause of your pain with a complimentary MRI review and expert second opinion.",
         slug: "adjacent-segment-disease",
         keywords: [
             "adjacent segment disease",
@@ -172,7 +122,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal degeneration",
         ],
         metaTitle:
-            "Adjacent Segment Disease | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
+            "Adjacent Segment Disease | Mountain Spine & Orthopedics ΓÇô Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Pain after spine surgery may be Adjacent Segment Disease. Our Florida specialists diagnose and treat ASD with advanced non-surgical and revision surgery options.",
     },
@@ -184,20 +134,20 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/LumbarHerniatedDiscarti.png",
         body: "A lumbar herniated disc occurs when a disc in the lower back presses on a nerve, causing sciatica and radiating leg pain.",
-        detail: "A <strong>lumbar herniated disc</strong> happens when the soft, gel-like center of a spinal disc pushes out through a tear in its tough outer layer, compressing a nerve in the lower back. This condition is a common cause of <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>—radiating pain, numbness, or weakness that travels down the leg. It can result from gradual, age-related wear or a sudden injury. Mountain Spine & Orthopedics specializes in accurately diagnosing the location and severity of the herniation to create an effective treatment plan.",
-        what_sym: "Symptoms often include <strong>sharp, shooting pain</strong> from the <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">lower back</a> down one buttock and leg (<a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>), as well as <strong>numbness</strong>, <a href=\"/area-of-specialty/tingling-numbness\" class=\"text-blue-600 hover:underline\">tingling</a>, or <strong>muscle weakness</strong> in the affected leg or foot. Pain may worsen with sitting, bending, coughing, or sneezing.",
+        detail: "A lumbar herniated disc happens when the soft, gel-like center of a spinal disc pushes out through a tear in its tough outer layer, compressing a nerve in the lower back. This condition is a common cause of sciaticaΓÇöradiating pain, numbness, or weakness that travels down the leg. It can result from gradual, age-related wear or a sudden injury. Mountain Spine & Orthopedics specializes in accurately diagnosing the location and severity of the herniation to create an effective treatment plan.",
+        what_sym: "Symptoms often include sharp, shooting pain from the lower back down one buttock and leg (sciatica), as well as numbness, tingling, or muscle weakness in the affected leg or foot. Pain may worsen with sitting, bending, coughing, or sneezing.",
         risk_fac:
             "Key risk factors include age-related disc degeneration (most common between 30-50), improper lifting techniques, physically demanding jobs with repetitive twisting, and excess body weight, which adds strain to the spine. A sedentary lifestyle, smoking, and a possible genetic predisposition to disc degeneration also increase the risk.",
         diagnose:
-            "Diagnosis at our clinic involves a comprehensive evaluation, starting with a detailed medical history and physical exam, including neurological testing. While symptoms often point to a herniated disc, an MRI is crucial to confirm the diagnosis, visualize the nerve compression, and rule out other conditions. We offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> to ensure diagnostic accuracy and help you understand your condition.",
+            "Diagnosis at our clinic involves a comprehensive evaluation, starting with a detailed medical history and physical exam, including neurological testing. While symptoms often point to a herniated disc, an MRI is crucial to confirm the diagnosis, visualize the nerve compression, and rule out other conditions. We offer a complimentary MRI review to ensure diagnostic accuracy and help you understand your condition.",
         treatment:
-            "We prioritize conservative treatment for most lumbar herniated discs. This often includes physical therapy referrals, pain and anti-inflammatory medications, and <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce nerve inflammation. If significant pain or neurological symptoms persist despite conservative care, minimally invasive surgical options like <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">microdiscectomy</a> may be recommended to decompress the affected nerve and provide lasting relief.",
+            "We prioritize conservative treatment for most lumbar herniated discs. This often includes physical therapy referrals, pain and anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. If significant pain or neurological symptoms persist despite conservative care, minimally invasive surgical options like microdiscectomy may be recommended to decompress the affected nerve and provide lasting relief.",
         pain_info:
             "The pain from a lumbar herniated disc is typically neuropathic, stemming from direct nerve compression. This results in sharp, burning, or electric shock-like sensations down the leg (sciatica), which is often more severe than the back pain itself. Our treatments focus on alleviating this nerve pain through targeted injections, physical therapy referrals, and other non-surgical methods designed to reduce nerve irritation.",
         prevent:
             "While not all herniated discs are preventable, you can lower your risk by using proper lifting techniques (lift with your legs, not your back), maintaining a healthy weight, practicing good posture, and strengthening your core muscles through regular exercise. Avoiding prolonged sitting and quitting smoking also contribute to better disc health.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our specialists are leaders in treating lumbar herniated discs and <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>. We provide patients across Florida with a clear path to recovery, starting with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. Our focus on non-surgical and minimally invasive techniques means we are dedicated to finding the most effective, least disruptive solution to relieve your pain and restore your mobility.",
+            "At Mountain Spine & Orthopedics, our specialists are leaders in treating lumbar herniated discs and sciatica. We provide patients across Florida with a clear path to recovery, starting with a complimentary MRI review and a free second opinion. Our focus on non-surgical and minimally invasive techniques means we are dedicated to finding the most effective, least disruptive solution to relieve your pain and restore your mobility.",
         schedule:
             "If you are experiencing persistent lower back pain radiating into your leg, contact Mountain Spine & Orthopedics for an expert evaluation. Utilize our complimentary MRI review for an accurate diagnosis and let our specialists create your personalized treatment plan.",
         slug: "lumbar-herniated-disc",
@@ -449,7 +399,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical back pain treatment",
         ],
         metaTitle:
-            "Lumbar Herniated Disc | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
+            "Lumbar Herniated Disc | Mountain Spine & Orthopedics ΓÇô Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A lumbar herniated disc causes lower back pain and sciatica. Our Florida spine specialists offer expert diagnosis, MRI reviews, and advanced pain relief options.",
     },
@@ -461,8 +411,8 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/DegenerativeDiscDisease.png",
         body: "Degenerative disc disease (DDD) involves the natural age-related wear and tear of spinal discs, which can lead to chronic pain and stiffness.",
-        detail: "<strong>Degenerative Disc Disease</strong> isn't a true disease, but a condition that develops as the <strong>intervertebral discs</strong> in the spine lose hydration, shrink, and lose their ability to cushion the vertebrae. These age-related changes can lead to <strong>chronic pain</strong>, reduced mobility, and <strong>nerve-related symptoms</strong> if a disc compresses a nerve. Mountain Spine & Orthopedics excels at diagnosing and treating DDD with precise imaging and personalized care focused on relieving pain and improving function. Left untreated, DDD can progress to <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a> or <a href=\"/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">spinal stenosis</a>.",
-        what_sym: "Common signs include <strong>chronic neck or back pain</strong> that can worsen with sitting, bending, or lifting, and may radiate into the arms or legs (<a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>). Patients also frequently experience <strong>numbness</strong>, <a href=\"/area-of-specialty/tingling-numbness\" class=\"text-blue-600 hover:underline\">tingling</a>, and a general feeling of <strong>spinal stiffness</strong>.",
+        detail: "Degenerative Disc Disease isn't a true disease, but a condition that develops as the intervertebral discs in the spine lose hydration, shrink, and lose their ability to cushion the vertebrae. These age-related changes can lead to chronic pain, reduced mobility, and nerve-related symptoms if a disc compresses a nerve. Mountain Spine & Orthopedics excels at diagnosing and treating DDD with precise imaging and personalized care focused on relieving pain and improving function.",
+        what_sym: "Common signs include chronic neck or back pain that can worsen with sitting, bending, or lifting, and may radiate into the arms or legs. Patients also frequently experience numbness, tingling, and a general feeling of spinal stiffness.",
         risk_fac:
             "Factors that can accelerate disc degeneration include advancing age, smoking, excess body weight, physically demanding jobs with repetitive spinal strain, acute injuries, and a family history of spine problems.",
         diagnose: (
@@ -710,7 +660,7 @@ export const conditions: ConditionInfoProp[] = [
             "disc degeneration",
         ],
         metaTitle:
-            "Degenerative Disc Disease | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
+            "Degenerative Disc Disease | Mountain Spine & Orthopedics ΓÇô Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Degenerative Disc Disease causes chronic back or neck pain from disc wear. Our Florida specialists offer advanced non-surgical and surgical care for DDD.",
     },
@@ -721,8 +671,8 @@ export const conditions: ConditionInfoProp[] = [
             "https://mountainspineortho.b-cdn.net/public/CervicalSpinalStenosis.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/cervicalspinal2.png",
         body: "Cervical spinal stenosis is a narrowing of the spinal canal in the neck, which can compress the spinal cord and cause radiating pain or numbness.",
-        detail: "<strong>Cervical spinal stenosis</strong> occurs when degenerative changes like <a href=\"/area-of-specialty/bulging-disc\" class=\"text-blue-600 hover:underline\">bulging discs</a>, thickened ligaments, or <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a> progressively constrict the <strong>spinal canal</strong> in the neck. This narrowing can compress the delicate <strong>spinal cord</strong>, leading to <strong>radiating arm pain</strong>, numbness, weakness, or, in advanced cases, <strong>myelopathy</strong> with gait imbalance and hand clumsiness. Our specialists perform comprehensive evaluations, including complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a>, to pinpoint the exact levels of compression and develop a personalized treatment plan.",
-        what_sym: "Patients often report <strong>neck stiffness</strong> and aching, along with <strong>radiating burning or electric-like pain</strong> in the shoulders and arms. Other common symptoms include <strong>hand numbness</strong>, difficulty with fine motor skills, <strong>leg weakness</strong>, and balance problems.",
+        detail: "Cervical spinal stenosis occurs when degenerative changes like bulging discs, thickened ligaments, or bone spurs progressively constrict the spinal canal in the neck. This narrowing can compress the delicate spinal cord, leading to radiating arm pain, numbness, weakness, or, in advanced cases, myelopathy with gait imbalance and hand clumsiness. Our specialists perform comprehensive evaluations, including complimentary MRI reviews, to pinpoint the exact levels of compression and develop a personalized treatment plan.",
+        what_sym: "Patients often report neck stiffness and aching, along with radiating burning or electric-like pain in the shoulders and arms. Other common symptoms include hand numbness, difficulty with fine motor skills, leg weakness, and balance problems.",
         risk_fac:
             "The risk of cervical spinal stenosis increases with advancing age. Other risk factors include osteoarthritis, degenerative disc disease, previous neck trauma or surgery, a congenitally narrow spinal canal, and lifestyle factors like smoking or heavy manual labor.",
         diagnose: (
@@ -746,15 +696,15 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Initial management focuses on conservative care, such as activity modification, physical therapy referrals, and anti-inflammatory medications. Image-guided <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> can provide powerful relief from radiating arm pain. When symptoms progress or myelopathy is present, our surgeons may recommend minimally invasive procedures like <a href=\"/treatments/posterior-cervical-laminoplasty\" class=\"text-blue-600 hover:underline\">laminoplasty</a> or <a href=\"/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">ACDF</a> to decompress the spinal cord and restore function.",
+            "Initial management focuses on conservative care, such as activity modification, physical therapy referrals, and anti-inflammatory medications. Image-guided epidural steroid injections can provide powerful relief from radiating arm pain. When symptoms progress or myelopathy is present, our surgeons may recommend minimally invasive procedures like laminoplasty or ACDF to decompress the spinal cord and restore function.",
         pain_info:
-            "Pain may fluctuate with <strong>neck posture</strong> and activity, but neurological symptoms like numbness or weakness can progress silently. Our approach blends precise <strong>decompression techniques</strong> with targeted rehabilitation to curb pain, restore nerve function, and prevent irreversible spinal cord changes.",
+            "Pain may fluctuate with neck posture and activity, but neurological symptoms like numbness or weakness can progress silently. Our approach blends precise decompression techniques with targeted rehabilitation to curb pain, restore nerve function, and prevent irreversible spinal cord changes.",
         prevent:
-            "Maintaining strong neck and core muscles, practicing ergonomic workstation habits, treating <a href=\"/area-of-specialty/arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a> early, avoiding tobacco, and staying physically active can help preserve spinal canal diameter and reduce the likelihood of developing symptomatic stenosis.",
+            "Maintaining strong neck and core muscles, practicing ergonomic workstation habits, treating arthritis early, avoiding tobacco, and staying physically active can help preserve spinal canal diameter and reduce the likelihood of developing symptomatic stenosis.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our fellowship-trained spine surgeons specialize in treating complex neck conditions like cervical spinal stenosis. We provide patients throughout Florida with world-class care, beginning with a complimentary MRI review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. Our focus is on restoring spinal health and protecting your future mobility using the most advanced techniques available.",
+            "At Mountain Spine & Orthopedics, our fellowship-trained spine surgeons specialize in treating complex neck conditions like cervical spinal stenosis. We provide patients throughout Florida with world-class care, beginning with a complimentary MRI review and a free second opinion. Our focus is on restoring spinal health and protecting your future mobility using the most advanced techniques available.",
         schedule:
-            "If <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck pain</a>, arm tingling, or balance issues are affecting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. We will review your complimentary MRI and provide a free second opinion to help you find the best path to recovery.",
+            "If neck pain, arm tingling, or balance issues are affecting your life, schedule a consultation with Mountain Spine & Orthopedics today. We will review your complimentary MRI and provide a free second opinion to help you find the best path to recovery.",
         side_img: "https://mountainspineortho.b-cdn.net/public/cervicalspinalside.png",
         forum: [
             {
@@ -986,7 +936,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical myelopathy",
         ],
         metaTitle:
-            "Cervical Spinal Stenosis | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
+            "Cervical Spinal Stenosis | Mountain Spine & Orthopedics ΓÇô Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Cervical spinal stenosis narrows the neck's spinal canal, causing pain and numbness. Our Florida specialists offer advanced diagnosis and treatment options.",
     },
@@ -996,8 +946,8 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/adtcard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/sdtarti.jpg",
         body: "Spondylolisthesis is a spinal condition where one vertebra slips forward over the one below it, often causing lower back pain and nerve compression.",
-        detail: "<strong>Spondylolisthesis</strong> occurs when a <strong>vertebra slips out of place</strong>, typically in the lower back, and moves forward over the vertebra beneath it. This misalignment can compress <strong>spinal nerves</strong>, leading to persistent <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">lower back pain</a>, <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>, and difficulty walking or standing. The condition can result from spinal degeneration, stress fractures (common in athletes), trauma, or congenital defects. At Mountain Spine & Orthopedics, our evaluation includes advanced imaging to determine the type and grade of slippage and guide treatment.",
-        what_sym: "Common symptoms include persistent <strong>lower back pain</strong> that may radiate into the buttocks or legs (<strong>sciatica</strong>), <strong>tight hamstrings</strong>, and <strong>numbness, tingling, or weakness</strong> in the legs. Some people have trouble standing or walking for long periods.",
+        detail: "Spondylolisthesis occurs when a vertebra slips out of place, typically in the lower back, and moves forward over the vertebra beneath it. This misalignment can compress spinal nerves, leading to persistent lower back pain, <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>, and difficulty walking or standing. The condition can result from spinal degeneration, stress fractures (common in athletes), trauma, or congenital defects. At Mountain Spine & Orthopedics, our evaluation includes advanced imaging to determine the type and grade of slippage and guide treatment.",
+        what_sym: "Common symptoms include persistent lower back pain that may radiate into the buttocks or legs (sciatica), tight hamstrings, and numbness, tingling, or weakness in the legs. Some people have trouble standing or walking for long periods.",
         risk_fac:
             "Repetitive spinal stress, such as from gymnastics or football, significantly increases the risk. Other factors include spinal arthritis, a genetic predisposition, congenital spinal anomalies, previous spine trauma, and the natural aging process.",
         diagnose: (
@@ -1018,7 +968,7 @@ export const conditions: ConditionInfoProp[] = [
         treatment:
             "Non-surgical care is the first line of treatment and may include physical therapy referrals to strengthen and stabilize the core, anti-inflammatory medications, and <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">image-guided injections</a> to reduce nerve inflammation. If conservative care fails or the slippage progresses, surgical options like decompression and <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">spinal fusion</a> are considered. At our practice, we use minimally invasive techniques to achieve long-term spinal stability while reducing recovery time.",
         pain_info:
-            "The pain associated with spondylolisthesis often stems from both <strong>mechanical instability</strong> of the spine and direct <strong>nerve compression</strong>. It may increase with activities like standing, walking, or bending backward. Our integrated treatment approach targets both the pain and its underlying structural source to provide long-lasting relief.",
+            "The pain associated with spondylolisthesis often stems from both mechanical instability of the spine and direct nerve compression. It may increase with activities like standing, walking, or bending backward. Our integrated treatment approach targets both the pain and its underlying structural source to provide long-lasting relief.",
         prevent:
             "Core strengthening exercises, practicing proper body mechanics, limiting repetitive hyperextension of the lower back (common in certain sports), and addressing early symptoms can help prevent the progression or recurrence of spondylolisthesis.",
         why_choose_us:
@@ -1037,7 +987,7 @@ export const conditions: ConditionInfoProp[] = [
             "back pain specialist",
         ],
         metaTitle:
-            "Spondylolisthesis | Mountain Spine & Orthopedics – Florida's Trusted Spine and Joint Pain Specialists",
+            "Spondylolisthesis | Mountain Spine & Orthopedics ΓÇô Florida's Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Spondylolisthesis causes vertebral slippage, back pain, and nerve compression. Our Florida spine specialists offer expert diagnosis and advanced treatment.",
     },
@@ -1049,8 +999,8 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/CervicalHerniatedDiscarti.png",
         body: "A cervical herniated disc occurs when a disc in the neck bulges and presses on a nerve, causing neck pain and radiating arm symptoms.",
-        detail: "A <strong>cervical herniated disc</strong> occurs when the soft inner core of a disc in the neck pushes through a tear in its tough outer layer. This displacement can compress nearby <strong>nerve roots</strong> or the <strong>spinal cord</strong>, causing <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck pain</a>, <strong>radiating arm pain</strong>, and other neurological issues. This condition can develop from age-related wear, poor posture, or a sudden injury. At Mountain Spine & Orthopedics, we use high-resolution MRI scans to pinpoint the herniation and guide a customized treatment plan.",
-        what_sym: "Symptoms often include <strong>sharp or burning neck pain</strong> that can worsen with head movements, coughing, or sneezing. Patients frequently experience <strong>radiating pain</strong>, <strong>tingling</strong>, or <strong>numbness</strong> down the shoulder, arm, or into the hand and fingers.",
+        detail: "A cervical herniated disc occurs when the soft inner core of a disc in the neck pushes through a tear in its tough outer layer. This displacement can compress nearby nerve roots or the spinal cord, causing neck pain, radiating arm pain, and other neurological issues. This condition can develop from age-related wear, poor posture, or a sudden injury. At Mountain Spine & Orthopedics, we use high-resolution MRI scans to pinpoint the herniation and guide a customized treatment plan.",
+        what_sym: "Symptoms often include sharp or burning neck pain that can worsen with head movements, coughing, or sneezing. Patients frequently experience radiating pain, tingling, or numbness down the shoulder, arm, or into the hand and fingers.",
         risk_fac:
             "Risk factors include age-related disc dehydration, poor posture during prolonged screen use, repetitive heavy lifting, sudden whiplash injuries, and a family history of degenerative disc disease. Lifestyle factors like smoking and obesity can also contribute to poor disc health.",
         diagnose: (
@@ -1073,9 +1023,9 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Initial care focuses on conservative treatments like activity modification, targeted physical therapy referrals, and anti-inflammatory medication. For persistent or severe symptoms, our spine surgeons may perform minimally invasive procedures such as <a href=\"/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">anterior cervical discectomy and fusion (ACDF)</a> or <a href=\"/treatments/artificial-disc-replacement-surgery\" class=\"text-blue-600 hover:underline\">artificial disc replacement</a>. These surgeries decompress neural structures, restore alignment, and support a rapid recovery with lasting stability.",
+            "Initial care focuses on conservative treatments like activity modification, targeted physical therapy referrals, and anti-inflammatory medication. For persistent or severe symptoms, our spine surgeons may perform minimally invasive procedures such as anterior cervical discectomy and fusion (ACDF) or artificial disc replacement. These surgeries decompress neural structures, restore alignment, and support a rapid recovery with lasting stability.",
         pain_info:
-            "Pain intensity often peaks in the first few weeks after herniation and can be aggravated by <strong>neck movement</strong> or sustained positions. Our comprehensive approach combines precise <strong>diagnostic injections</strong> and rehabilitative exercises to reduce inflammation, improve posture, and accelerate symptom resolution.",
+            "Pain intensity often peaks in the first few weeks after herniation and can be aggravated by neck movement or sustained positions. Our comprehensive approach combines precise diagnostic injections and rehabilitative exercises to reduce inflammation, improve posture, and accelerate symptom resolution.",
         prevent:
             "Preventive steps include setting up ergonomic workstations with monitors at eye level, practicing proper lifting mechanics, performing regular core and cervical strengthening exercises, staying hydrated, and avoiding tobacco to lower the risk of future disc injuries.",
         why_choose_us:
@@ -1313,7 +1263,7 @@ export const conditions: ConditionInfoProp[] = [
                                 className="text-[#424959] text-md sm:text-xl"
                             >
                                 Treatment for a herniated disc depends on the severity of the
-                                condition and the patient’s overall health. Mild cases often
+                                condition and the patientΓÇÖs overall health. Mild cases often
                                 respond well to conservative approaches like rest, physical
                                 therapy, heat/ice, and anti-inflammatory medication. If these
                                 measures fail to provide relief, more advanced treatments such
@@ -1349,7 +1299,7 @@ export const conditions: ConditionInfoProp[] = [
                                 className="text-[#424959] text-md sm:text-xl"
                             >
                                 Cervical herniated discs can significantly impact your daily
-                                life but you don’t have to manage the pain alone. Whether you're
+                                life but you donΓÇÖt have to manage the pain alone. Whether you're
                                 just beginning to feel discomfort or you've been struggling for
                                 months, there are many effective treatments available. At
                                 Mountain Spine & Orthopedics, our spine surgeons are highly
@@ -1377,7 +1327,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical radiculopathy",
         ],
         metaTitle:
-            "Cervical Herniated Disc | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Cervical Herniated Disc | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A cervical herniated disc causes neck and radiating arm pain. Our Florida spine specialists provide advanced diagnosis, MRI reviews, and treatment options.",
     },
@@ -1387,22 +1337,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/scfcard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/scfarti.jpg",
         body: "A spinal compression fracture is a collapse or crack in a vertebra, often caused by osteoporosis, leading to sudden back pain and height loss.",
-        detail: "A <strong>spinal compression fracture</strong> occurs when a <strong>vertebra weakens and collapses</strong>, often under normal body pressure or from minor trauma. <strong>Osteoporosis</strong> is the leading cause, making bones fragile, but these fractures can also result from high-impact injuries or spinal tumors. The condition can lead to <a href=\"/area-of-specialty/back-pain\" class=\"text-blue-600 hover:underline\">chronic back pain</a>, a stooped posture (<a href=\"/area-of-specialty/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a>), and a noticeable loss of height. At Mountain Spine & Orthopedics, our evaluation includes a focused physical exam and complimentary imaging to identify the fracture's location and severity.",
-        what_sym: "Symptoms typically include the <strong>sudden onset of severe, localized back pain</strong> that worsens with movement and may improve with rest. Patients may also notice a visible <strong>forward curvature of the spine</strong> (kyphosis) and a <strong>gradual loss of height</strong>.",
+        detail: "A spinal compression fracture occurs when a vertebra weakens and collapses, often under normal body pressure or from minor trauma. Osteoporosis is the leading cause, making bones fragile, but these fractures can also result from high-impact injuries or spinal tumors. The condition can lead to chronic back pain, a stooped posture (kyphosis), and a noticeable loss of height. At Mountain Spine & Orthopedics, our evaluation includes a focused physical exam and complimentary imaging to identify the fracture's location and severity.",
+        what_sym: "Symptoms typically include the sudden onset of severe, localized back pain that worsens with movement and may improve with rest. Patients may also notice a visible forward curvature of the spine (kyphosis) and a gradual loss of height.",
         risk_fac:
             "Osteoporosis is the most significant risk factor, particularly in postmenopausal women and older men. Other risks include long-term steroid use, a history of cancer (especially metastatic), previous spinal fractures, smoking, poor nutrition, and a low body weight.",
         diagnose:
             "Our specialists use complimentary high-resolution imaging, such as X-rays or an MRI, to detect fractures and assess vertebral alignment and bone quality. A bone density test, known as a DEXA scan, may also be performed to evaluate for osteoporosis and guide a long-term management strategy to improve bone health.",
         treatment:
-            "Most compression fractures can heal with conservative care, including bracing, <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">pain management</a>, and calcium and vitamin D supplementation. For cases with persistent pain or spinal instability, our surgeons may perform minimally invasive procedures like <strong>vertebroplasty</strong> or <strong>kyphoplasty</strong>. These procedures stabilize the fracture, restore vertebral height, and provide rapid pain relief.",
+            "Most compression fractures can heal with conservative care, including bracing, pain management, and calcium and vitamin D supplementation. For cases with persistent pain or spinal instability, our surgeons may perform minimally invasive procedures like vertebroplasty or kyphoplasty. These procedures stabilize the fracture, restore vertebral height, and provide rapid pain relief.",
         pain_info:
-            "The pain from a compression fracture is typically <strong>localized to the site of the fracture</strong> and often worsens with standing or walking. Our comprehensive approach aims to stabilize the spine, reduce inflammation, and strengthen supporting musculature, helping patients return to their daily activities with confidence and less pain.",
+            "The pain from a compression fracture is typically localized to the site of the fracture and often worsens with standing or walking. Our comprehensive approach aims to stabilize the spine, reduce inflammation, and strengthen supporting musculature, helping patients return to their daily activities with confidence and less pain.",
         prevent:
-            "Maintaining strong bones through weight-bearing exercise, ensuring adequate calcium and vitamin D intake, and undergoing <strong>osteoporosis screening</strong> are key to prevention. Implementing fall prevention strategies and promptly treating any bone-weakening conditions are also crucial for avoiding compression fractures.",
+            "Maintaining strong bones through weight-bearing exercise, ensuring adequate calcium and vitamin D intake, and undergoing osteoporosis screening are key to prevention. Implementing fall prevention strategies and promptly treating any bone-weakening conditions are also crucial for avoiding compression fractures.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, we provide expert, compassionate care for patients with painful spinal compression fractures. Our Florida-based specialists offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We utilize advanced, minimally invasive procedures like kyphoplasty to stabilize the fracture, relieve pain, and help you stand tall again.",
+            "At Mountain Spine & Orthopedics, we provide expert, compassionate care for patients with painful spinal compression fractures. Our Florida-based specialists offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize advanced, minimally invasive procedures like kyphoplasty to stabilize the fracture, relieve pain, and help you stand tall again.",
         schedule:
-            "If you're experiencing sudden back pain or a loss of height, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to move forward with a personalized plan to rebuild your stability and strength.",
+            "If you're experiencing sudden back pain or a loss of height, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to move forward with a personalized plan to rebuild your stability and strength.",
         slug: "spinal-compression-fractures",
         keywords: [
             "spinal compression fracture",
@@ -1415,7 +1365,7 @@ export const conditions: ConditionInfoProp[] = [
             "bone density",
         ],
         metaTitle:
-            "Spinal Compression Fractures | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Spinal Compression Fractures | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Spinal compression fractures cause sudden back pain, often from osteoporosis. Our Florida specialists offer kyphoplasty and other advanced treatments for relief.",
     },
@@ -1426,22 +1376,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/Kyphosiscard.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/Kyphosisarti.png",
         body: "Kyphosis is an exaggerated forward rounding of the upper back, which can cause pain, stiffness, and significant postural problems.",
-        detail: "<strong>Kyphosis</strong> is a <strong>spinal condition</strong> characterized by an excessive forward curvature of the upper back, leading to a rounded or 'humpback' appearance. While a gentle forward curve is normal, kyphosis occurs when this curve becomes exaggerated due to factors like <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a>, osteoporotic <a href=\"/area-of-specialty/spinal-compression-fractures\" class=\"text-blue-600 hover:underline\">compression fractures</a>, or poor posture. This abnormal alignment can strain back muscles, causing <strong>chronic pain</strong> and stiffness. At Mountain Spine & Orthopedics, we provide a thorough evaluation and tailored treatment plan to improve posture and relieve pain.",
-        what_sym: "Many patients notice a <strong>persistent mid-back ache</strong> that worsens after prolonged sitting or standing, a visible <strong>rounding of the back</strong>, and <strong>fatigue in the neck and shoulders</strong>. In severe cases, it can cause height loss or even breathing difficulties.",
+        detail: "Kyphosis is a spinal condition characterized by an excessive forward curvature of the upper back, leading to a rounded or 'humpback' appearance. While a gentle forward curve is normal, kyphosis occurs when this curve becomes exaggerated due to factors like degenerative disc disease, osteoporotic compression fractures, or poor posture. This abnormal alignment can strain back muscles, causing chronic pain and stiffness. At Mountain Spine & Orthopedics, we provide a thorough evaluation and tailored treatment plan to improve posture and relieve pain.",
+        what_sym: "Many patients notice a persistent mid-back ache that worsens after prolonged sitting or standing, a visible rounding of the back, and fatigue in the neck and shoulders. In severe cases, it can cause height loss or even breathing difficulties.",
         risk_fac:
             "Risk increases with advancing age and osteoporosis. Adolescent growth spurts associated with Scheuermann's disease, chronic poor posture, previous spinal trauma, and certain genetic disorders affecting connective tissue can also contribute to the development of kyphosis.",
         diagnose:
             "Diagnosis includes standing long-cassette X-rays to measure the Cobb angle and assess overall sagittal balance. We also use complimentary high-resolution MRI or CT scans to evaluate disc integrity and spinal cord space. These evaluations ensure all contributing factors are addressed in the final treatment strategy.",
         treatment:
-            "Flexible, postural kyphosis often improves with specialized physical therapy referrals that strengthens core and back muscles. For rigid curves in younger patients, bracing may be used to halt progression. For adults with painful or progressive deformity, our spine surgeons may perform minimally invasive osteotomies and <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">spinal fusion</a> to restore sagittal balance, protect the spinal cord, and relieve pain.",
+            "Flexible, postural kyphosis often improves with specialized physical therapy referrals that strengthens core and back muscles. For rigid curves in younger patients, bracing may be used to halt progression. For adults with painful or progressive deformity, our spine surgeons may perform minimally invasive osteotomies and fusion to restore sagittal balance, protect the spinal cord, and relieve pain.",
         pain_info:
-            "Pain from kyphosis often stems from <strong>muscle fatigue</strong>, <strong>facet joint overload</strong>, and stress on the <strong>intervertebral discs</strong>. We use targeted injections, muscle-balancing therapy, and, when necessary, surgical realignment to deliver durable pain relief and functional improvement.",
+            "Pain from kyphosis often stems from muscle fatigue, facet joint overload, and stress on the intervertebral discs. We use targeted injections, muscle-balancing therapy, and, when necessary, surgical realignment to deliver durable pain relief and functional improvement.",
         prevent:
             "Preventive measures include maintaining strong back extensor and core muscles, practicing ergonomic posture, ensuring adequate calcium and vitamin D intake to treat osteoporosis early, and monitoring adolescent spinal curves to prevent progression.",
         why_choose_us:
-            "The spine specialists at Mountain Spine & Orthopedics are experts in correcting complex <a href=\"/area-of-specialty/spine-deformities\" class=\"text-blue-600 hover:underline\">spinal deformities</a> like kyphosis. Our Florida clinic is dedicated to restoring proper posture and relieving pain through a combination of advanced non-surgical therapies and precision surgical techniques. With a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we provide the clarity and confidence you need to move forward.",
+            "The spine specialists at Mountain Spine & Orthopedics are experts in correcting complex spinal deformities like kyphosis. Our Florida clinic is dedicated to restoring proper posture and relieving pain through a combination of advanced non-surgical therapies and precision surgical techniques. With a complimentary MRI review and free second opinion, we provide the clarity and confidence you need to move forward.",
         schedule:
-            "If rounding of the back or persistent mid-spine pain concerns you, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Enjoy a complimentary MRI review and thorough second opinion to create a customized plan to correct kyphosis and help you stand tall.",
+            "If rounding of the back or persistent mid-spine pain concerns you, schedule a consultation with Mountain Spine & Orthopedics today. Enjoy a complimentary MRI review and thorough second opinion to create a customized plan to correct kyphosis and help you stand tall.",
         slug: "kyphosis",
         keywords: [
             "kyphosis treatment",
@@ -1454,7 +1404,7 @@ export const conditions: ConditionInfoProp[] = [
             "osteoporosis back pain",
         ],
         metaTitle:
-            "Kyphosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Kyphosis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Kyphosis, or a rounded back, causes pain and postural issues. Our Florida spine specialists offer advanced therapies and surgery to correct spinal alignment.",
     },
@@ -1464,22 +1414,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/oste.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/ostearti.jpg",
         body: "Osteoarthritis is a common 'wear-and-tear' joint condition caused by the breakdown of protective cartilage, leading to pain, stiffness, and reduced mobility.",
-        detail: "<strong>Osteoarthritis</strong>, often called 'wear-and-tear' arthritis, is a <strong>degenerative joint condition</strong> that occurs when the protective <strong>cartilage</strong> cushioning the ends of your bones wears down over time. This can affect any joint but is most common in the <strong>knees</strong>, <strong>hips</strong>, hands, and <strong>spine</strong>. As cartilage thins, bones can rub together, leading to pain, stiffness, swelling, and the formation of <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a>. At Mountain Spine & Orthopedics, our assessment includes a focused exam and complimentary imaging to create a personalized treatment plan.",
-        what_sym: "Patients often notice a <strong>deep, aching joint pain</strong> that worsens after activity, along with <strong>morning stiffness</strong>, swelling, and a <strong>grinding or crunching sensation</strong> during movement. In advanced stages, it can lead to <strong>joint deformity</strong> and instability.",
+        detail: "Osteoarthritis, often called 'wear-and-tear' arthritis, is a degenerative joint condition that occurs when the protective cartilage cushioning the ends of your bones wears down over time. This can affect any joint but is most common in the knees, hips, hands, and spine. As cartilage thins, bones can rub together, leading to pain, stiffness, swelling, and the formation of bone spurs. At Mountain Spine & Orthopedics, our assessment includes a focused exam and complimentary imaging to create a personalized treatment plan.",
+        what_sym: "Patients often notice a deep, aching joint pain that worsens after activity, along with morning stiffness, swelling, and a grinding or crunching sensation during movement. In advanced stages, it can lead to joint deformity and instability.",
         risk_fac:
             "Key risk factors include advancing age, a history of joint trauma or surgery, obesity (which overloads weight-bearing joints), and a genetic predisposition to cartilage weakness. Repetitive occupational or athletic stress can also accelerate cartilage wear.",
         diagnose:
-            "Our diagnostic process includes a thorough physical exam and imaging studies. We offer complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a> and weight-bearing X-rays to visualize cartilage loss, bone spurs, and joint space narrowing. In some cases, we may use ultrasound to detect inflammation or perform a guided aspiration to analyze joint fluid, ensuring a precise diagnosis.",
+            "Our diagnostic process includes a thorough physical exam and imaging studies. We offer complimentary MRI reviews and weight-bearing X-rays to visualize cartilage loss, bone spurs, and joint space narrowing. In some cases, we may use ultrasound to detect inflammation or perform a guided aspiration to analyze joint fluid, ensuring a precise diagnosis.",
         treatment:
-            "Initial management centers on conservative care, including patient education, weight optimization, low-impact aerobic and strengthening exercises, and activity modifications. For pain relief, we may recommend anti-inflammatory medication or image-guided <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">corticosteroid or hyaluronic acid injections</a>. For persistent symptoms, our surgeons offer advanced options, including arthroscopic procedures or <a href=\"/treatments/total-knee-replacement\" class=\"text-blue-600 hover:underline\">joint replacement</a> using minimally invasive techniques to speed recovery.",
+            "Initial management centers on conservative care, including patient education, weight optimization, low-impact aerobic and strengthening exercises, and activity modifications. For pain relief, we may recommend anti-inflammatory medication or image-guided corticosteroid or hyaluronic acid injections. For persistent symptoms, our surgeons offer advanced options, including arthroscopic procedures or joint replacement using minimally invasive techniques to speed recovery.",
         pain_info:
             "Osteoarthritic pain typically surfaces during or after activity and may linger as a dull ache at night. Our specialists blend targeted injections, regenerative biologics, bracing, and muscle-balancing exercises to break the cycle of inflammation and mechanical stress, producing durable pain relief.",
         prevent:
             "Maintaining a healthy body weight, engaging in a balanced strength and flexibility training program, correcting any biomechanical malalignment, and addressing acute joint injuries promptly can help slow cartilage degradation and preserve long-term joint function.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, we offer comprehensive management for osteoarthritis, focusing on preserving your mobility and quality of life. Our Florida-based specialists provide a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to create a personalized plan. From advanced non-surgical options like <a href=\"/treatments/stem-cell-treatment\" class=\"text-blue-600 hover:underline\">regenerative medicine</a> to minimally invasive joint replacement, our goal is to help you remain active at every stage of life.",
+            "At Mountain Spine & Orthopedics, we offer comprehensive management for osteoarthritis, focusing on preserving your mobility and quality of life. Our Florida-based specialists provide a complimentary MRI review and a free second opinion to create a personalized plan. From advanced non-surgical options like regenerative medicine to minimally invasive joint replacement, our goal is to help you remain active at every stage of life.",
         schedule:
-            "If joint pain or stiffness is limiting your lifestyle, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and expert second opinion to move forward with a personalized plan to manage your osteoarthritis.",
+            "If joint pain or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and expert second opinion to move forward with a personalized plan to manage your osteoarthritis.",
         slug: "osteoarthritis",
         keywords: [
             "osteoarthritis treatment",
@@ -1492,7 +1442,7 @@ export const conditions: ConditionInfoProp[] = [
             "cartilage restoration",
         ],
         metaTitle:
-            "Osteoarthritis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Osteoarthritis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Osteoarthritis causes joint pain and stiffness from cartilage wear. Our Florida specialists offer advanced non-surgical and surgical treatments to restore mobility.",
     },
@@ -1502,16 +1452,16 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/rctcard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/rtcarti.jpg",
         body: "A rotator cuff tear involves damage to the crucial tendons that stabilize the shoulder, commonly causing deep shoulder pain, weakness, and limited motion.",
-        detail: "A <strong>rotator cuff tear</strong> is an injury to one or more of the four tendons that surround the shoulder joint, which are essential for lifting and rotating the arm. Tears can result from a sudden injury, like a fall, or from <strong>chronic degeneration</strong> due to aging and <strong>repetitive overhead activities</strong>. At Mountain Spine & Orthopedics, our assessment includes a focused physical exam and high-resolution imaging to determine the tear size and guide a personalized treatment plan aimed at restoring function and relieving pain.",
-        what_sym: "Patients typically experience <strong>shoulder pain</strong> that worsens with overhead activities or at night, <strong>weakness when lifting the arm</strong>, and a <strong>clicking or popping sensation</strong> during movement. Difficulty with daily tasks like combing hair is also common.",
+        detail: "A rotator cuff tear is an injury to one or more of the four tendons that surround the shoulder joint, which are essential for lifting and rotating the arm. Tears can result from a sudden injury, like a fall, or from chronic degeneration due to aging and repetitive overhead activities. At Mountain Spine & Orthopedics, our assessment includes a focused physical exam and high-resolution imaging to determine the tear size and guide a personalized treatment plan aimed at restoring function and relieving pain.",
+        what_sym: "Patients typically experience shoulder pain that worsens with overhead activities or at night, weakness when lifting the arm, and a clicking or popping sensation during movement. Difficulty with daily tasks like combing hair is also common.",
         risk_fac:
             "Risk factors include advancing age, repetitive overhead sports (swimming, tennis) or occupations (painting, carpentry), a history of shoulder impingement, smoking, and systemic factors like diabetes that can impair tendon health.",
         diagnose: (
             <div className=" flex flex-col space-y-[16px] items-center justify-center">
                 <p>
                     Diagnosis relies on a combination of clinical examination and imaging.
-                    We perform specific orthopedic tests—including the empty can test and
-                    lift-off maneuvers—to localize the tear and assess functional deficit.
+                    We perform specific orthopedic testsΓÇöincluding the empty can test and
+                    lift-off maneuversΓÇöto localize the tear and assess functional deficit.
                     MRI remains the gold standard for visualizing tendon tears, muscle
                     atrophy, and fatty infiltration, while ultrasound offers a dynamic,
                     cost-effective alternative. Plain X rays help rule out bony spurs and
@@ -1531,15 +1481,15 @@ export const conditions: ConditionInfoProp[] = [
             </div>
         ),
         treatment:
-            "Initial management for small or partial tears often includes non-surgical options like activity modification, physical therapy referrals, and image-guided <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">corticosteroid injections</a> for pain relief. For patients with persistent symptoms or larger tears, our surgeons perform minimally invasive <a href=\"/treatments/rotator-cuff-repair-surgery\" class=\"text-blue-600 hover:underline\">arthroscopic rotator cuff repair</a> to reattach the torn tendon to the bone, promoting a faster and less painful recovery.",
+            "Initial management for small or partial tears often includes non-surgical options like activity modification, physical therapy referrals, and image-guided corticosteroid injections for pain relief. For patients with persistent symptoms or larger tears, our surgeons perform minimally invasive arthroscopic rotator cuff repair to reattach the torn tendon to the bone, promoting a faster and less painful recovery.",
         pain_info:
             "Pain in a rotator cuff tear arises from tendon inflammation, mechanical impingement of the tendon under the acromion bone, and chemical irritation from inflammatory mediators. Patients often report a deep, aching discomfort that intensifies with arm elevation and activities such as lifting or throwing.",
         prevent:
             "To reduce the risk of a rotator cuff injury, it's important to maintain shoulder flexibility and strength through a regular, targeted exercise program. Practicing proper warm-up and cool-down routines before sports or repetitive work, and addressing early symptoms promptly with rest and evaluation, can prevent minor issues from becoming major tears.",
         why_choose_us:
-            "The orthopedic specialists at Mountain Spine & Orthopedics are leaders in diagnosing and treating rotator cuff tears. Our Florida shoulder experts provide a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We specialize in minimally invasive arthroscopic techniques that restore shoulder function with less pain and a quicker return to the activities you enjoy.",
+            "The orthopedic specialists at Mountain Spine & Orthopedics are leaders in diagnosing and treating rotator cuff tears. Our Florida shoulder experts provide a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We specialize in minimally invasive arthroscopic techniques that restore shoulder function with less pain and a quicker return to the activities you enjoy.",
         schedule:
-            "If you are experiencing shoulder pain, weakness, or limited mobility, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to get a precise diagnosis and a personalized treatment plan.",
+            "If you are experiencing shoulder pain, weakness, or limited mobility, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to get a precise diagnosis and a personalized treatment plan.",
         slug: "rotator-cuff-tear",
         keywords: [
             "rotator cuff tear",
@@ -1552,7 +1502,7 @@ export const conditions: ConditionInfoProp[] = [
             "minimally invasive shoulder repair",
         ],
         metaTitle:
-            "Rotator Cuff Tear | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Rotator Cuff Tear | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A rotator cuff tear causes shoulder pain and weakness. Our Florida shoulder specialists offer advanced diagnosis and minimally invasive arthroscopic repair.",
     },
@@ -1562,22 +1512,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/aclcard.webp",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/aclcard.png",
         body: "An ACL injury is a tear of the anterior cruciate ligament in the knee, a key stabilizer that often leads to knee instability, pain, and swelling.",
-        detail: "An <strong>ACL (anterior cruciate ligament) injury</strong> is a tear of one of the major ligaments responsible for stabilizing the <strong>knee joint</strong>. These injuries are common in sports involving sudden stops, pivots, or direct impact, and often occur with an audible 'pop' followed by immediate swelling. An <strong>ACL tear</strong> can cause significant <strong>knee instability</strong> and pain. At Mountain Spine & Orthopedics, our specialists use advanced diagnostics to assess the injury and determine the best course of action to restore knee stability and function.",
-        what_sym: "Common symptoms include an audible <strong>'pop'</strong> at the time of injury, <strong>rapid knee swelling</strong>, significant pain, and a feeling of the knee <strong>'giving way'</strong> or instability. Patients often have difficulty bearing weight and experience a limited range of motion.",
+        detail: "An ACL (anterior cruciate ligament) injury is a tear of one of the major ligaments responsible for stabilizing the knee joint. These injuries are common in sports involving sudden stops, pivots, or direct impact, and often occur with an audible 'pop' followed by immediate swelling. An ACL tear can cause significant knee instability and pain. At Mountain Spine & Orthopedics, our specialists use advanced diagnostics to assess the injury and determine the best course of action to restore knee stability and function.",
+        what_sym: "Common symptoms include an audible 'pop' at the time of injury, rapid knee swelling, significant pain, and a feeling of the knee 'giving way' or instability. Patients often have difficulty bearing weight and experience a limited range of motion.",
         risk_fac:
             "Risk factors include participation in high-risk sports like soccer, basketball, and football. Anatomical factors, such as a wider pelvis in female athletes, and biomechanical issues, like muscle imbalances between the quadriceps and hamstrings, can also increase the risk of an ACL tear.",
         diagnose:
-            "A definitive diagnosis of an ACL injury relies on a combination of a thorough clinical examination and imaging studies. We provide a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a>, as MRI is the gold standard for accurately depicting the extent of the ligament tear, as well as identifying any associated bone bruises or <a href=\"/area-of-specialty/torn-meniscus\" class=\"text-blue-600 hover:underline\">meniscal</a> and cartilage injuries, which are common with ACL tears.",
+            "A definitive diagnosis of an ACL injury relies on a combination of a thorough clinical examination and imaging studies. We provide a complimentary MRI review, as MRI is the gold standard for accurately depicting the extent of the ligament tear, as well as identifying any associated bone bruises or meniscal and cartilage injuries, which are common with ACL tears.",
         treatment:
-            "Treatment options depend on the tear's severity, the patient's age, and their activity level. For complete tears or athletes seeking to return to pivoting sports, <a href=\"/treatments/acl-reconstruction-surgery\" class=\"text-blue-600 hover:underline\">ACL reconstruction surgery</a> is often recommended. At Mountain Spine & Orthopedics, our surgeons employ minimally invasive arthroscopic ACL reconstruction techniques, using either an autograft or allograft to rebuild the ligament and restore knee stability.",
+            "Treatment options depend on the tear's severity, the patient's age, and their activity level. For complete tears or athletes seeking to return to pivoting sports, ACL reconstruction surgery is often recommended. At Mountain Spine & Orthopedics, our surgeons employ minimally invasive arthroscopic ACL reconstruction techniques, using either an autograft or allograft to rebuild the ligament and restore knee stability.",
         pain_info:
             "The initial sharp pain in an ACL injury arises from the acute tearing of ligament fibers and rapid swelling from bleeding within the joint (hemarthrosis). Following the initial injury, pain may be felt with weight-bearing, twisting, or movements that challenge the knee's stability. Our treatment approach addresses both the mechanical instability and the associated pain to restore function.",
         prevent:
             "To reduce the risk of ACL injuries, athletes should engage in neuromuscular training programs that focus on proper landing mechanics, strengthening the muscles around the knee and hip, and improving balance. Plyometric drills that emphasize safe deceleration and flexibility training are also key components of an effective prevention program.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our board-certified sports medicine specialists provide expert care for ACL injuries. For athletes and active individuals across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure a precise diagnosis. We utilize advanced, minimally invasive arthroscopic reconstruction to restore knee stability and help you return to your sport with confidence.",
+            "At Mountain Spine & Orthopedics, our board-certified sports medicine specialists provide expert care for ACL injuries. For athletes and active individuals across Florida, we offer a complimentary MRI review and a free second opinion to ensure a precise diagnosis. We utilize advanced, minimally invasive arthroscopic reconstruction to restore knee stability and help you return to your sport with confidence.",
         schedule:
-            "If you suspect an ACL injury due to knee pain, swelling, or instability, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. A complimentary MRI review and a free second opinion can help you understand your injury and create a comprehensive treatment plan.",
+            "If you suspect an ACL injury due to knee pain, swelling, or instability, schedule a consultation with Mountain Spine & Orthopedics today. A complimentary MRI review and a free second opinion can help you understand your injury and create a comprehensive treatment plan.",
         slug: "acl-injury",
         keywords: [
             "ACL injury",
@@ -1590,7 +1540,7 @@ export const conditions: ConditionInfoProp[] = [
             "Lachman test",
         ],
         metaTitle:
-            "ACL Injury | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "ACL Injury | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "An ACL tear causes knee instability, pain, and swelling. Our Florida sports medicine specialists offer advanced ACL reconstruction to restore knee stability.",
     },
@@ -1600,22 +1550,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/labraltear.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/LabralTeararti.png",
         body: "A labral tear in the shoulder or hip involves damage to the cartilage ring that stabilizes the joint, causing deep pain, clicking, and instability.",
-        detail: "The <strong>labrum</strong> is a ring of fibrocartilage that deepens the socket of ball-and-socket joints like the shoulder and hip, providing crucial stability. A <strong>labral tear</strong> can result from a traumatic injury, repetitive overhead or pivoting motions, or underlying structural issues like <a href=\"/area-of-specialty/hip-impingement\" class=\"text-blue-600 hover:underline\">hip impingement</a>. This damage can cause <strong>deep joint pain</strong>, clicking, and <strong>joint instability</strong>. At Mountain Spine & Orthopedics, we use advanced imaging like MRI arthrography to accurately diagnose the tear and create a personalized plan to repair the damage and preserve the joint.",
-        what_sym: "Patients commonly experience a <strong>sharp or aching pain</strong> deep within the joint, often accompanied by a <strong>clicking, catching, or locking sensation</strong> during movement. A sense of <strong>instability</strong>, reduced range of motion, and decreased strength are also frequent symptoms.",
+        detail: "The labrum is a ring of fibrocartilage that deepens the socket of ball-and-socket joints like the shoulder and hip, providing crucial stability. A labral tear can result from a traumatic injury, repetitive overhead or pivoting motions, or underlying structural issues. This damage can cause deep joint pain, clicking, and instability. At Mountain Spine & Orthopedics, we use advanced imaging like MRI arthrography to accurately diagnose the tear and create a personalized plan to repair the damage and preserve the joint.",
+        what_sym: "Patients commonly experience a sharp or aching pain deep within the joint, often accompanied by a clicking, catching, or locking sensation during movement. A sense of instability, reduced range of motion, and decreased strength are also frequent symptoms.",
         risk_fac:
             "High-risk groups include athletes in sports like baseball, volleyball, and ballet, as well as individuals with structural issues like femoroacetabular impingement (FAI) in the hip. A history of joint dislocation or trauma also significantly increases the risk of a labral tear.",
         diagnose:
             "Beyond a physical exam, diagnosis is confirmed with advanced imaging. A complimentary MRI arthrogram, where contrast dye is injected into the joint, is the most effective way to visualize a labral tear. In some cases, a diagnostic intra-articular anesthetic injection may be used to confirm the labrum as the primary source of pain.",
         treatment:
-            "Initial care often emphasizes conservative management, including activity modification, targeted physical therapy referrals, and anti-inflammatory or biologic injections. If pain persists or mechanical symptoms are present, our surgeons perform minimally invasive <a href=\"/treatments/hip-arthroscopy-treatment\" class=\"text-blue-600 hover:underline\">arthroscopic repair</a>. This procedure uses small incisions and specialized instruments to reattach the labrum to the bone, restoring the joint's stability and suction seal.",
+            "Initial care often emphasizes conservative management, including activity modification, targeted physical therapy referrals, and anti-inflammatory or biologic injections. If pain persists or mechanical symptoms are present, our surgeons perform minimally invasive arthroscopic repair. This procedure uses small incisions and specialized instruments to reattach the labrum to the bone, restoring the joint's stability and suction seal.",
         pain_info:
-            "Labral tear pain often presents as a <strong>deep, pinpoint discomfort</strong> that is exacerbated by specific movements, such as rotation or sustained loading. By correcting the mechanical conflict and promoting tissue healing through phased rehabilitation, our integrated approach markedly diminishes pain and restores confidence in the joint's stability.",
+            "Labral tear pain often presents as a deep, pinpoint discomfort that is exacerbated by specific movements, such as rotation or sustained loading. By correcting the mechanical conflict and promoting tissue healing through phased rehabilitation, our integrated approach markedly diminishes pain and restores confidence in the joint's stability.",
         prevent:
-            "Maintaining balanced strength in the muscles surrounding the joint (like the <a href=\"/area-of-specialty/rotator-cuff-tear\" class=\"text-blue-600 hover:underline\">rotator cuff</a> in the shoulder or the glutes in the hip), optimizing flexibility, and refining athletic or work mechanics can reduce stress on the labrum and help prevent future tears.",
+            "Maintaining balanced strength in the muscles surrounding the joint (like the rotator cuff in the shoulder or the glutes in the hip), optimizing flexibility, and refining athletic or work mechanics can reduce stress on the labrum and help prevent future tears.",
         why_choose_us:
-            "The orthopedic surgeons at Mountain Spine & Orthopedics are experts in the arthroscopic treatment of labral tears in both the shoulder and hip. Serving patients across Florida, we provide a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. Our minimally invasive techniques are designed to repair the damage, restore stability, and facilitate a rapid return to peak activity.",
+            "The orthopedic surgeons at Mountain Spine & Orthopedics are experts in the arthroscopic treatment of labral tears in both the shoulder and hip. Serving patients across Florida, we provide a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. Our minimally invasive techniques are designed to repair the damage, restore stability, and facilitate a rapid return to peak activity.",
         schedule:
-            "If joint clicking, catching, or deep pain is limiting your performance, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized strategy to heal your labral tear.",
+            "If joint clicking, catching, or deep pain is limiting your performance, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized strategy to heal your labral tear.",
         slug: "labral-tears",
         keywords: [
             "labral tear",
@@ -1628,7 +1578,7 @@ export const conditions: ConditionInfoProp[] = [
             "femoroacetabular impingement",
         ],
         metaTitle:
-            "Labral Tears | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Labral Tears | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Labral tears in the hip or shoulder cause deep joint pain and clicking. Our Florida orthopedic surgeons specialize in arthroscopic labral repair surgery.",
     },
@@ -1638,22 +1588,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/tmcard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tmarti.webp",
         body: "A torn meniscus is a common knee injury involving the C-shaped cartilage that cushions the joint, causing pain, swelling, and locking sensations.",
-        detail: "A <strong>torn meniscus</strong> is a common <strong>knee injury</strong> that affects the C-shaped pads of cartilage (menisci) that act as shock absorbers between the thighbone and shinbone. These tears can happen suddenly during sports from a forceful twist, or they can develop gradually due to age-related wear. At Mountain Spine & Orthopedics, our specialists use advanced imaging to determine the tear's location and pattern, guiding a personalized treatment plan focused on preserving the knee joint.",
-        what_sym: "Symptoms often include <strong>localized pain</strong> along the knee joint line, <strong>swelling</strong>, stiffness, and mechanical issues such as <strong>locking, catching, or a feeling of the knee giving way</strong>. Many people have difficulty fully straightening or bending their knee.",
+        detail: "A torn meniscus is a common knee injury that affects the C-shaped pads of cartilage (menisci) that act as shock absorbers between the thighbone and shinbone. These tears can happen suddenly during sports from a forceful twist, or they can develop gradually due to age-related wear. At Mountain Spine & Orthopedics, our specialists use advanced imaging to determine the tear's location and pattern, guiding a personalized treatment plan focused on preserving the knee joint.",
+        what_sym: "Symptoms often include localized pain along the knee joint line, swelling, stiffness, and mechanical issues such as locking, catching, or a feeling of the knee giving way. Many people have difficulty fully straightening or bending their knee.",
         risk_fac:
             "Risk factors include participation in sports that involve pivoting and sudden changes in direction, such as basketball and soccer. Age-related degeneration, previous knee injuries, obesity, and muscle weakness around the knee can also increase the likelihood of a meniscal tear.",
         diagnose:
-            "Diagnosis involves a thorough clinical examination, including tests like the McMurray's and Apley grind tests, to reproduce mechanical symptoms. We offer a complimentary MRI review, as MRI provides detailed visualization of the tear type and severity, which is crucial for determining the best course of treatment—whether it be repair or removal.",
+            "Diagnosis involves a thorough clinical examination, including tests like the McMurray's and Apley grind tests, to reproduce mechanical symptoms. We offer a complimentary MRI review, as MRI provides detailed visualization of the tear type and severity, which is crucial for determining the best course of treatmentΓÇöwhether it be repair or removal.",
         treatment:
-            "Conservative management, including rest, ice, physical therapy referrals, and anti-inflammatory medications, often succeeds for small, stable tears. For larger tears causing persistent mechanical symptoms, our surgeons recommend minimally invasive <a href=\"/treatments/arthroscopic-knee-surgery\" class=\"text-blue-600 hover:underline\">arthroscopic surgery</a>. Depending on the tear pattern, we perform either a <a href=\"/treatments/meniscus-repair-surgery\" class=\"text-blue-600 hover:underline\">meniscal repair</a> to preserve the cartilage or a partial meniscectomy to remove the damaged portion, optimizing recovery and minimizing long-term joint degeneration.",
+            "Conservative management, including rest, ice, physical therapy referrals, and anti-inflammatory medications, often succeeds for small, stable tears. For larger tears causing persistent mechanical symptoms, our surgeons recommend minimally invasive arthroscopic surgery. Depending on the tear pattern, we perform either a meniscal repair to preserve the cartilage or a partial meniscectomy to remove the damaged portion, optimizing recovery and minimizing long-term joint degeneration.",
         pain_info:
-            "Pain from a torn meniscus arises from both <strong>mechanical impingement</strong> of the torn fragments within the joint and inflammation of the synovial lining. Patients often describe a <strong>sharp pain</strong> with weight-bearing, twisting, or deep knee bending. Swelling is also a common result of the internal joint irritation.",
+            "Pain from a torn meniscus arises from both mechanical impingement of the torn fragments within the joint and inflammation of the synovial lining. Patients often describe a sharp pain with weight-bearing, twisting, or deep knee bending. Swelling is also a common result of the internal joint irritation.",
         prevent:
             "To reduce the risk of meniscal tears, it is important to maintain strong and flexible muscles around the knee through regular strengthening and stretching exercises. Using proper techniques when pivoting or landing, wearing supportive footwear, and maintaining a healthy weight can also lessen stress on the joint.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our knee specialists are experts in treating meniscal tears with the most advanced, minimally invasive arthroscopic techniques. For patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. Our focus on meniscal preservation and repair helps protect the long-term health of your knee joint.",
+            "At Mountain Spine & Orthopedics, our knee specialists are experts in treating meniscal tears with the most advanced, minimally invasive arthroscopic techniques. For patients across Florida, we offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. Our focus on meniscal preservation and repair helps protect the long-term health of your knee joint.",
         schedule:
-            "If you are experiencing knee pain, swelling, or locking, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. A complimentary MRI review and free second opinion can be your first step toward an accurate diagnosis and an effective treatment plan.",
+            "If you are experiencing knee pain, swelling, or locking, schedule a consultation with Mountain Spine & Orthopedics today. A complimentary MRI review and free second opinion can be your first step toward an accurate diagnosis and an effective treatment plan.",
         slug: "torn-meniscus",
         keywords: [
             "torn meniscus",
@@ -1666,7 +1616,7 @@ export const conditions: ConditionInfoProp[] = [
             "sports knee injury",
         ],
         metaTitle:
-            "Torn Meniscus | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Torn Meniscus | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A torn meniscus causes knee pain, swelling, and locking. Our Florida knee specialists offer advanced arthroscopic surgery for meniscus repair and treatment.",
     },
@@ -1676,22 +1626,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/sjdcard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/sjdarti.jpg",
         body: "Sacroiliac (SI) joint dysfunction is a common source of lower back, buttock, or groin pain caused by abnormal movement or inflammation of the SI joint.",
-        detail: "<strong>Sacroiliac (SI) joint dysfunction</strong> occurs when the joint connecting the base of the spine (sacrum) to the pelvis becomes inflamed or moves abnormally. This condition can produce pain that often mimics <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a> or <a href=\"/area-of-specialty/lumbar-herniated-disc\" class=\"text-blue-600 hover:underline\">lumbar disc</a> issues, making an accurate diagnosis crucial. At Mountain Spine & Orthopedics, our specialists use provocative maneuvers and precision diagnostic injections to confirm the SI joint as the pain source, ensuring therapy is correctly targeted for effective relief.",
-        what_sym: "Symptoms typically include a <strong>deep, aching pain</strong> in the <strong>lower back or buttock</strong>, which can radiate into the groin or thigh. Pain often worsens when rising from a seated position, climbing stairs, or rolling over in bed.",
+        detail: "Sacroiliac (SI) joint dysfunction occurs when the joint connecting the base of the spine (sacrum) to the pelvis becomes inflamed or moves abnormally. This condition can produce pain that often mimics sciatica or lumbar disc issues, making an accurate diagnosis crucial. At Mountain Spine & Orthopedics, our specialists use provocative maneuvers and precision diagnostic injections to confirm the SI joint as the pain source, ensuring therapy is correctly targeted for effective relief.",
+        what_sym: "Symptoms typically include a deep, aching pain in the lower back or buttock, which can radiate into the groin or thigh. Pain often worsens when rising from a seated position, climbing stairs, or rolling over in bed.",
         risk_fac:
             "Risk factors for SI joint dysfunction include pregnancy and postpartum ligamentous laxity, a history of prior lumbar fusion which alters pelvic load, leg length discrepancy, and inflammatory conditions such as ankylosing spondylitis. Traumatic falls on the buttocks and obesity also heighten the risk.",
         diagnose:
             "The gold standard for diagnosis is a diagnostic SI joint injection. Our specialists perform this procedure under fluoroscopic guidance, injecting a local anesthetic into the joint. A pain reduction of at least 75% confirms the SI joint as the primary pain source. This is often preceded by a complimentary MRI review to rule out other spinal pathologies.",
         treatment:
-            "Conservative management includes activity modification, physical therapy referrals focusing on pelvic and core stabilization, and anti-inflammatory medication. For more significant relief, we offer <a href=\"/treatments/cortisone-injections-for-back-pain\" class=\"text-blue-600 hover:underline\">image-guided corticosteroid injections</a>. For chronic, refractory pain, our surgeons perform minimally invasive <strong>SI joint fusion</strong> using advanced implants that promote rapid bone integration and provide long-term stability.",
+            "Conservative management includes activity modification, physical therapy referrals focusing on pelvic and core stabilization, and anti-inflammatory medication. For more significant relief, we offer image-guided corticosteroid injections. For chronic, refractory pain, our surgeons perform minimally invasive SI joint fusion using advanced implants that promote rapid bone integration and provide long-term stability.",
         pain_info:
-            "<strong>SI joint pain</strong> is typically sharp during transitional movements like standing up from a chair, rolling in bed, or climbing stairs. It often eases with short bouts of walking or lying flat. By stabilizing the joint's motion and calming inflammation, our integrated approach delivers lasting pain relief and renewed confidence.",
+            "SI joint pain is typically sharp during transitional movements like standing up from a chair, rolling in bed, or climbing stairs. It often eases with short bouts of walking or lying flat. By stabilizing the joint's motion and calming inflammation, our integrated approach delivers lasting pain relief and renewed confidence.",
         prevent:
             "Maintaining balanced core and hip strength, correcting leg length discrepancies with orthotics, practicing proper lifting mechanics, and managing body weight can all help protect the integrity of the SI joints and prevent dysfunction.",
         why_choose_us:
-            "Diagnosing and treating SI joint pain requires specialized expertise. The specialists at Mountain Spine & Orthopedics are leaders in this field, offering patients in Florida access to precise diagnostic injections and minimally invasive fusion techniques. With a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we provide clarity for a condition that is often misdiagnosed, guiding you toward stable, pain-free mobility.",
+            "Diagnosing and treating SI joint pain requires specialized expertise. The specialists at Mountain Spine & Orthopedics are leaders in this field, offering patients in Florida access to precise diagnostic injections and minimally invasive fusion techniques. With a complimentary MRI review and a free second opinion, we provide clarity for a condition that is often misdiagnosed, guiding you toward stable, pain-free mobility.",
         schedule:
-            "If <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">lower back</a> or buttock pain is hindering your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to see if SI joint dysfunction is the cause of your pain.",
+            "If lower back or buttock pain is hindering your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to see if SI joint dysfunction is the cause of your pain.",
         slug: "sacroiliac-joint-dysfunction",
         keywords: [
             "SI joint dysfunction",
@@ -1704,7 +1654,7 @@ export const conditions: ConditionInfoProp[] = [
             "pain after lumbar fusion",
         ],
         metaTitle:
-            "Sacroiliac Joint Dysfunction | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Sacroiliac Joint Dysfunction | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "SI joint dysfunction causes lower back and buttock pain. Our Florida spine experts offer diagnostic injections and minimally invasive SI joint fusion for relief.",
     },
@@ -1714,22 +1664,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/tbcard.avif",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tbarti.webp",
         body: "Trochanteric bursitis is the inflammation of the bursa sac over the outer point of the hip, causing sharp, localized hip pain.",
-        detail: "<strong>Trochanteric bursitis</strong> is inflammation of the <strong>trochanteric bursa</strong>, a fluid-filled sac that cushions the outer point of the hip bone (greater trochanter). Repetitive stress from activities like running, a direct injury, or improper biomechanics can irritate this bursa, leading to significant pain. At Mountain Spine & Orthopedics, diagnosis begins with a clinical exam to pinpoint tenderness, often confirmed with imaging to rule out other issues like tendon tears and ensure an accurate treatment plan.",
-        what_sym: "The hallmark symptom is <strong>sharp or aching pain</strong> on the outer side of the hip or thigh. This pain often worsens when <strong>lying on the affected side</strong>, climbing stairs, or rising from a chair, and the area is typically <strong>tender to the touch</strong>.",
+        detail: "Trochanteric bursitis is inflammation of the trochanteric bursa, a fluid-filled sac that cushions the outer point of the hip bone (greater trochanter). Repetitive stress from activities like running, a direct injury, or improper biomechanics can irritate this bursa, leading to significant pain. At Mountain Spine & Orthopedics, diagnosis begins with a clinical exam to pinpoint tenderness, often confirmed with imaging to rule out other issues like tendon tears and ensure an accurate treatment plan.",
+        what_sym: "The hallmark symptom is sharp or aching pain on the outer side of the hip or thigh. This pain often worsens when lying on the affected side, climbing stairs, or rising from a chair, and the area is typically tender to the touch.",
         risk_fac:
             "Overuse from activities like running or cycling, a direct fall onto the hip, underlying hip arthritis, leg length discrepancies, and tight iliotibial (IT) bands all contribute to the development of this condition.",
         diagnose:
             "In addition to a physical exam demonstrating point tenderness, our specialists may perform complimentary imaging to confirm bursal inflammation. An MRI or ultrasound can also help rule out other causes of outer hip pain, such as gluteus medius tendonitis or tears, ensuring your treatment is accurately targeted.",
         treatment:
-            "Initial care is conservative and includes rest, ice, and physical therapy referrals designed to correct biomechanics and stretch the IT band and other tight structures. Anti-inflammatory medications are also helpful. For persistent cases, an <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">image-guided corticosteroid injection</a> can provide rapid and effective relief. Surgery is rarely needed but may be considered if all conservative measures fail.",
+            "Initial care is conservative and includes rest, ice, and physical therapy referrals designed to correct biomechanics and stretch the IT band and other tight structures. Anti-inflammatory medications are also helpful. For persistent cases, an image-guided corticosteroid injection can provide rapid and effective relief. Surgery is rarely needed but may be considered if all conservative measures fail.",
         pain_info:
-            "Pain from trochanteric bursitis is typically <strong>sharp with direct pressure</strong> or movement and can be a <strong>dull ache at rest</strong>. It is notoriously worse when lying on the affected side at night, which can significantly disrupt sleep. Our treatments focus on reducing the inflammation to restore pain-free movement and sleep.",
+            "Pain from trochanteric bursitis is typically sharp with direct pressure or movement and can be a dull ache at rest. It is notoriously worse when lying on the affected side at night, which can significantly disrupt sleep. Our treatments focus on reducing the inflammation to restore pain-free movement and sleep.",
         prevent:
-            "Maintaining strong hip and core muscles, using proper form during exercise, addressing leg length discrepancies with orthotics, managing weight, and regularly stretching tight structures like the IT band can help reduce the risk of developing <a href=\"/area-of-specialty/bursitis\" class=\"text-blue-600 hover:underline\">bursitis</a> or having it recur.",
+            "Maintaining strong hip and core muscles, using proper form during exercise, addressing leg length discrepancies with orthotics, managing weight, and regularly stretching tight structures like the IT band can help reduce the risk of developing bursitis or having it recur.",
         why_choose_us:
             "At Mountain Spine & Orthopedics, we understand how debilitating outer hip pain can be. Our specialists in Florida provide accurate diagnosis, often utilizing complimentary imaging reviews, to differentiate bursitis from other conditions. We offer advanced, image-guided injections for precise and effective relief, helping you return to your active lifestyle quickly.",
         schedule:
-            "If outer hip pain is limiting your comfort or mobility, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to move forward with a plan to resolve your trochanteric bursitis.",
+            "If outer hip pain is limiting your comfort or mobility, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a free second opinion to move forward with a plan to resolve your trochanteric bursitis.",
         slug: "trochanteric-bursitis",
         keywords: [
             "trochanteric bursitis",
@@ -1742,7 +1692,7 @@ export const conditions: ConditionInfoProp[] = [
             "IT band syndrome",
         ],
         metaTitle:
-            "Trochanteric Bursitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Trochanteric Bursitis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Trochanteric bursitis causes sharp outer hip pain. Our Florida specialists offer accurate diagnosis and advanced, image-guided injections for effective relief.",
     },
@@ -1756,8 +1706,8 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/CarpalTunnelSyndromearti.png",
         body: "Carpal tunnel syndrome is a common nerve compression disorder that causes pain, numbness, and tingling in the hand and wrist.",
-        detail: "<strong>Carpal Tunnel Syndrome</strong> occurs when the <strong>median nerve</strong>, which runs from the forearm into the hand, becomes compressed at the wrist within a narrow passageway called the <strong>carpal tunnel</strong>. This compression can be caused by swelling from repetitive hand motions, wrist anatomy, or underlying health conditions. At Mountain Spine & Orthopedics, our experts use detailed clinical assessments and <strong>nerve studies</strong> to confirm the diagnosis and develop a personalized treatment plan for lasting relief.",
-        what_sym: "Common signs include <strong>numbness</strong>, burning, or <strong>tingling</strong> in the thumb, index, middle, and ring fingers. Patients may also experience <strong>hand weakness</strong>, pain that worsens at night, and difficulty with fine motor tasks like buttoning a shirt.",
+        detail: "Carpal Tunnel Syndrome occurs when the median nerve, which runs from the forearm into the hand, becomes compressed at the wrist within a narrow passageway called the carpal tunnel. This compression can be caused by swelling from repetitive hand motions, wrist anatomy, or underlying health conditions. At Mountain Spine & Orthopedics, our experts use detailed clinical assessments and nerve studies to confirm the diagnosis and develop a personalized treatment plan for lasting relief.",
+        what_sym: "Common signs include numbness, burning, or tingling in the thumb, index, middle, and ring fingers. Patients may also experience hand weakness, pain that worsens at night, and difficulty with fine motor tasks like buttoning a shirt.",
         risk_fac:
             "Key factors include repetitive wrist motions from activities like typing or using tools, previous wrist fractures, inflammatory conditions like rheumatoid arthritis, and fluid retention related to pregnancy or thyroid disorders. Diabetes and obesity are also significant risk factors.",
         diagnose:
@@ -1784,7 +1734,7 @@ export const conditions: ConditionInfoProp[] = [
             "nerve conduction study",
         ],
         metaTitle:
-            "Carpal Tunnel Syndrome | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Carpal Tunnel Syndrome | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Carpal tunnel syndrome causes hand numbness and wrist pain. Our Florida hand specialists offer diagnosis, injections, and minimally invasive release surgery.",
     },
@@ -1794,8 +1744,8 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/BackPaincard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/BackPaintxt.jpeg",
         body: "Back pain is a widespread condition that can severely limit daily activity, ranging from a dull ache to sharp, debilitating pain.",
-        detail: "<strong>Back pain</strong> can arise from various sources, including <strong>muscle strain</strong>, <strong>ligament sprain</strong>, <strong>herniated discs</strong>, degenerative changes, or structural issues like <strong>spinal stenosis</strong>. Whether it's in the neck or lower back, persistent pain can disrupt daily life and impact overall well-being. The team at Mountain Spine & Orthopedics performs careful evaluations, including complimentary MRI reviews, to identify the precise cause of your pain and create a supportive path to recovery.",
-        what_sym: "Symptoms can range from a steady, <strong>dull ache</strong> to <strong>sharp, stabbing sensations</strong>. The pain may be localized or radiate into the arms or legs (<strong>radiculopathy</strong>), and it is often accompanied by <strong>muscle tightness</strong>, spasms, stiffness, and limited motion.",
+        detail: "Back pain can arise from various sources, including muscle strain, ligament sprain, herniated discs, degenerative changes, or structural issues like spinal stenosis. Whether it's in the neck or lower back, persistent pain can disrupt daily life and impact overall well-being. The team at Mountain Spine & Orthopedics performs careful evaluations, including complimentary MRI reviews, to identify the precise cause of your pain and create a supportive path to recovery.",
+        what_sym: "Symptoms can range from a steady, dull ache to sharp, stabbing sensations. The pain may be localized or radiate into the arms or legs (radiculopathy), and it is often accompanied by muscle tightness, spasms, stiffness, and limited motion.",
         risk_fac:
             "Factors that increase the risk of back pain include aging, a sedentary lifestyle, poor posture, excess body weight, improper heavy lifting, repetitive motions, a previous back injury, and a family history of spinal conditions.",
         diagnose:
@@ -1822,7 +1772,7 @@ export const conditions: ConditionInfoProp[] = [
             "causes of back pain",
         ],
         metaTitle:
-            "Back Pain | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Back Pain | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Struggling with back pain? Our Florida spine specialists diagnose the root cause and provide advanced, non-surgical, and minimally invasive treatments for relief.",
     },
@@ -1833,22 +1783,22 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/BulgingDiscarti.png",
         body: "A bulging disc occurs when a spinal disc protrudes and presses on nearby nerves, which can cause localized or radiating pain.",
-        detail: "A <strong>bulging disc</strong> develops when a <strong>spinal disc</strong>, which acts as a cushion between vertebrae, weakens and extends beyond its normal boundary. This is often a result of age-related wear and tear but can also be caused by repetitive strain. While some bulging discs cause no symptoms, they can lead to significant pain, tingling, or weakness if they compress an adjacent <strong>nerve root</strong> in the neck or lower back. At Mountain Spine & Orthopedics, we use advanced diagnostics, including complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a>, to accurately assess each case.",
-        what_sym: "Common symptoms include localized <a href=\"/area-of-specialty/back-pain\" class=\"text-blue-600 hover:underline\">back</a> or <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck pain</a>, which can be a <strong>dull ache</strong> or <strong>sharp pain</strong>. If the disc compresses a nerve, you may experience <strong>radiating pain</strong>, numbness, or weakness in the arms or legs.",
+        detail: "A bulging disc develops when a spinal disc, which acts as a cushion between vertebrae, weakens and extends beyond its normal boundary. This is often a result of age-related wear and tear but can also be caused by repetitive strain. While some bulging discs cause no symptoms, they can lead to significant pain, tingling, or weakness if they compress an adjacent nerve root in the neck or lower back. At Mountain Spine & Orthopedics, we use advanced diagnostics, including complimentary MRI reviews, to accurately assess each case.",
+        what_sym: "Common symptoms include localized back or neck pain, which can be a dull ache or sharp pain. If the disc compresses a nerve, you may experience radiating pain, numbness, or weakness in the arms or legs.",
         risk_fac:
             "Risk factors include advancing age, occupations that involve repetitive heavy lifting or strain, a sedentary lifestyle, poor posture, and excess body weight. Smoking and a genetic predisposition to degenerative disc disease can also contribute.",
         diagnose:
             "Diagnosis begins with a thorough physical examination and a detailed patient history. This is followed by advanced imaging, such as a complimentary MRI scan, to confirm the presence of a bulging disc. Accurately identifying the disc and its impact on surrounding nerves is essential for creating an effective, personalized treatment plan.",
         treatment:
-            "Personalized treatment strategies typically start with conservative care, such as physical therapy referrals, guided exercises, pain management medications, and lifestyle modifications. If pain persists, minimally invasive <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">spinal injections</a> can be highly effective. Surgical procedures are considered only when necessary to relieve nerve compression and restore function.",
+            "Personalized treatment strategies typically start with conservative care, such as physical therapy referrals, guided exercises, pain management medications, and lifestyle modifications. If pain persists, minimally invasive spinal injections can be highly effective. Surgical procedures are considered only when necessary to relieve nerve compression and restore function.",
         pain_info:
-            "Pain from a bulging disc can range from a <strong>mild, localized discomfort</strong> to <strong>severe, debilitating sensations</strong> that worsen with certain movements or positions. Expert pain management at our clinic, including targeted injections, can greatly improve comfort and support better daily functioning.",
+            "Pain from a bulging disc can range from a mild, localized discomfort to severe, debilitating sensations that worsen with certain movements or positions. Expert pain management at our clinic, including targeted injections, can greatly improve comfort and support better daily functioning.",
         prevent:
             "Preventive measures include engaging in regular exercise to strengthen core muscles, maintaining a healthy weight, practicing proper lifting techniques, ensuring good posture during daily activities, and performing consistent stretching and strengthening exercises.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our specialists are experts at diagnosing and treating the pain associated with a bulging disc. We provide patients throughout Florida with a clear diagnosis, supported by a complimentary MRI review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. Our goal is to relieve your pain and restore function using the most effective, least invasive treatments available.",
+            "At Mountain Spine & Orthopedics, our specialists are experts at diagnosing and treating the pain associated with a bulging disc. We provide patients throughout Florida with a clear diagnosis, supported by a complimentary MRI review and a free second opinion. Our goal is to relieve your pain and restore function using the most effective, least invasive treatments available.",
         schedule:
-            "<a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Contact Mountain Spine & Orthopedics today</a> to schedule your personalized consultation for a bulging disc. Benefit from a complimentary MRI review and a free second opinion to find an effective path to relief.",
+            "Contact Mountain Spine & Orthopedics today to schedule your personalized consultation for a bulging disc. Benefit from a complimentary MRI review and a free second opinion to find an effective path to relief.",
         slug: "bulging-disc",
         keywords: [
             "bulging disc",
@@ -1861,7 +1811,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical spine treatment",
         ],
         metaTitle:
-            "Bulging Disc | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Bulging Disc | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A bulging disc can cause back or neck pain that radiates into the limbs. Our Florida spine experts offer precise diagnosis and advanced non-surgical therapies.",
     },
@@ -1872,22 +1822,22 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/PinchedNervearti.png",
         body: "A pinched nerve, or radiculopathy, happens when a nerve is compressed by surrounding tissue, causing radiating pain, numbness, or tingling.",
-        detail: "A <strong>pinched nerve</strong>, clinically known as <strong>radiculopathy</strong>, occurs when surrounding tissues—such as a <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated disc</a>, <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a>, or swollen ligaments—exert pressure on a <strong>spinal nerve root</strong>. This compression can cause symptoms along the nerve's pathway, such as radiating pain down an arm (from the neck) or leg (from the lower back). At Mountain Spine & Orthopedics, our specialists use complimentary imaging and a focused exam to pinpoint the structural cause and develop an effective treatment strategy.",
-        what_sym: "Patients often describe a <strong>sharp, burning, or electric-like pain</strong> that travels along the nerve's path. This is frequently accompanied by <strong>numbness</strong>, <strong>tingling</strong>, or a 'pins and needles' sensation. <strong>Muscle weakness</strong> or foot drop can occur if compression persists.",
+        detail: "A pinched nerve, clinically known as radiculopathy, occurs when surrounding tissuesΓÇösuch as a herniated disc, bone spurs, or swollen ligamentsΓÇöexert pressure on a spinal nerve root. This compression can cause symptoms along the nerve's pathway, such as radiating pain down an arm (from the neck) or leg (from the lower back). At Mountain Spine & Orthopedics, our specialists use complimentary imaging and a focused exam to pinpoint the structural cause and develop an effective treatment strategy.",
+        what_sym: "Patients often describe a sharp, burning, or electric-like pain that travels along the nerve's path. This is frequently accompanied by numbness, tingling, or a 'pins and needles' sensation. Muscle weakness or foot drop can occur if compression persists.",
         risk_fac:
             "Age-related disc degeneration, repetitive heavy lifting, prolonged poor posture, and obesity all heighten the likelihood of nerve compression. Inflammatory conditions that cause tissue swelling and previous spinal injuries are also significant risk factors.",
         diagnose:
             "Alongside a clinical exam, we provide a complimentary MRI review to identify the source of nerve compression, such as a herniated disc or spinal stenosis. Nerve conduction studies and electromyography (EMG) may also be used to assess the nerve's health and function. These complimentary diagnostics ensure treatment targets the true pain generator.",
         treatment:
-            "Initial care emphasizes conservative management, including activity modification, ergonomic adjustments, and a structured physical therapy referrals program. For more direct relief, we offer image-guided <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce inflammation around the compressed nerve. When structural issues are severe or neurological deficits progress, our surgeons may perform minimally invasive decompression surgery, such as a <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">microdiscectomy</a> or <a href=\"/treatments/endoscopic-foraminotomy-surgery\" class=\"text-blue-600 hover:underline\">foraminotomy</a>, to free the nerve.",
+            "Initial care emphasizes conservative management, including activity modification, ergonomic adjustments, and a structured physical therapy referrals program. For more direct relief, we offer image-guided epidural steroid injections to reduce inflammation around the compressed nerve. When structural issues are severe or neurological deficits progress, our surgeons may perform minimally invasive decompression surgery, such as a microdiscectomy or foraminotomy, to free the nerve.",
         pain_info:
-            "Pain from a pinched nerve often spikes with certain movements or sustained positions and may ease with gentle stretching or finding a more comfortable posture. Our team combines targeted injections, therapeutic exercise, and ergonomic coaching to break the <strong>pain-inflammation cycle</strong> and foster lasting nerve healing.",
+            "Pain from a pinched nerve often spikes with certain movements or sustained positions and may ease with gentle stretching or finding a more comfortable posture. Our team combines targeted injections, therapeutic exercise, and ergonomic coaching to break the pain-inflammation cycle and foster lasting nerve healing.",
         prevent:
-            "Maintaining strong core and limb muscles, practicing proper lifting mechanics, optimizing workstation ergonomics, taking regular breaks from repetitive motions, and controlling body weight can all help prevent <strong>nerve compression</strong> and recurrent flare-ups.",
+            "Maintaining strong core and limb muscles, practicing proper lifting mechanics, optimizing workstation ergonomics, taking regular breaks from repetitive motions, and controlling body weight can all help prevent nerve compression and recurrent flare-ups.",
         why_choose_us:
-            "The specialists at Mountain Spine & Orthopedics are experts in relieving the pain of a pinched nerve. For patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We utilize a range of advanced non-surgical and minimally invasive techniques to relieve nerve compression, restore sensation, and get you moving comfortably again.",
+            "The specialists at Mountain Spine & Orthopedics are experts in relieving the pain of a pinched nerve. For patients across Florida, we offer a complimentary MRI review and free second opinion to ensure an accurate diagnosis. We utilize a range of advanced non-surgical and minimally invasive techniques to relieve nerve compression, restore sensation, and get you moving comfortably again.",
         schedule:
-            "If radiating pain, numbness, or weakness is affecting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized plan to relieve your pinched nerve.",
+            "If radiating pain, numbness, or weakness is affecting your life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized plan to relieve your pinched nerve.",
         forum: [
             {
                 post: (
@@ -2049,7 +1999,7 @@ export const conditions: ConditionInfoProp[] = [
                                 can also contribute to nerve compression by invading space meant
                                 for nerves. In some cases, muscle tightness or repetitive strain
                                 from poor posture may also lead to a pinched nerve. Understanding
-                                what’s causing your symptoms is key to receiving the right care.
+                                whatΓÇÖs causing your symptoms is key to receiving the right care.
                             </p>
                         </div>
                     </div>
@@ -2075,7 +2025,7 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                A pinched nerve doesn’t have to control your life. With early
+                                A pinched nerve doesnΓÇÖt have to control your life. With early
                                 intervention and the right treatment strategy, most patients
                                 experience relief without surgery. Non-surgical options may
                                 include physical therapy referrals, anti-inflammatory medication, activity
@@ -2088,7 +2038,7 @@ export const conditions: ConditionInfoProp[] = [
                                 At Mountain Spine & Orthopedics, our team uses advanced imaging
                                 and diagnostic tools to pinpoint the source of nerve compression
                                 and build a customized care plan. Whether you need non-invasive
-                                treatment or surgical intervention, we’re here to help you
+                                treatment or surgical intervention, weΓÇÖre here to help you
                                 recover quickly and safely.
                             </p>
                         </div>
@@ -2115,8 +2065,8 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                If you’re living with shooting pain, numbness, or tingling that
-                                just won’t go away, it may be time to speak with a spine
+                                If youΓÇÖre living with shooting pain, numbness, or tingling that
+                                just wonΓÇÖt go away, it may be time to speak with a spine
                                 specialist. A pinched nerve is highly treatable, especially
                                 when diagnosed early. At Mountain Spine & Orthopedics, our
                                 experienced physicians will evaluate your symptoms, identify the
@@ -2146,7 +2096,7 @@ export const conditions: ConditionInfoProp[] = [
         ],
         side_img: "https://mountainspineortho.b-cdn.net/public/pinchednerveside.jpeg",
         metaTitle:
-            "Pinched Nerve | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Pinched Nerve | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "A pinched nerve causes radiating pain, numbness, and tingling. Our Florida spine specialists offer expert diagnosis and treatment to relieve nerve compression.",
     },
@@ -2158,22 +2108,22 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/CervicalDeformitiestxt.webp",
         body: "Cervical deformities are abnormal curvatures or alignments of the neck, which can cause chronic pain, fatigue, and serious postural issues.",
-        detail: "<strong>Cervical deformities</strong> involve an abnormal alignment of the neck's seven vertebrae, leading to conditions like <a href=\"/area-of-specialty/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a> (forward tilt) or scoliosis (sideways curve). This malalignment can result from degenerative disease, trauma, or congenital issues, placing excess stress on discs and nerves. It can cause <strong>chronic neck pain</strong>, fatigue, and difficulty holding the head up. At Mountain Spine & Orthopedics, we conduct meticulous assessments and use advanced imaging to craft a personalized plan for correction.",
-        what_sym: "Patients commonly experience <strong>persistent neck or upper back pain</strong>, <strong>muscle tightness</strong>, <strong>tension headaches</strong>, and <strong>radiating numbness or weakness</strong> in the arms. Difficulty maintaining a level gaze and visible changes in head position are also key signs.",
+        detail: "Cervical deformities involve an abnormal alignment of the neck's seven vertebrae, leading to conditions like kyphosis (forward tilt) or scoliosis (sideways curve). This malalignment can result from degenerative disease, trauma, or congenital issues, placing excess stress on discs and nerves. It can cause chronic neck pain, fatigue, and difficulty holding the head up. At Mountain Spine & Orthopedics, we conduct meticulous assessments and use advanced imaging to craft a personalized plan for correction.",
+        what_sym: "Patients commonly experience persistent neck or upper back pain, muscle tightness, tension headaches, and radiating numbness or weakness in the arms. Difficulty maintaining a level gaze and visible changes in head position are also key signs.",
         risk_fac:
             "Risk factors include advancing age with progressive disc degeneration, prior cervical fusion or laminectomy, inflammatory arthritis (like rheumatoid arthritis), untreated fractures, and low bone density (osteoporosis).",
         diagnose:
             "Diagnosis integrates a detailed physical and neurological exam with upright radiographic imaging to measure spinal balance. We provide a complimentary MRI review to view soft tissue compromise and CT scans to assess bony anatomy, ensuring every structural issue is addressed before treatment begins.",
         treatment:
-            "Non-operative care is preferred when possible and may include customized physical therapy referrals, posture retraining, and anti-inflammatory medication. When surgery is required to protect the spinal cord and relieve pain, our surgeons use minimally invasive decompression and <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">fusion techniques</a> or, for severe deformities, osteotomies with modern instrumentation to restore natural alignment.",
+            "Non-operative care is preferred when possible and may include customized physical therapy referrals, posture retraining, and anti-inflammatory medication. When surgery is required to protect the spinal cord and relieve pain, our surgeons use minimally invasive decompression and fusion techniques or, for severe deformities, osteotomies with modern instrumentation to restore natural alignment.",
         pain_info:
-            "Pain from a cervical deformity arises from overloaded <strong>facet joints</strong>, strained posterior muscles, and <strong>nerve compression</strong>. Symptoms often worsen after prolonged sitting or when trying to keep the head level. Our comprehensive pain management blends targeted injections, muscle balancing therapy, and, when needed, corrective surgery.",
+            "Pain from a cervical deformity arises from overloaded facet joints, strained posterior muscles, and nerve compression. Symptoms often worsen after prolonged sitting or when trying to keep the head level. Our comprehensive pain management blends targeted injections, muscle balancing therapy, and, when needed, corrective surgery.",
         prevent:
             "Maintaining ergonomic posture, strengthening neck and shoulder muscles, treating degenerative changes early, and ensuring adequate calcium and vitamin D intake can all help preserve alignment and prevent the progression of a deformity.",
         why_choose_us:
-            "Correcting cervical deformities requires immense skill. The fellowship-trained spine surgeons at Mountain Spine & Orthopedics are leaders in this field, offering patients in Florida advanced surgical and non-surgical solutions. We provide a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure a precise diagnosis and a care plan tailored to restoring your natural alignment and comfort.",
+            "Correcting cervical deformities requires immense skill. The fellowship-trained spine surgeons at Mountain Spine & Orthopedics are leaders in this field, offering patients in Florida advanced surgical and non-surgical solutions. We provide a complimentary MRI review and free second opinion to ensure a precise diagnosis and a care plan tailored to restoring your natural alignment and comfort.",
         schedule:
-            "Take the first step toward better alignment and comfort by <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">scheduling a consultation</a>. We will review your complimentary MRI and provide a free second opinion to help you reclaim a pain-free lifestyle.",
+            "Take the first step toward better alignment and comfort by scheduling a consultation. We will review your complimentary MRI and provide a free second opinion to help you reclaim a pain-free lifestyle.",
         slug: "cervical-deformities",
         keywords: [
             "cervical deformity",
@@ -2186,7 +2136,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical osteotomy",
         ],
         metaTitle:
-            "Cervical Deformities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Cervical Deformities | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Cervical deformities cause neck pain and poor posture. Our Florida spine surgeons offer advanced evaluation and corrective surgery for kyphosis and other issues.",
     },
@@ -2196,22 +2146,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/DiscTear.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/DiscTeartxt.jpeg",
         body: "A disc tear, or annular tear, is a crack in the tough outer layer of a spinal disc, which can cause sharp, localized back or neck pain.",
-        detail: "An <strong>annular tear</strong>, or <strong>disc tear</strong>, is a rip in the resilient outer ring (annulus fibrosus) of a spinal disc. This can be caused by a sudden twist, heavy lifting, or chronic strain. Even without a full <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">disc herniation</a>, the tear can allow inflammatory proteins from the disc's core to leak out, triggering <strong>sharp, localized pain</strong>. If left untreated, an annular tear can progress. At Mountain Spine & Orthopedics, our specialists use complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a> to confirm the tear and guide targeted treatment.",
-        what_sym: "Symptoms often include a <strong>sudden, stabbing pain</strong> in the neck or lower back, typically after a specific movement like lifting or twisting. Patients may also experience <strong>deep, aching pain</strong> that worsens with sitting, along with episodes of <strong>muscle spasm</strong>.",
+        detail: "An annular tear, or disc tear, is a rip in the resilient outer ring (annulus fibrosus) of a spinal disc. This can be caused by a sudden twist, heavy lifting, or chronic strain. Even without a full disc herniation, the tear can allow inflammatory proteins from the disc's core to leak out, triggering sharp, localized pain. If left untreated, an annular tear can progress. At Mountain Spine & Orthopedics, our specialists use complimentary MRI reviews to confirm the tear and guide targeted treatment.",
+        what_sym: "Symptoms often include a sudden, stabbing pain in the neck or lower back, typically after a specific movement like lifting or twisting. Patients may also experience deep, aching pain that worsens with sitting, along with episodes of muscle spasm.",
         risk_fac:
             "Risk increases in individuals who perform repetitive heavy lifting or twisting, such as athletes in impact sports. Smokers, people with sedentary lifestyles and weak core muscles, and those with a family history of disc disease are also at higher risk.",
         diagnose:
             "Diagnosis uses a thorough history and physical examination, supplemented by advanced imaging. We offer a complimentary MRI review, as high-intensity zones on an MRI can confirm an annular tear and identify any early disc bulging or nerve irritation. This precise mapping guides a tailored rehabilitation and intervention strategy.",
         treatment:
-            "Initial management includes activity modification, core stabilization physical therapy referrals, and anti-inflammatory medication to calm the chemical irritation. Image-guided <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural injections</a> can deliver medication directly to the tear to reduce inflammation. If pain persists or the tear progresses to a large herniation, minimally invasive procedures like <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">microdiscectomy</a> may be performed to provide lasting relief.",
+            "Initial management includes activity modification, core stabilization physical therapy referrals, and anti-inflammatory medication to calm the chemical irritation. Image-guided epidural injections can deliver medication directly to the tear to reduce inflammation. If pain persists or the tear progresses to a large herniation, minimally invasive procedures like microdiscectomy may be performed to provide lasting relief.",
         pain_info:
-            "Pain from an annular tear is often described as <strong>deep and burning</strong>, intensifying after prolonged sitting or with sudden movements. It typically eases with gentle walking or lying flat. By addressing both the chemical inflammation and mechanical instability, our integrated approach rapidly reduces pain.",
+            "Pain from an annular tear is often described as deep and burning, intensifying after prolonged sitting or with sudden movements. It typically eases with gentle walking or lying flat. By addressing both the chemical inflammation and mechanical instability, our integrated approach rapidly reduces pain.",
         prevent:
             "Preventive measures include maintaining strong core and back muscles, practicing proper lifting techniques, avoiding sudden twisting under load, staying hydrated, and avoiding tobacco to safeguard the annulus and reduce the risk of future tears.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, we specialize in the precise diagnosis and treatment of painful disc tears. Our Florida-based spine experts use advanced imaging, including complimentary MRI reviews and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinions</a>, to identify the exact source of your pain. We focus on <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical</a> and minimally invasive options to resolve annular tears quickly and effectively.",
+            "At Mountain Spine & Orthopedics, we specialize in the precise diagnosis and treatment of painful disc tears. Our Florida-based spine experts use advanced imaging, including complimentary MRI reviews and free second opinions, to identify the exact source of your pain. We focus on non-surgical and minimally invasive options to resolve annular tears quickly and effectively.",
         schedule:
-            "If sharp <a href=\"/area-of-specialty/back-pain\" class=\"text-blue-600 hover:underline\">back</a> or <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck pain</a> is limiting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. A complimentary MRI review and a free second opinion can help you find a path to healing and returning to the activities you love.",
+            "If sharp back or neck pain is limiting your life, schedule a consultation with Mountain Spine & Orthopedics today. A complimentary MRI review and a free second opinion can help you find a path to healing and returning to the activities you love.",
         slug: "disc-tear",
         keywords: [
             "annular tear",
@@ -2224,7 +2174,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical back treatment",
         ],
         metaTitle:
-            "Disc Tear | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Disc Tear | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "An annular disc tear can cause sharp, localized back or neck pain. Our Florida spine specialists offer accurate MRI diagnosis and advanced, non-surgical care.",
     },
@@ -2235,22 +2185,22 @@ export const conditions: ConditionInfoProp[] = [
             "https://mountainspineortho.b-cdn.net/public/HipDysplasiatxt.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/HipDysplsia.jpg",
         body: "Hip dysplasia is a condition where the hip socket is too shallow to properly support the 'ball' of the thighbone, leading to instability and early arthritis.",
-        detail: "<strong>Hip dysplasia</strong> is a structural condition where the <strong>hip socket</strong> (acetabulum) is too shallow, preventing it from fully covering the 'ball' (femoral head) of the thighbone. This poor fit leads to <strong>instability</strong> and abnormal stress on the joint's cartilage and <a href=\"/area-of-specialty/labral-tears\" class=\"text-blue-600 hover:underline\">labrum</a>, often causing early-onset <a href=\"/area-of-specialty/arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>. While often diagnosed in infancy, mild cases can go unnoticed until adulthood. At Mountain Spine & Orthopedics, we use high-resolution imaging to map the socket's depth and create a personalized joint-preservation strategy.",
-        what_sym: "Adults often report <strong>deep groin or lateral hip pain</strong> that worsens with prolonged standing or pivoting activities. A sensation of <strong>instability</strong>, clicking, or catching may also occur, and as arthritis advances, <strong>stiffness</strong> and a reduced stride length are common.",
+        detail: "Hip dysplasia is a structural condition where the hip socket (acetabulum) is too shallow, preventing it from fully covering the 'ball' (femoral head) of the thighbone. This poor fit leads to instability and abnormal stress on the joint's cartilage and labrum, often causing early-onset arthritis. While often diagnosed in infancy, mild cases can go unnoticed until adulthood. At Mountain Spine & Orthopedics, we use high-resolution imaging to map the socket's depth and create a personalized joint-preservation strategy.",
+        what_sym: "Adults often report deep groin or lateral hip pain that worsens with prolonged standing or pivoting activities. A sensation of instability, clicking, or catching may also occur, and as arthritis advances, stiffness and a reduced stride length are common.",
         risk_fac:
             "Risk increases with a family history of dysplasia, female sex, and a breech birth position. Ligamentous laxity disorders and participation in high-impact athletics that overload a shallow socket can also contribute.",
         diagnose:
             "Diagnosis begins with standing X-rays to reveal a shallow socket. We offer a complimentary MRI review to delineate any cartilage and labral damage, while a 3D CT scan can assist in surgical planning by capturing the precise three-dimensional orientation of the hip joint, ensuring a comprehensive diagnosis.",
         treatment:
-            "Conservative care focuses on physical therapy referrals to strengthen core and gluteal muscles and activity modification to limit repetitive pivoting. When structural instability and pain persist, our surgeons may perform a <strong>periacetabular osteotomy (PAO)</strong> to reorient the socket and preserve the native joint. For hips with advanced arthritis, minimally invasive <a href=\"/treatments/total-hip-replacement\" class=\"text-blue-600 hover:underline\">total hip replacement</a> offers predictable and lasting pain relief.",
+            "Conservative care focuses on physical therapy referrals to strengthen core and gluteal muscles and activity modification to limit repetitive pivoting. When structural instability and pain persist, our surgeons may perform a periacetabular osteotomy (PAO) to reorient the socket and preserve the native joint. For hips with advanced arthritis, minimally invasive total hip replacement offers predictable and lasting pain relief.",
         pain_info:
-            "Hip dysplasia pain often begins as <strong>intermittent groin discomfort</strong> after exercise and can progress to a <strong>constant ache</strong> that disrupts sleep. By correcting the underlying biomechanical overload and rehabilitating surrounding muscles, our integrated care model breaks the cycle of inflammation and provides lasting relief.",
+            "Hip dysplasia pain often begins as intermittent groin discomfort after exercise and can progress to a constant ache that disrupts sleep. By correcting the underlying biomechanical overload and rehabilitating surrounding muscles, our integrated care model breaks the cycle of inflammation and provides lasting relief.",
         prevent:
             "Early detection through screening of at-risk infants is the best prevention. For adults, a healthy body weight, engaging in low-impact exercise, and avoiding repetitive, extreme hip positions can help slow cartilage degeneration and delay the onset of arthritis.",
         why_choose_us:
-            "The fellowship-trained hip specialists at Mountain Spine & Orthopedics offer cutting-edge care for hip dysplasia. Our Florida-based practice is one of few that performs advanced joint preservation surgeries like the periacetabular osteotomy (PAO). With a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we can create a personalized plan to preserve your joint health and keep you moving pain-free.",
+            "The fellowship-trained hip specialists at Mountain Spine & Orthopedics offer cutting-edge care for hip dysplasia. Our Florida-based practice is one of few that performs advanced joint preservation surgeries like the periacetabular osteotomy (PAO). With a complimentary MRI review and free second opinion, we can create a personalized plan to preserve your joint health and keep you moving pain-free.",
         schedule:
-            "If hip pain or instability is limiting your lifestyle, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics. Benefit from a complimentary MRI review and a thorough second opinion to get answers and a personalized plan for managing your hip dysplasia.",
+            "If hip pain or instability is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics. Benefit from a complimentary MRI review and a thorough second opinion to get answers and a personalized plan for managing your hip dysplasia.",
         slug: "hip-dysplasia",
         keywords: [
             "hip dysplasia",
@@ -2263,7 +2213,7 @@ export const conditions: ConditionInfoProp[] = [
             "shallow hip socket",
         ],
         metaTitle:
-            "Hip Dysplasia | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Hip Dysplasia | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Hip dysplasia can cause hip pain and instability. Our Florida hip specialists offer advanced joint preservation surgery like PAO to treat adult hip dysplasia.",
     },
@@ -2277,22 +2227,22 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/FacetJointDiseasearti.png",
         body: "Facet joint disease, also known as spinal arthritis or facet arthropathy, is a common source of chronic neck and back pain.",
-        detail: "<strong>Facet joint disease</strong>, or <strong>facet arthropathy</strong>, is a condition that occurs when the small, stabilizing joints linking your vertebrae (<strong>facet joints</strong>) wear down or become inflamed. This is a form of <a href=\"/area-of-specialty/arthritis\" class=\"text-blue-600 hover:underline\">spinal arthritis</a> that can result from aging, injury, or repetitive stress. At Mountain Spine & Orthopedics, we evaluate each case with advanced imaging and diagnostic injections to provide a clear diagnosis and a patient-focused treatment plan for lasting pain relief.",
-        what_sym: "Typical symptoms include <strong>persistent, dull, aching pain</strong> in the neck or back that often worsens when standing, twisting, or bending backward. It can be accompanied by <strong>stiffness</strong> and pain that radiates into the shoulders, hips, or thighs.",
+        detail: "Facet joint disease, or facet arthropathy, is a condition that occurs when the small, stabilizing joints linking your vertebrae (facet joints) wear down or become inflamed. This is a form of spinal arthritis that can result from aging, injury, or repetitive stress. At Mountain Spine & Orthopedics, we evaluate each case with advanced imaging and diagnostic injections to provide a clear diagnosis and a patient-focused treatment plan for lasting pain relief.",
+        what_sym: "Typical symptoms include persistent, dull, aching pain in the neck or back that often worsens when standing, twisting, or bending backward. It can be accompanied by stiffness and pain that radiates into the shoulders, hips, or thighs.",
         risk_fac:
             "The risk of facet joint disease rises with age, especially after fifty. A history of spinal injury, degenerative disc disease, repetitive strain from heavy lifting, and excess body weight can all accelerate the wear and tear on these joints.",
         diagnose:
             "Our diagnostic process begins with a complete medical history and physical exam. To confirm the diagnosis, we may use a complimentary MRI review to visualize the arthritic joints. The most definitive diagnostic tool is a facet joint injection, where an anesthetic is precisely injected into the suspected joint under imaging guidance to see if it relieves the pain.",
         treatment:
-            "Care often begins with conservative measures like structured physical therapy referrals and anti-inflammatory medication. For more targeted relief, our specialists perform facet joint injections with corticosteroids. For longer-lasting relief from chronic pain, a minimally invasive procedure called <a href=\"/treatments/facet-ablation-rhizotomy-treatment\" class=\"text-blue-600 hover:underline\">radiofrequency ablation (RFA)</a> can be performed to deactivate the small nerves that send pain signals from the joint.",
+            "Care often begins with conservative measures like structured physical therapy referrals and anti-inflammatory medication. For more targeted relief, our specialists perform facet joint injections with corticosteroids. For longer-lasting relief from chronic pain, a minimally invasive procedure called radiofrequency ablation (RFA) can be performed to deactivate the small nerves that send pain signals from the joint.",
         pain_info:
-            "Pain from facet joint disease is typically <strong>localized to the area of the affected joint</strong> and often grows worse with certain movements or long periods of standing. A structured <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">pain management plan</a>, including targeted injections and physical therapy referrals, can greatly reduce symptoms and improve daily comfort.",
+            "Pain from facet joint disease is typically localized to the area of the affected joint and often grows worse with certain movements or long periods of standing. A structured pain management plan, including targeted injections and physical therapy referrals, can greatly reduce symptoms and improve daily comfort.",
         prevent:
             "You can help slow joint wear by engaging in regular low-impact exercise, maintaining a healthy weight, practicing good posture, and avoiding smoking and repetitive heavy strain on your back.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our spine specialists are experts in diagnosing and treating facet joint pain. Serving patients across Florida, we provide precise diagnostic injections and advanced, minimally invasive treatments like radiofrequency ablation. With a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we can identify the true source of your pain and offer lasting relief.",
+            "At Mountain Spine & Orthopedics, our spine specialists are experts in diagnosing and treating facet joint pain. Serving patients across Florida, we provide precise diagnostic injections and advanced, minimally invasive treatments like radiofrequency ablation. With a complimentary MRI review and a free second opinion, we can identify the true source of your pain and offer lasting relief.",
         schedule:
-            "<a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Set up a consultation</a> with Mountain Spine & Orthopedics today for your back or neck pain. Take advantage of our complimentary MRI review and free second opinion to see if facet joint disease is the cause and explore your treatment options.",
+            "Set up a consultation with Mountain Spine & Orthopedics today for your back or neck pain. Take advantage of our complimentary MRI review and free second opinion to see if facet joint disease is the cause and explore your treatment options.",
         slug: "facet-joint-disease",
         keywords: [
             "facet joint disease",
@@ -2305,7 +2255,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical spine care",
         ],
         metaTitle:
-            "Facet Joint Disease | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Facet Joint Disease | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Facet joint disease causes chronic back and neck pain. Our Florida spine specialists offer facet injections and radiofrequency ablation (RFA) for lasting relief.",
     },
@@ -2315,22 +2265,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/arthritis2.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/arthritis.png",
         body: "Arthritis is a condition that causes joint inflammation, leading to chronic pain, stiffness, and reduced mobility that can impact quality of life.",
-        detail: "<strong>Arthritis</strong> is an umbrella term for over 100 conditions that cause <strong>joint inflammation</strong>, pain, and disease. The most common forms are <a href=\"/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">Osteoarthritis (OA)</a>, caused by cartilage breakdown, and <a href=\"/area-of-specialty/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">Rheumatoid Arthritis (RA)</a>, an autoimmune disorder. Regardless of the type, arthritis can significantly impact mobility and overall well-being. Mountain Spine & Orthopedics is dedicated to identifying the specific type of arthritis you have to provide targeted, effective relief and improve your quality of life.",
-        what_sym: "Common symptoms include <strong>persistent joint pain</strong>, <strong>stiffness</strong> (especially in the morning), <strong>swelling or warmth</strong> around the joints, and a <strong>decreased range of motion</strong>. Inflammatory types like Rheumatoid Arthritis may also cause fatigue.",
+        detail: "Arthritis is an umbrella term for over 100 conditions that cause joint inflammation, pain, and disease. The most common forms are Osteoarthritis (OA), caused by cartilage breakdown, and Rheumatoid Arthritis (RA), an autoimmune disorder. Regardless of the type, arthritis can significantly impact mobility and overall well-being. Mountain Spine & Orthopedics is dedicated to identifying the specific type of arthritis you have to provide targeted, effective relief and improve your quality of life.",
+        what_sym: "Common symptoms include persistent joint pain, stiffness (especially in the morning), swelling or warmth around the joints, and a decreased range of motion. Inflammatory types like Rheumatoid Arthritis may also cause fatigue.",
         risk_fac:
             "Risk factors vary but commonly include advancing age, a family history of arthritis, previous joint injuries, and obesity, which puts extra stress on joints like the hips and knees. Autoimmune conditions are also a significant risk factor for inflammatory types of arthritis.",
         diagnose:
             "At Mountain Spine & Orthopedics, diagnosis begins with a thorough medical history and a detailed physical examination. We utilize diagnostic imaging, such as X-rays or MRIs, to visualize the joint; we also offer a complimentary MRI review to aid this process. Blood tests or an analysis of joint fluid may also be necessary to pinpoint specific inflammatory types like RA or gout.",
         treatment:
-            "We create personalized treatment plans that may involve a combination of approaches: pain-relieving medications, tailored physical therapy referrals programs, lifestyle adjustments, and <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">corticosteroid or hyaluronic acid injections</a>. For severe cases that are unresponsive to conservative care, our surgeons may consider advanced minimally invasive surgical options or <a href=\"/treatments/total-knee-replacement\" class=\"text-blue-600 hover:underline\">joint replacement</a>.",
+            "We create personalized treatment plans that may involve a combination of approaches: pain-relieving medications, tailored physical therapy referrals programs, lifestyle adjustments, and corticosteroid or hyaluronic acid injections. For severe cases that are unresponsive to conservative care, our surgeons may consider advanced minimally invasive surgical options or joint replacement.",
         pain_info:
-            "Arthritis pain can manifest as a <strong>dull ache</strong> or a <strong>sharp pain</strong>, and it is often accompanied by significant stiffness. Our comprehensive pain management strategy combines medication, therapeutic injections, and physical therapy referrals to effectively reduce discomfort, manage flare-ups, and improve your ability to perform daily tasks.",
+            "Arthritis pain can manifest as a dull ache or a sharp pain, and it is often accompanied by significant stiffness. Our comprehensive pain management strategy combines medication, therapeutic injections, and physical therapy referrals to effectively reduce discomfort, manage flare-ups, and improve your ability to perform daily tasks.",
         prevent:
             "While some types of arthritis are not preventable, managing risk factors is key. Maintaining a healthy weight, engaging in regular low-impact exercise, and protecting joints from injury can slow the progression of the disease and preserve function.",
         why_choose_us:
-            "The specialists at Mountain Spine & Orthopedics provide expert, comprehensive care for all types of arthritis. Serving the Florida community, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. From advanced regenerative medicine to minimally invasive joint replacement, our team is dedicated to managing your arthritis and restoring your comfort and mobility.",
+            "The specialists at Mountain Spine & Orthopedics provide expert, comprehensive care for all types of arthritis. Serving the Florida community, we offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. From advanced regenerative medicine to minimally invasive joint replacement, our team is dedicated to managing your arthritis and restoring your comfort and mobility.",
         schedule:
-            "If joint pain and stiffness are impacting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> at Mountain Spine & Orthopedics today. Our specialists will provide an accurate diagnosis and develop a personalized care plan to manage your arthritis.",
+            "If joint pain and stiffness are impacting your life, schedule a consultation at Mountain Spine & Orthopedics today. Our specialists will provide an accurate diagnosis and develop a personalized care plan to manage your arthritis.",
         side_img: "https://mountainspineortho.b-cdn.net/public/arthritisside.jpeg",
         forum: [
             {
@@ -2353,7 +2303,7 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                Arthritis refers to inflammation of one or more joints. It’s not
+                                Arthritis refers to inflammation of one or more joints. ItΓÇÖs not
                                 a single disease but a broad term used to describe over 100
                                 different types of joint disorders. The two most common types
                                 are osteoarthritis (OA) and rheumatoid arthritis (RA), though
@@ -2508,15 +2458,15 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                Arthritis may be a chronic condition, but that doesn’t mean it
-                                has to control your life. With the right treatment plan, it’s
+                                Arthritis may be a chronic condition, but that doesnΓÇÖt mean it
+                                has to control your life. With the right treatment plan, itΓÇÖs
                                 possible to reduce pain, slow joint damage, and improve your
                                 mobility. At Mountain Spine & Orthopedics, our team of experts
                                 offers a full spectrum of arthritis care from advanced imaging
                                 and diagnosis to non-surgical therapies and state-of-the-art
-                                surgical solutions when needed. Whether you’re managing early
+                                surgical solutions when needed. Whether youΓÇÖre managing early
                                 signs of osteoarthritis or facing the challenges of an
-                                inflammatory condition like rheumatoid arthritis, we’re here to
+                                inflammatory condition like rheumatoid arthritis, weΓÇÖre here to
                                 help guide you through every stage of your treatment.
                             </p>
                         </div>
@@ -2543,8 +2493,8 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                If you’re living with persistent joint pain, stiffness, or
-                                swelling, don’t wait to get the help you need. Arthritis is a
+                                If youΓÇÖre living with persistent joint pain, stiffness, or
+                                swelling, donΓÇÖt wait to get the help you need. Arthritis is a
                                 manageable condition when addressed early with the right
                                 treatment plan and expert care. At Mountain Spine & Orthopedics,
                                 our experienced specialists are here to evaluate your symptoms,
@@ -2553,7 +2503,7 @@ export const conditions: ConditionInfoProp[] = [
                                 <br />
                                 <br />
                                 Call us today at (561) 223-9959 or fill out our online
-                                consultation form to schedule your appointment. Let’s take the
+                                consultation form to schedule your appointment. LetΓÇÖs take the
                                 first step together toward improving your mobility, comfort, and
                                 quality of life.
                             </p>
@@ -2574,7 +2524,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic specialist",
         ],
         metaTitle:
-            "Arthritis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Arthritis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Arthritis causes joint pain, stiffness, and swelling. Our Florida specialists offer comprehensive care for osteoarthritis, RA, and other types of arthritis.",
     },
@@ -2585,8 +2535,8 @@ export const conditions: ConditionInfoProp[] = [
             "https://mountainspineortho.b-cdn.net/public/LowerBackPainimg.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/LowerBackPaintxt.png",
         body: "Lower back pain is an extremely common condition that can range from a dull, constant ache to sharp, sudden pain, significantly impacting daily life.",
-        detail: "The lower back, or <strong>lumbar spine</strong>, bears more weight and stress than any other spinal region, making it highly vulnerable to injury and degenerative conditions. Common causes of pain include <strong>muscle strains</strong>, <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a>, <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a>, and <a href=\"/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">spinal stenosis</a>. At Mountain Spine & Orthopedics, a thorough history and physical exam, along with a complimentary high-resolution <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a>, help us pinpoint the exact cause of your pain and create a targeted, effective treatment plan.",
-        what_sym: "Patients may feel a constant <strong>dull ache</strong> or episodic <strong>sharp pain</strong> in the lower back. Other common symptoms include stiffness, muscle tightness, and radiating pain, numbness, or tingling down the leg, a condition known as <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>.",
+        detail: "The lower back, or lumbar spine, bears more weight and stress than any other spinal region, making it highly vulnerable to injury and degenerative conditions. Common causes of pain include muscle strains, herniated discs, degenerative disc disease, and spinal stenosis. At Mountain Spine & Orthopedics, a thorough history and physical exam, along with a complimentary high-resolution MRI review, help us pinpoint the exact cause of your pain and create a targeted, effective treatment plan.",
+        what_sym: "Patients may feel a constant dull ache or episodic sharp pain in the lower back. Other common symptoms include stiffness, muscle tightness, and radiating pain, numbness, or tingling down the leg, a condition known as sciatica.",
         risk_fac:
             "Risk for lower back pain increases with aging, a sedentary lifestyle, weak core musculature, obesity, and occupations requiring repetitive bending or heavy lifting. Smoking, which impairs disc nutrition, is also a significant risk factor.",
         diagnose:
@@ -2598,9 +2548,9 @@ export const conditions: ConditionInfoProp[] = [
         prevent:
             "Preventive steps include maintaining a healthy weight, engaging in regular low-impact exercise, strengthening core and hip muscles, and practicing proper lifting techniques. Using ergonomically designed workstations and avoiding smoking can also help prevent recurrent flare-ups.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our board-certified spine specialists are committed to resolving your lower back pain. We provide every patient in our Florida clinics with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. Our focus on a wide array of non-surgical and minimally invasive options helps you reclaim an active life.",
+            "At Mountain Spine & Orthopedics, our board-certified spine specialists are committed to resolving your lower back pain. We provide every patient in our Florida clinics with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. Our focus on a wide array of non-surgical and minimally invasive options helps you reclaim an active life.",
         schedule:
-            "If lower back pain is limiting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and free second opinion to move forward with a personalized plan to conquer your pain.",
+            "If lower back pain is limiting your life, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and free second opinion to move forward with a personalized plan to conquer your pain.",
         side_img: "https://mountainspineortho.b-cdn.net/public/lowerbackpainside.jpeg",
         forum: [
             {
@@ -2629,7 +2579,7 @@ export const conditions: ConditionInfoProp[] = [
                                 often depend on the specific condition and how far it has
                                 progressed. Conditions like herniated discs, spinal stenosis,
                                 osteoarthritis, and spondylolisthesis are among the most common
-                                causes of chronic lower back pain. If you’re experiencing
+                                causes of chronic lower back pain. If youΓÇÖre experiencing
                                 numbness or tingling in particular, this may point to nerve
                                 compression which is often more serious than general discomfort
                                 and should be addressed immediately to prevent long-term damage.
@@ -2648,9 +2598,9 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                Even if your pain seems manageable, it’s important not to ignore
+                                Even if your pain seems manageable, itΓÇÖs important not to ignore
                                 it. Small symptoms can be early warning signs of more serious
-                                spinal conditions. That’s why we offer a quick and easy Back
+                                spinal conditions. ThatΓÇÖs why we offer a quick and easy Back
                                 Condition Checker to help identify potential issues. This tool
                                 is designed to gather information about your symptoms and guide
                                 you toward the appropriate care pathway.
@@ -2690,8 +2640,8 @@ export const conditions: ConditionInfoProp[] = [
                                 spinal fractures. Once a clear diagnosis is made, our highly
                                 trained doctors at Mountain Spine & Orthopedics can recommend a
                                 treatment plan tailored to your needs. With access to advanced
-                                procedures not widely available elsewhere, we’re able to offer
-                                both non-surgical and surgical options based on what’s best for
+                                procedures not widely available elsewhere, weΓÇÖre able to offer
+                                both non-surgical and surgical options based on whatΓÇÖs best for
                                 your recovery.
                             </p>
                             <OutlinedButton text="Find a Treatment" />
@@ -2787,14 +2737,14 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                If you’re experiencing persistent lower back pain, numbness, or
+                                If youΓÇÖre experiencing persistent lower back pain, numbness, or
                                 radiating leg symptoms, it may be time to speak with a spine
                                 specialist. These signs could indicate a more serious issue
                                 that, if caught early, can be treated before it worsens. <br />{" "}
                                 <br /> At Mountain Spine & Orthopedics, we specialize in
                                 diagnosing and treating the full range of lower back conditions
                                 with the most advanced technology and techniques available.
-                                Don’t wait to take control of your health. Contact us at (833)
+                                DonΓÇÖt wait to take control of your health. Contact us at (833)
                                 931-4888 or fill out our online form to schedule your
                                 consultation today.
                             </p>
@@ -2815,7 +2765,7 @@ export const conditions: ConditionInfoProp[] = [
             "back muscle pain",
         ],
         metaTitle:
-            "Lower Back Pain | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Lower Back Pain | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Lower back pain can be debilitating. Our Florida spine specialists diagnose the cause and provide advanced, personalized treatments to restore your mobility.",
     },
@@ -2825,22 +2775,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/Sciaticacopy.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/Sciaticaarti.png",
         body: "Sciatica is radiating nerve pain that travels from the lower back down the leg, caused by compression or irritation of the sciatic nerve.",
-        detail: "<strong>Sciatica</strong> is a symptom, not a condition itself, characterized by pain radiating along the path of the <strong>sciatic nerve</strong>. This nerve, the body's largest, can be compressed by a <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated disc</a>, <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spur</a>, or <a href=\"/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">spinal stenosis</a> in the lower back. Accurately identifying the underlying cause is essential for effective treatment. At Mountain Spine & Orthopedics, our evaluation includes a physical exam and a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> to pinpoint the source of the nerve compression and relieve your pain.",
-        what_sym: "The hallmark symptom of sciatica is <strong>pain that radiates</strong> from the lower back through the buttock and down one leg. This pain is often described as <strong>sharp, burning, or electric-like</strong>, and may be accompanied by <strong>numbness</strong>, <strong>tingling</strong>, or <strong>muscle weakness</strong>.",
+        detail: "Sciatica is a symptom, not a condition itself, characterized by pain radiating along the path of the sciatic nerve. This nerve, the body's largest, can be compressed by a herniated disc, bone spur, or spinal stenosis in the lower back. Accurately identifying the underlying cause is essential for effective treatment. At Mountain Spine & Orthopedics, our evaluation includes a physical exam and a complimentary MRI review to pinpoint the source of the nerve compression and relieve your pain.",
+        what_sym: "The hallmark symptom of sciatica is pain that radiates from the lower back through the buttock and down one leg. This pain is often described as sharp, burning, or electric-like, and may be accompanied by numbness, tingling, or muscle weakness.",
         risk_fac:
             "Age-related disc degeneration is a primary risk factor. Obesity, a sedentary lifestyle, occupations involving heavy lifting or prolonged sitting, diabetes, and a previous spine injury can all increase the risk of developing sciatica.",
         diagnose:
             "In addition to a physical exam and a complimentary MRI review, our specialists may use a diagnostic selective nerve root block to confirm the precise location of the nerve irritation. This ensures that any subsequent treatment, like an epidural steroid injection, is targeted to the exact source of your pain.",
         treatment:
-            "First-line treatments include physical therapy referrals focused on lumbar stabilization and nerve gliding techniques, anti-inflammatory medications, and activity modification. Image-guided <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> are highly effective for targeting inflammation at the nerve root level. For persistent cases, our surgeons may recommend minimally invasive decompression procedures, such as a <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">microdiscectomy</a>, to relieve pressure on the sciatic nerve.",
+            "First-line treatments include physical therapy referrals focused on lumbar stabilization and nerve gliding techniques, anti-inflammatory medications, and activity modification. Image-guided epidural steroid injections are highly effective for targeting inflammation at the nerve root level. For persistent cases, our surgeons may recommend minimally invasive decompression procedures, such as a microdiscectomy, to relieve pressure on the sciatic nerve.",
         pain_info:
             "Sciatica pain can range from a mild ache to debilitating shocks of nerve pain that fluctuate with movement or posture. Our multidisciplinary approach targets both the structural source of the compression and the resulting nerve inflammation to restore nerve health and daily comfort.",
         prevent:
             "Maintaining a healthy body weight, practicing proper lifting techniques, staying active with core strengthening exercises, and avoiding prolonged sitting can all help prevent sciatic nerve compression.",
         why_choose_us:
-            "The spine specialists at Mountain Spine & Orthopedics are experts at diagnosing the root cause of sciatica. We provide patients across Florida with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We offer a full spectrum of care, including referrals for physical therapy and targeted injections to minimally invasive surgery, to resolve your sciatica and restore confident, pain-free movement.",
+            "The spine specialists at Mountain Spine & Orthopedics are experts at diagnosing the root cause of sciatica. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We offer a full spectrum of care, including referrals for physical therapy and targeted injections to minimally invasive surgery, to resolve your sciatica and restore confident, pain-free movement.",
         schedule:
-            "If radiating leg or <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">lower back pain</a> is interfering with your mobility, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a detailed second opinion to start on your path to resolving sciatica.",
+            "If radiating leg or lower back pain is interfering with your mobility, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a detailed second opinion to start on your path to resolving sciatica.",
         side_img: "https://mountainspineortho.b-cdn.net/public/sciaticaside.png",
         forum: [
             {
@@ -3045,10 +2995,10 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                If you suspect you’re experiencing sciatica, don’t wait to seek
+                                If you suspect youΓÇÖre experiencing sciatica, donΓÇÖt wait to seek
                                 help. Our team at Mountain Spine & Orthopedics specializes in
                                 diagnosing and treating sciatica with both non-invasive and
-                                surgical approaches. We’ve helped thousands of patients regain
+                                surgical approaches. WeΓÇÖve helped thousands of patients regain
                                 their comfort, mobility, and quality of life.
                                 <br />
                                 <br />
@@ -3072,7 +3022,7 @@ export const conditions: ConditionInfoProp[] = [
             "sciatic nerve relief",
         ],
         metaTitle:
-            "Sciatica | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Sciatica | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Sciatica causes radiating leg pain from a pinched nerve in the lower back. Our Florida spine specialists offer expert diagnosis and treatment to find relief.",
     },
@@ -3082,22 +3032,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/Coccydynia.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/Coccydyniaarti.png",
         body: "Coccydynia, more commonly known as tailbone pain, is a condition that can make sitting painful and difficult.",
-        detail: "<strong>Coccydynia</strong> is pain and inflammation in the <strong>coccyx</strong>, or <strong>tailbone</strong>, which is located at the very bottom of the spine. This pain can result from a fall, repetitive microtrauma from activities like cycling, childbirth, or prolonged sitting on hard surfaces. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and precision imaging to clarify the alignment and rule out other issues, allowing for a customized care plan that targets the true source of your tailbone pain.",
-        what_sym: "The classic sign of coccydynia is a <strong>sharp or aching pain</strong> directly over the tailbone. The pain typically worsens when <strong>sitting down</strong>, rising from a seated position, or leaning backward while seated, and the area is often <strong>tender to the touch</strong>.",
+        detail: "Coccydynia is pain and inflammation in the coccyx, or tailbone, which is located at the very bottom of the spine. This pain can result from a fall, repetitive microtrauma from activities like cycling, childbirth, or prolonged sitting on hard surfaces. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and precision imaging to clarify the alignment and rule out other issues, allowing for a customized care plan that targets the true source of your tailbone pain.",
+        what_sym: "The classic sign of coccydynia is a sharp or aching pain directly over the tailbone. The pain typically worsens when sitting down, rising from a seated position, or leaning backward while seated, and the area is often tender to the touch.",
         risk_fac:
             "A higher risk for coccydynia is linked to a recent fall onto the buttocks, childbirth, excess body weight, or prolonged sitting on hard surfaces without ergonomic support. Repetitive-motion sports such as cycling and rowing can also contribute.",
         diagnose:
             "Diagnosis often includes a diagnostic local anesthetic injection to confirm the coccyx as the source of pain, in addition to imaging studies. We offer complimentary MRI or dynamic X-ray reviews to guide therapy and avoid unnecessary treatment of unrelated areas. This precise diagnostic approach ensures we target the right spot.",
         treatment:
-            "Care begins with conservative measures, such as using a specialized cut-out seat cushion, activity modification, and targeted physical therapy referrals to relieve pelvic floor tension. Ultrasound-guided <a href=\"/treatments/impar-block-treatment\" class=\"text-blue-600 hover:underline\">steroid or nerve block injections</a> can offer potent relief. In rare cases of persistent pain and confirmed instability, our surgeons may perform a minimally invasive <a href=\"/treatments/coccygectomy-tailbone-removal-surgery\" class=\"text-blue-600 hover:underline\">coccygectomy</a> (removal of the tailbone).",
+            "Care begins with conservative measures, such as using a specialized cut-out seat cushion, activity modification, and targeted physical therapy referrals to relieve pelvic floor tension. Ultrasound-guided steroid or nerve block injections can offer potent relief. In rare cases of persistent pain and confirmed instability, our surgeons may perform a minimally invasive coccygectomy (removal of the tailbone).",
         pain_info:
-            "<strong>Tailbone pain</strong> often intensifies after long car rides or sitting on hard surfaces. Our specialists pair ergonomic counseling with image-guided interventions to reduce inflammation, retrain posture, and break the cycle of <strong>chronic coccygeal pain</strong>, allowing you to sit, move, and live comfortably.",
+            "Tailbone pain often intensifies after long car rides or sitting on hard surfaces. Our specialists pair ergonomic counseling with image-guided interventions to reduce inflammation, retrain posture, and break the cycle of chronic coccygeal pain, allowing you to sit, move, and live comfortably.",
         prevent:
             "Using cushioned or U-shaped seats, taking frequent standing breaks during extended periods of sitting, maintaining a healthy weight, and strengthening core and pelvic floor muscles can help protect the coccyx from injury and irritation.",
         why_choose_us:
-            "Coccydynia requires a specialized diagnostic approach. The experts at Mountain Spine & Orthopedics are skilled in identifying and treating this unique condition. For patients in Florida dealing with tailbone pain, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and advanced, image-guided injections to provide targeted relief, so you can sit comfortably again.",
+            "Coccydynia requires a specialized diagnostic approach. The experts at Mountain Spine & Orthopedics are skilled in identifying and treating this unique condition. For patients in Florida dealing with tailbone pain, we offer a complimentary MRI review and advanced, image-guided injections to provide targeted relief, so you can sit comfortably again.",
         schedule:
-            "Don't let tailbone pain dictate your day. <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Schedule a consultation</a> with Mountain Spine & Orthopedics for a complimentary MRI review and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">expert second opinion</a> so you can sit, move, and live comfortably again.",
+            "Don't let tailbone pain dictate your day. Schedule a consultation with Mountain Spine & Orthopedics for a complimentary MRI review and expert second opinion so you can sit, move, and live comfortably again.",
         side_img: "https://mountainspineortho.b-cdn.net/public/coccydyniaside.png",
         forum: [
             {
@@ -3130,7 +3080,7 @@ export const conditions: ConditionInfoProp[] = [
                                 The cause isn't always obvious, but common triggers include a
                                 traumatic fall, stressful childbirth, or prolonged pressure from
                                 improper sitting posture. Rarely, it may be due to a tumor in
-                                the coccyx region. If the pain persists or intensifies, it’s
+                                the coccyx region. If the pain persists or intensifies, itΓÇÖs
                                 important to consult with a spine specialist.
                             </p>
                             <GradientOverlayImage
@@ -3344,7 +3294,7 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                Treatment depends on how long you’ve had symptoms and how severe
+                                Treatment depends on how long youΓÇÖve had symptoms and how severe
                                 the pain is. Common treatments include:
                             </p>
                             <ul
@@ -3429,7 +3379,7 @@ export const conditions: ConditionInfoProp[] = [
                                 className="text-[#424959] text-md sm:text-xl"
                             >
                                 For many, gentle walking can reduce tailbone pressure. But if
-                                there’s a fracture or joint instability, walking may worsen the
+                                thereΓÇÖs a fracture or joint instability, walking may worsen the
                                 pain. Low-impact stretching or yoga may be a safer option in
                                 those cases.
                             </p>
@@ -3480,10 +3430,10 @@ export const conditions: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-md sm:text-xl"
                             >
-                                Tailbone pain doesn’t have to interfere with your life. At
+                                Tailbone pain doesnΓÇÖt have to interfere with your life. At
                                 Mountain Spine & Orthopedics, our expert team offers effective,
                                 patient-centered solutions for coccydynia from non-surgical
-                                therapies to advanced procedures. We’ll help you get to the root
+                                therapies to advanced procedures. WeΓÇÖll help you get to the root
                                 of your pain and back to feeling your best.
                                 <br />
                                 <br />
@@ -3507,7 +3457,7 @@ export const conditions: ConditionInfoProp[] = [
             "coccygectomy",
         ],
         metaTitle:
-            "Coccydynia | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Coccydynia | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Coccydynia, or tailbone pain, makes sitting painful. Our Florida spine specialists offer precise diagnosis and advanced therapies to relieve your discomfort.",
     },
@@ -3517,22 +3467,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/FailedBAN.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/failedBANarti.png",
         body: "Failed Back (or Neck) Surgery Syndrome refers to persistent pain after a spinal procedure, requiring expert evaluation to find the underlying cause.",
-        detail: "<strong>Failed Back Surgery Syndrome (FBSS)</strong> or <strong>Failed Neck Surgery Syndrome</strong> describes persistent or worsening pain and functional limitations after a spinal procedure that was intended to provide relief. This complex issue can be due to unresolved <strong>nerve compression</strong>, a failed fusion (<a href=\"/area-of-specialty/pseudarthrosis-revision-surgery\" class=\"text-blue-600 hover:underline\">pseudarthrosis</a>), <a href=\"/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">adjacent segment disease</a>, or hardware complications. At Mountain Spine & Orthopedics, our specialists perform a meticulous evaluation, reviewing surgical records and advanced imaging to find the true source of your ongoing pain.",
-        what_sym: "Patients frequently report <strong>persistent or worsening back or neck pain</strong>, often accompanied by <strong>radiating burning or electric-like sensations</strong> in the limbs. <strong>Numbness</strong>, weakness, and limited range of motion are also common complaints.",
+        detail: "Failed Back Surgery Syndrome (FBSS) or Failed Neck Surgery Syndrome describes persistent or worsening pain and functional limitations after a spinal procedure that was intended to provide relief. This complex issue can be due to unresolved nerve compression, a failed fusion (pseudarthrosis), adjacent segment disease, or hardware complications. At Mountain Spine & Orthopedics, our specialists perform a meticulous evaluation, reviewing surgical records and advanced imaging to find the true source of your ongoing pain.",
+        what_sym: "Patients frequently report persistent or worsening back or neck pain, often accompanied by radiating burning or electric-like sensations in the limbs. Numbness, weakness, and limited range of motion are also common complaints.",
         risk_fac:
             "Factors that can elevate the likelihood of persistent postoperative symptoms include pre-existing diffuse degenerative disease, multilevel pathology, inadequate preoperative rehabilitation, technical surgical challenges, and the formation of epidural scar tissue.",
         diagnose:
             "Diagnosis goes beyond standard imaging. In addition to a complimentary MRI review, we may use diagnostic selective nerve root blocks, facet joint injections, or even a spinal cord stimulation trial to pinpoint the pain generators. These advanced diagnostics create an evidence-based foundation for targeted revision surgery or non-surgical management.",
         treatment:
-            "Treatment begins with a comprehensive re-evaluation. Our approach may include personalized physical therapy referrals, specialized medications for neuropathic pain, and image-guided injections. Neuromodulation options, including <strong>spinal cord stimulation</strong>, can dramatically cut pain. For clear mechanical failures, such as a non-union or hardware malposition, our surgeons perform minimally invasive <a href=\"/treatments/revision-spinal-surgery\" class=\"text-blue-600 hover:underline\">revision surgery</a> to correct the issue and provide lasting stability.",
+            "Treatment begins with a comprehensive re-evaluation. Our approach may include personalized physical therapy referrals, specialized medications for neuropathic pain, and image-guided injections. Neuromodulation options, including spinal cord stimulation, can dramatically cut pain. For clear mechanical failures, such as a non-union or hardware malposition, our surgeons perform minimally invasive revision surgery to correct the issue and provide lasting stability.",
         pain_info:
-            "Postoperative pain often involves a mix of residual mechanical compression, <strong>nerve hypersensitivity</strong>, and central pain amplification. Our team integrates targeted medical interventions with rehabilitative therapies to recalibrate pain pathways and foster sustained relief from this complex condition.",
+            "Postoperative pain often involves a mix of residual mechanical compression, nerve hypersensitivity, and central pain amplification. Our team integrates targeted medical interventions with rehabilitative therapies to recalibrate pain pathways and foster sustained relief from this complex condition.",
         prevent:
             "While not always preventable, the risk of FBSS can be reduced by ensuring a rigorous preoperative assessment to confirm the correct indication for the initial surgery. Meticulous surgical technique and adherence to an individualized rehabilitation protocol are also critical for success.",
         why_choose_us:
-            "If a previous spine surgery has failed to provide relief, you need a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinion</a> from true experts. The board-certified surgeons at Mountain Spine & Orthopedics specialize in diagnosing and treating Failed Back and Neck Surgery Syndrome. We provide patients across Florida with a complimentary, in-depth <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> to guide you toward a clear plan to confront this challenging condition and regain control of your life.",
+            "If a previous spine surgery has failed to provide relief, you need a second opinion from true experts. The board-certified surgeons at Mountain Spine & Orthopedics specialize in diagnosing and treating Failed Back and Neck Surgery Syndrome. We provide patients across Florida with a complimentary, in-depth MRI review to guide you toward a clear plan to confront this challenging condition and regain control of your life.",
         schedule:
-            "If spine surgery has failed to provide you with lasting relief, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics. Our specialists will conduct a complimentary MRI review and a thorough second opinion to help you find a new path to recovery.",
+            "If spine surgery has failed to provide you with lasting relief, schedule a consultation with Mountain Spine & Orthopedics. Our specialists will conduct a complimentary MRI review and a thorough second opinion to help you find a new path to recovery.",
         slug: "failed-back-surgery-syndrome",
         keywords: [
             "failed back surgery syndrome",
@@ -3545,7 +3495,7 @@ export const conditions: ConditionInfoProp[] = [
             "complex spine specialist",
         ],
         metaTitle:
-            "Failed Back or Failed Neck Surgery Syndrome | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Failed Back or Failed Neck Surgery Syndrome | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Persistent pain after spine surgery? Our Florida specialists diagnose and treat Failed Back Surgery Syndrome with advanced revision surgery and pain management.",
     },
@@ -3556,8 +3506,8 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/public/ForaminalSarti.png",
         body: "Foraminal stenosis is a narrowing of the spinal openings where nerves exit, which can 'pinch' the nerves and cause radiating pain.",
-        detail: "<strong>Foraminal stenosis</strong> occurs when the small openings (foramina) on each side of your spine, through which nerve roots exit the spinal canal, become narrowed. This narrowing is often due to degenerative changes like <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a> or <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a>, and it can compress or 'pinch' the exiting <strong>nerve root</strong>. This leads to symptoms along that nerve's pathway. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a detailed neurological exam to precisely identify the location of the stenosis and create an effective treatment plan.",
-        what_sym: "Symptoms depend on the location of the <a href=\"/area-of-specialty/pinched-nerve\" class=\"text-blue-600 hover:underline\">pinched nerve</a> and can include <strong>radiating pain</strong> (<a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a> in the leg or radiculopathy in the arm), <strong>numbness</strong>, <strong>tingling</strong>, burning sensations, or <strong>muscle weakness</strong> in the affected limb.",
+        detail: "Foraminal stenosis occurs when the small openings (foramina) on each side of your spine, through which nerve roots exit the spinal canal, become narrowed. This narrowing is often due to degenerative changes like bone spurs or <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a>, and it can compress or 'pinch' the exiting nerve root. This leads to symptoms along that nerve's pathway. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a detailed neurological exam to precisely identify the location of the stenosis and create an effective treatment plan.",
+        what_sym: "Symptoms depend on the location of the pinched nerve and can include radiating pain (sciatica in the leg or radiculopathy in the arm), numbness, tingling, burning sensations, or muscle weakness in the affected limb.",
         risk_fac:
             "Age is the primary risk factor, as degenerative changes accumulate over time. Other factors include a genetic predisposition to disc degeneration or arthritis, previous spinal injury, occupations involving heavy lifting, and obesity.",
         diagnose:
@@ -3565,13 +3515,13 @@ export const conditions: ConditionInfoProp[] = [
         treatment:
             "Initial treatment is typically conservative, focusing on physical therapy referrals, anti-inflammatory medications, and <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce inflammation around the nerve. If symptoms persist or there is significant weakness, our expert surgeons at Mountain Spine & Orthopedics may recommend a minimally invasive surgical option like <a href=\"/treatments/endoscopic-foraminotomy-surgery\" class=\"text-blue-600 hover:underline\">foraminotomy</a> to decompress the nerve.",
         pain_info:
-            "Pain from foraminal stenosis often follows a specific nerve path (a dermatome). <strong>Lumbar stenosis</strong> typically causes leg pain (sciatica), while <strong>cervical stenosis</strong> causes arm pain. The pain can range from a <strong>dull ache</strong> to <strong>sharp, shooting sensations</strong>. Our team focuses on identifying the exact nerve involved to deliver targeted, effective relief.",
+            "Pain from foraminal stenosis often follows a specific nerve path (a dermatome). Lumbar stenosis typically causes leg pain (sciatica), while cervical stenosis causes arm pain. The pain can range from a dull ache to sharp, shooting sensations. Our team focuses on identifying the exact nerve involved to deliver targeted, effective relief.",
         prevent:
             "While age-related degeneration is difficult to prevent entirely, maintaining a healthy weight, practicing good posture, using proper lifting techniques, and performing regular core strengthening exercises can help maintain spinal health and slow the progression of degenerative changes.",
         why_choose_us:
-            "The spine specialists at Mountain Spine & Orthopedics are highly skilled in diagnosing and treating foraminal stenosis. For patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We specialize in minimally invasive procedures like foraminotomy to relieve nerve compression and help you return to a life without radiating pain.",
+            "The spine specialists at Mountain Spine & Orthopedics are highly skilled in diagnosing and treating foraminal stenosis. For patients across Florida, we offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We specialize in minimally invasive procedures like foraminotomy to relieve nerve compression and help you return to a life without radiating pain.",
         schedule:
-            "Don't live with radiating nerve pain, numbness, or weakness. <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Contact Mountain Spine & Orthopedics today</a> to schedule your consultation. Benefit from our complimentary MRI review and expert free second opinion to improve your quality of life.",
+            "Don't live with radiating nerve pain, numbness, or weakness. Contact Mountain Spine & Orthopedics today to schedule your consultation. Benefit from our complimentary MRI review and expert free second opinion to improve your quality of life.",
         side_img: "https://mountainspineortho.b-cdn.net/public/ForaminalS.png",
         forum: [
             {
@@ -3607,7 +3557,7 @@ export const conditions: ConditionInfoProp[] = [
                                 characteristic symptoms of foraminal stenosis, such as pain,
                                 numbness, tingling, or weakness that radiates away from the
                                 spine along the path of the affected nerve. The location of
-                                symptoms depends on which nerve is compressed – neck (cervical)
+                                symptoms depends on which nerve is compressed ΓÇô neck (cervical)
                                 stenosis affects the arms, while lower back (lumbar) stenosis
                                 affects the legs (often called sciatica).
                             </p>
@@ -4102,7 +4052,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical radiculopathy",
         ],
         metaTitle:
-            "Foraminal Stenosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Foraminal Stenosis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Foraminal stenosis causes radiating pain from a pinched nerve. Our Florida spine specialists offer advanced, minimally invasive treatments to provide relief.",
     },
@@ -4112,22 +4062,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/Hipcard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/Hiparti.png",
         body: "Hip impingement, or FAI, occurs when abnormal bone growth in the hip joint causes damaging contact, leading to groin pain and stiffness.",
-        detail: "<strong>Hip impingement</strong>, or <strong>Femoroacetabular Impingement (FAI)</strong>, is a condition where extra bone growth on the femoral head (<strong>cam lesion</strong>) or socket rim (<strong>pincer lesion</strong>) causes abnormal, damaging contact during movement. This repeated pinching can tear the <a href=\"/area-of-specialty/labral-tears\" class=\"text-blue-600 hover:underline\">labrum</a> and wear down cartilage, leading to <strong>sharp groin pain</strong> and stiffness. At Mountain Spine & Orthopedics, our hip preservation specialists use advanced imaging to visualize the bony issues and create a personalized plan to relieve pain and protect the joint.",
-        what_sym: "Most patients report a <strong>sharp or aching groin pain</strong> that is triggered by deep hip flexion, such as squatting, pivoting, or prolonged sitting. Other common symptoms include <strong>clicking or locking sensations</strong> and <strong>reduced range of motion</strong>.",
+        detail: "Hip impingement, or Femoroacetabular Impingement (FAI), is a condition where extra bone growth on the femoral head (cam lesion) or socket rim (pincer lesion) causes abnormal, damaging contact during movement. This repeated pinching can tear the labrum and wear down cartilage, leading to sharp groin pain and stiffness. At Mountain Spine & Orthopedics, our hip preservation specialists use advanced imaging to visualize the bony issues and create a personalized plan to relieve pain and protect the joint.",
+        what_sym: "Most patients report a sharp or aching groin pain that is triggered by deep hip flexion, such as squatting, pivoting, or prolonged sitting. Other common symptoms include clicking or locking sensations and reduced range of motion.",
         risk_fac:
             "Risk increases with participation in high-impact or pivoting sports during adolescence. A family history of FAI, childhood hip disorders, and repetitive deep squatting can also contribute to the development of hip impingement.",
         diagnose:
             "Diagnosis uses X-rays to measure key angles and confirm the cam or pincer morphology. We offer a complimentary MRI review, often with an arthrogram, to clearly show labral tears and cartilage wear. A diagnostic intra-articular anesthetic injection can also be used to confirm that the pain is originating from within the hip joint.",
         treatment:
-            "Initial care focuses on conservative measures like activity modification and targeted physical therapy referrals to strengthen hip and core muscles. When pain persists, our surgeons perform minimally invasive <a href=\"/treatments/hip-arthroscopy-treatment\" class=\"text-blue-600 hover:underline\">hip arthroscopy</a> to reshape the bone, repair the labrum, and address cartilage defects. This procedure restores smooth joint mechanics while preserving the native joint and facilitating a rapid return to activity.",
+            "Initial care focuses on conservative measures like activity modification and targeted physical therapy referrals to strengthen hip and core muscles. When pain persists, our surgeons perform minimally invasive hip arthroscopy to reshape the bone, repair the labrum, and address cartilage defects. This procedure restores smooth joint mechanics while preserving the native joint and facilitating a rapid return to activity.",
         pain_info:
-            "The pain from FAI often <strong>spikes during activities</strong> that involve deep hip flexion or athletic pivoting, then lingers as a <strong>dull ache</strong>. Our approach addresses both the mechanical impingement and the resulting soft tissue inflammation through integrated care that rapidly reduces pain and prevents further joint damage.",
+            "The pain from FAI often spikes during activities that involve deep hip flexion or athletic pivoting, then lingers as a dull ache. Our approach addresses both the mechanical impingement and the resulting soft tissue inflammation through integrated care that rapidly reduces pain and prevents further joint damage.",
         prevent:
             "Early recognition of hip pain, limiting repetitive deep flexion and pivoting, maintaining balanced hip and core strength, and correcting movement mechanics can all reduce impingement forces and protect the labrum and cartilage from progressive wear.",
         why_choose_us:
-            "The hip preservation specialists at Mountain Spine & Orthopedics are leaders in treating FAI. Our Florida-based surgeons use advanced hip arthroscopy techniques to correct impingement and repair labral tears, helping you return to your sport or active lifestyle. With a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we provide the expert guidance you need.",
+            "The hip preservation specialists at Mountain Spine & Orthopedics are leaders in treating FAI. Our Florida-based surgeons use advanced hip arthroscopy techniques to correct impingement and repair labral tears, helping you return to your sport or active lifestyle. With a complimentary MRI review and free second opinion, we provide the expert guidance you need.",
         schedule:
-            "Don’t let hip pain sideline your active lifestyle. <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Schedule a consultation</a> with Mountain Spine & Orthopedics for a complimentary MRI review and an expert second opinion to resolve your hip impingement and reclaim full motion.",
+            "DonΓÇÖt let hip pain sideline your active lifestyle. Schedule a consultation with Mountain Spine & Orthopedics for a complimentary MRI review and an expert second opinion to resolve your hip impingement and reclaim full motion.",
         slug: "hip-impingement",
         keywords: [
             "hip impingement",
@@ -4140,7 +4090,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip preservation specialist",
         ],
         metaTitle:
-            "Hip Impingement (FAI) | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Hip Impingement (FAI) | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Hip impingement (FAI) causes groin pain and stiffness. Our Florida hip specialists offer advanced hip arthroscopy to repair damage and preserve your joint.",
     },
@@ -4151,22 +4101,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/looseBodiescard.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/looseBody.png",
         body: "Loose bodies are fragments of cartilage or bone floating within a joint, which can cause painful catching, popping, and locking sensations.",
-        detail: "<strong>Loose bodies</strong> are small fragments of cartilage or bone that break free and float within a joint, most commonly the knee, elbow, or ankle. They can result from a traumatic injury, <a href=\"/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">osteoarthritis</a>, or a condition called osteochondritis dissecans. While some fragments cause no issues, many can get lodged between the joint surfaces, triggering <strong>sharp pain</strong>, sudden <strong>locking episodes</strong>, and swelling. At Mountain Spine & Orthopedics, our specialists use high-resolution imaging to locate the fragment and guide a customized treatment strategy.",
-        what_sym: "Patients often describe <strong>intermittent sharp pain</strong>, <strong>popping</strong>, or clicking in the joint. The most distinct symptom is <strong>transient locking</strong>, where the joint suddenly gets stuck and requires gentle manipulation to unlock, along with swelling after activity.",
+        detail: "Loose bodies are small fragments of cartilage or bone that break free and float within a joint, most commonly the knee, elbow, or ankle. They can result from a traumatic injury, osteoarthritis, or a condition called osteochondritis dissecans. While some fragments cause no issues, many can get lodged between the joint surfaces, triggering sharp pain, sudden locking episodes, and swelling. At Mountain Spine & Orthopedics, our specialists use high-resolution imaging to locate the fragment and guide a customized treatment strategy.",
+        what_sym: "Patients often describe intermittent sharp pain, popping, or clicking in the joint. The most distinct symptom is transient locking, where the joint suddenly gets stuck and requires gentle manipulation to unlock, along with swelling after activity.",
         risk_fac:
             "Participation in high-impact sports, a history of intra-articular fractures or ligament injuries, and chronic osteoarthritis all elevate the likelihood of loose body formation. Certain conditions, such as synovial chondromatosis, can also cause the joint lining to produce multiple cartilage loose bodies.",
         diagnose:
             "Diagnosis combines a clinical exam with complimentary imaging. An MRI or dynamic ultrasound can map the fragment's characteristics, while a low-dose CT scan provides a clear definition of any mineralized (bony) bodies. These studies ensure an accurate diagnosis before any intervention.",
         treatment:
-            "If a loose body is causing mechanical symptoms like locking, <a href=\"/treatments/arthroscopic-knee-surgery\" class=\"text-blue-600 hover:underline\">arthroscopic removal</a> is the most effective treatment. Our surgeons use minimally invasive techniques to enter the joint, locate the fragment with a small camera, and extract it. This procedure is done on an outpatient basis and allows for a rapid recovery and return to activities.",
+            "If a loose body is causing mechanical symptoms like locking, arthroscopic removal is the most effective treatment. Our surgeons use minimally invasive techniques to enter the joint, locate the fragment with a small camera, and extract it. This procedure is done on an outpatient basis and allows for a rapid recovery and return to activities.",
         pain_info:
-            "Pain from a loose body typically strikes when the fragment wedges between the articulating surfaces of the joint, then subsides once it dislodges and begins floating again. By <strong>arthroscopically removing</strong> the offending body, our integrated care model provides rapid, lasting pain relief and protects the joint from further cartilage wear.",
+            "Pain from a loose body typically strikes when the fragment wedges between the articulating surfaces of the joint, then subsides once it dislodges and begins floating again. By arthroscopically removing the offending body, our integrated care model provides rapid, lasting pain relief and protects the joint from further cartilage wear.",
         prevent:
             "Prevention focuses on promptly addressing underlying joint issues that can create loose bodies, such as treating cartilage and ligament injuries, maintaining balanced muscle strength for joint support, and modifying high-impact activities that place shear forces on the cartilage.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our sports medicine specialists are experts in the arthroscopic removal of loose bodies from the knee, shoulder, and ankle. Serving patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to confirm your diagnosis. Our minimally invasive approach ensures you can return to smooth, pain-free motion quickly.",
+            "At Mountain Spine & Orthopedics, our sports medicine specialists are experts in the arthroscopic removal of loose bodies from the knee, shoulder, and ankle. Serving patients across Florida, we offer a complimentary MRI review and a free second opinion to confirm your diagnosis. Our minimally invasive approach ensures you can return to smooth, pain-free motion quickly.",
         schedule:
-            "If sudden joint locking or sharp pain is disrupting your routine, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics. Benefit from a complimentary MRI review and a comprehensive second opinion to move forward with a clear plan to remove the loose bodies.",
+            "If sudden joint locking or sharp pain is disrupting your routine, schedule a consultation with Mountain Spine & Orthopedics. Benefit from a complimentary MRI review and a comprehensive second opinion to move forward with a clear plan to remove the loose bodies.",
         slug: "loose-bodies",
         keywords: [
             "loose bodies in knee",
@@ -4179,7 +4129,7 @@ export const conditions: ConditionInfoProp[] = [
             "sports medicine orthopedics",
         ],
         metaTitle:
-            "Loose Bodies | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Loose Bodies | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Loose bodies in a joint cause painful locking and catching. Our Florida specialists use minimally invasive arthroscopy to remove fragments and restore motion.",
     },
@@ -4189,22 +4139,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/agingM.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/agearti.png",
         body: "Our aging management programs focus on preserving bone density, joint health, and muscle strength to help you stay active, strong, and independent as you age.",
-        detail: "As we age, natural changes like declining <strong>bone density</strong> (osteoporosis), cartilage wear (<a href=\"/area-of-specialty/arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>), and muscle loss (<strong>sarcopenia</strong>) can increase the risk of falls, fractures, and chronic pain. Our <strong>aging management program</strong> shifts orthopedic care from reactive to proactive, identifying vulnerabilities early to delay musculoskeletal decline. Our evaluation includes a physical exam, complimentary bone density (DEXA) scanning, and imaging to create a comprehensive picture of your bone, joint, and muscle health.",
-        what_sym: "Common indicators of musculoskeletal aging include a <strong>gradual loss of height</strong>, new or worsening <strong>joint stiffness</strong>, <strong>decreased grip strength</strong>, a slower walking speed, and difficulty rising from chairs. Episodic <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">low back</a> or joint pain after routine tasks is also common.",
+        detail: "As we age, natural changes like declining bone density (osteoporosis), cartilage wear (arthritis), and muscle loss (sarcopenia) can increase the risk of falls, fractures, and chronic pain. Our aging management program shifts orthopedic care from reactive to proactive, identifying vulnerabilities early to delay musculoskeletal decline. Our evaluation includes a physical exam, complimentary bone density (DEXA) scanning, and imaging to create a comprehensive picture of your bone, joint, and muscle health.",
+        what_sym: "Common indicators of musculoskeletal aging include a gradual loss of height, new or worsening joint stiffness, decreased grip strength, a slower walking speed, and difficulty rising from chairs. Episodic low back or joint pain after routine tasks is also common.",
         risk_fac:
             "A genetic predisposition to osteoporosis, a sedentary lifestyle, smoking, inadequate protein or calcium intake, and hormonal changes like menopause can all accelerate age-related tissue degeneration.",
         diagnose:
             "Beyond imaging and DEXA scanning, our program utilizes laboratory tests to evaluate vitamin D status and inflammatory markers. Gait analysis and computerized balance testing can pinpoint biomechanical inefficiencies that increase injury risk. These complimentary assessments create a precise baseline against which we can measure your progress.",
         treatment:
-            "Our integrated program combines resistance and balance training supervised by physical therapists, personalized nutrition plans, and medication review. When bone density is low, we may introduce pharmacologic therapies. For joints, we focus on preservation techniques like viscosupplementation or <a href=\"/treatments/stem-cell-treatment\" class=\"text-blue-600 hover:underline\">regenerative medicine</a> to address symptomatic degeneration early, potentially delaying or avoiding <a href=\"/treatments/total-knee-replacement\" class=\"text-blue-600 hover:underline\">joint replacement</a>.",
+            "Our integrated program combines resistance and balance training supervised by physical therapists, personalized nutrition plans, and medication review. When bone density is low, we may introduce pharmacologic therapies. For joints, we focus on preservation techniques like viscosupplementation or regenerative medicine to address symptomatic degeneration early, potentially delaying or avoiding joint replacement.",
         pain_info:
-            "Age-related pain often stems from <strong>low-grade inflammation</strong>, <strong>cartilage thinning</strong>, or <strong>tendon stiffness</strong>. Our approach combines anti-inflammatory nutrition, targeted exercise, and, when appropriate, image-guided interventions to keep discomfort minimal and function high.",
+            "Age-related pain often stems from low-grade inflammation, cartilage thinning, or tendon stiffness. Our approach combines anti-inflammatory nutrition, targeted exercise, and, when appropriate, image-guided interventions to keep discomfort minimal and function high.",
         prevent:
             "This entire program is preventive. Participants commonly experience improved posture and balance, increased muscle mass, higher bone density scores, a reduced incidence of falls, and enhanced confidence to pursue active hobbies well into their later years.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, we believe in proactive care to help you age gracefully and strongly. Our Florida-based aging management program, led by orthopedic specialists, provides a comprehensive plan to maintain your mobility. With a complimentary DEXA or <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we can build a personalized strategy for your lifelong health.",
+            "At Mountain Spine & Orthopedics, we believe in proactive care to help you age gracefully and strongly. Our Florida-based aging management program, led by orthopedic specialists, provides a comprehensive plan to maintain your mobility. With a complimentary DEXA or MRI review and a free second opinion, we can build a personalized strategy for your lifelong health.",
         schedule:
-            "Take charge of your health as you age by <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">scheduling a consultation</a> with Mountain Spine & Orthopedics today. Enjoy a complimentary DEXA review and a thorough second opinion, then embark on a personalized aging management plan designed to keep you mobile, strong, and independent.",
+            "Take charge of your health as you age by scheduling a consultation with Mountain Spine & Orthopedics today. Enjoy a complimentary DEXA review and a thorough second opinion, then embark on a personalized aging management plan designed to keep you mobile, strong, and independent.",
         slug: "aging-management",
         keywords: [
             "aging management",
@@ -4217,7 +4167,7 @@ export const conditions: ConditionInfoProp[] = [
             "maintaining mobility",
         ],
         metaTitle:
-            "Aging Management | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Aging Management | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Our Florida aging management programs focus on bone density, joint health, and fall prevention to help you stay active, strong, and independent as you age.",
     },
@@ -4227,8 +4177,8 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/neckcard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/neckarti.webp",
         body: "Neck pain is a common condition that can range from a mild, dull ache to sharp, radiating pain that disrupts daily activities and sleep.",
-        detail: "The neck, or <strong>cervical spine</strong>, supports the head's weight while allowing extensive motion, making it highly susceptible to conditions like <strong>muscle strain</strong>, <strong>degenerative disc disease</strong>, <strong>facet arthritis</strong>, and <strong>herniated discs</strong>. Modern issues like <strong>'tech neck'</strong> from prolonged screen use also contribute to postural overload and pain. At Mountain Spine & Orthopedics, our evaluation includes a thorough physical exam and complimentary imaging to reveal the root cause of your pain and develop a personalized treatment plan.",
-        what_sym: "Patients may experience a persistent ache or <strong>stiffness in the neck</strong>, sharp pain with sudden head movements, and <strong>headaches</strong> originating at the base of the skull. Pain, <a href=\"/area-of-specialty/tingling-numbness\" class=\"text-blue-600 hover:underline\">tingling</a>, or <strong>numbness</strong> that radiates into the shoulder, arm, or hand is also common.",
+        detail: "The neck, or cervical spine, supports the head's weight while allowing extensive motion, making it highly susceptible to conditions like muscle strain, degenerative disc disease, facet arthritis, and herniated discs. Modern issues like 'tech neck' from prolonged screen use also contribute to postural overload and pain. At Mountain Spine & Orthopedics, our evaluation includes a thorough physical exam and complimentary imaging to reveal the root cause of your pain and develop a personalized treatment plan.",
+        what_sym: "Patients may experience a persistent ache or stiffness in the neck, sharp pain with sudden head movements, and headaches originating at the base of the skull. Pain, tingling, or numbness that radiates into the shoulder, arm, or hand is also common.",
         risk_fac:
             "Risk increases with prolonged forward head posture (tech neck), whiplash trauma, weak shoulder and core muscles, degenerative disc disease, arthritis, and smoking, which impairs disc nutrition.",
         diagnose:
@@ -4240,9 +4190,9 @@ export const conditions: ConditionInfoProp[] = [
         prevent:
             "Preventive measures include maintaining ergonomic workstation setups with monitors at eye level, taking regular stretch breaks, strengthening shoulder and core muscles, practicing good sleep posture, and avoiding tobacco.",
         why_choose_us:
-            "The spine specialists at Mountain Spine & Orthopedics are dedicated to resolving your neck pain. We provide every patient at our Florida clinics with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. Our comprehensive approach, including referrals for physical therapy and minimally invasive surgery, is designed to restore your comfort and function.",
+            "The spine specialists at Mountain Spine & Orthopedics are dedicated to resolving your neck pain. We provide every patient at our Florida clinics with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. Our comprehensive approach, including referrals for physical therapy and minimally invasive surgery, is designed to restore your comfort and function.",
         schedule:
-            "If neck pain is limiting your activities, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized plan to conquer your neck pain.",
+            "If neck pain is limiting your activities, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to move forward with a personalized plan to conquer your neck pain.",
         slug: "neck-pain",
         keywords: [
             "neck pain",
@@ -4255,7 +4205,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical spine specialist",
         ],
         metaTitle:
-            "Neck Pain | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Neck Pain | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Suffering from neck pain or stiffness? Our Florida spine specialists diagnose the cause and offer advanced non-surgical and surgical treatments for relief.",
     },
@@ -4265,8 +4215,8 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/dddScard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/dddarti.png",
         body: "For severe degenerative disc disease, surgery such as spinal fusion or artificial disc replacement can restore stability and provide lasting pain relief.",
-        detail: "When <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical treatments</a> fail to relieve the relentless pain from <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">Degenerative Disc Disease (DDD)</a>, surgery may be an option. <strong>Severe degeneration</strong> can cause vertebral collapse and <strong>nerve compression</strong>, leading to chronic pain and weakness. Surgical treatment aims to eliminate this mechanical pain by either removing the damaged disc and fusing the vertebrae (<a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">spinal fusion</a>) or replacing it with an <a href=\"/treatments/artificial-disc-replacement-surgery\" class=\"text-blue-600 hover:underline\">artificial disc</a>. At Mountain Spine & Orthopedics, we conduct a meticulous evaluation to determine the most appropriate surgical solution for you.",
-        what_sym: "This is a treatment, not a condition. Surgery is considered for patients with <strong>persistent axial or radicular pain</strong> that is unresponsive to at least six months of comprehensive non-operative therapy, <strong>progressive neurological deficits</strong> (like weakness or numbness), and a diminished quality of life that limits work, sleep, or mobility.",
+        detail: "When non-surgical treatments fail to relieve the relentless pain from Degenerative Disc Disease (DDD), surgery may be an option. Severe degeneration can cause vertebral collapse and nerve compression, leading to chronic pain and weakness. Surgical treatment aims to eliminate this mechanical pain by either removing the damaged disc and fusing the vertebrae (spinal fusion) or replacing it with an artificial disc. At Mountain Spine & Orthopedics, we conduct a meticulous evaluation to determine the most appropriate surgical solution for you.",
+        what_sym: "This is a treatment, not a condition. Surgery is considered for patients with persistent axial or radicular pain that is unresponsive to at least six months of comprehensive non-operative therapy, progressive neurological deficits (like weakness or numbness), and a diminished quality of life that limits work, sleep, or mobility.",
         risk_fac:
             "Better surgical outcomes are correlated with being a non-smoker, having a healthy body weight, and strong core musculature. Risk factors such as osteoporosis, diabetes, or active infections must be optimized before surgery to ensure a solid fusion and smooth recovery.",
         diagnose:
@@ -4278,9 +4228,9 @@ export const conditions: ConditionInfoProp[] = [
         prevent:
             "Successful surgery can markedly improve pain and quality of life. Maintaining a strong core, practicing proper lifting mechanics, avoiding tobacco, and adhering to scheduled follow-ups can protect adjacent discs and extend the benefits of your surgery for years to come.",
         why_choose_us:
-            "The board-certified surgeons at Mountain Spine & Orthopedics are leaders in motion-preserving and minimally invasive spine surgery for DDD. We offer patients across Florida a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to determine if you are a candidate for procedures like artificial disc replacement or minimally invasive fusion, guiding you confidently from decision to recovery.",
+            "The board-certified surgeons at Mountain Spine & Orthopedics are leaders in motion-preserving and minimally invasive spine surgery for DDD. We offer patients across Florida a complimentary MRI review and a free second opinion to determine if you are a candidate for procedures like artificial disc replacement or minimally invasive fusion, guiding you confidently from decision to recovery.",
         schedule:
-            "If unrelenting disc-related pain is limiting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a surgical evaluation</a> at Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to take the next step toward lasting relief.",
+            "If unrelenting disc-related pain is limiting your life, schedule a surgical evaluation at Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a comprehensive second opinion to take the next step toward lasting relief.",
         slug: "degenerative-disc-disease-surgery",
         keywords: [
             "degenerative disc disease surgery",
@@ -4293,7 +4243,7 @@ export const conditions: ConditionInfoProp[] = [
             "spine surgeon",
         ],
         metaTitle:
-            "Degenerative Disc Disease Surgery | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Degenerative Disc Disease Surgery | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Explore surgery for Degenerative Disc Disease. Our Florida surgeons specialize in spinal fusion and artificial disc replacement for lasting pain relief.",
     },
@@ -4303,22 +4253,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/Pseudarti.webp",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/Pseud.png",
         body: "Pseudarthrosis, or a non-union, occurs when a spinal fusion fails to heal into solid bone, resulting in persistent pain and instability.",
-        detail: "<strong>Pseudarthrosis</strong>, also known as a <strong>non-union</strong> or 'false joint,' occurs when a surgical <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">spinal fusion</a> fails to heal into a solid piece of bone. This allows for persistent, abnormal motion at the fusion site, which can perpetuate pain and cause hardware to loosen or fail. At Mountain Spine & Orthopedics, our subspecialty surgeons combine advanced imaging, biologic therapies, and expert <a href=\"/treatments/revision-spinal-surgery\" class=\"text-blue-600 hover:underline\">revision surgical techniques</a> to achieve a solid fusion, relieve pain, and restore stability.",
-        what_sym: "Patients often experience <strong>persistent, deep pain</strong> at the original fusion site long after surgery. <strong>Grinding or clicking sensations</strong> with movement, continued radiating nerve symptoms, and an inability to wean from a back brace are key signs of a non-union.",
+        detail: "Pseudarthrosis, also known as a non-union or 'false joint,' occurs when a surgical spinal fusion fails to heal into a solid piece of bone. This allows for persistent, abnormal motion at the fusion site, which can perpetuate pain and cause hardware to loosen or fail. At Mountain Spine & Orthopedics, our subspecialty surgeons combine advanced imaging, biologic therapies, and expert revision surgical techniques to achieve a solid fusion, relieve pain, and restore stability.",
+        what_sym: "Patients often experience persistent, deep pain at the original fusion site long after surgery. Grinding or clicking sensations with movement, continued radiating nerve symptoms, and an inability to wean from a back brace are key signs of a non-union.",
         risk_fac:
             "Smoking is the single biggest risk factor for pseudarthrosis. Other factors include diabetes, malnutrition, chronic steroid use, vitamin D deficiency, and multilevel spinal fusions. These issues can interfere with the body's natural healing cascade.",
         diagnose:
             "Diagnosis hinges on persistent pain and imaging that shows an absence of bridging bone months after surgery. We use complimentary thin-slice CT scanning to assess for bone bridging and implant integrity. Dynamic radiographs may also be used to reveal motion at the intended fusion site.",
         treatment:
-            "A persistent non-union requires <strong>revision surgery</strong>. This involves removing the old hardware, meticulously debriding the fibrous tissue from the 'false joint', and placing new <strong>bone graft material</strong>, often augmented with biologic enhancers like bone morphogenetic protein (BMP). New, more rigid hardware is then used to create a stable environment for the fusion to heal solidly.",
+            "A persistent non-union requires revision surgery. This involves removing the old hardware, meticulously debriding the fibrous tissue from the 'false joint', and placing new bone graft material, often augmented with biologic enhancers like bone morphogenetic protein (BMP). New, more rigid hardware is then used to create a stable environment for the fusion to heal solidly.",
         pain_info:
-            "The pain from a non-union arises from <strong>micromotion</strong> at the failed fusion site and the resulting irritation of surrounding soft tissues and nerves. By re-establishing rigid stability and invigorating the bone's biology, our integrated approach transforms this chronic pain into dependable support and renewed confidence in movement.",
+            "The pain from a non-union arises from micromotion at the failed fusion site and the resulting irritation of surrounding soft tissues and nerves. By re-establishing rigid stability and invigorating the bone's biology, our integrated approach transforms this chronic pain into dependable support and renewed confidence in movement.",
         prevent:
             "To maximize the chance of a successful first-time fusion, it is critical to optimize risk factors. This includes strict smoking cessation, managing diabetes, ensuring adequate nutrition, and selecting the most stable fixation constructs during the initial surgery. Our team provides comprehensive peri-operative risk factor modification to maximize success.",
         why_choose_us:
-            "Diagnosing and treating pseudarthrosis is a complex challenge that requires a high level of surgical expertise. The board-certified surgeons at Mountain Spine & Orthopedics specialize in revision spine surgery. For patients in Florida dealing with a failed fusion, we provide a complimentary CT or <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to move forward with a personalized plan to achieve a solid, pain-free fusion.",
+            "Diagnosing and treating pseudarthrosis is a complex challenge that requires a high level of surgical expertise. The board-certified surgeons at Mountain Spine & Orthopedics specialize in revision spine surgery. For patients in Florida dealing with a failed fusion, we provide a complimentary CT or MRI review and a free second opinion to move forward with a personalized plan to achieve a solid, pain-free fusion.",
         schedule:
-            "If lingering pain or instability persists after a spinal fusion, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary CT or MRI review and an expert second opinion to conquer pseudarthrosis and regain solid, pain-free function.",
+            "If lingering pain or instability persists after a spinal fusion, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary CT or MRI review and an expert second opinion to conquer pseudarthrosis and regain solid, pain-free function.",
         slug: "pseudarthrosis-revision-surgery",
         keywords: [
             "pseudarthrosis",
@@ -4331,7 +4281,7 @@ export const conditions: ConditionInfoProp[] = [
             "complex spine surgeon",
         ],
         metaTitle:
-            "Pseudarthrosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Pseudarthrosis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Pseudarthrosis, or a failed spinal fusion, causes persistent pain. Our Florida revision spine surgeons specialize in treating non-unions for lasting relief.",
     },
@@ -4341,22 +4291,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/sacard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/saartib.jpg",
         body: "Shoulder arthritis is a degenerative condition that involves the breakdown of joint cartilage, leading to chronic pain, stiffness, and loss of motion.",
-        detail: "<strong>Shoulder arthritis</strong> occurs when the smooth cartilage that covers the bones of the shoulder joint wears down, leading to <strong>pain</strong>, <strong>stiffness</strong>, and grinding. This degeneration can result from wear-and-tear, a past injury, or an inflammatory condition like <a href=\"/area-of-specialty/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">rheumatoid arthritis</a>. At Mountain Spine & Orthopedics, our diagnosis includes a physical exam and advanced imaging to show joint space narrowing and bone spurs, which helps shape a personalized treatment strategy to restore motion and relieve pain.",
-        what_sym: "Symptoms include a <strong>deep, aching pain</strong> in the shoulder that worsens with activity and at night. Patients also experience <strong>stiffness</strong>, an <strong>audible grinding or clicking</strong> with movement, and a decreased ability to lift the arm or rotate the shoulder.",
+        detail: "Shoulder arthritis occurs when the smooth cartilage that covers the bones of the shoulder joint wears down, leading to pain, stiffness, and grinding. This degeneration can result from wear-and-tear, a past injury, or an inflammatory condition. At Mountain Spine & Orthopedics, our diagnosis includes a physical exam and advanced imaging to show joint space narrowing and bone spurs, which helps shape a personalized treatment strategy to restore motion and relieve pain.",
+        what_sym: "Symptoms include a deep, aching pain in the shoulder that worsens with activity and at night. Patients also experience stiffness, an audible grinding or clicking with movement, and a decreased ability to lift the arm or rotate the shoulder.",
         risk_fac:
             "Key risk factors include aging, a history of previous shoulder injuries or dislocations, chronic overuse (common in overhead athletes), and inflammatory autoimmune disorders like rheumatoid arthritis. A chronic, untreated rotator cuff tear can also lead to a specific type of arthritis.",
         diagnose:
             "Our specialists use detailed imaging, including a complimentary MRI or ultrasound review when needed, to assess joint cartilage, the condition of the rotator cuff, and any inflammation. Combined with a thorough clinical evaluation, this ensures the most accurate diagnosis and an effective treatment plan.",
         treatment:
-            "Initial management includes anti-inflammatory medications, physical therapy referrals to preserve motion, and <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">corticosteroid or biologic injections</a>. When symptoms persist or joint damage is advanced, our surgeons offer advanced surgical options, including minimally invasive <a href=\"/treatments/shoulder-arthroscopy\" class=\"text-blue-600 hover:underline\">arthroscopy</a>, partial joint resurfacing, or <a href=\"/treatments/resurfacing-shoulder-replacement\" class=\"text-blue-600 hover:underline\">shoulder replacement</a>. A reverse shoulder replacement may be used if a large <a href=\"/area-of-specialty/rotator-cuff-tear\" class=\"text-blue-600 hover:underline\">rotator cuff tear</a> is also present.",
+            "Initial management includes anti-inflammatory medications, physical therapy referrals to preserve motion, and corticosteroid or biologic injections. When symptoms persist or joint damage is advanced, our surgeons offer advanced surgical options, including minimally invasive arthroscopy, partial joint resurfacing, or total shoulder replacement. A reverse shoulder replacement may be used if a large rotator cuff tear is also present.",
         pain_info:
-            "Pain from shoulder arthritis often <strong>flares with repetitive activity</strong> or lifting and can become constant over time. Our comprehensive approach targets both the inflammation and the underlying joint mechanics to relieve pain and restore comfortable, functional motion.",
+            "Pain from shoulder arthritis often flares with repetitive activity or lifting and can become constant over time. Our comprehensive approach targets both the inflammation and the underlying joint mechanics to relieve pain and restore comfortable, functional motion.",
         prevent:
             "Avoiding repetitive overhead strain, maintaining shoulder strength and flexibility through a balanced exercise program, and treating minor shoulder injuries promptly can help delay the progression of arthritis.",
         why_choose_us:
-            "At Mountain Spine & Orthopedics, our board-certified shoulder specialists provide expert care for arthritis, from advanced injections to state-of-the-art shoulder replacement surgery. For patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to create a plan that reduces your pain and improves your quality of life.",
+            "At Mountain Spine & Orthopedics, our board-certified shoulder specialists provide expert care for arthritis, from advanced injections to state-of-the-art shoulder replacement surgery. For patients across Florida, we offer a complimentary MRI review and a free second opinion to create a plan that reduces your pain and improves your quality of life.",
         schedule:
-            "If shoulder pain or stiffness is interfering with your routine, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Enjoy a complimentary MRI review and a second opinion to take the first step toward lasting relief from shoulder arthritis.",
+            "If shoulder pain or stiffness is interfering with your routine, schedule a consultation with Mountain Spine & Orthopedics today. Enjoy a complimentary MRI review and a second opinion to take the first step toward lasting relief from shoulder arthritis.",
         slug: "shoulder-arthritis",
         keywords: [
             "shoulder arthritis",
@@ -4369,7 +4319,7 @@ export const conditions: ConditionInfoProp[] = [
             "arthritic shoulder relief",
         ],
         metaTitle:
-            "Shoulder Arthritis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Shoulder Arthritis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Shoulder arthritis causes deep pain and stiffness. Our Florida shoulder specialists offer advanced treatments, including total shoulder replacement surgery.",
     },
@@ -4379,22 +4329,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/stcard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/starti.png",
         body: "Shoulder tendonitis is an overuse injury that causes inflammation of the rotator cuff or biceps tendons, leading to pain and limited motion.",
-        detail: "<strong>Shoulder tendonitis</strong> is the inflammation of the <a href=\"/area-of-specialty/rotator-cuff-tear\" class=\"text-blue-600 hover:underline\">rotator cuff</a> or biceps tendons, often caused by repetitive overhead motion, poor posture, or an acute injury. This common <strong>overuse condition</strong> can lead to significant pain and, if left untreated, may progress to a more serious tendon tear. At Mountain Spine & Orthopedics, our specialists use a detailed physical exam and complimentary imaging review to confirm inflammation and guide a targeted treatment approach to calm the tendon and restore function.",
-        what_sym: "Symptoms include a <strong>sharp or aching pain</strong> at the front or side of the shoulder that typically worsens with lifting, reaching overhead, or sleeping on the affected side. The area may also be <strong>tender to the touch</strong>.",
+        detail: "Shoulder tendonitis is the inflammation of the rotator cuff or biceps tendons, often caused by repetitive overhead motion, poor posture, or an acute injury. This common overuse condition can lead to significant pain and, if left untreated, may progress to a more serious tendon tear. At Mountain Spine & Orthopedics, our specialists use a detailed physical exam and complimentary imaging review to confirm inflammation and guide a targeted treatment approach to calm the tendon and restore function.",
+        what_sym: "Symptoms include a sharp or aching pain at the front or side of the shoulder that typically worsens with lifting, reaching overhead, or sleeping on the affected side. The area may also be tender to the touch.",
         risk_fac:
             "Repetitive overhead activities from sports like swimming or occupations like painting are a major risk factor. Poor posture, weak shoulder-stabilizing muscles, advancing age, and the presence of bone spurs can also increase the risk of developing shoulder tendonitis.",
         diagnose:
             "Our specialists use focused physical tests, such as the Hawkins-Kennedy or Speed's Test, alongside complimentary imaging to detect inflammation, microtears, and any associated bursitis or impingement. This process ensures a clear diagnosis and allows for an effective, customized treatment plan.",
         treatment:
-            "Initial treatment includes rest from the aggravating activity, anti-inflammatory medications, and physical therapy referrals focused on balancing the muscles of the rotator cuff and scapula. An ultrasound-guided corticosteroid injection can provide rapid relief. For persistent cases, regenerative medicine options like <a href=\"/treatments/stem-cell-treatment\" class=\"text-blue-600 hover:underline\">platelet-rich plasma (PRP) therapy</a> or minimally invasive <a href=\"/treatments/shoulder-arthroscopy\" class=\"text-blue-600 hover:underline\">arthroscopy</a> may be used to treat chronic tendon damage.",
+            "Initial treatment includes rest from the aggravating activity, anti-inflammatory medications, and physical therapy referrals focused on balancing the muscles of the rotator cuff and scapula. An ultrasound-guided corticosteroid injection can provide rapid relief. For persistent cases, regenerative medicine options like platelet-rich plasma (PRP) therapy or minimally invasive arthroscopy may be used to treat chronic tendon damage.",
         pain_info:
-            "Shoulder tendonitis pain is usually <strong>activity-related</strong> and feels sharp with movement, especially when reaching overhead. The pain may radiate into the upper arm and <strong>worsen at night</strong>. Our targeted therapies are designed to reduce inflammation, promote tendon healing, and restore pain-free strength.",
+            "Shoulder tendonitis pain is usually activity-related and feels sharp with movement, especially when reaching overhead. The pain may radiate into the upper arm and worsen at night. Our targeted therapies are designed to reduce inflammation, promote tendon healing, and restore pain-free strength.",
         prevent:
             "A proper warm-up before activity, maintaining shoulder flexibility and strength, making ergonomic modifications at work, and avoiding repetitive overhead tasks when possible can all help prevent tendonitis from developing or recurring.",
         why_choose_us:
-            "The shoulder specialists at Mountain Spine & Orthopedics are experts in diagnosing and treating shoulder tendonitis. Serving patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. Our advanced, image-guided injections and regenerative medicine therapies can help you return to your regular activities safely and confidently.",
+            "The shoulder specialists at Mountain Spine & Orthopedics are experts in diagnosing and treating shoulder tendonitis. Serving patients across Florida, we offer a complimentary MRI review and a free second opinion. Our advanced, image-guided injections and regenerative medicine therapies can help you return to your regular activities safely and confidently.",
         schedule:
-            "If shoulder pain or limited motion is disrupting your daily activities, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and an expert second opinion to resolve your shoulder tendonitis and regain pain-free motion.",
+            "If shoulder pain or limited motion is disrupting your daily activities, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and an expert second opinion to resolve your shoulder tendonitis and regain pain-free motion.",
         slug: "shoulder-tendonitis",
         keywords: [
             "shoulder tendonitis",
@@ -4407,7 +4357,7 @@ export const conditions: ConditionInfoProp[] = [
             "shoulder pain relief",
         ],
         metaTitle:
-            "Shoulder Tendonitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Shoulder Tendonitis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Shoulder tendonitis from overuse causes pain and limited motion. Our Florida specialists offer PRP injections and other advanced treatments to restore function.",
     },
@@ -4417,22 +4367,22 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/shscard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/shsarti.jpg",
         body: "Snapping hip syndrome is a condition where a tendon moves over a bone in the hip, creating an audible or palpable snapping sensation.",
-        detail: "<strong>Snapping hip syndrome</strong>, or <strong>coxa saltans</strong>, is caused by a muscle or tendon catching and releasing as it moves across a bony prominence in the hip. It can be caused by the IT band on the outside of the hip or the iliopsoas tendon in the front. While often painless initially, the repeated friction can lead to painful inflammation (<a href=\"/area-of-specialty/bursitis\" class=\"text-blue-600 hover:underline\">bursitis</a> or tendonitis). At Mountain Spine & Orthopedics, we use dynamic ultrasound and a physical exam to confirm the source and create a plan to restore smooth hip motion.",
-        what_sym: "The primary symptom is an <strong>audible or palpable snapping or popping</strong> in the hip during activities like walking, rising from a chair, or swinging the leg. <strong>Pain or discomfort</strong> may accompany the snapping, especially with repetitive movements.",
+        detail: "Snapping hip syndrome, or coxa saltans, is caused by a muscle or tendon catching and releasing as it moves across a bony prominence in the hip. It can be caused by the IT band on the outside of the hip or the iliopsoas tendon in the front. While often painless initially, the repeated friction can lead to painful inflammation (bursitis or tendonitis). At Mountain Spine & Orthopedics, we use dynamic ultrasound and a physical exam to confirm the source and create a plan to restore smooth hip motion.",
+        what_sym: "The primary symptom is an audible or palpable snapping or popping in the hip during activities like walking, rising from a chair, or swinging the leg. Pain or discomfort may accompany the snapping, especially with repetitive movements.",
         risk_fac:
             "Athletes involved in repetitive hip motion, such as dancers, runners, and cyclists, are at a higher risk. Other risk factors include muscle tightness (especially of the hip flexors and IT band), leg length discrepancies, and weak hip-stabilizing muscles.",
         diagnose:
             "Our specialists use clinical movement assessments and complimentary dynamic ultrasound or MRI to identify the exact snapping structure. A dynamic ultrasound is particularly useful as it can visualize the tendon snapping in real-time. This precise diagnosis ensures that treatment is appropriately targeted.",
         treatment:
-            "Most cases respond well to non-operative care, including activity modification and a physical therapy referrals program focused on stretching tight structures (like the IT band and iliopsoas) and strengthening hip and core stabilizers. If conservative treatment fails or imaging reveals an intra-articular issue like a <a href=\"/area-of-specialty/labral-tears\" class=\"text-blue-600 hover:underline\">labral tear</a>, minimally invasive <a href=\"/treatments/hip-arthroscopy-treatment\" class=\"text-blue-600 hover:underline\">hip arthroscopy</a> may be used to correct the underlying problem.",
+            "Most cases respond well to non-operative care, including activity modification and a physical therapy referrals program focused on stretching tight structures (like the IT band and iliopsoas) and strengthening hip and core stabilizers. If conservative treatment fails or imaging reveals an intra-articular issue like a labral tear, minimally invasive hip arthroscopy may be used to correct the underlying problem.",
         pain_info:
-            "While the snapping itself may be painless, the associated inflammation (tendonitis or bursitis) or an intra-articular cause can lead to a <strong>sharp or aching pain</strong> in the hip or groin. Addressing both the mechanical snapping and any resulting inflammation is essential for achieving long-lasting relief.",
+            "While the snapping itself may be painless, the associated inflammation (tendonitis or bursitis) or an intra-articular cause can lead to a sharp or aching pain in the hip or groin. Addressing both the mechanical snapping and any resulting inflammation is essential for achieving long-lasting relief.",
         prevent:
             "Regular stretching, especially of the hip flexors, IT band, and gluteal muscles, is key to prevention. Strength training for the core and hip stabilizers, a proper warm-up before activity, and early treatment of any muscle tightness or imbalance can prevent the condition from developing or recurring.",
         why_choose_us:
-            "Snapping hip syndrome can be a frustrating condition with multiple potential causes. The sports medicine specialists at Mountain Spine & Orthopedics use advanced diagnostic tools like dynamic ultrasound to pinpoint the issue. For patients in Florida, we offer a complimentary imaging review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to create a personalized plan to resolve the snapping and restore smooth, pain-free motion.",
+            "Snapping hip syndrome can be a frustrating condition with multiple potential causes. The sports medicine specialists at Mountain Spine & Orthopedics use advanced diagnostic tools like dynamic ultrasound to pinpoint the issue. For patients in Florida, we offer a complimentary imaging review and a free second opinion to create a personalized plan to resolve the snapping and restore smooth, pain-free motion.",
         schedule:
-            "If hip snapping or pain is disrupting your movement, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Take advantage of a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI</a> or ultrasound review and an expert second opinion to move forward with a personalized treatment plan.",
+            "If hip snapping or pain is disrupting your movement, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI or ultrasound review and an expert second opinion to move forward with a personalized treatment plan.",
         slug: "snapping-hip-syndrome",
         keywords: [
             "snapping hip syndrome",
@@ -4445,7 +4395,7 @@ export const conditions: ConditionInfoProp[] = [
             "dynamic ultrasound",
         ],
         metaTitle:
-            "Snapping Hip Syndrome | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+            "Snapping Hip Syndrome | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc:
             "Snapping hip syndrome causes a painful popping in the hip joint. Our Florida specialists offer advanced diagnosis and treatment to restore smooth hip motion.",
     },
@@ -4460,15 +4410,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/sbscard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/sbsarti.webp",
         body: "Spinal bone spurs, or osteophytes, are bony growths that form on the spine, often due to arthritis, and can cause pain by compressing nerves.",
-        detail: "<strong>Spinal bone spurs</strong> (osteophytes) are bony projections that develop along the edges of vertebrae, typically as a response to the joint degeneration seen in <a href=\"/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">osteoarthritis</a>. While many bone spurs are asymptomatic, they can cause significant pain, stiffness, or <strong>radiating symptoms</strong> if they grow large enough to narrow the spinal canal or press on nearby nerves. At Mountain Spine & Orthopedics, our evaluation includes a detailed physical exam and complimentary imaging to identify the impact of bone spurs and guide treatment.",
-        what_sym: "When symptomatic, bone spurs can cause localized <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck</a> or <a href=\"/area-of-specialty/back-pain\" class=\"text-blue-600 hover:underline\">back pain</a>, <strong>stiffness</strong>, and <strong>radiating pain, numbness, or weakness</strong> in the arms or legs. In severe cases, they can contribute to <a href=\"/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">spinal stenosis</a>, leading to issues with balance or walking.",
+        detail: "Spinal bone spurs (osteophytes) are bony projections that develop along the edges of vertebrae, typically as a response to the joint degeneration seen in osteoarthritis. While many bone spurs are asymptomatic, they can cause significant pain, stiffness, or radiating symptoms if they grow large enough to narrow the spinal canal or press on nearby nerves. At Mountain Spine & Orthopedics, our evaluation includes a detailed physical exam and complimentary imaging to identify the impact of bone spurs and guide treatment.",
+        what_sym: "When symptomatic, bone spurs can cause localized neck or back pain, stiffness, and radiating pain, numbness, or weakness in the arms or legs. In severe cases, they can contribute to spinal stenosis, leading to issues with balance or walking.",
         risk_fac: "Age-related disc degeneration and osteoarthritis are the primary risk factors. Other contributing factors include previous spinal injuries, poor posture, repetitive spinal stress from manual labor or sports, and a genetic predisposition to joint degeneration.",
         diagnose: "In addition to a clinical evaluation, we offer a complimentary high-resolution MRI or CT review to pinpoint the size and location of bone spurs and assess their impact on spinal nerves. This precise diagnosis helps differentiate bone spur pain from other spinal conditions.",
-        treatment: "Initial management may include anti-inflammatory medications, physical therapy referrals focused on improving posture and core stabilization, and activity modification. <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">Image-guided injections</a> can reduce inflammation and relieve nerve pressure. When symptoms persist, our surgeons may recommend minimally invasive surgery to remove the bone spur and decompress the affected nerve root or spinal cord.",
-        pain_info: "Pain from spinal bone spurs often presents as a <strong>dull, aching discomfort</strong> that can become a <strong>sharper, radiating pain</strong> during activity. Our approach aims to reduce the mechanical pressure and calm the nerve inflammation to provide long-term symptom relief.",
-        prevent: "Maintaining good posture, engaging in regular low-impact exercise, managing weight, and treating underlying conditions like arthritis or <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">disc degeneration</a> early can help slow the progression of bone spur formation.",
-        why_choose_us: "At Mountain Spine & Orthopedics, our spine specialists are experts at treating symptomatic bone spurs. We provide patients across Florida with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We utilize the full spectrum of non-surgical and minimally invasive surgical techniques to relieve your pain and restore mobility.",
-        schedule: "If neck or back pain from bone spurs is impacting your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and an expert second opinion to move forward with a personalized care plan.",
+        treatment: "Initial management may include anti-inflammatory medications, physical therapy referrals focused on improving posture and core stabilization, and activity modification. Image-guided injections can reduce inflammation and relieve nerve pressure. When symptoms persist, our surgeons may recommend minimally invasive surgery to remove the bone spur and decompress the affected nerve root or spinal cord.",
+        pain_info: "Pain from spinal bone spurs often presents as a dull, aching discomfort that can become a sharper, radiating pain during activity. Our approach aims to reduce the mechanical pressure and calm the nerve inflammation to provide long-term symptom relief.",
+        prevent: "Maintaining good posture, engaging in regular low-impact exercise, managing weight, and treating underlying conditions like arthritis or disc degeneration early can help slow the progression of bone spur formation.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our spine specialists are experts at treating symptomatic bone spurs. We provide patients across Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize the full spectrum of non-surgical and minimally invasive surgical techniques to relieve your pain and restore mobility.",
+        schedule: "If neck or back pain from bone spurs is impacting your life, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of a complimentary MRI review and an expert second opinion to move forward with a personalized care plan.",
         slug: "spinal-bone-spurs",
         keywords: [
             "spinal bone spurs",
@@ -4480,7 +4430,7 @@ export const conditions: ConditionInfoProp[] = [
             "nerve compression",
             "facet joint arthritis",
         ],
-        metaTitle: "Spinal Bone Spurs | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Spinal Bone Spurs | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Spinal bone spurs (osteophytes) can cause pain by pinching nerves. Our Florida spine specialists offer advanced non-surgical and surgical treatment options.",
     },
     {
@@ -4489,15 +4439,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/sscard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/ssarti.jpg",
         body: "Spinal stenosis is a narrowing of the spinal canal that can compress the spinal cord and nerves, causing pain, numbness, or weakness.",
-        detail: "<strong>Spinal stenosis</strong> is a condition characterized by the <strong>narrowing of the spinal canal</strong>, most commonly in the neck (<a href=\"/area-of-specialty/cervical-spinal-stenosis\" class=\"text-blue-600 hover:underline\">cervical</a>) or lower back (<strong>lumbar</strong>) due to age-related changes like <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a>, thickened ligaments, or <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a>. This narrowing places pressure on the <strong>spinal cord or nerve roots</strong>, leading to symptoms that may worsen over time. At Mountain Spine & Orthopedics, our specialists use complimentary imaging and a neurologic exam to confirm the stenosis and develop a personalized treatment plan.",
-        what_sym: "<strong>Lumbar stenosis</strong> often causes pain, cramping, or weakness in the legs with walking or standing, which improves with sitting. <strong>Cervical stenosis</strong> can cause neck pain, <strong>numbness in the arms or hands</strong>, and in severe cases, balance or coordination issues.",
+        detail: "Spinal stenosis is a condition characterized by the narrowing of the spinal canal, most commonly in the neck (cervical) or lower back (lumbar) due to age-related changes like herniated discs, thickened ligaments, or bone spurs. This narrowing places pressure on the spinal cord or nerve roots, leading to symptoms that may worsen over time. At Mountain Spine & Orthopedics, our specialists use complimentary imaging and a neurologic exam to confirm the stenosis and develop a personalized treatment plan.",
+        what_sym: "Lumbar stenosis often causes pain, cramping, or weakness in the legs with walking or standing, which improves with sitting. Cervical stenosis can cause neck pain, numbness in the arms or hands, and in severe cases, balance or coordination issues.",
         risk_fac: "The primary risk factor for spinal stenosis is aging. Other factors include arthritis, herniated discs, prior spinal surgery, spinal injuries, and a congenitally narrow spinal canal. Conditions like scoliosis can also contribute.",
         diagnose: "We use complimentary high-resolution imaging, such as an MRI and standing X-rays, to visualize the spinal canal, nerve roots, and surrounding structures. This allows us to confirm the location and severity of the stenosis and identify any associated spinal instability or disc issues, guiding the best course of treatment.",
-        treatment: "Conservative care includes anti-inflammatory medications, physical therapy referrals to improve strength and flexibility, and activity modification. Image-guided <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> can effectively reduce inflammation and relieve nerve compression. If symptoms persist or neurologic function declines, our surgeons may recommend minimally invasive decompression surgery, such as a <a href=\"/treatments/lumbar-laminectomy-surgery\" class=\"text-blue-600 hover:underline\">laminectomy</a>, to create more space for the nerves.",
+        treatment: "Conservative care includes anti-inflammatory medications, physical therapy referrals to improve strength and flexibility, and activity modification. Image-guided epidural steroid injections can effectively reduce inflammation and relieve nerve compression. If symptoms persist or neurologic function declines, our surgeons may recommend minimally invasive decompression surgery, such as a laminectomy, to create more space for the nerves.",
         pain_info: "Pain from spinal stenosis is often positional, worsening with standing or walking and improving with sitting or leaning forward (which opens up the spinal canal). Our treatments target both the mechanical compression and the resulting nerve inflammation to provide lasting relief and improve mobility.",
         prevent: "Staying physically active, maintaining good posture, avoiding smoking, and treating other spinal conditions early can help reduce the risk or slow the progression of spinal stenosis.",
-        why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating spinal stenosis. We provide patients throughout Florida with a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We utilize advanced, minimally invasive surgical techniques designed to minimize downtime and maximize long-term relief.",
-        schedule: "If you're experiencing back or <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck pain</a>, numbness, or difficulty walking, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to manage your spinal stenosis and regain mobility.",
+        why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating spinal stenosis. We provide patients throughout Florida with a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We utilize advanced, minimally invasive surgical techniques designed to minimize downtime and maximize long-term relief.",
+        schedule: "If you're experiencing back or neck pain, numbness, or difficulty walking, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to manage your spinal stenosis and regain mobility.",
         slug: "spinal-stenosis",
         keywords: [
             "spinal stenosis",
@@ -4509,7 +4459,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal decompression",
             "stenosis pain relief",
         ],
-        metaTitle: "Spinal Stenosis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Spinal Stenosis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Spinal stenosis causes pain and numbness from nerve compression. Our Florida spine specialists offer advanced, minimally invasive surgery to provide lasting relief.",
     },
     {
@@ -4518,15 +4468,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/sdcard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/sdarti.jpg",
         body: "Spine deformities like scoliosis and kyphosis involve abnormal spinal curves that can cause pain, poor posture, and functional limitations.",
-        detail: "<strong>Spinal deformities</strong> are abnormal curvatures of the spine, such as <a href=\"/area-of-specialty/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">scoliosis</a> (sideways curve) or <a href=\"/area-of-specialty/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a> (forward rounding), that can develop during adolescence or in adulthood due to degenerative changes. These curvatures can disrupt <strong>spinal balance</strong>, strain muscles, and <strong>compress nerves</strong>, leading to chronic pain and fatigue. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a thorough physical exam to confirm the type and severity of the deformity and create a personalized treatment plan.",
-        what_sym: "Common symptoms include <strong>visibly uneven shoulders or hips</strong>, a noticeable <strong>spinal curve</strong>, <strong>persistent back pain</strong>, and fatigue after standing. Severe deformities can lead to a loss of height or interfere with breathing.",
+        detail: "Spinal deformities are abnormal curvatures of the spine, such as scoliosis (sideways curve) or kyphosis (forward rounding), that can develop during adolescence or in adulthood due to degenerative changes. These curvatures can disrupt spinal balance, strain muscles, and compress nerves, leading to chronic pain and fatigue. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a thorough physical exam to confirm the type and severity of the deformity and create a personalized treatment plan.",
+        what_sym: "Common symptoms include visibly uneven shoulders or hips, a noticeable spinal curve, persistent back pain, and fatigue after standing. Severe deformities can lead to a loss of height or interfere with breathing.",
         risk_fac: "Risk factors include genetics, adolescent growth spurts, degenerative disc disease, osteoporosis, spinal trauma, and a history of previous spinal surgery. Neuromuscular conditions can also lead to the development of spinal deformities.",
         diagnose: "Our specialists use complimentary standing X-rays to measure the curvature angles (like the Cobb angle) and assess overall spinal balance. An MRI or CT scan may be used to detect any associated disc or nerve issues. Ongoing monitoring is often used to track curve progression, especially in younger patients.",
-        treatment: "Non-surgical options include physical therapy referrals to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">fusion techniques</a>. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
-        pain_info: "Pain from spine deformities can be <strong>mechanical</strong>, stemming from muscle fatigue and postural strain, or <strong>neurologic</strong>, resulting from compressed nerves. Our comprehensive approach addresses both sources with a combination of targeted therapies and, when necessary, structural realignment.",
+        treatment: "Non-surgical options include physical therapy referrals to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and fusion techniques. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
+        pain_info: "Pain from spine deformities can be mechanical, stemming from muscle fatigue and postural strain, or neurologic, resulting from compressed nerves. Our comprehensive approach addresses both sources with a combination of targeted therapies and, when necessary, structural realignment.",
         prevent: "Early detection in children and adolescents is key. For adults, maintaining strong core musculature, good bone health, and proper posture can help slow the progression or reduce the impact of degenerative spinal deformities.",
-        why_choose_us: "Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI or X-ray review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to create a plan that restores your natural alignment and balance.",
-        schedule: "If you or a loved one is living with a spinal curvature, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary imaging review and a thorough second opinion to move forward with a plan to manage the deformity.",
+        why_choose_us: "Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across Florida, we offer a complimentary MRI or X-ray review and a free second opinion to create a plan that restores your natural alignment and balance.",
+        schedule: "If you or a loved one is living with a spinal curvature, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary imaging review and a thorough second opinion to move forward with a plan to manage the deformity.",
         slug: "spine-deformities",
         keywords: [
             "spine deformity",
@@ -4538,7 +4488,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal alignment",
             "complex spine surgeon",
         ],
-        metaTitle: "Spine Deformities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Spine Deformities | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Spine deformities like scoliosis and kyphosis cause pain and postural issues. Our Florida surgeons offer advanced correction surgery to improve alignment.",
     },
     {
@@ -4547,15 +4497,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/syncard.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/synarti.jpg",
         body: "Synovitis is the inflammation of the synovial membrane that lines a joint, which causes pain, swelling, and stiffness.",
-        detail: "<strong>Synovitis</strong> is the inflammation of the <strong>synovial membrane</strong>, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like <a href=\"/area-of-specialty/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">rheumatoid arthritis</a>. The resulting <strong>pain, swelling, and excess fluid</strong> can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.",
-        what_sym: "Key symptoms include <strong>joint pain</strong>, visible <strong>swelling</strong>, <strong>warmth</strong> over the affected joint, <strong>tenderness</strong>, and a reduced range of motion. When caused by an inflammatory condition, synovitis may affect multiple joints and worsen with inactivity.",
+        detail: "Synovitis is the inflammation of the synovial membrane, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like <a href=\"/area-of-specialty/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">rheumatoid arthritis</a>. The resulting pain, swelling, and excess fluid can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.",
+        what_sym: "Key symptoms include joint pain, visible swelling, warmth over the affected joint, tenderness, and a reduced range of motion. When caused by an inflammatory condition, synovitis may affect multiple joints and worsen with inactivity.",
         risk_fac: "Autoimmune diseases such as rheumatoid arthritis or lupus are major risk factors. Other causes include overuse injuries, joint trauma, infections, and metabolic conditions like gout.",
         diagnose: "Our specialists use complimentary MRI and diagnostic ultrasound to assess synovial thickening and fluid buildup. If an underlying condition is suspected, blood tests may be ordered. For definitive diagnosis, a joint aspiration may be performed to analyze the synovial fluid for signs of crystals, infection, or inflammation.",
-        treatment: "Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">corticosteroid injections</a> are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an <a href=\"/treatments/arthroscopic-knee-surgery\" class=\"text-blue-600 hover:underline\">arthroscopic synovectomy</a> may be recommended to remove the inflamed tissue.",
-        pain_info: "The pain from synovitis is typically a <strong>dull, aching sensation</strong> but can intensify with activity or prolonged immobility. Our integrated approach aims to reduce the inflammation, protect the joint surfaces from further damage, and restore comfortable function.",
+        treatment: "Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and <a href=\"/treatments/anti-inflammatory-injections\" class=\"text-blue-600 hover:underline\">corticosteroid injections</a> are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an <a href=\"/treatments/arthroscopic-knee-surgery\" class=\"text-blue-600 hover:underline\">arthroscopic synovectomy</a> may be recommended to remove the inflamed tissue.",
+        pain_info: "The pain from synovitis is typically a dull, aching sensation but can intensify with activity or prolonged immobility. Our integrated approach aims to reduce the inflammation, protect the joint surfaces from further damage, and restore comfortable function.",
         prevent: "Prevention focuses on managing any underlying autoimmune or metabolic disorders, avoiding joint overuse, maintaining a healthy weight, and using proper biomechanics during physical activity to reduce stress on the joints.",
-        why_choose_us: "At Mountain Spine & Orthopedics, our specialists are skilled at diagnosing the cause of synovitis, whether it's in the knee, shoulder, or another joint. For patients in Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. Our goal is to reduce your joint inflammation and prevent long-term joint damage.",
-        schedule: "If joint swelling, pain, or stiffness is limiting your lifestyle, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a thorough second opinion to take the first step toward resolving synovitis.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our specialists are skilled at diagnosing the cause of synovitis, whether it's in the knee, shoulder, or another joint. For patients in Florida, we offer a complimentary MRI review and free second opinion to ensure an accurate diagnosis. Our goal is to reduce your joint inflammation and prevent long-term joint damage.",
+        schedule: "If joint swelling, pain, or stiffness is limiting your lifestyle, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and a thorough second opinion to take the first step toward resolving synovitis.",
         slug: "synovitis",
         keywords: [
             "synovitis",
@@ -4567,7 +4517,7 @@ export const conditions: ConditionInfoProp[] = [
             "joint aspiration",
             "orthopedic pain management",
         ],
-        metaTitle: "Synovitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Synovitis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Synovitis is joint inflammation causing pain and swelling. Our Florida specialists diagnose the cause and offer advanced care to reduce inflammation and pain.",
     },
     {
@@ -4575,16 +4525,16 @@ export const conditions: ConditionInfoProp[] = [
         tag: "Spine",
         card_img: "https://mountainspineortho.b-cdn.net/public/tnecard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tnearti.jpg",
-        body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation. Common causes include <Link href='/area-of-specialty/spinal-stenosis'>Spinal Stenosis</a> and <Link href='/area-of-specialty/herniated-disc'>Herniated Disc</a>.",
-        detail: "<strong>Tingling and numbness</strong> in the extremities, also known as <strong>paresthesia</strong>, can signal a problem with a nerve. This may be caused by nerve root compression in the spine (<a href=\"/area-of-specialty/pinched-nerve\" class=\"text-blue-600 hover:underline\">radiculopathy</a>), peripheral nerve entrapment like <a href=\"/area-of-specialty/carpal-tunnel-syndrome\" class=\"text-blue-600 hover:underline\">carpal tunnel syndrome</a>, or systemic conditions such as diabetes. At Mountain Spine & Orthopedics, our diagnosis starts with a thorough neurologic exam, advanced imaging, and electrodiagnostic testing (EMG/NCS) to identify the precise nerve involved and determine the cause.",
-        what_sym: "Symptoms include a <strong>'pins and needles' sensation</strong>, a <strong>loss of feeling</strong>, burning, or prickling in the hands, arms, legs, or feet. This can be accompanied by <strong>weakness</strong>, clumsiness, or a feeling that the limbs are 'falling asleep.'",
+        body: "Tingling or numbness in the arms, hands, legs, or feet is often a sign of nerve compression or irritation that requires expert evaluation. Common causes include <Link href='/area-of-specialty/spinal-stenosis'>Spinal Stenosis</Link> and <Link href='/area-of-specialty/herniated-disc'>Herniated Disc</Link>.",
+        detail: "Tingling and numbness in the extremities, also known as paresthesia, can signal a problem with a nerve. This may be caused by nerve root compression in the spine (radiculopathy), peripheral nerve entrapment like carpal tunnel syndrome, or systemic conditions such as diabetes. At Mountain Spine & Orthopedics, our diagnosis starts with a thorough neurologic exam, advanced imaging, and electrodiagnostic testing (EMG/NCS) to identify the precise nerve involved and determine the cause.",
+        what_sym: "Symptoms include a 'pins and needles' sensation, a loss of feeling, burning, or prickling in the hands, arms, legs, or feet. This can be accompanied by weakness, clumsiness, or a feeling that the limbs are 'falling asleep.'",
         risk_fac: "Common risk factors include spinal issues like herniated discs and stenosis, as well as diabetes, repetitive motion injuries, autoimmune diseases, and vitamin deficiencies. A previous trauma can also lead to nerve-related symptoms.",
         diagnose: "A comprehensive clinical and neurological evaluation is key. We provide a complimentary MRI review to check for spinal causes, and we use electrodiagnostic testing (EMG/NCS) to assess nerve health directly. These tools help us differentiate between a peripheral issue (like carpal tunnel) and a spinal nerve root compression (radiculopathy).",
-        treatment: "Treatment is entirely guided by the underlying diagnosis. If the cause is spinal, care may include physical therapy referrals, anti-inflammatory medications, and targeted <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a>. If a structural issue like a <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated disc</a> is the cause, minimally invasive surgery may be considered. For peripheral issues, treatments like wrist splinting or <a href=\"/treatments/carpal-tunnel-release\" class=\"text-blue-600 hover:underline\">carpal tunnel release</a> may be recommended.",
-        pain_info: "Tingling and numbness may be painless or accompanied by <strong>burning, aching, or sharp, shooting pain</strong>. Our approach targets both symptom relief and the underlying condition to protect long-term nerve health and improve daily function.",
+        treatment: "Treatment is entirely guided by the underlying diagnosis. If the cause is spinal, care may include physical therapy referrals, anti-inflammatory medications, and targeted epidural steroid injections. If a structural issue like a herniated disc is the cause, minimally invasive surgery may be considered. For peripheral issues, treatments like wrist splinting or carpal tunnel release may be recommended.",
+        pain_info: "Tingling and numbness may be painless or accompanied by burning, aching, or sharp, shooting pain. Our approach targets both symptom relief and the underlying condition to protect long-term nerve health and improve daily function.",
         prevent: "Maintaining good posture, avoiding repetitive strain, managing blood sugar levels in the case of diabetes, and staying physically active can all help reduce the risk of developing nerve-related numbness and tingling.",
-        why_choose_us: "At Mountain Spine & Orthopedics, our specialists are experts at getting to the root cause of numbness and tingling. We offer patients in Florida a comprehensive diagnostic workup, including a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. By identifying the exact source of your symptoms, we can provide the most effective treatment to restore healthy nerve function.",
-        schedule: "If tingling or numbness is affecting your mobility or quality of life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to resolve your symptoms and restore healthy sensation.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our specialists are experts at getting to the root cause of numbness and tingling. We offer patients in Florida a comprehensive diagnostic workup, including a complimentary MRI review and a free second opinion. By identifying the exact source of your symptoms, we can provide the most effective treatment to restore healthy nerve function.",
+        schedule: "If tingling or numbness is affecting your mobility or quality of life, schedule a consultation with Mountain Spine & Orthopedics today. Receive a complimentary MRI review and an expert second opinion to resolve your symptoms and restore healthy sensation.",
         slug: "tingling-or-numbness-in-extremities",
         keywords: [
             "tingling in hands and feet",
@@ -4596,7 +4546,7 @@ export const conditions: ConditionInfoProp[] = [
             "nerve compression",
             "EMG test",
         ],
-        metaTitle: "Tingling or Numbness in Extremities | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Tingling or Numbness in Extremities | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Tingling or numbness can signal nerve compression. Our Florida specialists offer advanced diagnostics like EMG to find the cause and provide effective treatment.",
     },
     {
@@ -4605,15 +4555,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/hdarti.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/hdcard.webp",
         body: "A herniated disc, also known as a slipped or ruptured disc, occurs when a disc's soft core pushes out and presses on a nerve, causing significant pain.",
-        detail: "A <strong>herniated disc</strong> occurs when the soft, gel-like nucleus of a spinal disc pushes through a tear in its tough outer wall, often compressing a nearby <strong>nerve root</strong>. This condition, which most commonly affects the lower back or neck, can cause localized pain as well as <strong>radiating pain</strong>, numbness, or weakness in the limbs. At Mountain Spine & Orthopedics, our evaluation includes a comprehensive exam and a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> to pinpoint the herniation and guide a personalized care plan.",
-        what_sym: "Common symptoms include persistent <a href=\"/area-of-specialty/back-pain\" class=\"text-blue-600 hover:underline\">back</a> or <a href=\"/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">neck pain</a>, pain that radiates down an arm or leg (<a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">sciatica</a>), and <strong>numbness or tingling</strong> in the extremities. <strong>Muscle weakness</strong> and difficulty with fine motor tasks can also occur.",
+        detail: "A herniated disc occurs when the soft, gel-like nucleus of a spinal disc pushes through a tear in its tough outer wall, often compressing a nearby nerve root. This condition, which most commonly affects the lower back or neck, can cause localized pain as well as radiating pain, numbness, or weakness in the limbs. At Mountain Spine & Orthopedics, our evaluation includes a comprehensive exam and a complimentary MRI review to pinpoint the herniation and guide a personalized care plan.",
+        what_sym: "Common symptoms include persistent back or neck pain, pain that radiates down an arm or leg (sciatica), and numbness or tingling in the extremities. Muscle weakness and difficulty with fine motor tasks can also occur.",
         risk_fac: "Risk factors include advancing age, occupations involving repetitive heavy lifting or bending, poor posture, smoking, and obesity. A genetic predisposition to disc degeneration can also play a significant role.",
         diagnose: "Diagnosis relies on a thorough clinical examination and imaging studies. We provide a complimentary MRI review, as MRI is the gold standard for visualizing the herniated disc and its effect on the nerves. Electromyography (EMG) and nerve conduction studies may also be used to assess the extent of nerve irritation and help guide treatment planning.",
-        treatment: "Conservative management is often successful and may include targeted physical therapy referrals, anti-inflammatory medications, and <a href=\"/treatments/epidural-steroid-injection\" class=\"text-blue-600 hover:underline\">epidural steroid injections</a> to reduce nerve inflammation. For patients who do not respond to non-surgical care or who have severe neurologic deficits, our surgeons may perform a minimally invasive <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">microdiscectomy</a> to relieve the nerve compression while preserving spinal stability.",
-        pain_info: "Pain results from both the <strong>mechanical compression</strong> of the nerve root and the inflammatory chemicals released by the damaged disc material. Symptoms often worsen with sitting, bending, or coughing. Our multidisciplinary approach addresses both the inflammation and the structural issue to provide lasting relief.",
+        treatment: "Conservative management is often successful and may include targeted physical therapy referrals, anti-inflammatory medications, and epidural steroid injections to reduce nerve inflammation. For patients who do not respond to non-surgical care or who have severe neurologic deficits, our surgeons may perform a minimally invasive microdiscectomy to relieve the nerve compression while preserving spinal stability.",
+        pain_info: "Pain results from both the mechanical compression of the nerve root and the inflammatory chemicals released by the damaged disc material. Symptoms often worsen with sitting, bending, or coughing. Our multidisciplinary approach addresses both the inflammation and the structural issue to provide lasting relief.",
         prevent: "Patients can reduce their risk of herniation by maintaining good posture, practicing proper lifting techniques, engaging in regular core strengthening exercises, maintaining a healthy weight, and avoiding prolonged static positions.",
-        why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating herniated discs. Our Florida clinics offer a complimentary MRI review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to ensure an accurate diagnosis. We prioritize non-surgical and minimally invasive options like microdiscectomy to help you recover faster and with less pain.",
-        schedule: "If you are experiencing back or neck pain with radiating limb symptoms, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and a free second opinion to take the first step toward relief.",
+        why_choose_us: "The spine specialists at Mountain Spine & Orthopedics are leaders in treating herniated discs. Our Florida clinics offer a complimentary MRI review and a free second opinion to ensure an accurate diagnosis. We prioritize non-surgical and minimally invasive options like microdiscectomy to help you recover faster and with less pain.",
+        schedule: "If you are experiencing back or neck pain with radiating limb symptoms, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from a complimentary MRI review and a free second opinion to take the first step toward relief.",
         slug: "herniated-disc",
         keywords: [
             "herniated disc",
@@ -4625,7 +4575,7 @@ export const conditions: ConditionInfoProp[] = [
             "microdiscectomy surgery",
             "non-surgical spine care",
         ],
-        metaTitle: "Herniated Disc | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Herniated Disc | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "A herniated disc causes back or neck pain and radiating symptoms. Our Florida spine specialists offer advanced, minimally invasive treatments for lasting relief.",
     },
     {
@@ -4634,15 +4584,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/racard.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/raarti.jpeg",
         body: "Rheumatoid arthritis (RA) is a chronic autoimmune disorder where the body's immune system attacks its own joints, causing inflammation, pain, and damage.",
-        detail: "<strong>Rheumatoid arthritis (RA)</strong> is a <strong>systemic autoimmune disease</strong> that primarily attacks the synovial lining of joints, causing <strong>chronic inflammation</strong>, pain, swelling, and progressive <strong>joint damage</strong>. It most often affects the small joints of the hands and feet but can also involve the spine and other organs. At Mountain Spine & Orthopedics, our specialists use advanced diagnostics to confirm RA, gauge disease activity, and create a comprehensive treatment plan to prevent irreversible joint erosion.",
-        what_sym: "Patients with RA typically experience <strong>persistent joint pain</strong>, <strong>swelling</strong>, warmth, and <strong>prolonged morning stiffness</strong> lasting more than an hour. Symptoms are often symmetrical (affecting both sides of the body) and may include systemic issues like fatigue and fever.",
+        detail: "Rheumatoid arthritis (RA) is a systemic autoimmune disease that primarily attacks the synovial lining of joints, causing chronic inflammation, pain, swelling, and progressive joint damage. It most often affects the small joints of the hands and feet but can also involve the spine and other organs. At Mountain Spine & Orthopedics, our specialists use advanced diagnostics to confirm RA, gauge disease activity, and create a comprehensive treatment plan to prevent irreversible joint erosion.",
+        what_sym: "Patients with RA typically experience persistent joint pain, swelling, warmth, and prolonged morning stiffness lasting more than an hour. Symptoms are often symmetrical (affecting both sides of the body) and may include systemic issues like fatigue and fever.",
         risk_fac: "Risk factors for rheumatoid arthritis include a family history of autoimmune disease, specific genetic markers, and being female. Environmental factors like smoking and obesity can also contribute to disease onset and progression.",
         diagnose: "Diagnosis follows established criteria, combining clinical findings with serologic markers. We perform comprehensive blood tests for rheumatoid factor and anti-CCP antibodies, and we use complimentary high-resolution MRI or ultrasound to detect early joint inflammation and erosions. Early detection allows for timely initiation of therapy to prevent irreversible joint damage.",
-        treatment: "Treatment focuses on achieving remission or low disease activity through early and aggressive therapy with medications known as DMARDs. Biologic agents and other targeted molecules may be introduced for more severe cases. Adjunctive measures include physical therapy referrals to preserve function and, in advanced cases with severe joint destruction, collaboration with our orthopedic surgeons to evaluate for <a href=\"/treatments/total-knee-replacement\" class=\"text-blue-600 hover:underline\">joint replacement</a>.",
-        pain_info: "The inflammatory joint pain in RA arises from the <strong>autoimmune attack</strong> on the synovial lining and the release of inflammatory chemicals. The pain often <strong>worsens after periods of rest</strong> and improves with gentle movement. Our multidisciplinary team addresses both the inflammation and the pain through tailored pharmacologic regimens and supportive therapies.",
+        treatment: "Treatment focuses on achieving remission or low disease activity through early and aggressive therapy with medications known as DMARDs. Biologic agents and other targeted molecules may be introduced for more severe cases. Adjunctive measures include physical therapy referrals to preserve function and, in advanced cases with severe joint destruction, collaboration with our orthopedic surgeons to evaluate for joint replacement.",
+        pain_info: "The inflammatory joint pain in RA arises from the autoimmune attack on the synovial lining and the release of inflammatory chemicals. The pain often worsens after periods of rest and improves with gentle movement. Our multidisciplinary team addresses both the inflammation and the pain through tailored pharmacologic regimens and supportive therapies.",
         prevent: "While there is no cure for RA, early intervention can slow progression. Patients can improve outcomes by quitting smoking, maintaining a healthy weight, and engaging in low-impact exercises to preserve joint mobility. Diligent management of the disease with a specialist is crucial.",
-        why_choose_us: "At Mountain Spine & Orthopedics, our specialists work as part of a multidisciplinary team to provide comprehensive management of rheumatoid arthritis. For patients across Florida, we offer expert diagnosis, including complimentary imaging reviews and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinions</a>, and state-of-the-art treatment plans designed to control your RA and help you reclaim an active, pain-free life.",
-        schedule: "If you are experiencing persistent joint pain, stiffness, or swelling, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Take advantage of our complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and free second opinion to begin a personalized treatment plan.",
+        why_choose_us: "At Mountain Spine & Orthopedics, our specialists work as part of a multidisciplinary team to provide comprehensive management of rheumatoid arthritis. For patients across Florida, we offer expert diagnosis, including complimentary imaging reviews and free second opinions, and state-of-the-art treatment plans designed to control your RA and help you reclaim an active, pain-free life.",
+        schedule: "If you are experiencing persistent joint pain, stiffness, or swelling, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin a personalized treatment plan.",
         slug: "rheumatoid-arthritis",
         keywords: [
             "rheumatoid arthritis",
@@ -4654,7 +4604,7 @@ export const conditions: ConditionInfoProp[] = [
             "biologic agents for RA",
             "arthritis specialist",
         ],
-        metaTitle: "Rheumatoid Arthritis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Rheumatoid Arthritis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Rheumatoid Arthritis causes joint pain, swelling, and damage. Our Florida specialists offer advanced diagnosis and treatment to manage RA and preserve joints.",
     },
     {
@@ -4663,15 +4613,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/tecard.jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tearti.jpg",
         body: "Tennis elbow, or lateral epicondylitis, is an overuse injury from repetitive wrist and arm motions that causes pain on the outside of the elbow.",
-        detail: "<strong>Tennis elbow</strong> (<strong>lateral epicondylitis</strong>) is a painful condition caused by <strong>overuse of the tendons</strong> on the outside of the elbow. Repetitive wrist and arm motions can lead to micro-tears and degeneration in the tendon, causing <strong>pain and weakness</strong>. Though its name comes from racquet sports, it commonly affects anyone engaged in repetitive gripping tasks. At Mountain Spine & Orthopedics, our evaluation includes a focused physical exam and may use imaging to visualize the tendon pathology and guide treatment.",
-        what_sym: "Patients commonly report <strong>pain and tenderness</strong> on the bony knob on the outside of the elbow. This pain can <strong>radiate down the forearm</strong> and may be accompanied by <strong>weakness when gripping</strong> objects, shaking hands, or turning a doorknob.",
+        detail: "Tennis elbow (lateral epicondylitis) is a painful condition caused by overuse of the tendons on the outside of the elbow. Repetitive wrist and arm motions can lead to micro-tears and degeneration in the tendon, causing pain and weakness. Though its name comes from racquet sports, it commonly affects anyone engaged in repetitive gripping tasks. At Mountain Spine & Orthopedics, our evaluation includes a focused physical exam and may use imaging to visualize the tendon pathology and guide treatment.",
+        what_sym: "Patients commonly report pain and tenderness on the bony knob on the outside of the elbow. This pain can radiate down the forearm and may be accompanied by weakness when gripping objects, shaking hands, or turning a doorknob.",
         risk_fac: "Risk factors include repetitive wrist extension movements found in sports and certain occupations (like plumbing or painting), poor ergonomic setup, and being between the ages of 35 and 55. Smoking can also impair the tendon's ability to heal.",
-        diagnose: "Diagnosis relies on a clinical assessment and physical tests like Cozen’s test to reproduce the symptoms. A high-resolution ultrasound offers a dynamic evaluation of the tendon structure, while a complimentary MRI review can provide detailed visualization of any tears or associated joint pathology if needed.",
-        treatment: "Conservative management is successful in most cases and includes activity modification, using a counterforce brace, and physical therapy referrals emphasizing eccentric strengthening of the wrist extensors. For persistent symptoms, our specialists may recommend image-guided interventions such as <a href=\"/treatments/stem-cell-treatment\" class=\"text-blue-600 hover:underline\">platelet-rich plasma (PRP) injections</a> to enhance tendon healing. Surgery is rarely required.",
-        pain_info: "The pain in tennis elbow stems from both the <strong>mechanical overload</strong> of the tendon fibers and the inflammatory mediators released during the degenerative process. This sensitizes local nerve endings, amplifying pain with even simple wrist movements.",
+        diagnose: "Diagnosis relies on a clinical assessment and physical tests like CozenΓÇÖs test to reproduce the symptoms. A high-resolution ultrasound offers a dynamic evaluation of the tendon structure, while a complimentary MRI review can provide detailed visualization of any tears or associated joint pathology if needed.",
+        treatment: "Conservative management is successful in most cases and includes activity modification, using a counterforce brace, and physical therapy referrals emphasizing eccentric strengthening of the wrist extensors. For persistent symptoms, our specialists may recommend image-guided interventions such as platelet-rich plasma (PRP) injections to enhance tendon healing. Surgery is rarely required.",
+        pain_info: "The pain in tennis elbow stems from both the mechanical overload of the tendon fibers and the inflammatory mediators released during the degenerative process. This sensitizes local nerve endings, amplifying pain with even simple wrist movements.",
         prevent: "To prevent tennis elbow, patients should use proper technique and equipment in sports, incorporate a thorough warm-up and stretching routine, perform regular forearm strengthening exercises, and maintain optimal workstation ergonomics.",
-        why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in treating overuse injuries like tennis elbow. We provide patients across Florida with accurate diagnoses, often aided by a complimentary imaging review, and advanced, <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical treatments</a> like PRP injections. Our goal is to relieve your pain and restore full, pain-free function.",
-        schedule: "If you are experiencing persistent lateral elbow pain or weakness, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Take advantage of our complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to begin an effective treatment plan.",
+        why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in treating overuse injuries like tennis elbow. We provide patients across Florida with accurate diagnoses, often aided by a complimentary imaging review, and advanced, non-surgical treatments like PRP injections. Our goal is to relieve your pain and restore full, pain-free function.",
+        schedule: "If you are experiencing persistent lateral elbow pain or weakness, schedule a consultation with Mountain Spine & Orthopedics today. Take advantage of our complimentary MRI review and free second opinion to begin an effective treatment plan.",
         slug: "tennis-elbow",
         keywords: [
             "tennis elbow",
@@ -4683,7 +4633,7 @@ export const conditions: ConditionInfoProp[] = [
             "overuse injury",
             "orthopedic hand specialist",
         ],
-        metaTitle: "Tennis Elbow | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Tennis Elbow | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Tennis elbow causes outer elbow pain from overuse. Our Florida specialists offer advanced non-surgical treatments, including PRP injections, to restore function.",
     },
     {
@@ -4692,8 +4642,8 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/pfcard.webp",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/pfarti.jpg",
         body: "Plantar fasciitis is a common condition causing stabbing heel pain, especially with the first steps in the morning, due to inflammation of the plantar fascia.",
-        detail: "<strong>Plantar fasciitis</strong> is one of the most common causes of <strong>heel pain</strong>, occurring when the thick band of tissue (<strong>plantar fascia</strong>) that runs across the bottom of your foot becomes inflamed. This ligament acts as a shock absorber, and repetitive stress can cause <strong>tiny tears</strong>, leading to pain and stiffness. At Mountain Spine & Orthopedics, our foot specialists use a precise diagnosis to create an evidence-based therapy plan to relieve your discomfort and help you stay active.",
-        what_sym: "Patients typically report a <strong>sharp, stabbing pain</strong> at the bottom of the heel that is most intense with the first steps in the morning or after long periods of rest. The pain may improve with movement but often returns after <strong>prolonged standing</strong>.",
+        detail: "Plantar fasciitis is one of the most common causes of heel pain, occurring when the thick band of tissue (plantar fascia) that runs across the bottom of your foot becomes inflamed. This ligament acts as a shock absorber, and repetitive stress can cause tiny tears, leading to pain and stiffness. At Mountain Spine & Orthopedics, our foot specialists use a precise diagnosis to create an evidence-based therapy plan to relieve your discomfort and help you stay active.",
+        what_sym: "Patients typically report a sharp, stabbing pain at the bottom of the heel that is most intense with the first steps in the morning or after long periods of rest. The pain may improve with movement but often returns after prolonged standing.",
         risk_fac: "Key risk factors include having flat feet or high arches, tight calf muscles, a sudden increase in activity, obesity, and occupations that require prolonged standing on hard surfaces. Improper or worn-out footwear is also a major contributor.",
         diagnose: "Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness at the plantar fascia's origin on the heel bone. We may use a complimentary ultrasound or MRI review to assess fascia thickness and rule out alternative diagnoses in atypical or refractory cases.",
         treatment: "Most patients improve with conservative care, which includes activity modification, specific stretching exercises for the plantar fascia and calf muscles, and using custom orthotics or supportive shoes. For persistent cases, our specialists may recommend image-guided corticosteroid injections, platelet-rich plasma (PRP), or extracorporeal shockwave therapy (ESWT) to promote healing. Surgery is rarely needed.",
@@ -4815,11 +4765,11 @@ export const conditions: ConditionInfoProp[] = [
                             }}
                             className="text-[#424959] text-md sm:text-xl"
                         >
-                            Early stage – intermittent heel pain that flares after new
-                            activities or long days on the feet. Progressive stage – daily pain,
+                            Early stage ΓÇô intermittent heel pain that flares after new
+                            activities or long days on the feet. Progressive stage ΓÇô daily pain,
                             tightening of the calf and arch, and swelling near the heel pad.
                             <br />
-                            <br /> Chronic stage – persistent inflammation, thickening of the
+                            <br /> Chronic stage ΓÇô persistent inflammation, thickening of the
                             fascia, heel spur formation, and compensatory gait changes.
                             <br />
                             <br /> Recognizing your stage enables the care team at Mountain
@@ -4916,7 +4866,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "ESWT for plantar fasciitis",
         ],
-        metaTitle: "Plantar Fasciitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Plantar Fasciitis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Plantar fasciitis causes stabbing heel pain. Our Florida foot and ankle specialists offer advanced, effective treatments to relieve pain and restore mobility.",
     },
     {
@@ -4925,15 +4875,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/bcard.jpeg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/barti.webp",
         body: "Bursitis is the inflammation of a bursa, a small, fluid-filled sac near a joint, which causes localized pain, swelling, and tenderness.",
-        detail: "<strong>Bursitis</strong> is the inflammation of a <strong>bursa</strong>, one of the small, fluid-filled sacs that cushion the bones, tendons, and muscles near your joints. Repetitive motions, prolonged pressure, or direct trauma can trigger this inflammation, most commonly in the shoulder, elbow, hip, or knee. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and, when needed, complimentary imaging to confirm the diagnosis and guide treatment to relieve pain and restore function.",
-        what_sym: "Symptoms of bursitis include <strong>localized sharp or aching pain</strong>, visible <strong>swelling</strong>, warmth, and <strong>tenderness</strong> over the affected joint. The pain often intensifies with specific activities, such as leaning on an elbow or kneeling.",
+        detail: "Bursitis is the inflammation of a bursa, one of the small, fluid-filled sacs that cushion the bones, tendons, and muscles near your joints. Repetitive motions, prolonged pressure, or direct trauma can trigger this inflammation, most commonly in the shoulder, elbow, hip, or knee. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and, when needed, complimentary imaging to confirm the diagnosis and guide treatment to relieve pain and restore function.",
+        what_sym: "Symptoms of bursitis include localized sharp or aching pain, visible swelling, warmth, and tenderness over the affected joint. The pain often intensifies with specific activities, such as leaning on an elbow or kneeling.",
         risk_fac: "Risk factors include occupations or hobbies involving repetitive or prolonged pressure on a joint, such as gardening, tiling, or leaning on a desk. Overuse from sports, direct trauma, and underlying inflammatory conditions like gout or rheumatoid arthritis also increase the risk.",
         diagnose: "Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness. We may use a complimentary ultrasound review to visualize the fluid collection and guide an aspiration or injection. An MRI can provide a more detailed assessment of adjacent structures and rule out other causes of pain.",
-        treatment: "Most cases of non-infectious bursitis respond to conservative care, including rest, ice, compression, and anti-inflammatory drugs (NSAIDs). If the fluid collection persists or the pain is severe, our specialists can perform an ultrasound-guided bursal aspiration and <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">corticosteroid injection</a> to accelerate recovery. Septic (infected) bursitis requires aspiration for culture and treatment with antibiotics.",
-        pain_info: "Pain in bursitis originates from the <strong>stretching and irritation</strong> of the inflamed bursal lining. Mechanical pressure and movement stimulate pain receptors, leading to <strong>sharp or throbbing discomfort</strong> that can limit daily activities. Our goal is to reduce this inflammation quickly and effectively.",
+        treatment: "Most cases of non-infectious bursitis respond to conservative care, including rest, ice, compression, and anti-inflammatory drugs (NSAIDs). If the fluid collection persists or the pain is severe, our specialists can perform an ultrasound-guided bursal aspiration and corticosteroid injection to accelerate recovery. Septic (infected) bursitis requires aspiration for culture and treatment with antibiotics.",
+        pain_info: "Pain in bursitis originates from the stretching and irritation of the inflamed bursal lining. Mechanical pressure and movement stimulate pain receptors, leading to sharp or throbbing discomfort that can limit daily activities. Our goal is to reduce this inflammation quickly and effectively.",
         prevent: "Preventive measures include avoiding prolonged pressure on vulnerable joints by using protective padding for kneeling or leaning. Practicing proper ergonomics and body mechanics, and strengthening the muscles surrounding the joint can also help prevent recurrence.",
-        why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in diagnosing and treating bursitis. Serving patients across Florida, we utilize advanced, image-guided procedures to aspirate fluid and deliver medication precisely. With a complimentary imaging review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we can develop a tailored plan to treat your bursitis and help you return to pain-free movement.",
-        schedule: "If you are experiencing persistent joint pain, swelling, or stiffness, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Benefit from our complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and free second opinion to develop a tailored plan to diagnose and treat your bursitis.",
+        why_choose_us: "The orthopedic specialists at Mountain Spine & Orthopedics are experts in diagnosing and treating bursitis. Serving patients across Florida, we utilize advanced, image-guided procedures to aspirate fluid and deliver medication precisely. With a complimentary imaging review and a free second opinion, we can develop a tailored plan to treat your bursitis and help you return to pain-free movement.",
+        schedule: "If you are experiencing persistent joint pain, swelling, or stiffness, schedule a consultation with Mountain Spine & Orthopedics today. Benefit from our complimentary MRI review and free second opinion to develop a tailored plan to diagnose and treat your bursitis.",
         slug: "bursitis",
         keywords: [
             "bursitis",
@@ -4945,7 +4895,7 @@ export const conditions: ConditionInfoProp[] = [
             "joint swelling and pain",
             "corticosteroid injection",
         ],
-        metaTitle: "Bursitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Bursitis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Bursitis causes localized joint pain and swelling. Our Florida specialists offer expert diagnosis and advanced, image-guided injections for effective relief.",
     },
     {
@@ -4954,15 +4904,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/Bunions%20(1).jpg",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/bunions2.png",
         body: "A bunion is a painful bony bump that develops at the base of the big toe as it drifts inward, causing deformity and difficulty with footwear.",
-        detail: "A <strong>bunion</strong>, medically known as <strong>hallux valgus</strong>, is a deformity that occurs when the big toe drifts inward toward the other toes, causing the joint at its base to enlarge and protrude. While often aggravated by tight footwear, bunions typically stem from inherited foot structure and biomechanical imbalances. At Mountain Spine & Orthopedics, our specialists diagnose and treat bunions with personalized plans to relieve pain, correct alignment, and help you stay active.",
-        what_sym: "Key symptoms include a <strong>visible bony prominence</strong> on the side of the big toe, <strong>pain and tenderness</strong> around the joint, redness and inflammation, and difficulty finding shoes that fit comfortably due to the bump.",
+        detail: "A bunion, medically known as hallux valgus, is a deformity that occurs when the big toe drifts inward toward the other toes, causing the joint at its base to enlarge and protrude. While often aggravated by tight footwear, bunions typically stem from inherited foot structure and biomechanical imbalances. At Mountain Spine & Orthopedics, our specialists diagnose and treat bunions with personalized plans to relieve pain, correct alignment, and help you stay active.",
+        what_sym: "Key symptoms include a visible bony prominence on the side of the big toe, pain and tenderness around the joint, redness and inflammation, and difficulty finding shoes that fit comfortably due to the bump.",
         risk_fac: "Primary risk factors include a family history of bunions, as foot type and structure are often inherited. Wearing shoes that are too tight, narrow, or have high heels significantly increases the risk. Individuals with certain arthritic conditions or those with flat feet are also more susceptible.",
         diagnose: "Diagnosing a bunion involves a physical examination of the foot and a review of your symptoms. To fully assess the deformity, we use weight-bearing X-rays to determine the alignment of the bones and detect any associated arthritis. This imaging is crucial for planning the appropriate treatment strategy.",
-        treatment: "Conservative treatments are often the first approach and include wearing wider shoes, using bunion pads, and custom orthotic devices to improve foot mechanics. If conservative measures fail or the bunion is severe, our surgeons may recommend a <a href=\"/treatments/bunionectomy-surgery\" class=\"text-blue-600 hover:underline\">bunionectomy</a>. We utilize state-of-the-art procedures to realign the bone, repair soft tissues, and provide lasting relief.",
-        pain_info: "Pain from bunions primarily originates from the <strong>inflamed joint</strong> due to pressure and misalignment. It can range from a <strong>dull ache to a sharp, intense pain</strong>, especially when wearing shoes. The overlying bursa can also become inflamed (<a href=\"/area-of-specialty/bursitis\" class=\"text-blue-600 hover:underline\">bursitis</a>), contributing to the tenderness and swelling.",
-        prevent: "While a genetic predisposition cannot be changed, certain measures can help prevent bunions or slow their progression. Choosing well-fitting footwear with a wide toe box and low heels is the most crucial step. If you have <a href=\"/area-of-specialty/flat-feet\" class=\"text-blue-600 hover:underline\">flat feet</a> or other structural issues, using orthotics can help maintain proper alignment.",
-        why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in bunion correction. We offer patients in Florida a full range of treatments, from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary X-ray review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we can create a personalized plan to get you back on your feet comfortably.",
-        schedule: "If you are struggling with bunion pain or a deformity that affects your daily life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">contact Mountain Spine & Orthopedics</a>. Our specialists can provide a thorough evaluation and discuss personalized treatment pathways to provide relief.",
+        treatment: "Conservative treatments are often the first approach and include wearing wider shoes, using bunion pads, and custom orthotic devices to improve foot mechanics. If conservative measures fail or the bunion is severe, our surgeons may recommend a bunionectomy. We utilize state-of-the-art procedures to realign the bone, repair soft tissues, and provide lasting relief.",
+        pain_info: "Pain from bunions primarily originates from the inflamed joint due to pressure and misalignment. It can range from a dull ache to a sharp, intense pain, especially when wearing shoes. The overlying bursa can also become inflamed (bursitis), contributing to the tenderness and swelling.",
+        prevent: "While a genetic predisposition cannot be changed, certain measures can help prevent bunions or slow their progression. Choosing well-fitting footwear with a wide toe box and low heels is the most crucial step. If you have flat feet or other structural issues, using orthotics can help maintain proper alignment.",
+        why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in bunion correction. We offer patients in Florida a full range of treatments, from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary X-ray review and a free second opinion, we can create a personalized plan to get you back on your feet comfortably.",
+        schedule: "If you are struggling with bunion pain or a deformity that affects your daily life, contact Mountain Spine & Orthopedics. Our specialists can provide a thorough evaluation and discuss personalized treatment pathways to provide relief.",
         slug: "bunions-hallux-valgus",
         forum: [
             {
@@ -5168,7 +5118,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle surgeon",
             "minimally invasive bunion surgery",
         ],
-        metaTitle: "Bunions (Hallux Valgus) | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Bunions (Hallux Valgus) | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Bunions cause a painful bony bump on the big toe. Our Florida foot surgeons offer advanced, minimally invasive bunion surgery to correct the deformity.",
     },
     {
@@ -5177,15 +5127,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/tendo.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/tendo2.jpeg",
         body: "Achilles tendonitis is a common overuse injury of the tendon connecting the calf muscles to the heel, causing pain and stiffness at the back of the ankle.",
-        detail: "<strong>Achilles tendonitis</strong> is an <strong>overuse injury</strong> that occurs when the <strong>Achilles tendon</strong>, the strong cord connecting your calf muscles to your heel, becomes irritated and inflamed from repetitive stress. This condition is common in active adults and can lead to significant pain and stiffness. At Mountain Spine & Orthopedics, our foot and ankle specialists provide state-of-the-art diagnostics and comprehensive treatment plans to calm inflammation, rebuild strength, and protect you from future injury.",
-        what_sym: "Symptoms include <strong>pain and stiffness</strong> along the back of the Achilles tendon, especially in the morning or after periods of rest. The pain typically <strong>worsens with activity</strong>, and there may be <strong>swelling or tenderness</strong> at the back of the heel.",
+        detail: "Achilles tendonitis is an overuse injury that occurs when the Achilles tendon, the strong cord connecting your calf muscles to your heel, becomes irritated and inflamed from repetitive stress. This condition is common in active adults and can lead to significant pain and stiffness. At Mountain Spine & Orthopedics, our foot and ankle specialists provide state-of-the-art diagnostics and comprehensive treatment plans to calm inflammation, rebuild strength, and protect you from future injury.",
+        what_sym: "Symptoms include pain and stiffness along the back of the Achilles tendon, especially in the morning or after periods of rest. The pain typically worsens with activity, and there may be swelling or tenderness at the back of the heel.",
         risk_fac: "Risk factors include a sudden increase in the intensity or amount of physical activity, having tight calf muscles, and wearing improper footwear. Individuals with flat arches or bone spurs on the heel can also be more susceptible to Achilles tendonitis.",
         diagnose: "Diagnosis usually involves a physical exam where our specialist will assess the tendon for pain, swelling, and thickening. We may use a complimentary ultrasound or MRI review to get a more detailed view of the tendon and assess the extent of the damage or degeneration.",
-        treatment: "Treatment focuses on reducing pain and inflammation. The RICE protocol (Rest, Ice, Compression, Elevation) and physical therapy referrals are crucial. Therapy typically includes stretching and eccentric strengthening exercises like heel drops. If conservative treatments are not effective, we offer advanced options like extracorporeal shock wave therapy (ESWT) or <a href=\"/treatments/stem-cell-treatment\" class=\"text-blue-600 hover:underline\">platelet-rich plasma (PRP) injections</a>.",
-        pain_info: "Pain from Achilles tendonitis is typically felt along the back of the lower leg, near the heel. It often begins as a <strong>mild ache after activity</strong> and can gradually worsen to a more <strong>severe, burning pain</strong>. Morning pain and stiffness are characteristic symptoms.",
+        treatment: "Treatment focuses on reducing pain and inflammation. The RICE protocol (Rest, Ice, Compression, Elevation) and physical therapy referrals are crucial. Therapy typically includes stretching and eccentric strengthening exercises like heel drops. If conservative treatments are not effective, we offer advanced options like extracorporeal shock wave therapy (ESWT) or platelet-rich plasma (PRP) injections.",
+        pain_info: "Pain from Achilles tendonitis is typically felt along the back of the lower leg, near the heel. It often begins as a mild ache after activity and can gradually worsen to a more severe, burning pain. Morning pain and stiffness are characteristic symptoms.",
         prevent: "Prevention involves several key strategies: gradually increase your activity level, always warm up before exercising, and perform regular stretching for your calf muscles and Achilles tendons. Wearing appropriate, supportive footwear and strengthening your calf muscles are also crucial.",
-        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating Achilles tendonitis. We provide patients across Florida with a complimentary imaging review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>. Our goal is to use the most effective conservative and regenerative treatments to help you avoid surgery and return to your active life.",
-        schedule: "If ongoing Achilles tendon pain is limiting your activities, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">contact Mountain Spine & Orthopedics</a> to arrange a consultation. We provide thorough diagnostic services and can discuss your path to a smooth and effective recovery.",
+        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in treating Achilles tendonitis. We provide patients across Florida with a complimentary imaging review and a free second opinion. Our goal is to use the most effective conservative and regenerative treatments to help you avoid surgery and return to your active life.",
+        schedule: "If ongoing Achilles tendon pain is limiting your activities, contact Mountain Spine & Orthopedics to arrange a consultation. We provide thorough diagnostic services and can discuss your path to a smooth and effective recovery.",
         slug: "achilles-tendonitis",
         forum: [
             {
@@ -5211,13 +5161,13 @@ export const conditions: ConditionInfoProp[] = [
                             resulting from cumulative overload. Two primary patterns occur:
                             insertional tendonitis, which affects the lower 2 cm where the
                             tendon anchors into the heel bone, and mid-substance tendonitis,
-                            which involves the region 2–6 cm above the heel. In both cases,
+                            which involves the region 2ΓÇô6 cm above the heel. In both cases,
                             collagen fibers lose their organized alignment, forming
                             thickened, painful nodules. Patients usually describe morning
-                            “start-up pain” that improves with gentle movement but returns
+                            ΓÇ£start-up painΓÇ¥ that improves with gentle movement but returns
                             after intense exercise or long periods on their feet. Properly
                             distinguishing Achilles Tendonitis from conditions such as
-                            Haglund’s deformity, retrocalcaneal bursitis, or partial tendon
+                            HaglundΓÇÖs deformity, retrocalcaneal bursitis, or partial tendon
                             rupture is essential to selecting the right treatment.
                         </p>
                         <div className="flex flex-col space-y-[40px] mt-[40px]">
@@ -5259,7 +5209,7 @@ export const conditions: ConditionInfoProp[] = [
                                     Morning stiffness that loosens after a few minutes of walking
                                 </li>
                                 <li>
-                                    Localized swelling or a thickened “cord-like” feeling in the
+                                    Localized swelling or a thickened ΓÇ£cord-likeΓÇ¥ feeling in the
                                     tendon
                                 </li>
                                 <li>Tender nodules or bumps that hurt when squeezed</li>
@@ -5271,7 +5221,7 @@ export const conditions: ConditionInfoProp[] = [
                                 <li>
                                     Limited ankle dorsiflexion (when the foot flexes upward) due to
                                     tight calf muscles. Ignoring these signs can lead to tendon
-                                    degeneration (tendinosis) and elevate the risk of full rupture—a
+                                    degeneration (tendinosis) and elevate the risk of full ruptureΓÇöa
                                     surgical emergency.
                                 </li>
                             </ul>
@@ -5306,29 +5256,29 @@ export const conditions: ConditionInfoProp[] = [
                         >
                             <ol className="list-decimal list-inside space-y-2">
                                 <li>
-                                    Reactive Stage – Sudden overload triggers temporary swelling
+                                    Reactive Stage ΓÇô Sudden overload triggers temporary swelling
                                     of the tendon sheath; pain appears after an unusually hard
                                     workout.
                                 </li>
                                 <li>
-                                    Early Degenerative Stage – Collagen fibers begin to
+                                    Early Degenerative Stage ΓÇô Collagen fibers begin to
                                     disorganize; pain emerges more frequently, and a small lump may
                                     form.
                                 </li>
                                 <li>
-                                    Late Degenerative Stage – Significant thickening, chronic
+                                    Late Degenerative Stage ΓÇô Significant thickening, chronic
                                     inflammation, and scar tissue reduce elasticity; daily pain and
                                     weakness limit activity.
                                 </li>
                                 <li>
-                                    Pre-Rupture Stage – Multiple micro-tears create severe pain,
+                                    Pre-Rupture Stage ΓÇô Multiple micro-tears create severe pain,
                                     audible snapping sensations, or sudden loss of push-off power.
                                 </li>
                             </ol>
                             <p className="mt-4">
                                 Determining your stage helps Mountain Spine & Orthopedics
-                                match therapies—from conservative care to minimally invasive
-                                procedures—precisely to your needs.
+                                match therapiesΓÇöfrom conservative care to minimally invasive
+                                proceduresΓÇöprecisely to your needs.
                             </p>
                         </div>
                     </div>
@@ -5355,29 +5305,29 @@ export const conditions: ConditionInfoProp[] = [
                         >
                             <ul className="list-disc list-inside space-y-2">
                                 <li>
-                                    Phase 1: Calm Inflammation – Activity modification, ice
+                                    Phase 1: Calm Inflammation ΓÇô Activity modification, ice
                                     massage, topical or oral NSAIDs, and a structured
                                     eccentric-calf-loading program proven to stimulate tendon
                                     remodeling.
                                 </li>
                                 <li>
-                                    Phase 2: Correct Mechanics – Customized orthotics or heel lifts
+                                    Phase 2: Correct Mechanics ΓÇô Customized orthotics or heel lifts
                                     reduce tensile load; our physical therapists mobilize tight
                                     ankle joints and teach calf-lengthening stretches.
                                 </li>
                                 <li>
-                                    Phase 3: Regenerate Tissue – For persistent cases, we offer
+                                    Phase 3: Regenerate Tissue ΓÇô For persistent cases, we offer
                                     ultrasound-guided platelet-rich plasma (PRP) injections,
                                     extracorporeal shock-wave therapy, and percutaneous needle
                                     micro-tenotomy to trigger new collagen growth.
                                 </li>
                                 <li>
-                                    Phase 4: Restore Strength & Return to Sport – Progressive
+                                    Phase 4: Restore Strength & Return to Sport ΓÇô Progressive
                                     strengthening, plyometrics, and sport-specific drills under
                                     physiotherapist supervision ensure a safe comeback.
                                 </li>
                                 <li>
-                                    Phase 5: Surgical Options (When Necessary) – Minimally invasive
+                                    Phase 5: Surgical Options (When Necessary) ΓÇô Minimally invasive
                                     debridement, tendon-splitting repair, or reconstruction with a
                                     flexor-hallucis-longus tendon transfer for severe degeneration
                                     or partial tears. Most patients walk in a boot within days and
@@ -5437,7 +5387,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "running injury",
         ],
-        metaTitle: "Achilles Tendonitis | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Achilles Tendonitis | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Achilles tendonitis causes heel and ankle pain from overuse. Our Florida specialists offer advanced treatments like PRP and ESWT to restore tendon health.",
     },
     {
@@ -5446,15 +5396,15 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/public/flat2.webp",
         inTxt_img: "https://mountainspineortho.b-cdn.net/public/flat.webp",
         body: "Flat feet, or fallen arches, occur when the arch of the foot collapses, which can lead to pain, imbalance, and other lower body issues.",
-        detail: "<strong>Flat feet</strong> (pes planus) is a condition where the arch on the inside of the foot collapses, causing the entire sole to contact the ground. While some people are born with flat feet and have no issues, others acquire them over time, leading to strain on the ankles, knees, and hips. At Mountain Spine & Orthopedics, our foot specialists use advanced imaging and gait analysis to create personalized treatment plans that support your arches, improve alignment, and help you move comfortably.",
-        what_sym: "When symptomatic, flat feet can cause <strong>pain in the arch, heel, or ankle</strong>, as well as <strong>tired, achy feet</strong> after prolonged standing. Some people experience <strong>swelling</strong> along the inside of the ankle and pain that extends to the calf, knee, or <a href=\"/area-of-specialty/lower-back-pain\" class=\"text-blue-600 hover:underline\">lower back</a>.",
+        detail: "Flat feet (pes planus) is a condition where the arch on the inside of the foot collapses, causing the entire sole to contact the ground. While some people are born with flat feet and have no issues, others acquire them over time, leading to strain on the ankles, knees, and hips. At Mountain Spine & Orthopedics, our foot specialists use advanced imaging and gait analysis to create personalized treatment plans that support your arches, improve alignment, and help you move comfortably.",
+        what_sym: "When symptomatic, flat feet can cause pain in the arch, heel, or ankle, as well as tired, achy feet after prolonged standing. Some people experience swelling along the inside of the ankle and pain that extends to the calf, knee, or lower back.",
         risk_fac: "Risk factors include genetics, aging, injuries to the foot or ankle, obesity, and certain medical conditions like rheumatoid arthritis and diabetes. Pregnancy can also cause temporary or permanent flat feet due to hormonal changes and weight gain.",
         diagnose: "Diagnosing flat feet involves a physical exam where our specialist will observe your feet as you stand and walk. If pain is present or an acquired flatfoot is suspected, we will use weight-bearing X-rays to examine your bone structure and alignment. An MRI may be used to evaluate tendon or ligament damage.",
-        treatment: "Treatment is usually only necessary if the condition is causing pain. Conservative measures are often effective and include wearing supportive shoes, using over-the-counter or custom-made <strong>orthotic insoles</strong>, and performing specific stretching and strengthening exercises. If conservative treatments fail, particularly in cases of <strong>posterior tibial tendon dysfunction</strong>, surgical options may be considered.",
-        pain_info: "Pain associated with flat feet often manifests as an <strong>ache or fatigue</strong> in the feet and legs, particularly after activity. This discomfort arises from the increased strain on tendons, ligaments, and joints due to the lack of arch support and the resulting <strong>overpronation</strong> (inward rolling) of the foot.",
-        prevent: "While congenital flat feet cannot be prevented, you can take steps to prevent symptoms from an acquired flatfoot. Wearing supportive shoes, maintaining a healthy weight, and performing regular stretching exercises for the <a href=\"/area-of-specialty/achilles-tendonitis\" class=\"text-blue-600 hover:underline\">Achilles tendon</a> and calf muscles can all help reduce strain on the arches.",
+        treatment: "Treatment is usually only necessary if the condition is causing pain. Conservative measures are often effective and include wearing supportive shoes, using over-the-counter or custom-made orthotic insoles, and performing specific stretching and strengthening exercises. If conservative treatments fail, particularly in cases of posterior tibial tendon dysfunction, surgical options may be considered.",
+        pain_info: "Pain associated with flat feet often manifests as an ache or fatigue in the feet and legs, particularly after activity. This discomfort arises from the increased strain on tendons, ligaments, and joints due to the lack of arch support and the resulting overpronation (inward rolling) of the foot.",
+        prevent: "While congenital flat feet cannot be prevented, you can take steps to prevent symptoms from an acquired flatfoot. Wearing supportive shoes, maintaining a healthy weight, and performing regular stretching exercises for the Achilles tendon and calf muscles can all help reduce strain on the arches.",
         why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in managing painful flat feet. For patients across Florida, we offer comprehensive gait analysis, complimentary imaging reviews, and a full range of treatments from custom orthotics to complex reconstructive surgery. Our goal is to restore your alignment and help you move without pain.",
-        schedule: "If foot pain or fatigue associated with flat feet is impacting your comfort or mobility, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule an appointment</a> at Mountain Spine & Orthopedics. Our team can provide a detailed evaluation and outline suitable treatment strategies.",
+        schedule: "If foot pain or fatigue associated with flat feet is impacting your comfort or mobility, schedule an appointment at Mountain Spine & Orthopedics. Our team can provide a detailed evaluation and outline suitable treatment strategies.",
         slug: "flat-feet",
         forum: [
             {
@@ -5481,7 +5431,7 @@ export const conditions: ConditionInfoProp[] = [
                             body weight. Rigid flat feet lack an arch whether seated or
                             standing, often because of tarsal bone fusion or severe
                             arthritis. Adult acquired flatfoot usually appears later in life
-                            when the posterior tibial tendon—the primary dynamic supporter of
+                            when the posterior tibial tendonΓÇöthe primary dynamic supporter of
                             the arch weakens or tears. People with flat feet frequently notice
                             rapid shoe wear along the inner edge, aching or swelling along the
                             arch or inside ankle, and a tendency to stand or walk with the
@@ -5671,7 +5621,7 @@ export const conditions: ConditionInfoProp[] = [
             "overpronation",
             "foot and ankle specialist",
         ],
-        metaTitle: "Flat Feet | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Flat Feet | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Painful flat feet or fallen arches can cause widespread issues. Our Florida foot specialists offer custom orthotics and advanced surgery to restore alignment.",
     },
     {
@@ -5682,15 +5632,15 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).png",
         body: "Ankle arthroscopy is a minimally invasive surgical procedure that allows surgeons to diagnose and treat a wide range of ankle joint problems.",
-        detail: "<strong>Ankle arthroscopy</strong> is a <strong>minimally invasive technique</strong> where an orthopedic surgeon uses a small camera (arthroscope) to look inside the ankle joint. This allows for the diagnosis and treatment of various problems, such as cartilage lesions, <a href=\"/area-of-specialty/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a>, and <strong>chronic instability</strong>, without the need for large incisions. At Mountain Spine & Orthopedics, our surgeons use ankle arthroscopy to provide less pain, reduced scarring, and a faster recovery compared to traditional open surgery.",
-        what_sym: "Ankle arthroscopy is a procedure, not a condition. It is recommended for symptoms like <strong>persistent ankle pain</strong> not relieved by conservative care, <strong>chronic instability</strong> or recurrent sprains, sensations of catching or locking in the joint, and stiffness or swelling that does not resolve.",
+        detail: "Ankle arthroscopy is a minimally invasive technique where an orthopedic surgeon uses a small camera (arthroscope) to look inside the ankle joint. This allows for the diagnosis and treatment of various problems, such as cartilage lesions, bone spurs, and chronic instability, without the need for large incisions. At Mountain Spine & Orthopedics, our surgeons use ankle arthroscopy to provide less pain, reduced scarring, and a faster recovery compared to traditional open surgery.",
+        what_sym: "Ankle arthroscopy is a procedure, not a condition. It is recommended for symptoms like persistent ankle pain not relieved by conservative care, chronic instability or recurrent sprains, sensations of catching or locking in the joint, and stiffness or swelling that does not resolve.",
         risk_fac: "This is a treatment. Risks, while lower than open surgery, include infection, bleeding, blood clots, and nerve irritation around the ankle. Your surgeon will discuss these potential risks in detail before the procedure.",
         diagnose: "The decision to proceed with ankle arthroscopy is based on a thorough diagnostic process. This includes a physical exam and imaging studies. We offer a complimentary MRI review, as MRI provides detailed images of the soft tissues like ligaments and cartilage, helping to identify tears or damage that are amenable to arthroscopic treatment.",
-        treatment: "Ankle arthroscopy is itself a treatment method. During the procedure, our surgeons can <strong>debride damaged cartilage</strong>, remove <a href=\"/area-of-specialty/loose-bodies\" class=\"text-blue-600 hover:underline\">loose bone or cartilage fragments</a>, repair torn ligaments, treat osteochondral lesions, and remove bone spurs that cause impingement. Post-operative care involves rest, ice, and a critical physical therapy referrals program to restore range of motion, strength, and function.",
-        pain_info: "Pain after ankle arthroscopy is expected but is generally <strong>less severe</strong> than after traditional open ankle surgery. The level of pain depends on the complexity of the procedure performed and is managed with prescribed medication. This initial pain and swelling subsides as healing progresses.",
-        prevent: "Prevention focuses on avoiding the ankle injuries that might necessitate arthroscopy in the first place. This includes wearing supportive footwear, strengthening the muscles around the ankle for better stability, and seeking prompt and appropriate treatment for any ankle sprains to prevent chronic problems.",
-        why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are highly skilled in advanced, minimally invasive ankle arthroscopy. For patients in Florida, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to determine if this procedure is right for you. Our goal is to correct the underlying problem with less pain and a faster recovery.",
-        schedule: "If chronic ankle issues are holding you back, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">connect with Mountain Spine & Orthopedics</a>. Our specialists offer expert consultations and complimentary MRI reviews to help you find the best path toward a pain-free, functional ankle.",
+        treatment: "Ankle arthroscopy is itself a treatment method. During the procedure, our surgeons can debride damaged cartilage, remove loose bone or cartilage fragments, repair torn ligaments, treat osteochondral lesions, and remove bone spurs that cause impingement. Post-operative care involves rest, ice, and a critical physical therapy referrals program to restore range of motion, strength, and function.",
+        pain_info: "Pain after ankle arthroscopy is expected but is generally less severe than after traditional open ankle surgery. The level of pain depends on the complexity of the procedure performed and is managed with prescribed medication. This initial pain and swelling subsides as healing progresses.",
+        prevent: "Prevention focuses on avoiding the ankle injuries that might necessitate arthroscopy in the first place. This includes wearing supportive footwear, strengthening the muscles around theankle for better stability, and seeking prompt and appropriate treatment for any ankle sprains to prevent chronic problems.",
+        why_choose_us: "The foot and ankle surgeons at Mountain Spine & Orthopedics are highly skilled in advanced, minimally invasive ankle arthroscopy. For patients in Florida, we offer a complimentary MRI review and a free second opinion to determine if this procedure is right for you. Our goal is to correct the underlying problem with less pain and a faster recovery.",
+        schedule: "If chronic ankle issues are holding you back, connect with Mountain Spine & Orthopedics. Our specialists offer expert consultations and complimentary MRI reviews to help you find the best path toward a pain-free, functional ankle.",
         slug: "ankle-arthroscopy",
         forum: [
             {
@@ -5899,7 +5849,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle surgeon",
             "ankle pain relief",
         ],
-        metaTitle: "Ankle Arthroscopy | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Ankle Arthroscopy | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Ankle arthroscopy treats joint pain and instability. Our Florida surgeons perform this minimally invasive procedure for faster recovery and lasting relief.",
     },
     {
@@ -5910,15 +5860,15 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(12).png",
         body: "A hammertoe is a progressive toe deformity where a toe bends abnormally at the middle joint, causing pain, corns, and difficulty with shoes.",
-        detail: "A <strong>hammertoe</strong> is a foot deformity where one of the lesser toes bends downward at the middle joint, creating a hammer-like shape. This abnormal position causes the joint to rub against shoes, leading to <strong>painful corns, calluses, and inflammation</strong>. While ill-fitting footwear is a common cause, hammertoes can also result from muscle imbalance or <a href=\"/area-of-specialty/arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>. At Mountain Spine & Orthopedics, our foot specialists use advanced imaging and personalized care plans to straighten the toe, relieve pressure, and keep you comfortable.",
-        what_sym: "The primary symptoms include a <strong>visible, abnormal bend</strong> in the toe, <strong>pain or irritation</strong> on the top of the bent toe when wearing shoes, and the formation of painful corns or calluses on the joint or at the tip of the toe.",
+        detail: "A hammertoe is a foot deformity where one of the lesser toes bends downward at the middle joint, creating a hammer-like shape. This abnormal position causes the joint to rub against shoes, leading to painful corns, calluses, and inflammation. While ill-fitting footwear is a common cause, hammertoes can also result from muscle imbalance or arthritis. At Mountain Spine & Orthopedics, our foot specialists use advanced imaging and personalized care plans to straighten the toe, relieve pressure, and keep you comfortable.",
+        what_sym: "The primary symptoms include a visible, abnormal bend in the toe, pain or irritation on the top of the bent toe when wearing shoes, and the formation of painful corns or calluses on the joint or at the tip of the toe.",
         risk_fac: "The most common risk factor for hammertoes is wearing ill-fitting shoes, particularly those that are too tight or have high heels, which can crowd the toes. A traumatic toe injury or an imbalance in the toe muscles and tendons can also be a significant factor.",
         diagnose: "Diagnosis is typically made through a physical examination of the foot. Our specialist will assess the structure of the toes and check for flexibility or rigidity. X-rays may be taken to evaluate the alignment of the bones and the severity of the deformity, which helps in planning treatment.",
-        treatment: "Treatment depends on whether the hammertoe is <strong>flexible or rigid</strong>. For flexible hammertoes, conservative treatments like wearing shoes with a wider toe box and using corn pads are often effective. For rigid hammertoes or when pain persists, our surgeons may recommend <strong>minimally invasive surgery</strong> to release a tight tendon or realign the toe, providing a permanent correction.",
-        pain_info: "Pain from hammertoes primarily arises from the <strong>pressure and friction</strong> on the bent joint when wearing shoes, leading to the formation of painful corns and calluses. The abnormal joint position can also cause inflammation within the joint itself.",
+        treatment: "Treatment depends on whether the hammertoe is flexible or rigid. For flexible hammertoes, conservative treatments like wearing shoes with a wider toe box and using corn pads are often effective. For rigid hammertoes or when pain persists, our surgeons may recommend minimally invasive surgery to release a tight tendon or realign the toe, providing a permanent correction.",
+        pain_info: "Pain from hammertoes primarily arises from the pressure and friction on the bent joint when wearing shoes, leading to the formation of painful corns and calluses. The abnormal joint position can also cause inflammation within the joint itself.",
         prevent: "The most effective way to prevent hammertoes is to wear properly fitting shoes with a wide toe box and low heels. Avoid shoes that squeeze the toes. If you have a predisposition to hammertoes, be particularly mindful of your footwear choices.",
-        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in correcting painful hammertoes. For patients in Florida, we offer a full range of treatments from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary consultation and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a>, we can help you walk in comfort once again.",
-        schedule: "If hammertoes are causing you discomfort or difficulty with shoes, it's time to explore your options. The specialists at Mountain Spine & Orthopedics are available for <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">consultations</a> to help you find the best path toward pain-free, functional toes.",
+        why_choose_us: "The foot and ankle specialists at Mountain Spine & Orthopedics are experts in correcting painful hammertoes. For patients in Florida, we offer a full range of treatments from custom orthotics to advanced, minimally invasive surgical techniques. With a complimentary consultation and a free second opinion, we can help you walk in comfort once again.",
+        schedule: "If hammertoes are causing you discomfort or difficulty with shoes, it's time to explore your options. The specialists at Mountain Spine & Orthopedics are available for consultations to help you find the best path toward pain-free, functional toes.",
         slug: "hammer-toes",
         forum: [
             {
@@ -6123,7 +6073,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "toe pain relief",
         ],
-        metaTitle: "Hammertoes | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Hammertoes | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Hammertoes are painful, bent toes caused by muscle imbalance or poor footwear. Our Florida foot specialists offer advanced surgical correction for relief.",
     },
     {
@@ -6341,7 +6291,7 @@ export const conditions: ConditionInfoProp[] = [
             "diabetic foot care",
             "foot and ankle specialist",
         ],
-        metaTitle: "Diabetic Foot Ulcers | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Diabetic Foot Ulcers | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Diabetic foot ulcers require urgent care. Our Florida wound care specialists offer advanced treatments to heal ulcers and prevent serious complications.",
     },
     {
@@ -6352,15 +6302,15 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(16).jpg",
         body: "Ankle replacement is an advanced surgical procedure to treat severe ankle arthritis by replacing damaged bone and cartilage with a prosthesis.",
-        detail: "<strong>Total ankle replacement</strong>, or <strong>total ankle arthroplasty</strong>, is a surgical procedure for treating severe <a href=\"/area-of-specialty/arthritis\" class=\"text-blue-600 hover:underline\">ankle arthritis</a>. It involves removing damaged bone and cartilage and replacing them with a <strong>precision-engineered prosthesis</strong> to relieve pain and restore motion. Unlike ankle fusion, which eliminates movement, an ankle replacement helps maintain a more natural gait. At Mountain Spine & Orthopedics, our fellowship-trained surgeons use cutting-edge imaging and alignment tools to personalize each ankle replacement for lasting mobility.",
-        what_sym: "This is a treatment. It is recommended for patients with <strong>severe and persistent ankle pain</strong> during weight-bearing activities, significant <strong>ankle stiffness</strong>, <strong>chronic swelling</strong>, and a grinding or catching sensation in the joint. These symptoms typically persist despite conservative treatments and limit daily activities.",
+        detail: "Total ankle replacement, or total ankle arthroplasty, is a surgical procedure for treating severe ankle arthritis. It involves removing damaged bone and cartilage and replacing them with a precision-engineered prosthesis to relieve pain and restore motion. Unlike ankle fusion, which eliminates movement, an ankle replacement helps maintain a more natural gait. At Mountain Spine & Orthopedics, our fellowship-trained surgeons use cutting-edge imaging and alignment tools to personalize each ankle replacement for lasting mobility.",
+        what_sym: "This is a treatment. It is recommended for patients with severe and persistent ankle pain during weight-bearing activities, significant ankle stiffness, chronic swelling, and a grinding or catching sensation in the joint. These symptoms typically persist despite conservative treatments and limit daily activities.",
         risk_fac: "Factors that can lead to severe ankle arthritis necessitating a replacement include a history of significant ankle trauma (like fractures), osteoarthritis, and inflammatory arthritis like rheumatoid arthritis. Avascular necrosis of the talus, where a loss of blood supply leads to bone collapse, is another cause.",
         diagnose: "The decision to proceed with an ankle replacement is based on a comprehensive evaluation. This includes a physical exam and weight-bearing X-rays to visualize the extent of the joint damage. We use complimentary, high-resolution CT scans to create a three-dimensional plan that guides implant positioning with pinpoint accuracy.",
-        treatment: "The surgery involves removing the diseased joint surfaces and preparing the tibia and talus to accept the implant. The new joint consists of metal components and a durable polyethylene insert that glides smoothly. Unlike an ankle fusion, which eliminates motion, an ankle replacement <strong>preserves up-and-down movement</strong>, allowing for a more natural gait.",
-        pain_info: "The chronic, debilitating pain that leads to an ankle replacement is due to the <strong>arthritic changes</strong> and <strong>bone-on-bone contact</strong> in the joint. The primary goal of the surgery is to eliminate this pain by replacing the damaged surfaces, thereby restoring smoother, pain-free motion to the ankle.",
+        treatment: "The surgery involves removing the diseased joint surfaces and preparing the tibia and talus to accept the implant. The new joint consists of metal components and a durable polyethylene insert that glides smoothly. Unlike an ankle fusion, which eliminates motion, an ankle replacement preserves up-and-down movement, allowing for a more natural gait.",
+        pain_info: "The chronic, debilitating pain that leads to an ankle replacement is due to the arthritic changes and bone-on-bone contact in the joint. The primary goal of the surgery is to eliminate this pain by replacing the damaged surfaces, thereby restoring smoother, pain-free motion to the ankle.",
         prevent: "While it's not always possible to prevent the conditions that lead to needing a replacement, you can reduce the risk by seeking prompt medical attention for ankle injuries, maintaining a healthy body weight, and wearing supportive footwear.",
-        why_choose_us: "The fellowship-trained foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in total ankle replacement. Using state-of-the-art technology, we provide patients in Florida with personalized surgical plans designed to preserve motion and provide lasting pain relief. We offer a complimentary imaging review and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to help you make an informed decision.",
-        schedule: "If persistent ankle pain and stiffness are dictating your life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics. Our experienced foot and ankle team will review your imaging, explain your options, and help you step forward with confidence.",
+        why_choose_us: "The fellowship-trained foot and ankle surgeons at Mountain Spine & Orthopedics are leaders in total ankle replacement. Using state-of-the-art technology, we provide patients in Florida with personalized surgical plans designed to preserve motion and provide lasting pain relief. We offer a complimentary imaging review and a free second opinion to help you make an informed decision.",
+        schedule: "If persistent ankle pain and stiffness are dictating your life, schedule a consultation with Mountain Spine & Orthopedics. Our experienced foot and ankle team will review your imaging, explain your options, and help you step forward with confidence.",
         slug: "ankle-replacement",
         forum: [
             {
@@ -6563,7 +6513,7 @@ export const conditions: ConditionInfoProp[] = [
             "post-traumatic ankle arthritis",
             "rheumatoid arthritis ankle",
         ],
-        metaTitle: "Ankle Replacement | Mountain Spine & Orthopedics – Florida’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Ankle Replacement | Mountain Spine & Orthopedics ΓÇô FloridaΓÇÖs Trusted Spine and Joint Pain Specialists",
         metaDesc: "Total ankle replacement relieves arthritis pain and restores motion. Our Florida foot surgeons specialize in this advanced procedure for lasting mobility.",
     },
 ]

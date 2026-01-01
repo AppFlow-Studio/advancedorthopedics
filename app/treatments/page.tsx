@@ -8,7 +8,7 @@ import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 // import { Input } from '@/components/ui/input'
 import ConditionCard from '@/components/ConditionCard'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
-import { AllTreatments, TreatmentsCardProp } from '@/components/data/treatments' // Your master list of treatments
+import { AllTreatmentsCombined, TreatmentsCardProp } from '@/components/data/treatments' // Your master list of treatments
 import TreatmentCard from '@/components/TreatmentCard'
 import TreatmentsSearchBar from '@/components/ui/TreatmentsSearchBar'
 import { TextAnimate } from '@/components/magicui/text-animate'
@@ -59,9 +59,9 @@ export default function Treatments() {
   }
   // State for data:
   // 'allData' holds the original, full list of treatments.
-  const [allData, setAllData] = React.useState<TreatmentsCardProp[]>(AllTreatments);
+  const [allData, setAllData] = React.useState<TreatmentsCardProp[]>(AllTreatmentsCombined);
   // 'filteredData' holds the list after applying search filter. This is what pagination works on.
-  const [filteredData, setFilteredData] = React.useState<TreatmentsCardProp[]>(AllTreatments);
+  const [filteredData, setFilteredData] = React.useState<TreatmentsCardProp[]>(AllTreatmentsCombined);
 
   const isInitialMount = useRef(true);
   const paginationRef = useRef<HTMLDivElement>(null); // Typed the ref
@@ -230,71 +230,20 @@ export default function Treatments() {
         </div>
       </section>
 
-      {/* Tell us Your Story Section (no changes) */}
-      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
-        {/* ... (rest of your "Tell us Your Story" section code) ... */}
-        <div className=' flex flex-col space-y-[16px] '>
-          <h2
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-[#111315] sm:text-5xl text-3xl'
-          >
-            We are Here to Listen, Tell us your Story
-          </h2>
-
-          <p
-            style={{
-              fontFamily: 'var(--font-inter)',
-              fontWeight: 500,
-            }}
-            className='text-[#424959] sm:text-xl text-md sm:w-[75%] '
-          >
-            Spinal conditions may cause persistent pain that affects daily activities and quality of life. Understanding available treatment options—both surgical and non-surgical—can help patients make informed decisions about their care journey.
-          </p>
-        </div>
-
-        <div className=' flex flex-col space-y-[16px] ' ref={paginationRef}>
-          <h3
-            style={{
-              fontFamily: 'var(--font-public-sans)',
-              fontWeight: 500,
-            }}
-            className='text-[#111315] sm:text-2xl text-xl '
-          >
-            WELL, YOU'RE NOT ALONE.
-          </h3>
-
-          <p
-            style={{
-              fontFamily: 'var(--font-inter)',
-              fontWeight: 500,
-            }}
-            className='text-[#424959] sm:text-xl text-sm sm:w-[75%] w-full'
-          >
-            Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
-            <br /><br />
-            At Mountain Spine and Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
-          </p>
-        </div>
-      </section>
-
-
       {/* Treatments List Section */}
-      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8 ' id="treatments-section">
-        <div className='flex flex-col lg:flex-row justify-between lg:items-center lg:space-y-0 space-y-4'>
+      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] py-[50px] px-6 xl:px-[80px] space-y-[24px] scroll-mt-8 ' id="treatments-section" ref={paginationRef}>
+        <div className='flex flex-col lg:flex-row justify-between lg:items-center gap-6 lg:gap-8'>
           <h2
             style={{
               fontFamily: 'var(--font-public-sans)',
               fontWeight: 500,
             }}
-            className='text-[#111315] text-4xl md:text-5xl mb-4 lg:mb-0'
+            className='text-[#111315] text-4xl md:text-5xl flex-shrink-0'
           >
             All Our Treatments
           </h2>
 
-          <div className="w-full  lg:w-2/3 flex flex-col lg:flex-row gap-x-4 lg:space-y-0 space-y-4">
+          <div className="w-full lg:w-1/2 flex flex-col lg:flex-row gap-4">
             {/* Search Bar */}
             <div className="w-full md:w-1/2">
               <TreatmentsSearchBar
@@ -389,7 +338,56 @@ export default function Treatments() {
         )}
       </section>
 
-      {/* Ratings & Reviews Section (no changes) */}
+      {/* Tell us Your Story Section */}
+      <section className='max-w-[1440px] w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)] py-[50px] px-6 xl:px-[80px] space-y-[24px]'>
+        <div className=' flex flex-col space-y-[16px] '>
+          <h2
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className='text-[#111315] sm:text-5xl text-3xl'
+          >
+            We are Here to Listen, Tell us your Story
+          </h2>
+
+          <p
+            style={{
+              fontFamily: 'var(--font-inter)',
+              fontWeight: 500,
+            }}
+            className='text-[#424959] sm:text-xl text-md sm:w-[75%] '
+          >
+            Spinal conditions may cause persistent pain that affects daily activities and quality of life. Understanding available treatment options—both surgical and non-surgical—can help patients make informed decisions about their care journey.
+          </p>
+        </div>
+
+        <div className=' flex flex-col space-y-[16px] '>
+          <h3
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className='text-[#111315] sm:text-2xl text-xl '
+          >
+            WELL, YOU'RE NOT ALONE.
+          </h3>
+
+          <p
+            style={{
+              fontFamily: 'var(--font-inter)',
+              fontWeight: 500,
+            }}
+            className='text-[#424959] sm:text-xl text-sm sm:w-[75%] w-full'
+          >
+            Many people with spinal disorders feel frustrated, confused, and helpless about their conditions. As many as 500,000 people suffer from some form of spinal injury each year. The good news is that you can ease your concerns and fears by gaining a better understanding of your condition.
+            <br /><br />
+            At Mountain Spine and Orthopedics, we work to help you understand your symptoms, diagnose your condition and inform you of the various treatments. Below is an overview of the most common types of spine conditions, as well as other orthopedic conditions.
+          </p>
+        </div>
+      </section>
+
+      {/* Ratings & Reviews Section */}
       <RatingsAndReviews />
     </main>
   )

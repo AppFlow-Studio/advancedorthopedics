@@ -453,7 +453,7 @@ export default function FreeMRIReviewClient() {
                                               </svg>
 
                                           }
-                                          <p>I don't want to receive occasional emails from Orthopedic and Laser Spine Surgery.</p>
+                                          <p>I don't want to receive occasional emails from Mountain Spine Orthopedics.</p>
                                         </div>
                                         :
                                         <Input placeholder={question.question} className="h-12 text-lg  border-[#DCDEE1] bg-[#FAFAFA]" {...field} />
