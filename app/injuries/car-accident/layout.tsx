@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: safeTitle(undefined, "Car Accident Orthopedic Care in Florida | Mountain Spine & Orthopedics"),
-  description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries in Florida. Same-day appointments, advanced spine & joint treatment."),
+  title: safeTitle(undefined, "Car Accident Orthopedic Care | Mountain Spine & Orthopedics"),
+  description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries. Same-day appointments, advanced spine & joint treatment."),
   keywords: [
     "car accident orthopedic care",
-    "car accident injury treatment Florida",
-    "whiplash treatment Florida",
+    "car accident injury treatment",
+    "whiplash treatment",
     "car accident spine care",
     "personal injury orthopedic clinic",
     "accident injury specialist",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "car crash injury treatment",
     "motor vehicle accident orthopedic care",
     "car accident herniated disc treatment",
-    "whiplash injury specialist Florida",
+    "whiplash injury specialist",
     "car accident spinal injury doctor",
     "auto accident back pain treatment",
     "car crash trauma orthopedic care",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     canonical: buildCanonical("/injuries/car-accident"),
   },
   openGraph: {
-    title: safeTitle(undefined, "Car Accident Orthopedic Care in Florida | Mountain Spine & Orthopedics"),
-    description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries in Florida. Same-day appointments, advanced spine & joint treatment."),
+    title: safeTitle(undefined, "Car Accident Orthopedic Care | Mountain Spine & Orthopedics"),
+    description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries. Same-day appointments, advanced spine & joint treatment."),
     url: buildCanonical("/injuries/car-accident"),
     type: "website",
     images: [

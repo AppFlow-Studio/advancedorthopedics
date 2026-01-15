@@ -39,7 +39,7 @@ function truncateString(str: string, maxLength = 125) {
 
 export default function ConditionCard({ ConditionInfo }: { ConditionInfo: ConditionInfoProp }) {
   return (
-    <Link className="bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/area-of-specialty/${ConditionInfo.slug}`}>
+    <Link className="bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/conditions/${ConditionInfo.slug}`}>
       <div>
         <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden">
           <Image src={ConditionInfo?.card_img ? ConditionInfo?.card_img : Logo} width={240} height={240} layout="cover" alt={ConditionInfo.title} className="w-full h-full object-cover aspect-video object-center" />

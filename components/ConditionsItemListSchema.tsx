@@ -10,7 +10,7 @@ export function ConditionsItemListSchema() {
   ];
   
   const baseUrl = 'https://mountainspineorthopedics.com';
-  const pageUrl = buildCanonical('/area-of-specialty');
+  const pageUrl = buildCanonical('/conditions');
   const organizationId = `${baseUrl}#medicalorganization`;
 
   // 1. BreadcrumbList Schema
@@ -47,10 +47,10 @@ export function ConditionsItemListSchema() {
       "position": index + 1,
       "item": {
         "@type": "MedicalCondition",
-        "@id": buildCanonical(`/area-of-specialty/${condition.slug}`),
+        "@id": buildCanonical(`/conditions/${condition.slug}`),
         "name": condition.title,
         "description": 'body' in condition ? condition.body : (condition as any).overview?.body || condition.title,
-        "url": buildCanonical(`/area-of-specialty/${condition.slug}`),
+        "url": buildCanonical(`/conditions/${condition.slug}`),
       }
     })),
   };

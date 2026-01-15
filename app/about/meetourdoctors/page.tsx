@@ -51,7 +51,7 @@ export default function MeetOurDoctors() {
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="A compassionate Mountain Spine & Orthopedics doctor reviewing a patient's spine condition in Florida"
+          alt="A compassionate Mountain Spine & Orthopedics doctor reviewing a patient's spine condition"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -110,7 +110,7 @@ export default function MeetOurDoctors() {
             <h2
               style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
               className="text-black text-5xl text-left w-full"
-            >Florida's Leading Orthopedic Experts</h2>
+            >Our Leading Orthopedic Experts</h2>
             <p className="text-[#424959] text-lg">
               Our team of board-certified, fellowship-trained specialists bring decades of combined experience in advanced spine care, joint reconstruction, and pain management.
             </p>

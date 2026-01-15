@@ -411,7 +411,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                     <div className="grid lg:grid-cols-2 gap-12 items-center relative z-[2]">
                         <div className="space-y-6">
                             <motion.h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                                {"Car Accident Orthopedic Specialists in Florida".split(" ").map((word, i) => (
+                                {"Car Accident Orthopedic Specialists".split(" ").map((word, i) => (
                                     <motion.span
                                         key={i}
                                         custom={i}
@@ -501,7 +501,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                                         <MapPin className="h-4 w-4" />
                                         <span>
                                             {
-                                                clinics.map(clinic => clinic.region.replace(', FL', '')).join(' • ')
+                                                clinics.map(clinic => clinic.region.split(',')[0].trim()).join(' • ')
                                             }
                                         </span>
                                     </div>
@@ -1444,7 +1444,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                                     "@context": "https://schema.org",
                                     "@type": "MedicalClinic",
                                     name: "Mountain Spine & Orthopedics",
-                                    description: "Car accident orthopedic care in Florida with same-week appointments",
+                                    description: "Car accident orthopedic care with same-week appointments",
                                     url: "https://example.com/car-accident",
                                     telephone: "+1234567890",
                                     address: {

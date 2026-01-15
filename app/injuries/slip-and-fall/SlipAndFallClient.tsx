@@ -418,7 +418,7 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                                     <MapPin className="h-4 w-4" />
                                     <span>
                                         {
-                                            clinics.map(clinic => clinic.region.replace(', FL', '')).join(' • ')
+                                            clinics.map(clinic => clinic.region.split(',')[0].trim()).join(' • ')
                                         }
                                     </span>
                                 </div>

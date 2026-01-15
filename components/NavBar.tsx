@@ -133,7 +133,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                       <div key={`${link.title}-${linkIndex}`} className='h-fit gap-0'>
                         {link.subLinks.length == 0 ? (
                           <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4 '>
-                            <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                            <Link href={link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
                               <div className='flex flex-row items-center gap-x-4'>
                                 <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
                                   <IconComponent className='w-8 h-8 text-[#252932]' />
@@ -181,11 +181,11 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                 }
               </div>
               <div className='w-60'>
-                <PromoOverlayCard className="max-w-60" link="/area-of-specialty/spinal-stenosis" />
+                <PromoOverlayCard className="max-w-60" link="/conditions/spinal-stenosis" />
               </div>
             </div>
           ) :
-            title == 'AREA OF SPECIALTY' ? (
+            title == 'SERVICES' ? (
               <div className='w-200 flex flex-row '>
                 <div className='w-fit flex flex-col justify-center items-center space-y-4 px-1'>
                   <ul className='flex flex-col w-100'>
@@ -198,7 +198,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                           <li key={`${link.title}-${linkIndex}`}>
                             {link.subLinks.length == 0 ? (
                               <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4 '>
-                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                <Link href={link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
                                   <div className='flex flex-row items-center gap-x-4'>
                                     <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
                                       <IconComponent className='w-8 h-8 text-[#252932]' />
@@ -250,7 +250,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                     imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
                     title="Lower Back Pain?"
                     subtitle="Meet with our world-class surgeons today"
-                    link={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
+                    link={`/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
                   />
                 </div>
 
@@ -320,7 +320,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                           <li key={`${link.title}-${linkIndex}`}>
                             {link.subLinks.length == 0 && (
                               <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
-                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                <Link href={link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
                                   <div className='flex flex-row items-center gap-x-4'>
                                     <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
                                       <IconComponent className='w-8 h-8 text-[#252932]' />
@@ -382,36 +382,14 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                   /> */}
                 </div>
               ) : title == 'LOCATION' ? (
-                <div className=' flex flex-row gap-x-4 w-200'>
-                  <ul className='grid grid-cols-2 gap-x-4 w-130 left-0'>
-                    {
-                      sublinks.map((link, linkIndex) => {
-                        const IconComponent = link.icon;
-                        return (
-                          <li key={`${link.title}-${linkIndex}`}>
-                            {link.subLinks.length == 0 ? (
-                              <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
-                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
-                                  <div className='flex flex-row items-center gap-x-4'>
-                                    <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                                      <IconComponent className='w-8 h-8 text-[#252932]' />
-                                    </div>
-                                    <div className='flex flex-col gap-y-0'>
-                                      <span
-                                        style={{
-                                          fontFamily: "var(--font-public-sans)",
-                                          fontWeight: 400,
-                                        }}
-                                      >
-                                        {link.title}
-                                      </span>
-                                      <span className='text-xs text-gray-500'>{link.short_desc}</span>
-                                    </div>
-                                  </div>
-                                  <ChevronRight className='w-4 h-4 text-[#252932]' />
-                                </Link>
-                              </NavigationMenuLink>
-                            ) : (
+                <div className='w-220 flex flex-row'>
+                  <div className='w-fit flex flex-col justify-start items-start space-y-1 px-1'>
+                    <ul className='flex flex-col w-60'>
+                      {
+                        sublinks.map((link, linkIndex) => {
+                          const IconComponent = link.icon;
+                          return (
+                            <li key={`${link.title}-${linkIndex}`}>
                               <Link
                                 href={link.href}
                                 className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
@@ -420,29 +398,82 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                                 <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
                                   <IconComponent className='w-4 h-4 text-[#252932]' />
                                 </div>
-                                <div className='flex flex-col gap-y-2'>
+                                <div className='flex flex-col gap-y-0'>
                                   <span
                                     style={{
                                       fontFamily: "var(--font-public-sans)",
-                                      fontWeight: 400,
+                                      fontWeight: 500,
                                     }}
                                   >
                                     {link.title}
                                   </span>
-                                  <span className='text-sm text-gray-500'>{link.short_desc}</span>
+                                  <span className='text-xs text-gray-500'>{link.short_desc}</span>
                                 </div>
                               </Link>
-                            )}
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </div>
+
+                  {selectedSubLink && selectedSubLink.subLinks && selectedSubLink.subLinks.length > 0 && (
+                    <div className='flex flex-col p-4 border-l lg:w-90'>
+                      {/* Header */}
+                      <div className='flex flex-row items-center gap-x-3 mb-4 pb-3 border-b'>
+                        <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                          <selectedSubLink.icon className='w-6 h-6 text-[#252932]' />
+                        </div>
+                        <div className='flex flex-col'>
+                          <span
+                            style={{
+                              fontFamily: "var(--font-public-sans)",
+                              fontWeight: 600,
+                            }}
+                            className='text-[#252932]'
+                          >
+                            {selectedSubLink.title}
+                          </span>
+                          <span className='text-sm text-gray-500'>{selectedSubLink.short_desc}</span>
+                        </div>
+                      </div>
+
+                      {/* SubLinks - Locations in State */}
+                      <div className='flex flex-col gap-y-1 max-h-80 overflow-y-auto'>
+                        {selectedSubLink.subLinks.map((subLink, subIndex) => {
+                          const SubIconComponent = subLink.icon;
+                          return (
+                            <NavigationMenuLink key={`${subLink.title}-${subIndex}`} asChild>
+                              <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200">
+                                <div className='flex flex-row items-center gap-x-3'>
+                                  <div className='p-1.5 rounded-xl border aspect-square flex items-center justify-center'>
+                                    <SubIconComponent className='w-4 h-4 text-[#252932]' />
+                                  </div>
+                                  <div className='flex flex-col'>
+                                    <span
+                                      style={{
+                                        fontFamily: "var(--font-public-sans)",
+                                        fontWeight: 400,
+                                      }}
+                                      className='text-[#252932] text-sm'
+                                    >
+                                      {subLink.title}
+                                    </span>
+                                  </div>
+                                </div>
+                              </Link>
+                            </NavigationMenuLink>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                  
                   <PromoOverlayCard
                     className="max-w-70 w-70"
                     imageUrl="/centralflorida.png"
-                    title="Serving Florida"
-                    subtitle="20+ Years of Orthopedic Care for Florida."
+                    title="Serving 4 States"
+                    subtitle="21+ Locations Across FL, NJ, NY & PA"
                     link="/locations"
                   />
                 </div>
@@ -457,7 +488,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                           <li key={`${link.title}-${linkIndex}`}>
                             {link.subLinks.length == 0 ? (
                               <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4'>
-                                <Link href={link.title == 'Florida' ? '#' : link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
+                                <Link href={link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
                                   <div className='flex flex-row items-center gap-x-4'>
                                     <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
                                       <IconComponent className='w-8 h-8 text-[#252932]' />
@@ -590,15 +621,15 @@ const NavBarLinks = [
     ]
   },
   {
-    href: '/area-of-specialty',
-    screen: '/area-of-specialty',
-    title: 'AREA OF SPECIALTY',
+    href: '/conditions',
+    screen: '/conditions',
+    title: 'SERVICES',
     short_desc: 'Our treatment specialties',
     icon: Target,
     subLinks: [
       {
         title: 'Back Pain',
-        href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
+        href: `/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
         short_desc: 'Spine and back care',
         icon: Activity,
         subLinks: [
@@ -648,7 +679,7 @@ const NavBarLinks = [
       },
       {
         title: 'Neck & Shoulder Pain',
-        href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
+        href: `/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
         short_desc: 'Neck and shoulder care',
         icon: Headphones,
         subLinks: [
@@ -692,7 +723,7 @@ const NavBarLinks = [
       },
       {
         title: 'Foot & Ankle',
-        href: `/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
+        href: `/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
         short_desc: 'Foot and ankle care',
         icon: Footprints,
         subLinks: [
@@ -748,17 +779,127 @@ const NavBarLinks = [
       },
       {
         title: 'View All Conditions',
-        href: '/area-of-specialty',
+        href: '/conditions',
         short_desc: 'Browse all conditions',
         icon: List,
-        subLinks: []
+        subLinks: [
+          {
+            title: 'Spine Conditions',
+            href: '/conditions/spine',
+            short_desc: 'Spine conditions',
+            icon: Activity,
+          },
+          {
+            title: 'Neck Conditions',
+            href: '/conditions/neck',
+            short_desc: 'Neck conditions',
+            icon: Headphones,
+          },
+          {
+            title: 'Back Conditions',
+            href: '/conditions/back',
+            short_desc: 'Back conditions',
+            icon: Zap,
+          },
+          {
+            title: 'Shoulder Conditions',
+            href: '/conditions/shoulder',
+            short_desc: 'Shoulder conditions',
+            icon: Circle,
+          },
+          {
+            title: 'Hip Conditions',
+            href: '/conditions/hip',
+            short_desc: 'Hip conditions',
+            icon: Target,
+          },
+          {
+            title: 'Knee Conditions',
+            href: '/conditions/knee',
+            short_desc: 'Knee conditions',
+            icon: Bone,
+          },
+          {
+            title: 'Hand & Wrist Conditions',
+            href: '/conditions/hand-wrist',
+            short_desc: 'Hand & wrist conditions',
+            icon: AlertCircle,
+          },
+          {
+            title: 'Foot & Ankle Conditions',
+            href: '/conditions/foot-ankle',
+            short_desc: 'Foot & ankle conditions',
+            icon: Footprints,
+          },
+          {
+            title: 'Elbow Conditions',
+            href: '/conditions/elbow',
+            short_desc: 'Elbow conditions',
+            icon: Minus,
+          },
+        ]
       },
       {
         title: 'View All Treatments',
         href: '/treatments',
         short_desc: 'All treatment options',
         icon: Settings,
-        subLinks: []
+        subLinks: [
+          {
+            title: 'Spine Treatments',
+            href: '/treatments?category=Spine',
+            short_desc: 'Spine procedures',
+            icon: Activity,
+          },
+          {
+            title: 'Neck Treatments',
+            href: '/treatments?category=Neck',
+            short_desc: 'Neck procedures',
+            icon: Headphones,
+          },
+          {
+            title: 'Back Treatments',
+            href: '/treatments?category=Lower%20Spine',
+            short_desc: 'Back procedures',
+            icon: Zap,
+          },
+          {
+            title: 'Shoulder Treatments',
+            href: '/treatments?category=Shoulder',
+            short_desc: 'Shoulder procedures',
+            icon: Circle,
+          },
+          {
+            title: 'Hip Treatments',
+            href: '/treatments?category=Hip',
+            short_desc: 'Hip procedures',
+            icon: Target,
+          },
+          {
+            title: 'Knee Treatments',
+            href: '/treatments?category=Knee',
+            short_desc: 'Knee procedures',
+            icon: Bone,
+          },
+          {
+            title: 'Hand & Wrist Treatments',
+            href: '/treatments?category=Hand',
+            short_desc: 'Hand & wrist procedures',
+            icon: AlertCircle,
+          },
+          {
+            title: 'Foot & Ankle Treatments',
+            href: '/treatments?category=Foot',
+            short_desc: 'Foot & ankle procedures',
+            icon: Footprints,
+          },
+          {
+            title: 'Elbow Treatments',
+            href: '/treatments?category=Elbow',
+            short_desc: 'Elbow procedures',
+            icon: Minus,
+          },
+        ]
       }
 
     ]
@@ -806,15 +947,56 @@ const NavBarLinks = [
     title: 'LOCATION',
     short_desc: 'Find our locations',
     icon: MapPin,
-    subLinks: clinics.map((clinic) => {
-      return {
-        title: clinic.name.split('Mountain Spine & Orthopedics')[1],
-        href: `/locations/${clinic.slug}`,
-        short_desc: 'Visit our clinic',
-        icon: Building,
-        subLinks: []
-      }
-    })
+    subLinks: [
+      {
+        title: 'Florida',
+        href: '/locations/fl',
+        short_desc: '10 locations',
+        icon: MapPin,
+        subLinks: clinics.filter(c => c.stateSlug === 'fl').map((clinic) => ({
+          title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),
+          href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+          short_desc: clinic.region.split(',')[0].trim(),
+          icon: Building,
+        }))
+      },
+      {
+        title: 'New Jersey',
+        href: '/locations/nj',
+        short_desc: '6 locations',
+        icon: MapPin,
+        subLinks: clinics.filter(c => c.stateSlug === 'nj').map((clinic) => ({
+          title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),
+          href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+          short_desc: clinic.region.split(',')[0].trim(),
+          icon: Building,
+        }))
+      },
+      {
+        title: 'New York',
+        href: '/locations/ny',
+        short_desc: '1 location',
+        icon: MapPin,
+        subLinks: clinics.filter(c => c.stateSlug === 'ny').map((clinic) => ({
+          title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region,
+          href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+          short_desc: clinic.region,
+          icon: Building,
+        }))
+      },
+      {
+        title: 'Pennsylvania',
+        href: '/locations/pa',
+        short_desc: '4 locations',
+        icon: MapPin,
+        subLinks: clinics.filter(c => c.stateSlug === 'pa').map((clinic) => ({
+          title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),
+          href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+          short_desc: clinic.region.split(',')[0].trim(),
+          icon: Building,
+        }))
+      },
+    ]
   },
   {
     href: '/injuries/car-accident',

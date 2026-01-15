@@ -49,7 +49,7 @@ function ConditionList({ currentCondition }: { currentCondition: string }) {
               : 'flex';
             return (
               <li key={condition.title} className={visibilityClasses}>
-                <Link href={`/area-of-specialty/${condition.slug}`} className={`${currentCondition == condition.title ? 'bg-[#252932] text-white' : 'bg-[#FAFAFA] text-[#111315]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]`}>
+                <Link href={`/conditions/${condition.slug}`} className={`${currentCondition == condition.title ? 'bg-[#252932] text-white' : 'bg-[#FAFAFA] text-[#111315]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]`}>
                   <span
                     style={{
                       fontFamily: "var(--font-public-sans)",

@@ -56,7 +56,7 @@ const medicalOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalOrganization",
   "name": "Mountain Spine & Orthopedics",
-  "description": "Leading spine and orthopedic specialists in Florida providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+  "description": "Leading spine and orthopedic specialists providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management. Serving patients across Florida, New Jersey, New York, and Pennsylvania.",
   "url": "https://mountainspineorthopedics.com",
   "logo": "https://mountainspineorthopedics.com/newlogo4.png",
   "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
@@ -92,26 +92,21 @@ const medicalOrganizationSchema = {
   },
   "areaServed": [
     "Florida",
-    "Hollywood, FL",
-    "Orlando, FL",
-    "Altamonte Springs, FL",
-    "Davenport, FL",
-    "Fort Pierce, FL",
-    "Palm Beach Gardens, FL",
-    "Miami Beach, FL",
-    "Boca Raton, FL"
+    "New Jersey",
+    "New York",
+    "Pennsylvania"
   ]
 };
 
 export const metadata = {
   title: 'Free MRI Review | Mountain Spine & Orthopedics',
-  description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
+  description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists. Submit your scans securely and receive expert insights today.',
   alternates: {
     canonical: buildCanonical('/find-care/free-mri-review'),
   },
   openGraph: {
     title: 'Free MRI Review | Mountain Spine & Orthopedics',
-    description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
+    description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists. Submit your scans securely and receive expert insights today.',
     type: 'website',
     url: buildCanonical('/find-care/free-mri-review'),
     images: [
@@ -126,7 +121,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Free MRI Review | Mountain Spine & Orthopedics',
-    description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists in Florida. Submit your scans securely and receive expert insights today.',
+    description: 'Get a complimentary MRI review from board-certified orthopedic spine specialists. Submit your scans securely and receive expert insights today.',
     images: [getOgImageForPath('/find-care/free-mri-review')],
   },
   keywords: [
@@ -137,7 +132,7 @@ export const metadata = {
     'Mountain Spine & Orthopedics',
     'virtual MRI review',
     'orthopedic care',
-    'Florida spine doctor'
+    'spine doctor'
   ],
   robots: {
     index: true,
@@ -159,7 +154,7 @@ export default function FreeMRIReview() {
         <p className="text-sm text-gray-600 max-w-2xl text-center">
           Learn more about our{' '}
           <a href="/treatments/non-surgical-treatments-for-pain-management" className="text-blue-600 underline">non-surgical pain management treatments</a>{' '}or explore our full list of{' '}
-          <a href="/locations" className="text-blue-600 underline">clinic locations across Florida</a>.
+          <a href="/locations" className="text-blue-600 underline">clinic locations</a>.
         </p>
       </section>
     </>

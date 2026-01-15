@@ -127,7 +127,7 @@ export default function LocationsPicker() {
                         </motion.div>
                         <div className="text-right">
                             <span className="text-sm font-medium text-[#0A50EC] bg-white/80 px-3 py-1 rounded-full">
-                                {clinic.region || 'Florida'}
+                                {clinic.region ? clinic.region.split(',')[0].trim() : (clinic.stateAbbr || 'Location')}
                             </span>
                         </div>
                     </div>
@@ -170,7 +170,7 @@ export default function LocationsPicker() {
                         variants={isMobile ? undefined : hoverVariants}
                         className="mt-auto"
                     >
-                        <Link href={`/locations/${clinic.slug}`}>
+                        <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`}>
                             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center justify-between">
                                     <span className="text-[#252932] font-semibold">View Details</span>
@@ -206,7 +206,7 @@ export default function LocationsPicker() {
                     Our Locations
                 </h2>
                 <p className="text-lg md:text-xl text-[#424959] max-w-3xl mx-auto">
-                    Visit any of our state-of-the-art facilities across Florida for expert orthopedic care and personalized treatment.
+                    Visit any of our state-of-the-art facilities across Florida, New Jersey, New York, and Pennsylvania for expert orthopedic care and personalized treatment.
                 </p>
             </motion.div>
 

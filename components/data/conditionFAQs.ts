@@ -7,15 +7,15 @@ export interface FAQItem {
     "adult-degenerative-scoliosis": [
       {
         question: "What causes adult degenerative scoliosis to worsen?",
-        answer: "Adult degenerative scoliosis worsens due to the <strong>asymmetric collapse of spinal discs and facet joints</strong> caused by aging. As one side of a disc wears down faster than the other, the spine curves further, often leading to <a href=\"/area-of-specialty/spinal-stenosis\">spinal stenosis</a> and nerve compression."
+        answer: "Adult degenerative scoliosis worsens due to the <strong>asymmetric collapse of spinal discs and facet joints</strong> caused by aging. As one side of a disc wears down faster than the other, the spine curves further, often leading to <a href=\"/conditions/spinal-stenosis\">spinal stenosis</a> and nerve compression."
       },
       {
         question: "Can adult scoliosis be treated without surgery?",
-        answer: "Yes, the majority of adult scoliosis cases are managed non-surgically. Treatments include <strong>physical therapy, core strengthening, and epidural steroid injections</strong> to manage pain. Surgery is typically reserved for curves exceeding 50 degrees or when nerve compression causes leg weakness."
+        answer: "Yes, the majority of adult scoliosis cases are managed non-surgically. Treatments include <strong>core strengthening exercises, bracing, and epidural steroid injections</strong> to manage pain. Surgery is typically reserved for curves exceeding 50 degrees or when nerve compression causes leg weakness."
       },
       {
         question: "What are the first symptoms of degenerative scoliosis?",
-        answer: "Symptoms typically begin with <strong>gradual lower back pain</strong> and stiffness in the morning. As the curve progresses, patients may notice uneven shoulders, a rib hump, or shooting leg pain (<a href=\"/area-of-specialty/sciatica\">sciatica</a>) caused by the narrowing of the spinal canal."
+        answer: "Symptoms typically begin with <strong>gradual lower back pain</strong> and stiffness in the morning. As the curve progresses, patients may notice uneven shoulders, a rib hump, or shooting leg pain (<a href=\"/conditions/sciatica\">sciatica</a>) caused by the narrowing of the spinal canal."
       },
       {
         question: "Is spinal fusion the only option for scoliosis surgery?",
@@ -37,11 +37,11 @@ export interface FAQItem {
       },
       {
         question: "Does adjacent segment disease always require surgery?",
-        answer: "No. Treatment begins with conservative measures like <strong>physical therapy and injections</strong>. Surgery is only recommended if these fail and nerve compression causes significant pain or weakness."
+        answer: "No. Treatment begins with conservative measures like <strong>targeted exercises, bracing, and injections</strong>. Surgery is only recommended if these fail and nerve compression causes significant pain or weakness."
       },
       {
         question: "What are the symptoms of adjacent segment disease?",
-        answer: "Symptoms mimic the original spinal problem, including <strong>returning back pain or radiating leg pain</strong> (<a href=\"/area-of-specialty/sciatica\">sciatica</a>) years after a successful fusion surgery, indicating new degeneration at a neighboring level."
+        answer: "Symptoms mimic the original spinal problem, including <strong>returning back pain or radiating leg pain</strong> (<a href=\"/conditions/sciatica\">sciatica</a>) years after a successful fusion surgery, indicating new degeneration at a neighboring level."
       },
       {
         question: "How is adjacent segment disease treated surgically?",
@@ -99,7 +99,7 @@ export interface FAQItem {
       },
       {
         question: "Can cervical stenosis be cured without surgery?",
-        answer: "Stenosis is a structural narrowing that <strong>cannot be cured non-surgically</strong>, but symptoms can be managed. Physical therapy and injections can relieve inflammation, but they do not widen the spinal canal."
+        answer: "Stenosis is a structural narrowing that <strong>cannot be cured non-surgically</strong>, but symptoms can be managed. Targeted exercises and injections can relieve inflammation, but they do not widen the spinal canal."
       },
       {
         question: "How is cervical stenosis treated surgically?",
@@ -183,7 +183,7 @@ export interface FAQItem {
     "kyphosis": [
       {
         question: "Can bad posture cause permanent Kyphosis?",
-        answer: "Postural kyphosis can typically be corrected with <strong>physical therapy and habit changes</strong>. However, structural kyphosis (like Scheuermann's disease) involves misshapen bones and requires medical treatment."
+        answer: "Postural kyphosis can typically be corrected with <strong>targeted exercises and habit changes</strong>. However, structural kyphosis (like Scheuermann's disease) involves misshapen bones and requires medical treatment."
       },
       {
         question: "What is the surgical treatment for severe Kyphosis?",
@@ -279,7 +279,7 @@ export interface FAQItem {
       },
       {
         question: "Do hip labral tears require surgery?",
-        answer: "Not always. Many are managed with <strong>physical therapy and injections</strong>. Surgery (<a href=\"/treatments/hip-arthroscopy-treatment\">hip arthroscopy</a>) is considered if pain persists and mechanical symptoms (locking) interfere with daily life."
+        answer: "Not always. Many are managed with <strong>targeted exercises, bracing, and injections</strong>. Surgery (<a href=\"/treatments/hip-arthroscopy-treatment\">hip arthroscopy</a>) is considered if pain persists and mechanical symptoms (locking) interfere with daily life."
       },
       {
         question: "What is the difference between a SLAP tear and a Bankart tear?",
@@ -319,7 +319,7 @@ export interface FAQItem {
       },
       {
         question: "How do you fix SI joint pain?",
-        answer: "Treatments include <strong>SI joint belts, physical therapy, and steroid injections</strong>. If these fail, minimally invasive SI joint fusion uses titanium implants to stabilize the joint."
+        answer: "Treatments include <strong>SI joint belts, targeted stabilization exercises, and steroid injections</strong>. If these fail, minimally invasive SI joint fusion uses titanium implants to stabilize the joint."
       },
       {
         question: "What aggravates SI joint pain?",
@@ -341,7 +341,7 @@ export interface FAQItem {
       },
       {
         question: "How long does hip bursitis take to heal?",
-        answer: "With rest and treatment, it typically resolves in <strong>6 to 8 weeks</strong>. Chronic cases may require physical therapy or <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\">cortisone injections</a> to break the cycle of inflammation."
+        answer: "With rest and treatment, it typically resolves in <strong>6 to 8 weeks</strong>. Chronic cases may require targeted exercises or <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\">cortisone injections</a> to break the cycle of inflammation."
       },
       {
         question: "Is walking good for hip bursitis?",
@@ -393,7 +393,7 @@ export interface FAQItem {
       },
       {
         question: "How do I know if my back pain is muscular or spinal?",
-        answer: "Muscular pain is usually localized and sore to the touch. <strong>Spinal (disc/nerve) pain</strong> is often deep, sharp, and radiates into the buttocks or legs (like <a href=\"/area-of-specialty/sciatica\">sciatica</a>)."
+        answer: "Muscular pain is usually localized and sore to the touch. <strong>Spinal (disc/nerve) pain</strong> is often deep, sharp, and radiates into the buttocks or legs (like <a href=\"/conditions/sciatica\">sciatica</a>)."
       },
       {
         question: "What are the best exercises for lower back pain?",
@@ -403,11 +403,11 @@ export interface FAQItem {
     "bulging-disc": [
       {
         question: "Does a bulging disc always require surgery?",
-        answer: "<strong>Rarely.</strong> Most bulging discs are managed with physical therapy and injections. Surgery is only considered if the bulge compresses a nerve causing severe pain or weakness."
+        answer: "<strong>Rarely.</strong> Most bulging discs are managed with targeted exercises, rest, and injections. Surgery is only considered if the bulge compresses a nerve causing severe pain or weakness."
       },
       {
         question: "Bulging disc vs. Herniated disc: What's the difference?",
-        answer: "A <strong>bulging disc</strong> is like a flat tire (sags but intact). A <strong>herniated disc</strong> is like a blowout (inner gel leaks out). Herniations are generally more painful. Learn more about <a href=\"/area-of-specialty/lumbar-herniated-disc\">herniated discs</a>."
+        answer: "A <strong>bulging disc</strong> is like a flat tire (sags but intact). A <strong>herniated disc</strong> is like a blowout (inner gel leaks out). Herniations are generally more painful. Learn more about <a href=\"/conditions/lumbar-herniated-disc\">herniated discs</a>."
       },
       {
         question: "Can a bulging disc heal?",
@@ -433,7 +433,7 @@ export interface FAQItem {
       },
       {
         question: "How do you release a pinched nerve?",
-        answer: "Treatments include <strong>NSAIDs, physical therapy (nerve glides), and corticosteroids</strong>. In severe cases, surgery may be needed to physically decompress the nerve."
+        answer: "Treatments include <strong>NSAIDs, nerve glide exercises, bracing, and corticosteroids</strong>. In severe cases, surgery may be needed to physically decompress the nerve."
       },
       {
         question: "Is heat or ice better for a pinched nerve?",
@@ -481,11 +481,11 @@ export interface FAQItem {
       },
       {
         question: "Does a disc tear lead to a herniation?",
-        answer: "<strong>It can.</strong> The tear weakens the disc wall. If intradiscal pressure increases (e.g., lifting), the inner gel can push through the tear, becoming a full <a href=\"/area-of-specialty/lumbar-herniated-disc\">herniation</a>."
+        answer: "<strong>It can.</strong> The tear weakens the disc wall. If intradiscal pressure increases (e.g., lifting), the inner gel can push through the tear, becoming a full <a href=\"/conditions/lumbar-herniated-disc\">herniation</a>."
       },
       {
         question: "What is the treatment for a painful disc tear?",
-        answer: "Treatment focuses on time and stabilization. <strong>Physical therapy, bracing, and biologics</strong> (PRP) are used. <a href=\"/treatments/spinal-fusion\">Spinal fusion</a> or replacement is a last resort for chronic pain."
+        answer: "Treatment focuses on time and stabilization. <strong>Targeted exercises, bracing, and biologics</strong> (PRP) are used. <a href=\"/treatments/spinal-fusion\">Spinal fusion</a> or replacement is a last resort for chronic pain."
       }
     ],
     "hip-dysplasia": [
@@ -535,7 +535,7 @@ export interface FAQItem {
     "arthritis": [
       {
         question: "What is the most common type of arthritis?",
-        answer: "<strong><a href=\"/area-of-specialty/osteoarthritis\">Osteoarthritis</a> (wear-and-tear)</strong> is the most common, affecting millions. Rheumatoid arthritis is the second most common but is autoimmune."
+        answer: "<strong><a href=\"/conditions/osteoarthritis\">Osteoarthritis</a> (wear-and-tear)</strong> is the most common, affecting millions. Rheumatoid arthritis is the second most common but is autoimmune."
       },
       {
         question: "Is heat or ice better for arthritis?",
@@ -551,7 +551,7 @@ export interface FAQItem {
       },
       {
         question: "Can exercise help arthritis?",
-        answer: "<strong>Absolutely.</strong> Movement produces synovial fluid which lubricates joints. Sedentary behavior makes stiffness worse. Stick to low-impact activities like swimming. Learn about <a href=\"/blogs/what-is-orthopedic-physical-therapy\">orthopedic physical therapy</a>."
+        answer: "<strong>Absolutely.</strong> Movement produces synovial fluid which lubricates joints. Sedentary behavior makes stiffness worse. Stick to low-impact activities like swimming, walking, or cycling."
       }
     ],
     "lower-back-pain": [
@@ -579,7 +579,7 @@ export interface FAQItem {
     "sciatica": [
       {
         question: "Is sciatica a condition or a symptom?",
-        answer: "Sciatica is a <strong>symptom, not a disease</strong>. It refers to pain along the sciatic nerve, caused by an underlying issue like a <a href=\"/area-of-specialty/lumbar-herniated-disc\">herniated disc</a> or spinal stenosis."
+        answer: "Sciatica is a <strong>symptom, not a disease</strong>. It refers to pain along the sciatic nerve, caused by an underlying issue like a <a href=\"/conditions/lumbar-herniated-disc\">herniated disc</a> or spinal stenosis."
       },
       {
         question: "How long does sciatica usually last?",
@@ -595,7 +595,7 @@ export interface FAQItem {
       },
       {
         question: "Does walking help sciatica?",
-        answer: "<strong>Generally, yes.</strong> Walking helps reduce inflammation. However, if walking significantly increases leg pain (neurogenic claudication), it may suggest <a href=\"/area-of-specialty/spinal-stenosis\">spinal stenosis</a>."
+        answer: "<strong>Generally, yes.</strong> Walking helps reduce inflammation. However, if walking significantly increases leg pain (neurogenic claudication), it may suggest <a href=\"/conditions/spinal-stenosis\">spinal stenosis</a>."
       }
     ],
     "coccydynia": [
@@ -639,7 +639,7 @@ export interface FAQItem {
       },
       {
         question: "What non-surgical treatments help FBSS?",
-        answer: "Treatments include <strong>neuromodulation (SCS), specialized physical therapy</strong>, and radiofrequency ablation to manage pain without further open surgery."
+        answer: "Treatments include <strong>neuromodulation (SCS), targeted rehabilitation exercises</strong>, and radiofrequency ablation to manage pain without further open surgery."
       }
     ],
     "foraminal-stenosis": [
@@ -811,7 +811,7 @@ export interface FAQItem {
       },
       {
         question: "Can shoulder arthritis be treated without surgery?",
-        answer: "Early stages are managed with <strong>NSAIDs, physical therapy, and steroid injections</strong>. Avoid heavy lifting to slow progression."
+        answer: "Early stages are managed with <strong>NSAIDs, targeted exercises, and steroid injections</strong>. Avoid heavy lifting to slow progression."
       },
       {
         question: "Is shoulder replacement painful?",
@@ -909,7 +909,7 @@ export interface FAQItem {
     "spine-deformities": [
       {
         question: "What are the types of spine deformities?",
-        answer: "Common types include <strong><a href=\"/area-of-specialty/adult-degenerative-scoliosis\">Scoliosis</a></strong> (sideways curve), <strong><a href=\"/area-of-specialty/kyphosis\">Kyphosis</a></strong> (forward hunch), and <strong>Lordosis</strong> (excessive swayback)."
+        answer: "Common types include <strong><a href=\"/conditions/adult-degenerative-scoliosis\">Scoliosis</a></strong> (sideways curve), <strong><a href=\"/conditions/kyphosis\">Kyphosis</a></strong> (forward hunch), and <strong>Lordosis</strong> (excessive swayback)."
       },
       {
         question: "Can adult spine deformities be fixed?",
@@ -969,7 +969,7 @@ export interface FAQItem {
       },
       {
         question: "Does a pinched nerve cause tingling?",
-        answer: "<strong>Yes.</strong> A <a href=\"/area-of-specialty/pinched-nerve\">pinched nerve</a> in the neck causes hand tingling. A pinched nerve in the back causes foot tingling. Identifying the source is key."
+        answer: "<strong>Yes.</strong> A <a href=\"/conditions/pinched-nerve\">pinched nerve</a> in the neck causes hand tingling. A pinched nerve in the back causes foot tingling. Identifying the source is key."
       }
     ],
     "herniated-disc": [
@@ -1145,7 +1145,7 @@ export interface FAQItem {
       },
       {
         question: "What is flat foot reconstruction surgery?",
-        answer: "It involves <strong>tendon transfers and bone cuts (osteotomies)</strong> to rebuild the arch. Recovery is long (6-12 months) but effective for severe deformity. See <a href=\"/area-of-specialty/flat-feet\">flat feet treatment options</a>."
+        answer: "It involves <strong>tendon transfers and bone cuts (osteotomies)</strong> to rebuild the arch. Recovery is long (6-12 months) but effective for severe deformity. See <a href=\"/conditions/flat-feet\">flat feet treatment options</a>."
       }
     ],
     "ankle-arthroscopy": [
@@ -1233,7 +1233,207 @@ export interface FAQItem {
       },
       {
         question: "What is the recovery for ankle replacement?",
-        answer: "You are non-weight bearing for <strong>4-6 weeks</strong>. Physical therapy follows. Full recovery takes 6-12 months."
+        answer: "You are non-weight bearing for <strong>4-6 weeks</strong>. Structured rehabilitation follows. Full recovery takes 6-12 months."
+      }
+    ],
+
+    // Body Part Hub Page FAQs
+    "spine": [
+      {
+        question: "When should I see an orthopedist for spine pain?",
+        answer: "You should see an orthopedic spine specialist if your back or neck pain persists for more than a few weeks, worsens over time, or interferes with daily activities. <strong>Immediate evaluation is needed</strong> for severe pain after injury, progressive weakness or numbness, loss of bowel/bladder control, or pain accompanied by fever. Early consultation can help prevent conditions from worsening and may reduce the need for surgery. Book a <a href=\"/find-care/book-an-appointment\">consultation</a> for evaluation."
+      },
+      {
+        question: "What are the treatment options for spine conditions?",
+        answer: "Treatment options range from <strong>conservative approaches</strong> like targeted exercises, medications, and <a href=\"/treatments/epidural-steroid-injection\">spinal injections</a> to minimally invasive surgical procedures. Our specialists start with non-surgical treatments whenever possible. When surgery is necessary, we specialize in minimally invasive techniques like <a href=\"/treatments/lumbar-microdiscectomy-surgery\">microdiscectomy</a>, <a href=\"/treatments/lumbar-laminectomy-surgery\">laminectomy</a>, and <a href=\"/treatments/spinal-fusion\">spinal fusion</a> that offer faster recovery and less post-operative pain."
+      },
+      {
+        question: "What is the recovery timeline after spine surgery?",
+        answer: "Recovery timelines vary depending on the procedure. <strong>Minimally invasive spine surgeries</strong> typically allow patients to return to light activities within 2-4 weeks, with full recovery taking 3-6 months. More complex procedures like spinal fusion may require 6-12 months for complete healing. Most patients experience significant pain relief within the first few weeks after surgery."
+      },
+      {
+        question: "Do I need an MRI for spine pain diagnosis?",
+        answer: "An MRI is often essential for accurately diagnosing spine conditions, as it provides detailed images of the spinal cord, nerves, discs, and surrounding structures. <strong>Our practice offers complimentary <a href=\"/find-care/free-mri-review\">MRI reviews</a></strong> to help patients understand their condition. An MRI is particularly important when symptoms suggest nerve compression, when conservative treatments haven't helped, or when surgery is being considered."
+      },
+      {
+        question: "What's the difference between surgical and non-surgical spine treatment?",
+        answer: "<strong>Non-surgical treatments</strong> include targeted exercises, medications, spinal injections, and lifestyle modifications—these are always tried first when appropriate. Surgical treatment becomes an option when conservative methods haven't provided relief, when there's progressive neurological deficit, or when structural problems require correction. Our minimally invasive surgical techniques offer significant advantages including smaller incisions, less muscle damage, and faster recovery."
+      }
+    ],
+    "neck": [
+      {
+        question: "When should I see an orthopedist for neck pain?",
+        answer: "See an orthopedic specialist if neck pain lasts more than a week, especially with radiating arm pain, numbness, or weakness. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, or progressive neurological symptoms. Early consultation can prevent conditions from worsening and may reduce the need for surgery. Our practice offers complimentary <a href=\"/find-care/free-mri-review\">MRI reviews</a> to help diagnose cervical spine conditions."
+      },
+      {
+        question: "What are the treatment options for neck conditions?",
+        answer: "Treatment options range from <strong>conservative approaches</strong> like targeted exercises, medications, and cervical injections to minimally invasive surgical procedures. We start with non-surgical treatments including <a href=\"/treatments/epidural-steroid-injection\">epidural steroid injections</a> and facet joint injections. When surgery is necessary, we specialize in minimally invasive techniques like <a href=\"/treatments/acdf-surgery\">ACDF</a> and <a href=\"/treatments/cervical-disc-replacement\">cervical disc replacement</a> that offer faster recovery and excellent outcomes."
+      },
+      {
+        question: "What is the recovery timeline after neck surgery?",
+        answer: "Recovery after minimally invasive cervical spine surgery typically allows <strong>return to light activities within 2-4 weeks</strong>, with most patients experiencing significant pain relief within the first few weeks. Full recovery and return to all activities usually takes 3-6 months, depending on the procedure. Most patients can resume driving and light work within 2-3 weeks."
+      },
+      {
+        question: "Can neck problems cause headaches?",
+        answer: "<strong>Yes, cervicogenic headaches are common</strong> with neck conditions. They typically start at the base of the skull and radiate to the forehead or behind the eyes due to muscle tension and nerve irritation from conditions like <a href=\"/conditions/cervical-herniated-disc\">cervical herniated discs</a> or <a href=\"/conditions/cervical-spinal-stenosis\">cervical stenosis</a>. Treating the underlying neck condition often resolves the headaches."
+      },
+      {
+        question: "What is 'text neck' and how do I prevent it?",
+        answer: "<strong>Text neck</strong> is strain caused by looking down at phones for prolonged periods. This forward head posture doubles the load on the cervical spine, potentially causing chronic pain and accelerating disc degeneration. Prevention includes raising devices to eye level, taking frequent breaks, and strengthening neck muscles through targeted exercises."
+      }
+    ],
+    "back": [
+      {
+        question: "When should I see an orthopedist for back pain?",
+        answer: "See an orthopedic spine specialist if back pain lasts more than a few weeks, especially if it interferes with daily activities or sleep. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, progressive weakness/numbness, or loss of bowel/bladder control. We offer complimentary <a href=\"/find-care/free-mri-review\">MRI reviews</a> to help diagnose back conditions accurately. Book a <a href=\"/find-care/book-an-appointment\">consultation</a> for evaluation."
+      },
+      {
+        question: "What are the red flags for lower back pain?",
+        answer: "Seek emergency care if you have <strong>loss of bowel/bladder control, saddle anesthesia</strong> (numbness in groin area), fever, or sudden severe weakness (foot drop). These are signs of Cauda Equina Syndrome which requires immediate surgery. Other concerning signs include unexplained weight loss, pain that worsens at night, or pain that doesn't improve with rest."
+      },
+      {
+        question: "What is the difference between acute and chronic back pain?",
+        answer: "<strong>Acute pain</strong> is sudden and lasts less than 6 weeks, usually from muscle strain. <strong>Chronic pain</strong> lasts more than 3 months and is often linked to structural issues like <a href=\"/conditions/degenerative-disc-disease\">degenerative disc disease</a>, <a href=\"/conditions/lumbar-herniated-disc\">herniated discs</a>, or <a href=\"/conditions/spinal-stenosis\">spinal stenosis</a>. Treatment approaches differ significantly between acute and chronic conditions."
+      },
+      {
+        question: "How do I know if my back pain is muscular or spinal?",
+        answer: "Muscular pain is usually localized and sore to the touch. <strong>Spinal (disc/nerve) pain</strong> is often deep, sharp, and radiates into the buttocks or legs—like <a href=\"/conditions/sciatica\">sciatica</a>. Pain that worsens with sitting or bending forward suggests disc involvement, while pain during extension (leaning back) suggests facet joint problems. An MRI can definitively identify the source."
+      },
+      {
+        question: "What are the best exercises for lower back pain?",
+        answer: "Core strengthening exercises like <strong>planks, bridges, and bird-dogs</strong> help stabilize the spine. Stretching the hamstrings and hip flexors also relieves back tension. Walking and swimming are excellent low-impact options. Avoid exercises that cause pain. Our specialists can recommend appropriate exercises during your consultation."
+      }
+    ],
+    "shoulder": [
+      {
+        question: "When should I see an orthopedist for shoulder pain?",
+        answer: "See an orthopedic specialist if shoulder pain lasts more than a few weeks, especially if it interferes with sleep, work, or daily activities. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, complete inability to move the shoulder, or visible deformity. Early consultation can prevent conditions from worsening and may reduce the need for surgery."
+      },
+      {
+        question: "What are the common causes of shoulder pain?",
+        answer: "Common causes include <strong><a href=\"/conditions/rotator-cuff-tear\">rotator cuff tears</a></strong>, shoulder impingement, <a href=\"/conditions/shoulder-arthritis\">arthritis</a>, frozen shoulder (adhesive capsulitis), <a href=\"/conditions/labral-tears\">labral tears</a>, and bursitis. Pain at night often indicates rotator cuff problems, while pain with overhead reaching suggests impingement or tears."
+      },
+      {
+        question: "Can a rotator cuff tear heal without surgery?",
+        answer: "<strong>Partial tears can heal</strong> or become asymptomatic with targeted exercises and regenerative injections like PRP. However, <strong>full-thickness tears typically do not heal</strong> on their own and usually require <a href=\"/treatments/rotator-cuff-repair-surgery\">surgical repair</a> to restore strength, especially in active individuals."
+      },
+      {
+        question: "What is the recovery timeline after shoulder surgery?",
+        answer: "Recovery after arthroscopic shoulder surgery typically involves a <strong>sling for 4-6 weeks</strong>, with gradual return to activities over 3-6 months. Rotator cuff repairs may require 4-6 months for full recovery, while shoulder replacement recovery usually takes 3-6 months. Most patients experience significant pain relief within the first few weeks."
+      },
+      {
+        question: "What exercises should I avoid with shoulder pain?",
+        answer: "Avoid <strong>overhead pressing, heavy lifting, and repetitive reaching</strong> until evaluated. Exercises that cause sharp pain should be stopped immediately. Swimming and certain yoga poses may aggravate shoulder conditions. Once diagnosed, our specialists can recommend a safe strengthening program targeting your specific condition."
+      }
+    ],
+    "hip": [
+      {
+        question: "When should I see an orthopedist for hip pain?",
+        answer: "See an orthopedic specialist if hip pain lasts more than a few weeks, especially if it interferes with walking, sleep, or daily activities. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, inability to bear weight, or visible deformity. Early consultation can prevent conditions from worsening. We offer complimentary imaging reviews."
+      },
+      {
+        question: "What causes hip pain that radiates to the groin?",
+        answer: "Hip joint problems typically cause <strong>groin pain rather than outer hip pain</strong>. Common causes include <a href=\"/conditions/hip-impingement\">hip impingement</a>, <a href=\"/conditions/labral-tears\">labral tears</a>, <a href=\"/conditions/osteoarthritis\">osteoarthritis</a>, and <a href=\"/conditions/hip-dysplasia\">hip dysplasia</a>. Outer hip pain often indicates <a href=\"/conditions/trochanteric-bursitis\">bursitis</a> or IT band syndrome."
+      },
+      {
+        question: "When is hip replacement necessary?",
+        answer: "Hip replacement is recommended when <strong>pain interferes with daily life</strong>—sleep, walking, climbing stairs—and conservative treatments like injections and therapy no longer provide relief. <a href=\"/treatments/total-hip-replacement\">Modern hip replacements</a> last 15-25 years and dramatically improve quality of life."
+      },
+      {
+        question: "What is the recovery timeline after hip surgery?",
+        answer: "Recovery after <a href=\"/treatments/hip-arthroscopy-treatment\">hip arthroscopy</a> typically allows return to light activities within 2-4 weeks, with full recovery taking 3-6 months. <strong>Hip replacement recovery</strong> usually involves walking with assistance within a day, driving within 4-6 weeks, and return to most activities within 3-6 months."
+      },
+      {
+        question: "Can hip problems cause back pain?",
+        answer: "<strong>Yes, hip-spine syndrome</strong> is common. Restricted hip motion forces the lower back to compensate, leading to secondary lumbar strain. Conversely, spine problems can cause referred pain to the hip. A thorough evaluation by an orthopedic specialist can identify which joint is the primary source."
+      }
+    ],
+    "knee": [
+      {
+        question: "When should I see an orthopedist for knee pain?",
+        answer: "See an orthopedic specialist if knee pain lasts more than a few weeks, especially if it interferes with walking, sports, or daily activities. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, inability to bear weight, visible deformity, or if the knee locks. Early consultation can prevent conditions from worsening."
+      },
+      {
+        question: "What are the common causes of knee pain?",
+        answer: "Common causes include <strong><a href=\"/conditions/torn-meniscus\">meniscal tears</a></strong>, <a href=\"/conditions/acl-injury\">ACL injuries</a>, <a href=\"/conditions/osteoarthritis\">osteoarthritis</a>, patellar tendonitis, and bursitis. Pain location helps identify the cause—inner pain often suggests meniscus, front pain suggests patella issues, and diffuse pain with swelling suggests arthritis."
+      },
+      {
+        question: "Do all ACL tears require surgery?",
+        answer: "<strong>No.</strong> Sedentary patients or those with partial tears may recover with bracing and targeted strengthening exercises. However, athletes and active individuals usually need <a href=\"/treatments/acl-reconstruction-surgery\">ACL reconstruction</a> to restore stability. Without surgery, the unstable knee may develop early arthritis."
+      },
+      {
+        question: "What is the recovery timeline after knee surgery?",
+        answer: "Recovery after <a href=\"/treatments/arthroscopic-knee-surgery\">knee arthroscopy</a> typically allows return to light activities within 2-4 weeks, with full recovery taking 3-6 months. <strong>Knee replacement</strong> recovery involves walking with assistance within a day, driving within 4-6 weeks, and return to most activities within 3-6 months. ACL reconstruction may require 6-9 months for full return to sports."
+      },
+      {
+        question: "Can a torn meniscus heal without surgery?",
+        answer: "Tears in the <strong>outer 'red zone'</strong> (good blood supply) can heal on their own with rest and targeted exercises. Tears in the inner 'white zone' lack blood flow and usually require <a href=\"/treatments/meniscus-repair-surgery\">surgical treatment</a>—either repair (longer recovery, better joint health) or partial removal (faster recovery)."
+      }
+    ],
+    "hand-wrist": [
+      {
+        question: "When should I see an orthopedist for hand or wrist pain?",
+        answer: "See an orthopedic specialist if hand or wrist pain lasts more than a few weeks, especially if it interferes with work, hobbies, or daily activities. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, inability to move the hand/fingers, visible deformity, or loss of sensation. Early consultation is especially important for persistent numbness or tingling."
+      },
+      {
+        question: "What are the first signs of carpal tunnel syndrome?",
+        answer: "The first signs are <strong>numbness or tingling in the thumb, index, and middle fingers</strong>, especially at night or when holding a phone or steering wheel. Symptoms may progress to weakness in grip strength and difficulty with fine motor tasks. See <a href=\"/conditions/carpal-tunnel-syndrome\">carpal tunnel syndrome</a> for more information."
+      },
+      {
+        question: "Can carpal tunnel go away without surgery?",
+        answer: "Mild cases can resolve with <strong>rest, wrist splinting, and ergonomic changes</strong>. Corticosteroid injections provide temporary relief. However, if nerve compression is significant or symptoms persist despite conservative care, <a href=\"/treatments/carpal-tunnel-release\">carpal tunnel release surgery</a> prevents permanent nerve damage."
+      },
+      {
+        question: "What is the recovery timeline after hand surgery?",
+        answer: "Recovery varies by procedure. <strong>Carpal tunnel release and trigger finger release</strong> typically allow return to light activities within 1-2 weeks, with full recovery taking 4-6 weeks. More complex procedures like tendon repairs or joint replacements may require 6-12 weeks. Most patients experience immediate relief from numbness after carpal tunnel surgery."
+      },
+      {
+        question: "What causes trigger finger?",
+        answer: "<strong>Trigger finger</strong> occurs when inflammation narrows the tendon sheath, causing the tendon to catch when bending the finger. Risk factors include repetitive gripping, diabetes, and rheumatoid arthritis. Treatment includes splinting, steroid injections, and minimally invasive release surgery if conservative measures fail."
+      }
+    ],
+    "foot-ankle": [
+      {
+        question: "When should I see an orthopedist for foot or ankle pain?",
+        answer: "See an orthopedic specialist if foot or ankle pain lasts more than a few weeks, especially if it interferes with walking, standing, or daily activities. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, inability to bear weight, visible deformity, or loss of sensation. Early consultation can prevent conditions from worsening."
+      },
+      {
+        question: "Why is plantar fasciitis worse in the morning?",
+        answer: "The plantar fascia contracts overnight. The first steps stretch this tight tissue, causing micro-tears and <strong>sharp 'start-up' pain</strong>. Treatment includes stretching before getting up, night splints, supportive shoes, and orthotics. See <a href=\"/conditions/plantar-fasciitis\">plantar fasciitis</a> treatment options."
+      },
+      {
+        question: "Can bunions be corrected without surgery?",
+        answer: "<strong>No.</strong> Toe spacers and wide shoes relieve pain but cannot structurally realign the bone. Only <a href=\"/treatments/bunion-correction-surgery\">bunion surgery</a> can remove the bunion. Modern minimally invasive techniques offer faster recovery and less scarring than traditional open surgery."
+      },
+      {
+        question: "What is the recovery timeline after ankle surgery?",
+        answer: "Recovery after <a href=\"/treatments/ankle-arthroscopy-minimally-invasive-surgery\">ankle arthroscopy</a> typically allows walking in a boot within 1-2 weeks, with full sports return in 6-12 weeks. <strong>Bunion and hammertoe corrections</strong> allow light activities in 4-6 weeks, full recovery in 3-6 months. <a href=\"/treatments/ankle-replacement-surgery\">Ankle replacement</a> requires 6-12 months for full recovery."
+      },
+      {
+        question: "Can flat feet cause other problems?",
+        answer: "<strong>Yes.</strong> Poor foot alignment affects the knees and hips, which alters posture and can lead to secondary knee, hip, and lower back pain. Custom orthotics support the arch and correct alignment, reducing strain throughout the body. See <a href=\"/conditions/flat-feet\">flat feet</a> treatment options."
+      }
+    ],
+    "elbow": [
+      {
+        question: "When should I see an orthopedist for elbow pain?",
+        answer: "See an orthopedic specialist if elbow pain lasts more than a few weeks, especially if it interferes with work, sports, or daily activities. <strong>Immediate evaluation is needed</strong> after trauma, with severe pain, inability to move the elbow, visible deformity, or loss of sensation. Early consultation can prevent conditions from worsening."
+      },
+      {
+        question: "What is the difference between tennis elbow and golfer's elbow?",
+        answer: "<strong>Tennis elbow</strong> (lateral epicondylitis) causes pain on the outside of the elbow from repetitive wrist extension. <strong>Golfer's elbow</strong> (medial epicondylitis) causes pain on the inside from repetitive wrist flexion and gripping. Both are overuse injuries that respond well to conservative treatment. See <a href=\"/conditions/tennis-elbow\">tennis elbow</a> information."
+      },
+      {
+        question: "Can tennis elbow heal on its own?",
+        answer: "<strong>Yes, but it takes time.</strong> Tennis elbow is a self-limiting condition that typically resolves in 6-12 months with rest, bracing, and avoiding aggravating activities. Targeted exercises and PRP injections can accelerate recovery. Surgery is rarely needed (less than 5% of cases)."
+      },
+      {
+        question: "What exercises help tennis elbow?",
+        answer: "<strong>Eccentric wrist exercises</strong> are most effective—slowly lowering a weight with palm down. Forearm stretches before and after activities help prevent recurrence. Strengthening the shoulder and core reduces stress on the elbow. A counterforce brace worn during activities can also provide relief."
+      },
+      {
+        question: "When is surgery needed for elbow conditions?",
+        answer: "Surgery is considered when conservative treatments (rest, therapy, injections) fail after 6-12 months. Indications include <strong>large tendon tears, advanced arthritis, nerve compression</strong> (cubital tunnel syndrome), or loose bodies causing locking. Most elbow conditions respond well to non-surgical treatment."
       }
     ]
   };

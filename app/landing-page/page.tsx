@@ -181,7 +181,7 @@ const HomePage = () => {
                                 features: ["Carpal Tunnel Surgery", "Tendon Repair", "Nerve Reconstruction"],
                             },
                         ].map((service, index) => (
-                            <Link href="https://mountainspineorthopedics.com/area-of-specialty" key={index}>
+                            <Link href="https://mountainspineorthopedics.com/conditions" key={index}>
                                 <OrthoCard className="group hover:shadow-xl transition-all duration-300">
                                     <OrthoCardHeader>
                                         <div className="w-12 h-12 bg-medical-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-medical-blue-200 transition-colors">

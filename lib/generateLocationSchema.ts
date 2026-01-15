@@ -27,12 +27,12 @@ const mapCategoryToMedicalSpecialty = (category: string): string | null => {
 };
 
 // Robust address parsing for schema
-const parseAddress = (fullAddress: string) => {
+const parseAddress = (fullAddress: string, defaultStateAbbr: string = 'FL') => {
   const addressParts = fullAddress.split(', ');
   
   let streetAddress = fullAddress;
   let addressLocality = '';
-  let addressRegion = 'FL';
+  let addressRegion = defaultStateAbbr;
   let postalCode = '';
 
   if (addressParts.length >= 2) {
@@ -89,7 +89,7 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
 
   // Use formattedAddress if available, otherwise fall back to address
   const addressToParse = clinic.formattedAddress || clinic.address;
-  const { streetAddress, addressLocality, addressRegion, postalCode } = parseAddress(addressToParse);
+  const { streetAddress, addressLocality, addressRegion, postalCode } = parseAddress(addressToParse, clinic.stateAbbr);
 
   // Extract iframe src from mapEmbed
   const extractMapSrc = (mapEmbed?: string): string | undefined => {
@@ -98,7 +98,7 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
     return srcMatch ? srcMatch[1] : undefined;
   };
 
-  const mapSrc = extractMapSrc(clinic.mapEmbed) || clinic.placeUrl || clinic.link;
+  const mapSrc = clinic.hasMap || extractMapSrc(clinic.mapEmbed) || clinic.placeUrl || clinic.link;
 
   // Build identifier array from GBP data
   const identifiers: Array<{ '@type': string; propertyID: string; value: string }> = [];
@@ -163,14 +163,17 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
   const allSpecialties = [...existingSpecialties, ...gbpSpecialties];
   const uniqueSpecialties = Array.from(new Set(allSpecialties));
 
+  // Build the canonical URL using state-first structure
+  const canonicalUrl = `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`;
+
   // Build the enhanced schema
   const enhancedSchema: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
-    '@id': `https://mountainspineorthopedics.com/locations/${clinic.slug}`,
+    '@id': canonicalUrl,
     'name': clinic.name,
     'description': clinic.metaDescription,
-    'url': `https://mountainspineorthopedics.com/locations/${clinic.slug}`,
+    'url': canonicalUrl,
     'telephone': clinic.phone,
     'identifier': identifiers.length > 0 ? identifiers : undefined,
     'sameAs': sameAs.length > 0 ? sameAs : undefined,

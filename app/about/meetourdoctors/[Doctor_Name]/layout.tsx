@@ -16,7 +16,7 @@ export async function generateMetadata(
         const canonicalUrl = buildCanonical(`/about/meetourdoctors/${resolvedParams.Doctor_Name}`);
         return {
             title: `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`,
-            description: "Learn about orthopedic care and treatments with our specialists in Florida.",
+            description: "Learn about orthopedic care and treatments with our specialists.",
             alternates: {
                 canonical: canonicalUrl,
             },
@@ -227,7 +227,7 @@ const CombinedSchema = async ({ params }: { params: Promise<{ Doctor_Name: strin
         "name": "Mountain Spine Orthopedics",
         "url": "https://mountainspineorthopedics.com",
         "logo": "https://mountainspineorthopedics.com/newlogo4.png",
-        "description": "Leading orthopedic surgery practice specializing in minimally invasive spine surgery and advanced orthopedic procedures in Florida.",
+        "description": "Leading orthopedic surgery practice specializing in minimally invasive spine surgery and advanced orthopedic procedures. Serving patients across Florida, New Jersey, New York, and Pennsylvania.",
         "medicalSpecialty": [
             "Orthopedic Surgery",
             "Spine Surgery", 

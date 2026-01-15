@@ -39,20 +39,24 @@ const nextConfig: NextConfig = {
   const isProduction = process.env.NODE_ENV === 'production';
   
   return [
+    // --- CONDITIONS URL MIGRATION (301s) ---
+    { source: "/area-of-specialty", destination: "/conditions", permanent: true },
+    { source: "/area-of-specialty/:slug", destination: "/conditions/:slug", permanent: true },
+    
     // --- HOST/PROTOCOL/CASE NORMALIZATION (301s) - PRODUCTION ONLY ---
     ...(isProduction ? [
-      // { source: "/:path*", has:[{type:"host",value:"mountainspineorthopedics.com"}],
+      // { source: "/:path*", has:[{type:"host" as const,value:"mountainspineorthopedics.com"}],
       //   destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
-      { source: "/:path*", has:[{type:"host",value:"www.mountainspineorthopedics.com"}],
+      { source: "/:path*", has:[{type:"host" as const, value:"www.mountainspineorthopedics.com"}],
         destination:"https://mountainspineorthopedics.com/:path*", permanent:true },
     ] : []),
     
     // Trailing slash handling now happens in middleware to avoid blank Location headers
     // that caused infinite refresh loops when developing locally.
 
-    // --- TYPO FIX: area-of-speciality → area-of-specialty ---
-    {"source":"/area-of-speciality","destination":"/area-of-specialty","permanent":true},
-    {"source":"/area-of-speciality/:slug*","destination":"/area-of-specialty/:slug*","permanent":true},
+    // --- TYPO FIX: area-of-speciality → conditions (canonical) ---
+    {"source":"/area-of-speciality","destination":"/conditions","permanent":true},
+    {"source":"/area-of-speciality/:slug*","destination":"/conditions/:slug*","permanent":true},
     
     // --- ANTI-INFLAMMATORY INJECTIONS CONDITION TO TREATMENT REDIRECT ---
     {"source":"/area-of-specialty/anti-inflammatory-injections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
@@ -149,7 +153,6 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-specialty/acl-tear","destination":"/conditions/acl-tear","permanent":true},
     {"source":"/area-of-specialty/radiculopathy","destination":"/conditions/radiculopathy","permanent":true},
     {"source":"/area-of-specialty/work-injury","destination":"/conditions/work-injury","permanent":true},
-    {"source":"/conditions/herniated-disc","destination":"/area-of-specialty/herniated-disc","permanent":true},
     {"source":"/area-of-specialty/sports-injuries","destination":"/conditions/sports-injuries","permanent":true},
     
     // --- EXISTING TREATMENT ALIAS REDIRECTS ---
@@ -164,23 +167,36 @@ const nextConfig: NextConfig = {
     {"source":"/about/meetourdoctors/dr.christophermccarthy","destination":"/about/meetourdoctors/dr-christopher-mccarthy","permanent":true},
     {"source":"/about/meetourdoctors/dr.davidcowin","destination":"/about/meetourdoctors/dr-david-cowin","permanent":true},
     {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors/dr-scott-katzman","permanent":true},
-    // area-of-specialty old camel → kebab
-    {"source":"/area-of-specialty/antiinflammatoryinjections","destination":"/area-of-specialty/anti-inflammatory-injections","permanent":true},
-    {"source":"/area-of-specialty/backpain","destination":"/area-of-specialty/back-pain","permanent":true},
-    {"source":"/area-of-specialty/failedbackorfailenecksurgerysyndrome","destination":"/area-of-specialty/failed-back-surgery-syndrome","permanent":true},
-    {"source":"/area-of-specialty/hipimpingement","destination":"/area-of-specialty/hip-impingement","permanent":true},
-    {"source":"/area-of-specialty/spinalbonespurs","destination":"/area-of-specialty/spinal-bone-spurs","permanent":true},
-    {"source":"/area-of-specialty/spinalstenosis","destination":"/area-of-specialty/spinal-stenosis","permanent":true},
-    {"source":"/area-of-specialty/spinedeformities","destination":"/area-of-specialty/spine-deformities","permanent":true},
-    {"source":"/area-of-specialty/tinglingornumbnessinextremities","destination":"/area-of-specialty/tingling-or-numbness-in-extremities","permanent":true},
-    {"source":"/area-of-specialty/herniateddisc","destination":"/area-of-specialty/herniated-disc","permanent":true},
-    {"source":"/area-of-specialty/rheumatoidarthritis","destination":"/area-of-specialty/rheumatoid-arthritis","permanent":true},
-    {"source":"/area-of-specialty/tenniselbow","destination":"/area-of-specialty/tennis-elbow","permanent":true},
-    {"source":"/area-of-specialty/loosebodies","destination":"/area-of-specialty/loose-bodies","permanent":true},
+    // area-of-specialty old camel → conditions (canonical)
+    {"source":"/area-of-specialty/antiinflammatoryinjections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
+    {"source":"/area-of-specialty/backpain","destination":"/conditions/back-pain","permanent":true},
+    {"source":"/area-of-specialty/failedbackorfailenecksurgerysyndrome","destination":"/conditions/failed-back-surgery-syndrome","permanent":true},
+    {"source":"/area-of-specialty/hipimpingement","destination":"/conditions/hip-impingement","permanent":true},
+    {"source":"/area-of-specialty/spinalbonespurs","destination":"/conditions/spinal-bone-spurs","permanent":true},
+    {"source":"/area-of-specialty/spinalstenosis","destination":"/conditions/spinal-stenosis","permanent":true},
+    {"source":"/area-of-specialty/spinedeformities","destination":"/conditions/spine-deformities","permanent":true},
+    {"source":"/area-of-specialty/tinglingornumbnessinextremities","destination":"/conditions/tingling-or-numbness-in-extremities","permanent":true},
+    {"source":"/area-of-specialty/herniateddisc","destination":"/conditions/herniated-disc","permanent":true},
+    {"source":"/area-of-specialty/rheumatoidarthritis","destination":"/conditions/rheumatoid-arthritis","permanent":true},
+    {"source":"/area-of-specialty/tenniselbow","destination":"/conditions/tennis-elbow","permanent":true},
+    {"source":"/area-of-specialty/loosebodies","destination":"/conditions/loose-bodies","permanent":true},
     // treatments camel/dot variants
     {"source":"/treatments/totalkneereplacement","destination":"/treatments/total-knee-replacement","permanent":true},
     {"source":"/treatments/rotatorcuffrepair","destination":"/treatments/rotator-cuff-repair-surgery","permanent":true},
-    {"source":"/treatments/spinalfusion","destination":"/treatments/spinal-fusion","permanent":true}
+    {"source":"/treatments/spinalfusion","destination":"/treatments/spinal-fusion","permanent":true},
+    
+    // --- STATE-FIRST LOCATION URL REDIRECTS (Legacy -> New Canonical) ---
+    // Florida locations - redirect old slugs to new state-first structure
+    {"source":"/locations/hollywood-fl-orthopedics","destination":"/locations/fl/hollywood-orthopedics","permanent":true},
+    {"source":"/locations/palm-springs-orthopedics","destination":"/locations/fl/palm-springs-orthopedics","permanent":true},
+    {"source":"/locations/orlando-orthopedics","destination":"/locations/fl/orlando-orthopedics","permanent":true},
+    {"source":"/locations/fort-pierce-orthopedics","destination":"/locations/fl/fort-pierce-orthopedics","permanent":true},
+    {"source":"/locations/palm-beach-gardens-orthopedics","destination":"/locations/fl/palm-beach-gardens-orthopedics","permanent":true},
+    {"source":"/locations/miami-beach-orthopedics","destination":"/locations/fl/miami-beach-orthopedics","permanent":true},
+    {"source":"/locations/boca-raton-orthopedics","destination":"/locations/fl/boca-raton-orthopedics","permanent":true},
+    {"source":"/locations/altamonte-springs-orthopedics","destination":"/locations/fl/altamonte-springs-orthopedics","permanent":true},
+    {"source":"/locations/davenport-orthopedics","destination":"/locations/fl/davenport-orthopedics","permanent":true},
+    {"source":"/locations/jacksonville-orthopedics","destination":"/locations/fl/jacksonville-orthopedics","permanent":true}
     ];
   },
 
