@@ -139,15 +139,27 @@ export default function Footer() {
                                     {stateInfo?.abbr} Locations
                                 </Link>
                                 <ul className="space-y-[10px] flex flex-col text-sm text-[#DCDEE1]">
-                                    {stateClinics.map((clinic, index) => (
-                                        <Link 
-                                            href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
-                                            key={index}
-                                            className="hover:text-white transition-colors"
-                                        >
-                                            {clinic.region.replace(`, ${stateInfo?.abbr}`, '')}
-                                        </Link>
-                                    ))}
+                                    {stateClinics.map((clinic, index) => {
+                                        // Get display name - extract neighborhood from name if it's in parentheses
+                                        // e.g., "Mountain Spine & Orthopedics Philadelphia (Walnut)" -> "Philadelphia (Walnut)"
+                                        let displayName = clinic.region.replace(`, ${stateInfo?.abbr}`, '');
+                                        
+                                        // For locations with neighborhood specifiers in name, append them
+                                        const neighborhoodMatch = clinic.name.match(/\(([^)]+)\)$/);
+                                        if (neighborhoodMatch && displayName === 'Philadelphia') {
+                                            displayName = `Philadelphia (${neighborhoodMatch[1]})`;
+                                        }
+                                        
+                                        return (
+                                            <Link 
+                                                href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
+                                                key={index}
+                                                className="hover:text-white transition-colors"
+                                            >
+                                                {displayName}
+                                            </Link>
+                                        );
+                                    })}
                                 </ul>
                             </div>
                         );
