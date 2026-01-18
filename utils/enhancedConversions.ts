@@ -39,15 +39,51 @@ type ECOut = {
 };
 
 /**
+ * Formats a phone number to E.164 international format required by Google Ads.
+ * Google Enhanced Conversions require phone numbers in E.164 format (e.g., +15551234567 for US).
+ * 
+ * @param phone - Raw phone number string
+ * @param country - Country code (default: US)
+ * @returns Phone number in E.164 format or empty string if invalid
+ */
+function formatPhoneToE164(phone: string, country: string = 'US'): string {
+  const rawPhone = phone.replace(/\D/g, '');
+  
+  if (!rawPhone || rawPhone.length === 0) {
+    return '';
+  }
+
+  // Handle US/Canada numbers (country code +1)
+  if (country === 'US' || country === 'CA' || !country) {
+    if (rawPhone.length === 10) {
+      // Standard 10-digit US number → add +1 prefix
+      return `+1${rawPhone}`;
+    } else if (rawPhone.length === 11 && rawPhone.startsWith('1')) {
+      // 11-digit with leading 1 → add + prefix
+      return `+${rawPhone}`;
+    }
+  }
+
+  // For other countries or formats, return with + if not already present
+  // This handles cases where the number might already include country code
+  if (rawPhone.length >= 10) {
+    return `+${rawPhone}`;
+  }
+
+  // Return empty for invalid/too-short numbers
+  return '';
+}
+
+/**
  * Normalizes user input data to match Google's enhanced conversions format
  */
 export function normalizeEC(v: ECIn): ECOut {
   const email = (v.email ?? '').trim().toLowerCase();
-  const phone_number = (v.phone ?? '').replace(/\D/g, '');
+  const normalizedCountry = (v.country || "US").trim().toUpperCase();
+  const phone_number = formatPhoneToE164(v.phone ?? '', normalizedCountry);
   const normalizedFirstName = (v.firstName ?? '').trim();
   const normalizedLastName = (v.lastName ?? '').trim();
   const normalizedPostal = (v.postalCode || '').replace(/\D/g, '').slice(0, 10);
-  const normalizedCountry = (v.country || "US").trim().toUpperCase();
 
   const result: ECOut = {
     email,
@@ -146,13 +182,16 @@ export function pushECSilent(v: ECIn) {
 export function restoreECFromSession(eventName: string = 'ec_restore') {
   if (typeof window === 'undefined') return;
   try {
+    const country = (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase();
+    const rawPhone = sessionStorage.getItem('ec_phone') || '';
+    
     const ec: ECOut = {
       email: (sessionStorage.getItem('ec_email') || '').trim().toLowerCase(),
-      phone_number: (sessionStorage.getItem('ec_phone') || '').replace(/\D/g, ''),
+      phone_number: formatPhoneToE164(rawPhone, country),
       address: {
         first_name: (sessionStorage.getItem('ec_first') || '').trim(),
         last_name: (sessionStorage.getItem('ec_last') || '').trim(),
-        country: (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase(),
+        country: country,
         postal_code: (sessionStorage.getItem('ec_postal') || '').trim(),
       },
     };
