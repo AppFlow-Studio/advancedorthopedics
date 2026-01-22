@@ -117,7 +117,7 @@ export default function InternalLinkingSection({ currentSlug, pageType }: Intern
       relatedItems = related.map(condition => ({
         title: condition.title,
         slug: condition.slug,
-        href: `/area-of-specialty/${condition.slug}`
+        href: `/conditions/${condition.slug}`
       }));
     }
   } else if (pageType === 'treatment') {

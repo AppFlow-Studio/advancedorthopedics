@@ -3,7 +3,9 @@ import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
 import { conditions } from "@/components/data/conditions";
 import { AllTreatmentsCombined } from "@/components/data/treatments";
+import { BODY_PARTS } from "@/components/data/bodyParts";
 import { buildCanonical } from "@/lib/seo";
+import { VALID_STATE_SLUGS } from "@/lib/locationRedirects";
 
 export const revalidate = 300;
 
@@ -117,10 +119,14 @@ export async function GET() {
   ${generateUrlEntry("/about/faqs")}
   ${generateUrlEntry("/condition-check")}
   ${generateUrlEntry("/privacy-policy")}
-  ${generateUrlEntry("/area-of-specialty")}
+  ${generateUrlEntry("/conditions")}
   ${generateUrlEntry("/locations")}
 
-  ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.slug}`)).join('')}
+  ${/* State hub pages */ ''}
+  ${VALID_STATE_SLUGS.map(state => generateUrlEntry(`/locations/${state}`)).join('')}
+
+  ${/* Individual location pages using new state-first canonical URLs */ ''}
+  ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.stateSlug}/${clinic.locationSlug}`)).join('')}
   
   ${FindCare.map(slug => {
     if (slug === 'insurance-policy' || slug === 'patient-forms') {
@@ -142,8 +148,11 @@ export async function GET() {
       .join('')}
 
   ${conditions.filter(condition => isValidSlug(condition.slug))
-      .map(condition => generateUrlEntry(`/area-of-specialty/${condition.slug}`))
+      .map(condition => generateUrlEntry(`/conditions/${condition.slug}`))
       .join('')}
+
+  ${/* Body-part hub pages - high priority as key aggregation/landing pages */ ''}
+  ${BODY_PARTS.map(bodyPart => generateUrlEntry(`/conditions/${bodyPart.slug}`, new Date().toISOString(), 'monthly', '0.9')).join('')}
 
   ${AllTreatmentsCombined.filter(treatment => isValidSlug(treatment.slug))
       .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))

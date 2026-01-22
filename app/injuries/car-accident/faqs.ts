@@ -13,7 +13,7 @@ export const carAccidentFaqs = [
     },
     {
         q: "How soon after a car accident should I get an MRI or imaging?",
-        a: "If you experience pain, numbness, or limited mobility, you should get imaging immediately. Our Florida clinics provide on-site diagnostic imaging for faster treatment planning.",
+        a: "If you experience pain, numbness, or limited mobility, you should get imaging immediately. Our clinics provide on-site diagnostic imaging for faster treatment planning.",
     },
     {
         q: "Does auto insurance cover treatment for car accident injuries?",

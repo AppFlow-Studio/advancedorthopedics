@@ -57,7 +57,7 @@ export default function ServicesAndExpertiseSection() {
             className="h-full"
         >
             <Link
-                href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
+                href={`/conditions?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
                 className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer h-full ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#FAFAFA]' : 'bg-[#FAFAFA]'}`}`}
             >
                 <div className="flex flex-row items-center justify-between">

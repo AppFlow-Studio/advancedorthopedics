@@ -101,7 +101,7 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string): string 
       const titleRegex = new RegExp(`(?<![\\w-])${escapedTitle}(?![\\w-])`, 'gi');
       
       textContent = textContent.replace(titleRegex, (match) => {
-        const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
+        const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
         return `<a href="${href}" class="underline text-[#252932] hover:text-[#2358AC]">${match}</a>`;
       });
     });
@@ -128,7 +128,7 @@ function linkifyText(text: string, currentSlug: string): string {
     // Only link if the title matches exactly as a whole word/phrase
     const regex = new RegExp(`(?<![\\w-])${title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}(?![\\w-])`, 'g');
     replaced = replaced.replace(regex, match => {
-      const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
+      const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
       return `<a href="${href}" class="underline text-[#252932]">${match}</a>`;
     });
   });
@@ -182,23 +182,9 @@ function renderField(field: any, currentSlug: string) {
   return null;
 }
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const allSlugs = [
-    ...conditionContentPlaceholders.map(c => ({ ConditionDetails: c.slug })),
-    ...conditions.map(c => ({ ConditionDetails: c.slug }))
-  ];
-  return allSlugs;
-}
-
-export default async function ConditionDetails({
-  params,
-}: {
-  params: Promise<{ ConditionDetails: string }>
-}) {
-  const { ConditionDetails } = await params;
-  const conditionSlug = ConditionDetails;
+// This component is used internally by the unified [slug] route
+// It accepts a slug prop instead of params
+export default async function ConditionPage({ conditionSlug }: { conditionSlug: string }) {
   
   // Check conditionContentPlaceholders first for new ConditionContent format
   const conditionContent = conditionContentPlaceholders.find((c: ConditionContent) => c.slug === conditionSlug);
@@ -252,12 +238,6 @@ export default async function ConditionDetails({
             background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
           }}
         />
-        {/* <div
-        className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[85%] w-full"
-        style={{
-          background: '#5FBBEC',
-        }}
-      /> */}
         <div className="z-[1] flex flex-col w-full h-full text-left relative pb-20">
 
           <div className=' px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
@@ -570,7 +550,7 @@ export default async function ConditionDetails({
                         const isTreatment = AllTreatments.some(t => t.slug === link.slug) || allTreatmentContent.some(t => t.slug === link.slug);
                         
                         // Default to treatment if not found in conditions (most internal links are treatments)
-                        const href = isCondition ? `/area-of-specialty/${link.slug}` : `/treatments/${link.slug}`;
+                        const href = isCondition ? `/conditions/${link.slug}` : `/treatments/${link.slug}`;
                         
                         return (
                           <Link

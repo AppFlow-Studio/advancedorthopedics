@@ -37,24 +37,34 @@ import ReviewsCarousel from '@/components/ReviewsCarousel.client'
 import { PhoneTextLink } from '@/components/PhoneTextLink'
 import LocationFAQSection from '@/components/LocationFAQSection'
 import { LocationNAP } from '@/components/LocationNAP'
+import { findClinicByStateAndLocation, getAllLocationParams, isValidStateSlug, STATE_METADATA } from '@/lib/locationRedirects'
 
 export const dynamicParams = false;
+
 export async function generateStaticParams() {
-    return clinics.map(c => ({ locationname: c.slug }));
+    return getAllLocationParams();
 }
 
 export default async function LocationDetails(
     {
         params,
     }: {
-        params: Promise<{ locationname: string }>
+        params: Promise<{ state: string; location: string }>
     }
 ) {
-    const { locationname } = await params;
-    let location = clinics.filter(x => x.slug == locationname)[0]
-    if (location === undefined) {
+    const { state, location: locationSlug } = await params;
+    
+    // Validate state slug
+    if (!isValidStateSlug(state)) {
         return notFound();
     }
+    
+    // Find clinic by state and location slugs
+    const locationData = findClinicByStateAndLocation(state, locationSlug);
+    if (!locationData) {
+        return notFound();
+    }
+    
     const OurSpecialtyItems = [
         {
             icon: () => (
@@ -63,7 +73,7 @@ export default async function LocationDetails(
                 </svg>
             ),
             title: 'World-Class Expertise',
-            body: `Our board-certified ${location.name.replace('Mountain Spine & Orthopedics', '').trim()} orthopedic surgeons bring years of experience and a proven track record of successful outcomes.`
+            body: `Our board-certified ${locationData.name.replace('Mountain Spine & Orthopedics', '').trim()} orthopedic surgeons bring years of experience and a proven track record of successful outcomes.`
         },
         {
             icon: () => (
@@ -72,7 +82,7 @@ export default async function LocationDetails(
                 </svg>
             ),
             title: 'Advanced Spine Care',
-            body: <>Our Orthopedic clinic provides access to advanced spine care technology. Our comprehensive treatments give great results with cutting-edge technology that helps {location.name.replace('Mountain Spine & Orthopedics', '').trim()} residents heal faster.</>
+            body: <>Our Orthopedic clinic provides access to advanced spine care technology. Our comprehensive treatments give great results with cutting-edge technology that helps {locationData.name.replace('Mountain Spine & Orthopedics', '').trim()} residents heal faster.</>
         },
         {
             icon: () => (
@@ -94,6 +104,10 @@ export default async function LocationDetails(
             body: 'We specialize in patient-centered orthopedic care that focuses on comfort, reduced recovery time, and helping you get back to your life faster with less pain and improved mobility.'
         },
     ]
+    
+    // Get state metadata for breadcrumb
+    const stateInfo = STATE_METADATA[state];
+    
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
             <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]  justify-between" >
@@ -109,7 +123,7 @@ export default async function LocationDetails(
                     fetchPriority="high"
                     layout='fill'
                     className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-                    alt={`Mountain Spine & Orthopedics ${location.region} clinic - Expert orthopedic care consultation room`}
+                    alt={`Mountain Spine & Orthopedics ${locationData.region.split(',')[0].trim()} clinic - Expert orthopedic care consultation room`}
                 />
                 <div
                     className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -128,6 +142,17 @@ export default async function LocationDetails(
                                         background: 'rgba(255, 255, 255, 0.50)'
                                     }}
                                 >
+                                    <Link
+                                        href="/locations"
+                                        style={{
+                                            fontFamily: "var(--font-public-sans)",
+                                            fontWeight: 400,
+                                        }}
+                                        className="text-[#111315] hover:text-[#2258AC] transition-colors"
+                                    >
+                                        Locations
+                                    </Link>
+
                                     <span
                                         style={{
                                             fontFamily: "var(--font-public-sans)",
@@ -135,9 +160,18 @@ export default async function LocationDetails(
                                         }}
                                         className="text-[#111315]"
                                     >
-                                        Location
+                                        /
                                     </span>
-
+                                    <Link
+                                        href={`/locations/${state}`}
+                                        style={{
+                                            fontFamily: "var(--font-public-sans)",
+                                            fontWeight: 400,
+                                        }}
+                                        className="text-[#111315] hover:text-[#2258AC] transition-colors"
+                                    >
+                                        {stateInfo?.name || state.toUpperCase()}
+                                    </Link>
                                     <span
                                         style={{
                                             fontFamily: "var(--font-public-sans)",
@@ -154,7 +188,7 @@ export default async function LocationDetails(
                                         }}
                                         className="text-[#2258AC]"
                                     >
-                                        {location.region}
+                                        {locationData.region.split(',')[0].trim()}
                                     </span>
                                 </div>
                                 <h1
@@ -164,7 +198,7 @@ export default async function LocationDetails(
                                     }}
                                     className="text-[#252932] text-3xl sm:text-5xl xl:text-6xl text-shadow-sm md:mt-0 mt-16"
                                 >
-                                    Orthopedic Surgeons & Spine Specialists in {location.region}
+                                    Orthopedic Surgeons & Spine Specialists in {locationData.region.split(',')[0].trim()}
                                 </h1>
                             </div>
                         </SlidingDiv>
@@ -182,16 +216,16 @@ export default async function LocationDetails(
                                     className="text-[#424959] text-base lg:text-lg"
                                 >
                                     Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver comprehensive orthopedic care.<br />
-                                    {location.region} most trusted spine and joint care center, serving Florida families at their convenience.
+                                    {locationData.region.split(',')[0].trim()} most trusted spine and joint care center, serving {stateInfo?.name || state.toUpperCase()} families at their convenience.
                                 </p>
                             </div>
                             {/* NAP Block - Mobile */}
                             <div className="xl:px-[80px] px-8 mt-1 sm:hidden block">
-                                <LocationNAP slug={location.slug} />
+                                <LocationNAP slug={locationData.slug} />
                             </div>
                             {/* NAP Block - Desktop */}
                             <div className="xl:px-[80px] px-8 mt-1 sm:block hidden">
-                                <LocationNAP slug={location.slug} />
+                                <LocationNAP slug={locationData.slug} />
                             </div>
                         </SlidingDiv>
 
@@ -208,7 +242,7 @@ export default async function LocationDetails(
 
                                 {/* Get Directions - light grey */}
                                 <Link
-                                    href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))}
+                                    href={(locationData.link || (locationData.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(locationData.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${locationData.lat},${locationData.lng}`))}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full h-[52px] rounded-[16px] bg-[#E5E7EB] text-[#252932] flex flex-row items-center justify-center gap-2 font-[500] text-[15px] shadow-sm active:scale-[0.98] transition-all duration-200"
@@ -229,7 +263,7 @@ export default async function LocationDetails(
                                             style={{ fontFamily: 'var(--font-public-sans)' }}
                                             className="text-[#252932] text-sm sm:text-base font-[400] leading-relaxed"
                                         >
-                                            Same-Day Appointments Available in {location.region.split(',')[0]}
+                                            Same-Day Appointments Available in {locationData.region.split(',')[0]}
                                         </p>
                                     </div>
                                     <div className="flex items-start space-x-2">
@@ -266,7 +300,7 @@ export default async function LocationDetails(
                                 </div>
                                 <div className="lg:flex hidden">
                                     <Link 
-                                        href={(location.link || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`))} 
+                                        href={(locationData.link || (locationData.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(locationData.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${locationData.lat},${locationData.lng}`))} 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
                                         className="h-full max-h-[56px] group flex flex-row items-center justify-center hover:cursor-pointer px-[24px] py-[16px] rounded-[62px] bg-[#E5E7EB] text-[#252932] w-fit font-[500] text-[14px] hover:bg-[#D1D5DB] transition-colors"
@@ -297,7 +331,7 @@ export default async function LocationDetails(
                                             style={{ fontFamily: 'var(--font-public-sans)' }}
                                             className="text-[#252932] text-sm md:text-base font-[400] whitespace-nowrap"
                                         >
-                                            Same-Day Appointments Available in {location.region.split(',')[0]}
+                                            Same-Day Appointments Available in {locationData.region.split(',')[0]}
                                         </p>
                                     </div>
                                     <div className="flex items-center space-x-2">
@@ -350,7 +384,7 @@ export default async function LocationDetails(
                 </div>
 
             </section>
-            <ClinicsMap startingClinic={location} />
+            <ClinicsMap startingClinic={locationData} />
             {/* Our Specialty */}
             <section className=" w-full flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
                 <Reveal className="w-full" width="100%">
@@ -362,7 +396,7 @@ export default async function LocationDetails(
                             }}
                             className=" text-6xl w-[100%]"
                         >
-                            Why Choose<br /> {location.name}
+                            Why Choose<br /> {locationData.name}
                         </h2>
 
                         <div>
@@ -374,7 +408,7 @@ export default async function LocationDetails(
                                 }}
                                 className="text-lg "
                             >
-                                Trust {location.name} for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
+                                Trust {locationData.name} for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priority!
                             </p>
 
                             <div className=" mt-[40px] xl:w-[50%] w-full md:w-fit"><BookAnAppoitmentButton /></div>
@@ -384,7 +418,7 @@ export default async function LocationDetails(
                 </Reveal>
 
                 <div className=" flex xl:flex-row flex-col w-full gap-[32px] xl:items-stretch">
-                    <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt={`Orthopedic surgeon consulting with patient at Mountain Spine & Orthopedics ${location.region} clinic`} /></div>
+                    <div className=" xl:w-[50%] w-full rounded-[20px] overflow-hidden"><Image src={HomeWhyAO} className=" w-full h-full md:aspect-video aspect-square  object-cover" alt={`Orthopedic surgeon consulting with patient at Mountain Spine & Orthopedics ${locationData.region.split(',')[0].trim()} clinic`} /></div>
 
                     <div className=" xl:w-[50%] w-full flex flex-col space-y-[32px] ">
                         <Reveal className="w-full" width="100%">
@@ -396,7 +430,7 @@ export default async function LocationDetails(
                                     }}
                                     className=" text-4xl"
                                 >
-                                    Our {location.name.replace('Mountain Spine & Orthopedics', '').trim()} Clinic Specialty
+                                    Our {locationData.name.replace('Mountain Spine & Orthopedics', '').trim()} Clinic Specialty
                                 </h3>
 
                                 <p
@@ -406,7 +440,7 @@ export default async function LocationDetails(
                                     }}
                                     className=" text-lg"
                                 >
-                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#252932]'>treatments</a> and a wide range of <a href='/area-of-specialty' className='underline text-[#252932]'>conditions</a> we treat. We put patients first.  Here's why {location.region.split(',')[0]} families choose us:
+                                    At Mountain Spine & Orthopedics, we provide exceptional care with the newest <a href='/treatments' className='underline text-[#252932]'>treatments</a> and a wide range of <a href='/conditions' className='underline text-[#252932]'>conditions</a> we treat. We put patients first.  Here's why {locationData.region.split(',')[0]} families choose us:
                                 </p>
                                 {/* INTERNAL LINKS HERE */}
                             </div>
@@ -494,7 +528,7 @@ export default async function LocationDetails(
                             }}
                             className='xl:text-xl lg:text-md text-sm xl:w-[90%] self-center h-full xl:ml-20'
                             dangerouslySetInnerHTML={{
-                                __html: (location?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) =>
+                                __html: (locationData?.paragraph?.split('[PARAGRAPH BREAK]').map((paragraph, index, array) =>
                                     paragraph + (index < array.length - 1 ? '<br /><br />' : '')
                                 ).join('') || '') +
                                     '<br /><br />Learn more about our comprehensive <a href="/treatments" class="underline text-[#252932]">orthopedic treatments</a> for advanced spine care.'
@@ -504,14 +538,14 @@ export default async function LocationDetails(
                 </div>
             </section>
             <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
-                {location.specialists}
-                {location.skilled}
-                {location.whyChoose}
-                <div className="w-full flex flex-col lg:flex-row lg:items-start mt-10 gap-6">
-                    <div className="lg:w-1/3 xl:w-1/4 w-full">
-                        {location.easyToReach}
-                    </div>
-                    {location.mapEmbed && (
+                {locationData.specialists}
+                {locationData.skilled}
+                {locationData.whyChoose}
+                {locationData.mapEmbed ? (
+                    <div className="w-full flex flex-col lg:flex-row lg:items-start mt-10 gap-6">
+                        <div className="lg:w-1/3 xl:w-1/4 w-full">
+                            {locationData.easyToReach}
+                        </div>
                         <div className="lg:w-2/3 xl:w-3/4 w-full">
                             <div 
                                 className="w-full rounded-lg overflow-hidden shadow-lg responsive-map-wrapper"
@@ -522,7 +556,7 @@ export default async function LocationDetails(
                                 <div
                                     className="absolute inset-0 w-full h-full"
                                     dangerouslySetInnerHTML={{ 
-                                        __html: location.mapEmbed
+                                        __html: locationData.mapEmbed
                                             .replace(/width="[^"]*"/gi, 'width="100%"')
                                             .replace(/height="[^"]*"/gi, 'height="100%"')
                                             .replace(/style="[^"]*"/gi, 'style="width: 100%; height: 100%; border: 0; position: absolute; top: 0; left: 0;"')
@@ -530,28 +564,32 @@ export default async function LocationDetails(
                                 />
                             </div>
                         </div>
-                    )}
-                </div>
-                {location.nearby}
-                {location.advancedTreatments}
+                    </div>
+                ) : (
+                    <div className="w-full mt-10">
+                        {locationData.easyToReach}
+                    </div>
+                )}
+                {locationData.nearby}
+                {locationData.advancedTreatments}
             </section>
 
             {/* FAQ Section */}
-            {location.faqs && location.faqs.length > 0 && (
+            {locationData.faqs && locationData.faqs.length > 0 && (
                 <LocationFAQSection
-                    faqs={location.faqs}
-                    locationName={location.region.split(',')[0]}
-                    pageUrl={`/locations/${location.slug}`}
+                    faqs={locationData.faqs}
+                    locationName={locationData.region.split(',')[0]}
+                    pageUrl={`/locations/${state}/${locationSlug}`}
                 />
             )}
 
             <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
-                {location && location.reviews && location.reviews.length > 0 && (
+                {locationData && locationData.reviews && locationData.reviews.length > 0 && (
                     <ReviewsCarousel
-                        reviews={location.reviews}
-                        cityName={location.region.split(',')[0]}
-                        rating={location.rating}
-                        reviewCount={location.reviewCount}
+                        reviews={locationData.reviews}
+                        cityName={locationData.region.split(',')[0]}
+                        rating={locationData.rating}
+                        reviewCount={locationData.reviewCount}
                     />
                 )}
             </section>

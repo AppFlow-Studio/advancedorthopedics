@@ -79,7 +79,7 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                             item.title == 'FIND CARE' ? (
                                 <div className='w-full flex items-center justify-center px-6 py-4'>
                                     <PromoOverlayCard
-                                        link="/area-of-specialty/spinal-stenosis"
+                                        link="/conditions/spinal-stenosis"
                                         onClick={closeSidebar}
                                         className="max-h-40 h-40 w-full sm:max-h-100 sm:h-fit" /></div>
                             )
@@ -91,7 +91,7 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                                             imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
                                             title="Lower Back Pain?"
                                             subtitle="Meet with our world-class surgeons today"
-                                            link={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
+                                            link={`/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
 
                                         /></div>
                                 )

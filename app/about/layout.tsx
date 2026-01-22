@@ -4,23 +4,23 @@ import { getOgImageForPath } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: safeTitle("About Mountain Spine & Orthopedics | Expert Spine & Joint Care"),
-  description: safeDescription("Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida."),
+  description: safeDescription("Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania."),
   keywords: [
     'about Mountain Spine & Orthopedics',
-    'spine experts Florida',
+    'spine experts',
     'orthopedic care team',
     'comprehensive spine surgery',
-    'orthopedic doctors Florida',
+    'orthopedic doctors',
     'spine specialists',
     'orthopedic credentials',
-    'Florida orthopedic team'
+    'orthopedic team'
   ],
   alternates: {
     canonical: buildCanonical("/about"),
   },
   openGraph: {
     title: safeTitle("About Mountain Spine & Orthopedics | Expert Spine & Joint Care"),
-    description: safeDescription("Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida."),
+    description: safeDescription("Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania."),
     url: buildCanonical("/about"),
     siteName: "Mountain Spine & Orthopedics",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: safeTitle("About Mountain Spine & Orthopedics | Expert Spine & Joint Care"),
-    description: safeDescription("Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida."),
+    description: safeDescription("Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania."),
     images: [getOgImageForPath("/")],
   },
 };

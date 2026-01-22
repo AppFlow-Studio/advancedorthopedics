@@ -1,6 +1,8 @@
 import type { Metadata, ResolvingMetadata } from "next";
+import React from "react";
+import { BODY_PARTS } from '@/components/data/bodyParts';
 import { conditions, conditionContentPlaceholders, ConditionContent } from "@/components/data/conditions";
-import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription, normalizeUTF8, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { conditionFAQs } from "@/components/data/conditionFAQs";
@@ -16,30 +18,112 @@ function stripHtmlAndMarkdown(text: string): string {
     .trim();
 }
 
-function capitalizeWords(str: string): string {
-  return str.replace(/\b\w/g, l => l.toUpperCase());
-}
-
-// This function dynamically generates metadata for each condition page.
+// This layout handles metadata for both body parts and conditions
 export async function generateMetadata(
-    { params }: { params: Promise<{ ConditionDetails: string }> },
+    { params }: { params: Promise<{ slug: string }> },
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const resolvedParams = await params;
+    const { slug } = resolvedParams;
     
-    // Check conditionContentPlaceholders first for new ConditionContent format
-    const conditionContent = conditionContentPlaceholders.find((c: ConditionContent) => c.slug === resolvedParams.ConditionDetails);
+    // Check if it's a body part first
+    const bodyPart = BODY_PARTS.find(bp => bp.slug === slug);
+    if (bodyPart) {
+        const url = buildCanonical(`/conditions/${slug}`);
+        const ogImage = getOgImageForPath(`/conditions/${slug}`);
+        
+        // Generate comprehensive keywords for the body part
+        const bodyPartKeywords = [
+            `${bodyPart.title} conditions`,
+            `${bodyPart.title} pain treatment`,
+            `${bodyPart.title} specialist`,
+            `${bodyPart.title} doctor`,
+            `${bodyPart.title} surgery`,
+            `${bodyPart.title.toLowerCase()} pain relief`,
+            `${bodyPart.title.toLowerCase()} orthopedic`,
+            `minimally invasive ${bodyPart.title.toLowerCase()} surgery`,
+            'board-certified orthopedic surgeon',
+            'Mountain Spine Orthopedics',
+            'free MRI review',
+            'second opinion orthopedic',
+            'orthopedic specialist near me',
+        ];
+        
+        // Multi-state location keywords
+        const locationKeywords = ['Florida', 'New Jersey', 'New York', 'Pennsylvania'];
+        const combinedKeywords = [
+            ...bodyPartKeywords,
+            ...locationKeywords.map(loc => `${bodyPart.title.toLowerCase()} doctor ${loc}`),
+            ...locationKeywords.map(loc => `orthopedic specialist ${loc}`),
+        ];
+        
+        return {
+            title: bodyPart.metaTitle,
+            description: bodyPart.metaDescription,
+            keywords: combinedKeywords,
+            authors: [{ name: 'Mountain Spine & Orthopedics', url: 'https://mountainspineorthopedics.com' }],
+            creator: 'Mountain Spine & Orthopedics',
+            publisher: 'Mountain Spine & Orthopedics',
+            category: 'Medical',
+            classification: 'Orthopedic Medicine',
+            alternates: {
+                canonical: url,
+            },
+            robots: {
+                index: true,
+                follow: true,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+                'max-video-preview': -1,
+            },
+            openGraph: {
+                title: bodyPart.metaTitle,
+                description: bodyPart.metaDescription,
+                url: canonicalForOg(`/conditions/${slug}`),
+                siteName: "Mountain Spine & Orthopedics",
+                type: "website",
+                locale: "en_US",
+                images: [
+                    {
+                        url: ogImage,
+                        width: 1200,
+                        height: 630,
+                        alt: bodyPart.seoH1,
+                        type: 'image/jpeg',
+                    },
+                ],
+                countryName: 'United States',
+            },
+            twitter: {
+                card: "summary_large_image",
+                title: bodyPart.metaTitle,
+                description: bodyPart.metaDescription,
+                images: [ogImage],
+                site: '@mountainspine',
+                creator: '@mountainspine',
+            },
+            other: {
+                'geo.region': 'US',
+                'geo.placename': 'United States',
+                'revisit-after': '7 days',
+                'rating': 'general',
+                'distribution': 'global',
+                'audience': 'all',
+            },
+        };
+    }
     
-    // Legacy fallback - check conditions array for old ConditionInfoProp format
+    // Handle condition metadata (reuse existing logic from ConditionDetails layout)
+    const conditionContent = conditionContentPlaceholders.find((c: ConditionContent) => c.slug === slug);
     const condition = conditionContent 
         ? null 
-        : conditions.find(c => c.slug === resolvedParams.ConditionDetails);
+        : conditions.find(c => c.slug === slug);
 
     if (!conditionContent && !condition) {
-        const readableSlug = resolvedParams.ConditionDetails.replace(/-/g, " ");
-        const canonicalUrl = buildCanonical(`/area-of-specialty/${resolvedParams.ConditionDetails}`);
+        const readableSlug = slug.replace(/-/g, " ");
+        const canonicalUrl = buildCanonical(`/conditions/${slug}`);
         return {
-            title: `${capitalizeWords(readableSlug)} | Mountain Spine & Orthopedics`,
+            title: `${readableSlug.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} | Mountain Spine & Orthopedics`,
             description: "Learn about orthopedic care and treatments with our specialists in Florida.",
             alternates: {
                 canonical: canonicalUrl,
@@ -48,23 +132,20 @@ export async function generateMetadata(
     }
 
     const isNewFormat = !!conditionContent;
-    const canonicalUrl = buildCanonical(`/area-of-specialty/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
+    const canonicalUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
     
-    // Use heroImage for OpenGraph (social sharing)
     const ogImage = isNewFormat
         ? (conditionContent!.heroImage 
                ? (typeof conditionContent!.heroImage === 'string' ? conditionContent!.heroImage : conditionContent!.heroImage.src)
-               : getOgImageForPath('/area-of-specialty'))
+               : getOgImageForPath('/conditions'))
         : (typeof condition!.card_img === 'string' 
             ? condition!.card_img 
-            : condition!.card_img?.src || getOgImageForPath('/area-of-specialty'));
+            : condition!.card_img?.src || getOgImageForPath('/conditions'));
 
-    // Get SEO-optimized metadata from centralized helper
-    const slug = isNewFormat ? conditionContent!.slug : condition!.slug;
+    const slugForMetadata = isNewFormat ? conditionContent!.slug : condition!.slug;
     const title = isNewFormat ? conditionContent!.title : condition!.title;
-    const seoMetadata = getConditionMetadata(slug) || generateConditionMetadataFallback(title);
+    const seoMetadata = getConditionMetadata(slugForMetadata) || generateConditionMetadataFallback(title);
     
-    // Use SEO metadata with normalization
     const finalTitle = normalizeUTF8(seoMetadata.metaTitle);
     const finalDescription = normalizeUTF8(seoMetadata.metaDescription);
 
@@ -97,18 +178,15 @@ export async function generateMetadata(
     };
 }
 
-// --- SEO ENHANCEMENT: Consolidated JSON-LD Schema Component with @graph ---
-// This component generates comprehensive schemas: MedicalCondition, WebPage, Service, MedicalOrganization, FAQPage, and BreadcrumbList
-const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails: string }> }) => {
-    const resolvedParams = await params;
-    
+// Condition schemas component (adapted from ConditionDetails layout)
+const ConditionSchemas = async ({ slug }: { slug: string }) => {
     // Check conditionContentPlaceholders first for new ConditionContent format
-    const conditionContent = conditionContentPlaceholders.find((c: ConditionContent) => c.slug === resolvedParams.ConditionDetails);
+    const conditionContent = conditionContentPlaceholders.find((c: ConditionContent) => c.slug === slug);
     
     // Legacy fallback - check conditions array for old ConditionInfoProp format
     const condition = conditionContent 
         ? null 
-        : conditions.find(c => c.slug === resolvedParams.ConditionDetails);
+        : conditions.find(c => c.slug === slug);
 
     if (!conditionContent && !condition) {
         return null;
@@ -117,7 +195,7 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
     const isNewFormat = !!conditionContent;
     const conditionTitle = isNewFormat ? conditionContent!.title : condition!.title;
     const conditionDescription = stripHtmlAndMarkdown(isNewFormat ? conditionContent!.overview.body : condition!.body);
-    const conditionUrl = buildCanonical(`/area-of-specialty/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
+    const conditionUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
     const imageUrl = isNewFormat
         ? (conditionContent!.heroImage 
             ? (typeof conditionContent!.heroImage === 'string' ? conditionContent!.heroImage : conditionContent!.heroImage.src)
@@ -151,7 +229,7 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
     const breadcrumbId = `${conditionUrl}#breadcrumb`;
     const serviceId = `${conditionUrl}#service`;
 
-    // 1. MedicalOrganization Schema (Full reference, not just author)
+    // 1. MedicalOrganization Schema
     const medicalOrganizationSchema = {
         '@type': 'MedicalOrganization',
         '@id': organizationId,
@@ -209,7 +287,7 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         ]
     };
 
-    // 2. MedicalCondition Schema (Enhanced with @id and proper references)
+    // 2. MedicalCondition Schema
     const medicalConditionSchema: any = {
         '@type': 'MedicalCondition',
         '@id': medicalConditionId,
@@ -233,14 +311,13 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         medicalConditionSchema.image = imageUrl;
     }
 
-    // Add signOrSymptom as array (Google prefers arrays)
+    // Add signOrSymptom as array
     if (isNewFormat && conditionContent!.symptoms.list.length > 0) {
         medicalConditionSchema.signOrSymptom = conditionContent!.symptoms.list.map((symptom: string) => ({
             '@type': 'MedicalSymptom',
             'name': cleanSymptomText(symptom)
         }));
     } else if (condition!.what_sym) {
-        // For old format, try to split if it contains commas
         const symptoms = condition!.what_sym.includes(',') 
             ? condition!.what_sym.split(',').map(s => s.trim())
             : [condition!.what_sym];
@@ -250,7 +327,7 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         }));
     }
 
-    // Add riskFactor as array (Google prefers arrays)
+    // Add riskFactor as array
     if (isNewFormat && conditionContent!.causes.body) {
         const riskFactors = extractRiskFactors(conditionContent!.causes.body);
         medicalConditionSchema.riskFactor = riskFactors.map((factor: string) => ({
@@ -280,7 +357,7 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         };
     }
 
-    // 3. WebPage Schema (Describes the page itself)
+    // 3. WebPage Schema
     const webpageSchema: any = {
         '@type': 'WebPage',
         '@id': webpageId,
@@ -304,12 +381,11 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         }
     };
 
-    // Add image only if it exists
     if (imageUrl) {
         webpageSchema.image = imageUrl;
     }
 
-    // 4. Service Schema (Indicates this is a service offered)
+    // 4. Service Schema
     const serviceSchema = {
         '@type': 'Service',
         '@id': serviceId,
@@ -368,8 +444,8 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
             {
                 '@type': 'ListItem',
                 'position': 2,
-                'name': 'Area of Specialty',
-                'item': `${baseUrl}/area-of-specialty` 
+                'name': 'Conditions',
+                'item': `${baseUrl}/conditions` 
             },
             {
                 '@type': 'ListItem',
@@ -380,10 +456,8 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         ]
     };
 
-    // 6. FAQPage Schema - Prioritize dedicated FAQ data file, then fallback to conditionContent.faqs
+    // 6. FAQPage Schema
     let faqSchema: any = null;
-    
-    // First check if FAQs exist in the dedicated data file (Priority)
     const conditionSlug = isNewFormat ? conditionContent!.slug : condition!.slug;
     const specificFAQs = conditionFAQs[conditionSlug];
     
@@ -408,7 +482,6 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
             }
         };
     } else if (isNewFormat && conditionContent!.faqs && conditionContent!.faqs.length > 0) {
-        // Fallback to internal content FAQs if no external file match
         const faqData = generateFAQPageSchema(conditionContent!.faqs, conditionUrl);
         faqSchema = {
             '@type': 'FAQPage',
@@ -433,18 +506,15 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
         breadcrumbSchema
     ];
 
-    // Add FAQPage if it exists
     if (faqSchema) {
         graphSchemas.push(faqSchema);
     }
 
-    // Return single consolidated @graph schema
     const consolidatedSchema = {
         '@context': 'https://schema.org',
         '@graph': graphSchemas
     };
 
-    // Render single consolidated schema (server-side, included in initial HTML)
     return (
         <script
             type="application/ld+json"
@@ -453,18 +523,24 @@ const ConditionSchemas = async ({ params }: { params: Promise<{ ConditionDetails
     );
 };
 
-
-// Main layout component that injects the schemas and renders the page
-export default async function ConditionLayout({
+export default async function UnifiedConditionLayout({
     children,
     params
 }: {
     children: React.ReactNode;
-    params: Promise<{ ConditionDetails: string }>;
+    params: Promise<{ slug: string }>;
 }) {
+    const resolvedParams = await params;
+    const { slug } = resolvedParams;
+    
+    // Check if it's a body part - body parts handle schemas in their page component
+    const bodyPart = BODY_PARTS.find(bp => bp.slug === slug);
+    
+    // For conditions, render schemas in the layout
+    // For body parts, schemas are in the page component
     return (
         <>
-            {await ConditionSchemas({ params })}
+            {!bodyPart && <ConditionSchemas slug={slug} />}
             {children}
         </>
     );

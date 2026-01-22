@@ -233,7 +233,7 @@ export default function HomePageUI() {
               {
                 ServicesAndExpertise.map((item) => (
                   <Link
-                    href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
+                    href={`/conditions?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`}
                     key={item.title} className={`flex flex-row px-[15px] py-[10px] space-x-[10px] bg-[#FAFAFA] rounded-2xl items-center justify-center hover:cursor-pointer `} onClick={() => setSelectedService(item.title)}>
                     <Image src={item.img} alt={item.title} className="h-[22px] w-[22px] " />
                     <span className={`text-[#424959]`}>{item.title}</span>
@@ -268,7 +268,7 @@ export default function HomePageUI() {
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[32px]">
             {
               ServicesAndExpertise.map((item, index) => (
-                <Link href={`/area-of-specialty?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#FAFAFA]' : 'bg-[#FAFAFA]'} `}`} key={item.title}
+                <Link href={`/conditions?data=${encodeURIComponent(JSON.stringify({ tags: item.link }))}`} className={`flex flex-col p-4 rounded-[24px] space-y-[24px] hover:cursor-pointer ${`sm:bg-[#FAFAFA] ${index % 2 === 1 ? 'bg-[#FAFAFA]' : 'bg-[#FAFAFA]'} `}`} key={item.title}
                   onClick={() => setSelectedService(item.title)}
                 >
                   <div className=" flex flex-row items-center justify-between">
@@ -524,7 +524,7 @@ export default function HomePageUI() {
               <div className="grid grid-cols-1 md:grid-cols-2 rounded-[20px] overflow-hidden w-full">
                 {OurSpecialtyItems.map((item, index) => (
                   <div key={index} className={`flex flex-col space-y-[16px] ${index == 1 || index == 2 ? 'bg-[#FAFAFA]' : 'bg-[#FAFAFA]'} p-6`}>
-                    <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] "><item.icon /></div>
+                    <div className="rounded-full bg-white p-1 items-center justify-center flex w-[20%] px-[12px] py-[15px] ">{item.icon()}</div>
                     <h4 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, color: '#252932' }} className="text-xl">{item.title}</h4>
                     <p style={{ fontFamily: "var(--font-inter)", fontWeight: 500, color: '#424959' }} className="text-md">{item.body}</p>
                   </div>
@@ -615,7 +615,7 @@ export default function HomePageUI() {
                 {Amenities.map((item, index) => (
                   <motion.div whileHover={{ translateY: -5, scale: 1.02 }} className="flex flex-col space-y-[12px] max-w-[88px] aspect-square p-[8px] items-center justify-center" key={item.title}>
                     <div className="bg-white rounded-[12px] aspect-square flex items-center justify-center p-[8px]">
-                      <item.icon />
+                      {item.icon()}
                     </div>
                     <div>
                       <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-sm text-[#252932]">{item.title}</span>
@@ -679,7 +679,7 @@ export default function HomePageUI() {
             {hasMounted && dimensions.width > 0 && (
               <div className="w-full">
                 <Carousel className="w-full h-full">
-                  <CarouselContent className="-ml-4 md:gap-x-4" minusOffset={2}>
+                  <CarouselContent className="-ml-4 md:gap-x-4">
                     {PainToProgress.map((item, index) => (
                       <CarouselItem className="xl:basis-1/3 md:basis-1/2 pl-6 relative" key={index}>
                         <div className="bg-[#FAFAFA] flex flex-col p-4 rounded-[24px] space-y-[32px]" key={item.title}>

@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { BicepsFlexed, Bone, Footprints, Hand, User, TorusIcon, TextCursorInputIcon } from "lucide-react";
 import { MultiSelect } from '@/components/ui/multi-select'
 import { useSearchParams } from 'next/navigation'
+import BodyPartTabs from '@/components/BodyPartTabs'
 
 export default function Treatments() {
   // State for pagination
@@ -228,6 +229,33 @@ export default function Treatments() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Browse by Body Part Section - Condensed Tabs */}
+      <section className="max-w-[1440px] w-full flex flex-col py-6 sm:py-8 xl:py-10 xl:px-[80px] px-4 sm:px-6 space-y-4 sm:space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+          <div className="flex flex-col gap-1">
+            <h2
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className="text-[#111315] text-xl sm:text-2xl lg:text-3xl"
+            >
+              Browse Treatments by Body Part
+            </h2>
+            <p
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 400,
+              }}
+              className="text-[#6B7280] text-sm sm:text-base hidden sm:block"
+            >
+              Select a body region to explore treatment options
+            </p>
+          </div>
+        </div>
+        <BodyPartTabs linkPrefix="/treatments?category=" useQueryParam={true} />
       </section>
 
       {/* Treatments List Section */}

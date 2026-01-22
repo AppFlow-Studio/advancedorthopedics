@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Link from 'next/link';
 import { clinics } from './data/clinics';
 import { PhoneLink } from './PhoneLink';
+import { STATE_METADATA, VALID_STATE_SLUGS, getClinicsByState } from '@/lib/locationRedirects';
 const socials = [
     {
         icon: () => (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none">
@@ -27,11 +28,13 @@ const socials = [
 export default function Footer() {
     return (
         <main className='bg-black w-full flex-col flex py-[60px]'>
-            <section className=' w-full max-w-[1440px] mx-auto px-[40px] lg:space-y-0 space-y-4 flex flex-col lg:items-start  items-center justify-center lg:flex-row lg:justify-between'>
-                <div className=' flex flex-col w-full lg:w-[40%]'>
-                    <div className='flex flex-row  space-x-[8px] items-center'>
-                        <Image src={Logo} alt=" Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-auto  " />
-                        <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparnet' />
+            {/* Top Section: Logo & Description + Contact */}
+            <section className='w-full max-w-[1440px] mx-auto px-[40px] flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16'>
+                {/* Left: Logo and description */}
+                <div className='flex flex-col lg:max-w-[400px]'>
+                    <div className='flex flex-row space-x-[8px] items-center'>
+                        <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[80px] lg:h-[80px] w-auto" />
+                        <div className='w-[1px] h-[35px] bg-gradient-to-b from-transparent via-gray-50 to-transparent' />
                         <div className="flex flex-col text-white"
                             style={{
                                 fontFamily: "var(--font-public-sans)",
@@ -49,21 +52,13 @@ export default function Footer() {
                             fontWeight: 400,
                             color: 'white'
                         }}
-                        className=' text-white mt-[20px]'>
-                        Trusted <strong>orthopedic surgeon specialists</strong> serving Florida with <strong>minimally invasive spine surgery</strong>, <strong>joint replacement surgery</strong>, and advanced <strong>back pain treatment</strong>. Our board-certified <strong>orthopedic specialists</strong> provide expert <strong>orthopedic surgery</strong> in Orlando, Hollywood, Boca Raton, and all around South Florida. Book your <strong>orthopedic surgery consultation</strong> today.
+                        className='text-white mt-[20px] text-sm leading-relaxed'>
+                        Trusted <strong>orthopedic surgeon specialists</strong> serving Florida, New Jersey, New York & Pennsylvania with <strong>minimally invasive spine surgery</strong>, <strong>joint replacement surgery</strong>, and advanced <strong>back pain treatment</strong>. Book your <strong>orthopedic surgery consultation</strong> today.
                     </p>
 
-                    <div className='mt-[40px] flex flex-col'>
-                        <p
-                            style={{
-                                fontFamily: 'var(--font-inter)',
-                                fontWeight: 400
-                            }}
-                            className=' text-white mt-[20px]'>
-                            Contact
-                        </p>
-
-                        <div className=' flex flex-row mt-[20px] space-x-[12px] items-center '>
+                    {/* Contact Info */}
+                    <div className='mt-6 flex flex-col gap-3'>
+                        <div className='flex flex-row space-x-[12px] items-center'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M11.3852 0.0666578C11.0536 -0.0290477 10.7071 0.162219 10.6114 0.493864C10.5157 0.825509 10.707 1.17194 11.0386 1.26765C13.78 2.05874 15.9419 4.22057 16.7331 6.96182C16.8288 7.29347 17.1752 7.48472 17.5069 7.389C17.8385 7.29328 18.0298 6.94684 17.9341 6.6152C17.0238 3.46127 14.5392 0.976833 11.3852 0.0666578ZM10.9112 4.11842C10.5935 3.9835 10.2266 4.13169 10.0916 4.4494C9.95671 4.76712 10.1049 5.13406 10.4226 5.26898C11.4596 5.70934 12.2914 6.54113 12.7318 7.57812C12.8667 7.89584 13.2336 8.04402 13.5514 7.9091C13.8691 7.77417 14.0173 7.40724 13.8823 7.08952C13.3154 5.75446 12.2463 4.68536 10.9112 4.11842ZM4.51311 0.906545C4.27945 0.487351 3.90337 0.170069 3.43113 0.0724652C2.95397 -0.0261574 2.47434 0.119319 2.08015 0.440604C0.649844 1.60636 -0.260852 3.47409 0.134395 5.43344C0.377348 6.63783 0.78211 7.82615 1.60638 9.26341C3.2606 12.1479 5.84983 14.7385 8.73763 16.3947C10.1749 17.2189 11.3632 17.6237 12.5676 17.8666C14.5269 18.2619 16.3947 17.3512 17.5604 15.9209C17.8817 15.5267 18.0272 15.0471 17.9286 14.5699C17.831 14.0977 17.5137 13.7216 17.0945 13.4879L15.7591 12.7436L15.7591 12.7436C15.2673 12.4694 14.8534 12.2387 14.4936 12.088C14.1119 11.9282 13.7355 11.8332 13.3194 11.8766C12.9032 11.92 12.5545 12.0906 12.2141 12.3257C11.8931 12.5474 11.5357 12.8585 11.111 13.2283L8.97846 15.0848C6.56267 13.611 4.38855 11.4359 2.91618 9.02257L4.77273 6.89005C5.14248 6.46536 5.45365 6.10797 5.67532 5.78698C5.91047 5.44649 6.08101 5.0978 6.12441 4.68166C6.1678 4.26553 6.07287 3.88915 5.91303 3.50747C5.76236 3.14766 5.53163 2.73376 5.25746 2.24192L5.25745 2.24191L4.51311 0.906545ZM12.8148 16.6413C11.9601 16.4689 11.1147 16.2075 10.1427 15.7286L11.9059 14.1936C12.3633 13.7954 12.668 13.5313 12.9244 13.3543C13.1677 13.1862 13.3167 13.1337 13.449 13.1199C13.5814 13.1061 13.7379 13.1267 14.0107 13.241C14.2981 13.3613 14.6508 13.5569 15.1805 13.8521L16.4859 14.5798C16.6449 14.6684 16.6927 14.7659 16.7044 14.8229C16.7152 14.875 16.7145 14.9803 16.5915 15.1312C15.655 16.2801 14.2281 16.9264 12.8148 16.6413ZM3.80745 6.09513L2.27246 7.85829C1.79352 6.88632 1.53212 6.04092 1.35971 5.18627C1.0746 3.77289 1.72089 2.34601 2.86987 1.40954C3.02073 1.28658 3.12604 1.28583 3.17813 1.29659C3.23514 1.30838 3.33262 1.3561 3.42127 1.51514L4.14892 2.82057C4.44418 3.35027 4.6397 3.70291 4.76005 3.9903C4.87429 4.2631 4.89495 4.41965 4.88115 4.55201C4.86734 4.68438 4.81483 4.83329 4.64676 5.07665C4.46971 5.33303 4.20564 5.63774 3.80745 6.09513Z" fill="#0A50EC" />
                             </svg>
@@ -74,7 +69,7 @@ export default function Footer() {
                             />
                         </div>
 
-                        <div className=' flex flex-row mt-[12px] space-x-[12px] items-center '>
+                        <div className='flex flex-row space-x-[12px] items-center'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M6.45661 0.0419931H11.5433H11.5433C12.292 0.0419695 12.9164 0.0419499 13.412 0.108588C13.9352 0.178925 14.4075 0.33365 14.7871 0.713209C15.1666 1.09277 15.3213 1.5651 15.3917 2.08826C15.4583 2.58391 15.4583 3.20824 15.4583 3.95696V3.957V4.49816L16.2187 5.00511L16.2187 5.00514C16.5634 5.23489 16.8571 5.4307 17.0867 5.61687C17.3314 5.81537 17.5388 6.03008 17.6902 6.31421C17.8415 6.59795 17.9043 6.88884 17.9327 7.20184C17.9593 7.49509 17.9581 7.84635 17.9567 8.258L17.9566 8.28542C17.9531 9.33513 17.9433 10.4074 17.9162 11.4936L17.915 11.5423C17.8841 12.782 17.8591 13.782 17.7172 14.5867C17.5683 15.4312 17.2822 16.1184 16.6954 16.7052C16.1074 17.2932 15.4147 17.5787 14.563 17.7275C13.7502 17.8695 12.7376 17.8948 11.4805 17.9262H11.4804L11.4319 17.9274C9.80604 17.968 8.19448 17.968 6.56858 17.9274L6.52007 17.9262H6.52004C5.26289 17.8948 4.25034 17.8695 3.43753 17.7275C2.58581 17.5787 1.89308 17.2932 1.3051 16.7052C0.71835 16.1184 0.432254 15.4312 0.283311 14.5867C0.141392 13.782 0.116446 12.782 0.0855239 11.5423L0.0843083 11.4936C0.057196 10.4074 0.0474301 9.33514 0.0439037 8.28542L0.043811 8.25803C0.0424147 7.84637 0.0412232 7.4951 0.0678299 7.20184C0.0962271 6.88884 0.159026 6.59795 0.310265 6.31421C0.461715 6.03008 0.669037 5.81537 0.913798 5.61688C1.14338 5.43069 1.43713 5.23487 1.78179 5.00512L1.80455 4.98994L2.54161 4.49857V3.957C2.54158 3.20826 2.54156 2.58391 2.6082 2.08826C2.67854 1.5651 2.83326 1.09277 3.21282 0.713209C3.59238 0.33365 4.06471 0.178925 4.58787 0.108588C5.08352 0.0419499 5.70786 0.0419695 6.45658 0.0419931H6.45661ZM15.4583 7.73143L15.4583 6.00048L15.5026 6.03C15.8762 6.27906 16.1206 6.44278 16.2993 6.58774C16.468 6.72448 16.5413 6.81619 16.5871 6.90218C16.6057 6.93701 16.6225 6.97595 16.6372 7.02408L15.4583 7.73143ZM14.2083 4.00033V8.48143L11.2501 10.2563C10.6127 10.6388 10.1739 10.9012 9.80921 11.0726C9.45734 11.2381 9.22129 11.2953 8.99921 11.2953C8.77713 11.2953 8.54108 11.2381 8.18922 11.0726C7.82453 10.9012 7.38571 10.6388 6.74829 10.2563L3.79161 8.48231V4.00033C3.79161 3.19699 3.79293 2.65735 3.84705 2.25482C3.89875 1.87027 3.98811 1.70569 4.0967 1.59709C4.2053 1.48849 4.36988 1.39914 4.75443 1.34744C5.15696 1.29332 5.6966 1.29199 6.49994 1.29199H11.4999C12.3033 1.29199 12.8429 1.29332 13.2454 1.34744C13.63 1.39914 13.7946 1.4885 13.9032 1.59709C14.0118 1.70569 14.1011 1.87027 14.1528 2.25482C14.2069 2.65735 14.2083 3.19699 14.2083 4.00033ZM2.54161 6.00088L2.54161 7.73231L1.36297 7.02513C1.37775 6.97652 1.39465 6.93727 1.41335 6.90218C1.45919 6.81619 1.53253 6.72448 1.70114 6.58774C1.8799 6.44278 2.12433 6.27907 2.49793 6.03L2.54161 6.00088ZM1.29449 8.44177C1.29845 9.43518 1.30849 10.4437 1.33392 11.4624C1.36637 12.7623 1.39061 13.6682 1.51431 14.3696C1.63284 15.0417 1.83374 15.466 2.18899 15.8213C2.54301 16.1753 2.97047 16.377 3.65263 16.4962C4.36327 16.6203 5.2827 16.6449 6.5998 16.6778C8.20489 16.7179 9.79563 16.7179 11.4007 16.6778C12.7178 16.6449 13.6372 16.6203 14.3479 16.4962C15.03 16.377 15.4575 16.1753 15.8115 15.8213C16.1668 15.466 16.3677 15.0417 16.4862 14.3696C16.6099 13.6682 16.6341 12.7623 16.6666 11.4624C16.692 10.4433 16.7021 9.43434 16.706 8.44053L11.8659 11.3446L11.8659 11.3446L11.8658 11.3446L11.8657 11.3447C11.2624 11.7067 10.7696 12.0024 10.341 12.2039C9.89311 12.4145 9.46959 12.5453 8.99921 12.5453C8.52883 12.5453 8.10532 12.4145 7.65739 12.2039C7.22875 12.0024 6.73597 11.7067 6.13253 11.3446L1.29449 8.44177ZM7.33329 7.95866C6.98811 7.95866 6.70829 7.67884 6.70829 7.33366C6.70829 6.98848 6.98811 6.70866 7.33329 6.70866H10.6666C11.0118 6.70866 11.2916 6.98848 11.2916 7.33366C11.2916 7.67884 11.0118 7.95866 10.6666 7.95866H7.33329ZM7.33329 4.62533C6.98811 4.62533 6.70829 4.3455 6.70829 4.00033C6.70829 3.65515 6.98811 3.37533 7.33329 3.37533H10.6666C11.0118 3.37533 11.2916 3.65515 11.2916 4.00033C11.2916 4.3455 11.0118 4.62533 10.6666 4.62533H7.33329Z" fill="#0A50EC" />
                             </svg>
@@ -84,49 +79,27 @@ export default function Footer() {
                                     fontWeight: 400,
                                     color: '#DCDEE1'
                                 }}
-                                className='sm:text-md text-sm'
+                                className='text-sm'
                             >info@mountainspineorthopedics.com</p>
                         </div>
-
-                        <div className=' mt-[40px] flex flex-row space-x-[16px]'>
-                            {
-                                socials.map((item, index) => (
-                                    <Link href={item.link} target='_blank'
-                                        className=' bg-[#22262A] rounded-full px-[13px] py-[12px] items-center justify-center hover:cursor-pointer hover:scale-[1.2]' key={index}>
-                                        <item.icon />
-                                    </Link>
-                                ))
-                            }
-                        </div>
-
                     </div>
-                    <div>
+
+                    {/* Social Icons */}
+                    <div className='mt-6 flex flex-row space-x-[16px]'>
+                        {
+                            socials.map((item, index) => (
+                                <Link href={item.link} target='_blank'
+                                    className='bg-[#22262A] rounded-full px-[13px] py-[12px] items-center justify-center hover:cursor-pointer hover:scale-[1.2] transition-transform' key={index}>
+                                    <item.icon />
+                                </Link>
+                            ))
+                        }
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8 lg:gap-[48px] w-full lg:w-auto ">
+                {/* Right: Links Grid - 5 equal columns */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8 flex-1">
                     {/* Column 1: Overview */}
-                    <div className=''
-                        style={{
-                            fontFamily: 'var(--font-public-sans)',
-                            fontWeight: 400,
-                            color: 'white'
-                        }}
-                    >
-                        <p className=" uppercase tracking-wider mb-4 text-lg">Overview</p>
-                        <ul className=" space-y-[16px] flex flex-col text-sm text-[#DCDEE1]">
-                            <Link href={'/find-care/book-an-appointment'}>Contact Us</Link >
-                            <Link href={'/find-care/find-a-doctor'}>Doctors</Link >
-                            <Link href={'/locations'}>Locations</Link >
-                            <Link href={'/blogs'}>Blog</Link >
-                            <Link href={'/about/faqs'}>FAQs</Link >
-                            <Link href={'/patient-forms'}>Patient Forms</Link >
-                            <Link href={'/condition-check'}>Condition Check</Link >
-                            <Link href={'/find-care/candidacy-check'}>Treatment Check</Link >
-                            <Link href={'/find-care/free-mri-review'}>MRI Review</Link >
-                        </ul>
-                    </div>
-                    {/* Column 2: Locations */}
                     <div
                         style={{
                             fontFamily: 'var(--font-public-sans)',
@@ -134,16 +107,63 @@ export default function Footer() {
                             color: 'white'
                         }}
                     >
-                        <p className="uppercase tracking-wider mb-4 text-lg font-[600]">Locations</p>
-                        <p className="uppercase tracking-wider mb-2 text-sm font-[600]">FL Locations</p>
-                        <ul className="space-y-[12px] flex flex-col text-sm mb-4 text-[#DCDEE1]">
-                            {
-                                clinics.map((item, index) => (
-                                    <Link href={`/locations/${item.slug}`} key={index}>{item.region.replace(', FL', '')}</Link>
-                                ))
-                            }
+                        <p className="uppercase tracking-wider mb-4 text-sm font-[600] text-white">Overview</p>
+                        <ul className="space-y-[10px] flex flex-col text-sm text-[#DCDEE1]">
+                            <Link href={'/find-care/book-an-appointment'} className="hover:text-white transition-colors">Contact Us</Link>
+                            <Link href={'/find-care/find-a-doctor'} className="hover:text-white transition-colors">Doctors</Link>
+                            <Link href={'/locations'} className="hover:text-white transition-colors">All Locations</Link>
+                            <Link href={'/blogs'} className="hover:text-white transition-colors">Blog</Link>
+                            <Link href={'/about/faqs'} className="hover:text-white transition-colors">FAQs</Link>
+                            <Link href={'/patient-forms'} className="hover:text-white transition-colors">Patient Forms</Link>
+                            <Link href={'/condition-check'} className="hover:text-white transition-colors">Condition Check</Link>
+                            <Link href={'/find-care/free-mri-review'} className="hover:text-white transition-colors">MRI Review</Link>
                         </ul>
                     </div>
+                    
+                    {/* Locations by State - 4 columns with equal widths */}
+                    {VALID_STATE_SLUGS.map((stateSlug) => {
+                        const stateInfo = STATE_METADATA[stateSlug];
+                        const stateClinics = getClinicsByState(stateSlug);
+                        if (stateClinics.length === 0) return null;
+                        
+                        return (
+                            <div
+                                key={stateSlug}
+                                style={{
+                                    fontFamily: 'var(--font-public-sans)',
+                                    fontWeight: 400,
+                                    color: 'white'
+                                }}
+                            >
+                                <Link href={`/locations/${stateSlug}`} className="uppercase tracking-wider mb-4 text-sm font-[600] block hover:text-[#5E96F0] transition-colors text-white">
+                                    {stateInfo?.abbr} Locations
+                                </Link>
+                                <ul className="space-y-[10px] flex flex-col text-sm text-[#DCDEE1]">
+                                    {stateClinics.map((clinic, index) => {
+                                        // Get display name - extract neighborhood from name if it's in parentheses
+                                        // e.g., "Mountain Spine & Orthopedics Philadelphia (Walnut)" -> "Philadelphia (Walnut)"
+                                        let displayName = clinic.region.replace(`, ${stateInfo?.abbr}`, '');
+                                        
+                                        // For locations with neighborhood specifiers in name, append them
+                                        const neighborhoodMatch = clinic.name.match(/\(([^)]+)\)$/);
+                                        if (neighborhoodMatch && displayName === 'Philadelphia') {
+                                            displayName = `Philadelphia (${neighborhoodMatch[1]})`;
+                                        }
+                                        
+                                        return (
+                                            <Link 
+                                                href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
+                                                key={index}
+                                                className="hover:text-white transition-colors"
+                                            >
+                                                {displayName}
+                                            </Link>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
 

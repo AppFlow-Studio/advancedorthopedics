@@ -161,35 +161,6 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
 
   const canonicalUrl = `https://mountainspineorthopedics.com/blogs${tag ? `?tag=${encodeURIComponent(tag)}` : ""}${page > 1 ? `&page=${page}` : ""}`;
 
-  // --- Blog schema ---
-  const blogSchema: any = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": tag ? `${tag} Blogs` : "Orthopedic Blog",
-    "description": tag
-      ? `Collection of expert blog posts about ${tag} from Mountain Spine & Orthopedics.`
-      : "Official orthopedic blog from Mountain Spine & Orthopedics with updates on treatments, spine health, and recovery.",
-    "url": canonicalUrl,
-    "inLanguage": "en-US",
-    "dateModified": new Date().toISOString(),
-    "publisher": {
-      "@type": "Organization",
-      "name": "Mountain Spine & Orthopedics",
-      "url": "https://mountainspineorthopedics.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://mountainspineortho.b-cdn.net/logoSearch.png"
-      }
-    }
-  };
-
-  if (tag) {
-    blogSchema.about = {
-      "@type": "MedicalSpecialty",
-      "name": tag
-    };
-  }
-
   // --- Breadcrumb schema ---
   const breadcrumbSchema: any = {
     "@context": "https://schema.org",
@@ -239,6 +210,45 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
   } catch (error) {
     console.error("Error fetching blogs for schema:", error);
     // Use empty arrays as fallback
+  }
+  
+  // --- Blog schema (must be after blogs fetch) ---
+  const blogSchema: any = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": tag ? `${tag} Blogs` : "Orthopedic Blog",
+    "description": tag
+      ? `Collection of expert blog posts about ${tag} from Mountain Spine & Orthopedics.`
+      : "Official orthopedic blog from Mountain Spine & Orthopedics with updates on treatments, spine health, and recovery.",
+    "url": canonicalUrl,
+    "inLanguage": "en-US",
+    "dateModified": new Date().toISOString(),
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mountain Spine & Orthopedics",
+      "url": "https://mountainspineorthopedics.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mountainspineortho.b-cdn.net/logoSearch.png",
+        "width": 500,
+        "height": 500
+      }
+    },
+    "blogPost": blogs?.slice(0, 10).map((post: any) => ({
+      "@type": "BlogPosting",
+      "@id": `https://mountainspineorthopedics.com/blogs/${post.slug}`,
+      "headline": post.blog_info?.title,
+      "url": `https://mountainspineorthopedics.com/blogs/${post.slug}`,
+      "datePublished": post.created_at,
+      "dateModified": post.modified_at || post.created_at
+    })) || []
+  };
+
+  if (tag) {
+    blogSchema.about = {
+      "@type": "MedicalSpecialty",
+      "name": tag
+    };
   }
   
   const startIndex = (page - 1) * perPage + 1;

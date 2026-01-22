@@ -9,7 +9,7 @@ export const slipFallFaqs = [
     },
     {
         q: "How soon should I see a spine specialist after a slip and fall?",
-        a: "Ideally within 24–48 hours. Early evaluation helps document injuries, prevents worsening conditions, and ensures faster recovery. Our Florida clinics offer same-day appointments.",
+        a: "Ideally within 24–48 hours. Early evaluation helps document injuries, prevents worsening conditions, and ensures faster recovery. Our clinics offer same-day appointments.",
     },
     {
         q: "What treatments are available for slip and fall spine or joint injuries?",

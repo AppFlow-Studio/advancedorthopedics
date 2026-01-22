@@ -46,27 +46,27 @@ const SPECIALTY_OVERRIDES: Record<string, string> = {
  */
 const CONDITION_OVERRIDES: Record<string, string> = {
   // Dr. Katzman's conditions
-  "Herniated Disc": "/area-of-specialty/herniated-disc",
-  "Spinal Stenosis": "/area-of-specialty/spinal-stenosis",
-  "Degenerative Disc Disease": "/area-of-specialty/degenerative-disc-disease",
-  "Sciatica": "/area-of-specialty/sciatica",
-  "Scoliosis": "/area-of-specialty/adult-degenerative-scoliosis",
+  "Herniated Disc": "/conditions/herniated-disc",
+  "Spinal Stenosis": "/conditions/spinal-stenosis",
+  "Degenerative Disc Disease": "/conditions/degenerative-disc-disease",
+  "Sciatica": "/conditions/sciatica",
+  "Scoliosis": "/conditions/adult-degenerative-scoliosis",
   // "Spinal Tumors" - No page exists, will display as plain text
   
   // Dr. Cowin's conditions
-  "Sacroiliac Fusions": "/area-of-specialty/sacroiliac-joint-dysfunction",
+  "Sacroiliac Fusions": "/conditions/sacroiliac-joint-dysfunction",
   // "General Orthopedic Conditions" - Too broad, no specific page
   // "Upper Extremity Conditions" - Too broad, no specific page
   // "Lower Extremity Conditions" - Too broad, no specific page
   // "Spine Conditions" - Too broad, no specific page
   
   // Dr. McCarthy's conditions
-  "Adult Degenerative Spine Issues": "/area-of-specialty/degenerative-disc-disease",
-  "Spinal Trauma": "/area-of-specialty/failed-back-surgery-syndrome",
-  "Arthritis": "/area-of-specialty/arthritis",
-  "Hand Injuries": "/area-of-specialty/carpal-tunnel-syndrome",
-  "Shoulder/Rotator Cuff Problems": "/area-of-specialty/rotator-cuff-tear",
-  "Sports-Related Injuries": "/area-of-specialty/acl-injury",
+  "Adult Degenerative Spine Issues": "/conditions/degenerative-disc-disease",
+  "Spinal Trauma": "/conditions/failed-back-surgery-syndrome",
+  "Arthritis": "/conditions/arthritis",
+  "Hand Injuries": "/conditions/carpal-tunnel-syndrome",
+  "Shoulder/Rotator Cuff Problems": "/conditions/rotator-cuff-tear",
+  "Sports-Related Injuries": "/conditions/acl-injury",
   
   // Dr. McPhail-Pruitt's conditions
   "Acute Surgical Pain": "/treatments/non-surgical-treatments-for-pain-management",
@@ -74,9 +74,9 @@ const CONDITION_OVERRIDES: Record<string, string> = {
   "Postoperative Recovery": "/treatments/non-surgical-treatments-for-pain-management",
   
   // Dr. Slaughter's conditions
-  "Sports Injuries": "/area-of-specialty/acl-injury",
-  "High-Impact Activity Injuries": "/area-of-specialty/acl-injury",
-  "Age-Related Spine Issues": "/area-of-specialty/degenerative-disc-disease",
+  "Sports Injuries": "/conditions/acl-injury",
+  "High-Impact Activity Injuries": "/conditions/acl-injury",
+  "Age-Related Spine Issues": "/conditions/degenerative-disc-disease",
   // "Musculoskeletal Conditions" - Too broad, no specific page
 };
 

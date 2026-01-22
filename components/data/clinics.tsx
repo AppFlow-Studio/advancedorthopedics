@@ -11,6 +11,7 @@ Updated: Miami Beach and Palm Beach Gardens location pages with new canonical co
 Preserved all heading levels, paragraph structure, and converted links to internal navigation
 */
 
+import React from 'react';
 import { StaticImageData } from 'next/image';
 import { Testimonial } from '../ui/testimonial-card';
 import { Marquee } from '../magicui/marquee';
@@ -21,6 +22,11 @@ export interface Review {
   reviewBody: string;
   reviewRating: number;
 }
+
+// State type definitions for multi-state support
+export type StateAbbr = 'FL' | 'NJ' | 'NY' | 'PA';
+export type StateSlug = 'fl' | 'nj' | 'ny' | 'pa';
+export type LocationType = 'office' | 'surgery-center';
 
 export interface ClinicsProps {
   id: number;
@@ -33,7 +39,13 @@ export interface ClinicsProps {
   link: string;
   embedSrc?: string; // Google Maps embed iframe src
   placeUrl?: string; // Canonical Google Maps Place URL
-  slug: string;
+  slug: string; // Legacy slug for backwards compatibility
+  // State-first URL structure fields
+  stateAbbr: StateAbbr;
+  stateSlug: StateSlug;
+  locationSlug: string; // New canonical slug without state duplication
+  locationType: LocationType;
+  oldSlugs?: string[]; // Legacy slugs for redirect mapping
   paragraph: string;
   keywords: string[];
   metaTitle: string;
@@ -59,6 +71,19 @@ export interface ClinicsProps {
   kgId?: string;
   categories?: string[];
   formattedAddress?: string;
+  // Normalized address fields (optional, for future use)
+  addressLine1?: string;  // e.g., "535 5th Ave"
+  suite?: string;         // e.g., "Suite 1012"
+  city?: string;          // e.g., "New York"
+  state?: string;         // e.g., "New York"
+  postalCode?: string;    // e.g., "10017"
+  county?: string;        // e.g., "New York"
+  country?: string;       // "United States"
+  countryCode?: string;   // "us"
+  stateCode?: string;     // "NY" (2-letter)
+  // Google Maps URL fields
+  googleMapsUrl?: string; // Google Maps search URL (non-GBP)
+  hasMap?: string;        // Same as googleMapsUrl (for schema)
 }
 
 export const clinics: ClinicsProps[] = [
@@ -74,6 +99,11 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=13658533427783630986',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.6782637587435!2d-80.18148222454842!3d26.011354777195972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ab9e1d398c07%3A0xbd8cdbc95bd7808a!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847098545!5m2!1sen!2sus',
     slug: 'hollywood-fl-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'hollywood-orthopedics',
+    locationType: 'office',
+    oldSlugs: ['hollywood-fl-orthopedics'],
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
     [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier medical care that gets you back to work and play. We are the trusted orthopedic center in Hollywood, FL, offering same-day appointments for all your musculoskeletal needs.
@@ -118,7 +148,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Hollywood & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -130,7 +160,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible medical facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Hollywood, specializing in <a href='/area-of-specialty/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Hollywood, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
         </ul>
       </div>
@@ -215,19 +245,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -239,19 +269,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -263,91 +293,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -585,6 +615,8 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11xdh045lm',
     categories: ['Orthopedic clinic', 'Orthopedic surgeon', 'Pain management physician', 'Physiatrist', 'Podiatrist', 'Sports medicine clinic'],
     formattedAddress: '3500 Tyler St, Hollywood, FL 33021',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=3500%20Tyler%20St%2C%20Hollywood%2C%20FL%2033021',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=3500%20Tyler%20St%2C%20Hollywood%2C%20FL%2033021',
   },
   {
     id: 3,
@@ -598,6 +630,10 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=4386170917009331132',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847345934!5m2!1sen!2sus',
     slug: 'palm-springs-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'palm-springs-orthopedics',
+    locationType: 'office',
     paragraph: `
     For the residents of Palm Springs and the surrounding Palm Beach County communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
     [PARAGRAPH BREAK]
@@ -642,7 +678,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Palm Springs & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</Link>, <Link href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</Link>, <Link href='/area-of-specialty/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</Link>, <Link href='/area-of-specialty/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, and work injuries with personalized treatment plans.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</Link>, <Link href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</Link>, <Link href='/conditions/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</Link>, <Link href='/conditions/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, and work injuries with personalized treatment plans.</p>
       </div>
     ),
     whyChoose: (
@@ -712,19 +748,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -736,19 +772,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -760,91 +796,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -1055,6 +1091,8 @@ export const clinics: ClinicsProps[] = [
     ],
     ogImage: "/newlogo4.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14002.606566307608!2d-81.38488004357872!3d28.670147561592515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186497809!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=652%20Palm%20Springs%20Dr%2C%20Altamonte%20Springs%2C%20FL%2032701',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=652%20Palm%20Springs%20Dr%2C%20Altamonte%20Springs%2C%20FL%2032701',
   },
   {
     id: 5,
@@ -1068,6 +1106,10 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=10592483445661608044',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8682598319447!2d-81.46883192446174!3d28.51361107572991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e779a3bc5009bf%3A0x93000f928bdda86c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847256751!5m2!1sen!2sus',
     slug: 'orlando-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'orlando-orthopedics',
+    locationType: 'office',
     paragraph: `
     Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
@@ -1112,7 +1154,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Orlando & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">disc problems</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, and work injuries. Every patient gets a treatment plan made just for them.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">disc problems</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, and work injuries. Every patient gets a treatment plan made just for them.</p>
       </div>
     ),
     whyChoose:
@@ -1185,19 +1227,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -1209,19 +1251,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -1233,91 +1275,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -1540,6 +1582,8 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11xdg4yhhx',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist'],
     formattedAddress: '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6150%20Metrowest%20Blvd%20STE%20102%2C%20Orlando%2C%20FL%2032835',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=6150%20Metrowest%20Blvd%20STE%20102%2C%20Orlando%2C%20FL%2032835',
   },
   {
     id: 9,
@@ -1553,6 +1597,10 @@ export const clinics: ClinicsProps[] = [
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.207042187583!2d-80.35092002450014!3d27.431657576341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88def1ccecab48b7%3A0x879f5757b186a23c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847379396!5m2!1sen!2sus',
     phone: '(561) 223-9959',
     slug: 'fort-pierce-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'fort-pierce-orthopedics',
+    locationType: 'office',
     paragraph: `
   Mountain Spine & Orthopedics in Fort Pierce offers top-tier orthopedic care to the Treasure Coast. Our local center provides same-day appointments for fast access to spine specialists who diagnose and treat a wide range of orthopedic conditions with compassion, technology, and experience.
   [PARAGRAPH BREAK]
@@ -1596,7 +1644,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Fort Pierce & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -1675,19 +1723,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -1699,19 +1747,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -1723,91 +1771,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -2018,6 +2066,8 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11ycy0xs6d',
     categories: ['Orthopedic surgeon', 'Medical clinic', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
     formattedAddress: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2215%20Nebraska%20Ave%20Suite%201C%2C%20Fort%20Pierce%2C%20FL%2034950',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=2215%20Nebraska%20Ave%20Suite%201C%2C%20Fort%20Pierce%2C%20FL%2034950',
   },
   {
     id: 6,
@@ -2031,6 +2081,10 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=9551232848950997571',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.285761930094!2d-80.09005942452085!3d26.830861876696165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88df2b301813d549%3A0x848ccbabe8c43243!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847227565!5m2!1sen!2sus',
     slug: 'palm-beach-gardens-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'palm-beach-gardens-orthopedics',
+    locationType: 'office',
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center, serving families
     [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert orthopedic care, compassionate clinical service, and evidence-based results that make a difference. Your musculoskeletal mobility and overall well-being are our top priorities. Experience the clinical excellence that sets our orthopedic services apart in Palm Beach Gardens.
@@ -2078,7 +2132,7 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Palm Beach Gardens orthopedic center, Mountain Spine & Orthopedics brings expert clinical care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-2xl'>Highly Skilled Orthopedic Surgeons in Palm Beach Gardens & Nearby Areas</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/treatments/neck-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/treatments/neck-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -2166,19 +2220,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -2190,19 +2244,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -2214,91 +2268,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -2515,6 +2569,8 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11xg39r2lw',
     categories: ['Orthopedic surgeon', 'Medical clinic', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
     formattedAddress: '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=3355%20Burns%20Rd%20STE%20304%2C%20Palm%20Beach%20Gardens%2C%20FL%2033410',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=3355%20Burns%20Rd%20STE%20304%2C%20Palm%20Beach%20Gardens%2C%20FL%2033410',
   },
   {
     id: 7,
@@ -2526,6 +2582,10 @@ export const clinics: ClinicsProps[] = [
     phone: '(954) 987-2047',
     link: 'https://www.google.com/maps/place/7000+SW+62+AVE+Suite+330,+South+Miami,+FL+33143-4716',
     slug: 'miami-beach-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'miami-beach-orthopedics',
+    locationType: 'office',
     paragraph: `
     South Florida's most trusted spine and joint care center.
     [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priorities. Experience the excellence that sets our Miami Beach orthopedic practice apart.
@@ -2568,7 +2628,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <span className='font-bold'>orthopedic specialists</span> in Miami Beach are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-specialty/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/area-of-specialty/lumbar-herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <span className='font-bold'>orthopedic specialists</span> in Miami Beach are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -2646,19 +2706,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -2670,19 +2730,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -2694,91 +2754,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -2996,6 +3056,8 @@ export const clinics: ClinicsProps[] = [
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
     formattedAddress: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
     placeUrl: 'https://www.google.com/maps?cid=5072257544612706635',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=8000%20SW%2067th%20Ave%202nd%20Floor%2C%20Miami%2C%20FL%2033143',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=8000%20SW%2067th%20Ave%202nd%20Floor%2C%20Miami%2C%20FL%2033143',
   },
   {
     id: 8,
@@ -3009,6 +3071,10 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=15451539311650672620',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.4534724799364!2d-80.12857392453517!3d26.408838976951078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91f1fadf45eb3%3A0xd66ee5235fec0fec!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847155755!5m2!1sen!2sus',
     slug: 'boca-raton-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'boca-raton-orthopedics',
+    locationType: 'office',
     paragraph: `
     Mountain Spine & Orthopedics is the definitive choice for Boca Raton residents seeking sophisticated and effective solutions from a leading Boca Raton orthopedic group. 
     [PARAGRAPH BREAK]
@@ -3053,7 +3119,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Boca Raton & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our experienced <Link href="/locations/fort-pierce-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-specialty/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our experienced <Link href="/locations/fl/fort-pierce-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -3066,7 +3132,7 @@ export const clinics: ClinicsProps[] = [
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
           <li>Leading Boca Raton sports & orthopedic specialists focusing on athletic injuries.</li>
-          <li>Expert foot and ankle <Link href="/locations/palm-spring-orthopedics" className="text-[#0A50EC] underline">orthopedic care</Link> and podiatry services.</li>
+          <li>Expert foot and ankle <Link href="/locations/fl/palm-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic care</Link> and podiatry services.</li>
         </ul>
       </div>
     ),
@@ -3076,9 +3142,9 @@ export const clinics: ClinicsProps[] = [
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Fort Lauderdale - 31 minutes (21 miles)</li>
           <li>Fort Lauderdale Airport - 36 minutes (26 miles)</li>
-          <li>West <Link href="/locations/palm-beach-gardens-orthopedics" className="text-[#0A50EC] underline">Palm Beach</Link> - 35 minutes (27 miles)</li>
+          <li>West <Link href="/locations/fl/palm-beach-gardens-orthopedics" className="text-[#0A50EC] underline">Palm Beach</Link> - 35 minutes (27 miles)</li>
           <li>Delray Beach - 15 minutes</li>
-          <li><Link href="/locations/orlando-orthopedics" className="text-[#0A50EC] underline">Orlando</Link> - 3 hours (194 miles)</li>
+          <li><Link href="/locations/fl/orlando-orthopedics" className="text-[#0A50EC] underline">Orlando</Link> - 3 hours (194 miles)</li>
         </ul>
       </div>
     ),
@@ -3132,19 +3198,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -3156,19 +3222,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -3180,91 +3246,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -3476,6 +3542,8 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11x_gt001t',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist'],
     formattedAddress: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1905%20Clint%20Moore%20Rd%20%23300%2C%20Boca%20Raton%2C%20FL%2033496',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=1905%20Clint%20Moore%20Rd%20%23300%2C%20Boca%20Raton%2C%20FL%2033496',
   },
   {
     id: 1,
@@ -3489,6 +3557,10 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=8020463626324954519',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7715cf458b751%3A0x6f4e692c850a4d97!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847304711!5m2!1sen!2sus',
     slug: 'altamonte-springs-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'altamonte-springs-orthopedics',
+    locationType: 'office',
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
@@ -3534,7 +3606,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central Florida families with high patient satisfaction</li>
@@ -3542,7 +3614,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
-          <li><Link href="/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in athletic injuries</li>
+          <li><Link href="/locations/fl/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in athletic injuries</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Easily Accessible From Throughout Central Florida:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
@@ -3553,7 +3625,7 @@ export const clinics: ClinicsProps[] = [
           <li>Lake Mary & Heathrow - 15 minutes</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Convenient for Lake Mary Residents</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic center in Altamonte Springs, FL</Link> is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic center in Altamonte Springs, FL</Link> is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
       </div>
     ),
     whyChoose: (
@@ -3625,19 +3697,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -3649,19 +3721,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -3673,91 +3745,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -3983,6 +4055,8 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11ydkt_ghw',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
     formattedAddress: '499 E Central Pkwy, Altamonte Springs, FL 32701',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=499%20E%20Central%20Pkwy%2C%20Altamonte%20Springs%2C%20FL%2032701',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=499%20E%20Central%20Pkwy%2C%20Altamonte%20Springs%2C%20FL%2032701',
   },
   {
     id: 2,
@@ -3994,6 +4068,10 @@ export const clinics: ClinicsProps[] = [
     phone: '(863) 777-5805',
     link: 'https://www.google.com/maps/place/2400+North+Blvd+W,+Davenport,+FL+33837,+USA/@28.1674336,-81.6414992,17z/data=!3m1!4b1!4m6!3m5!1s0x88dd710dcdc14069:0x95933b5620dfb1e2!8m2!3d28.1674289!4d-81.6389243!16s%2Fg%2F11h08yw72b?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
     slug: 'davenport-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'davenport-orthopedics',
+    locationType: 'office',
     paragraph: `
     Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
@@ -4039,7 +4117,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Davenport & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/area-of-specialty/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/area-of-specialty/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central Florida families with high patient satisfaction</li>
@@ -4057,7 +4135,7 @@ export const clinics: ClinicsProps[] = [
           <li>Kissimmee & Celebration - 20 minutes</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Convenient for Kissimmee Residents</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/davenport-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists near Davenport, FL</Link> center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/davenport-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists near Davenport, FL</Link> center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
       </div>
     ),
     whyChoose: (
@@ -4128,19 +4206,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -4152,19 +4230,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -4176,91 +4254,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -4480,14 +4558,8 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: "/newlogo4.png",
-    mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.651627743948!2d-81.377155224456!3d28.670147975644227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7715cf458b751%3A0x6f4e692c850a4d97!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186436408!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
-    // GBP data
-    placeId: 'ChIJjbW80Wpx54gRvJN9yDXP3jw',
-    cid: '4386170917009331132',
-    businessProfileId: '12135909678335605998',
-    kgId: '/g/11xdg50fw8',
-    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
-    formattedAddress: '652 Palm Springs Dr, Altamonte Springs, FL 32701',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2400%20North%20Blvd%20W%20Suite%20C%2C%20Davenport%2C%20FL%2033837',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=2400%20North%20Blvd%20W%20Suite%20C%2C%20Davenport%2C%20FL%2033837',
   },
   {
     id: 10,
@@ -4501,6 +4573,10 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=8805803724154439435',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.8307642541345!2d-81.54979192450683!3d30.334084408520497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b7cd9a1e1d05%3A0x9b6c8c8392e55d87!2s1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225!5e0!3m2!1sen!2sus!4v1761865000000!5m2!1sen!2sus',
     slug: 'jacksonville-orthopedics',
+    stateAbbr: 'FL',
+    stateSlug: 'fl',
+    locationSlug: 'jacksonville-orthopedics',
+    locationType: 'office',
     paragraph: `
     Mountain Spine & Orthopedics is proud to expand its advanced spine and orthopedic expertise to Jacksonville, Florida. Our Jacksonville orthopedic clinic delivers the same trusted, minimally invasive surgical care available at our other Florida locations—now convenient for residents of Arlington, Regency, Southside, and Atlantic Beach.
     [PARAGRAPH BREAK]
@@ -4625,19 +4701,19 @@ export const clinics: ClinicsProps[] = [
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           <Link
-            href="/area-of-specialty/herniated-disc"
+            href="/conditions/herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/lumbar-herniated-disc"
+            href="/conditions/lumbar-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Lumbar Herniated Disc
           </Link>
           <Link
-            href="/area-of-specialty/cervical-herniated-disc"
+            href="/conditions/cervical-herniated-disc"
             className="text-[#0A50EC] underline"
           >
             Cervical Herniated Disc
@@ -4649,19 +4725,19 @@ export const clinics: ClinicsProps[] = [
             Sciatica / Nerve Pain
           </Link>
           <Link
-            href="/area-of-specialty/foraminal-stenosis"
+            href="/conditions/foraminal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Foraminal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spinal-stenosis"
+            href="/conditions/spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/degenerative-disc-disease"
+            href="/conditions/degenerative-disc-disease"
             className="text-[#0A50EC] underline"
           >
             Degenerative Disc Disease
@@ -4673,91 +4749,91 @@ export const clinics: ClinicsProps[] = [
             Lumbar Degenerative Disc Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-spinal-stenosis"
+            href="/conditions/cervical-spinal-stenosis"
             className="text-[#0A50EC] underline"
           >
             Cervical Spinal Stenosis
           </Link>
           <Link
-            href="/area-of-specialty/spondylolisthesis"
+            href="/conditions/spondylolisthesis"
             className="text-[#0A50EC] underline"
           >
             Spondylolisthesis
           </Link>
           <Link
-            href="/area-of-specialty/pinched-nerve"
+            href="/conditions/pinched-nerve"
             className="text-[#0A50EC] underline"
           >
             Pinched Nerve
           </Link>
           <Link
-            href="/area-of-specialty/bulging-disc"
+            href="/conditions/bulging-disc"
             className="text-[#0A50EC] underline"
           >
             Bulging Disc
           </Link>
           <Link
-            href="/area-of-specialty/neck-pain"
+            href="/conditions/neck-pain"
             className="text-[#0A50EC] underline"
           >
             Neck Pain
           </Link>
           <Link
-            href="/area-of-specialty/lower-back-pain"
+            href="/conditions/lower-back-pain"
             className="text-[#0A50EC] underline"
           >
             Lower Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/back-pain"
+            href="/conditions/back-pain"
             className="text-[#0A50EC] underline"
           >
             Back Pain
           </Link>
           <Link
-            href="/area-of-specialty/coccydynia"
+            href="/conditions/coccydynia"
             className="text-[#0A50EC] underline"
           >
             Coccydynia / Tailbone Pain
           </Link>
           <Link
-            href="/area-of-specialty/failed-back-surgery-syndrome"
+            href="/conditions/failed-back-surgery-syndrome"
             className="text-[#0A50EC] underline"
           >
             Failed Back Surgery Syndrome
           </Link>
           <Link
-            href="/area-of-specialty/adult-degenerative-scoliosis"
+            href="/conditions/adult-degenerative-scoliosis"
             className="text-[#0A50EC] underline"
           >
             Adult Degenerative Scoliosis
           </Link>
           <Link
-            href="/area-of-specialty/adjacent-segment-disease"
+            href="/conditions/adjacent-segment-disease"
             className="text-[#0A50EC] underline"
           >
             Adjacent Segment Disease
           </Link>
           <Link
-            href="/area-of-specialty/cervical-deformities"
+            href="/conditions/cervical-deformities"
             className="text-[#0A50EC] underline"
           >
             Cervical Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spine-deformities"
+            href="/conditions/spine-deformities"
             className="text-[#0A50EC] underline"
           >
             Spine Deformities
           </Link>
           <Link
-            href="/area-of-specialty/spinal-compression-fractures"
+            href="/conditions/spinal-compression-fractures"
             className="text-[#0A50EC] underline"
           >
             Spinal Compression Fractures
           </Link>
           <Link
-            href="/area-of-specialty/kyphosis"
+            href="/conditions/kyphosis"
             className="text-[#0A50EC] underline"
           >
             Kyphosis
@@ -4989,6 +5065,3606 @@ export const clinics: ClinicsProps[] = [
     kgId: '/g/11mk_m9mj_',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
     formattedAddress: '1205 Monument Rd, Jacksonville, FL 32225',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225',
+  },
+  // =====================================================
+  // NEW JERSEY LOCATIONS
+  // =====================================================
+  {
+    id: 11,
+    name: 'Mountain Spine & Orthopedics Bridgewater, NJ',
+    region: 'Bridgewater, NJ',
+    lat: 40.5937911,
+    lng: -74.6589961,
+    address: '1200 US-22, Suite 101, Bridgewater, NJ 08807',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/y9VbYhJzV7zL8A6L6',
+    slug: 'bridgewater-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'nj',
+    locationSlug: 'bridgewater-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics is proud to bring world-class orthopedic and spine care to Bridgewater, NJ and the greater Somerset County area. We understand that life in Central New Jersey is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Bridgewater clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. They are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at the intersection of I-287 and US-22, we're easily accessible from throughout Somerset County, Middlesex County, and the greater Central New Jersey region. Trust Mountain Spine & Orthopedics in Bridgewater to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'bridgewater orthopedic surgeon',
+      'bridgewater spine surgeon',
+      'orthopedic doctor bridgewater nj',
+      'spine specialist bridgewater nj',
+      'minimally invasive spine surgery bridgewater nj',
+      'orthopedic surgery bridgewater nj',
+      'joint replacement bridgewater nj',
+      'orthopedic same-day appointments bridgewater nj',
+      'orthopedic urgent care bridgewater nj',
+      'back pain treatment bridgewater',
+      'neck pain treatment bridgewater',
+      'sports medicine bridgewater nj',
+      'somerset county orthopedic surgeon',
+      'bridgewater orthopedic clinic',
+      'orthopedic in bridgewater nj',
+      'orthopedic surgeon in bridgewater new jersey',
+      'best orthopedic surgeon bridgewater nj',
+      'spine surgeon bridgewater',
+      'foot and ankle surgeon bridgewater nj',
+      'orthopedic near me bridgewater',
+      'spine surgeon near me bridgewater',
+      'orthopedic doctor near me bridgewater',
+      'best orthopedic near me bridgewater',
+      'somerset county spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Bridgewater, NJ | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Bridgewater, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Somerville', 'Raritan', 'Bound Brook', 'Martinsville', 'Warren'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Bridgewater Spine and Orthopedic Specialists of Central New Jersey</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Bridgewater orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Central New Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Bridgewater & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Bridgewater, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Bridgewater, NJ:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving Central New Jersey families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Free parking and wheelchair-accessible medical facility</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Bridgewater, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located at the intersection of I-287 and US-22</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Bridgewater, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Bridgewater clinic is centrally located in the medical district, <strong>directly on US Route 22</strong>. We are located at 1200 US-22, Suite 101, offering easy access for patients coming from <strong>Somerville</strong> and <strong>Raritan</strong> via US-22.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-287:</strong> Take Exit 14 or 17 to access US-22. Our clinic is located on the eastbound side of US-22, just minutes from the interstate.</li>
+          <li><strong>From US Route 22:</strong> Direct access; building is located on the eastbound side. Free parking available on-site.</li>
+          <li><strong>From US Route 202/206:</strong> Major north-south artery connecting to US-22 within 1.5 miles.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Somerville - 2.1 miles via US-22</li>
+          <li>Raritan - 3.5 miles via US-22 W to NJ-28</li>
+          <li>Bound Brook - 4.2 miles via US-22 E</li>
+          <li>Martinsville - 3.0 miles via Crim Rd</li>
+          <li>Warren - 8.5 miles via I-287 N</li>
+          <li>Hillsborough - 7.8 miles via US-22</li>
+          <li>Branchburg - 6.2 miles via US-22 W</li>
+          <li>Bedminster - 9.1 miles via US-202 N</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Bridgewater Commons</strong> - 1.8 miles (Local landmark)</li>
+          <li><strong>TD Bank Ballpark</strong> - 3.2 miles (Local landmark)</li>
+          <li><strong>Robert Wood Johnson University Hospital Somerset</strong> - 2.1 miles (Anchor Entity)</li>
+          <li><strong>Washington Valley Park</strong> - 2.5 miles (Local park)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Bridgewater & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Bridgewater, NJ is perfectly positioned to serve <strong>Somerville</strong>, <strong>Raritan</strong>, <strong>Bound Brook</strong>, Martinsville, Warren, Hillsborough, and Branchburg residents who need expert spine care. Located directly on US Route 22 at the intersection with I-287, we're easily accessible from major New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Bridgewater
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Bridgewater
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Bridgewater and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Bridgewater
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Bridgewater orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Bridgewater, NJ location?",
+        answer: "Our Bridgewater orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Bridgewater without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Bridgewater office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Bridgewater for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Bridgewater location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Bridgewater, NJ?",
+        answer: "Our Bridgewater clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Bridgewater orthopedic office?",
+        answer: "The Bridgewater location offers convenient on-site parking so patients can get in and out of the office quickly, including those using walkers, canes, or post-operative braces. Our clinic is located on US-22 with ample parking available. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%2C%20Suite%20101%2C%20Bridgewater%2C%20NJ%2008807',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%2C%20Suite%20101%2C%20Bridgewater%2C%20NJ%2008807',
+  },
+  {
+    id: 12,
+    name: 'Mountain Spine & Orthopedics Cherry Hill, NJ',
+    region: 'Cherry Hill, NJ',
+    lat: 39.8611882,
+    lng: -74.976089,
+    address: '100 Springdale Rd, Suite B5, Cherry Hill, NJ 08003',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/uX3L5x9N7Z7G9N7P9',
+    placeUrl: 'https://www.google.com/maps?cid=14496800707702671205',
+    slug: 'cherry-hill-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'nj',
+    locationSlug: 'cherry-hill-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics brings expert orthopedic and spine care to Cherry Hill, NJ, serving Camden County and the greater South Jersey region. We understand that life in South Jersey is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Cherry Hill clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. They are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located in the Springdale Commons medical complex, we're easily accessible from Route 70, Route 73, and I-295, serving patients throughout Camden County, Burlington County, and the greater Philadelphia metropolitan area. Trust Mountain Spine & Orthopedics in Cherry Hill to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'cherry hill orthopedic surgeon',
+      'cherry hill spine surgeon',
+      'orthopedic doctor cherry hill nj',
+      'spine specialist cherry hill nj',
+      'minimally invasive spine surgery cherry hill nj',
+      'orthopedic surgery cherry hill nj',
+      'joint replacement cherry hill nj',
+      'orthopedic same-day appointments cherry hill nj',
+      'orthopedic urgent care cherry hill nj',
+      'back pain treatment cherry hill',
+      'neck pain treatment cherry hill',
+      'sports medicine cherry hill nj',
+      'camden county orthopedic surgeon',
+      'cherry hill orthopedic clinic',
+      'orthopedic in cherry hill nj',
+      'orthopedic surgeon in cherry hill new jersey',
+      'best orthopedic surgeon cherry hill nj',
+      'spine surgeon cherry hill',
+      'foot and ankle surgeon cherry hill nj',
+      'orthopedic near me cherry hill',
+      'spine surgeon near me cherry hill',
+      'orthopedic doctor near me cherry hill',
+      'best orthopedic near me cherry hill',
+      'south jersey spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Cherry Hill, NJ | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Cherry Hill, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Marlton', 'Voorhees', 'Mount Laurel', 'Haddonfield', 'Moorestown'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Cherry Hill Spine and Orthopedic Specialists of South Jersey</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Cherry Hill orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in South Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Cherry Hill & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Cherry Hill, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Cherry Hill, NJ:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving South Jersey families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Free parking and wheelchair-accessible medical facility</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Cherry Hill, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located in Springdale Commons medical complex</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Cherry Hill, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Cherry Hill clinic is centrally located in the <strong>Springdale Commons medical/professional complex</strong>. We are located at 100 Springdale Rd, Suite B5, offering easy access for patients coming from <strong>Marlton</strong> and <strong>Voorhees</strong> via Route 70.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-295:</strong> Take Exit 34A (Route 70 E) for the primary interstate access. Our clinic is less than 1 mile north of Route 70.</li>
+          <li><strong>From NJ Route 70:</strong> Less than 1 mile north of the facility. Free parking available on-site.</li>
+          <li><strong>From NJ Route 73:</strong> Accessible within 2 miles to the east.</li>
+          <li><strong>From NJ Turnpike:</strong> Exit 4 (Mount Laurel) is approximately 4.5 miles away.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Marlton - 3.5 miles via Route 70 E</li>
+          <li>Voorhees - 4.2 miles via Springdale Rd to Evesham Rd</li>
+          <li>Mount Laurel - 5.1 miles via Route 73 N</li>
+          <li>Haddonfield - 4.8 miles via Kresson Rd</li>
+          <li>Moorestown - 6.5 miles via I-295 N</li>
+          <li>Collingswood - 7.2 miles via Route 130</li>
+          <li>Maple Shade - 5.5 miles via Route 73</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Cherry Hill Mall</strong> - 4.5 miles (Local landmark)</li>
+          <li><strong>Garden State Discovery Museum</strong> - 1.2 miles (Local landmark)</li>
+          <li><strong>Jefferson Cherry Hill Hospital</strong> - 3.8 miles (Anchor Entity)</li>
+          <li><strong>Virtua Voorhees Hospital</strong> - 4.2 miles (Anchor Entity)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Cherry Hill & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Cherry Hill, NJ is perfectly positioned to serve <strong>Marlton</strong>, <strong>Voorhees</strong>, <strong>Mount Laurel</strong>, Haddonfield, Moorestown, and Collingswood residents who need expert spine care. Located in the Springdale Commons medical complex, we're easily accessible from Route 70, Route 73, I-295, and major South Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Cherry Hill
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Cherry Hill
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Cherry Hill and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Cherry Hill
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Cherry Hill orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Cherry Hill, NJ location?",
+        answer: "Our Cherry Hill orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Cherry Hill without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Cherry Hill office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Cherry Hill for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Cherry Hill location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Cherry Hill, NJ?",
+        answer: "Our Cherry Hill clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Cherry Hill orthopedic office?",
+        answer: "The Cherry Hill location offers dedicated surface parking for patients within the Springdale Commons medical/professional complex. Free parking is available on-site, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3062.574443079649!2d-74.97861262420156!3d39.8613688715344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6cdee112fa449%3A0xc92efb6fb23fc765!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1768179320198!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    placeId: 'ChIJSaQvEe7NxokRZcc_sm_7Lsk',
+    cid: '14496800707702671205',
+    businessProfileId: '5751079471877829375',
+    kgId: '/g/11yv6b498b',
+    categories: ['Orthopedic surgeon', 'Medical clinic', 'Orthopedic clinic', 'Sports medicine clinic'],
+    formattedAddress: '100 Springdale Rd, Suite B5, Cherry Hill, NJ 08003',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=100%20Springdale%20Rd%2C%20Suite%20B5%2C%20Cherry%20Hill%2C%20NJ%2008003',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=100%20Springdale%20Rd%2C%20Suite%20B5%2C%20Cherry%20Hill%2C%20NJ%2008003',
+  },
+  {
+    id: 13,
+    name: 'Mountain Spine & Orthopedics Edison, NJ',
+    region: 'Edison, NJ',
+    lat: 40.5644,
+    lng: -74.3298,
+    address: '95 Wood Ave S, Suite 203, Edison, NJ 08820',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
+    slug: 'edison-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'nj',
+    locationSlug: 'edison-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics is proud to serve Edison, NJ and the central New Jersey community with expert orthopedic and spine care. We understand that life in Central New Jersey is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Edison clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in the Metropark corporate hub, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 95 Wood Ave S, Suite 203, in the Metropark corporate center, we're easily accessible from the Garden State Parkway (Exit 131), NJ Turnpike (Exit 11), and Route 1, serving patients throughout Middlesex County, Union County, and the greater Central New Jersey region. Trust Mountain Spine & Orthopedics in Edison to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'edison orthopedic surgeon',
+      'edison spine surgeon',
+      'orthopedic doctor edison nj',
+      'spine specialist edison nj',
+      'minimally invasive spine surgery edison nj',
+      'orthopedic surgery edison nj',
+      'joint replacement edison nj',
+      'orthopedic same-day appointments edison nj',
+      'orthopedic urgent care edison nj',
+      'back pain treatment edison',
+      'neck pain treatment edison',
+      'sports medicine edison nj',
+      'middlesex county orthopedic surgeon',
+      'edison orthopedic clinic',
+      'metropark orthopedic',
+      'orthopedic in edison nj',
+      'orthopedic surgeon in edison new jersey',
+      'best orthopedic surgeon edison nj',
+      'spine surgeon edison',
+      'foot and ankle surgeon edison nj',
+      'orthopedic near me edison',
+      'spine surgeon near me edison',
+      'orthopedic doctor near me edison',
+      'best orthopedic near me edison',
+      'metropark spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Edison, NJ | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Edison, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Iselin', 'Metuchen', 'Woodbridge', 'Rahway', 'Clark'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Edison Spine and Orthopedic Specialists of Central New Jersey</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Edison/Metropark orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Central New Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Edison & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Edison, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Edison, NJ:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving Central New Jersey families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Multilevel parking garage attached to the office complex</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Edison, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located in Metropark corporate hub near Garden State Parkway</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Edison, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Edison clinic is centrally located in the <strong>Metropark corporate hub</strong>. We are located at 95 Wood Ave S, Suite 203, offering easy access for patients coming from <strong>Iselin</strong> and <strong>Metuchen</strong> via Route 1 or Garden State Parkway.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From Garden State Parkway:</strong> Exit 131 (Iselin/Metropark) is less than 0.5 miles from the building. The clinic is directly adjacent to the Metropark Station.</li>
+          <li><strong>From NJ Turnpike (I-95):</strong> Exit 11 is approximately 3 miles away. Follow signs to Metropark.</li>
+          <li><strong>From US Route 1:</strong> Accessible within 1.5 miles via Wood Ave. Free parking available in multilevel garage.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Iselin - 0.5 miles (Immediate vicinity)</li>
+          <li>Metuchen - 3.1 miles via NJ-27 S</li>
+          <li>Woodbridge - 2.5 miles via Wood Ave S</li>
+          <li>Rahway - 3.5 miles via Route 1 N</li>
+          <li>Clark - 4.5 miles via Route 1</li>
+          <li>Avenel - 3.2 miles via Route 1</li>
+          <li>Colonia - 2.8 miles via Route 1</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Metropark Station</strong> - 0.3 miles (NJ Transit / Amtrak hub)</li>
+          <li><strong>Menlo Park Mall</strong> - 2.1 miles (Local landmark)</li>
+          <li><strong>JFK University Medical Center</strong> - 3.5 miles (Anchor Entity)</li>
+          <li><strong>Woodbridge Center</strong> - 2.9 miles (Local mall)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Edison & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Edison, NJ is perfectly positioned to serve <strong>Iselin</strong>, <strong>Metuchen</strong>, <strong>Woodbridge</strong>, Rahway, Clark, and Avenel residents who need expert spine care. Located in the Metropark corporate center near the Garden State Parkway and NJ Turnpike interchange, we're easily accessible from major New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Edison
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Edison
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Edison and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Edison
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Edison orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Edison, NJ location?",
+        answer: "Our Edison orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Edison without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Edison office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Edison for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Edison location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Edison, NJ?",
+        answer: "Our Edison clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Edison orthopedic office?",
+        answer: "The Edison location offers multilevel parking garage attached to the 95 Wood Ave South office complex. Free parking is available, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=95%20Wood%20Ave%20S%2C%20Suite%20203%2C%20Edison%2C%20NJ%2008820',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=95%20Wood%20Ave%20S%2C%20Suite%20203%2C%20Edison%2C%20NJ%2008820',
+  },
+  {
+    id: 14,
+    name: 'Mountain Spine & Orthopedics Freehold, NJ',
+    region: 'Freehold, NJ',
+    lat: 40.2598,
+    lng: -74.2755,
+    address: '9 W Main St, Suite 201, Freehold, NJ 07728',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
+    slug: 'freehold-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'nj',
+    locationSlug: 'freehold-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics provides expert orthopedic and spine care to Freehold, NJ and the Monmouth County community. We understand that life in Central New Jersey is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Freehold clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in the historic Freehold Borough seat of Monmouth County, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 9 W Main St, Suite 201, in downtown Freehold Borough, we're easily accessible from Route 9, Route 33, and Route 79, serving patients throughout Monmouth County, the Jersey Shore region, and surrounding Central New Jersey communities. Trust Mountain Spine & Orthopedics in Freehold to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'freehold orthopedic surgeon',
+      'freehold spine surgeon',
+      'orthopedic doctor freehold nj',
+      'spine specialist freehold nj',
+      'minimally invasive spine surgery freehold nj',
+      'orthopedic surgery freehold nj',
+      'joint replacement freehold nj',
+      'orthopedic same-day appointments freehold nj',
+      'orthopedic urgent care freehold nj',
+      'back pain treatment freehold',
+      'neck pain treatment freehold',
+      'sports medicine freehold nj',
+      'monmouth county orthopedic surgeon',
+      'freehold orthopedic clinic',
+      'orthopedic in freehold nj',
+      'orthopedic surgeon in freehold new jersey',
+      'best orthopedic surgeon freehold nj',
+      'spine surgeon freehold',
+      'foot and ankle surgeon freehold nj',
+      'orthopedic near me freehold',
+      'spine surgeon near me freehold',
+      'orthopedic doctor near me freehold',
+      'best orthopedic near me freehold',
+      'jersey shore spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Freehold, NJ | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Freehold, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Freehold Township', 'Howell', 'Marlboro', 'Manalapan', 'Colts Neck'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Freehold Spine and Orthopedic Specialists of Central New Jersey</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Freehold orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Central New Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Freehold & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Freehold, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Freehold, NJ:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving Central New Jersey families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Street parking and municipal lot parking available</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Freehold, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located in historic Freehold Borough</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Freehold, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Freehold clinic is centrally located in <strong>historic Freehold Borough</strong>. We are located at 9 W Main St, Suite 201, offering easy access for patients coming from <strong>Freehold Township</strong> and <strong>Manalapan</strong> via Route 33.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From US Route 9:</strong> Major north-south thoroughfare within 0.8 miles. Main St becomes Route 33 Business.</li>
+          <li><strong>From NJ Route 33:</strong> Main St becomes Route 33 Business. Free parking available in municipal lot behind the building.</li>
+          <li><strong>From NJ Route 79:</strong> Terminates in downtown Freehold within blocks of the office.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Freehold Township - 1.0 mile (Immediate vicinity)</li>
+          <li>Howell - 6.2 miles via Route 33 S</li>
+          <li>Marlboro - 5.5 miles via Route 79 N</li>
+          <li>Manalapan - 4.8 miles via Route 33 W</li>
+          <li>Colts Neck - 5.2 miles via Route 537 E</li>
+          <li>Englishtown - 5.1 miles via Route 33 W</li>
+          <li>Jackson - 10.5 miles via Route 527 S</li>
+          <li>Tinton Falls - 9.8 miles via Route 33 E</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Monmouth County Courthouse</strong> - 0.2 miles (Immediate vicinity)</li>
+          <li><strong>Freehold Raceway Mall</strong> - 1.4 miles (Local landmark)</li>
+          <li><strong>CentraState Medical Center</strong> - 1.8 miles (Anchor Entity)</li>
+          <li><strong>Freehold Raceway</strong> - 0.9 miles (Local landmark)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Freehold & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Freehold, NJ is perfectly positioned to serve <strong>Freehold Township</strong>, <strong>Howell</strong>, <strong>Marlboro</strong>, Manalapan, Colts Neck, and Englishtown residents who need expert spine care. Located in the historic Freehold Borough seat at 9 W Main St, Suite 201, we're easily accessible from Route 9, Route 33, and Route 79, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Freehold
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Freehold
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Freehold and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Freehold
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Freehold orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Freehold, NJ location?",
+        answer: "Our Freehold orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Freehold without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Freehold office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Freehold for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Freehold location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Freehold, NJ?",
+        answer: "Our Freehold clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Freehold orthopedic office?",
+        answer: "The Freehold location offers street parking available on Main St, and a municipal lot located behind the building off Mechanic St. Free parking is available, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=9%20W%20Main%20St%2C%20Suite%20201%2C%20Freehold%2C%20NJ%2007728',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=9%20W%20Main%20St%2C%20Suite%20201%2C%20Freehold%2C%20NJ%2007728',
+  },
+  {
+    id: 15,
+    name: 'Mountain Spine & Orthopedics Paramus, NJ',
+    region: 'Paramus, NJ',
+    lat: 40.9412,
+    lng: -74.0725,
+    address: '140 N State Rt 17, Suite 200, Paramus, NJ 07652',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/qX5N9x7P7Z7G9N7P9',
+    slug: 'paramus-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'nj',
+    locationSlug: 'paramus-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics brings world-class orthopedic and spine care to Paramus, NJ, serving Bergen County and northern New Jersey. We understand that life in Northern New Jersey is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Paramus clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located on Route 17, the commercial corridor of Bergen County, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 140 N State Rt 17, Suite 200, we're easily accessible from Route 17, Route 4, and the Garden State Parkway (Exit 161 or 163), serving patients throughout Bergen County, the greater New York metropolitan area, and surrounding Northern New Jersey communities. Trust Mountain Spine & Orthopedics in Paramus to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'paramus orthopedic surgeon',
+      'paramus spine surgeon',
+      'orthopedic doctor paramus nj',
+      'spine specialist paramus nj',
+      'minimally invasive spine surgery paramus nj',
+      'orthopedic surgery paramus nj',
+      'joint replacement paramus nj',
+      'orthopedic same-day appointments paramus nj',
+      'orthopedic urgent care paramus nj',
+      'back pain treatment paramus',
+      'neck pain treatment paramus',
+      'sports medicine paramus nj',
+      'bergen county orthopedic surgeon',
+      'paramus orthopedic clinic',
+      'orthopedic in paramus nj',
+      'orthopedic surgeon in paramus new jersey',
+      'best orthopedic surgeon paramus nj',
+      'spine surgeon paramus',
+      'foot and ankle surgeon paramus nj',
+      'orthopedic near me paramus',
+      'spine surgeon near me paramus',
+      'orthopedic doctor near me paramus',
+      'best orthopedic near me paramus',
+      'north jersey spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Paramus, NJ | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Paramus, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Ridgewood', 'Oradell', 'Maywood', 'Fair Lawn', 'River Edge'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Paramus Spine and Orthopedic Specialists of Northern New Jersey</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northern New Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Paramus orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Northern New Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Paramus & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Paramus, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Paramus, NJ:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving Northern New Jersey families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Large open surface lot parking shared with other medical tenants</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Paramus, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located on Route 17 commercial corridor</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Paramus, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Paramus clinic is centrally located in the <strong>Route 17 commercial corridor</strong>. We are located at 140 N State Rt 17, Suite 200, offering easy access for patients coming from <strong>Ridgewood</strong> and <strong>Oradell</strong> via Route 17.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From NJ Route 17:</strong> Direct access on the Northbound side. Building has direct frontage on Route 17.</li>
+          <li><strong>From Garden State Parkway:</strong> Exit 161 (NJ-4) or Exit 163 (NJ-17) provide immediate access. Free parking available on-site.</li>
+          <li><strong>From NJ Route 4:</strong> Intersects Route 17 within 1.5 miles to the south.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Ridgewood - 3.2 miles via Route 17 N</li>
+          <li>Oradell - 2.1 miles via Century Rd</li>
+          <li>Maywood - 3.5 miles via Route 17 S</li>
+          <li>Fair Lawn - 4.2 miles via Route 4</li>
+          <li>River Edge - 2.8 miles via Route 4</li>
+          <li>Glen Rock - 3.8 miles via Route 17</li>
+          <li>Hackensack - 5.5 miles via Route 4</li>
+          <li>Saddle Brook - 4.9 miles via Route 4</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Westfield Garden State Plaza</strong> - 2.2 miles (Local landmark)</li>
+          <li><strong>Bergen Town Center</strong> - 2.5 miles (Local landmark)</li>
+          <li><strong>The Valley Hospital</strong> - 2.8 miles (Anchor Entity)</li>
+          <li><strong>Van Saun County Park</strong> - 1.8 miles (Local park)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Paramus & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Paramus, NJ is perfectly positioned to serve <strong>Ridgewood</strong>, <strong>Oradell</strong>, <strong>Maywood</strong>, Fair Lawn, River Edge, Glen Rock, and Hackensack residents who need expert spine care. Located directly on Route 17 at 140 N State Rt 17, Suite 200, we're easily accessible from Route 4, Garden State Parkway, and major Northern New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Paramus
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Paramus
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Paramus and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Paramus
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Paramus orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Paramus, NJ location?",
+        answer: "Our Paramus orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Paramus without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Paramus office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Paramus for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Paramus location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Paramus, NJ?",
+        answer: "Our Paramus clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Paramus orthopedic office?",
+        answer: "The Paramus location offers a large open surface lot shared with other medical tenants in the professional building. Free parking is available on-site, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=140%20N%20State%20Rt%2017%2C%20Suite%20200%2C%20Paramus%2C%20NJ%2007652',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=140%20N%20State%20Rt%2017%2C%20Suite%20200%2C%20Paramus%2C%20NJ%2007652',
+  },
+  {
+    id: 16,
+    name: 'Mountain Spine & Orthopedics West Orange Surgery Center',
+    region: 'West Orange, NJ',
+    lat: 40.7904153,
+    lng: -74.2611222,
+    address: '375 Mt Pleasant Ave #2E, West Orange, NJ 07052',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/pX5N9x7P7Z7G9N7P9',
+    placeUrl: 'https://www.google.com/maps?cid=3546060446860709693',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.6789012345!2d-74.26098510!3d40.79046780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3f6g7h8i9j0k1%3A0x3l4m5n6o7p8q9r0!2sWest%20Orange%20Surgery%20Center!5e0!3m2!1sen!2sus!4v1705012345683!5m2!1sen!2sus',
+    slug: 'west-orange-surgery-center',
+    stateAbbr: 'NJ',
+    stateSlug: 'nj',
+    locationSlug: 'west-orange-surgery-center',
+    locationType: 'surgery-center',
+    paragraph: `
+    The Mountain Spine & Orthopedics Surgery Center in West Orange, NJ provides state-of-the-art ambulatory surgical care for orthopedic and spine procedures. We understand that when surgery is necessary, patients deserve a focused, efficient experience with exceptional outcomes. Our mission is to provide our neighbors with the advanced, compassionate surgical care they need, right here in their own community.
+    [PARAGRAPH BREAK]Our West Orange Surgery Center is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized surgical experience with a genuine commitment to patient well-being. Our modern ambulatory surgery facility is equipped with the latest technology for minimally invasive spine surgery, joint procedures, arthroscopic surgery, and other outpatient orthopedic operations. Patients benefit from a focused surgical environment with shorter wait times, lower infection rates, and faster discharge compared to traditional hospital settings. Each surgical plan is highly individualized, ensuring we address the specific surgical needs to achieve lasting clinical results.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced surgical tools and state-of-the-art, minimally invasive techniques, we perform complex procedures with precision and care. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 375 Mt Pleasant Ave, Suite 205, in West Orange, we're easily accessible from I-280 (Exit 6 or 7), Route 10, and Mount Pleasant Avenue, serving patients throughout Essex County, Morris County, and the greater Northern New Jersey region. Trust the West Orange Surgery Center to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'west orange surgery center',
+      'ambulatory surgery center nj',
+      'outpatient spine surgery nj',
+      'minimally invasive surgery center nj',
+      'orthopedic surgery center west orange nj',
+      'same day surgery west orange nj',
+      'spine surgery center essex county',
+      'west orange ambulatory surgery',
+      'outpatient orthopedic surgery nj',
+      'minimally invasive spine surgery center nj',
+      'surgery center west orange',
+      'outpatient surgical center nj',
+      'ambulatory surgery center essex county',
+      'west orange orthopedic surgery',
+      'surgery center near me west orange',
+      'outpatient surgery west orange nj',
+      'ambulatory surgery near me',
+      'surgery center parsippany',
+      'surgery center livingston',
+      'outpatient spine surgery essex county',
+      'minimally invasive surgery nj',
+      'same day surgery nj',
+      'outpatient surgery center nj'
+    ],
+    metaTitle: 'Ambulatory Surgery Center in West Orange, NJ | Mountain Spine & Orthopedics',
+    metaDescription: 'State-of-the-art ambulatory surgery center in West Orange, NJ. Mountain Spine & Orthopedics Surgery Center offers minimally invasive spine and orthopedic procedures in a focused, efficient outpatient setting. Book a consultation today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Livingston', 'Montclair', 'Orange', 'Verona', 'South Orange'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>West Orange Surgery Center - Specialized Outpatient Surgical Hub</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northern New Jersey residents can access world-class outpatient orthopedic and spine surgery right here in their community. As your trusted West Orange Surgery Center, we bring expert surgical care to local families. We understand that when surgery is necessary, patients deserve a focused, efficient experience with exceptional outcomes, and our goal is to provide the best surgical care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons at West Orange Surgery Center</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons at the West Orange Surgery Center are specially trained and continuously educated in the latest surgical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully perform <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">minimally invasive spine procedures</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical spine surgery</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease surgery</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">arthroscopic procedures</Link>, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. Every patient receives a completely personalized surgical plan with comprehensive pre-operative consultation.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose West Orange Surgery Center:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Specialized ambulatory surgery center designed for outpatient procedures</li>
+          <li>Shorter wait times and faster discharge compared to hospital settings</li>
+          <li>Large onsite surface lot with direct building access for surgical patients</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Lower infection rates in focused surgical environment</li>
+          <li>Same-day discharge for appropriate outpatient procedures</li>
+          <li>Conveniently located on Mount Pleasant Avenue near I-280</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our West Orange, NJ Surgery Center</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our West Orange Surgery Center is centrally located in the <strong>Mount Pleasant medical district</strong>. We are located at 375 Mt Pleasant Ave, Suite 205, offering easy access for patients coming from <strong>Livingston</strong> and <strong>Montclair</strong> via Route 10.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-280:</strong> Exit 6 or 7 provides immediate access to Mt Pleasant Ave. The facility is easily accessible from the interstate.</li>
+          <li><strong>From NJ Route 10:</strong> Terminates into Mt Pleasant Ave 2 miles west of the center. Free parking available on-site.</li>
+          <li><strong>From Mount Pleasant Ave (NJ-10):</strong> Primary local access road. The facility is located on the second floor, accessible via elevator.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Livingston - 3.5 miles via Route 10 W</li>
+          <li>Montclair - 4.2 miles via Eagle Rock Ave</li>
+          <li>Orange - 2.1 miles via Mt Pleasant Ave</li>
+          <li>Verona - 3.8 miles via Route 10</li>
+          <li>South Orange - 3.1 miles via South Orange Ave</li>
+          <li>Millburn - 5.5 miles via Route 24</li>
+          <li>Short Hills - 6.1 miles via Route 24</li>
+          <li>Caldwell - 5.2 miles via Route 10</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Turtle Back Zoo</strong> - 1.2 miles (Local landmark)</li>
+          <li><strong>South Mountain Reservation</strong> - 1.5 miles (Local park)</li>
+          <li><strong>Cooperman Barnabas Medical Center</strong> - 3.5 miles (Nearest Hospital for Transfer)</li>
+          <li><strong>Edison National Historic Site</strong> - 1.8 miles (Local landmark)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for West Orange & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern ambulatory surgery center in West Orange, NJ is perfectly positioned to serve <strong>Livingston</strong>, <strong>Montclair</strong>, <strong>Orange</strong>, Verona, South Orange, and Millburn residents who require outpatient orthopedic surgery. Located at 375 Mt Pleasant Ave, Suite 205, we're easily accessible from I-280, Route 10, and Mount Pleasant Avenue, making it simple for the local community to receive advanced surgical care close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Surgical Technologies at West Orange Surgery Center
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Outpatient Spine Surgery at West Orange Surgery Center
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At the West Orange Surgery Center, our board-certified spine surgeons perform advanced outpatient procedures for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest surgical technology, minimally invasive procedures, and state-of-the-art equipment to restore mobility and reduce pain for patients throughout West Orange and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Outpatient Orthopedic Surgeons in West Orange
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained surgeons perform the full spectrum of outpatient minimally invasive and reconstructive procedures, including microdiscectomy, lumbar laminectomy, cervical disc replacement, arthroscopic procedures, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. Patients choose the West Orange Surgery Center for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient in a focused outpatient environment.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Conditions Treated with Outpatient Surgery
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and orthopedic conditions we treat with outpatient surgery at our West Orange Surgery Center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What procedures are performed at the West Orange Surgery Center?",
+        answer: "Our surgery center performs a variety of outpatient orthopedic and spine procedures including minimally invasive spine surgery, arthroscopic procedures, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. All procedures are performed by board-certified orthopedic surgeons in a state-of-the-art outpatient facility."
+      },
+      {
+        question: "How is an ambulatory surgery center different from a hospital?",
+        answer: "Our ambulatory surgery center is designed specifically for outpatient procedures, offering a more efficient, comfortable experience with shorter wait times, lower infection rates, and same-day discharge for appropriate procedures. The focused environment allows for streamlined care and faster recovery compared to traditional hospital settings."
+      },
+      {
+        question: "Do I need a referral to have surgery at the West Orange Surgery Center?",
+        answer: "Most procedures at our surgery center require a consultation and evaluation first. Your surgeon will review your imaging, exam findings, and prior treatments to determine if outpatient surgery at our facility is appropriate for your specific procedure. Some insurance plans may require prior authorization for surgery."
+      },
+      {
+        question: "Which insurance plans are accepted at the West Orange Surgery Center?",
+        answer: "Our surgery center works with many major commercial insurance plans and PPO products. We also see patients with procedures covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your procedure."
+      },
+      {
+        question: "Where can I park when I visit the West Orange Surgery Center?",
+        answer: "The West Orange Surgery Center offers a large onsite surface lot with direct building access for surgical patients and caregivers. Free parking is available, and the facility is located on the second floor, accessible via elevator. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.7064279504357!2d-74.26356002415302!3d40.79046777138188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3ab6fe543ed67%3A0x3136233047320f3d!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1768179278444!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    placeId: 'ChIJZ-1D5W-rw4kRPQ8yRzAjNjE',
+    cid: '3546060446860709693',
+    businessProfileId: '7142349567990884137',
+    kgId: '/g/11yt169jlg',
+    categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Podiatrist', 'Sports medicine clinic'],
+    formattedAddress: '375 Mt Pleasant Ave, Suite 205, West Orange, NJ 07052',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=375%20Mt%20Pleasant%20Ave%2C%20Suite%20205%2C%20West%20Orange%2C%20NJ%2007052',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=375%20Mt%20Pleasant%20Ave%2C%20Suite%20205%2C%20West%20Orange%2C%20NJ%2007052',
+  },
+  // =====================================================
+  // NEW YORK LOCATIONS
+  // =====================================================
+  {
+    id: 17,
+    name: 'Mountain Spine & Orthopedics New York City',
+    region: 'New York, NY',
+    lat: 40.754155,
+    lng: -73.980395,
+    address: '535 5th Ave, Suite 1012, New York, NY 10017',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/oX5N9x7P7Z7G9N7P9',
+    placeUrl: 'https://www.google.com/maps?cid=5776462500461449645',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.7890123456!2d-73.97941220!3d40.75483640!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258abcdef0123%4A0x456789abcdef0123!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1705012345684!5m2!1sen!2sus',
+    slug: 'new-york-city-orthopedics',
+    stateAbbr: 'NY',
+    stateSlug: 'ny',
+    locationSlug: 'new-york-city-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics is proud to bring world-class orthopedic and spine care to Midtown Manhattan, serving New York City and the tri-state area. We understand that life in New York City is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our NYC clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 535 5th Ave, Suite 1012, in the heart of Midtown Manhattan near Grand Central Terminal, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located in Midtown Manhattan at 535 5th Ave, Suite 1012, we're easily accessible from Grand Central Terminal (0.1 miles), major subway lines (4, 5, 6, 7, S at Grand Central), and bus routes (M1, M2, M3, M4, M5, Q32), serving patients throughout New York City, Long Island, Westchester, New Jersey, Connecticut, and the greater metropolitan area. Trust Mountain Spine & Orthopedics in NYC to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'nyc orthopedic surgeon',
+      'manhattan spine surgeon',
+      'orthopedic doctor new york city',
+      'spine specialist nyc',
+      'minimally invasive spine surgery nyc',
+      'orthopedic surgery nyc',
+      'joint replacement nyc',
+      'orthopedic same-day appointments nyc',
+      'orthopedic urgent care nyc',
+      'back pain treatment manhattan',
+      'neck pain treatment manhattan',
+      'sports medicine nyc',
+      'midtown manhattan orthopedic surgeon',
+      'fifth avenue orthopedic',
+      'orthopedic in nyc',
+      'orthopedic surgeon in new york city',
+      'best orthopedic surgeon nyc',
+      'spine surgeon manhattan',
+      'foot and ankle surgeon nyc',
+      'orthopedic near me nyc',
+      'spine surgeon near me manhattan',
+      'orthopedic doctor near me nyc',
+      'best orthopedic near me nyc',
+      'grand central orthopedic',
+      'midtown orthopedic clinic'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in NYC | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in New York City. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Murray Hill', "Hell's Kitchen", 'Upper East Side', 'Upper West Side', 'Chelsea'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>New York City Spine and Orthopedic Specialists of Midtown Manhattan</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>New York City residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted NYC orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in New York City is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in NYC & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in New York City are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in NYC:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving New York City families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Conveniently located near Grand Central Terminal and major subway lines</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in NYC, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Paid parking garages available nearby</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our NYC Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our NYC clinic is centrally located in <strong>Midtown Manhattan near Grand Central Terminal</strong>. We are located at 535 5th Ave, Suite 1012, offering easy access for patients coming from <strong>Murray Hill</strong> and <strong>Hell's Kitchen</strong> via subway or walking.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Grand Central - 42 St Station:</strong> 0.1 miles - Subway lines 4, 5, 6, 7, S. Walk one block east on 44th St to 5th Ave.</li>
+          <li><strong>5 Av Station:</strong> 0.2 miles - Subway line 7. Walk one block south on 5th Ave.</li>
+          <li><strong>Bus Routes:</strong> M1, M2, M3, M4, M5, Q32 stop at 5 Av/E 44 St</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From FDR Drive:</strong> Accessible via 42nd St exit 1 mile east</li>
+          <li><strong>From Queens-Midtown Tunnel:</strong> Direct tunnel access within 0.8 miles for Long Island commuters</li>
+          <li><strong>Parking:</strong> Paid parking garages available on 44th and 45th St. No street parking recommended.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Murray Hill - 0.4 miles (Walking distance)</li>
+          <li>Hell's Kitchen - 1.2 miles via 42nd St</li>
+          <li>Upper East Side - 1.5 miles via 5th Ave</li>
+          <li>Upper West Side - 2.1 miles via Central Park</li>
+          <li>Chelsea - 1.8 miles via 5th Ave</li>
+          <li>Long Island City - 2.5 miles via Queens-Midtown Tunnel</li>
+          <li>Williamsburg - 3.8 miles via subway</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Grand Central Terminal</strong> - 0.1 miles (Immediate vicinity)</li>
+          <li><strong>Bryant Park</strong> - 0.3 miles (Local landmark)</li>
+          <li><strong>NYU Langone Health</strong> - 0.9 miles (Anchor Entity)</li>
+          <li><strong>Empire State Building</strong> - 0.5 miles (Local landmark)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for NYC & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Midtown Manhattan is perfectly positioned to serve <strong>Murray Hill</strong>, <strong>Hell's Kitchen</strong>, <strong>Upper East Side</strong>, Upper West Side, Chelsea, and Long Island City residents who need expert spine care. Located at 535 5th Ave, Suite 1012, near Grand Central Terminal, we're easily accessible from major subway lines, bus routes, and major NYC landmarks, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in NYC
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in NYC
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout NYC and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in NYC
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our NYC orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your NYC location?",
+        answer: "Our NYC orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in NYC without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our NYC office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in NYC for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our NYC location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics NYC?",
+        answer: "Our NYC clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the NYC orthopedic office?",
+        answer: "The NYC location offers paid parking garages available on 44th and 45th St near the office. Street parking is not recommended in Midtown Manhattan. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth. The office is easily accessible by public transportation, with Grand Central Terminal just 0.1 miles away."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.326804405799!2d-73.98198712415494!3d40.75483637138718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25936badb443d%3A0x502a1e0a065e91ad!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1768179204841!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    placeId: 'ChIJPUTbujZZwokRrZFeBgoeKlA',
+    cid: '5776462500461449645',
+    businessProfileId: '5760221931002750480',
+    kgId: '/g/11yt1c_gd3',
+    categories: ['Orthopedic surgeon', 'Medical clinic', 'Orthopedic clinic', 'Sports medicine clinic'],
+    formattedAddress: '535 5th Ave, Suite 1012, New York, NY 10017',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=535%205th%20Ave%2C%20Suite%201012%2C%20New%20York%2C%20NY%2010017',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=535%205th%20Ave%2C%20Suite%201012%2C%20New%20York%2C%20NY%2010017',
+  },
+  // =====================================================
+  // PENNSYLVANIA LOCATIONS
+  // =====================================================
+  {
+    id: 18,
+    name: 'Mountain Spine & Orthopedics Allentown, PA',
+    region: 'Allentown, PA',
+    lat: 40.6035,
+    lng: -75.4785,
+    address: '487 W Linden St, Allentown, PA 18102',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/nX5N9x7P7Z7G9N7P9',
+    slug: 'allentown-orthopedics',
+    stateAbbr: 'PA',
+    stateSlug: 'pa',
+    locationSlug: 'allentown-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics brings expert orthopedic and spine care to Allentown, PA, serving the Lehigh Valley and eastern Pennsylvania. We understand that life in the Lehigh Valley is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Allentown clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in Center City Allentown, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 487 W Linden St in Center City Allentown, we're easily accessible from Route 22 (accessible via 15th St exit 2 miles north), I-78 (Exit 57 is approximately 3.5 miles south), and Route 145 (MacArthur Rd), serving patients throughout Lehigh County, Northampton County, and the greater Lehigh Valley region. Trust Mountain Spine & Orthopedics in Allentown to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'allentown orthopedic surgeon',
+      'allentown spine surgeon',
+      'orthopedic doctor allentown pa',
+      'spine specialist allentown pa',
+      'minimally invasive spine surgery allentown pa',
+      'orthopedic surgery allentown pa',
+      'joint replacement allentown pa',
+      'orthopedic same-day appointments allentown pa',
+      'orthopedic urgent care allentown pa',
+      'back pain treatment allentown',
+      'neck pain treatment allentown',
+      'sports medicine allentown pa',
+      'lehigh valley orthopedic surgeon',
+      'allentown orthopedic clinic',
+      'orthopedic in allentown pa',
+      'orthopedic surgeon in allentown pennsylvania',
+      'best orthopedic surgeon allentown pa',
+      'spine surgeon allentown',
+      'foot and ankle surgeon allentown pa',
+      'orthopedic near me allentown',
+      'spine surgeon near me allentown',
+      'orthopedic doctor near me allentown',
+      'best orthopedic near me allentown',
+      'lehigh valley spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Allentown, PA | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Allentown, PA. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Bethlehem', 'Fullerton', 'Emmaus', 'Whitehall', 'Catasauqua'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Allentown Spine and Orthopedic Specialists of the Lehigh Valley</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Lehigh Valley residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Allentown orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in the Lehigh Valley is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Allentown & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Allentown, PA, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Allentown, PA:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving Lehigh Valley families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Paid street parking and municipal parking garages nearby</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Allentown, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located in Center City Allentown</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Allentown, PA Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Allentown clinic is centrally located in <strong>Center City Allentown</strong>. We are located at 487 W Linden St, offering easy access for patients coming from <strong>Bethlehem</strong> and <strong>Fullerton</strong> via Route 22.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From US Route 22:</strong> Accessible via 15th St exit 2 miles north. Parking available in municipal Spiral Deck nearby.</li>
+          <li><strong>From I-78:</strong> Exit 57 (Lehigh St) provides access 3.5 miles south. Free parking available on-site.</li>
+          <li><strong>From PA Route 145 (MacArthur Rd):</strong> Primary north-south corridor through the city.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Bethlehem - 5.5 miles via Hanover Ave</li>
+          <li>Fullerton - 2.8 miles via Route 22</li>
+          <li>Emmaus - 5.2 miles via Route 29</li>
+          <li>Whitehall - 4.1 miles via Route 145</li>
+          <li>Catasauqua - 3.5 miles via Route 22</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>PPL Center</strong> - 0.3 miles (Immediate vicinity)</li>
+          <li><strong>Allentown Art Museum</strong> - 0.4 miles (Local landmark)</li>
+          <li><strong>Lehigh Valley Hospital - Cedar Crest</strong> - 4.5 miles (Anchor Entity)</li>
+          <li><strong>St. Luke's University Hospital - Allentown</strong> - 1.2 miles (Anchor Entity)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Allentown & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Allentown, PA is perfectly positioned to serve <strong>Bethlehem</strong>, <strong>Fullerton</strong>, <strong>Emmaus</strong>, Whitehall, and Catasauqua residents who need expert spine care. Located in Center City Allentown at 487 W Linden St, we're easily accessible from Route 22, I-78, and Route 145, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Allentown
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Allentown
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Allentown and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Allentown
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Allentown orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Allentown, PA location?",
+        answer: "Our Allentown orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Allentown without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Allentown office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Allentown for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Allentown location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Allentown, PA?",
+        answer: "Our Allentown clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Allentown orthopedic office?",
+        answer: "The Allentown location offers paid street parking and municipal parking garages nearby (e.g., Spiral Deck). Parking is available, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=487%20W%20Linden%20St%2C%20Allentown%2C%20PA%2018102',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=487%20W%20Linden%20St%2C%20Allentown%2C%20PA%2018102',
+  },
+  {
+    id: 19,
+    name: 'Mountain Spine & Orthopedics Philadelphia (Walnut)',
+    region: 'Philadelphia, PA',
+    lat: 39.9496,
+    lng: -75.1685,
+    address: '1601 Walnut St, Suite 834, Philadelphia, PA 19102',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
+    slug: 'philadelphia-walnut-orthopedics',
+    stateAbbr: 'PA',
+    stateSlug: 'pa',
+    locationSlug: 'philadelphia-walnut-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics serves Center City Philadelphia from our convenient Walnut Street location. We understand that life in Philadelphia is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Philadelphia clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 1601 Walnut St, Suite 834, in the heart of Center City Philadelphia, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 1601 Walnut St, Suite 834, we're easily accessible from SEPTA regional rail (Suburban Station 0.2 miles), subway lines (Walnut-Locust Station 0.1 miles), I-76 (Schuylkill Expressway), and I-95, serving patients throughout Philadelphia, the Main Line, Bucks County, Montgomery County, Delaware County, South Jersey, and the greater Delaware Valley region. Trust Mountain Spine & Orthopedics in Center City Philadelphia to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'philadelphia orthopedic surgeon',
+      'center city spine surgeon',
+      'orthopedic doctor philadelphia pa',
+      'spine specialist philadelphia',
+      'minimally invasive spine surgery philadelphia pa',
+      'orthopedic surgery philadelphia pa',
+      'joint replacement philadelphia pa',
+      'orthopedic same-day appointments philadelphia pa',
+      'orthopedic urgent care philadelphia pa',
+      'back pain treatment philadelphia',
+      'neck pain treatment philadelphia',
+      'sports medicine philadelphia pa',
+      'center city orthopedic surgeon',
+      'philadelphia orthopedic clinic',
+      'walnut street orthopedic',
+      'orthopedic in philadelphia pa',
+      'orthopedic surgeon in philadelphia pennsylvania',
+      'best orthopedic surgeon philadelphia pa',
+      'spine surgeon philadelphia',
+      'foot and ankle surgeon philadelphia pa',
+      'orthopedic near me philadelphia',
+      'spine surgeon near me philadelphia',
+      'orthopedic doctor near me philadelphia',
+      'best orthopedic near me philadelphia',
+      'delaware valley spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Philadelphia (Center City) | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Center City Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Rittenhouse Square', 'Washington Square West', 'Old City', 'Society Hill', 'Fairmount'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Center City Philadelphia Spine and Orthopedic Specialists</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Philadelphia residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Center City Philadelphia orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Philadelphia is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Center City Philadelphia & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Center City Philadelphia are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Center City Philadelphia:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving Philadelphia families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Paid parking garages available nearby (e.g., 1625 Locust St garage)</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Philadelphia, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located near SEPTA Suburban Station and Walnut-Locust subway</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Center City Philadelphia Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Center City clinic is centrally located in the <strong>Walnut Street medical district</strong>. We are located at 1601 Walnut St, Suite 834, offering easy access for patients coming from <strong>Rittenhouse Square</strong> and <strong>Washington Square West</strong> via walking or public transit.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>SEPTA Suburban Station:</strong> 0.2 miles - Regional Rail lines. Walk 2 blocks east on Locust St, then 1 block south on 16th St to Walnut St.</li>
+          <li><strong>SEPTA Walnut-Locust Station:</strong> 0.1 miles - Broad Street Line (Orange Line). Exit at Walnut St, walk 1 block west to 16th St.</li>
+          <li><strong>SEPTA Bus Routes:</strong> Routes 9, 12, 21, 42, 44 stop at 16th & Walnut St</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-76 (Schuylkill Expressway):</strong> Exit 344 (Center City) provides access 0.8 miles west</li>
+          <li><strong>From I-95:</strong> Exit 22 (Center City) provides access 1.2 miles east</li>
+          <li><strong>Parking:</strong> Paid parking garages available nearby (e.g., 1625 Locust St garage). Limited street parking.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Rittenhouse Square - 0.3 miles (Walking distance)</li>
+          <li>Washington Square West - 0.4 miles via Walnut St</li>
+          <li>Old City - 0.8 miles via Walnut St E</li>
+          <li>Society Hill - 0.9 miles via Walnut St E</li>
+          <li>Fairmount - 1.2 miles via 16th St N</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Rittenhouse Square</strong> - 0.3 miles (Immediate vicinity)</li>
+          <li><strong>Philadelphia Museum of Art</strong> - 1.5 miles (Local landmark)</li>
+          <li><strong>Thomas Jefferson University Hospital</strong> - 0.7 miles (Anchor Entity)</li>
+          <li><strong>Independence Hall</strong> - 0.9 miles (Local landmark)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Center City Philadelphia & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Center City Philadelphia is perfectly positioned to serve <strong>Rittenhouse Square</strong>, <strong>Washington Square West</strong>, <strong>Old City</strong>, Society Hill, and Fairmount residents who need expert spine care. Located at 1601 Walnut St, Suite 834, we're easily accessible from SEPTA regional rail, subway lines, I-76, and I-95, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Center City Philadelphia
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Philadelphia
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Philadelphia and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Philadelphia
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Center City Philadelphia orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Center City Philadelphia location?",
+        answer: "Our Center City Philadelphia orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Center City Philadelphia without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Center City Philadelphia office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Center City Philadelphia for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Center City Philadelphia location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Center City Philadelphia?",
+        answer: "Our Center City Philadelphia clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Center City Philadelphia orthopedic office?",
+        answer: "The Center City Philadelphia location offers paid parking garages available nearby (e.g., 1625 Locust St garage). Limited street parking is available but not recommended. The office is easily accessible by SEPTA regional rail (Suburban Station 0.2 miles) and subway (Walnut-Locust Station 0.1 miles). When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St%2C%20Suite%20834%2C%20Philadelphia%2C%20PA%2019102',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St%2C%20Suite%20834%2C%20Philadelphia%2C%20PA%2019102',
+  },
+  {
+    id: 20,
+    name: 'Mountain Spine & Orthopedics Philadelphia (Tioga)',
+    region: 'Philadelphia, PA',
+    lat: 40.0060,
+    lng: -75.1055,
+    address: '3401 E. Tioga St, Philadelphia, PA 19134',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/sX5N9x7P7Z7G9N7P9',
+    slug: 'philadelphia-tioga-orthopedics',
+    stateAbbr: 'PA',
+    stateSlug: 'pa',
+    locationSlug: 'philadelphia-tioga-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics serves North Philadelphia and the surrounding communities from our Tioga Street location. We understand that life in North Philadelphia is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Tioga clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 3401 E. Tioga St in North Philadelphia, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 3401 E. Tioga St, we're easily accessible from SEPTA bus routes, the Market-Frankford Line (Tioga Station 0.3 miles), I-95, and Route 1 (Roosevelt Boulevard), serving patients throughout North Philadelphia, Kensington, Port Richmond, Juniata Park, Frankford, and surrounding northeast Philadelphia neighborhoods. Trust Mountain Spine & Orthopedics in North Philadelphia to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'north philadelphia orthopedic surgeon',
+      'tioga spine surgeon',
+      'orthopedic doctor north philadelphia',
+      'spine specialist north philadelphia pa',
+      'minimally invasive spine surgery north philadelphia pa',
+      'orthopedic surgery north philadelphia pa',
+      'joint replacement north philadelphia pa',
+      'orthopedic same-day appointments north philadelphia pa',
+      'orthopedic urgent care north philadelphia pa',
+      'back pain treatment north philly',
+      'neck pain treatment north philly',
+      'sports medicine north philadelphia pa',
+      'kensington orthopedic surgeon',
+      'tioga orthopedic clinic',
+      'orthopedic in north philadelphia pa',
+      'orthopedic surgeon in north philadelphia pennsylvania',
+      'best orthopedic surgeon north philadelphia pa',
+      'spine surgeon kensington',
+      'foot and ankle surgeon north philadelphia pa',
+      'orthopedic near me north philadelphia',
+      'spine surgeon near me north philadelphia',
+      'orthopedic doctor near me north philadelphia',
+      'best orthopedic near me north philadelphia',
+      'northeast philadelphia spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in North Philadelphia | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in North Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Kensington', 'Port Richmond', 'Juniata Park', 'Frankford', 'Fishtown'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>North Philadelphia Spine and Orthopedic Specialists</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>North Philadelphia residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted North Philadelphia orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in North Philadelphia is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in North Philadelphia & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in North Philadelphia are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in North Philadelphia:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving North Philadelphia families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Street parking available on Tioga St and nearby side streets</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in North Philadelphia, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located near SEPTA Market-Frankford Line (Tioga Station)</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our North Philadelphia Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our North Philadelphia clinic is centrally located in the <strong>Tioga neighborhood</strong>. We are located at 3401 E. Tioga St, offering easy access for patients coming from <strong>Kensington</strong> and <strong>Port Richmond</strong> via SEPTA or driving.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>SEPTA Market-Frankford Line:</strong> Tioga Station 0.3 miles - Walk east on Tioga St</li>
+          <li><strong>SEPTA Bus Routes:</strong> Routes 3, 5, 56, 60, 89 stop at Tioga St & Kensington Ave</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-95:</strong> Exit 25 (Allegheny Ave) provides access 0.8 miles south</li>
+          <li><strong>From PA Route 1 (Roosevelt Boulevard):</strong> Accessible via Castor Ave or Aramingo Ave exits</li>
+          <li><strong>Parking:</strong> Street parking available on Tioga St and nearby side streets</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Kensington - 0.5 miles (Immediate vicinity)</li>
+          <li>Port Richmond - 1.2 miles via Tioga St E</li>
+          <li>Juniata Park - 1.5 miles via Castor Ave N</li>
+          <li>Frankford - 2.1 miles via Frankford Ave N</li>
+          <li>Fishtown - 1.8 miles via Girard Ave</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Kensington Avenue</strong> - 0.2 miles (Immediate vicinity)</li>
+          <li><strong>McPherson Square Park</strong> - 0.4 miles (Local park)</li>
+          <li><strong>Temple University Hospital - Episcopal Campus</strong> - 2.1 miles (Anchor Entity)</li>
+          <li><strong>Frankford Hospital</strong> - 2.5 miles (Anchor Entity)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for North Philadelphia & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in North Philadelphia is perfectly positioned to serve <strong>Kensington</strong>, <strong>Port Richmond</strong>, <strong>Juniata Park</strong>, Frankford, and Fishtown residents who need expert spine care. Located at 3401 E. Tioga St, we're easily accessible from SEPTA Market-Frankford Line, bus routes, I-95, and Route 1, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in North Philadelphia
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in North Philadelphia
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout North Philadelphia and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in North Philadelphia
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our North Philadelphia orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your North Philadelphia location?",
+        answer: "Our North Philadelphia orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in North Philadelphia without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our North Philadelphia office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in North Philadelphia for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our North Philadelphia location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics North Philadelphia?",
+        answer: "Our North Philadelphia clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the North Philadelphia orthopedic office?",
+        answer: "The North Philadelphia location offers street parking available on Tioga St and nearby side streets. The office is also easily accessible by SEPTA Market-Frankford Line (Tioga Station 0.3 miles) and bus routes. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=3401%20E.%20Tioga%20St%2C%20Philadelphia%2C%20PA%2019134',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=3401%20E.%20Tioga%20St%2C%20Philadelphia%2C%20PA%2019134',
+  },
+  {
+    id: 21,
+    name: 'Mountain Spine & Orthopedics Philadelphia (Germantown)',
+    region: 'Philadelphia, PA',
+    lat: 40.0340,
+    lng: -75.1763,
+    address: '5945 Germantown Ave, Suite A, Philadelphia, PA 19144',
+    phone: '(561) 223-9959',
+    link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
+    slug: 'philadelphia-germantown-orthopedics',
+    stateAbbr: 'PA',
+    stateSlug: 'pa',
+    locationSlug: 'philadelphia-germantown-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics serves the Germantown community and northwest Philadelphia from our Germantown Avenue location. We understand that life in northwest Philadelphia is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    [PARAGRAPH BREAK]Our Germantown clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 5945 Germantown Ave, Suite A, in the historic Germantown neighborhood, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 5945 Germantown Ave, Suite A, we're easily accessible from SEPTA bus routes along Germantown Avenue, the Chestnut Hill West Line (Germantown Station 0.5 miles), Route 309 (Germantown Pike), and Route 73 (Germantown Ave), serving patients throughout Germantown, Mount Airy, Chestnut Hill, East Falls, Roxborough, and surrounding northwest Philadelphia neighborhoods, as well as nearby Montgomery County communities. Trust Mountain Spine & Orthopedics in Germantown to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'germantown orthopedic surgeon',
+      'germantown spine surgeon',
+      'orthopedic doctor germantown philadelphia',
+      'spine specialist germantown pa',
+      'minimally invasive spine surgery germantown pa',
+      'orthopedic surgery germantown pa',
+      'joint replacement germantown pa',
+      'orthopedic same-day appointments germantown pa',
+      'orthopedic urgent care germantown pa',
+      'back pain treatment germantown',
+      'neck pain treatment germantown',
+      'sports medicine germantown pa',
+      'mount airy orthopedic surgeon',
+      'germantown orthopedic clinic',
+      'orthopedic in germantown philadelphia',
+      'orthopedic surgeon in germantown pennsylvania',
+      'best orthopedic surgeon germantown pa',
+      'spine surgeon mount airy',
+      'foot and ankle surgeon germantown pa',
+      'orthopedic near me germantown',
+      'spine surgeon near me germantown',
+      'orthopedic doctor near me germantown',
+      'best orthopedic near me germantown',
+      'northwest philadelphia spine specialist'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Germantown Philadelphia | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Germantown, Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    rating: 4.9,
+    reviewCount: 0,
+    reviews: [],
+    neighborhoodsWeServe: ['Mount Airy', 'Chestnut Hill', 'East Falls', 'Roxborough', 'Manayunk'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Germantown Spine and Orthopedic Specialists of Northwest Philadelphia</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northwest Philadelphia residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Germantown orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in northwest Philadelphia is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Germantown & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Germantown are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine & Orthopedics in Germantown:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Serving northwest Philadelphia families with high patient satisfaction rates</li>
+          <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
+          <li>Street parking available on Germantown Ave and nearby side streets</li>
+          <li>Most insurance plans accepted, including Workers' Compensation claims</li>
+          <li>Sports medicine orthopedic specialists in Germantown, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Specialized foot and ankle orthopedic services</li>
+          <li>Conveniently located on historic Germantown Avenue</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Germantown, Philadelphia Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Germantown clinic is centrally located in the <strong>historic Germantown neighborhood</strong>. We are located at 5945 Germantown Ave, Suite A, offering easy access for patients coming from <strong>Mount Airy</strong> and <strong>Chestnut Hill</strong> via Germantown Ave.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>SEPTA Chestnut Hill West Line:</strong> Germantown Station 0.5 miles - Walk south on Germantown Ave</li>
+          <li><strong>SEPTA Bus Routes:</strong> Routes 23, 26, 53, H, XH stop along Germantown Ave</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From PA Route 309 (Germantown Pike):</strong> Primary north-south access. Germantown Ave intersects Route 309.</li>
+          <li><strong>From PA Route 73 (Germantown Ave):</strong> Direct access - the facility is located on Germantown Ave</li>
+          <li><strong>Parking:</strong> Street parking available on Germantown Ave and nearby side streets</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li>Mount Airy - 1.2 miles via Germantown Ave N</li>
+          <li>Chestnut Hill - 2.5 miles via Germantown Ave N</li>
+          <li>East Falls - 2.8 miles via Ridge Ave</li>
+          <li>Roxborough - 3.5 miles via Ridge Ave</li>
+          <li>Manayunk - 4.2 miles via Ridge Ave</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Cliveden (Historic Site)</strong> - 0.3 miles (Local landmark)</li>
+          <li><strong>Germantown Avenue</strong> - 0.0 miles (Immediate vicinity)</li>
+          <li><strong>Einstein Medical Center Philadelphia</strong> - 1.8 miles (Anchor Entity)</li>
+          <li><strong>Wissahickon Valley Park</strong> - 2.2 miles (Local park)</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Germantown & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Germantown is perfectly positioned to serve <strong>Mount Airy</strong>, <strong>Chestnut Hill</strong>, <strong>East Falls</strong>, Roxborough, and Manayunk residents who need expert spine care. Located at 5945 Germantown Ave, Suite A, we're easily accessible from SEPTA bus routes, the Chestnut Hill West Line, Route 309, and Route 73, making it simple for the local community to receive advanced treatment close to home.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-2xl md:text-3xl font-bold text-[#062044]"
+        >
+          Advanced Orthopedic Treatment Technologies in Germantown
+        </h2>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-2"
+        >
+          Leading Spine Doctors in Germantown
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Germantown and surrounding communities.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Expert Spine Surgeons in Germantown
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+        </p>
+
+        <h3
+          style={{ fontFamily: "var(--font-public-sans)" }}
+          className="text-xl font-semibold text-[#062044] mt-6"
+        >
+          Spine Conditions We Treat
+        </h3>
+
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Below are the most common spine and nerve conditions we treat at our Germantown orthopedic center.
+        </p>
+
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link
+            href="/conditions/herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/lumbar-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Herniated Disc
+          </Link>
+          <Link
+            href="/conditions/cervical-herniated-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Herniated Disc
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/sciatica-nerve-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Sciatica / Nerve Pain
+          </Link>
+          <Link
+            href="/conditions/foraminal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Foraminal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/area-of-pain/back-pain/lumbar-degenerative-disc-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Lumbar Degenerative Disc Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-spinal-stenosis"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Spinal Stenosis
+          </Link>
+          <Link
+            href="/conditions/spondylolisthesis"
+            className="text-[#0A50EC] underline"
+          >
+            Spondylolisthesis
+          </Link>
+          <Link
+            href="/conditions/pinched-nerve"
+            className="text-[#0A50EC] underline"
+          >
+            Pinched Nerve
+          </Link>
+          <Link
+            href="/conditions/bulging-disc"
+            className="text-[#0A50EC] underline"
+          >
+            Bulging Disc
+          </Link>
+          <Link
+            href="/conditions/neck-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Neck Pain
+          </Link>
+          <Link
+            href="/conditions/lower-back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Lower Back Pain
+          </Link>
+          <Link
+            href="/conditions/back-pain"
+            className="text-[#0A50EC] underline"
+          >
+            Back Pain
+          </Link>
+          <Link
+            href="/conditions/coccydynia"
+            className="text-[#0A50EC] underline"
+          >
+            Coccydynia / Tailbone Pain
+          </Link>
+          <Link
+            href="/conditions/failed-back-surgery-syndrome"
+            className="text-[#0A50EC] underline"
+          >
+            Failed Back Surgery Syndrome
+          </Link>
+          <Link
+            href="/conditions/adult-degenerative-scoliosis"
+            className="text-[#0A50EC] underline"
+          >
+            Adult Degenerative Scoliosis
+          </Link>
+          <Link
+            href="/conditions/adjacent-segment-disease"
+            className="text-[#0A50EC] underline"
+          >
+            Adjacent Segment Disease
+          </Link>
+          <Link
+            href="/conditions/cervical-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Cervical Deformities
+          </Link>
+          <Link
+            href="/conditions/spine-deformities"
+            className="text-[#0A50EC] underline"
+          >
+            Spine Deformities
+          </Link>
+          <Link
+            href="/conditions/spinal-compression-fractures"
+            className="text-[#0A50EC] underline"
+          >
+            Spinal Compression Fractures
+          </Link>
+          <Link
+            href="/conditions/kyphosis"
+            className="text-[#0A50EC] underline"
+          >
+            Kyphosis
+          </Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "What orthopedic and spine conditions do you treat at your Germantown location?",
+        answer: "Our Germantown orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+      },
+      {
+        question: "Can I see a spine surgeon in Germantown without a referral from another doctor?",
+        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Germantown office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+      },
+      {
+        question: "Do you offer same-day or next-day appointments in Germantown for urgent injuries?",
+        answer: "We do our best to offer same-day or next-day appointments at our Germantown location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+      },
+      {
+        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Germantown?",
+        answer: "Our Germantown clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+      },
+      {
+        question: "Where can I park when I visit the Germantown orthopedic office?",
+        answer: "The Germantown location offers street parking available on Germantown Ave and nearby side streets. The office is also easily accessible by SEPTA bus routes along Germantown Ave and the Chestnut Hill West Line (Germantown Station 0.5 miles). When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+      }
+    ],
+    ogImage: '/newlogo4.png',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=5945%20Germantown%20Ave%2C%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=5945%20Germantown%20Ave%2C%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
   },
 ];
 

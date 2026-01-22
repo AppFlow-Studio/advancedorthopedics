@@ -16,6 +16,7 @@ import {
   CarouselNext,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { STATE_METADATA, VALID_STATE_SLUGS, getClinicsByState } from '@/lib/locationRedirects'
 
 interface LocationsClientProps {
   selectedLocation?: any
@@ -140,7 +141,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             </motion.div>
             <div className="text-right">
               <span className="text-sm font-medium text-[#0A50EC] bg-white/80 px-3 py-1 rounded-full">
-                {clinic.region || 'Florida'}
+                {clinic.region ? clinic.region.split(',')[0].trim() : (clinic.stateAbbr || 'Location')}
               </span>
             </div>
           </div>
@@ -183,7 +184,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             variants={isMobile ? undefined : hoverVariants}
             className="mt-auto"
           >
-            <Link href={`/locations/${clinic.slug}`}>
+            <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`}>
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <span className="text-[#252932] font-semibold">View Details</span>
@@ -222,7 +223,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Find Mountain Spine & Orthopedics clinic locations across Florida"
+          alt="Find Mountain Spine & Orthopedics clinic locations across Florida, New Jersey, New York, and Pennsylvania"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -266,7 +267,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               }}
               className='text-[#252932] text-xl mt-2'
             >
-              Mountain Spine & Orthopedics delivers expert spine care across Florida with 10 Locations and an Ambulatory Surgery Center.
+              Mountain Spine & Orthopedics delivers expert spine care across Florida, New Jersey, New York, and Pennsylvania with {clinics.length} locations.
             </p>
           </div>
         </div>
@@ -286,63 +287,157 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             Our Locations
           </h2>
           <p className="text-lg md:text-xl text-[#424959] max-w-3xl mx-auto">
-            Visit any of our state-of-the-art facilities across Florida for expert orthopedic care and personalized treatment.
+            Visit any of our state-of-the-art facilities across Florida, New Jersey, New York, and Pennsylvania for expert orthopedic care and personalized treatment.
           </p>
         </motion.div>
-
-        {/* Mobile Carousel - Only visible on mobile */}
-        <div className="block md:hidden mb-16">
-          {hasMounted && dimensions.width > 0 && (
-            <div className="w-full">
-              <Carousel
-                setApi={setApi}
-                className="w-full"
-                opts={{
-                  align: "center",
-                  containScroll: "trimSnaps",
-                }}
+        
+        {/* State Hub Links */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 px-4 md:px-8">
+          {VALID_STATE_SLUGS.map((stateSlug, index) => {
+            const stateInfo = STATE_METADATA[stateSlug]
+            const stateClinicCount = getClinicsByState(stateSlug).length
+            return (
+              <motion.div
+                key={stateSlug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <CarouselContent>
-                  {clinics.map((clinic, index) => (
-                    <CarouselItem key={index} className="basis-full py-6">
-                      <LocationCard clinic={clinic} index={index} isMobile={true} />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
-                <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
-              </Carousel>
-
-              {/* Dynamic Progress Indicators */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {clinics.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => api?.scrollTo(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
-                      ? 'bg-[#0A50EC] w-6'
-                      : 'bg-[#0A50EC]/30 hover:bg-[#0A50EC]/50'
-                      }`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+                <Link
+                  href={`/locations/${stateSlug}`}
+                  className="group relative block"
+                >
+                  <motion.div
+                    className="relative overflow-hidden bg-gradient-to-br from-white to-[#F8FAFC] border-2 border-[#0A50EC]/20 rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg transition-all duration-300 group-hover:border-[#0A50EC] group-hover:shadow-2xl"
+                    whileHover={{ 
+                      scale: 1.03,
+                      y: -4,
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {/* Animated background gradient on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC] to-[#0A50EC]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-3xl" />
+                    
+                    {/* Decorative circles */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-[#0A50EC]/5 rounded-full group-hover:bg-white/10 transition-colors duration-500" />
+                    <div className="absolute -bottom-2 -left-2 w-10 h-10 md:w-14 md:h-14 bg-[#0A50EC]/5 rounded-full group-hover:bg-white/10 transition-colors duration-500" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center text-center">
+                      {/* State icon */}
+                      <div className="w-10 h-10 md:w-14 md:h-14 bg-[#0A50EC]/10 rounded-xl md:rounded-2xl flex items-center justify-center mb-2 md:mb-3 group-hover:bg-white/20 transition-colors duration-300">
+                        <MapPin className="w-5 h-5 md:w-7 md:h-7 text-[#0A50EC] group-hover:text-white transition-colors duration-300" />
+                      </div>
+                      
+                      {/* State name */}
+                      <h3 className="text-base md:text-xl font-bold text-[#252932] group-hover:text-white transition-colors duration-300 mb-1">
+                        {stateInfo?.name}
+                      </h3>
+                      
+                      {/* Location count badge */}
+                      <div className="flex items-center gap-1 md:gap-2">
+                        <span className="text-xs md:text-sm text-[#424959] group-hover:text-white/80 transition-colors duration-300">
+                          {stateClinicCount} location{stateClinicCount > 1 ? 's' : ''}
+                        </span>
+                      </div>
+                      
+                      {/* Arrow indicator */}
+                      <motion.div 
+                        className="mt-2 md:mt-3 flex items-center gap-1 text-[#0A50EC] group-hover:text-white transition-colors duration-300"
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 4 }}
+                      >
+                        <span className="text-xs md:text-sm font-medium">Explore</span>
+                        <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Shine effect on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                      <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
+                    </div>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            )
+          })}
         </div>
 
-        {/* Desktop Bento Box Grid - Only visible on desktop */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 px-6 lg:px-8"
-        >
-          {clinics.map((clinic, index) => (
-            <LocationCard key={index} clinic={clinic} index={index} />
-          ))}
-        </motion.div>
+        {/* Locations Grouped by State */}
+        {VALID_STATE_SLUGS.map((stateSlug) => {
+          const stateInfo = STATE_METADATA[stateSlug]
+          const stateClinics = getClinicsByState(stateSlug)
+          if (stateClinics.length === 0) return null
+          
+          return (
+            <div key={stateSlug} className="mb-16">
+              {/* State Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center justify-between mb-8 px-6 lg:px-8"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#0A50EC] rounded-2xl flex items-center justify-center shadow-lg">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#252932]">
+                      {stateInfo?.name}
+                    </h3>
+                    <p className="text-[#424959]">{stateClinics.length} location{stateClinics.length > 1 ? 's' : ''}</p>
+                  </div>
+                </div>
+                <Link
+                  href={`/locations/${stateSlug}`}
+                  className="px-4 py-2 bg-white border border-[#0A50EC]/20 rounded-full text-[#0A50EC] font-medium hover:bg-[#0A50EC] hover:text-white transition-all duration-300 text-sm"
+                >
+                  View All {stateInfo?.abbr}
+                </Link>
+              </motion.div>
+
+              {/* Mobile Carousel for this state */}
+              <div className="block md:hidden mb-8">
+                {hasMounted && dimensions.width > 0 && (
+                  <div className="w-full">
+                    <Carousel
+                      className="w-full"
+                      opts={{
+                        align: "center",
+                        containScroll: "trimSnaps",
+                      }}
+                    >
+                      <CarouselContent>
+                        {stateClinics.map((clinic, index) => (
+                          <CarouselItem key={index} className="basis-full py-6">
+                            <LocationCard clinic={clinic} index={index} isMobile={true} />
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
+                      <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
+                    </Carousel>
+                  </div>
+                )}
+              </div>
+
+              {/* Desktop Grid for this state */}
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 lg:px-8"
+              >
+                {stateClinics.map((clinic, index) => (
+                  <LocationCard key={index} clinic={clinic} index={index} />
+                ))}
+              </motion.div>
+            </div>
+          )
+        })}
 
         {/* Additional Info Section */}
         <motion.div
@@ -372,8 +467,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <div className="w-16 h-16 bg-[#0A50EC] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#252932] mb-2">Multiple Locations</h3>
-              <p className="text-[#424959]">Serving communities across Florida</p>
+              <h3 className="text-xl font-bold text-[#252932] mb-2">{clinics.length} Locations</h3>
+              <p className="text-[#424959]">Serving communities across FL, NJ, NY & PA</p>
             </div>
           </div>
         </motion.div>

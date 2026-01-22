@@ -233,7 +233,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/axialfusion1.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/axialfusion2.png',
   "body": "Axial fusion is a minimally invasive surgery to stabilize the L5-S1 vertebrae via a small presacral incision, offering relief for specific lower back pain. Explore options.",
-  "detail": "Axial Lumbar Interbody Fusion (AxiaLIF) is a minimally invasive technique for <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">painful degenerative disc disease</a> or instability at L5-S1. Accessed via a small incision near the tailbone, it avoids major back muscle disruption. A specialized instrument removes the damaged disc and inserts a fusion device (threaded rod with bone graft), restoring disc height and promoting L5-S1 vertebral fusion for lasting spinal stability. This is a targeted lumbosacral spine surgery.",
+  "detail": "Axial Lumbar Interbody Fusion (AxiaLIF) is a minimally invasive technique for <a href=\"/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">painful degenerative disc disease</a> or instability at L5-S1. Accessed via a small incision near the tailbone, it avoids major back muscle disruption. A specialized instrument removes the damaged disc and inserts a fusion device (threaded rod with bone graft), restoring disc height and promoting L5-S1 vertebral fusion for lasting spinal stability. This is a targeted lumbosacral spine surgery.",
   "conditions_treated": "Indicated for symptomatic conditions at L5-S1: Degenerative disc disease causing chronic low back pain/instability, Isthmic or degenerative spondylolisthesis (L5 on S1, Grade I/II), Collapsed L5-S1 disc, or Failed previous L5-S1 surgery requiring revision and <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">lumbar spine fusion</a>. It addresses specific L5-S1 pathology and provides lumbosacral stabilization.",
   "procedure_info": "After consultation and imaging (MRI, CT), AxiaLIF is performed under general anesthesia. A small incision near the buttocks allows percutaneous access to the L5-S1 disc space. The damaged disc is removed, and a specialized FDA-approved fusion device (threaded rod with bone graft) is inserted to restore disc height and facilitate L5-S1 interbody fusion. This is a targeted approach for lumbosacral fusion, a less invasive fusion technique.",
   "recovery_info": "Recovery is generally faster than traditional open lumbar fusion. Hospital stay 1-2 nights. A lumbar brace is often worn. Physical therapy focuses on core strengthening. Solid bone fusion takes several months. This minimally invasive spine surgery allows quicker back muscle function recovery and improved spinal support, promoting faster return to daily activities.",
@@ -341,7 +341,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/coccytreatment2.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/coccytreatment1.png',
   "body": "Coccygectomy, or tailbone removal surgery, is performed for chronic coccydynia (tailbone pain) that does not improve with conservative treatments. Explore options.",
-  "detail": "Coccygectomy is the surgical removal of the coccyx (tailbone) for <a href=\"/area-of-specialty/coccydynia\" class=\"text-blue-600 hover:underline\">chronic, debilitating coccydynia</a> unresponsive to extended non-surgical management (physical therapy, injections). This procedure is for carefully selected patients where pain is localized to a pathological coccyx. The goal is to eliminate the source of chronic tailbone pain and improve sitting tolerance, offering a definitive solution for intractable coccyx pain and restoring quality of life.",
+  "detail": "Coccygectomy is the surgical removal of the coccyx (tailbone) for <a href=\"/conditions/coccydynia\" class=\"text-blue-600 hover:underline\">chronic, debilitating coccydynia</a> unresponsive to extended non-surgical management (physical therapy, injections). This procedure is for carefully selected patients where pain is localized to a pathological coccyx. The goal is to eliminate the source of chronic tailbone pain and improve sitting tolerance, offering a definitive solution for intractable coccyx pain and restoring quality of life.",
   "conditions_treated": "Indicated for severe, chronic coccydynia from trauma (fracture, dislocation), coccygeal hypermobility or instability, or prominent bony abnormalities causing impingement, confirmed as coccyx-originating pain by <a href=\"/treatments/impar-block-treatment\" class=\"text-blue-600 hover:underline\">diagnostic blocks</a>. It addresses intractable tailbone pain and improves quality of life for sufferers of persistent coccyx discomfort and related pelvic floor dysfunction.",
   "procedure_info": "Following thorough consultation and diagnostic workup including imaging and potentially diagnostic injections, coccygectomy is performed under general anesthesia. A small incision is made over the tailbone. All or part of the coccyx is carefully removed from the sacrum and surrounding ligaments. Meticulous closure of soft tissues is performed. This is a specialized procedure for coccyx pain relief, aiming for complete removal of the painful segment and addressing issues of coccygeal instability.",
   "recovery_info": "Recovery requires careful management. Hospital stay 1-2 days. Avoid direct pressure on the surgical site (no prolonged sitting, use donut cushion). Physical therapy once healed. Full recovery and unrestricted sitting can take 3-12 months. Wound care is critical for this type of lower back surgery to prevent complications and ensure proper healing of the sacrococcygeal area.",
@@ -377,7 +377,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/age1.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/age2.png',
   "body": "Aging management focuses on proactive measures to preserve bone density, joint integrity, and muscle strength, reducing fracture and chronic pain risks. Relieve symptoms.",
-  "detail": "Bone mass declines and cartilage degenerates with age, increasing risks of osteopenia, <a href=\"/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>, and falls. Aging management shifts orthopedic care to preventive maintenance, identifying vulnerabilities early. Our comprehensive evaluation (health profile, physical exam, DEXA, MRI/ultrasound) informs a customized plan integrating medical, nutritional, and lifestyle strategies for lifelong musculoskeletal wellness and improved mobility for seniors, focusing on proactive joint care.",
+  "detail": "Bone mass declines and cartilage degenerates with age, increasing risks of osteopenia, <a href=\"/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>, and falls. Aging management shifts orthopedic care to preventive maintenance, identifying vulnerabilities early. Our comprehensive evaluation (health profile, physical exam, DEXA, MRI/ultrasound) informs a customized plan integrating medical, nutritional, and lifestyle strategies for lifelong musculoskeletal wellness and improved mobility for seniors, focusing on proactive joint care.",
   "conditions_treated": "This program addresses risks and conditions accelerated by: Genetic predisposition to osteoporosis, Sedentary lifestyle, Smoking, Excessive alcohol use, Chronic inflammatory diseases, Prolonged corticosteroid therapy, Inadequate protein or calcium intake, and Hormonal changes like menopause, all of which can speed tissue degeneration and contribute to age-related joint deterioration and loss of bone strength.",
   "procedure_info": "This is not a single procedure but a comprehensive program. It begins with a consultation, thorough health assessment, and advanced diagnostics like DEXA scans for bone density and potentially MRI for joint health. Based on findings, an individualized plan is created, which may include supervised physical therapy for balance and strength, nutritional counseling, lifestyle modification guidance, and, if necessary, medical treatments for osteoporosis or early joint preservation techniques.",
   "recovery_info": "An ongoing process of maintaining and improving musculoskeletal health. Involves active engagement in personalized exercise, nutrition, and lifestyle modifications. Regular follow-up reassessments track bone density, muscle mass, and balance, adjusting the plan for long-term mobility and effective age-related orthopedic care, promoting an active aging lifestyle.",
@@ -449,7 +449,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/endodisc1.webp',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/endodisc2.webp',
   "body": "Endoscopic discectomy is a minimally invasive spine surgery removing herniated disc material via a tiny incision, using a camera for precise nerve relief. Relieve symptoms.",
-  "detail": "Endoscopic discectomy is a cutting-edge, minimally invasive surgery for symptomatic <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a> compressing spinal nerves. Through a sub-centimeter incision, an endoscope (tiny camera) provides magnified visualization, allowing specialized micro-instruments to remove only the herniated disc portion. This technique for treating disc herniation minimizes muscle disruption, offering less pain and faster recovery than a traditional <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">minimally invasive</a> approach, representing a significant advancement in spinal care and a precise nerve root surgery.",
+  "detail": "Endoscopic discectomy is a cutting-edge, minimally invasive surgery for symptomatic <a href=\"/conditions/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a> compressing spinal nerves. Through a sub-centimeter incision, an endoscope (tiny camera) provides magnified visualization, allowing specialized micro-instruments to remove only the herniated disc portion. This technique for treating disc herniation minimizes muscle disruption, offering less pain and faster recovery than a traditional <a href=\"/treatments/lumbar-microdiscectomy-surgery\" class=\"text-blue-600 hover:underline\">minimally invasive</a> approach, representing a significant advancement in spinal care and a precise nerve root surgery.",
   "conditions_treated": "Effective for symptomatic cervical, thoracic, or lumbar disc herniations causing radiculopathy (radiating arm/leg pain like sciatica), numbness, or weakness, unresponsive to conservative treatments. It targets specific disc fragments causing nerve root compression and aims for rapid symptom resolution from discogenic nerve pain, including foraminal disc herniations.",
   "procedure_info": "After consultation and MRI review, this is an outpatient procedure, often under local anesthesia with sedation. Using fluoroscopic guidance, a tubular retractor creates a channel for the endoscope. Micro-instruments remove the herniated disc material, achieving precise spinal nerve decompression with minimal tissue trauma. This is a key ultra-minimally invasive disc procedure, offering an endoscopic approach to discectomy.",
   "recovery_info": "Recovery is typically rapid. Patients often go home the same day. Radiating nerve pain relief is often quick. Physical therapy may be recommended. Full activities usually resume within 4-6 weeks. This ultra-minimally invasive spine surgery promotes swift healing and restoration of spinal comfort with less scarring.",
@@ -474,7 +474,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/endoform1.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/endoform2.jpg',
   "body": "Endoscopic foraminotomy is a minimally invasive procedure to relieve nerve compression from narrowed foraminal canals in the spine, offering fast recovery. Explore options.",
-  "detail": "Endoscopic foraminotomy is a state-of-the-art, minimally invasive spine surgery for <a href=\"/area-of-specialty/foraminal-stenosis\" class=\"text-blue-600 hover:underline\">foraminal stenosis</a> (narrowed nerve exit canal). An endoscope provides magnified visualization, allowing removal of bone spurs or disc material compressing the nerve root. This technique for <a href=\"/area-of-specialty/pinched-nerve\" class=\"text-blue-600 hover:underline\">treating pinched nerves</a> avoids significant muscle dissection, resulting in less pain and potentially faster recovery. It is an effective spinal decompression method for restoring nerve pathway integrity and relieving radicular pain.",
+  "detail": "Endoscopic foraminotomy is a state-of-the-art, minimally invasive spine surgery for <a href=\"/conditions/foraminal-stenosis\" class=\"text-blue-600 hover:underline\">foraminal stenosis</a> (narrowed nerve exit canal). An endoscope provides magnified visualization, allowing removal of bone spurs or disc material compressing the nerve root. This technique for <a href=\"/conditions/pinched-nerve\" class=\"text-blue-600 hover:underline\">treating pinched nerves</a> avoids significant muscle dissection, resulting in less pain and potentially faster recovery. It is an effective spinal decompression method for restoring nerve pathway integrity and relieving radicular pain.",
   "conditions_treated": "Primarily for symptomatic nerve root compression from foraminal stenosis (cervical, thoracic, or lumbar) due to degenerative disc disease, bone spurs, or disc herniation, causing radiculopathy unresponsive to conservative treatments. It addresses specific nerve pathway narrowing and relieves symptoms of nerve impingement, including foraminal nerve entrapment.",
   "procedure_info": "Following consultation and diagnostic imaging (MRI/CT), this is typically an outpatient procedure. A small incision allows insertion of an endoscope to the targeted foramen. Micro-instruments remove obstructing elements (bone spurs, ligament, disc fragments), enlarging the foramen and achieving direct nerve root decompression while preserving spinal stability. This is a precise endoscopic nerve release surgery, a key minimally invasive spine intervention.",
   "recovery_info": "Recovery is generally rapid. Patients often go home the same day. Radiating pain relief is often quick. Physical therapy may be recommended. Full activities usually resume within 3-6 weeks. This minimally invasive spine surgery offers minimal disruption and promotes quick functional improvement with less post-operative discomfort.",
@@ -517,8 +517,8 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/epidural1.jpeg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/epidural2.png',
   "body": "Epidural steroid injections are a minimally invasive treatment for back and leg pain from nerve inflammation due to herniated discs or stenosis. Explore options.",
-  "detail": "An Epidural Steroid Injection (ESI) treats back, leg, neck, or arm pain from inflamed spinal nerves. Conditions like <a href=\"/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a> or spinal stenosis can compress nerves, causing radiating pain. ESIs deliver corticosteroid and local anesthetic into the epidural space under image guidance, targeting inflammation for pain relief. This is a common <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical spine intervention</a> for managing acute or chronic nerve pain and improving spinal comfort.",
-  "conditions_treated": "Manages inflammatory pain from Lumbar, thoracic, or cervical radiculopathy (disc herniation), Spinal stenosis, Degenerative disc disease with nerve irritation, Facet joint arthritis affecting nerves, or <a href=\"/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">Sciatica</a>. It addresses specific nerve root inflammation and provides relief from debilitating spinal nerve pain, a key treatment for radicular pain syndromes.",
+  "detail": "An Epidural Steroid Injection (ESI) treats back, leg, neck, or arm pain from inflamed spinal nerves. Conditions like <a href=\"/conditions/herniated-disc\" class=\"text-blue-600 hover:underline\">herniated discs</a> or spinal stenosis can compress nerves, causing radiating pain. ESIs deliver corticosteroid and local anesthetic into the epidural space under image guidance, targeting inflammation for pain relief. This is a common <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical spine intervention</a> for managing acute or chronic nerve pain and improving spinal comfort.",
+  "conditions_treated": "Manages inflammatory pain from Lumbar, thoracic, or cervical radiculopathy (disc herniation), Spinal stenosis, Degenerative disc disease with nerve irritation, Facet joint arthritis affecting nerves, or <a href=\"/conditions/sciatica\" class=\"text-blue-600 hover:underline\">Sciatica</a>. It addresses specific nerve root inflammation and provides relief from debilitating spinal nerve pain, a key treatment for radicular pain syndromes.",
   "procedure_info": "Following consultation and review of imaging (MRI), an ESI is an outpatient procedure. The skin is numbed. Using fluoroscopy, a thin needle is guided into the epidural space. Contrast dye confirms placement before corticosteroid/anesthetic is injected. This targeted spinal injection technique ensures medication reaches the inflamed nerves, offering effective pain modulation and reducing nerve swelling.",
   "recovery_info": "Patients usually resume normal activities the next day. Temporary soreness is possible. Local anesthetic provides immediate, temporary relief. Corticosteroid effects begin in 24-72 hours, lasting weeks to months. This injection can facilitate effective physical therapy for spinal conditions and improve functional mobility, aiding in a quicker return to daily life.",
   "benefits": (
@@ -535,7 +535,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/xlif1.jpg',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/xlif2.jpg',
   "body": "Extreme Lateral Interbody Fusion (XLIF) is a minimally invasive spine surgery for lumbar DDD or scoliosis, accessing the spine from the side. Relieve symptoms.",
-  "detail": "Extreme Lateral Interbody Fusion (XLIF/DLIF) is a minimally invasive technique for <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">lumbar spinal fusion</a>. Accessed from the patient's side, it avoids major back muscle disruption. The damaged disc is removed, and a large interbody cage with bone graft inserted, restoring disc height and correcting alignment for conditions like <a href=\"/area-of-specialty/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">degenerative scoliosis</a>. This lateral spine surgery approach can mean faster recovery and improved spinal stability, offering a solution for complex lumbar spine disorders.",
+  "detail": "Extreme Lateral Interbody Fusion (XLIF/DLIF) is a minimally invasive technique for <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">lumbar spinal fusion</a>. Accessed from the patient's side, it avoids major back muscle disruption. The damaged disc is removed, and a large interbody cage with bone graft inserted, restoring disc height and correcting alignment for conditions like <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">degenerative scoliosis</a>. This lateral spine surgery approach can mean faster recovery and improved spinal stability, offering a solution for complex lumbar spine disorders.",
   "conditions_treated": "Effective for Lumbar degenerative disc disease (L1-L5), Spondylolisthesis, Adult degenerative scoliosis requiring spinal curvature correction, Recurrent disc herniations with instability, or Foraminal stenosis from disc collapse. It addresses chronic back pain and nerve compression, improving overall spinal biomechanics and providing significant spinal support.",
   "procedure_info": "After consultation and diagnostic imaging (MRI, CT, X-rays), XLIF is performed under general anesthesia, with the patient on their side. A flank incision allows access. Using nerve monitoring and fluoroscopy, dilators create a channel to the disc. The disc is removed, and a large FDA-approved cage with bone graft inserted. Supplemental posterior fixation is usually added for robust lumbar spine stabilization and successful vertebral fusion. This is an advanced technique for lateral lumbar interbody fusion.",
   "recovery_info": "Recovery is generally faster than traditional open fusion. Hospital stay 1-3 days. A lumbar brace may be used. Physical therapy begins early. Full bone fusion takes 6-12+ months. Temporary thigh numbness can occur but usually resolves. This minimally invasive spine surgery aids quicker functional return and pain reduction, improving quality of life.",
@@ -560,7 +560,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/public/facet1.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/facet2.png',
   "body": "Facet ablation (rhizotomy) is a minimally invasive treatment for chronic neck or back pain from facet joint arthritis, offering long-lasting relief. Explore options.",
-  "detail": "Facet joints can develop <a href=\"/area-of-specialty/facet-joint-disease\" class=\"text-blue-600 hover:underline\">facet joint osteoarthritis</a>, leading to chronic neck or back pain. Facet ablation (radiofrequency ablation/RFA or medial branch rhizotomy) treats this pain. After a <a href=\"/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information\" class=\"text-blue-600 hover:underline\">diagnostic medial branch block</a> confirms the facet joints as the source, RFA uses heat to lesion small nerves (medial branches) carrying pain signals from these joints. This targeted nerve treatment provides extended pain relief and improves spinal comfort, a key <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical back pain solution</a>.",
+  "detail": "Facet joints can develop <a href=\"/conditions/facet-joint-disease\" class=\"text-blue-600 hover:underline\">facet joint osteoarthritis</a>, leading to chronic neck or back pain. Facet ablation (radiofrequency ablation/RFA or medial branch rhizotomy) treats this pain. After a <a href=\"/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information\" class=\"text-blue-600 hover:underline\">diagnostic medial branch block</a> confirms the facet joints as the source, RFA uses heat to lesion small nerves (medial branches) carrying pain signals from these joints. This targeted nerve treatment provides extended pain relief and improves spinal comfort, a key <a href=\"/treatments/non-surgical-treatments-for-pain-management\" class=\"text-blue-600 hover:underline\">non-surgical back pain solution</a>.",
   "conditions_treated": "For chronic facet joint osteoarthritis (spondylosis) in cervical, thoracic, or lumbar spine, Chronic mechanical back or neck pain confirmed by diagnostic blocks, or Pain from degenerative facet joints without significant instability. It addresses localized spinal joint pain and facet joint syndrome, offering relief from persistent facet mediated pain.",
   "procedure_info": "Following consultation and successful diagnostic blocks, this is an outpatient procedure under fluoroscopic guidance. RFA cannulas are placed near medial branch nerves. After nerve testing, radiofrequency energy creates a heat lesion, deactivating pain-transmitting nerves. This precise nerve ablation technique targets facet joint pain, offering a non-surgical solution for facet mediated pain and improving spinal joint function.",
   "recovery_info": "Resume light activities in 24-48 hours. Temporary soreness is common. Pain relief can take days to weeks, lasting 6-12+ months. The procedure can be repeated. Physical therapy is often recommended after this minimally invasive pain procedure to improve function and maintain spinal mobility, aiding in long-term pain control.",
@@ -669,7 +669,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/public/obliquelumbar1.png',
   "body": "Oblique Lumbar Interbody Fusion (OLIF) is a minimally invasive spine surgery treating lumbar conditions via a side approach, relieving nerve pain. Explore your options.",
   "detail": "Oblique Lumbar Interbody Fusion (OLIF) is a minimally invasive technique for <a href=\"/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">lumbar spinal fusion</a> (L2-L5). Accessed from the side via an oblique corridor (between major vessels and psoas muscle), it allows direct disc space access with potentially less psoas muscle disruption than direct lateral approaches. The damaged disc is removed, and a large interbody cage with bone graft inserted for disc height restoration and achieving vertebral fusion for spinal stability. This is an advanced approach to lumbar interbody arthrodesis.",
-  "conditions_treated": "Effective for <a href=\"/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">Lumbar degenerative disc disease</a> (L2-L5), Spondylolisthesis, Spinal stenosis from disc collapse, or Adult degenerative scoliosis requiring spinal curvature correction and stabilization. It addresses chronic low back pain and radiculopathy unresponsive to conservative care, improving lumbar spine alignment and reducing symptoms of lumbar spine instability.",
+  "conditions_treated": "Effective for <a href=\"/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">Lumbar degenerative disc disease</a> (L2-L5), Spondylolisthesis, Spinal stenosis from disc collapse, or Adult degenerative scoliosis requiring spinal curvature correction and stabilization. It addresses chronic low back pain and radiculopathy unresponsive to conservative care, improving lumbar spine alignment and reducing symptoms of lumbar spine instability.",
   "procedure_info": "Following consultation and diagnostic imaging (MRI, CT, X-rays), OLIF is performed under general anesthesia, with the patient on their side. A small oblique flank incision allows access to the disc. The disc is removed, endplates prepared, and a large FDA-approved interbody cage with bone graft inserted to restore alignment and facilitate lumbar spine fusion. Supplemental posterior fixation is usually added for stability, completing this advanced interbody fusion technique, a key procedure for lumbar spine reconstruction.",
   "recovery_info": "Generally faster recovery than open fusion. Hospital stay 2-4 days. A lumbar brace may be used. Physical therapy begins early. Full bone fusion takes 6-12+ months. This minimally invasive spine surgery aims for quicker leg strength recovery and restoration of spinal function, promoting better spinal biomechanics.",
   "benefits": (
@@ -842,7 +842,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Revision spinal surgery corrects complications from previous spine operations to restore stability and relieve persistent pain.",
     overview: {
       heading: "Expert Care for Failed Back Surgery Syndrome",
-      body: "**Revision Spinal Surgery** is a complex procedure designed to correct problems from a previous spine operation. Many patients come to us suffering from <a href=\"https://mountainspineorthopedics.com/area-of-specialty/failed-back-surgery-syndrome\" class=\"text-blue-600 hover:underline\">**Failed Back Surgery Syndrome**</a> (FBSS), where persistent pain or instability remains after an initial <a href=\"https://mountainspineorthopedics.com/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">**Lumbar Fusion Surgery**</a> or decompression. At Mountain Spine & Orthopedics, our specialists use advanced imaging to identify issues like **pseudarthrosis** (failed fusion), loose hardware, or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">adjacent segment disease</a>, creating a personalized plan to finally restore stability and relief.",
+      body: "**Revision Spinal Surgery** is a complex procedure designed to correct problems from a previous spine operation. Many patients come to us suffering from <a href=\"https://mountainspineorthopedics.com/conditions/failed-back-surgery-syndrome\" class=\"text-blue-600 hover:underline\">**Failed Back Surgery Syndrome**</a> (FBSS), where persistent pain or instability remains after an initial <a href=\"https://mountainspineorthopedics.com/treatments/lumbar-fusion-surgery\" class=\"text-blue-600 hover:underline\">**Lumbar Fusion Surgery**</a> or decompression. At Mountain Spine & Orthopedics, our specialists use advanced imaging to identify issues like **pseudarthrosis** (failed fusion), loose hardware, or <a href=\"https://mountainspineorthopedics.com/conditions/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">adjacent segment disease</a>, creating a personalized plan to finally restore stability and relief.",
     },
     candidates: {
       heading: "Who Needs Revision Spinal Surgery?",
@@ -869,7 +869,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Revision Spinal Surgery",
       timeline: "6-12 Months for Full Fusion",
-      details: "Recovery from **Revision Spinal Surgery** is often longer than the initial procedure due to the complexity of correcting altered anatomy. Patients typically stay in the hospital for 3-5 days. A **spinal brace** may be worn for 3 months to support the new hardware. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins gradually to protect the healing bone. While full recovery can take up to a year, many patients feel significant nerve pain relief immediately after the **nerve decompression** step.",
+      details: "Recovery from **Revision Spinal Surgery** is often longer than the initial procedure due to the complexity of correcting altered anatomy. Patients typically stay in the hospital for 3-5 days. A **spinal brace** may be worn for 3 months to support the new hardware. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins gradually to protect the healing bone. While full recovery can take up to a year, many patients feel significant nerve pain relief immediately after the **nerve decompression** step.",
     },
     benefits: [
       "Corrects the root cause of **chronic back pain** after failed surgery",
@@ -904,7 +904,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Multilevel degenerative disc disease surgery addresses widespread spinal degeneration affecting two or more vertebral segments with advanced fusion and hybrid techniques.",
     overview: {
       heading: "Treating Widespread Spinal Degeneration",
-      body: "When <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> (DDD) affects multiple levels of the spine, simple treatments often fail. **Multilevel Degenerative Disc Disease Surgery** addresses widespread instability and pain by treating two or more spinal segments simultaneously. Depending on your condition, we may recommend a <a href=\"https://mountainspineorthopedics.com/treatments/hybrid-lumbar-spine-surgery\" class=\"text-blue-600 hover:underline\">**Hybrid Lumbar Spine Surgery**</a>—combining <a href=\"https://mountainspineorthopedics.com/treatments/artificial-disc-replacement-surgery\" class=\"text-blue-600 hover:underline\">**Artificial Disc Replacement Surgery**</a> for motion at one level with <a href=\"https://mountainspineorthopedics.com/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**Spinal Fusion Surgery**</a> for stability at another. This tailored approach maximizes function while eliminating chronic pain.",
+      body: "When <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> (DDD) affects multiple levels of the spine, simple treatments often fail. **Multilevel Degenerative Disc Disease Surgery** addresses widespread instability and pain by treating two or more spinal segments simultaneously. Depending on your condition, we may recommend a <a href=\"https://mountainspineorthopedics.com/treatments/hybrid-lumbar-spine-surgery\" class=\"text-blue-600 hover:underline\">**Hybrid Lumbar Spine Surgery**</a>—combining <a href=\"https://mountainspineorthopedics.com/treatments/artificial-disc-replacement-surgery\" class=\"text-blue-600 hover:underline\">**Artificial Disc Replacement Surgery**</a> for motion at one level with <a href=\"https://mountainspineorthopedics.com/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**Spinal Fusion Surgery**</a> for stability at another. This tailored approach maximizes function while eliminating chronic pain.",
     },
     candidates: {
       heading: "Candidates for Multilevel DDD Surgery",
@@ -930,7 +930,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Multilevel Degenerative Disc Disease Surgery",
       timeline: "3-6 Months",
-      details: "Recovering from **Multilevel Degenerative Disc Disease Surgery** requires patience. Patients may spend 2-4 days in the hospital. You will likely need a walker for the first few weeks. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is crucial to strengthen the core muscles supporting the reconstructed spine. Most patients can return to light work by 6 weeks and full activities by 4-6 months, depending on bone healing and fusion progression.",
+      details: "Recovering from **Multilevel Degenerative Disc Disease Surgery** requires patience. Patients may spend 2-4 days in the hospital. You will likely need a walker for the first few weeks. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is crucial to strengthen the core muscles supporting the reconstructed spine. Most patients can return to light work by 6 weeks and full activities by 4-6 months, depending on bone healing and fusion progression.",
     },
     benefits: [
       "Addresses pain from multiple sources in a single surgery",
@@ -965,7 +965,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Anterior lumbar corpectomy and fusion removes damaged vertebral bodies to treat spinal tumors, fractures, infections, or severe deformities, restoring spinal stability.",
     overview: {
       heading: "Reconstructing the Spine After Trauma or Tumor",
-      body: "**Anterior Lumbar Corpectomy and Fusion** (ALCF) is a major reconstructive surgery used when a vertebral body is severely damaged by a <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spinal-compression-fractures\" class=\"text-blue-600 hover:underline\">**Spinal Compression Fractures**</a>, tumor, or infection. Unlike a standard discectomy, this procedure involves removing the entire vertebral bone and the discs above and below it. The surgeon then inserts a specialized expandable cage or **vertebral body replacement (VBR)** device to restore the spine's structural integrity. This is often necessary to prevent spinal collapse and protect the spinal cord.",
+      body: "**Anterior Lumbar Corpectomy and Fusion** (ALCF) is a major reconstructive surgery used when a vertebral body is severely damaged by a <a href=\"https://mountainspineorthopedics.com/conditions/spinal-compression-fractures\" class=\"text-blue-600 hover:underline\">**Spinal Compression Fractures**</a>, tumor, or infection. Unlike a standard discectomy, this procedure involves removing the entire vertebral bone and the discs above and below it. The surgeon then inserts a specialized expandable cage or **vertebral body replacement (VBR)** device to restore the spine's structural integrity. This is often necessary to prevent spinal collapse and protect the spinal cord.",
     },
     candidates: {
       heading: "When is ALCF Surgery Necessary?",
@@ -991,7 +991,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Anterior Lumbar Corpectomy and Fusion",
       timeline: "6-12 Months",
-      details: "Due to the extensive nature of **Anterior Lumbar Corpectomy and Fusion**, recovery is a gradual process. Hospital stay is typically 4-7 days. Patients will wear a **custom back brace** for several months to ensure the graft fuses with the bone. Walking is encouraged immediately, but bending and twisting are restricted. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins gradually to restore strength and mobility. Full bony fusion is typically achieved by 9-12 months, providing a permanent structural solution.",
+      details: "Due to the extensive nature of **Anterior Lumbar Corpectomy and Fusion**, recovery is a gradual process. Hospital stay is typically 4-7 days. Patients will wear a **custom back brace** for several months to ensure the graft fuses with the bone. Walking is encouraged immediately, but bending and twisting are restricted. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins gradually to restore strength and mobility. Full bony fusion is typically achieved by 9-12 months, providing a permanent structural solution.",
     },
     benefits: [
       "Directly removes the source of compression (tumor/bone fragments) from the spinal cord",
@@ -1063,7 +1063,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     ],
     insurance: {
       heading: "Cost & Insurance for ALIF",
-      body: "**We accept most major insurance plans. PPO preferred.** ALIF is a standard, FDA-approved procedure covered by most carriers for indicated conditions like <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a> and <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spondylolisthesis\" class=\"text-blue-600 hover:underline\">spondylolisthesis</a>.",
+      body: "**We accept most major insurance plans. PPO preferred.** ALIF is a standard, FDA-approved procedure covered by most carriers for indicated conditions like <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a> and <a href=\"https://mountainspineorthopedics.com/conditions/spondylolisthesis\" class=\"text-blue-600 hover:underline\">spondylolisthesis</a>.",
     },
     schedule: "Back pain, leg pain, or spinal instability affecting daily life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   },
@@ -1112,11 +1112,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Hybrid Surgery Recovery Benefits",
       timeline: "3-4 Months",
-      details: "**Hybrid Lumbar Spine Surgery** recovery is typically faster than multilevel fusion because there is less rigid hardware. Patients mobilize quickly, often walking within hours of surgery. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">Physical therapy</a> focuses on mobilizing the replaced disc while protecting the fused level. Most patients return to non-impact sports (swimming, cycling) within 3 months and feel a significant improvement in range of motion compared to traditional surgery.",
+      details: "**Hybrid Lumbar Spine Surgery** recovery is typically faster than multilevel fusion because there is less rigid hardware. Patients mobilize quickly, often walking within hours of surgery. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">Physical therapy</a> focuses on mobilizing the replaced disc while protecting the fused level. Most patients return to non-impact sports (swimming, cycling) within 3 months and feel a significant improvement in range of motion compared to traditional surgery.",
     },
     benefits: [
       "Preserves range of motion in the lower back",
-      "Reduces the risk of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">**Adjacent Segment Disease**</a>",
+      "Reduces the risk of <a href=\"https://mountainspineorthopedics.com/conditions/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">**Adjacent Segment Disease**</a>",
       "Eliminates pain from both spinal levels",
       "Prevents the 'flat back' syndrome associated with long fusions",
       "Allows for a more natural gait and movement pattern",
@@ -1147,7 +1147,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Lumbar fusion surgery permanently joins vertebrae to eliminate painful motion from spinal instability, degenerative disc disease, or spondylolisthesis.",
     overview: {
       heading: "Restoring Stability with Lumbar Fusion Surgery",
-      body: "**Lumbar Fusion Surgery** is a reconstructive surgical procedure that permanently joins two or more vertebrae in the lower back. By fusing these bones together, we eliminate the **painful motion** caused by spinal instability, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a>, or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spondylolisthesis\" class=\"text-blue-600 hover:underline\">**Spondylolisthesis**</a>. At Mountain Spine & Orthopedics, we utilize **minimally invasive techniques** whenever possible to reduce muscle disruption and speed up your recovery.",
+      body: "**Lumbar Fusion Surgery** is a reconstructive surgical procedure that permanently joins two or more vertebrae in the lower back. By fusing these bones together, we eliminate the **painful motion** caused by spinal instability, <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a>, or <a href=\"https://mountainspineorthopedics.com/conditions/spondylolisthesis\" class=\"text-blue-600 hover:underline\">**Spondylolisthesis**</a>. At Mountain Spine & Orthopedics, we utilize **minimally invasive techniques** whenever possible to reduce muscle disruption and speed up your recovery.",
     },
     candidates: {
       heading: "Is Lumbar Fusion Right for You?",
@@ -1172,13 +1172,13 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Life After Fusion",
       timeline: "3-6 Months for Activity, 12 Months for Full Fusion",
-      details: "While **Lumbar Fusion Surgery** recovery is a journey, modern techniques have improved the timeline. Patients typically walk the day of surgery. Light activities resume in 4-6 weeks. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">Physical therapy</a> is crucial for strengthening the core to support the new **spinal alignment**. Most patients report a significant reduction in pre-op leg and <a href=\"https://mountainspineorthopedics.com/area-of-pain/back-pain/lower-back-pain\" class=\"text-blue-600 hover:underline\">**Lower Back Pain**</a> within the first few weeks.",
+      details: "While **Lumbar Fusion Surgery** recovery is a journey, modern techniques have improved the timeline. Patients typically walk the day of surgery. Light activities resume in 4-6 weeks. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">Physical therapy</a> is crucial for strengthening the core to support the new **spinal alignment**. Most patients report a significant reduction in pre-op leg and <a href=\"https://mountainspineorthopedics.com/area-of-pain/back-pain/lower-back-pain\" class=\"text-blue-600 hover:underline\">**Lower Back Pain**</a> within the first few weeks.",
     },
     benefits: [
       "Eliminates motion at the painful spinal segment",
       "Corrects spinal deformities and restores alignment",
-      "Relieves <a href=\"https://mountainspineorthopedics.com/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> and radiating leg pain",
-      "Prevents further slippage (<a href=\"https://mountainspineorthopedics.com/area-of-specialty/spondylolisthesis\" class=\"text-blue-600 hover:underline\">**Spondylolisthesis**</a>)",
+      "Relieves <a href=\"https://mountainspineorthopedics.com/conditions/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> and radiating leg pain",
+      "Prevents further slippage (<a href=\"https://mountainspineorthopedics.com/conditions/spondylolisthesis\" class=\"text-blue-600 hover:underline\">**Spondylolisthesis**</a>)",
       "Provides long-term mechanical stability for the spine",
     ],
     insurance: {
@@ -1236,7 +1236,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       details: "Recovery from **Spinal Fusion Surgery** requires a commitment. Smoking cessation is mandatory as nicotine stops bone growth. Patients typically return to sedentary work in 4-6 weeks. Impact activities are restricted until the fusion is solid (visible on X-ray), which takes 6-12 months. However, pain relief from **nerve decompression** is often immediate.",
     },
     benefits: [
-      "Stops the progression of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spine-deformities\" class=\"text-blue-600 hover:underline\">**Spine Deformities**</a>",
+      "Stops the progression of <a href=\"https://mountainspineorthopedics.com/conditions/spine-deformities\" class=\"text-blue-600 hover:underline\">**Spine Deformities**</a>",
       "Protects the spinal cord and nerves from damage",
       "Provides the most rigid stabilization available",
       "Allows patients to return to daily life without debilitating instability pain",
@@ -1268,7 +1268,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Transforaminal lumbar interbody fusion accesses the disc through the neural foramen, treating degenerative disc disease and spondylolisthesis with minimal muscle disruption.",
     overview: {
       heading: "Minimally Invasive Posterior Fusion",
-      body: "**Transforaminal Lumbar Interbody Fusion** (TLIF) is a modern approach to lumbar fusion performed through the back. Unlike older open surgeries that retract nerves widely, **TLIF Surgery** accesses the disc space through the 'foramen' (the natural window where the nerve exits). This allows the surgeon to remove a herniated disc, decompress the nerve root, and insert a fusion cage with minimal nerve retraction. It is highly effective for <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spondylolisthesis\" class=\"text-blue-600 hover:underline\">**Spondylolisthesis**</a> and recurrent <a href=\"https://mountainspineorthopedics.com/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Disc**</a>.",
+      body: "**Transforaminal Lumbar Interbody Fusion** (TLIF) is a modern approach to lumbar fusion performed through the back. Unlike older open surgeries that retract nerves widely, **TLIF Surgery** accesses the disc space through the 'foramen' (the natural window where the nerve exits). This allows the surgeon to remove a herniated disc, decompress the nerve root, and insert a fusion cage with minimal nerve retraction. It is highly effective for <a href=\"https://mountainspineorthopedics.com/conditions/spondylolisthesis\" class=\"text-blue-600 hover:underline\">**Spondylolisthesis**</a> and recurrent <a href=\"https://mountainspineorthopedics.com/conditions/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Disc**</a>.",
     },
     candidates: {
       heading: "Who is a Candidate for TLIF Surgery?",
@@ -1328,7 +1328,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Posterior cervical fusion with instrumentation stabilizes the cervical spine using titanium screws and rods to treat fractures, severe instability, and spinal deformities.",
     overview: {
       heading: "Advanced Stabilization for Cervical Instability",
-      body: "**Posterior Cervical Fusion with Instrumentation Surgery** is a specialized procedure performed through the back of the neck to stabilize the cervical spine. It is often required for patients suffering from traumatic fractures, significant **Spinal Instability**, or severe deformities like <a href=\"https://mountainspineorthopedics.com/area-of-specialty/kyphosis\" class=\"text-blue-600 hover:underline\">**Kyphosis**</a>. By using FDA-approved titanium screws and rods (instrumentation) alongside **bone graft**, we create an internal brace that holds the vertebrae rigidly in place, allowing them to fuse into a solid bone. This prevents dangerous motion that could damage the spinal cord. For more information on spinal instability, visit our <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">Spinal Stenosis page</a>.",
+      body: "**Posterior Cervical Fusion with Instrumentation Surgery** is a specialized procedure performed through the back of the neck to stabilize the cervical spine. It is often required for patients suffering from traumatic fractures, significant **Spinal Instability**, or severe deformities like <a href=\"https://mountainspineorthopedics.com/conditions/kyphosis\" class=\"text-blue-600 hover:underline\">**Kyphosis**</a>. By using FDA-approved titanium screws and rods (instrumentation) alongside **bone graft**, we create an internal brace that holds the vertebrae rigidly in place, allowing them to fuse into a solid bone. This prevents dangerous motion that could damage the spinal cord. For more information on spinal instability, visit our <a href=\"https://mountainspineorthopedics.com/conditions/spinal-stenosis\" class=\"text-blue-600 hover:underline\">Spinal Stenosis page</a>.",
     },
     candidates: {
       heading: "Who Needs Posterior Instrumentation?",
@@ -1354,13 +1354,13 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Rehabilitation",
       timeline: "3-6 Months for Bone Healing",
-      details: "Recovery involves wearing a cervical collar for 6-12 weeks to ensure the hardware holds the spine in perfect alignment while the bone fuses. Hospital stay is typically 2-4 days. Patients can often walk the day after surgery. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins once X-rays show bone healing, focusing on strengthening the upper back and shoulder muscles to support the neck. Full return to activities occurs once the fusion is solid.",
+      details: "Recovery involves wearing a cervical collar for 6-12 weeks to ensure the hardware holds the spine in perfect alignment while the bone fuses. Hospital stay is typically 2-4 days. Patients can often walk the day after surgery. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins once X-rays show bone healing, focusing on strengthening the upper back and shoulder muscles to support the neck. Full return to activities occurs once the fusion is solid.",
     },
     benefits: [
       "Provides the most rigid stabilization possible for unstable necks",
       "Prevents progression of severe spinal deformities",
       "Protects the spinal cord from further injury or compression",
-      "Relieves <a href=\"https://mountainspineorthopedics.com/area-of-specialty/neck-pain\" class=\"text-blue-600 hover:underline\">**Neck Pain**</a> caused by abnormal vertebral motion",
+      "Relieves <a href=\"https://mountainspineorthopedics.com/conditions/neck-pain\" class=\"text-blue-600 hover:underline\">**Neck Pain**</a> caused by abnormal vertebral motion",
       "Corrects alignment to improve gaze and head position"
     ],
     insurance: {
@@ -1415,12 +1415,12 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Timeline",
       timeline: "3-6 Months",
-      details: "Patients typically spend 2-3 days in the hospital. Discomfort in the back of the neck is common initially but improves rapidly. You will likely wear a neck brace for support. Walking is encouraged immediately. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> starts gradually to prevent stiffness in the shoulders and upper back. Most patients report relief from their pre-op arm pain and **numbness** almost immediately after the decompression.",
+      details: "Patients typically spend 2-3 days in the hospital. Discomfort in the back of the neck is common initially but improves rapidly. You will likely wear a neck brace for support. Walking is encouraged immediately. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> starts gradually to prevent stiffness in the shoulders and upper back. Most patients report relief from their pre-op arm pain and **numbness** almost immediately after the decompression.",
     },
     benefits: [
       "Stops painful motion at arthritic spinal segments",
       "Effective for treating multiple levels of compression simultaneously",
-      "Prevents spinal cord damage from instability or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/cervical-spinal-stenosis\" class=\"text-blue-600 hover:underline\">stenosis</a>",
+      "Prevents spinal cord damage from instability or <a href=\"https://mountainspineorthopedics.com/conditions/cervical-spinal-stenosis\" class=\"text-blue-600 hover:underline\">stenosis</a>",
       "Can be combined with anterior surgery for complex deformities",
       "Restores stability to the cervical column"
     ],
@@ -1451,7 +1451,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Anterior cervical corpectomy and fusion removes entire vertebral bodies to decompress the spinal cord from bone spurs, tumors, or fractures.",
     overview: {
       heading: "Reconstructing the Cervical Spine",
-      body: "**Anterior Cervical Corpectomy and Fusion** (ACCF) is a more extensive procedure than a standard <a href=\"https://mountainspineorthopedics.com/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">**ACDF Surgery**</a>. It involves the removal of the entire vertebral body (the bone itself) and the discs above and below it. This is necessary when <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Spinal Stenosis**</a> is caused by bone spurs behind the vertebral body, or in cases of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spinal-compression-fractures\" class=\"text-blue-600 hover:underline\">**Spinal Compression Fractures**</a> and tumors. After removing the bone to decompress the spinal cord, a cage or strut graft is inserted to reconstruct the spine's column.",
+      body: "**Anterior Cervical Corpectomy and Fusion** (ACCF) is a more extensive procedure than a standard <a href=\"https://mountainspineorthopedics.com/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">**ACDF Surgery**</a>. It involves the removal of the entire vertebral body (the bone itself) and the discs above and below it. This is necessary when <a href=\"https://mountainspineorthopedics.com/conditions/spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Spinal Stenosis**</a> is caused by bone spurs behind the vertebral body, or in cases of <a href=\"https://mountainspineorthopedics.com/conditions/spinal-compression-fractures\" class=\"text-blue-600 hover:underline\">**Spinal Compression Fractures**</a> and tumors. After removing the bone to decompress the spinal cord, a cage or strut graft is inserted to reconstruct the spine's column.",
     },
     candidates: {
       heading: "When is ACCF Necessary?",
@@ -1513,7 +1513,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "ACDF surgery removes herniated cervical discs through an anterior approach to decompress nerve roots and relieve neck and arm pain.",
     overview: {
       heading: "The Gold Standard for Neck Pain",
-      body: "**ACDF Surgery** (Anterior Cervical Discectomy and Fusion) is one of the most common and successful spine surgeries performed today. It treats a <a href=\"https://mountainspineorthopedics.com/area-of-specialty/pinched-nerve\" class=\"text-blue-600 hover:underline\">**Pinched Nerve**</a> or spinal cord compression in the neck. By approaching from the front (anterior), surgeons can safely remove a <a href=\"https://mountainspineorthopedics.com/area-of-specialty/cervical-herniated-disc\" class=\"text-blue-600 hover:underline\">**Cervical Herniated Disc**</a> without moving the spinal cord. Once the disc is removed, a spacer with **bone graft** is inserted to fuse the vertebrae, restoring height and stopping painful motion.",
+      body: "**ACDF Surgery** (Anterior Cervical Discectomy and Fusion) is one of the most common and successful spine surgeries performed today. It treats a <a href=\"https://mountainspineorthopedics.com/conditions/pinched-nerve\" class=\"text-blue-600 hover:underline\">**Pinched Nerve**</a> or spinal cord compression in the neck. By approaching from the front (anterior), surgeons can safely remove a <a href=\"https://mountainspineorthopedics.com/conditions/cervical-herniated-disc\" class=\"text-blue-600 hover:underline\">**Cervical Herniated Disc**</a> without moving the spinal cord. Once the disc is removed, a spacer with **bone graft** is inserted to fuse the vertebrae, restoring height and stopping painful motion.",
     },
     candidates: {
       heading: "Who Benefits from ACDF?",
@@ -1539,11 +1539,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Rapid Recovery with ACDF",
       timeline: "3-6 Months",
-      details: "Most **ACDF Surgery** patients go home the same day or the next morning. Soreness in the throat is common for a few days. Arm pain relief is often immediate. Patients typically return to light daily activities within a week and driving in 2-4 weeks. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> helps restore neck range of motion once fusion begins, typically at the 6-week mark.",
+      details: "Most **ACDF Surgery** patients go home the same day or the next morning. Soreness in the throat is common for a few days. Arm pain relief is often immediate. Patients typically return to light daily activities within a week and driving in 2-4 weeks. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> helps restore neck range of motion once fusion begins, typically at the 6-week mark.",
     },
     benefits: [
       "High success rate (90%+) for relief of arm pain and weakness",
-      "Prevents further collapse of the disc space and <a href=\"https://mountainspineorthopedics.com/area-of-specialty/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a>",
+      "Prevents further collapse of the disc space and <a href=\"https://mountainspineorthopedics.com/conditions/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a>",
       "Protects the spinal cord from damage",
       "Minimally invasive approach spares neck muscles from cutting",
       "Quick return to function and daily life"
@@ -1601,11 +1601,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Faster Recovery than Fusion",
       timeline: "6-12 Weeks",
-      details: "Recovery from **Lumbar Disc Replacement Surgery** is often faster than fusion because there is no need to wait for bone to knit together. Patients walk the day of surgery. Hospital stay is 1-3 days. Since the device is stable immediately, patients can return to light activities in 2-4 weeks and sports in 3 months. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on core stability and using the new range of motion.",
+      details: "Recovery from **Lumbar Disc Replacement Surgery** is often faster than fusion because there is no need to wait for bone to knit together. Patients walk the day of surgery. Hospital stay is 1-3 days. Since the device is stable immediately, patients can return to light activities in 2-4 weeks and sports in 3 months. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on core stability and using the new range of motion.",
     },
     benefits: [
       "Preserves natural motion in the lower back",
-      "Reduces the risk of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">**Adjacent Segment Disease**</a> compared to fusion",
+      "Reduces the risk of <a href=\"https://mountainspineorthopedics.com/conditions/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">**Adjacent Segment Disease**</a> compared to fusion",
       "Faster return to sports and physical activities",
       "Eliminates the source of discogenic back pain",
       "No bone graft harvesting required"
@@ -1637,7 +1637,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Artificial disc replacement replaces damaged cervical or lumbar discs with mobile prosthetic implants to preserve spinal motion and treat degenerative disc disease.",
     overview: {
       heading: "The Modern Alternative to Spinal Fusion",
-      body: "**Artificial Disc Replacement Surgery** (ADR) represents the forefront of <a href=\"https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery\" class=\"text-blue-600 hover:underline\">**Motion Preservation Spine Surgery**</a>. Whether in the neck (cervical) or lower back (lumbar), the goal is the same: remove the source of pain—the damaged disc—without sacrificing the spine's ability to move. By implanting a device that slides and rotates, we can treat conditions like <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> and <a href=\"https://mountainspineorthopedics.com/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Discs**</a> while maintaining near-normal biomechanics, which may prevent future surgeries.",
+      body: "**Artificial Disc Replacement Surgery** (ADR) represents the forefront of <a href=\"https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery\" class=\"text-blue-600 hover:underline\">**Motion Preservation Spine Surgery**</a>. Whether in the neck (cervical) or lower back (lumbar), the goal is the same: remove the source of pain—the damaged disc—without sacrificing the spine's ability to move. By implanting a device that slides and rotates, we can treat conditions like <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> and <a href=\"https://mountainspineorthopedics.com/conditions/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Discs**</a> while maintaining near-normal biomechanics, which may prevent future surgeries.",
     },
     candidates: {
       heading: "Who Qualifies for ADR?",
@@ -1662,12 +1662,12 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Life After ADR",
       timeline: "4-12 Weeks",
-      details: "Patients typically experience less post-operative stiffness than fusion patients. Cervical ADR patients often go home same-day; lumbar ADR requires a short hospital stay. Because there is no bone fusion to wait for, return to activity is often quicker. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is started early to encourage mobility. Most patients return to full unrestricted activity within 3 months.",
+      details: "Patients typically experience less post-operative stiffness than fusion patients. Cervical ADR patients often go home same-day; lumbar ADR requires a short hospital stay. Because there is no bone fusion to wait for, return to activity is often quicker. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is started early to encourage mobility. Most patients return to full unrestricted activity within 3 months.",
     },
     benefits: [
       "Maintains spinal flexibility and range of motion",
       "Lowers stress on discs above and below the surgery site",
-      "Reduces the chance of needing future surgeries (<a href=\"https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">Adjacent Segment Disease</a>)",
+      "Reduces the chance of needing future surgeries (<a href=\"https://mountainspineorthopedics.com/conditions/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">Adjacent Segment Disease</a>)",
       "Quicker return to work and athletics",
       "Restores proper disc height and spinal alignment"
     ],
@@ -1698,7 +1698,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Cervical disc arthroplasty replaces damaged cervical discs with mobile prosthetic implants to preserve neck motion and treat radiculopathy.",
     overview: {
       heading: "Preserving Neck Motion",
-      body: "**Cervical Disc Arthroplasty** is a motion-sparing surgery used to treat a <a href=\"https://mountainspineorthopedics.com/area-of-specialty/cervical-herniated-disc\" class=\"text-blue-600 hover:underline\">**Cervical Herniated Disc**</a> or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> in the neck. Unlike traditional <a href=\"https://mountainspineorthopedics.com/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">**ACDF Surgery**</a> which fuses the bones, arthroplasty implants a prosthetic disc that mimics the natural gliding motion of the neck. This procedure is excellent for patients with arm pain (**Radiculopathy**) caused by a pinched nerve who wish to avoid the stiffness associated with fusion.",
+      body: "**Cervical Disc Arthroplasty** is a motion-sparing surgery used to treat a <a href=\"https://mountainspineorthopedics.com/conditions/cervical-herniated-disc\" class=\"text-blue-600 hover:underline\">**Cervical Herniated Disc**</a> or <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> in the neck. Unlike traditional <a href=\"https://mountainspineorthopedics.com/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">**ACDF Surgery**</a> which fuses the bones, arthroplasty implants a prosthetic disc that mimics the natural gliding motion of the neck. This procedure is excellent for patients with arm pain (**Radiculopathy**) caused by a pinched nerve who wish to avoid the stiffness associated with fusion.",
     },
     candidates: {
       heading: "Candidates for Cervical Arthroplasty",
@@ -1783,7 +1783,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Benefits for Recovery",
       timeline: "Varies by Procedure",
-      details: "Because these procedures do not rely on bone fusion (which takes months to heal), recovery is often faster. Patients avoid the stiffness associated with fusion and often require less time in a brace. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is crucial to retrain the muscles to control the preserved range of motion. Return to activity is often determined by wound healing rather than bone healing.",
+      details: "Because these procedures do not rely on bone fusion (which takes months to heal), recovery is often faster. Patients avoid the stiffness associated with fusion and often require less time in a brace. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is crucial to retrain the muscles to control the preserved range of motion. Return to activity is often determined by wound healing rather than bone healing.",
     },
     benefits: [
       "Maintains natural spinal mechanics and flexibility",
@@ -1819,7 +1819,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Total hip replacement replaces damaged hip joint surfaces with artificial implants to treat severe arthritis and restore mobility.",
     overview: {
       heading: "Restoring Mobility with Total Hip Arthroplasty",
-      body: "**Total Hip Replacement** (THA) is one of the most successful surgeries in modern medicine. It is designed to relieve the debilitating pain of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">**Rheumatoid Arthritis**</a>, or avascular necrosis. During the procedure, the damaged ball (femoral head) and socket (acetabulum) are removed and replaced with durable artificial components (metal, ceramic, or high-grade plastic). This new joint glides smoothly, eliminating the bone-on-bone friction that causes chronic <a href=\"https://mountainspineorthopedics.com/area-of-specialty/hip-impingement\" class=\"text-blue-600 hover:underline\">**Hip Impingement**</a> and pain.",
+      body: "**Total Hip Replacement** (THA) is one of the most successful surgeries in modern medicine. It is designed to relieve the debilitating pain of <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>, <a href=\"https://mountainspineorthopedics.com/conditions/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">**Rheumatoid Arthritis**</a>, or avascular necrosis. During the procedure, the damaged ball (femoral head) and socket (acetabulum) are removed and replaced with durable artificial components (metal, ceramic, or high-grade plastic). This new joint glides smoothly, eliminating the bone-on-bone friction that causes chronic <a href=\"https://mountainspineorthopedics.com/conditions/hip-impingement\" class=\"text-blue-600 hover:underline\">**Hip Impingement**</a> and pain.",
     },
     candidates: {
       heading: "Who Should Consider Hip Replacement?",
@@ -1845,7 +1845,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Life After THA",
       timeline: "3-6 Months for Full Activity",
-      details: "Most patients walk with assistance on the day of surgery or the next day. Hospital stays are short (1-2 days). <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is vital for strengthening the muscles around the new hip. Most patients return to driving in 3-6 weeks. Long-term, patients can enjoy low-impact activities like swimming, biking, and golf pain-free.",
+      details: "Most patients walk with assistance on the day of surgery or the next day. Hospital stays are short (1-2 days). <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is vital for strengthening the muscles around the new hip. Most patients return to driving in 3-6 weeks. Long-term, patients can enjoy low-impact activities like swimming, biking, and golf pain-free.",
     },
     benefits: [
       "Significant reduction or total elimination of hip pain",
@@ -1881,7 +1881,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Total knee replacement resurfaces damaged knee joint surfaces with metal and plastic components to treat severe arthritis and restore function.",
     overview: {
       heading: "A Long-Term Solution for Knee Arthritis",
-      body: "**Total Knee Replacement** (TKA) is a resurfacing procedure for knees severely damaged by <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a> or trauma. It involves removing the damaged cartilage and bone from the surface of the knee joint and replacing them with metal and high-grade plastic components. This creates a smooth new hinge for the knee, eliminating the painful friction of bone rubbing against bone. Our surgeons often utilize minimally invasive techniques or robotic assistance to ensure precise alignment and longevity of the implant.",
+      body: "**Total Knee Replacement** (TKA) is a resurfacing procedure for knees severely damaged by <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a> or trauma. It involves removing the damaged cartilage and bone from the surface of the knee joint and replacing them with metal and high-grade plastic components. This creates a smooth new hinge for the knee, eliminating the painful friction of bone rubbing against bone. Our surgeons often utilize minimally invasive techniques or robotic assistance to ensure precise alignment and longevity of the implant.",
     },
     candidates: {
       heading: "Is Knee Replacement Right for You?",
@@ -1907,7 +1907,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Rehabilitation and Outcomes",
       timeline: "3-6 Months",
-      details: "Movement begins immediately. You will likely walk with a walker the day of surgery. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">Physical therapy</a> is crucial and begins right away to restore range of motion. Most patients resume normal daily activities within 6 weeks. While complete healing takes time, the relief from the deep, aching pain of arthritis is often felt very quickly.",
+      details: "Movement begins immediately. You will likely walk with a walker the day of surgery. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">Physical therapy</a> is crucial and begins right away to restore range of motion. Most patients resume normal daily activities within 6 weeks. While complete healing takes time, the relief from the deep, aching pain of arthritis is often felt very quickly.",
     },
     benefits: [
       "Dramatic relief from chronic knee pain",
@@ -1943,7 +1943,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Posterior cervical laminoplasty expands the spinal canal by hinging open the lamina to decompress the spinal cord without fusion.",
     overview: {
       heading: "Spinal Cord Decompression Without Fusion",
-      body: "**Posterior Cervical Laminoplasty** is a specialized surgical technique designed to treat <a href=\"https://mountainspineorthopedics.com/area-of-specialty/cervical-spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Cervical Spinal Stenosis**</a> and myelopathy (spinal cord compression) involving multiple levels of the neck. Unlike a laminectomy alone or a fusion, laminoplasty reconstructs the spinal canal to make it larger. The surgeon creates a hinge on the lamina (the roof of the spine) and opens it like a door, securing it in an open position with small plates. This gives the spinal cord immediate room to float freely while preserving the natural motion of the neck.",
+      body: "**Posterior Cervical Laminoplasty** is a specialized surgical technique designed to treat <a href=\"https://mountainspineorthopedics.com/conditions/cervical-spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Cervical Spinal Stenosis**</a> and myelopathy (spinal cord compression) involving multiple levels of the neck. Unlike a laminectomy alone or a fusion, laminoplasty reconstructs the spinal canal to make it larger. The surgeon creates a hinge on the lamina (the roof of the spine) and opens it like a door, securing it in an open position with small plates. This gives the spinal cord immediate room to float freely while preserving the natural motion of the neck.",
     },
     candidates: {
       heading: "Ideal Candidates for Laminoplasty",
@@ -1969,13 +1969,13 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Advantages",
       timeline: "6-12 Weeks",
-      details: "Because there is no bone fusion, recovery is often faster than fusion surgery. Patients usually stay in the hospital for 1-2 days. A soft collar may be worn for comfort for a few weeks. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on neck strengthening and range of motion. Since the spine is not fused, patients typically retain much of their pre-op neck flexibility.",
+      details: "Because there is no bone fusion, recovery is often faster than fusion surgery. Patients usually stay in the hospital for 1-2 days. A soft collar may be worn for comfort for a few weeks. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on neck strengthening and range of motion. Since the spine is not fused, patients typically retain much of their pre-op neck flexibility.",
     },
     benefits: [
       "Preserves neck motion (rotation and extension)",
       "Avoids the complications associated with bone fusion",
       "Effectively decompresses the spinal cord over multiple levels",
-      "Reduces the risk of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">**Adjacent Segment Disease**</a>",
+      "Reduces the risk of <a href=\"https://mountainspineorthopedics.com/conditions/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">**Adjacent Segment Disease**</a>",
       "Stops the progression of myelopathy symptoms (hand clumsiness, balance issues)"
     ],
     insurance: {
@@ -2005,7 +2005,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Posterior cervical foraminotomy enlarges the neural foramen to decompress cervical nerve roots, relieving arm pain without fusion.",
     overview: {
       heading: "Targeted Relief for Pinched Nerves",
-      body: "**Posterior Cervical Foraminotomy** is a minimally invasive spine surgery used to treat **Cervical Radiculopathy** (nerve pain radiating into the arm). It addresses <a href=\"https://mountainspineorthopedics.com/area-of-specialty/foraminal-stenosis\" class=\"text-blue-600 hover:underline\">**Foraminal Stenosis**</a>, which is the narrowing of the tunnel (foramen) where the nerve root exits the spinal cord. By accessing the spine from the back, the surgeon can shave away the bone spurs or herniated disc material compressing the nerve, creating more space. This procedure is unique because it relieves nerve pressure without requiring a spinal fusion.",
+      body: "**Posterior Cervical Foraminotomy** is a minimally invasive spine surgery used to treat **Cervical Radiculopathy** (nerve pain radiating into the arm). It addresses <a href=\"https://mountainspineorthopedics.com/conditions/foraminal-stenosis\" class=\"text-blue-600 hover:underline\">**Foraminal Stenosis**</a>, which is the narrowing of the tunnel (foramen) where the nerve root exits the spinal cord. By accessing the spine from the back, the surgeon can shave away the bone spurs or herniated disc material compressing the nerve, creating more space. This procedure is unique because it relieves nerve pressure without requiring a spinal fusion.",
     },
     candidates: {
       heading: "Who Benefits from Foraminotomy?",
@@ -2031,14 +2031,14 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Quick Recovery",
       timeline: "2-4 Weeks",
-      details: "This is often an outpatient procedure, meaning you go home the same day. Because the spine is not fused, recovery is rapid. Most patients experience immediate relief from arm pain. Soreness at the incision site resolves quickly. Return to desk work is often possible within 1-2 weeks. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> may be prescribed to strengthen the neck muscles.",
+      details: "This is often an outpatient procedure, meaning you go home the same day. Because the spine is not fused, recovery is rapid. Most patients experience immediate relief from arm pain. Soreness at the incision site resolves quickly. Return to desk work is often possible within 1-2 weeks. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> may be prescribed to strengthen the neck muscles.",
     },
     benefits: [
       "Preserves full neck range of motion",
       "Minimally invasive with a small incision and less scarring",
       "Avoids the need for bone grafts or metal implants",
       "Faster recovery time compared to fusion surgeries",
-      "Highly effective for relieving <a href=\"https://mountainspineorthopedics.com/area-of-specialty/pinched-nerve\" class=\"text-blue-600 hover:underline\">**Pinched Nerve**</a> symptoms"
+      "Highly effective for relieving <a href=\"https://mountainspineorthopedics.com/conditions/pinched-nerve\" class=\"text-blue-600 hover:underline\">**Pinched Nerve**</a> symptoms"
     ],
     insurance: {
       heading: "Insurance Coverage",
@@ -2067,7 +2067,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Lumbar laminectomy removes the lamina and thickened ligaments to decompress spinal nerves, relieving leg pain and improving walking.",
     overview: {
       heading: "Decompression for Spinal Stenosis",
-      body: "**Lumbar Laminectomy Surgery** is an effective procedure primarily used to treat <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Lumbar Spinal Stenosis**</a>, a condition where the spinal canal narrows and pinches the nerves, causing leg pain and weakness when walking. Often called a 'decompression,' this surgery involves removing the lamina—the bony arch on the back of the vertebra—along with thickened ligaments and bone spurs. This creates immediate space for the nerves to drift back and relax, alleviating the pressure that causes neurogenic claudication.",
+      body: "**Lumbar Laminectomy Surgery** is an effective procedure primarily used to treat <a href=\"https://mountainspineorthopedics.com/conditions/spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Lumbar Spinal Stenosis**</a>, a condition where the spinal canal narrows and pinches the nerves, causing leg pain and weakness when walking. Often called a 'decompression,' this surgery involves removing the lamina—the bony arch on the back of the vertebra—along with thickened ligaments and bone spurs. This creates immediate space for the nerves to drift back and relax, alleviating the pressure that causes neurogenic claudication.",
     },
     candidates: {
       heading: "Is Laminectomy Right for You?",
@@ -2093,7 +2093,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Results",
       timeline: "4-12 Weeks",
-      details: "Patients often feel immediate relief from leg pain upon waking. Hospital stay is usually 1-2 days. Walking is encouraged immediately. You will be advised to avoid heavy lifting and bending for several weeks to allow the muscles to heal. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> helps rebuild core strength. Most patients regain the ability to walk for exercise and daily tasks without the pre-op limitations.",
+      details: "Patients often feel immediate relief from leg pain upon waking. Hospital stay is usually 1-2 days. Walking is encouraged immediately. You will be advised to avoid heavy lifting and bending for several weeks to allow the muscles to heal. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> helps rebuild core strength. Most patients regain the ability to walk for exercise and daily tasks without the pre-op limitations.",
     },
     benefits: [
       "Significant improvement in walking distance and standing tolerance",
@@ -2129,7 +2129,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Lumbar decompression surgery relieves pressure on spinal nerves through laminectomy, foraminotomy, or microdiscectomy techniques.",
     overview: {
       heading: "Relieving Pressure on Spinal Nerves",
-      body: "**Lumbar Decompression Surgery** is a general term referring to various procedures performed to relieve pressure on the spinal nerve roots. Compressed nerves in the lower back are often the cause of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> (shooting leg pain), numbness, and weakness. Decompression can be achieved through several techniques, including <a href=\"https://mountainspineorthopedics.com/treatments/lumbar-laminectomy-surgery\" class=\"text-blue-600 hover:underline\">**Laminectomy**</a> (removing bone), **Discectomy** (removing disc material), or **Foraminotomy** (widening the nerve tunnel). The goal is always the same: create space for the nerves to function properly.",
+      body: "**Lumbar Decompression Surgery** is a general term referring to various procedures performed to relieve pressure on the spinal nerve roots. Compressed nerves in the lower back are often the cause of <a href=\"https://mountainspineorthopedics.com/conditions/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> (shooting leg pain), numbness, and weakness. Decompression can be achieved through several techniques, including <a href=\"https://mountainspineorthopedics.com/treatments/lumbar-laminectomy-surgery\" class=\"text-blue-600 hover:underline\">**Laminectomy**</a> (removing bone), **Discectomy** (removing disc material), or **Foraminotomy** (widening the nerve tunnel). The goal is always the same: create space for the nerves to function properly.",
     },
     candidates: {
       heading: "Who Needs Decompression?",
@@ -2154,7 +2154,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Expectations",
       timeline: "3-6 Weeks",
-      details: "Recovery depends on the extent of the decompression. Simple discectomies often allow return to work in 1-2 weeks. More extensive laminectomies may require 4-6 weeks. Patients typically experience significant leg pain relief immediately. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is prescribed to strengthen the back and prevent future issues. Walking is the best initial exercise during recovery.",
+      details: "Recovery depends on the extent of the decompression. Simple discectomies often allow return to work in 1-2 weeks. More extensive laminectomies may require 4-6 weeks. Patients typically experience significant leg pain relief immediately. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is prescribed to strengthen the back and prevent future issues. Walking is the best initial exercise during recovery.",
     },
     benefits: [
       "Directly addresses the mechanical cause of nerve pain",
@@ -2190,7 +2190,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Lumbar microendoscopic discectomy uses a tubular retractor and endoscope to remove herniated disc fragments with minimal tissue disruption.",
     overview: {
       heading: "Ultra-Minimally Invasive Disc Removal",
-      body: "**Lumbar Microendoscopic Discectomy Surgery** (MED) is an advanced, minimally invasive evolution of the traditional microdiscectomy. It is used to treat a <a href=\"https://mountainspineorthopedics.com/area-of-specialty/lumbar-herniated-disc\" class=\"text-blue-600 hover:underline\">**Lumbar Herniated Disc**</a> that is compressing a nerve and causing <a href=\"https://mountainspineorthopedics.com/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a>. The procedure is performed through a tiny incision using a tubular retractor and a small camera (endoscope). This allows the surgeon to see the nerve and disc on a video screen without cutting or detaching the back muscles, leading to significantly less postoperative pain and scarring.",
+      body: "**Lumbar Microendoscopic Discectomy Surgery** (MED) is an advanced, minimally invasive evolution of the traditional microdiscectomy. It is used to treat a <a href=\"https://mountainspineorthopedics.com/conditions/lumbar-herniated-disc\" class=\"text-blue-600 hover:underline\">**Lumbar Herniated Disc**</a> that is compressing a nerve and causing <a href=\"https://mountainspineorthopedics.com/conditions/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a>. The procedure is performed through a tiny incision using a tubular retractor and a small camera (endoscope). This allows the surgeon to see the nerve and disc on a video screen without cutting or detaching the back muscles, leading to significantly less postoperative pain and scarring.",
     },
     candidates: {
       heading: "Candidates for MED",
@@ -2216,7 +2216,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Fast Track Recovery",
       timeline: "1-3 Weeks",
-      details: "MED is almost always an outpatient procedure. Patients walk out the same day. Because muscles are dilated rather than cut, back pain is minimal. Many patients return to sedentary work within a week. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> may be shorter or less intensive than with open surgery. Relief from leg pain is typically immediate.",
+      details: "MED is almost always an outpatient procedure. Patients walk out the same day. Because muscles are dilated rather than cut, back pain is minimal. Many patients return to sedentary work within a week. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> may be shorter or less intensive than with open surgery. Relief from leg pain is typically immediate.",
     },
     benefits: [
       "Minimal muscle damage and scarring",
@@ -2252,7 +2252,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Lumbar microdiscectomy removes herniated disc fragments compressing nerve roots using a surgical microscope for precise visualization.",
     overview: {
       heading: "Precision Relief for Sciatica",
-      body: "**Lumbar Microdiscectomy Surgery** is the gold standard surgical treatment for a symptomatic <a href=\"https://mountainspineorthopedics.com/area-of-specialty/lumbar-herniated-disc\" class=\"text-blue-600 hover:underline\">**Lumbar Herniated Disc**</a>. When the inner gel of a disc leaks out and presses on a spinal nerve, it causes severe leg pain known as <a href=\"https://mountainspineorthopedics.com/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a>. In this procedure, the surgeon uses a high-powered surgical microscope to view the spine through a small incision. This magnification allows for the precise removal of the herniated disc fragment while protecting the delicate nerve root, preserving spinal stability.",
+      body: "**Lumbar Microdiscectomy Surgery** is the gold standard surgical treatment for a symptomatic <a href=\"https://mountainspineorthopedics.com/conditions/lumbar-herniated-disc\" class=\"text-blue-600 hover:underline\">**Lumbar Herniated Disc**</a>. When the inner gel of a disc leaks out and presses on a spinal nerve, it causes severe leg pain known as <a href=\"https://mountainspineorthopedics.com/conditions/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a>. In this procedure, the surgeon uses a high-powered surgical microscope to view the spine through a small incision. This magnification allows for the precise removal of the herniated disc fragment while protecting the delicate nerve root, preserving spinal stability.",
     },
     candidates: {
       heading: "Who Needs a Microdiscectomy?",
@@ -2278,7 +2278,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Timeline",
       timeline: "2-6 Weeks",
-      details: "This is typically an outpatient surgery. Patients are encouraged to walk immediately to prevent scar tissue. Avoid bending, lifting, or twisting (BLT) for about 4-6 weeks to prevent re-herniation. Most patients experience dramatic pain relief immediately. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> usually starts at week 4-6 to strengthen the core and stabilize the back.",
+      details: "This is typically an outpatient surgery. Patients are encouraged to walk immediately to prevent scar tissue. Avoid bending, lifting, or twisting (BLT) for about 4-6 weeks to prevent re-herniation. Most patients experience dramatic pain relief immediately. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> usually starts at week 4-6 to strengthen the core and stabilize the back.",
     },
     benefits: [
       "Immediate relief of leg pain in over 90% of patients",
@@ -2338,7 +2338,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Expectations",
       timeline: "3-6 Months",
-      details: "Recovery depends on the specific procedure. Disc replacement patients often recover motion faster (6-12 weeks). Fusion patients require time for bone healing (3-6 months) before returning to heavy activities. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is essential for both, focusing on core strengthening and posture to protect the spine. Most patients report a significant reduction in their pre-operative pain.",
+      details: "Recovery depends on the specific procedure. Disc replacement patients often recover motion faster (6-12 weeks). Fusion patients require time for bone healing (3-6 months) before returning to heavy activities. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is essential for both, focusing on core strengthening and posture to protect the spine. Most patients report a significant reduction in their pre-operative pain.",
     },
     benefits: [
       "Eliminates the source of discogenic pain",
@@ -2349,7 +2349,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     ],
     insurance: {
       heading: "Insurance for DDD Surgery",
-      body: "**We accept most major insurance plans. PPO preferred.** Surgical treatment for proven <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a> is a standard covered benefit. We handle all pre-authorization requirements.",
+      body: "**We accept most major insurance plans. PPO preferred.** Surgical treatment for proven <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">degenerative disc disease</a> is a standard covered benefit. We handle all pre-authorization requirements.",
     },
     schedule: "Back pain, neck pain, or disc-related symptoms affecting daily life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   },
@@ -2374,7 +2374,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Percutaneous discectomy removes or shrinks herniated disc material through a needle-based approach, treating contained disc herniations.",
     overview: {
       heading: "Needle-Based Relief for Herniated Discs",
-      body: "**Percutaneous Discectomy** is an ultra-minimally invasive procedure designed to treat small, contained <a href=\"https://mountainspineorthopedics.com/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Discs**</a> that cause <a href=\"https://mountainspineorthopedics.com/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> or radiculopathy. Unlike open surgery, this technique does not require cutting bone or muscle. Instead, a specialized needle or probe is inserted into the disc under X-ray guidance to remove or shrink the nucleus pulposus (the jelly-like center). This reduces pressure inside the disc, relieving the compression on the spinal nerve.",
+      body: "**Percutaneous Discectomy** is an ultra-minimally invasive procedure designed to treat small, contained <a href=\"https://mountainspineorthopedics.com/conditions/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Discs**</a> that cause <a href=\"https://mountainspineorthopedics.com/conditions/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> or radiculopathy. Unlike open surgery, this technique does not require cutting bone or muscle. Instead, a specialized needle or probe is inserted into the disc under X-ray guidance to remove or shrink the nucleus pulposus (the jelly-like center). This reduces pressure inside the disc, relieving the compression on the spinal nerve.",
     },
     candidates: {
       heading: "Ideal Candidates",
@@ -2399,7 +2399,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Fast Recovery",
       timeline: "1-2 Weeks",
-      details: "Because there is no incision or muscle cutting, recovery is very fast. Patients walk out the same day. Most can return to sedentary work within a few days. Soreness at the needle site is minimal. Relief from nerve pain is often felt immediately or within a few days as the nerve inflammation subsides. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is usually not required but may be suggested for core strengthening.",
+      details: "Because there is no incision or muscle cutting, recovery is very fast. Patients walk out the same day. Most can return to sedentary work within a few days. Soreness at the needle site is minimal. Relief from nerve pain is often felt immediately or within a few days as the nerve inflammation subsides. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is usually not required but may be suggested for core strengthening.",
     },
     benefits: [
       "No large incision, no stitches, and minimal scarring",
@@ -2435,7 +2435,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Resurfacing shoulder replacement caps the humeral head with a metal prosthesis, preserving bone stock while treating arthritis.",
     overview: {
       heading: "Bone-Preserving Arthritis Treatment",
-      body: "**Resurfacing Shoulder Replacement** is a conservative surgical alternative to standard total shoulder replacement. Instead of cutting off the entire humeral head (ball of the shoulder), the surgeon simply smoothes the damaged surface and caps it with a metal prosthesis, similar to capping a tooth. This preserves the patient's natural bone stock, making it an excellent option for younger, active patients with <a href=\"https://mountainspineorthopedics.com/area-of-specialty/shoulder-arthritis\" class=\"text-blue-600 hover:underline\">**Shoulder Arthritis**</a> or avascular necrosis who wish to maintain high activity levels.",
+      body: "**Resurfacing Shoulder Replacement** is a conservative surgical alternative to standard total shoulder replacement. Instead of cutting off the entire humeral head (ball of the shoulder), the surgeon simply smoothes the damaged surface and caps it with a metal prosthesis, similar to capping a tooth. This preserves the patient's natural bone stock, making it an excellent option for younger, active patients with <a href=\"https://mountainspineorthopedics.com/conditions/shoulder-arthritis\" class=\"text-blue-600 hover:underline\">**Shoulder Arthritis**</a> or avascular necrosis who wish to maintain high activity levels.",
     },
     candidates: {
       heading: "Who Is a Candidate?",
@@ -2461,7 +2461,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Rehab",
       timeline: "3-6 Months",
-      details: "A sling is worn for 2-4 weeks to protect the soft tissues. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins gently to prevent stiffness and progressively increases to strengthening exercises. Because the natural anatomy is preserved, patients often report a very natural feeling shoulder after recovery. Return to sports like golf or swimming is typically possible after 4-6 months.",
+      details: "A sling is worn for 2-4 weeks to protect the soft tissues. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins gently to prevent stiffness and progressively increases to strengthening exercises. Because the natural anatomy is preserved, patients often report a very natural feeling shoulder after recovery. Return to sports like golf or swimming is typically possible after 4-6 months.",
     },
     benefits: [
       "Preserves natural bone stock (easier revision in the future if needed)",
@@ -2497,7 +2497,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Hip arthroscopy uses small incisions and an arthroscope to diagnose and treat hip pathology, including labral tears and impingement.",
     overview: {
       heading: "Minimally Invasive Hip Preservation",
-      body: "**Hip Arthroscopy Treatment** is a specialized, minimally invasive procedure used to diagnose and treat problems inside the hip joint. Unlike traditional open surgery, it uses small incisions and a camera (arthroscope). It is highly effective for treating <a href=\"https://mountainspineorthopedics.com/area-of-specialty/hip-impingement\" class=\"text-blue-600 hover:underline\">**Femoroacetabular Impingement (FAI)**</a> and <a href=\"https://mountainspineorthopedics.com/area-of-specialty/labral-tears\" class=\"text-blue-600 hover:underline\">**Labral Tears**</a>, conditions that cause groin pain and mechanical catching. By reshaping the bone and repairing the cartilage, we aim to preserve the natural hip joint and delay or prevent the onset of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>.",
+      body: "**Hip Arthroscopy Treatment** is a specialized, minimally invasive procedure used to diagnose and treat problems inside the hip joint. Unlike traditional open surgery, it uses small incisions and a camera (arthroscope). It is highly effective for treating <a href=\"https://mountainspineorthopedics.com/conditions/hip-impingement\" class=\"text-blue-600 hover:underline\">**Femoroacetabular Impingement (FAI)**</a> and <a href=\"https://mountainspineorthopedics.com/conditions/labral-tears\" class=\"text-blue-600 hover:underline\">**Labral Tears**</a>, conditions that cause groin pain and mechanical catching. By reshaping the bone and repairing the cartilage, we aim to preserve the natural hip joint and delay or prevent the onset of <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>.",
     },
     candidates: {
       heading: "Candidates for Hip Arthroscopy",
@@ -2523,7 +2523,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Timeline",
       timeline: "3-6 Months for Full Sports",
-      details: "Patients use crutches for 2-4 weeks to protect the repair. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is crucial and starts almost immediately to maintain motion. Stationary biking is often encouraged early. Return to running usually occurs at 3 months, with full return to cutting sports by 4-6 months. The success of the surgery relies heavily on adherence to the rehab protocol.",
+      details: "Patients use crutches for 2-4 weeks to protect the repair. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is crucial and starts almost immediately to maintain motion. Stationary biking is often encouraged early. Return to running usually occurs at 3 months, with full return to cutting sports by 4-6 months. The success of the surgery relies heavily on adherence to the rehab protocol.",
     },
     benefits: [
       "Preserves the natural hip joint",
@@ -2559,7 +2559,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Arthroscopic knee surgery uses a small camera and specialized instruments through tiny incisions to diagnose and treat knee problems.",
     overview: {
       heading: "Minimally Invasive Knee Repair",
-      body: "**Arthroscopic Knee Surgery** is one of the most common orthopedic procedures performed today. It uses a small camera (arthroscope) to see inside the knee joint, diagnose problems, and treat them simultaneously. This technique allows us to address <a href=\"https://mountainspineorthopedics.com/area-of-specialty/torn-meniscus\" class=\"text-blue-600 hover:underline\">**Meniscus Tears**</a>, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/acl-injury\" class=\"text-blue-600 hover:underline\">**ACL Injuries**</a>, and cartilage damage without large incisions. Because it is less invasive, patients experience less pain, less stiffness, and a faster return to their favorite activities compared to open surgery.",
+      body: "**Arthroscopic Knee Surgery** is one of the most common orthopedic procedures performed today. It uses a small camera (arthroscope) to see inside the knee joint, diagnose problems, and treat them simultaneously. This technique allows us to address <a href=\"https://mountainspineorthopedics.com/conditions/torn-meniscus\" class=\"text-blue-600 hover:underline\">**Meniscus Tears**</a>, <a href=\"https://mountainspineorthopedics.com/conditions/acl-injury\" class=\"text-blue-600 hover:underline\">**ACL Injuries**</a>, and cartilage damage without large incisions. Because it is less invasive, patients experience less pain, less stiffness, and a faster return to their favorite activities compared to open surgery.",
     },
     candidates: {
       heading: "Conditions Treated",
@@ -2586,7 +2586,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Rapid Recovery",
       timeline: "4-8 Weeks",
-      details: "This is an outpatient surgery. Patients often walk out (sometimes with crutches). For simple clean-ups (meniscectomy), recovery is fast—return to normal walking in days and sports in 4-6 weeks. For repairs (meniscus repair or ACL), recovery is longer to allow biological healing. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is key to restoring quadriceps strength and range of motion.",
+      details: "This is an outpatient surgery. Patients often walk out (sometimes with crutches). For simple clean-ups (meniscectomy), recovery is fast—return to normal walking in days and sports in 4-6 weeks. For repairs (meniscus repair or ACL), recovery is longer to allow biological healing. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is key to restoring quadriceps strength and range of motion.",
     },
     benefits: [
       "Diagnostic accuracy combined with immediate treatment",
@@ -2622,7 +2622,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Rotator cuff repair reattaches torn shoulder tendons to the humerus using suture anchors inserted arthroscopically.",
     overview: {
       heading: "Restoring Shoulder Function",
-      body: "**Rotator Cuff Repair Surgery** is performed to reattach torn tendons in the shoulder to the humerus bone. A torn rotator cuff can cause severe <a href=\"https://mountainspineorthopedics.com/area-of-specialty/rotator-cuff-tear\" class=\"text-blue-600 hover:underline\">**Shoulder Pain**</a>, weakness, and inability to lift the arm. Most repairs are performed arthroscopically, using small incisions and cameras. This minimally invasive approach re-establishes the connection between the muscle and bone, allowing the shoulder to function correctly again and preventing the progression to **Rotator Cuff Arthropathy**.",
+      body: "**Rotator Cuff Repair Surgery** is performed to reattach torn tendons in the shoulder to the humerus bone. A torn rotator cuff can cause severe <a href=\"https://mountainspineorthopedics.com/conditions/rotator-cuff-tear\" class=\"text-blue-600 hover:underline\">**Shoulder Pain**</a>, weakness, and inability to lift the arm. Most repairs are performed arthroscopically, using small incisions and cameras. This minimally invasive approach re-establishes the connection between the muscle and bone, allowing the shoulder to function correctly again and preventing the progression to **Rotator Cuff Arthropathy**.",
     },
     candidates: {
       heading: "Who Needs Cuff Repair?",
@@ -2647,7 +2647,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Rehabilitation Protocol",
       timeline: "4-6 Months",
-      details: "Repairing a tendon to bone requires biological healing time. A sling is worn for 4-6 weeks to protect the repair. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> starts with passive motion (therapist moves the arm) to prevent stiffness. Active motion starts around 6 weeks. Strengthening begins at 3 months. Full return to overhead sports or heavy lifting typically takes 6 months.",
+      details: "Repairing a tendon to bone requires biological healing time. A sling is worn for 4-6 weeks to protect the repair. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> starts with passive motion (therapist moves the arm) to prevent stiffness. Active motion starts around 6 weeks. Strengthening begins at 3 months. Full return to overhead sports or heavy lifting typically takes 6 months.",
     },
     benefits: [
       "Restores shoulder strength and function",
@@ -2683,7 +2683,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Meniscus repair surgery sutures torn meniscal cartilage back together to preserve the knee's natural shock absorber.",
     overview: {
       heading: "Preserving the Knee's Shock Absorber",
-      body: "**Meniscus Repair Surgery** is an arthroscopic procedure designed to sew a torn meniscus back together rather than removing it. The meniscus is critical for shock absorption and joint stability. Whenever possible, our surgeons opt for repair over removal (meniscectomy) to preserve the natural cushion of the knee and significantly reduce the long-term risk of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>. This is especially important for younger patients and athletes with <a href=\"https://mountainspineorthopedics.com/area-of-specialty/torn-meniscus\" class=\"text-blue-600 hover:underline\">**Meniscus Tears**</a> in the 'vascular zone' where healing is possible.",
+      body: "**Meniscus Repair Surgery** is an arthroscopic procedure designed to sew a torn meniscus back together rather than removing it. The meniscus is critical for shock absorption and joint stability. Whenever possible, our surgeons opt for repair over removal (meniscectomy) to preserve the natural cushion of the knee and significantly reduce the long-term risk of <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>. This is especially important for younger patients and athletes with <a href=\"https://mountainspineorthopedics.com/conditions/torn-meniscus\" class=\"text-blue-600 hover:underline\">**Meniscus Tears**</a> in the 'vascular zone' where healing is possible.",
     },
     candidates: {
       heading: "Candidates for Repair",
@@ -2708,7 +2708,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Healing",
       timeline: "4-6 Months",
-      details: "Recovery from a repair is stricter than removal because the meniscus must heal. Patients may be on crutches with limited weight-bearing or bending for 4-6 weeks. A brace is often used. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> progresses slowly to protect the stitches. While recovery is longer, the long-term benefit of keeping the meniscus is invaluable for knee health.",
+      details: "Recovery from a repair is stricter than removal because the meniscus must heal. Patients may be on crutches with limited weight-bearing or bending for 4-6 weeks. A brace is often used. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> progresses slowly to protect the stitches. While recovery is longer, the long-term benefit of keeping the meniscus is invaluable for knee health.",
     },
     benefits: [
       "Preserves the knee's natural shock absorber",
@@ -2744,7 +2744,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Spinal fusion permanently joins vertebrae to eliminate motion, while artificial disc replacement preserves motion with a mobile prosthetic implant.",
     overview: {
       heading: "Making an Informed Choice",
-      body: "When surgery is required for <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a>, patients often face a choice between <a href=\"https://mountainspineorthopedics.com/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**Spinal Fusion Surgery**</a> and <a href=\"https://mountainspineorthopedics.com/treatments/artificial-disc-replacement-surgery\" class=\"text-blue-600 hover:underline\">**Artificial Disc Replacement**</a>. Both procedures remove the painful disc and relieve nerve compression, but they achieve stability differently. Fusion permanently locks the bones together, stopping motion. Replacement inserts a mobile joint, preserving motion. Understanding the pros and cons of each—based on your anatomy, age, and lifestyle—is critical. At Mountain Spine & Orthopedics, we specialize in both and guide you to the right decision.",
+      body: "When surgery is required for <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a>, patients often face a choice between <a href=\"https://mountainspineorthopedics.com/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**Spinal Fusion Surgery**</a> and <a href=\"https://mountainspineorthopedics.com/treatments/artificial-disc-replacement-surgery\" class=\"text-blue-600 hover:underline\">**Artificial Disc Replacement**</a>. Both procedures remove the painful disc and relieve nerve compression, but they achieve stability differently. Fusion permanently locks the bones together, stopping motion. Replacement inserts a mobile joint, preserving motion. Understanding the pros and cons of each—based on your anatomy, age, and lifestyle—is critical. At Mountain Spine & Orthopedics, we specialize in both and guide you to the right decision.",
     },
     candidates: {
       heading: "Who is Right for Which?",
@@ -2830,13 +2830,13 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Ankle Ligament Reconstruction",
       timeline: "6-12 Months for Full Return to Sports",
-      details: "Recovery from **Ankle Ligament Reconstruction Surgery** involves immobilization in a cast or boot for several weeks to protect the healing ligaments. Weight-bearing is gradually progressed based on healing. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is essential for restoring range of motion, strength, balance, and proprioception. Return to sports typically takes 6-12 months to ensure full ligament healing and restoration of ankle strength. This **ankle repair surgery** requires patience and dedication to rehabilitation for optimal outcomes.",
+      details: "Recovery from **Ankle Ligament Reconstruction Surgery** involves immobilization in a cast or boot for several weeks to protect the healing ligaments. Weight-bearing is gradually progressed based on healing. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> is essential for restoring range of motion, strength, balance, and proprioception. Return to sports typically takes 6-12 months to ensure full ligament healing and restoration of ankle strength. This **ankle repair surgery** requires patience and dedication to rehabilitation for optimal outcomes.",
     },
     benefits: [
       "Provides substantial reduction of chronic ankle instability and the sensation of the ankle 'giving way'",
       "Prevents recurrent ankle sprains, reducing pain and further ligamentous injury",
       "Restores confident participation in sports and recreational activities",
-      "Protects against long-term joint damage, such as cartilage wear and <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>",
+      "Protects against long-term joint damage, such as cartilage wear and <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>",
       "Improves overall ankle function, mobility, and quality of life"
     ],
     insurance: {
@@ -2866,7 +2866,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     heroDescription: "Stabilize your L5-S1 segment with Axial Fusion Surgery, a minimally invasive technique that accesses the spine through a small presacral incision.",
     overview: {
       heading: "Minimally Invasive L5-S1 Stabilization",
-      body: "**Axial Fusion Surgery** (AxiaLIF - Axial Lumbar Interbody Fusion) is a specialized minimally invasive technique for treating <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**painful degenerative disc disease**</a> or instability at the L5-S1 level. Unlike traditional approaches that cut through back muscles, this procedure accesses the spine through a small incision near the tailbone (presacral approach). A specialized instrument removes the damaged disc and inserts a fusion device—a threaded rod with **bone graft**—restoring disc height and promoting L5-S1 vertebral fusion for lasting spinal stability. This targeted **lumbosacral spine surgery** preserves back muscle function while achieving solid fusion.",
+      body: "**Axial Fusion Surgery** (AxiaLIF - Axial Lumbar Interbody Fusion) is a specialized minimally invasive technique for treating <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**painful degenerative disc disease**</a> or instability at the L5-S1 level. Unlike traditional approaches that cut through back muscles, this procedure accesses the spine through a small incision near the tailbone (presacral approach). A specialized instrument removes the damaged disc and inserts a fusion device—a threaded rod with **bone graft**—restoring disc height and promoting L5-S1 vertebral fusion for lasting spinal stability. This targeted **lumbosacral spine surgery** preserves back muscle function while achieving solid fusion.",
     },
     candidates: {
       heading: "Ideal Candidates for Axial Fusion",
@@ -2892,7 +2892,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Timeline",
       timeline: "3-6 Months for Solid Fusion",
-      details: "Recovery from **Axial Fusion Surgery** is generally faster than traditional open lumbar fusion due to minimal muscle disruption. Hospital stay is typically 1-2 nights. A lumbar brace is often worn for support. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on core strengthening to support the healing fusion. Solid bone fusion takes several months, monitored with X-rays. This **minimally invasive spine surgery** allows quicker back muscle function recovery and improved spinal support, promoting faster return to daily activities.",
+      details: "Recovery from **Axial Fusion Surgery** is generally faster than traditional open lumbar fusion due to minimal muscle disruption. Hospital stay is typically 1-2 nights. A lumbar brace is often worn for support. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on core strengthening to support the healing fusion. Solid bone fusion takes several months, monitored with X-rays. This **minimally invasive spine surgery** allows quicker back muscle function recovery and improved spinal support, promoting faster return to daily activities.",
     },
     benefits: [
       "Provides effective relief of chronic low back pain originating from L5-S1 disc pathology and instability",
@@ -2928,7 +2928,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     heroDescription: "Treat multilevel cervical disc disease with Hybrid Cervical Spine Surgery, combining fusion stability with motion preservation.",
     overview: {
       heading: "Combining Stability and Motion Preservation",
-      body: "**Hybrid Cervical Spine Surgery** treats multilevel <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> by strategically combining <a href=\"https://mountainspineorthopedics.com/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">**ACDF Surgery**</a> (Anterior Cervical Discectomy and Fusion) at one or more levels with motion-preserving <a href=\"https://mountainspineorthopedics.com/treatments/cervical-disc-arthroplasty\" class=\"text-blue-600 hover:underline\">**Cervical Disc Arthroplasty**</a> at adjacent levels. This approach addresses varied pathology: fusing unstable segments while preserving neck motion elsewhere. Compared to multilevel cervical fusion alone, this hybrid technique potentially reduces adjacent segment stress and improves overall neck biomechanics. This is an advanced cervical spine solution that customizes treatment for complex multilevel conditions.",
+      body: "**Hybrid Cervical Spine Surgery** treats multilevel <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> by strategically combining <a href=\"https://mountainspineorthopedics.com/treatments/acdf-surgery\" class=\"text-blue-600 hover:underline\">**ACDF Surgery**</a> (Anterior Cervical Discectomy and Fusion) at one or more levels with motion-preserving <a href=\"https://mountainspineorthopedics.com/treatments/cervical-disc-arthroplasty\" class=\"text-blue-600 hover:underline\">**Cervical Disc Arthroplasty**</a> at adjacent levels. This approach addresses varied pathology: fusing unstable segments while preserving neck motion elsewhere. Compared to multilevel cervical fusion alone, this hybrid technique potentially reduces adjacent segment stress and improves overall neck biomechanics. This is an advanced cervical spine solution that customizes treatment for complex multilevel conditions.",
     },
     candidates: {
       heading: "Who Benefits from Hybrid Cervical Surgery?",
@@ -2954,12 +2954,12 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Hybrid Surgery",
       timeline: "3-9 Months for Full Recovery",
-      details: "Recovery from **Hybrid Cervical Spine Surgery** combines elements of fusion and disc replacement. Hospital stay is typically a few days. A soft collar may be used for comfort. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on restoring motion at mobile segments and strengthening neck muscles. Full recovery can take 3-9 months, allowing for bone healing at fused levels and improved neck mobility. This approach promotes a return to normal neck function while maintaining flexibility where preserved.",
+      details: "Recovery from **Hybrid Cervical Spine Surgery** combines elements of fusion and disc replacement. Hospital stay is typically a few days. A soft collar may be used for comfort. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> focuses on restoring motion at mobile segments and strengthening neck muscles. Full recovery can take 3-9 months, allowing for bone healing at fused levels and improved neck mobility. This approach promotes a return to normal neck function while maintaining flexibility where preserved.",
     },
     benefits: [
       "Offers effective relief of nerve compression and neck pain from multilevel disease",
       "Provides stability where fusion is needed, while preserving motion with disc replacement at other levels",
-      "May reduce the risk of <a href=\"https://mountainspineorthopedics.com/area-of-specialty/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">adjacent segment degeneration</a> compared to fusing multiple levels alone",
+      "May reduce the risk of <a href=\"https://mountainspineorthopedics.com/conditions/adjacent-segment-disease\" class=\"text-blue-600 hover:underline\">adjacent segment degeneration</a> compared to fusing multiple levels alone",
       "Improves overall neck function, flexibility, and quality of life",
       "Balances the benefits of both fusion and motion-preserving techniques"
     ],
@@ -2990,7 +2990,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     heroDescription: "Comprehensive back pain treatment addresses various causes with personalized plans, from conservative care to advanced interventions.",
     overview: {
       heading: "Comprehensive Approach to Back Pain",
-      body: "**Back Pain Treatment** encompasses a wide range of strategies to address various spinal conditions. Back pain can stem from muscle strains, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a>, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Discs**</a>, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Spinal Stenosis**</a>, or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/facet-joint-disease\" class=\"text-blue-600 hover:underline\">**Facet Joint Disease**</a>. Effective management requires accurate diagnosis of the underlying spinal condition. Our approach starts with a clinical evaluation and advanced imaging (MRI, X-rays) to visualize spinal structures. Treatment plans are individualized, ranging from conservative care including referrals to <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> specialists to advanced interventions for lasting back pain relief and improved spinal function.",
+      body: "**Back Pain Treatment** encompasses a wide range of strategies to address various spinal conditions. Back pain can stem from muscle strains, <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a>, <a href=\"https://mountainspineorthopedics.com/conditions/herniated-disc\" class=\"text-blue-600 hover:underline\">**Herniated Discs**</a>, <a href=\"https://mountainspineorthopedics.com/conditions/spinal-stenosis\" class=\"text-blue-600 hover:underline\">**Spinal Stenosis**</a>, or <a href=\"https://mountainspineorthopedics.com/conditions/facet-joint-disease\" class=\"text-blue-600 hover:underline\">**Facet Joint Disease**</a>. Effective management requires accurate diagnosis of the underlying spinal condition. Our approach starts with a clinical evaluation and advanced imaging (MRI, X-rays) to visualize spinal structures. Treatment plans are individualized, ranging from conservative care including referrals to <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> specialists to advanced interventions for lasting back pain relief and improved spinal function.",
     },
     candidates: {
       heading: "Who Needs Back Pain Treatment?",
@@ -3016,7 +3016,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery Expectations",
       timeline: "Varies by Treatment Approach",
-      details: "Recovery from **Back Pain Treatment** is variable depending on the approach. Non-surgical treatments involve consistent adherence for gradual pain reduction. Surgical recovery includes post-operative protocols, pain management, and referral to structured <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> programs. The goal is to alleviate pain and restore optimal spinal function and mobility, preventing future episodes of acute or chronic back issues and promoting long-term spinal wellness.",
+      details: "Recovery from **Back Pain Treatment** is variable depending on the approach. Non-surgical treatments involve consistent adherence for gradual pain reduction. Surgical recovery includes post-operative protocols, pain management, and referral to structured <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> programs. The goal is to alleviate pain and restore optimal spinal function and mobility, preventing future episodes of acute or chronic back issues and promoting long-term spinal wellness.",
     },
     benefits: [
       "Provides substantial reduction of chronic or acute back pain",
@@ -3078,7 +3078,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Bunion Surgery",
       timeline: "4-6 Months for Full Recovery",
-      details: "Recovery from **Bunion Correction Surgery** involves pain management, ice, and elevation. Weight-bearing restrictions vary based on the technique used. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> helps restore range of motion and strength. Full recovery and return to strenuous activities can take 4-6 months. Proper foot care is essential for optimal healing after this type of foot deformity surgery and achieving comfortable ambulation.",
+      details: "Recovery from **Bunion Correction Surgery** involves pain management, ice, and elevation. Weight-bearing restrictions vary based on the technique used. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> helps restore range of motion and strength. Full recovery and return to strenuous activities can take 4-6 months. Proper foot care is essential for optimal healing after this type of foot deformity surgery and achieving comfortable ambulation.",
     },
     benefits: [
       "Provides significant reduction or elimination of pain associated with the bunion",
@@ -3114,7 +3114,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     heroDescription: "Relieve numbness, tingling, and hand weakness with Carpal Tunnel Release Surgery, decompressing the median nerve.",
     overview: {
       heading: "Relieving Median Nerve Compression",
-      body: "**Carpal Tunnel Release Surgery** treats <a href=\"https://mountainspineorthopedics.com/area-of-specialty/carpal-tunnel-syndrome\" class=\"text-blue-600 hover:underline\">**Carpal Tunnel Syndrome**</a>, a condition resulting from median nerve compression in the wrist's carpal tunnel. This compression causes numbness, tingling, and pain in the hand and fingers. When non-surgical treatments fail, this procedure cuts the transverse carpal ligament to increase tunnel size, relieving nerve pressure. Options include open or minimally invasive hand surgery for lasting carpal tunnel relief and restoration of hand sensation. This is a common peripheral nerve surgery with high success rates.",
+      body: "**Carpal Tunnel Release Surgery** treats <a href=\"https://mountainspineorthopedics.com/conditions/carpal-tunnel-syndrome\" class=\"text-blue-600 hover:underline\">**Carpal Tunnel Syndrome**</a>, a condition resulting from median nerve compression in the wrist's carpal tunnel. This compression causes numbness, tingling, and pain in the hand and fingers. When non-surgical treatments fail, this procedure cuts the transverse carpal ligament to increase tunnel size, relieving nerve pressure. Options include open or minimally invasive hand surgery for lasting carpal tunnel relief and restoration of hand sensation. This is a common peripheral nerve surgery with high success rates.",
     },
     candidates: {
       heading: "Who Needs Carpal Tunnel Release?",
@@ -3176,7 +3176,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     heroDescription: "Preserve neck motion while treating disc problems with Cervical Disc Replacement, offering an alternative to fusion.",
     overview: {
       heading: "Motion-Preserving Alternative to Fusion",
-      body: "**Cervical Disc Replacement** (arthroplasty) treats chronic neck and arm pain from damaged cervical discs by replacing the disc with a mobile implant, preserving segmental motion unlike fusion. This procedure is for suitable candidates with symptomatic <a href=\"https://mountainspineorthopedics.com/area-of-specialty/cervical-herniated-disc\" class=\"text-blue-600 hover:underline\">**Cervical Herniated Disc**</a> or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> unresponsive to non-surgical care. This advanced neck surgery aims to maintain flexibility and reduce adjacent level stress, offering a modern solution for cervical spine conditions and improving overall neck function. It represents a significant advancement in <a href=\"https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery\" class=\"text-blue-600 hover:underline\">**Motion Preservation Spine Surgery**</a>.",
+      body: "**Cervical Disc Replacement** (arthroplasty) treats chronic neck and arm pain from damaged cervical discs by replacing the disc with a mobile implant, preserving segmental motion unlike fusion. This procedure is for suitable candidates with symptomatic <a href=\"https://mountainspineorthopedics.com/conditions/cervical-herniated-disc\" class=\"text-blue-600 hover:underline\">**Cervical Herniated Disc**</a> or <a href=\"https://mountainspineorthopedics.com/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">**Degenerative Disc Disease**</a> unresponsive to non-surgical care. This advanced neck surgery aims to maintain flexibility and reduce adjacent level stress, offering a modern solution for cervical spine conditions and improving overall neck function. It represents a significant advancement in <a href=\"https://mountainspineorthopedics.com/treatments/motion-preservation-spine-surgery\" class=\"text-blue-600 hover:underline\">**Motion Preservation Spine Surgery**</a>.",
     },
     candidates: {
       heading: "Ideal Candidates for Cervical Disc Replacement",
@@ -3202,7 +3202,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Cervical Disc Replacement",
       timeline: "3-6 Months for Full Recovery",
-      details: "Recovery from **Cervical Disc Replacement** is often faster than fusion because there is no bone fusion to wait for. Hospital stay is typically 1-2 days. A soft collar may be used for comfort. <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> restores motion and strength. Full recovery usually takes 3-6 months. This **motion-sparing neck surgery** facilitates quicker rehabilitation and return to daily neck function, promoting improved range of motion compared to fusion.",
+      details: "Recovery from **Cervical Disc Replacement** is often faster than fusion because there is no bone fusion to wait for. Hospital stay is typically 1-2 days. A soft collar may be used for comfort. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> restores motion and strength. Full recovery usually takes 3-6 months. This **motion-sparing neck surgery** facilitates quicker rehabilitation and return to daily neck function, promoting improved range of motion compared to fusion.",
     },
     benefits: [
       "Preserves motion at the treated cervical level, maintaining natural neck flexibility",
@@ -3264,7 +3264,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Coccygectomy",
       timeline: "3-12 Months for Full Recovery",
-      details: "Recovery from **Coccygectomy** requires careful management. Hospital stay is typically 1-2 days. Avoid direct pressure on the surgical site (no prolonged sitting, use donut cushion). <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins once healed. Full recovery and unrestricted sitting can take 3-12 months. Wound care is critical for this type of lower back surgery to prevent complications and ensure proper healing of the sacrococcygeal area.",
+      details: "Recovery from **Coccygectomy** requires careful management. Hospital stay is typically 1-2 days. Avoid direct pressure on the surgical site (no prolonged sitting, use donut cushion). <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> begins once healed. Full recovery and unrestricted sitting can take 3-12 months. Wound care is critical for this type of lower back surgery to prevent complications and ensure proper healing of the sacrococcygeal area.",
     },
     benefits: [
       "Provides significant reduction or elimination of severe, chronic tailbone pain",
@@ -3304,7 +3304,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     heroDescription: "Reduce pain and inflammation at the source with Anti-Inflammatory Injections, delivering medication directly to inflamed areas.",
     overview: {
       heading: "Targeted Anti-Inflammatory Treatment",
-      body: "**Anti-Inflammatory Injections** deliver potent medication (commonly corticosteroids) directly to the source of pain and inflammation in joints, around tendons, into bursae, or near compressed spinal nerves. Often including a local anesthetic for immediate relief, these image-guided injections are used for conditions like <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a> or <a href=\"https://mountainspineorthopedics.com/area-of-specialty/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> when conservative measures fail, offering targeted pain reduction and improved mobility. This is a common **non-surgical joint pain solution** for acute or chronic inflammation, providing precise medication delivery for optimal therapeutic effect.",
+      body: "**Anti-Inflammatory Injections** deliver potent medication (commonly corticosteroids) directly to the source of pain and inflammation in joints, around tendons, into bursae, or near compressed spinal nerves. Often including a local anesthetic for immediate relief, these image-guided injections are used for conditions like <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a> or <a href=\"https://mountainspineorthopedics.com/conditions/sciatica\" class=\"text-blue-600 hover:underline\">**Sciatica**</a> when conservative measures fail, offering targeted pain reduction and improved mobility. This is a common **non-surgical joint pain solution** for acute or chronic inflammation, providing precise medication delivery for optimal therapeutic effect.",
     },
     candidates: {
       heading: "Who Benefits from Anti-Inflammatory Injections?",
@@ -3330,7 +3330,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     recovery: {
       heading: "Recovery and Results",
       timeline: "24-72 Hours for Initial Relief",
-      details: "Patients can typically resume light activities shortly after **Anti-Inflammatory Injections**. Temporary soreness is common but resolves quickly. The local anesthetic provides immediate, temporary relief. Corticosteroid effects usually begin in 24-72 hours, lasting weeks to months depending on the condition. These injections can facilitate more effective <a href=\"https://mountainspineorthopedics.com/area-of-specialty\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> and functional improvement, aiding in overall pain condition management and reducing the need for oral medications.",
+      details: "Patients can typically resume light activities shortly after **Anti-Inflammatory Injections**. Temporary soreness is common but resolves quickly. The local anesthetic provides immediate, temporary relief. Corticosteroid effects usually begin in 24-72 hours, lasting weeks to months depending on the condition. These injections can facilitate more effective <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Physical Therapy**</a> and functional improvement, aiding in overall pain condition management and reducing the need for oral medications.",
     },
     benefits: [
       "Provide rapid and targeted relief from pain and inflammation at the source",
@@ -3366,7 +3366,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     heroDescription: "Take proactive control of your musculoskeletal health with Aging Management, preserving bone density and joint integrity.",
     overview: {
       heading: "Proactive Orthopedic Wellness",
-      body: "**Aging Management** shifts orthopedic care to preventive maintenance, identifying vulnerabilities early before they become problems. Bone mass declines and cartilage degenerates with age, increasing risks of osteopenia, <a href=\"https://mountainspineorthopedics.com/area-of-specialty/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>, and falls. Our comprehensive evaluation (health profile, physical exam, DEXA scans, MRI/ultrasound) informs a customized plan integrating medical, nutritional, and lifestyle strategies for lifelong musculoskeletal wellness and improved mobility for seniors, focusing on proactive joint care and bone health preservation.",
+      body: "**Aging Management** shifts orthopedic care to preventive maintenance, identifying vulnerabilities early before they become problems. Bone mass declines and cartilage degenerates with age, increasing risks of osteopenia, <a href=\"https://mountainspineorthopedics.com/conditions/osteoarthritis\" class=\"text-blue-600 hover:underline\">**Osteoarthritis**</a>, and falls. Our comprehensive evaluation (health profile, physical exam, DEXA scans, MRI/ultrasound) informs a customized plan integrating medical, nutritional, and lifestyle strategies for lifelong musculoskeletal wellness and improved mobility for seniors, focusing on proactive joint care and bone health preservation.",
     },
     candidates: {
       heading: "Who Benefits from Aging Management?",

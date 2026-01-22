@@ -177,7 +177,7 @@ const faqSections = [
         question: 'What conditions do orthopedic surgeons treat?',
         answer: (
           <p>
-            We treat back pain, <Link href="/area-of-specialty" className="text-blue-600 hover:underline">spine disorders</Link>, arthritis, sports injuries, joint pain, fractures, and more — for both surgical and non-surgical cases across our Florida locations.
+            We treat back pain, <Link href="/conditions" className="text-blue-600 hover:underline">spine disorders</Link>, arthritis, sports injuries, joint pain, fractures, and more — for both surgical and non-surgical cases across our Florida locations.
           </p>
         ),
       },

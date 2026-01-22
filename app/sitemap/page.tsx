@@ -165,8 +165,8 @@ export default async function SitemapPage() {
 
   // Prepare location links
   const locationLinks = clinics.map(clinic => ({
-    url: `/locations/${clinic.slug}`,
-    title: clinic.region.replace(', FL', '') + ' Office',
+    url: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+    title: clinic.region.split(',')[0].trim() + ' Office',
   })).sort((a, b) => a.title.localeCompare(b.title));
 
   // Prepare doctor links
@@ -179,7 +179,7 @@ export default async function SitemapPage() {
   const conditionLinks = conditions
     .filter(c => c.slug && c.slug !== 'undefined')
     .map(condition => ({
-      url: `/area-of-specialty/${condition.slug}`,
+      url: `/conditions/${condition.slug}`,
       title: condition.title || slugToTitle(condition.slug),
     }))
     .sort((a, b) => a.title.localeCompare(b.title));
@@ -268,7 +268,7 @@ export default async function SitemapPage() {
         
         <SitemapSection title="Find Care & Patient Resources" links={findCarePages} columns={2} />
         
-        <SitemapSection title="Our Florida Locations" links={locationLinks} columns={3} />
+        <SitemapSection title="Our Locations" links={locationLinks} columns={3} />
         
         <SitemapSection title="Meet Our Specialists" links={doctorLinks} columns={2} />
         

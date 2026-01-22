@@ -14,14 +14,14 @@ import { getOgImageForPath } from '@/lib/og'
 import PhysicianSchema from '@/components/PhysicianSchema'
 
 export const metadata: Metadata = {
-  title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care in Florida',
-  description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida. Meet our expert team dedicated to your recovery.',
+  title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
+  description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania. Meet our expert team dedicated to your recovery.',
   alternates: {
     canonical: buildCanonical('/about'),
   },
   openGraph: {
-    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care in Florida',
-    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida. Meet our expert team dedicated to your recovery.',
+    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
+    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania. Meet our expert team dedicated to your recovery.',
     url: buildCanonical('/about'),
     type: 'website',
     images: [
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
         url: getOgImageForPath('/about'),
         width: 1200,
         height: 630,
-        alt: 'About Mountain Spine & Orthopedics - Expert Orthopedic Care in Florida',
+        alt: 'About Mountain Spine & Orthopedics - Expert Orthopedic Care',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care in Florida',
-    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida. Meet our expert team dedicated to your recovery.',
+    title: 'About Mountain Spine & Orthopedics | Expert Spine & Joint Care',
+    description: 'Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania. Meet our expert team dedicated to your recovery.',
     images: [getOgImageForPath('/about')],
   },
 };
@@ -46,7 +46,7 @@ const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "About Mountain Spine & Orthopedics | Expert Spine & Joint Care",
-  "description": "Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida.",
+  "description": "Learn about our board-certified orthopedic specialists, advanced facilities, and commitment to comprehensive spine and joint care across Florida, New Jersey, New York, and Pennsylvania.",
   "url": "https://mountainspineorthopedics.com/about",
   "mainEntity": {
     "@type": "MedicalOrganization",
@@ -284,9 +284,9 @@ export default function AboutUs() {
             }}
             className='text-[#424959] text-lg sm:text-xl text-center'
           >
-            Our award-winning team of FL spine surgeons and medical staff offer the latest in research, technology, and treatments for pain management and comprehensive orthopedic care.<span className='text-black font-[600]'> Our comprehensive "concierge" services range from non-surgical, conservative methods to advanced orthopedic procedures performed with precision and care.</span>
+            Our award-winning team of board-certified spine surgeons and medical staff offer the latest in research, technology, and treatments for pain management and comprehensive orthopedic care.<span className='text-black font-[600]'> Our comprehensive "concierge" services range from non-surgical, conservative methods to advanced orthopedic procedures performed with precision and care.</span>
             <br /><br />
-            Our spine surgeons are dedicated to achieving the best results for every patient with the most appropriate approach possible using state-of-the-art equipment and procedures to promote faster recovery times that allow you to return to normal activities much sooner. We offer expert diagnosis and treatment for pain and dysfunction caused by deformity, degenerative disc disease, trauma, and failed neck or back surgeries.<span className='text-black font-[600]'>Mountain Spine & Orthopedics operate in the most efficient ways to provide a safe environment and deliver the most effective medical services to patients in Florida.</span> When it comes to spine-related issues, Mountain Spine & Orthopedics offers the treatment and care you deserve and expect. Regardless of the cause, our experienced team is ready to help.
+            Our spine surgeons are dedicated to achieving the best results for every patient with the most appropriate approach possible using state-of-the-art equipment and procedures to promote faster recovery times that allow you to return to normal activities much sooner. We offer expert diagnosis and treatment for pain and dysfunction caused by deformity, degenerative disc disease, trauma, and failed neck or back surgeries.<span className='text-black font-[600]'>Mountain Spine & Orthopedics operate in the most efficient ways to provide a safe environment and deliver the most effective medical services to patients.</span> When it comes to spine-related issues, Mountain Spine & Orthopedics offers the treatment and care you deserve and expect. Regardless of the cause, our experienced team is ready to help.
             <br /><br />
             Our experienced and board-certified neurologists, neurosurgeons, orthopedic specialists, and physicians work together to treat specific spine and back disorders using comprehensive techniques. We combine advanced technology with a patient-centered approach to ensure our patients get the best possible outcomes.
           </p>

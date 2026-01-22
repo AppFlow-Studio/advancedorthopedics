@@ -31,7 +31,7 @@ export function LocationNAP({ slug }: { slug: string }) {
         </span>
       </div>
 
-      {placeUrl ? (
+      {placeUrl && (
         <Link
           href={placeUrl}
           target="_blank"
@@ -40,10 +40,6 @@ export function LocationNAP({ slug }: { slug: string }) {
         >
           View on Google Maps
         </Link>
-      ) : (
-        <span className="text-gray-500 text-sm whitespace-nowrap ml-2">
-          Maps Link Unavailable
-        </span>
       )}
     </div>
   );

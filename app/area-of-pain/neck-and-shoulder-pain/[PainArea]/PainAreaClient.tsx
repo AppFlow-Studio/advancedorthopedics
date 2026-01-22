@@ -237,7 +237,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
           {specialtySlug && (
             <div className="z-[2] px-6 xl:px-[80px] mt-[16px] w-full flex justify-center">
               <a 
-                href={`/area-of-specialty/${specialtySlug}`}
+                href={`/conditions/${specialtySlug}`}
                 className="inline-flex items-center px-4 py-2 rounded-lg border border-[#2358AC] bg-white/80 hover:bg-[#2358AC] hover:text-white text-[#2358AC] transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md"
                 style={{ fontFamily: "var(--font-inter)" }}
               >

@@ -87,7 +87,7 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
       const titleRegex = new RegExp(`(?<![\\w-])${escapedTitle}(?![\\w-])`, 'gi');
       
       textContent = textContent.replace(titleRegex, (match) => {
-        const href = type === 'condition' ? `/area-of-specialty/${slug}` : `/treatments/${slug}`;
+        const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
         return `<a href="${href}" class="underline text-[#252932] hover:text-[#2358AC]">${match}</a>`;
       });
     });

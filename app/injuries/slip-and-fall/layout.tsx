@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: safeTitle(undefined, "Slip and Fall Injury Treatment in Florida | Mountain Spine & Orthopedics"),
-  description: safeDescription(undefined, "Expert treatment for slip and fall injuries in Florida. Spine, joint, and fracture care by board-certified orthopedic specialists."),
+  title: safeTitle(undefined, "Slip and Fall Injury Treatment | Mountain Spine & Orthopedics"),
+  description: safeDescription(undefined, "Expert treatment for slip and fall injuries. Spine, joint, and fracture care by board-certified orthopedic specialists."),
   keywords: [
-    "slip and fall doctor Florida",
+    "slip and fall doctor",
     "slip and fall injury treatment",
     "personal injury orthopedic clinic",
-    "fracture treatment Florida",
+    "fracture treatment",
     "spine and joint accident treatment",
     "orthopedic injury care",
     "slip fall fracture repair",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     canonical: buildCanonical("/injuries/slip-and-fall"),
   },
   openGraph: {
-    title: safeTitle(undefined, "Slip and Fall Injury Treatment in Florida | Mountain Spine & Orthopedics"),
-    description: safeDescription(undefined, "Expert treatment for slip and fall injuries in Florida. Spine, joint, and fracture care by board-certified orthopedic specialists."),
+    title: safeTitle(undefined, "Slip and Fall Injury Treatment | Mountain Spine & Orthopedics"),
+    description: safeDescription(undefined, "Expert treatment for slip and fall injuries. Spine, joint, and fracture care by board-certified orthopedic specialists."),
     url: buildCanonical("/injuries/slip-and-fall"),
     type: "website",
     images: [
