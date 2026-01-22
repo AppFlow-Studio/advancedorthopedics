@@ -439,12 +439,12 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                       </div>
 
                       {/* SubLinks - Locations in State */}
-                      <div className='flex flex-col gap-y-1 max-h-80 overflow-y-auto'>
+                      <div className='flex flex-col gap-y-1 max-h-60 overflow-y-auto [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_2rem)]'>
                         {selectedSubLink.subLinks.map((subLink, subIndex) => {
                           const SubIconComponent = subLink.icon;
                           return (
-                            <NavigationMenuLink key={`${subLink.title}-${subIndex}`} asChild>
-                              <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200">
+                            <NavigationMenuLink key={`${subLink.title}-${subIndex}`} asChild >
+                              <Link href={subLink.href} className="block px-3 py-2 rounded-lg hover:bg-white/50 transition-colors duration-200 ">
                                 <div className='flex flex-row items-center gap-x-3'>
                                   <div className='p-1.5 rounded-xl border aspect-square flex items-center justify-center'>
                                     <SubIconComponent className='w-4 h-4 text-[#252932]' />
