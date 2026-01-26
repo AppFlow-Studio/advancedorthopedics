@@ -21,16 +21,16 @@ export interface LocationRedirectMapping {
  */
 export const LEGACY_LOCATION_REDIRECTS: Record<string, LocationRedirectMapping> = {
   // Florida locations
-  'hollywood-fl-orthopedics': { state: 'fl', location: 'hollywood-orthopedics' },
-  'palm-springs-orthopedics': { state: 'fl', location: 'palm-springs-orthopedics' },
-  'orlando-orthopedics': { state: 'fl', location: 'orlando-orthopedics' },
-  'fort-pierce-orthopedics': { state: 'fl', location: 'fort-pierce-orthopedics' },
-  'palm-beach-gardens-orthopedics': { state: 'fl', location: 'palm-beach-gardens-orthopedics' },
-  'miami-beach-orthopedics': { state: 'fl', location: 'miami-beach-orthopedics' },
-  'boca-raton-orthopedics': { state: 'fl', location: 'boca-raton-orthopedics' },
-  'altamonte-springs-orthopedics': { state: 'fl', location: 'altamonte-springs-orthopedics' },
-  'davenport-orthopedics': { state: 'fl', location: 'davenport-orthopedics' },
-  'jacksonville-orthopedics': { state: 'fl', location: 'jacksonville-orthopedics' },
+  'hollywood-fl-orthopedics': { state: 'florida', location: 'hollywood-orthopedics' },
+  'palm-springs-orthopedics': { state: 'florida', location: 'palm-springs-orthopedics' },
+  'orlando-orthopedics': { state: 'florida', location: 'orlando-orthopedics' },
+  'fort-pierce-orthopedics': { state: 'florida', location: 'fort-pierce-orthopedics' },
+  'palm-beach-gardens-orthopedics': { state: 'florida', location: 'palm-beach-gardens-orthopedics' },
+  'miami-beach-orthopedics': { state: 'florida', location: 'miami-beach-orthopedics' },
+  'boca-raton-orthopedics': { state: 'florida', location: 'boca-raton-orthopedics' },
+  'altamonte-springs-orthopedics': { state: 'florida', location: 'altamonte-springs-orthopedics' },
+  'davenport-orthopedics': { state: 'florida', location: 'davenport-orthopedics' },
+  'jacksonville-orthopedics': { state: 'florida', location: 'jacksonville-orthopedics' },
   // Note: New NJ/NY/PA locations don't have legacy slugs since they're new
 };
 
@@ -38,7 +38,7 @@ export const LEGACY_LOCATION_REDIRECTS: Record<string, LocationRedirectMapping> 
  * Get the redirect path for a legacy location slug.
  * 
  * @param slug - The legacy location slug (e.g., 'hollywood-fl-orthopedics')
- * @returns The new canonical path (e.g., '/locations/fl/hollywood-orthopedics') or null if not found
+ * @returns The new canonical path (e.g., '/locations/florida/hollywood-orthopedics') or null if not found
  */
 export function getRedirectForLegacySlug(slug: string): string | null {
   const mapping = LEGACY_LOCATION_REDIRECTS[slug];
@@ -51,9 +51,9 @@ export function getRedirectForLegacySlug(slug: string): string | null {
 /**
  * Build the canonical URL path for a clinic using the new state-first structure.
  * 
- * @param stateSlug - The state slug (e.g., 'fl', 'nj', 'ny', 'pa')
+ * @param stateSlug - The state slug (e.g., 'florida', 'new-jersey', 'new-york', 'pennsylvania')
  * @param locationSlug - The location slug (e.g., 'hollywood-orthopedics')
- * @returns The canonical path (e.g., '/locations/fl/hollywood-orthopedics')
+ * @returns The canonical path (e.g., '/locations/florida/hollywood-orthopedics')
  */
 export function buildLocationPath(stateSlug: string, locationSlug: string): string {
   return `/locations/${stateSlug}/${locationSlug}`;
@@ -63,7 +63,7 @@ export function buildLocationPath(stateSlug: string, locationSlug: string): stri
  * Get the canonical URL path for a clinic object.
  * 
  * @param clinic - The clinic object (must have stateSlug and locationSlug)
- * @returns The canonical path (e.g., '/locations/fl/hollywood-orthopedics')
+ * @returns The canonical path (e.g., '/locations/florida/hollywood-orthopedics')
  */
 export function getClinicUrl(clinic: { stateSlug: string; locationSlug: string }): string {
   return buildLocationPath(clinic.stateSlug, clinic.locationSlug);
@@ -72,7 +72,7 @@ export function getClinicUrl(clinic: { stateSlug: string; locationSlug: string }
 /**
  * Find a clinic by state and location slugs.
  * 
- * @param stateSlug - The state slug (e.g., 'fl')
+ * @param stateSlug - The state slug (e.g., 'florida')
  * @param locationSlug - The location slug (e.g., 'hollywood-orthopedics')
  * @returns The clinic object or undefined if not found
  */
@@ -85,7 +85,7 @@ export function findClinicByStateAndLocation(stateSlug: string, locationSlug: st
 /**
  * Get all clinics for a specific state.
  * 
- * @param stateSlug - The state slug (e.g., 'fl', 'nj', 'ny', 'pa')
+ * @param stateSlug - The state slug (e.g., 'florida', 'new-jersey', 'new-york', 'pennsylvania')
  * @returns Array of clinics in that state
  */
 export function getClinicsByState(stateSlug: string) {
@@ -118,22 +118,22 @@ export function getAllLocationParams(): { state: string; location: string }[] {
  * State metadata for hub pages
  */
 export const STATE_METADATA: Record<string, { name: string; abbr: string; description: string }> = {
-  fl: {
+  florida: {
     name: 'Florida',
     abbr: 'FL',
     description: 'Expert orthopedic and spine care across Florida. Find a Mountain Spine & Orthopedics clinic near you.',
   },
-  nj: {
+  'new-jersey': {
     name: 'New Jersey',
     abbr: 'NJ',
     description: 'Expert orthopedic and spine care across New Jersey. Find a Mountain Spine & Orthopedics clinic near you.',
   },
-  ny: {
+  'new-york': {
     name: 'New York',
     abbr: 'NY',
     description: 'Expert orthopedic and spine care in New York. Find a Mountain Spine & Orthopedics clinic near you.',
   },
-  pa: {
+  pennsylvania: {
     name: 'Pennsylvania',
     abbr: 'PA',
     description: 'Expert orthopedic and spine care across Pennsylvania. Find a Mountain Spine & Orthopedics clinic near you.',
@@ -143,7 +143,7 @@ export const STATE_METADATA: Record<string, { name: string; abbr: string; descri
 /**
  * Valid state slugs for validation
  */
-export const VALID_STATE_SLUGS = ['fl', 'nj', 'ny', 'pa'] as const;
+export const VALID_STATE_SLUGS = ['florida', 'new-jersey', 'new-york', 'pennsylvania'] as const;
 
 /**
  * Check if a state slug is valid

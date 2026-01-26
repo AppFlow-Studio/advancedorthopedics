@@ -138,8 +138,8 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ state: strin
         {
           '@type': 'ListItem',
           'position': 3,
-          'name': stateInfo?.name || state.toUpperCase(),
-          'item': `https://mountainspineorthopedics.com/locations/${state}`
+          'name': stateInfo?.name || location.stateSlug,
+          'item': `https://mountainspineorthopedics.com/locations/${location.stateSlug}`
         },
         {
           '@type': 'ListItem',
@@ -184,11 +184,13 @@ export default async function LocationLayout({
     children: React.ReactNode;
     params: Promise<{ state: string; location: string }>;
 }) {
+    // Generate schema synchronously by awaiting params first
+    const resolvedParams = await params;
+    const schemaComponent = await LocationJsonLdSchema({ params: Promise.resolve(resolvedParams) });
+    
     return (
         <>
-            {/* Await the async LocationJsonLdSchema and render it */}
-            {/* @ts-expect-error Async Server Component */}
-            <LocationJsonLdSchema params={params} />
+            {schemaComponent}
             {children}
         </>
     );

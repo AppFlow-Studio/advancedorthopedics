@@ -88,7 +88,9 @@ const FootPainPages = [
 
 const InjuryPages = [
   'car-accident',
-  'slip-and-fall'
+  'slip-and-fall',
+  'work-injury',
+  'personal-injury'
 ]
 
 export async function GET() {

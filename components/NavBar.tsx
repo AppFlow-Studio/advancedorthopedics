@@ -629,7 +629,7 @@ const NavBarLinks = [
     subLinks: [
       {
         title: 'Back Pain',
-        href: `/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`,
+        href: '/conditions/spine',
         short_desc: 'Spine and back care',
         icon: Activity,
         subLinks: [
@@ -679,7 +679,7 @@ const NavBarLinks = [
       },
       {
         title: 'Neck & Shoulder Pain',
-        href: `/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Neck', 'Shoulder'] }))}`,
+        href: '/conditions/neck',
         short_desc: 'Neck and shoulder care',
         icon: Headphones,
         subLinks: [
@@ -723,7 +723,7 @@ const NavBarLinks = [
       },
       {
         title: 'Foot & Ankle',
-        href: `/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Foot'] }))}`,
+        href: '/conditions/foot-ankle',
         short_desc: 'Foot and ankle care',
         icon: Footprints,
         subLinks: [
@@ -820,9 +820,9 @@ const NavBarLinks = [
             icon: Bone,
           },
           {
-            title: 'Hand & Wrist Conditions',
-            href: '/conditions/hand-wrist',
-            short_desc: 'Hand & wrist conditions',
+            title: 'Hand, Wrist & Elbow Conditions',
+            href: '/conditions/hand-wrist-elbow',
+            short_desc: 'Hand, wrist & elbow conditions',
             icon: AlertCircle,
           },
           {
@@ -830,12 +830,6 @@ const NavBarLinks = [
             href: '/conditions/foot-ankle',
             short_desc: 'Foot & ankle conditions',
             icon: Footprints,
-          },
-          {
-            title: 'Elbow Conditions',
-            href: '/conditions/elbow',
-            short_desc: 'Elbow conditions',
-            icon: Minus,
           },
         ]
       },
@@ -847,57 +841,51 @@ const NavBarLinks = [
         subLinks: [
           {
             title: 'Spine Treatments',
-            href: '/treatments?category=Spine',
+            href: '/conditions/spine',
             short_desc: 'Spine procedures',
             icon: Activity,
           },
           {
             title: 'Neck Treatments',
-            href: '/treatments?category=Neck',
+            href: '/conditions/neck',
             short_desc: 'Neck procedures',
             icon: Headphones,
           },
           {
             title: 'Back Treatments',
-            href: '/treatments?category=Lower%20Spine',
+            href: '/conditions/back',
             short_desc: 'Back procedures',
             icon: Zap,
           },
           {
             title: 'Shoulder Treatments',
-            href: '/treatments?category=Shoulder',
+            href: '/conditions/shoulder',
             short_desc: 'Shoulder procedures',
             icon: Circle,
           },
           {
             title: 'Hip Treatments',
-            href: '/treatments?category=Hip',
+            href: '/conditions/hip',
             short_desc: 'Hip procedures',
             icon: Target,
           },
           {
             title: 'Knee Treatments',
-            href: '/treatments?category=Knee',
+            href: '/conditions/knee',
             short_desc: 'Knee procedures',
             icon: Bone,
           },
           {
-            title: 'Hand & Wrist Treatments',
-            href: '/treatments?category=Hand',
-            short_desc: 'Hand & wrist procedures',
+            title: 'Hand, Wrist & Elbow Treatments',
+            href: '/conditions/hand-wrist-elbow',
+            short_desc: 'Hand, wrist & elbow procedures',
             icon: AlertCircle,
           },
           {
             title: 'Foot & Ankle Treatments',
-            href: '/treatments?category=Foot',
+            href: '/conditions/foot-ankle',
             short_desc: 'Foot & ankle procedures',
             icon: Footprints,
-          },
-          {
-            title: 'Elbow Treatments',
-            href: '/treatments?category=Elbow',
-            short_desc: 'Elbow procedures',
-            icon: Minus,
           },
         ]
       }
@@ -950,10 +938,10 @@ const NavBarLinks = [
     subLinks: [
       {
         title: 'Florida',
-        href: '/locations/fl',
+        href: '/locations/florida',
         short_desc: '10 locations',
         icon: MapPin,
-        subLinks: clinics.filter(c => c.stateSlug === 'fl').map((clinic) => ({
+        subLinks: clinics.filter(c => c.stateSlug === 'florida').map((clinic) => ({
           title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),
           href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
           short_desc: clinic.region.split(',')[0].trim(),
@@ -962,10 +950,10 @@ const NavBarLinks = [
       },
       {
         title: 'New Jersey',
-        href: '/locations/nj',
+        href: '/locations/new-jersey',
         short_desc: '6 locations',
         icon: MapPin,
-        subLinks: clinics.filter(c => c.stateSlug === 'nj').map((clinic) => ({
+        subLinks: clinics.filter(c => c.stateSlug === 'new-jersey').map((clinic) => ({
           title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),
           href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
           short_desc: clinic.region.split(',')[0].trim(),
@@ -974,10 +962,10 @@ const NavBarLinks = [
       },
       {
         title: 'New York',
-        href: '/locations/ny',
+        href: '/locations/new-york',
         short_desc: '1 location',
         icon: MapPin,
-        subLinks: clinics.filter(c => c.stateSlug === 'ny').map((clinic) => ({
+        subLinks: clinics.filter(c => c.stateSlug === 'new-york').map((clinic) => ({
           title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region,
           href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
           short_desc: clinic.region,
@@ -986,10 +974,10 @@ const NavBarLinks = [
       },
       {
         title: 'Pennsylvania',
-        href: '/locations/pa',
+        href: '/locations/pennsylvania',
         short_desc: '4 locations',
         icon: MapPin,
-        subLinks: clinics.filter(c => c.stateSlug === 'pa').map((clinic) => ({
+        subLinks: clinics.filter(c => c.stateSlug === 'pennsylvania').map((clinic) => ({
           title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),
           href: `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
           short_desc: clinic.region.split(',')[0].trim(),
