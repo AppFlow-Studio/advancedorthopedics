@@ -2,8 +2,8 @@ import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export const metadata = {
-  title: 'Orthopedic Clinic Locations in FL, NJ, NY & PA | Mountain Spine & Orthopedics',
-  description: 'Find all Mountain Spine & Orthopedics clinic locations across Florida, New Jersey, New York, and Pennsylvania. Expert spine and joint care near you.',
+  title: 'Orthopedic Clinic Locations in Florida, New Jersey, New York & Pennsylvania | Mountain Spine & Orthopedics',
+  description: 'Find expert orthopedic and spine care near you. Mountain Spine & Orthopedics locations across Florida, New Jersey, New York, and Pennsylvania. Same-day and next-day appointments available. Book your consultation today.',
   keywords: [
     'orthopedic clinic locations',
     'orthopedic surgeon near me',
@@ -57,10 +57,129 @@ import LocationsClient from './LocationsClient';
 import { clinics } from '@/components/data/clinics';
 import { LocationItemListSchema } from '@/components/LocationItemListSchema';
 
+// BreadcrumbList Schema
+const BreadcrumbSchema = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': buildCanonical('/')
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Locations',
+        'item': buildCanonical('/locations')
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+    />
+  );
+};
+
+// CollectionPage Schema
+const LocationsCollectionPageSchema = () => {
+  const itemListReference = {
+    "@type": "ItemList",
+    "name": "Mountain Spine & Orthopedics Clinic Locations",
+    "numberOfItems": clinics.length,
+    "url": buildCanonical('/locations'),
+  };
+
+  const pageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Orthopedic Clinic Locations in Florida, New Jersey, New York & Pennsylvania | Mountain Spine & Orthopedics',
+    'description': 'Find expert orthopedic and spine care near you. Mountain Spine & Orthopedics locations across Florida, New Jersey, New York, and Pennsylvania. Same-day and next-day appointments available. Book your consultation today.',
+    'url': buildCanonical('/locations'),
+    'mainEntity': itemListReference,
+    'about': {
+      '@type': 'MedicalOrganization',
+      'name': 'Mountain Spine & Orthopedics'
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+    />
+  );
+};
+
+// Locations Hub FAQs Schema
+const LocationsFAQSchema = () => {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': 'How do I choose the best location near me?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Choose the closest clinic in your state, then select the office that\'s most convenient for commuting and scheduling. If you\'re unsure, call our scheduling team at (561) 223-9959 and we\'ll recommend the best location based on your symptoms and availability.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Do you offer same-day or next-day appointments?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Availability varies by location and day, but many offices can accommodate urgent musculoskeletal concerns quickly. Call to check the earliest openings.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Do I need a referral to see an orthopedic specialist?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Referral requirements depend on your insurance plan. If you tell us your coverage, we can confirm what\'s needed before scheduling.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'What conditions do you treat at your locations?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Our clinics commonly evaluate back pain, neck pain, sciatica, herniated discs, arthritis, joint injuries, and sports-related injuries. Your location page also lists local services and common conditions treated.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'What should I bring to my appointment?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Bring your ID, insurance card, a list of medications, and any imaging reports or prior medical records related to your symptoms.'
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+};
+
 export default function LocationsPage() {
   return (
     <>
+      <BreadcrumbSchema />
+      <LocationsCollectionPageSchema />
       <LocationItemListSchema clinics={clinics} />
+      <LocationsFAQSchema />
       <LocationsClient />
     </>
   );

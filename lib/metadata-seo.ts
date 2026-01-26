@@ -170,7 +170,7 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
   },
   "shoulder-tendonitis": {
     metaTitle: "Shoulder Tendonitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
-    metaDescription: "Learn about shoulder tendonitis, symptoms like pain and stiffness, and treatment options. Expert orthopedic care with therapy and injection solutions."
+    metaDescription: "Learn about shoulder tendonitis, symptoms like pain and stiffness, and treatment options. Expert orthopedic care with non-surgical and injection-based options."
   },
   "snapping-hip-syndrome": {
     metaTitle: "Snapping Hip Syndrome – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -206,7 +206,7 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
   },
   "tennis-elbow": {
     metaTitle: "Tennis Elbow – Symptoms & Treatment | Spine & Orthopedic Specialists",
-    metaDescription: "Learn about tennis elbow, symptoms like elbow pain with gripping, and treatment options. Expert orthopedic care with therapy and injection solutions."
+    metaDescription: "Learn about tennis elbow, symptoms like elbow pain with gripping, and treatment options. Expert orthopedic care with non-surgical and injection-based options."
   },
   "plantar-fasciitis": {
     metaTitle: "Plantar Fasciitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -222,7 +222,7 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
   },
   "achilles-tendonitis": {
     metaTitle: "Achilles Tendonitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
-    metaDescription: "Learn about Achilles tendonitis, symptoms like heel pain and stiffness, and treatment options. Expert orthopedic care with therapy and regenerative solutions."
+    metaDescription: "Learn about Achilles tendonitis, symptoms like heel pain and stiffness, and treatment options. Expert orthopedic care with treatment and regenerative options."
   },
   "flat-feet": {
     metaTitle: "Flat Feet – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -392,7 +392,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
   },
   "back-pain-treatment": {
     metaTitle: "Back Pain Treatment – Options & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Explore back pain treatment options including therapy, injections, and surgery. Expert spine care focused on accurate diagnosis and lasting relief."
+    metaDescription: "Explore back pain treatment options including medications, injections, and surgery. Expert spine care focused on accurate diagnosis and lasting relief."
   },
   "bunion-correction-surgery": {
     metaTitle: "Bunion Correction Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
@@ -454,7 +454,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaTitle: "Facet Ablation (Rhizotomy) | Non-Surgical Spine Pain Relief",
     metaDescription: "Learn how facet ablation and rhizotomy help reduce facet joint pain. Non-surgical treatment using radiofrequency energy for lasting relief."
   },
-  "facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information": {
+  "facet-block-ablation-rhizotomy-and-facet-fusion": {
     metaTitle: "Facet Block, Ablation & Fusion – Treatment Options | Spine Specialists",
     metaDescription: "Learn about facet block, ablation, and fusion treatment options for facet joint pain. Expert spine care from diagnosis to targeted relief."
   },
@@ -468,11 +468,11 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
   },
   "neck-pain-treatment-and-shoulder-pain-relief": {
     metaTitle: "Neck & Shoulder Pain Treatment – Options & Relief | Spine & Orthopedic Specialists",
-    metaDescription: "Explore neck and shoulder pain treatment options including therapy and injections. Expert care focused on accurate diagnosis and lasting relief."
+    metaDescription: "Explore neck and shoulder pain treatment options including medications and injections. Expert care focused on accurate diagnosis and lasting relief."
   },
   "non-surgical-treatments-for-pain-management": {
     metaTitle: "Non-Surgical Pain Management | Spine & Orthopedic Care Options",
-    metaDescription: "Explore non-surgical pain management options including therapy, injections, and regenerative medicine. Expert orthopedic care for lasting relief."
+    metaDescription: "Explore non-surgical pain management options including medications, injections, and regenerative medicine. Expert orthopedic care for lasting relief."
   },
   "oblique-lumbar-interbody-fusion": {
     metaTitle: "OLIF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
@@ -505,6 +505,74 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
   "ankle-arthroscopy-minimally-invasive-surgery": {
     metaTitle: "Ankle Arthroscopy – Minimally Invasive Option | Spine & Orthopedic Specialists",
     metaDescription: "Learn how minimally invasive ankle arthroscopy works, candidacy, and recovery. Expert orthopedic treatment for ankle impingement and cartilage issues."
+  },
+  "slap-tear": {
+    metaTitle: "SLAP Tear – Symptoms, MRI Findings & Treatment | Spine & Orthopedic Specialists",
+    metaDescription: "Learn SLAP tear symptoms, diagnosis, and treatment—from therapy to surgery. Know when shoulder pain or clicking needs a specialist evaluation."
+  },
+  "shoulder-dislocation": {
+    metaTitle: "Shoulder Dislocation – Symptoms, Reduction & Treatment | Spine & Orthopedic Specialists",
+    metaDescription: "Shoulder dislocation causes sudden pain and instability. Learn symptoms, imaging, and treatment options—including when surgery is recommended."
+  },
+  "ac-joint-injury": {
+    metaTitle: "AC Joint Injury – Shoulder Separation Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaDescription: "AC joint injuries cause top-of-shoulder pain after falls or sports. Learn grades, imaging, and treatment—from rest to surgery when needed."
+  },
+  "kyphoplasty": {
+    metaTitle: "Kyphoplasty – Vertebral Compression Fracture Treatment | Spine & Orthopedic Specialists",
+    metaDescription: "Kyphoplasty can reduce pain from compression fractures. Learn candidacy, steps, recovery, and when to consider this minimally invasive procedure."
+  },
+  "vertebroplasty": {
+    metaTitle: "Vertebroplasty – Compression Fracture Stabilization | Spine & Orthopedic Specialists",
+    metaDescription: "Vertebroplasty stabilizes painful vertebral compression fractures using cement. Learn candidacy, benefits, risks, and recovery expectations."
+  },
+  "plif": {
+    metaTitle: "PLIF Surgery – Posterior Lumbar Interbody Fusion | Spine & Orthopedic Specialists",
+    metaDescription: "PLIF is a lumbar fusion option for instability or nerve compression. Learn when it's used, how it works, and recovery expectations."
+  },
+  "thoracic-spine-surgery": {
+    metaTitle: "Thoracic Spine Surgery – When It's Needed & Options | Spine & Orthopedic Specialists",
+    metaDescription: "Thoracic spine surgery may treat compression, fractures, deformity, or tumors. Learn indications, common procedures, and recovery basics."
+  },
+  "si-joint-fusion": {
+    metaTitle: "SI Joint Fusion – Candidacy, Benefits & Recovery | Spine & Orthopedic Specialists",
+    metaDescription: "SI joint fusion may help confirmed sacroiliac joint pain that doesn't improve with conservative care. Learn diagnosis steps and recovery."
+  },
+  "cervical-laminectomy": {
+    metaTitle: "Cervical Laminectomy – Decompression for Neck Myelopathy | Spine & Orthopedic Specialists",
+    metaDescription: "Cervical laminectomy relieves spinal cord pressure from stenosis. Learn symptoms, candidacy, procedure basics, and recovery expectations."
+  },
+  "chronic-pain-treatment": {
+    metaTitle: "Chronic Pain Treatment – Evaluation, Options & Next Steps | Spine & Orthopedic Specialists",
+    metaDescription: "Chronic pain needs a structured plan. Learn evaluation steps and treatment options—therapy, medications, injections, and when to consider procedures."
+  },
+  "joint-pain-treatment": {
+    metaTitle: "Joint Pain Treatment – Shoulder, Hip, Knee & More | Spine & Orthopedic Specialists",
+    metaDescription: "Joint pain can come from arthritis, tendon problems, or injury. Learn evaluation and treatment options—from therapy to injections and surgery."
+  },
+  "arthritis-treatment": {
+    metaTitle: "Arthritis Treatment – Options to Reduce Pain & Improve Function | Spine & Orthopedic Specialists",
+    metaDescription: "Learn arthritis treatment options—from therapy and injections to joint replacement when needed. Know when pain and stiffness warrant evaluation."
+  },
+  "bursitis-treatment": {
+    metaTitle: "Bursitis Treatment – Relief for Hip, Shoulder & Knee | Spine & Orthopedic Specialists",
+    metaDescription: "Bursitis causes localized joint pain and tenderness. Learn diagnosis and treatment options—rest, therapy, and injections when appropriate."
+  },
+  "tendonitis-treatment": {
+    metaTitle: "Tendonitis Treatment – Causes, Symptoms & Best Options | Spine & Orthopedic Specialists",
+    metaDescription: "Tendonitis causes pain with motion and overuse. Learn diagnosis and treatment—rehab, load management, and procedures for stubborn cases."
+  },
+  "osteoporosis-treatment": {
+    metaTitle: "Osteoporosis Treatment – Protect Bone Health & Prevent Fractures | Spine & Orthopedic Specialists",
+    metaDescription: "Osteoporosis increases fracture risk. Learn evaluation, prevention, and treatment strategies—and when spine procedures may be considered."
+  },
+  "work-injury": {
+    metaTitle: "Work Injury Orthopedic Care – Evaluation & Treatment | Spine & Orthopedic Specialists",
+    metaDescription: "Injured at work? Get an orthopedic evaluation, imaging when appropriate, and a clear treatment plan to help you return to function safely."
+  },
+  "personal-injury": {
+    metaTitle: "Personal Injury Orthopedic Evaluation – Next Steps After Trauma | Spine & Orthopedic Specialists",
+    metaDescription: "After an accident or fall, get a clear orthopedic diagnosis and treatment plan. Learn common injuries, warning signs, and treatment options."
   }
 };
 

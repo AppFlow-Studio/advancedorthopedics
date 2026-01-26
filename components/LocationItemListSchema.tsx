@@ -1,5 +1,6 @@
 import { ClinicsProps } from '@/components/data/clinics';
 import { buildCanonical } from '@/lib/seo';
+import { MAIN_PHONE_E164 } from '@/lib/locationConstants';
 
 export function LocationItemListSchema({ clinics }: { clinics: ClinicsProps[] }) {
   const itemListSchema = {
@@ -12,18 +13,18 @@ export function LocationItemListSchema({ clinics }: { clinics: ClinicsProps[] })
       "@type": "ListItem",
       "position": index + 1,
       "item": {
-        "@type": "MedicalClinic",
+        "@type": "MedicalBusiness",
         "@id": buildCanonical(`/locations/${clinic.stateSlug}/${clinic.locationSlug}`), // Unique ID for this clinic
         "name": clinic.name,
         "url": buildCanonical(`/locations/${clinic.stateSlug}/${clinic.locationSlug}`),
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": clinic.address.split(',')[0],
+          "streetAddress": clinic.address, // Include full address with suite
           "addressLocality": clinic.region.split(',')[0],
           "addressRegion": clinic.stateAbbr,
           "addressCountry": "US"
         },
-        "telephone": clinic.phone,
+        "telephone": MAIN_PHONE_E164, // E.164 format for schema
       }
     })),
   };

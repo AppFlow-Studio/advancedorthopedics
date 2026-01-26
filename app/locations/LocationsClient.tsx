@@ -16,7 +16,14 @@ import {
   CarouselNext,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { STATE_METADATA, VALID_STATE_SLUGS, getClinicsByState } from '@/lib/locationRedirects'
+import { LOCATION_HOURS_DISPLAY, MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL } from '@/lib/locationConstants'
 
 interface LocationsClientProps {
   selectedLocation?: any
@@ -103,24 +110,15 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
 
   // Location Card Component
   const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
-    <motion.div
-      key={index}
-      variants={isMobile ? undefined : itemVariants}
-      whileHover={isMobile ? undefined : "hover"}
-      onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-      onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-      onClick={() => {
-        currentSetSelectedLocation(clinic)
-        const goToSection = () => {
-          const section = document.getElementById('Locations')
-          if (section) {
-            section.scrollIntoView({ block: 'start', behavior: 'smooth' })
-          }
-        }
-        goToSection()
-      }}
-      className="group cursor-pointer h-full"
-    >
+    <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} className="block h-full">
+      <motion.div
+        key={index}
+        variants={isMobile ? undefined : itemVariants}
+        whileHover={isMobile ? undefined : "hover"}
+        onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+        onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+        className="group cursor-pointer h-full"
+      >
       <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -160,22 +158,26 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           </div>
 
           {/* Phone */}
-          <div className="flex items-center space-x-3 mb-4">
+          <div className="flex items-center space-x-3 mb-4" onClick={(e) => e.stopPropagation()}>
             <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" />
-            <a
-              href="tel:(561) 223-9959"
-              className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300"
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window.location.href = `tel:${MAIN_PHONE_TEL}`;
+              }}
+              className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300 text-left"
             >
-              (561) 223-9959
-            </a>
+              {MAIN_PHONE_DISPLAY}
+            </button>
           </div>
 
           {/* Hours */}
           <div className="flex items-start space-x-3 mb-6">
             <Clock className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" />
             <div className="text-[#424959] text-sm">
-              <p className="font-medium">Monday - Saturday</p>
-              <p>8:00 AM - 8:00 PM</p>
+              <p className="font-medium">Hours: {LOCATION_HOURS_DISPLAY}</p>
             </div>
           </div>
 
@@ -184,28 +186,27 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             variants={isMobile ? undefined : hoverVariants}
             className="mt-auto"
           >
-            <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`}>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center justify-between">
-                  <span className="text-[#252932] font-semibold">View Details</span>
-                  <motion.div
-                    animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <svg className="w-5 h-5 text-[#0A50EC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </motion.div>
-                </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center justify-between">
+                <span className="text-[#252932] font-semibold">View Details</span>
+                <motion.div
+                  animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <svg className="w-5 h-5 text-[#0A50EC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </motion.div>
               </div>
-            </Link>
+            </div>
           </motion.div>
         </div>
 
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
       </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   )
 
   return (
@@ -247,28 +248,30 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               }}
               className='text-[#252932] text-6xl'
             >
-              Locations
+              Orthopedic Clinic Locations in Florida, New Jersey, New York & Pennsylvania
             </TextAnimate>
-            <h2
-              style={{
-                fontFamily: 'var(--font-reem-kufi)',
-                fontWeight: 500,
+            <div className="mt-6 space-y-4 max-w-4xl">
+              <p
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 400,
 
-              }}
-              className='text-[#252932] text-2xl mt-2'
-            >
-              Find Orthopedic Care Near You
-            </h2>
-            <p
-              style={{
-                fontFamily: 'var(--font-reem-kufi)',
-                fontWeight: 500,
+                }}
+                className='text-[#424959] text-lg leading-relaxed'
+              >
+                Mountain Spine & Orthopedics makes it easy to find expert spine and joint care near you. Our orthopedic specialists evaluate and treat common conditions such as back pain, neck pain, sciatica, herniated discs, arthritis, joint injuries, and sports-related injuries with personalized care plans focused on restoring mobility and function.
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-public-sans)',
+                  fontWeight: 400,
 
-              }}
-              className='text-[#252932] text-xl mt-2'
-            >
-              Mountain Spine & Orthopedics delivers expert spine care across Florida, New Jersey, New York, and Pennsylvania with {clinics.length} locations.
-            </p>
+                }}
+                className='text-[#424959] text-lg leading-relaxed'
+              >
+                Use the state picker and map to find the most convenient clinic, then select a location to view directions, hours, and local details. If you need help scheduling, call <a href="tel:5612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a> and our team will match you with the best office for your symptoms and availability.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -276,20 +279,6 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
       <div className="bg-white w-full">
         <ClinicsMap startingClinic={currentSelectedLocation} />
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold text-[#252932] my-6">
-            Our Locations
-          </h2>
-          <p className="text-lg md:text-xl text-[#424959] max-w-3xl mx-auto">
-            Visit any of our state-of-the-art facilities across Florida, New Jersey, New York, and Pennsylvania for expert orthopedic care and personalized treatment.
-          </p>
-        </motion.div>
         
         {/* State Hub Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 px-4 md:px-8">
@@ -365,37 +354,85 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           })}
         </div>
 
+        {/* Browse Orthopedic Clinics by State - Table of Contents */}
+        <section className="mb-16">
+          <h2
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className="text-4xl md:text-5xl font-bold text-[#252932] mb-6 text-center"
+          >
+            Browse Orthopedic Clinics by State
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {VALID_STATE_SLUGS.map((stateSlug) => {
+              const stateInfo = STATE_METADATA[stateSlug]
+              return (
+                <a
+                  key={stateSlug}
+                  href={`#${stateSlug}-clinics`}
+                  className="px-4 py-2 bg-[#E0F5FF] text-[#252932] rounded-full text-base font-medium hover:bg-[#0A50EC] hover:text-white transition-colors"
+                >
+                  {stateInfo?.name}
+                </a>
+              )
+            })}
+          </div>
+        </section>
+
         {/* Locations Grouped by State */}
         {VALID_STATE_SLUGS.map((stateSlug) => {
           const stateInfo = STATE_METADATA[stateSlug]
           const stateClinics = getClinicsByState(stateSlug)
           if (stateClinics.length === 0) return null
           
+          // State-specific intro text
+          const getStateIntro = (slug: string) => {
+            const intros: Record<string, string> = {
+              florida: `From South Florida through Central Florida, Mountain Spine & Orthopedics provides orthopedic and spine care close to home. Patients choose our Florida locations for thorough evaluations, modern diagnostics, and treatment options tailored to back pain, neck pain, joint pain, and athletic injuries. View the full Florida directory to compare cities and find the closest office.`,
+              'new-jersey': `Our New Jersey locations help patients across North and Central NJ access orthopedic and spine specialists without long travel times. Whether you're dealing with chronic back pain, pinched nerves, joint injuries, or arthritis-related stiffness, our NJ clinics focus on accurate diagnosis and clear next steps. Browse New Jersey locations to choose the most convenient office.`,
+              'new-york': `Our New York location serves patients who need specialized orthopedic and spine evaluations with straightforward scheduling and coordinated follow-up care. If you're experiencing neck pain, radiating arm symptoms, low back pain, or joint pain that limits activity, explore our New York location page for directions and details.`,
+              pennsylvania: `Mountain Spine & Orthopedics offers convenient access to orthopedic and spine care for patients in Pennsylvania, including evaluation for back pain, neck pain, sciatica, joint injuries, and degenerative conditions. View our Pennsylvania locations to compare offices and choose the best clinic for your needs.`,
+            }
+            return intros[slug] || `Our ${stateInfo?.name} locations provide expert orthopedic and spine care with board-certified specialists. Browse locations below to find the most convenient office for your needs.`
+          }
+          
           return (
-            <div key={stateSlug} className="mb-16">
+            <section key={stateSlug} id={`${stateSlug}-clinics`} className="mb-16 scroll-mt-20">
               {/* State Header */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center justify-between mb-8 px-6 lg:px-8"
+                className="mb-8 px-6 lg:px-8"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#0A50EC] rounded-2xl flex items-center justify-center shadow-lg">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-[#252932]">
-                      {stateInfo?.name}
-                    </h3>
-                    <p className="text-[#424959]">{stateClinics.length} location{stateClinics.length > 1 ? 's' : ''}</p>
-                  </div>
-                </div>
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-public-sans)',
+                    fontWeight: 500,
+                  }}
+                  className="text-4xl md:text-5xl font-bold text-[#252932] mb-4"
+                >
+                  {stateInfo?.name} Orthopedic Clinics
+                </h2>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-public-sans)',
+                    fontWeight: 400,
+                  }}
+                  className="text-lg text-[#424959] leading-relaxed mb-4 max-w-4xl"
+                >
+                  {getStateIntro(stateSlug)}
+                </p>
                 <Link
                   href={`/locations/${stateSlug}`}
-                  className="px-4 py-2 bg-white border border-[#0A50EC]/20 rounded-full text-[#0A50EC] font-medium hover:bg-[#0A50EC] hover:text-white transition-all duration-300 text-sm"
+                  className="inline-flex items-center px-4 py-2 bg-white border border-[#0A50EC]/20 rounded-full text-[#0A50EC] font-medium hover:bg-[#0A50EC] hover:text-white transition-all duration-300 text-sm"
                 >
-                  View All {stateInfo?.abbr}
+                  View All {stateInfo?.name} Locations
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </motion.div>
 
@@ -435,9 +472,226 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                   <LocationCard key={index} clinic={clinic} index={index} />
                 ))}
               </motion.div>
-            </div>
+            </section>
           )
         })}
+
+        {/* Common Reasons Patients Visit Section */}
+        <section className="mb-16 px-6 lg:px-8">
+          <h2
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className="text-4xl md:text-5xl font-bold text-[#252932] mb-6"
+          >
+            Common Reasons Patients Visit Mountain Spine & Orthopedics
+          </h2>
+          <ul className="space-y-4 text-lg text-[#424959]">
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>
+                <Link href="/conditions/spine" className="text-[#0A50EC] hover:underline font-medium">Back pain, sciatica, and leg numbness</Link> (lumbar spine evaluation and treatment planning)
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>
+                <Link href="/conditions/spine" className="text-[#0A50EC] hover:underline font-medium">Neck pain, pinched nerves, and arm symptoms</Link> (cervical spine evaluation)
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>
+                <Link href="/conditions/knee" className="text-[#0A50EC] hover:underline font-medium">Knee pain, swelling, and instability</Link> (meniscus, cartilage, arthritis evaluation)
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>
+                <Link href="/conditions/shoulder" className="text-[#0A50EC] hover:underline font-medium">Shoulder pain and limited range of motion</Link> (rotator cuff and impingement evaluation)
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>
+                <Link href="/injuries" className="text-[#0A50EC] hover:underline font-medium">Sports injuries and overuse conditions</Link> (return-to-activity planning)
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        {/* What to Expect Section */}
+        <section className="mb-16 px-6 lg:px-8">
+          <h2
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className="text-4xl md:text-5xl font-bold text-[#252932] mb-6"
+          >
+            What to Expect at Your First Visit
+          </h2>
+          <ul className="space-y-4 text-lg text-[#424959]">
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>A focused exam based on your symptoms, injury history, and goals</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>Review of any prior imaging and records (if available)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>If needed, guidance on appropriate imaging to clarify diagnosis</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>A personalized plan that may include activity modifications, targeted treatments, or specialist follow-up</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-[#0A50EC] mr-3">•</span>
+              <span>Clear next steps so you know exactly what to do after your appointment</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* Locations FAQs Section */}
+        <section 
+          className="mb-16 px-6 lg:px-8"
+          aria-labelledby="locations-faq-heading"
+          itemScope
+          itemType="https://schema.org/FAQPage"
+        >
+          <h2 
+            id="locations-faq-heading"
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className="text-4xl md:text-5xl font-bold text-[#252932] mb-8 text-center"
+          >
+            Locations FAQ
+          </h2>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem 
+                value="item-0"
+                className="border-b border-gray-200"
+                itemScope
+                itemType="https://schema.org/Question"
+              >
+                <AccordionTrigger 
+                  className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
+                  itemProp="name"
+                >
+                  How do I choose the best location near me?
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-[#424959] leading-relaxed pt-2"
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  <p itemProp="text">
+                    Choose the closest clinic in your state, then select the office that's most convenient for commuting and scheduling. If you're unsure, call our scheduling team at <a href="tel:5612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a> and we'll recommend the best location based on your symptoms and availability.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="item-1"
+                className="border-b border-gray-200"
+                itemScope
+                itemType="https://schema.org/Question"
+              >
+                <AccordionTrigger 
+                  className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
+                  itemProp="name"
+                >
+                  Do you offer same-day or next-day appointments?
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-[#424959] leading-relaxed pt-2"
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  <p itemProp="text">
+                    Availability varies by location and day, but many offices can accommodate urgent musculoskeletal concerns quickly. Call to check the earliest openings.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="item-2"
+                className="border-b border-gray-200"
+                itemScope
+                itemType="https://schema.org/Question"
+              >
+                <AccordionTrigger 
+                  className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
+                  itemProp="name"
+                >
+                  Do I need a referral to see an orthopedic specialist?
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-[#424959] leading-relaxed pt-2"
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  <p itemProp="text">
+                    Referral requirements depend on your insurance plan. If you tell us your coverage, we can confirm what's needed before scheduling.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="item-3"
+                className="border-b border-gray-200"
+                itemScope
+                itemType="https://schema.org/Question"
+              >
+                <AccordionTrigger 
+                  className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
+                  itemProp="name"
+                >
+                  What conditions do you treat at your locations?
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-[#424959] leading-relaxed pt-2"
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  <p itemProp="text">
+                    Our clinics commonly evaluate back pain, neck pain, sciatica, herniated discs, arthritis, joint injuries, and sports-related injuries. Your location page also lists local services and common conditions treated.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem 
+                value="item-4"
+                className="border-b border-gray-200"
+                itemScope
+                itemType="https://schema.org/Question"
+              >
+                <AccordionTrigger 
+                  className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
+                  itemProp="name"
+                >
+                  What should I bring to my appointment?
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-[#424959] leading-relaxed pt-2"
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  <p itemProp="text">
+                    Bring your ID, insurance card, a list of medications, and any imaging reports or prior medical records related to your symptoms.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
 
         {/* Additional Info Section */}
         <motion.div

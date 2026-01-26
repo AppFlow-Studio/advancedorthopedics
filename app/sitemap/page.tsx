@@ -90,6 +90,8 @@ const footPainPages = [
 const injuryPages = [
   { url: '/injuries/car-accident', title: 'Car Accident Injuries & Treatment' },
   { url: '/injuries/slip-and-fall', title: 'Slip and Fall Injuries & Treatment' },
+  { url: '/injuries/work-injury', title: 'Work Injury Orthopedic Care' },
+  { url: '/injuries/personal-injury', title: 'Personal Injury Orthopedic Evaluation' },
 ];
 
 // Blog category pages (for reference)
@@ -107,7 +109,7 @@ const blogCategoryPages = [
   { url: '/blogs/tag/neck', title: 'Blog: Neck Health' },
   { url: '/blogs/tag/shoulder', title: 'Blog: Shoulder Health' },
   { url: '/blogs/tag/knee', title: 'Blog: Knee Health' },
-  { url: '/blogs/tag/hand', title: 'Blog: Hand & Wrist' },
+  { url: '/blogs/tag/hand', title: 'Blog: Hand, Wrist & Elbow' },
   { url: '/blogs/tag/foot', title: 'Blog: Foot & Ankle' },
 ];
 
@@ -151,15 +153,22 @@ function SitemapSection({ title, links, columns = 3 }: {
 }
 
 export default async function SitemapPage() {
-  // Fetch all blog posts
-  const allBlogs = await GetBlogsPublic();
+  // Fetch all blog posts with error handling
+  let allBlogs: any[] = [];
+  try {
+    const fetchedBlogs = await GetBlogsPublic();
+    allBlogs = Array.isArray(fetchedBlogs) ? fetchedBlogs : [];
+  } catch (error) {
+    console.error('Error fetching blogs for sitemap page:', error);
+    allBlogs = [];
+  }
   
-  // Prepare blog post links
+  // Prepare blog post links with safe access
   const blogPostLinks = allBlogs
-    .filter(blog => blog.slug && blog.blog_info?.title)
+    .filter(blog => blog?.slug && blog?.blog_info?.title)
     .map(blog => ({
       url: `/blogs/${blog.slug}`,
-      title: blog.blog_info.title,
+      title: blog.blog_info?.title || slugToTitle(blog.slug),
     }))
     .sort((a, b) => a.title.localeCompare(b.title));
 

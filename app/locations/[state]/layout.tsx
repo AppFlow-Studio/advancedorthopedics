@@ -2,11 +2,17 @@ import { Metadata, ResolvingMetadata } from "next";
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { getClinicsByState, isValidStateSlug, STATE_METADATA, VALID_STATE_SLUGS } from "@/lib/locationRedirects";
+import { STATE_FAQS } from "@/lib/state-faqs";
+import { generateFAQPageSchema } from "@/lib/faq-utils";
+import { MAIN_PHONE_E164 } from "@/lib/locationConstants";
 
 // Generate static params for all valid states
 export async function generateStaticParams() {
   return VALID_STATE_SLUGS.map(state => ({ state }));
 }
+
+// Ensure dynamic params are allowed (for runtime validation)
+export const dynamicParams = true;
 
 // This function dynamically generates metadata for each state hub page.
 export async function generateMetadata(
@@ -34,8 +40,17 @@ export async function generateMetadata(
     const canonicalUrl = buildCanonical(`/locations/${state}`);
     const ogImage = getOgImageForPath('/locations');
     
-    const title = `${stateInfo.name} Orthopedic Surgeons & Spine Specialists | Mountain Spine & Orthopedics`;
-    const description = `Find Mountain Spine & Orthopedics clinic locations in ${stateInfo.name}. ${stateClinics.length} convenient location${stateClinics.length > 1 ? 's' : ''} offering expert spine and orthopedic care. Book an appointment today.`;
+    // Generate top cities list for meta description (first 4-8 location names)
+    const topCities = stateClinics
+      .slice(0, 8)
+      .map(clinic => clinic.region.split(',')[0].trim())
+      .join(', ');
+    
+    // New meta title format
+    const title = `Spine & Orthopedic Surgeons in ${stateInfo.name} | Mountain Spine & Orthopedics`;
+    
+    // New meta description format (~150-160 chars)
+    const description = `Board-certified spine and orthopedic surgeons across ${stateInfo.name}. Locations in ${topCities}. Same-day and next-day appointments available.`;
     
     return {
       title: safeTitle(undefined, title),
@@ -93,6 +108,34 @@ const StateHubJsonLdSchema = async ({ params }: { params: Promise<{ state: strin
     
     const stateInfo = STATE_METADATA[state];
     const stateClinics = getClinicsByState(state);
+    const stateFaqs = STATE_FAQS[state] || [];
+    
+    const canonicalUrl = `https://mountainspineorthopedics.com/locations/${state}`;
+    
+    // Generate top cities list for meta description
+    const topCities = stateClinics
+      .slice(0, 8)
+      .map(clinic => clinic.region.split(',')[0].trim())
+      .join(', ');
+    
+    const pageDescription = `Board-certified spine and orthopedic surgeons across ${stateInfo.name}. Locations in ${topCities}. Same-day and next-day appointments available.`;
+    
+    // CollectionPage Schema (main page schema)
+    const pageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': `Spine & Orthopedic Surgeons in ${stateInfo.name}`,
+      'description': pageDescription,
+      'url': canonicalUrl,
+      'about': {
+        '@type': 'MedicalOrganization',
+        'name': 'Mountain Spine & Orthopedics'
+      },
+      'areaServed': {
+        '@type': 'AdministrativeArea',
+        'name': stateInfo.name
+      }
+    };
     
     // Breadcrumb Schema
     const breadcrumbSchema = {
@@ -133,23 +176,32 @@ const StateHubJsonLdSchema = async ({ params }: { params: Promise<{ state: strin
         'name': clinic.name,
         'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
         'item': {
-          '@type': 'MedicalClinic',
+          '@type': 'MedicalBusiness',
           'name': clinic.name,
           'address': {
             '@type': 'PostalAddress',
-            'streetAddress': clinic.address.split(',')[0],
+            'streetAddress': clinic.address, // Include full address with suite
             'addressLocality': clinic.region.split(',')[0],
             'addressRegion': stateInfo.abbr,
             'addressCountry': 'US'
           },
-          'telephone': clinic.phone || '(561) 223-9959',
+          'telephone': MAIN_PHONE_E164, // E.164 format for schema
           'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`
         }
       }))
     };
+    
+    // FAQPage Schema
+    const faqSchema = stateFaqs.length > 0
+      ? generateFAQPageSchema(stateFaqs, `https://mountainspineorthopedics.com/locations/${state}`)
+      : null;
 
     return (
       <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -158,6 +210,12 @@ const StateHubJsonLdSchema = async ({ params }: { params: Promise<{ state: strin
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
         />
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
       </>
     );
 };
@@ -169,10 +227,12 @@ export default async function StateHubLayout({
     children: React.ReactNode;
     params: Promise<{ state: string }>;
 }) {
+    const resolvedParams = await params;
+    const schemaComponent = await StateHubJsonLdSchema({ params: Promise.resolve(resolvedParams) });
+    
     return (
         <>
-            {/* @ts-expect-error Async Server Component */}
-            <StateHubJsonLdSchema params={params} />
+            {schemaComponent}
             {children}
         </>
     );
