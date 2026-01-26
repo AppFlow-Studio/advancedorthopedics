@@ -124,7 +124,7 @@ const aboutPageSchema = {
       },
       {
         "@type": "PostalAddress",
-        "streetAddress": "499 E Central Pkwy #130",
+        "streetAddress": "499 E Central Pkwy, Suite 130",
         "addressLocality": "Altamonte Springs",
         "addressRegion": "FL",
         "postalCode": "32701",

@@ -1,4 +1,5 @@
 import { ClinicsProps } from '@/components/data/clinics';
+import { MAIN_PHONE_E164, LOCATION_OPENING_HOURS } from '@/lib/locationConstants';
 
 // Expected GBP addresses for validation (development mode only)
 const GBP_ADDRESSES: Record<string, string> = {
@@ -6,8 +7,8 @@ const GBP_ADDRESSES: Record<string, string> = {
   'hollywood-fl-orthopedics': '3500 Tyler St, Hollywood, FL 33021',
   'palm-beach-gardens-orthopedics': '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
   'fort-pierce-orthopedics': '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
-  'jacksonville-orthopedics': '1205 Monument Rd, Jacksonville, FL 32225',
-  'altamonte-springs-orthopedics': '499 E Central Pkwy, Altamonte Springs, FL 32701', // Note: Two locations share slug
+  'jacksonville-orthopedics': '1205 Monument Rd, Suite 202, Jacksonville, FL 32225',
+  'altamonte-springs-orthopedics': '499 E Central Pkwy, Suite 130, Altamonte Springs, FL 32701', // Note: Two locations share slug
   'orlando-orthopedics': '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
   'boca-raton-orthopedics': '1905 Clint Moore Rd #300, Boca Raton, FL 33496'
 };
@@ -98,7 +99,10 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
     return srcMatch ? srcMatch[1] : undefined;
   };
 
+  // hasMap must be a valid URL string for schema.org
   const mapSrc = clinic.hasMap || extractMapSrc(clinic.mapEmbed) || clinic.placeUrl || clinic.link;
+  // Ensure we always have a valid URL - if none provided, generate a Google Maps search URL from address
+  const hasMapUrl = mapSrc || (clinic.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinic.address)}` : undefined);
 
   // Build identifier array from GBP data
   const identifiers: Array<{ '@type': string; propertyID: string; value: string }> = [];
@@ -169,16 +173,16 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
   // Build the enhanced schema
   const enhancedSchema: Record<string, any> = {
     '@context': 'https://schema.org',
-    '@type': 'MedicalClinic',
+    '@type': 'MedicalBusiness',
     '@id': canonicalUrl,
     'name': clinic.name,
     'description': clinic.metaDescription,
     'url': canonicalUrl,
-    'telephone': clinic.phone,
+    'telephone': MAIN_PHONE_E164,
     'identifier': identifiers.length > 0 ? identifiers : undefined,
     'sameAs': sameAs.length > 0 ? sameAs : undefined,
-    'hasMap': mapSrc,
-    'map': mapSrc,
+    'hasMap': hasMapUrl,
+    'map': hasMapUrl,
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': streetAddress,
@@ -216,21 +220,25 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
             'name': neighborhood
           })),
           {
-            '@type': 'City',
-            'name': addressLocality
+            '@type': 'AdministrativeArea',
+            'name': `${addressLocality}, ${addressRegion}`
+          },
+          {
+            '@type': 'AdministrativeArea',
+            'name': addressRegion
           }
         ]
       : [
           {
-            '@type': 'City',
-            'name': addressLocality
+            '@type': 'AdministrativeArea',
+            'name': `${addressLocality}, ${addressRegion}`
+          },
+          {
+            '@type': 'AdministrativeArea',
+            'name': addressRegion
           }
         ],
-    'openingHours': [
-      'Mo-Fr 08:00-20:00',
-      'Sa 08:00-20:00',
-      'Su 08:00-20:00'
-    ],
+    'openingHours': LOCATION_OPENING_HOURS,
     'openingHoursSpecification': [{
       '@type': 'OpeningHoursSpecification',
       'dayOfWeek': [
@@ -242,8 +250,8 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
         'Saturday',
         'Sunday'
       ],
-      'opens': '09:00',
-      'closes': '17:00'
+      'opens': '08:00',
+      'closes': '20:00'
     }],
     'priceRange': '$$',
     'parentOrganization': 'Mountain Spine & Orthopedics',

@@ -265,7 +265,7 @@ const BookAppointmentJsonLdSchema = () => {
         "telephone": "(561) 223-9959",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "1205 Monument Rd",
+          "streetAddress": "1205 Monument Rd, Suite 202",
           "addressLocality": "Jacksonville",
           "addressRegion": "FL",
           "postalCode": "32225",
@@ -283,7 +283,7 @@ const BookAppointmentJsonLdSchema = () => {
         "telephone": "(561) 223-9959",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "499 E Central Pkwy",
+          "streetAddress": "499 E Central Pkwy, Suite 130",
           "addressLocality": "Altamonte Springs",
           "addressRegion": "FL",
           "postalCode": "32701",
