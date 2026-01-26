@@ -16,6 +16,7 @@ import { StaticImageData } from 'next/image';
 import { Testimonial } from '../ui/testimonial-card';
 import { Marquee } from '../magicui/marquee';
 import Link from 'next/link';
+import { MAIN_PHONE_DISPLAY } from '@/lib/locationConstants';
 
 export interface Review {
   author: string;
@@ -25,7 +26,7 @@ export interface Review {
 
 // State type definitions for multi-state support
 export type StateAbbr = 'FL' | 'NJ' | 'NY' | 'PA';
-export type StateSlug = 'fl' | 'nj' | 'ny' | 'pa';
+export type StateSlug = 'florida' | 'new-jersey' | 'new-york' | 'pennsylvania';
 export type LocationType = 'office' | 'surgery-center';
 
 export interface ClinicsProps {
@@ -94,13 +95,13 @@ export const clinics: ClinicsProps[] = [
     lat: 26.01135480,
     lng: -80.17890730,
     address: '3500 Tyler St, Hollywood, FL 33021',
-    phone: '(754) 212-8736',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/sEddhMjGYvcWCUVe9',
     placeUrl: 'https://www.google.com/maps?cid=13658533427783630986',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.6782637587435!2d-80.18148222454842!3d26.011354777195972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ab9e1d398c07%3A0xbd8cdbc95bd7808a!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847098545!5m2!1sen!2sus',
     slug: 'hollywood-fl-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'hollywood-orthopedics',
     locationType: 'office',
     oldSlugs: ['hollywood-fl-orthopedics'],
@@ -505,7 +506,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Nancy D.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Hollywood provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Hollywood provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -540,7 +541,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Kevin J.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Hollywood provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Hollywood provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -586,24 +587,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Hollywood, FL location?",
-        answer: "Our Hollywood orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Hollywood, FL?",
+        answer: "Yes. Our Hollywood location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Hollywood without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Hollywood office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Hollywood, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Hollywood at 3500 Tyler St, Hollywood, FL 33021. We're located near Tyler Street for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Hollywood for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Hollywood location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Hollywood location?",
+        answer: "Patients visit our Hollywood clinic from Emerald Hills, Hollywood Hills, Hillcrest, Dania Beach, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Hollywood, FL?",
-        answer: "Our Hollywood clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under personal-injury protection (PIP) or workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Hollywood, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Hollywood orthopedic office?",
-        answer: "The Hollywood location offers convenient on-site or adjacent parking so patients can get in and out of the office quickly, including those using walkers, canes, or post-operative braces. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Hollywood, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -620,75 +621,75 @@ export const clinics: ClinicsProps[] = [
   },
   {
     id: 3,
-    name: 'Mountain Spine & Orthopedics Palm Springs, FL',
-    region: 'Palm Springs, FL',
+    name: 'Mountain Spine & Orthopedics Altamonte Springs - Casselberry',
+    region: 'Altamonte Springs - Casselberry, FL',
     lat: 28.67424510,
     lng: -81.37418900,
     address: '652 Palm Springs Dr, Altamonte Springs, FL 32701',
-    phone: '(407) 565-7598',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/aj8z81BVqczWk7c1A',
     placeUrl: 'https://www.google.com/maps?cid=4386170917009331132',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847345934!5m2!1sen!2sus',
     slug: 'palm-springs-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'palm-springs-orthopedics',
     locationType: 'office',
     paragraph: `
-    For the residents of Palm Springs and the surrounding Palm Beach County communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    For the residents of Altamonte Springs, Casselberry, and the surrounding Central Florida communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
     [PARAGRAPH BREAK]
-    Our Palm Springs clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. They are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, and degenerative disc disease. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    Our Altamonte Springs - Casselberry clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. They are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, and degenerative disc disease. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
     [PARAGRAPH BREAK]
-    Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in laser and endoscopic procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Trust Mountain Spine & Orthopedics in Palm Springs to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in laser and endoscopic procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Trust Mountain Spine & Orthopedics in Altamonte Springs - Casselberry to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
     keywords: [
-      'palm springs orthopedic surgeon',
-      'palm springs spine surgeon',
-      'minimally invasive spine surgery palm springs fl',
-      'Band-Aid Back Surgery palm springs fl',
-      'orthopedic surgery palm springs fl',
-      'joint replacement palm springs fl',
-      'orthopedic same-day appointments palm springs fl',
-      'orthopedic urgent care palm springs fl',
-      'spine specialist palm springs fl',
-      'orthopedic doctor palm springs fl',
-      'orthopedic laser spine surgery palm springs fl',
-      'foot and ankle surgeon palm springs fl',
-      'orthopedic in palm springs fl',
-      'orthopedic surgeon in palm springs florida',
-      'best orthopedic surgeon palm springs fl',
-      'orthopedic clinic palm springs fl',
-      'palm springs orthopedic care',
-      'spine specialists palm springs',
-      'orthopedic surgeons palm springs',
-      'orthopedic center palm springs',
-      'orthopedic near me palm springs',
-      'spine surgeon near me palm springs',
-      'orthopedic doctor near me palm springs',
-      'best orthopedic near me palm springs'
+      'altamonte springs orthopedic surgeon',
+      'altamonte springs spine surgeon',
+      'minimally invasive spine surgery altamonte springs fl',
+      'Band-Aid Back Surgery altamonte springs fl',
+      'orthopedic surgery altamonte springs fl',
+      'joint replacement altamonte springs fl',
+      'orthopedic same-day appointments altamonte springs fl',
+      'orthopedic urgent care altamonte springs fl',
+      'spine specialist altamonte springs fl',
+      'orthopedic doctor altamonte springs fl',
+      'orthopedic laser spine surgery altamonte springs fl',
+      'foot and ankle surgeon altamonte springs fl',
+      'orthopedic in altamonte springs fl',
+      'orthopedic surgeon in altamonte springs florida',
+      'best orthopedic surgeon altamonte springs fl',
+      'orthopedic clinic altamonte springs fl',
+      'altamonte springs casselberry orthopedic care',
+      'spine specialists casselberry',
+      'orthopedic surgeons casselberry',
+      'orthopedic center altamonte springs',
+      'orthopedic near me altamonte springs',
+      'spine surgeon near me casselberry',
+      'orthopedic doctor near me altamonte springs',
+      'best orthopedic near me casselberry'
     ],
-    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Palm Springs | Mountain Spine & Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Palm Springs. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Altamonte Springs - Casselberry | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in Altamonte Springs - Casselberry. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Palm Springs Spine and Orthopedic Specialists of Palm Beach County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Palm Springs residents can get world-class spine care right in their community. As your trusted Palm Springs orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. Our spine specialists in Palm Springs know life here is demanding. Our goal is to give you the best care so you can get back to your active life.</p>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Altamonte Springs - Casselberry Spine and Orthopedic Specialists</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Altamonte Springs and Casselberry residents can get world-class spine care right in their community. As your trusted Altamonte Springs - Casselberry orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. Our spine specialists in Altamonte Springs - Casselberry know life here is demanding. Our goal is to give you the best care so you can get back to your active life.</p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Palm Springs & Nearby Areas</h2>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs - Casselberry & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</Link>, <Link href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</Link>, <Link href='/conditions/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</Link>, <Link href='/conditions/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, and work injuries with personalized treatment plans.</p>
       </div>
     ),
     whyChoose: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Palm Springs Patients Choose Mountain Spine & Orthopedics:</h2>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Altamonte Springs - Casselberry Patients Choose Mountain Spine & Orthopedics:</h2>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
-          <li>Serving Palm Springs families</li>
+          <li>Serving Altamonte Springs and Casselberry families</li>
           <li>Same-day appointments available for urgent problems</li>
-          <li>Spanish-speaking staff for the diverse Palm Springs community</li>
-          <li>Free parking at our Palm Springs orthopedic center.</li>
+          <li>Spanish-speaking staff for the diverse Altamonte Springs - Casselberry community</li>
+          <li>Free parking at our Altamonte Springs - Casselberry orthopedic center.</li>
         </ul>
       </div>
     ),
@@ -710,25 +711,25 @@ export const clinics: ClinicsProps[] = [
           style={{ fontFamily: "var(--font-public-sans)" }}
           className="text-2xl md:text-3xl font-bold text-[#062044]"
         >
-          Advanced Orthopedic Treatment Technologies in Palm Springs
+          Advanced Orthopedic Treatment Technologies in Altamonte Springs - Casselberry
         </h2>
 
         <h3
           style={{ fontFamily: "var(--font-public-sans)" }}
           className="text-xl font-semibold text-[#062044] mt-2"
         >
-          Leading Spine Doctors in Palm Springs
+          Leading Spine Doctors in Altamonte Springs - Casselberry
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Palm Springs and surrounding communities.
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Altamonte Springs, Casselberry, and surrounding communities.
         </p>
 
         <h3
           style={{ fontFamily: "var(--font-public-sans)" }}
           className="text-xl font-semibold text-[#062044] mt-6"
         >
-          Expert Spine Surgeons in Palm Springs
+          Expert Spine Surgeons in Altamonte Springs - Casselberry
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
@@ -743,7 +744,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Below are the most common spine and nerve conditions we treat at our Palm Springs orthopedic center.
+          Below are the most common spine and nerve conditions we treat at our Altamonte Springs - Casselberry orthopedic center.
         </p>
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
@@ -895,7 +896,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          In Palm Springs, our surgeons focus on minimally invasive techniques and careful
+          In Altamonte Springs - Casselberry, our surgeons focus on minimally invasive techniques and careful
           incision placement that support faster healing and a quicker return to standing,
           walking, and working.
         </p>
@@ -903,17 +904,17 @@ export const clinics: ClinicsProps[] = [
     ),
     whatOurPatientsSay: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Palm Springs Patients Say</h2>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Altamonte Springs - Casselberry Patients Say</h2>
         <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
           <Testimonial
             name="Maria G."
-            role="Teacher, Palm Springs"
-            testimonial="After a car accident on Military Trail, I had debilitating neck pain. The orthopedic surgeons in Palm Springs here were so compassionate. Their non-surgical treatment plan gave me my life back. I'm so grateful for their care and for having such a great facility right here in Palm Springs."
+            role="Teacher, Altamonte Springs"
+            testimonial="After a car accident on Military Trail, I had debilitating neck pain. The orthopedic surgeons in Altamonte Springs - Casselberry here were so compassionate. Their non-surgical treatment plan gave me my life back. I'm so grateful for their care and for having such a great facility right here in Altamonte Springs."
           />
           <Testimonial
             name="David F."
             role="Retail Manager, Greenacres"
-            testimonial="Stocking shelves all day led to a herniated disc. A friend recommended this Palm Springs orthopedic center, and their minimally invasive approach was a game-changer. The recovery was fast, and the staff was fantastic. Truly the best spine and orthopedic specialists in the area."
+            testimonial="Stocking shelves all day led to a herniated disc. A friend recommended this Altamonte Springs - Casselberry orthopedic center, and their minimally invasive approach was a game-changer. The recovery was fast, and the staff was fantastic. Truly the best spine and orthopedic specialists in the area."
           />
         </div>
       </div>
@@ -923,17 +924,17 @@ export const clinics: ClinicsProps[] = [
     reviews: [
       {
         author: "Maria G.",
-        reviewBody: "After a car accident on Military Trail, I had debilitating neck pain. The orthopedic surgeons in Palm Springs here were so compassionate. Their non-surgical treatment plan gave me my life back. I'm so grateful for their care and for having such a great facility right here in Palm Springs.",
+        reviewBody: "After a car accident on Military Trail, I had debilitating neck pain. The orthopedic surgeons in Altamonte Springs - Casselberry here were so compassionate. Their non-surgical treatment plan gave me my life back. I'm so grateful for their care and for having such a great facility right here in Altamonte Springs.",
         reviewRating: 5
       },
       {
         author: "David F.",
-        reviewBody: "Stocking shelves all day led to a herniated disc. A friend recommended this Palm Springs orthopedic center, and their minimally invasive approach was a game-changer. The recovery was fast, and the staff was fantastic. Truly the best spine and orthopedic specialists in the area.",
+        reviewBody: "Stocking shelves all day led to a herniated disc. A friend recommended this Altamonte Springs - Casselberry orthopedic center, and their minimally invasive approach was a game-changer. The recovery was fast, and the staff was fantastic. Truly the best spine and orthopedic specialists in the area.",
         reviewRating: 5
       },
       {
         author: "Patricia W.",
-        reviewBody: "I've been dealing with chronic knee pain for years. The orthopedic specialists at Mountain Spine Orthopedics in Palm Springs took the time to understand my condition and recommended a treatment plan that finally gave me relief. The office staff is friendly and appointments are always on time.",
+        reviewBody: "I've been dealing with chronic knee pain for years. The orthopedic specialists at Mountain Spine Orthopedics in Altamonte Springs - Casselberry took the time to understand my condition and recommended a treatment plan that finally gave me relief. The office staff is friendly and appointments are always on time.",
         reviewRating: 5
       },
       {
@@ -943,7 +944,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Jennifer L.",
-        reviewBody: "I had a herniated disc that was causing severe leg pain. The team at Mountain Spine Orthopedics in Palm Springs diagnosed it quickly with their advanced imaging and got me on a treatment plan immediately. Within a month I was pain-free and back to my active lifestyle.",
+        reviewBody: "I had a herniated disc that was causing severe leg pain. The team at Mountain Spine Orthopedics in Altamonte Springs - Casselberry diagnosed it quickly with their advanced imaging and got me on a treatment plan immediately. Within a month I was pain-free and back to my active lifestyle.",
         reviewRating: 5
       },
       {
@@ -953,67 +954,67 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
         author: "Thomas H.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Palm Springs with severe lower back pain that was affecting my work. The team was professional and caring, taking time to explain all my treatment options. The minimally invasive procedure they performed worked perfectly and I'm back to work pain-free.",
+        reviewBody: "I came to Mountain Spine Orthopedics in Altamonte Springs - Casselberry with severe lower back pain that was affecting my work. The team was professional and caring, taking time to explain all my treatment options. The minimally invasive procedure they performed worked perfectly and I'm back to work pain-free.",
         reviewRating: 5
       },
       {
         author: "Nancy D.",
-        reviewBody: "The spine specialists at Mountain Spine Orthopedics in Palm Springs are excellent. I had been dealing with cervical pain and numbness for months. They quickly diagnosed the problem and provided treatment that worked. I'm grateful for their expertise and compassionate care.",
+        reviewBody: "The spine specialists at Mountain Spine Orthopedics in Altamonte Springs - Casselberry are excellent. I had been dealing with cervical pain and numbness for months. They quickly diagnosed the problem and provided treatment that worked. I'm grateful for their expertise and compassionate care.",
         reviewRating: 5
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Palm Springs provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Altamonte Springs - Casselberry provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
         author: "Linda S.",
-        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Palm Springs for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
+        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Altamonte Springs - Casselberry for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
         reviewRating: 5
       },
       {
         author: "Kevin J.",
-        reviewBody: "After injuring my ankle playing tennis, I needed expert orthopedic care. The foot and ankle specialists at Mountain Spine Orthopedics in Palm Springs provided excellent treatment. They got me back on the court faster than I thought possible.",
+        reviewBody: "After injuring my ankle playing tennis, I needed expert orthopedic care. The foot and ankle specialists at Mountain Spine Orthopedics in Altamonte Springs - Casselberry provided excellent treatment. They got me back on the court faster than I thought possible.",
         reviewRating: 5
       },
       {
         author: "Rebecca F.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Palm Springs is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Altamonte Springs - Casselberry is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
         reviewRating: 5
       },
       {
         author: "Christopher P.",
-        reviewBody: "After years of trying different treatments for my neck pain, I finally found relief at Mountain Spine Orthopedics in Palm Springs. The doctors are knowledgeable, compassionate, and truly care about their patients' outcomes. I highly recommend this practice.",
+        reviewBody: "After years of trying different treatments for my neck pain, I finally found relief at Mountain Spine Orthopedics in Altamonte Springs - Casselberry. The doctors are knowledgeable, compassionate, and truly care about their patients' outcomes. I highly recommend this practice.",
         reviewRating: 5
       },
       {
         author: "Michelle G.",
-        reviewBody: "The staff at Mountain Spine Orthopedics in Palm Springs made my entire experience comfortable and stress-free. From scheduling to post-operative care, everyone was professional and attentive. My recovery was faster than expected thanks to their expert care.",
+        reviewBody: "The staff at Mountain Spine Orthopedics in Altamonte Springs - Casselberry made my entire experience comfortable and stress-free. From scheduling to post-operative care, everyone was professional and attentive. My recovery was faster than expected thanks to their expert care.",
         reviewRating: 5
       },
       {
         author: "Daniel W.",
-        reviewBody: "I had a herniated disc that was causing severe sciatica. The team at Mountain Spine Orthopedics in Palm Springs quickly diagnosed the issue and provided a treatment plan that worked. I'm back to my normal activities without pain. Excellent care all around.",
+        reviewBody: "I had a herniated disc that was causing severe sciatica. The team at Mountain Spine Orthopedics in Altamonte Springs - Casselberry quickly diagnosed the issue and provided a treatment plan that worked. I'm back to my normal activities without pain. Excellent care all around.",
         reviewRating: 5
       },
       {
         author: "Amanda C.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Palm Springs with severe back pain that was affecting my daily life. The team was professional, caring, and took the time to explain my treatment options. The minimally invasive procedure they performed worked wonders and I'm pain-free now.",
+        reviewBody: "I came to Mountain Spine Orthopedics in Altamonte Springs - Casselberry with severe back pain that was affecting my daily life. The team was professional, caring, and took the time to explain my treatment options. The minimally invasive procedure they performed worked wonders and I'm pain-free now.",
         reviewRating: 5
       },
       {
         author: "Edward N.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Palm Springs is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Altamonte Springs - Casselberry is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
         reviewRating: 5
       },
       {
         author: "Barbara K.",
-        reviewBody: "I've been dealing with arthritis in multiple joints for years. The orthopedic doctors at Mountain Spine Orthopedics in Palm Springs created a comprehensive treatment plan that addresses all my pain points. The care is personalized and effective.",
+        reviewBody: "I've been dealing with arthritis in multiple joints for years. The orthopedic doctors at Mountain Spine Orthopedics in Altamonte Springs - Casselberry created a comprehensive treatment plan that addresses all my pain points. The care is personalized and effective.",
         reviewRating: 5
       },
       {
@@ -1023,70 +1024,70 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Sandra B.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Palm Springs provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Altamonte Springs - Casselberry provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
         author: "Gregory S.",
-        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Palm Springs for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
+        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Altamonte Springs - Casselberry for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
         reviewRating: 5
       },
       {
         author: "Lisa P.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Palm Springs is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Altamonte Springs - Casselberry is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
         reviewRating: 5
       },
       {
         author: "Brian K.",
-        reviewBody: "After years of trying different treatments for my neck pain, I finally found relief at Mountain Spine Orthopedics in Palm Springs. The doctors are knowledgeable, compassionate, and truly care about their patients' outcomes. I highly recommend this practice.",
+        reviewBody: "After years of trying different treatments for my neck pain, I finally found relief at Mountain Spine Orthopedics in Altamonte Springs - Casselberry. The doctors are knowledgeable, compassionate, and truly care about their patients' outcomes. I highly recommend this practice.",
         reviewRating: 5
       },
       {
         author: "Carolyn J.",
-        reviewBody: "The staff at Mountain Spine Orthopedics in Palm Springs made my entire experience comfortable and stress-free. From scheduling to post-operative care, everyone was professional and attentive. My recovery was faster than expected thanks to their expert care.",
+        reviewBody: "The staff at Mountain Spine Orthopedics in Altamonte Springs - Casselberry made my entire experience comfortable and stress-free. From scheduling to post-operative care, everyone was professional and attentive. My recovery was faster than expected thanks to their expert care.",
         reviewRating: 5
       },
       {
         author: "Deborah K.",
-        reviewBody: "I had a herniated disc that was causing severe sciatica. The team at Mountain Spine Orthopedics in Palm Springs quickly diagnosed the issue and provided a treatment plan that worked. I'm back to my normal activities without pain. Excellent care all around.",
+        reviewBody: "I had a herniated disc that was causing severe sciatica. The team at Mountain Spine Orthopedics in Altamonte Springs - Casselberry quickly diagnosed the issue and provided a treatment plan that worked. I'm back to my normal activities without pain. Excellent care all around.",
         reviewRating: 5
       },
       {
         author: "Victoria M.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Palm Springs with severe hip pain that was affecting my daily activities. The orthopedic specialists provided excellent care and got me back to my active lifestyle. The entire team was professional and caring.",
+        reviewBody: "I came to Mountain Spine Orthopedics in Altamonte Springs - Casselberry with severe hip pain that was affecting my daily activities. The orthopedic specialists provided excellent care and got me back to my active lifestyle. The entire team was professional and caring.",
         reviewRating: 5
       },
       {
         author: "Frank L.",
-        reviewBody: "After years of dealing with chronic back pain, I finally found relief at Mountain Spine Orthopedics in Palm Springs. The doctors took time to understand my condition and provided a treatment plan that worked. I'm grateful for their expertise.",
+        reviewBody: "After years of dealing with chronic back pain, I finally found relief at Mountain Spine Orthopedics in Altamonte Springs - Casselberry. The doctors took time to understand my condition and provided a treatment plan that worked. I'm grateful for their expertise.",
         reviewRating: 5
       },
       {
         author: "Nicole K.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Palm Springs is exceptional. I had rotator cuff surgery and the recovery went smoothly. The follow-up care was thorough and I felt well-supported throughout the process.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Altamonte Springs - Casselberry is exceptional. I had rotator cuff surgery and the recovery went smoothly. The follow-up care was thorough and I felt well-supported throughout the process.",
         reviewRating: 5
       }
     ],
     faqs: [
       {
-        question: "What makes your Palm Springs orthopedic clinic different from other providers nearby?",
-        answer: "Our Palm Springs office is dedicated to spine and orthopedic conditions only, so every visit is focused on bones, joints, muscles, and nerves. Patients benefit from surgeons and specialists who routinely perform complex spine and joint procedures, along with non-surgical options like injections and bracing when appropriate."
+        question: "Do you offer same-day orthopedic appointments in Altamonte Springs - Casselberry, FL?",
+        answer: "Yes. Our Altamonte Springs - Casselberry location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Do you treat car-accident and slip-and-fall injuries at the Palm Springs location?",
-        answer: "Yes. We regularly evaluate patients with neck pain, back pain, shoulder injuries, and other orthopedic problems after car accidents or slip-and-fall incidents. Our team understands PIP and injury-claim documentation and can coordinate care with your attorney or insurance adjuster when needed."
+        question: "Where is your Altamonte Springs - Casselberry, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Altamonte Springs - Casselberry at 652 Palm Springs Dr, Altamonte Springs, FL 32701. We're located on Palm Springs Dr for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Can I have my MRI reviewed by a Palm Springs spine specialist?",
-        answer: "If you already have an MRI or CT scan, you can schedule a consultation at our Palm Springs clinic to review your images and discuss treatment options. We'll explain your report in clear language, compare it to your symptoms, and outline both surgical and non-surgical paths based on your goals."
+        question: "What areas do you serve from your Altamonte Springs - Casselberry location?",
+        answer: "Patients visit our Altamonte Springs - Casselberry clinic from Orlando, Winter Park, Maitland, and surrounding Central Florida communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Do you offer minimally invasive spine surgery in Palm Springs, FL?",
-        answer: "Many patients seen in our Palm Springs office are candidates for minimally invasive procedures such as microdiscectomy, decompression, or fusion, depending on their diagnosis. Your surgeon will review imaging, exam findings, and prior treatments to determine if minimally invasive surgery is appropriate in your case."
+        question: "What conditions do you treat at your Altamonte Springs - Casselberry, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "How far in advance should I book a new-patient appointment in Palm Springs?",
-        answer: "Appointment availability changes week to week, but we recommend calling as soon as your symptoms start affecting work, sleep, or daily activities. Our scheduling team will look for the nearest opening with the right specialist and can often place you on a cancellation list to be seen sooner."
+        question: "Do you accept insurance at your Altamonte Springs - Casselberry, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -1101,13 +1102,13 @@ export const clinics: ClinicsProps[] = [
     lat: 28.5136111,
     lng: -81.466257,
     address: '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
-    phone: '(407) 960-1717',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/Nd7doQdBDtQjfQwKA',
     placeUrl: 'https://www.google.com/maps?cid=10592483445661608044',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8682598319447!2d-81.46883192446174!3d28.51361107572991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e779a3bc5009bf%3A0x93000f928bdda86c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847256751!5m2!1sen!2sus',
     slug: 'orlando-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'orlando-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -1467,7 +1468,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -1482,7 +1483,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Orlando provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Orlando provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -1537,7 +1538,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Sandra B.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Orlando provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Orlando provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -1553,24 +1554,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "Which spine and joint surgeries are most commonly performed for Orlando patients?",
-        answer: "Common procedures for our Orlando patients include cervical and lumbar fusion, artificial disc replacement when appropriate, decompression for spinal stenosis, rotator cuff and shoulder repairs, knee arthroscopy, and joint replacements. Your surgeon will only recommend surgery after conservative treatments have been reviewed or attempted."
+        question: "Do you offer same-day orthopedic appointments in Orlando, FL?",
+        answer: "Yes. Our Orlando location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Do you offer second opinions for spine surgery in Orlando?",
-        answer: "Yes. Many Orlando patients visit us for a second opinion after being told they need spine or joint surgery elsewhere. We review your imaging, prior notes, and exam findings to confirm the diagnosis, discuss all available options, and help you feel confident in your treatment decision."
+        question: "Where is your Orlando, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Orlando at 6150 Metrowest Blvd STE 102, Orlando, FL 32835. We're located near Metrowest Blvd for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Is your Orlando orthopedic clinic convenient for theme-park and hospitality workers?",
-        answer: "Our Orlando location was chosen to be accessible for local residents as well as hospitality, healthcare, and service-industry workers who spend long hours on their feet. We understand how physically demanding these jobs can be and tailor treatment plans to help you return to work safely, with a focus on function and long-term joint health."
+        question: "What areas do you serve from your Orlando location?",
+        answer: "Patients visit our Orlando clinic from Winter Park, Altamonte Springs, Kissimmee, and surrounding central Florida communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "What should I bring to my first orthopedic appointment in Orlando?",
-        answer: "Please bring a photo ID, insurance card, medication list, and any prior imaging (CDs or reports) or records related to your spine or joint problem. This information helps our Orlando specialists quickly understand your history and avoid repeating tests unnecessarily."
+        question: "What conditions do you treat at your Orlando, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Do you offer telehealth follow-up visits for Orlando patients?",
-        answer: "When appropriate and allowed by your insurance plan, some follow-up visits—such as medication checks, post-operative check-ins, or review of imaging—may be done via telehealth. Your provider will let you know when an in-person exam is required versus when a virtual appointment is safe and convenient."
+        question: "Do you accept insurance at your Orlando, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -1595,10 +1596,10 @@ export const clinics: ClinicsProps[] = [
     link: 'https://maps.app.goo.gl/ckuRiBAYkA5GWiJZA',
     placeUrl: 'https://www.google.com/maps?cid=9772625750569427516',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.207042187583!2d-80.35092002450014!3d27.431657576341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88def1ccecab48b7%3A0x879f5757b186a23c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847379396!5m2!1sen!2sus',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     slug: 'fort-pierce-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'fort-pierce-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -1951,7 +1952,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -1966,7 +1967,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Fort Pierce provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Fort Pierce provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -2037,24 +2038,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "Do you see both workers' compensation and retiree patients in Fort Pierce?",
-        answer: "Yes. Our Fort Pierce orthopedic clinic cares for a wide range of patients, from employees injured on the job to retirees dealing with arthritis, spinal stenosis, or joint degeneration. We coordinate closely with case managers and primary doctors to keep everyone updated on your progress."
+        question: "Do you offer same-day orthopedic appointments in Fort Pierce, FL?",
+        answer: "Yes. Our Fort Pierce location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can Fort Pierce patients have spine surgery locally, or do they need to travel?",
-        answer: "Many spine and orthopedic procedures for Fort Pierce patients can be performed at partner surgical centers or hospitals within reasonable driving distance. Your surgeon will explain where your specific procedure would take place and how post-operative follow-up visits will be scheduled at the Fort Pierce office."
+        question: "Where is your Fort Pierce, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Fort Pierce at 2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950. We're located near Nebraska Ave for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "How quickly can I get in after a new back or neck injury in Fort Pierce?",
-        answer: "We reserve some appointment slots for patients with new or worsening symptoms, such as sudden severe back pain, radiating leg pain, or new numbness or weakness. Call our main line as soon as symptoms appear so we can triage your case and work to schedule you promptly."
+        question: "What areas do you serve from your Fort Pierce location?",
+        answer: "Patients visit our Fort Pierce clinic from Port St. Lucie, Vero Beach, Stuart, and surrounding Treasure Coast communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "What non-surgical options are available at the Fort Pierce orthopedic clinic?",
-        answer: "Before discussing surgery, we often recommend medications, bracing, and image-guided injections where appropriate. Our goal is to reduce pain and improve function using the least invasive effective options; surgery is reserved for cases where conservative treatment has not provided enough relief."
+        question: "What conditions do you treat at your Fort Pierce, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Do you treat sports and fishing-related injuries in Fort Pierce?",
-        answer: "Yes. We commonly see shoulder, elbow, knee, and back issues linked to recreational sports, boating, and fishing activities common along the Treasure Coast. Our orthopedic specialists focus on restoring strength and range of motion so you can safely return to the activities you enjoy."
+        question: "Do you accept insurance at your Fort Pierce, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -2076,13 +2077,13 @@ export const clinics: ClinicsProps[] = [
     lat: 26.83086190,
     lng: -80.08748450,
     address: '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
-    phone: '(561) 556-1802',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/pduSNEN5vF3uDfVB7',
     placeUrl: 'https://www.google.com/maps?cid=9551232848950997571',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.285761930094!2d-80.09005942452085!3d26.830861876696165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88df2b301813d549%3A0x848ccbabe8c43243!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847227565!5m2!1sen!2sus',
     slug: 'palm-beach-gardens-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'palm-beach-gardens-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -2444,7 +2445,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Mark T.",
-        reviewBody: "After a work injury, I needed expert orthopedic care. Mountain Spine Orthopedics in Palm Beach Gardens provided comprehensive treatment including physical therapy coordination. The doctors are knowledgeable and the office runs efficiently.",
+        reviewBody: "After a work injury, I needed expert orthopedic care. Mountain Spine Orthopedics in Palm Beach Gardens provided comprehensive treatment including recovery coordination. The doctors are knowledgeable and the office runs efficiently.",
         reviewRating: 5
       },
       {
@@ -2479,7 +2480,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -2494,7 +2495,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Palm Beach Gardens provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Palm Beach Gardens provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -2540,24 +2541,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "Is your Palm Beach Gardens orthopedic office experienced with golf-related injuries?",
-        answer: "Yes. Many Palm Beach Gardens and Jupiter patients see us for low-back pain, neck pain, shoulder problems, and knee issues linked to golf and other rotational sports. Our goal is to relieve pain, improve mechanics, and help you return to the course with a safer swing."
+        question: "Do you offer same-day orthopedic appointments in Palm Beach Gardens, FL?",
+        answer: "Yes. Our Palm Beach Gardens location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Do you provide advanced spine surgery options in Palm Beach Gardens?",
-        answer: "Patients at this location have access to advanced options such as minimally invasive decompression, fusion, and when appropriate, artificial disc replacement. Your surgeon will review your imaging and history to determine which procedure, if any, best fits your condition."
+        question: "Where is your Palm Beach Gardens, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Palm Beach Gardens at 3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410. We're located near Burns Rd for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Are concierge-style or expedited appointments available in Palm Beach Gardens?",
-        answer: "While we do not advertise a formal concierge program, we understand that many Palm Beach Gardens patients have demanding schedules. Our team makes every effort to coordinate imaging, consultations, and pre-op visits efficiently, and will work with you to cluster appointments when possible."
+        question: "What areas do you serve from your Palm Beach Gardens location?",
+        answer: "Patients visit our Palm Beach Gardens clinic from Jupiter, West Palm Beach, North Palm Beach, and surrounding Palm Beach County communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "What insurance plans are accepted at the Palm Beach Gardens orthopedic clinic?",
-        answer: "Our practice works with many commercial PPO plans. When you call to schedule, our staff will verify your coverage and explain any co-pays or deductibles ahead of time."
+        question: "What conditions do you treat at your Palm Beach Gardens, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Can seasonal residents be seen at the Palm Beach Gardens location?",
-        answer: "Absolutely. We care for many \"snowbird\" patients who spend part of the year in Palm Beach County and the rest in another state. We can share records with your home physicians and coordinate care so that your treatment plan remains consistent year-round."
+        question: "Do you accept insurance at your Palm Beach Gardens, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -2574,61 +2575,61 @@ export const clinics: ClinicsProps[] = [
   },
   {
     id: 7,
-    name: 'Mountain Spine & Orthopedics Miami Beach',
-    region: 'Miami Beach, FL',
+    name: 'Mountain Spine & Orthopedics South Miami',
+    region: 'South Miami, FL',
     lat: 25.69602070,
     lng: -80.30127530,
     address: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
-    phone: '(954) 987-2047',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://www.google.com/maps/place/7000+SW+62+AVE+Suite+330,+South+Miami,+FL+33143-4716',
     slug: 'miami-beach-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'miami-beach-orthopedics',
     locationType: 'office',
     paragraph: `
     South Florida's most trusted spine and joint care center.
-    [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priorities. Experience the excellence that sets our Miami Beach orthopedic practice apart.
+    [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priorities. Experience the excellence that sets our South Miami orthopedic practice apart.
     [PARAGRAPH BREAK]At Mountain Spine & Orthopedics, we provide exceptional care using the latest treatments with a patient-first approach. Here's why families throughout South Florida choose us.
     `,
     keywords: [
-      'miami beach orthopedic surgeon',
-      'miami beach spine surgeon',
-      'minimally invasive spine surgery miami beach fl',
-      'Band-Aid Back Surgery miami beach fl',
-      'orthopedic surgery miami beach fl',
-      'joint replacement miami beach fl',
-      'orthopedic same-day appointments miami beach fl',
-      'orthopedic urgent care miami beach fl',
-      'spine specialist miami beach fl',
-      'orthopedic doctor miami beach fl',
-      'orthopedic laser spine surgery miami beach fl',
-      'foot and ankle surgeon miami beach fl',
-      'orthopedic in miami beach fl',
-      'orthopedic surgeon in miami beach florida',
+      'south miami orthopedic surgeon',
+      'south miami spine surgeon',
+      'minimally invasive spine surgery south miami fl',
+      'Band-Aid Back Surgery south miami fl',
+      'orthopedic surgery south miami fl',
+      'joint replacement south miami fl',
+      'orthopedic same-day appointments south miami fl',
+      'orthopedic urgent care south miami fl',
+      'spine specialist south miami fl',
+      'orthopedic doctor south miami fl',
+      'orthopedic laser spine surgery south miami fl',
+      'foot and ankle surgeon south miami fl',
+      'orthopedic in south miami fl',
+      'orthopedic surgeon in south miami florida',
       'minimally invasive spine surgery miami',
       'top knee replacement surgeon miami',
-      'hip replacement surgeon miami beach',
-      'rotator cuff surgery specialist miami beach',
+      'hip replacement surgeon south miami',
+      'rotator cuff surgery specialist south miami',
       'cervical spine surgeon miami',
       'orthopedic surgical associates miami',
-      'orthopedic near me miami beach',
-      'spine surgeon near me miami beach',
-      'orthopedic doctor near me miami beach',
-      'best orthopedic near me miami beach'
+      'orthopedic near me south miami',
+      'spine surgeon near me south miami',
+      'orthopedic doctor near me south miami',
+      'best orthopedic near me south miami'
     ],
-    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Miami Beach | Mountain Spine & Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Miami Beach. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in South Miami | Mountain Spine & Orthopedics',
+    metaDescription: 'Top-rated orthopedic and spine specialists in South Miami. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Miami Beach Spine and Orthopedic Specialists</h2>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>South Miami Spine and Orthopedic Specialists</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in South Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center in North Miami Beach offering same-day appointments for all your needs.</p>
       </div>
     ),
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <span className='font-bold'>orthopedic specialists</span> in Miami Beach are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <span className='font-bold'>orthopedic specialists</span> in South Miami are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -2640,7 +2641,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
-          <li>Our Miami Beach sports orthopedics team specializes in athletic injuries.</li>
+          <li>Our South Miami sports orthopedics team specializes in athletic injuries.</li>
         </ul>
       </div>
     ),
@@ -2668,25 +2669,25 @@ export const clinics: ClinicsProps[] = [
           style={{ fontFamily: "var(--font-public-sans)" }}
           className="text-2xl md:text-3xl font-bold text-[#062044]"
         >
-          Advanced Orthopedic Treatment Technologies in Miami Beach
+          Advanced Orthopedic Treatment Technologies in South Miami
         </h2>
 
         <h3
           style={{ fontFamily: "var(--font-public-sans)" }}
           className="text-xl font-semibold text-[#062044] mt-2"
         >
-          Leading Spine Doctors in Miami Beach
+          Leading Spine Doctors in South Miami
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout Miami Beach and surrounding communities.
+          At Mountain Spine & Orthopedics, our board-certified spine specialists provide advanced evaluation and treatment for chronic neck pain, lower back pain, sciatica, spinal stenosis, herniated discs, nerve compression, and trauma-related injuries. Our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain for patients throughout South Miami and surrounding communities.
         </p>
 
         <h3
           style={{ fontFamily: "var(--font-public-sans)" }}
           className="text-xl font-semibold text-[#062044] mt-6"
         >
-          Expert Spine Surgeons in Miami Beach
+          Expert Spine Surgeons in South Miami
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
@@ -2701,7 +2702,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Below are the most common spine and nerve conditions we treat at our Miami Beach orthopedic center.
+          Below are the most common spine and nerve conditions we treat at our South Miami orthopedic center.
         </p>
 
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
@@ -2853,7 +2854,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our Miami Beach team uses high-definition arthroscopy, advanced fixation hardware,
+          Our South Miami team uses high-definition arthroscopy, advanced fixation hardware,
           and individualized rehab programs so patients can safely work back toward their
           previous level of performance when medically appropriate.
         </p>
@@ -2864,9 +2865,9 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>What Our Patients Say</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Real residents share their life-changing experiences with Mountain Spine & Orthopedics. These verified patients with documented outcomes trusted us with their care and want to help other families make informed decisions about their spine health and recovery journey.</p>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
-          <Testimonial name="Maria R." role="Teacher, Miami-Dade County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This Miami Beach clinic truly understands working families." />
-          <Testimonial name="Dr. Carlos Mendez" role="Emergency Physician, Baptist Hospital Miami" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these Miami Beach orthopedic specialists because I've experienced their excellent care firsthand." />
-          <Testimonial name="James T." role="Construction Supervisor, Miami Beach" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month." />
+          <Testimonial name="Maria R." role="Teacher, Miami-Dade County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This South Miami clinic truly understands working families." />
+          <Testimonial name="Dr. Carlos Mendez" role="Emergency Physician, Baptist Hospital Miami" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these South Miami orthopedic specialists because I've experienced their excellent care firsthand." />
+          <Testimonial name="James T." role="Construction Supervisor, South Miami" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month." />
         </div>
       </div>
     ),
@@ -2875,12 +2876,12 @@ export const clinics: ClinicsProps[] = [
     reviews: [
       {
         author: "Maria R.",
-        reviewBody: "After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This Miami Beach clinic truly understands working families.",
+        reviewBody: "After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This South Miami clinic truly understands working families.",
         reviewRating: 5
       },
       {
         author: "Dr. Carlos Mendez",
-        reviewBody: "Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these Miami Beach orthopedic specialists because I've experienced their excellent care firsthand.",
+        reviewBody: "Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these South Miami orthopedic specialists because I've experienced their excellent care firsthand.",
         reviewRating: 5
       },
       {
@@ -2890,7 +2891,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Michelle R.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Miami Beach with severe lower back pain that was affecting my daily life. The doctors were thorough in their evaluation and provided a comprehensive treatment plan. The pain management techniques they used worked perfectly.",
+        reviewBody: "I came to Mountain Spine Orthopedics in South Miami with severe lower back pain that was affecting my daily life. The doctors were thorough in their evaluation and provided a comprehensive treatment plan. The pain management techniques they used worked perfectly.",
         reviewRating: 5
       },
       {
@@ -2900,12 +2901,12 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Angela M.",
-        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Miami Beach for my neck pain. The doctors take time to listen and explain all treatment options. The cervical injections they provided have significantly reduced my pain. I highly recommend this practice.",
+        reviewBody: "I've been a patient at Mountain Spine Orthopedics in South Miami for my neck pain. The doctors take time to listen and explain all treatment options. The cervical injections they provided have significantly reduced my pain. I highly recommend this practice.",
         reviewRating: 5
       },
       {
         author: "Paul D.",
-        reviewBody: "After my sports injury, I needed expert orthopedic care. The team at Mountain Spine Orthopedics in Miami Beach provided excellent treatment and got me back to my activities quickly. The doctors are knowledgeable and the care is personalized.",
+        reviewBody: "After my sports injury, I needed expert orthopedic care. The team at Mountain Spine Orthopedics in South Miami provided excellent treatment and got me back to my activities quickly. The doctors are knowledgeable and the care is personalized.",
         reviewRating: 5
       },
       {
@@ -2915,7 +2916,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Patricia W.",
-        reviewBody: "I've been dealing with chronic knee pain for years. The orthopedic specialists at Mountain Spine Orthopedics in Miami Beach took the time to understand my condition and recommended a treatment plan that finally gave me relief. The office staff is friendly and appointments are always on time.",
+        reviewBody: "I've been dealing with chronic knee pain for years. The orthopedic specialists at Mountain Spine Orthopedics in South Miami took the time to understand my condition and recommended a treatment plan that finally gave me relief. The office staff is friendly and appointments are always on time.",
         reviewRating: 5
       },
       {
@@ -2925,7 +2926,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Jennifer L.",
-        reviewBody: "I had a herniated disc that was causing severe leg pain. The team at Mountain Spine Orthopedics in Miami Beach diagnosed it quickly with their advanced imaging and got me on a treatment plan immediately. Within a month I was pain-free and back to my active lifestyle.",
+        reviewBody: "I had a herniated disc that was causing severe leg pain. The team at Mountain Spine Orthopedics in South Miami diagnosed it quickly with their advanced imaging and got me on a treatment plan immediately. Within a month I was pain-free and back to my active lifestyle.",
         reviewRating: 5
       },
       {
@@ -2935,67 +2936,67 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
         author: "Thomas H.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Miami Beach with severe lower back pain that was affecting my work. The team was professional and caring, taking time to explain all my treatment options. The minimally invasive procedure they performed worked perfectly and I'm back to work pain-free.",
+        reviewBody: "I came to Mountain Spine Orthopedics in South Miami with severe lower back pain that was affecting my work. The team was professional and caring, taking time to explain all my treatment options. The minimally invasive procedure they performed worked perfectly and I'm back to work pain-free.",
         reviewRating: 5
       },
       {
         author: "Nancy D.",
-        reviewBody: "The spine specialists at Mountain Spine Orthopedics in Miami Beach are excellent. I had been dealing with cervical pain and numbness for months. They quickly diagnosed the problem and provided treatment that worked. I'm grateful for their expertise and compassionate care.",
+        reviewBody: "The spine specialists at Mountain Spine Orthopedics in South Miami are excellent. I had been dealing with cervical pain and numbness for months. They quickly diagnosed the problem and provided treatment that worked. I'm grateful for their expertise and compassionate care.",
         reviewRating: 5
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Miami Beach provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in South Miami provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
         author: "Linda S.",
-        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Miami Beach for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
+        reviewBody: "I've been a patient at Mountain Spine Orthopedics in South Miami for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
         reviewRating: 5
       },
       {
         author: "Kevin J.",
-        reviewBody: "After injuring my ankle playing tennis, I needed expert orthopedic care. The foot and ankle specialists at Mountain Spine Orthopedics in Miami Beach provided excellent treatment. They got me back on the court faster than I thought possible.",
+        reviewBody: "After injuring my ankle playing tennis, I needed expert orthopedic care. The foot and ankle specialists at Mountain Spine Orthopedics in South Miami provided excellent treatment. They got me back on the court faster than I thought possible.",
         reviewRating: 5
       },
       {
         author: "Rebecca F.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Miami Beach is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in South Miami is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
         reviewRating: 5
       },
       {
         author: "Christopher P.",
-        reviewBody: "After years of trying different treatments for my neck pain, I finally found relief at Mountain Spine Orthopedics in Miami Beach. The doctors are knowledgeable, compassionate, and truly care about their patients' outcomes. I highly recommend this practice.",
+        reviewBody: "After years of trying different treatments for my neck pain, I finally found relief at Mountain Spine Orthopedics in South Miami. The doctors are knowledgeable, compassionate, and truly care about their patients' outcomes. I highly recommend this practice.",
         reviewRating: 5
       },
       {
         author: "Michelle G.",
-        reviewBody: "The staff at Mountain Spine Orthopedics in Miami Beach made my entire experience comfortable and stress-free. From scheduling to post-operative care, everyone was professional and attentive. My recovery was faster than expected thanks to their expert care.",
+        reviewBody: "The staff at Mountain Spine Orthopedics in South Miami made my entire experience comfortable and stress-free. From scheduling to post-operative care, everyone was professional and attentive. My recovery was faster than expected thanks to their expert care.",
         reviewRating: 5
       },
       {
         author: "Daniel W.",
-        reviewBody: "I had a herniated disc that was causing severe sciatica. The team at Mountain Spine Orthopedics in Miami Beach quickly diagnosed the issue and provided a treatment plan that worked. I'm back to my normal activities without pain. Excellent care all around.",
+        reviewBody: "I had a herniated disc that was causing severe sciatica. The team at Mountain Spine Orthopedics in South Miami quickly diagnosed the issue and provided a treatment plan that worked. I'm back to my normal activities without pain. Excellent care all around.",
         reviewRating: 5
       },
       {
         author: "Amanda C.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Miami Beach with severe back pain that was affecting my daily life. The team was professional, caring, and took the time to explain my treatment options. The minimally invasive procedure they performed worked wonders and I'm pain-free now.",
+        reviewBody: "I came to Mountain Spine Orthopedics in South Miami with severe back pain that was affecting my daily life. The team was professional, caring, and took the time to explain my treatment options. The minimally invasive procedure they performed worked wonders and I'm pain-free now.",
         reviewRating: 5
       },
       {
         author: "Edward N.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Miami Beach is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in South Miami is outstanding. I came in with chronic hip pain and they quickly identified the cause. The treatment plan they created has me moving comfortably again. Highly recommend.",
         reviewRating: 5
       },
       {
         author: "Barbara K.",
-        reviewBody: "I've been dealing with arthritis in multiple joints for years. The orthopedic doctors at Mountain Spine Orthopedics in Miami Beach created a comprehensive treatment plan that addresses all my pain points. The care is personalized and effective.",
+        reviewBody: "I've been dealing with arthritis in multiple joints for years. The orthopedic doctors at Mountain Spine Orthopedics in South Miami created a comprehensive treatment plan that addresses all my pain points. The care is personalized and effective.",
         reviewRating: 5
       },
       {
@@ -3005,45 +3006,45 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Gregory S.",
-        reviewBody: "I've been a patient at Mountain Spine Orthopedics in Miami Beach for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
+        reviewBody: "I've been a patient at Mountain Spine Orthopedics in South Miami for my degenerative disc disease. The doctors are thorough and explain everything in terms I can understand. The treatment plan they created has significantly reduced my pain and improved my quality of life.",
         reviewRating: 5
       },
       {
         author: "Victoria M.",
-        reviewBody: "I came to Mountain Spine Orthopedics in Miami Beach with severe hip pain that was affecting my daily activities. The orthopedic specialists provided excellent care and got me back to my active lifestyle. The entire team was professional and caring.",
+        reviewBody: "I came to Mountain Spine Orthopedics in South Miami with severe hip pain that was affecting my daily activities. The orthopedic specialists provided excellent care and got me back to my active lifestyle. The entire team was professional and caring.",
         reviewRating: 5
       },
       {
         author: "Frank L.",
-        reviewBody: "After years of dealing with chronic back pain, I finally found relief at Mountain Spine Orthopedics in Miami Beach. The doctors took time to understand my condition and provided a treatment plan that worked. I'm grateful for their expertise.",
+        reviewBody: "After years of dealing with chronic back pain, I finally found relief at Mountain Spine Orthopedics in South Miami. The doctors took time to understand my condition and provided a treatment plan that worked. I'm grateful for their expertise.",
         reviewRating: 5
       },
       {
         author: "Nicole K.",
-        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in Miami Beach is exceptional. I had rotator cuff surgery and the recovery went smoothly. The follow-up care was thorough and I felt well-supported throughout the process.",
+        reviewBody: "The orthopedic care at Mountain Spine Orthopedics in South Miami is exceptional. I had rotator cuff surgery and the recovery went smoothly. The follow-up care was thorough and I felt well-supported throughout the process.",
         reviewRating: 5
       }
     ],
     faqs: [
       {
-        question: "Do you treat hospitality and service-industry workers at the Miami Beach clinic?",
-        answer: "Yes. Many of our Miami Beach patients work in hotels, restaurants, nightlife, and tourism, which can be tough on the spine and joints. We design treatment plans around long shifts, standing for hours, and repetitive lifting so patients can safely stay in the workforce."
+        question: "Do you offer same-day orthopedic appointments in South Miami, FL?",
+        answer: "Yes. Our South Miami location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Is parking or public transit convenient for the Miami Beach orthopedic office?",
-        answer: "Our Miami Beach location is chosen for easy access by car and rideshare, with parking options nearby. If you rely on public transit, our staff can help you plan the best route when you call to schedule."
+        question: "Where is your South Miami, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in South Miami at 8000 SW 67th Ave 2nd Floor, Miami, FL 33143. We're located near SW 67th Ave for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Can I schedule a late-afternoon appointment after work in Miami Beach?",
-        answer: "Appointment times vary by day, but we understand many Miami Beach patients work non-traditional hours. Let our schedulers know your availability, and we will try to find a time that minimizes disruption to your work schedule."
+        question: "What areas do you serve from your South Miami location?",
+        answer: "Patients visit our South Miami clinic from South Beach, Coral Gables, Miami, and surrounding South Florida communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Do you see international visitors or part-time residents at the Miami Beach location?",
-        answer: "Yes. We treat many international visitors and patients who live part-time in South Florida. Our team can provide documentation to share with your doctors back home and coordinate follow-up plans if you will be leaving the country after initial treatment."
+        question: "What conditions do you treat at your South Miami, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "What types of pain are most commonly treated at Mountain Spine & Orthopedics Miami Beach?",
-        answer: "We frequently see patients for chronic low-back pain, neck pain, sciatica, herniated discs, arthritis, shoulder and knee injuries, and post-surgical pain that has not improved as expected. Each patient receives a personalized plan that may include therapy, injections, or surgery when needed."
+        question: "Do you accept insurance at your South Miami, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -3066,13 +3067,13 @@ export const clinics: ClinicsProps[] = [
     lat: 26.408839,
     lng: -80.125999,
     address: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
-    phone: '(561) 544-5501',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/w5ZB8jY4uj934Dwj8',
     placeUrl: 'https://www.google.com/maps?cid=15451539311650672620',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.4534724799364!2d-80.12857392453517!3d26.408838976951078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91f1fadf45eb3%3A0xd66ee5235fec0fec!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847155755!5m2!1sen!2sus',
     slug: 'boca-raton-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'boca-raton-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -3119,7 +3120,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Boca Raton & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our experienced <Link href="/locations/fl/fort-pierce-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our experienced <Link href="/locations/florida/fort-pierce-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -3132,7 +3133,7 @@ export const clinics: ClinicsProps[] = [
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
           <li>Leading Boca Raton sports & orthopedic specialists focusing on athletic injuries.</li>
-          <li>Expert foot and ankle <Link href="/locations/fl/palm-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic care</Link> and podiatry services.</li>
+          <li>Expert foot and ankle <Link href="/locations/florida/palm-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic care</Link> and podiatry services.</li>
         </ul>
       </div>
     ),
@@ -3142,9 +3143,9 @@ export const clinics: ClinicsProps[] = [
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Fort Lauderdale - 31 minutes (21 miles)</li>
           <li>Fort Lauderdale Airport - 36 minutes (26 miles)</li>
-          <li>West <Link href="/locations/fl/palm-beach-gardens-orthopedics" className="text-[#0A50EC] underline">Palm Beach</Link> - 35 minutes (27 miles)</li>
+          <li>West <Link href="/locations/florida/palm-beach-gardens-orthopedics" className="text-[#0A50EC] underline">Palm Beach</Link> - 35 minutes (27 miles)</li>
           <li>Delray Beach - 15 minutes</li>
-          <li><Link href="/locations/fl/orlando-orthopedics" className="text-[#0A50EC] underline">Orlando</Link> - 3 hours (194 miles)</li>
+          <li><Link href="/locations/florida/orlando-orthopedics" className="text-[#0A50EC] underline">Orlando</Link> - 3 hours (194 miles)</li>
         </ul>
       </div>
     ),
@@ -3392,7 +3393,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Kevin J.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Boca Raton provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Boca Raton provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -3427,7 +3428,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -3442,7 +3443,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Boca Raton provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Boca Raton provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -3497,7 +3498,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Carolyn J.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Boca Raton provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Boca Raton provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -3513,24 +3514,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "Do you treat both everyday pain and complex spine cases in Boca Raton?",
-        answer: "Yes. Our Boca Raton orthopedic specialists see everything from new sprains and chronic neck pain to complex spinal deformities and revision surgeries. Whether you need a simple evaluation or have already been told you need major surgery, we can help you understand your options."
+        question: "Do you offer same-day orthopedic appointments in Boca Raton, FL?",
+        answer: "Yes. Our Boca Raton location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Are your Boca Raton surgeons experienced with active and athletic patients?",
-        answer: "Many Boca Raton patients are highly active, from gym-goers to competitive golfers and tennis players. We design treatment plans that prioritize returning to activity safely and protecting your long-term joint and spine health."
+        question: "Where is your Boca Raton, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Boca Raton at 1905 Clint Moore Rd #300, Boca Raton, FL 33496. We're located near Clint Moore Rd for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Can I transfer my care to Boca Raton if I started at another Mountain Spine location?",
-        answer: "Yes. Your medical records and imaging can be shared seamlessly across all Mountain Spine & Orthopedics locations. If Boca Raton is more convenient, our team can move your follow-up appointments here while keeping your original surgeon involved as needed."
+        question: "What areas do you serve from your Boca Raton location?",
+        answer: "Patients visit our Boca Raton clinic from Delray Beach, Deerfield Beach, Pompano Beach, and surrounding Palm Beach County communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "How early should I come to my first Boca Raton appointment?",
-        answer: "We recommend arriving 15–20 minutes early to complete any remaining forms, verify insurance, and allow for parking and building navigation. Bringing completed paperwork, ID, and prior imaging helps keep your visit on time."
+        question: "What conditions do you treat at your Boca Raton, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Does the Boca Raton clinic offer guidance on post-surgical recovery?",
-        answer: "Yes. If surgery is part of your treatment plan, we will outline a detailed recovery roadmap, including activity restrictions, milestones, and appropriate recovery guidance for your specific procedure."
+        question: "Do you accept insurance at your Boca Raton, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -3551,14 +3552,14 @@ export const clinics: ClinicsProps[] = [
     region: 'Central Pkwy Altamonte Springs, FL',
     lat: 28.6701508,
     lng: -81.3745803,
-    address: '499 E Central Pkwy, Altamonte Springs, FL 32701',
-    phone: '(407) 960-1717',
+    address: '499 E Central Pkwy, Suite 130, Altamonte Springs, FL 32701',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/uuqp3fHk8GCaAGe3A',
     placeUrl: 'https://www.google.com/maps?cid=8020463626324954519',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.583185993858!2d-81.37695957445597!3d28.672196525643102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7715cf458b751%3A0x6f4e692c850a4d97!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1761847304711!5m2!1sen!2sus',
     slug: 'altamonte-springs-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'altamonte-springs-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -3606,7 +3607,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central Florida families with high patient satisfaction</li>
@@ -3614,7 +3615,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible facility</li>
           <li>Most insurance plans accepted, including Workers' Compensation</li>
-          <li><Link href="/locations/fl/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in athletic injuries</li>
+          <li><Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in athletic injuries</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Easily Accessible From Throughout Central Florida:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
@@ -3625,7 +3626,7 @@ export const clinics: ClinicsProps[] = [
           <li>Lake Mary & Heathrow - 15 minutes</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Convenient for Lake Mary Residents</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic center in Altamonte Springs, FL</Link> is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic center in Altamonte Springs, FL</Link> is perfectly positioned to serve Lake Mary residents who need expert spine care. We're easily accessible from I-4 and State Road 436, making it simple for the Lake Mary community to receive advanced treatment close to home.</p>
       </div>
     ),
     whyChoose: (
@@ -3936,7 +3937,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -3951,7 +3952,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Altamonte Springs provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Altamonte Springs provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -4027,24 +4028,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "Is your Altamonte Springs orthopedic clinic easy to reach from I-4?",
-        answer: "Yes. Our Altamonte Springs office is located near major roads off I-4, making it convenient for commuters coming from North Orlando, Longwood, Maitland, and surrounding suburbs. When you schedule, our staff will provide detailed directions and parking information."
+        question: "Do you offer same-day orthopedic appointments in Altamonte Springs, FL?",
+        answer: "Yes. Our Altamonte Springs location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Do you see both spine and general orthopedic patients in Altamonte Springs?",
-        answer: "The Altamonte Springs clinic evaluates patients with back and neck pain, joint arthritis, sports injuries, and nerve-related symptoms like sciatica or arm pain. After a thorough exam and review of your history, we'll recommend conservative care, injections, or surgery when appropriate."
+        question: "Where is your Altamonte Springs, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Altamonte Springs at 499 E Central Pkwy, Suite 130, Altamonte Springs, FL 32701. We're located near E Central Pkwy for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Can I follow up in Altamonte Springs if my surgery is performed elsewhere?",
-        answer: "In many cases, yes. Depending on the procedure and facility, post-operative checkups can be scheduled at the Altamonte Springs office so you don't have to drive long distances while recovering. Your surgeon will confirm your follow-up plan after surgery."
+        question: "What areas do you serve from your Altamonte Springs location?",
+        answer: "Patients visit our Altamonte Springs clinic from North Orlando, Longwood, Maitland, and surrounding central Florida communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Do you offer imaging referrals near Altamonte Springs?",
-        answer: "If you need X-rays, MRI, or CT scans, we work with imaging centers close to Altamonte Springs and surrounding areas. We'll help you choose a location that fits your insurance and schedule so your studies are completed promptly."
+        question: "What conditions do you treat at your Altamonte Springs, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "How do I know if my back or neck pain is serious enough to see a specialist in Altamonte Springs?",
-        answer: "You should contact our office if pain lasts more than a few weeks, is severe, interferes with work or sleep, or is associated with leg or arm numbness, weakness, or loss of control. Our team can help determine how urgent your symptoms are and how soon you should be seen."
+        question: "Do you accept insurance at your Altamonte Springs, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -4054,7 +4055,7 @@ export const clinics: ClinicsProps[] = [
     businessProfileId: '5055918125423290349',
     kgId: '/g/11ydkt_ghw',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Podiatrist', 'Sports medicine clinic'],
-    formattedAddress: '499 E Central Pkwy, Altamonte Springs, FL 32701',
+    formattedAddress: '499 E Central Pkwy, Suite 130, Altamonte Springs, FL 32701',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=499%20E%20Central%20Pkwy%2C%20Altamonte%20Springs%2C%20FL%2032701',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=499%20E%20Central%20Pkwy%2C%20Altamonte%20Springs%2C%20FL%2032701',
   },
@@ -4065,11 +4066,11 @@ export const clinics: ClinicsProps[] = [
     lat: 28.1657874,
     lng: -81.6388572,
     address: '2400 North Blvd W Suite C, Davenport, FL 33837',
-    phone: '(863) 777-5805',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://www.google.com/maps/place/2400+North+Blvd+W,+Davenport,+FL+33837,+USA/@28.1674336,-81.6414992,17z/data=!3m1!4b1!4m6!3m5!1s0x88dd710dcdc14069:0x95933b5620dfb1e2!8m2!3d28.1674289!4d-81.6389243!16s%2Fg%2F11h08yw72b?entry=tts&g_ep=EgoyMDI0MDgyMS4wKgBIAVAD',
     slug: 'davenport-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'davenport-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -4117,7 +4118,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Davenport & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central Florida families with high patient satisfaction</li>
@@ -4135,7 +4136,7 @@ export const clinics: ClinicsProps[] = [
           <li>Kissimmee & Celebration - 20 minutes</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Convenient for Kissimmee Residents</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/fl/davenport-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists near Davenport, FL</Link> center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/davenport-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists near Davenport, FL</Link> center are ideally positioned to serve Kissimmee residents who need expert spine care. We're conveniently accessible from US-192 and I-4, making it simple for the Kissimmee community to receive advanced treatment close to home.</p>
       </div>
     ),
     whyChoose: (
@@ -4446,7 +4447,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -4461,7 +4462,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Davenport provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Davenport provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -4537,24 +4538,24 @@ export const clinics: ClinicsProps[] = [
     ],
     faqs: [
       {
-        question: "Do you treat Disney and tourism-industry workers at the Davenport clinic?",
-        answer: "Yes. Many Davenport patients work in or near the theme-park corridor and experience back, knee, or shoulder problems from long shifts and repetitive motion. We design treatment plans that respect your work demands while aiming to reduce pain and prevent further injury."
+        question: "Do you offer same-day orthopedic appointments in Davenport, FL?",
+        answer: "Yes. Our Davenport location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I be seen in Davenport if I recently moved to the area and don't have a local primary doctor yet?",
-        answer: "In many cases, yes. While some insurance plans require a primary-care referral, many PPO plans allow you to schedule directly. Our staff will check your benefits and let you know whether a referral is required before your appointment."
+        question: "Where is your Davenport, FL orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Davenport at 2400 North Blvd W Suite C, Davenport, FL 33837. We're located near North Blvd W for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "What kinds of injuries do you commonly see in Davenport?",
-        answer: "Common issues include chronic low-back pain, herniated discs, sciatica, shoulder and knee injuries, and foot and ankle problems from standing or walking all day. We also see patients after car accidents or slip-and-fall incidents along local roads and workplaces."
+        question: "What areas do you serve from your Davenport location?",
+        answer: "Patients visit our Davenport clinic from Kissimmee, Celebration, Haines City, and surrounding central Florida communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Are evening or early-morning appointments available in Davenport?",
-        answer: "Appointment times vary by provider, but we understand many Davenport patients start work early or finish late. When you call, let us know your schedule, and our team will search for time slots that minimize missed work."
+        question: "What conditions do you treat at your Davenport, FL location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "How do I transfer imaging from another state to the Davenport orthopedic office?",
-        answer: "If you recently relocated, you can mail or bring CDs and reports from your prior imaging, or have your previous facility send them directly to us. Having your films available at the first consult helps us avoid repeating tests and speeds up your treatment plan."
+        question: "Do you accept insurance at your Davenport, FL office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: "/newlogo4.png",
@@ -4567,14 +4568,14 @@ export const clinics: ClinicsProps[] = [
     region: 'Jacksonville, FL',
     lat: 30.34181030,
     lng: -81.53828930,
-    address: '1205 Monument Rd, Jacksonville, FL 32225',
-    phone: '(561) 223-9959',
+    address: '1205 Monument Rd, Suite 202, Jacksonville, FL 32225',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/iV8NEiErNEPKsmY7A',
     placeUrl: 'https://www.google.com/maps?cid=8805803724154439435',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.8307642541345!2d-81.54979192450683!3d30.334084408520497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b7cd9a1e1d05%3A0x9b6c8c8392e55d87!2s1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225!5e0!3m2!1sen!2sus!4v1761865000000!5m2!1sen!2sus',
     slug: 'jacksonville-orthopedics',
     stateAbbr: 'FL',
-    stateSlug: 'fl',
+    stateSlug: 'florida',
     locationSlug: 'jacksonville-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -4582,7 +4583,7 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     Patients in Jacksonville can expect board-certified spine and orthopedic surgeons experienced in treating back pain, herniated discs, spinal stenosis, and degenerative disc disease. Our goal is to reduce pain, restore motion, and improve quality of life through advanced diagnostics, evidence-based medicine, and compassionate care.
     [PARAGRAPH BREAK]
-    Located at 1205 Monument Rd, our Jacksonville office features state-of-the-art facilities, on-site evaluations, and surgical consultation services. Whether you need a spine specialist, a second surgical opinion, or targeted pain management, Mountain Spine & Orthopedics Jacksonville is your destination for world-class orthopedic care close to home.
+    Located at 1205 Monument Rd, Suite 202, our Jacksonville office features state-of-the-art facilities, on-site evaluations, and surgical consultation services. Whether you need a spine specialist, a second surgical opinion, or targeted pain management, Mountain Spine & Orthopedics Jacksonville is your destination for world-class orthopedic care close to home.
     `,
     keywords: [
       'orthopedic surgeon jacksonville fl',
@@ -4915,7 +4916,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Maria D.",
-        reviewBody: "After my work injury, I needed expert orthopedic care. Mountain Spine Orthopedics in Jacksonville provided comprehensive treatment including physical therapy coordination. The doctors explained everything clearly and the recovery went smoothly.",
+        reviewBody: "After my work injury, I needed expert orthopedic care. Mountain Spine Orthopedics in Jacksonville provided comprehensive treatment including recovery coordination. The doctors explained everything clearly and the recovery went smoothly.",
         reviewRating: 5
       },
       {
@@ -4950,7 +4951,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "Susan M.",
-        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including physical therapy referrals and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
+        reviewBody: "After my car accident, I had significant back and neck pain. Mountain Spine Orthopedics provided comprehensive care including rehabilitation plan coordination and follow-up appointments. The whole team made sure I understood my treatment plan every step of the way.",
         reviewRating: 5
       },
       {
@@ -4965,7 +4966,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James M.",
-        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Jacksonville provided excellent treatment including physical therapy coordination. The recovery went smoothly and I'm back to work without restrictions.",
+        reviewBody: "After injuring my shoulder at work, I needed expert orthopedic care. Mountain Spine Orthopedics in Jacksonville provided excellent treatment including recovery coordination. The recovery went smoothly and I'm back to work without restrictions.",
         reviewRating: 5
       },
       {
@@ -5064,7 +5065,7 @@ export const clinics: ClinicsProps[] = [
     businessProfileId: '1603346268883025043',
     kgId: '/g/11mk_m9mj_',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
-    formattedAddress: '1205 Monument Rd, Jacksonville, FL 32225',
+    formattedAddress: '1205 Monument Rd, Suite 202, Jacksonville, FL 32225',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225',
   },
@@ -5077,12 +5078,12 @@ export const clinics: ClinicsProps[] = [
     region: 'Bridgewater, NJ',
     lat: 40.5937911,
     lng: -74.6589961,
-    address: '1200 US-22, Suite 101, Bridgewater, NJ 08807',
-    phone: '(561) 223-9959',
+    address: '1200 US-22 #14, Bridgewater, NJ 08807',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/y9VbYhJzV7zL8A6L6',
     slug: 'bridgewater-orthopedics',
     stateAbbr: 'NJ',
-    stateSlug: 'nj',
+    stateSlug: 'new-jersey',
     locationSlug: 'bridgewater-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -5151,7 +5152,7 @@ export const clinics: ClinicsProps[] = [
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Bridgewater, NJ Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Bridgewater clinic is centrally located in the medical district, <strong>directly on US Route 22</strong>. We are located at 1200 US-22, Suite 101, offering easy access for patients coming from <strong>Somerville</strong> and <strong>Raritan</strong> via US-22.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Bridgewater clinic is centrally located in the medical district, <strong>directly on US Route 22</strong>. We are located at 1200 US-22 #14, offering easy access for patients coming from <strong>Somerville</strong> and <strong>Raritan</strong> via US-22.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
           <li><strong>From I-287:</strong> Take Exit 14 or 17 to access US-22. Our clinic is located on the eastbound side of US-22, just minutes from the interstate.</li>
@@ -5370,24 +5371,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Bridgewater, NJ location?",
-        answer: "Our Bridgewater orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Bridgewater, NJ?",
+        answer: "Yes. Our Bridgewater location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Bridgewater without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Bridgewater office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Bridgewater, NJ orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Bridgewater at 1200 US-22 #14, Bridgewater, NJ 08807. We're located near US-22 for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Bridgewater for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Bridgewater location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Bridgewater location?",
+        answer: "Patients visit our Bridgewater clinic from Somerville, Raritan, Bound Brook, Martinsville, Warren, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Bridgewater, NJ?",
-        answer: "Our Bridgewater clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Bridgewater, NJ location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Bridgewater orthopedic office?",
-        answer: "The Bridgewater location offers convenient on-site parking so patients can get in and out of the office quickly, including those using walkers, canes, or post-operative braces. Our clinic is located on US-22 with ample parking available. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Bridgewater, NJ office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -5401,12 +5402,12 @@ export const clinics: ClinicsProps[] = [
     lat: 39.8611882,
     lng: -74.976089,
     address: '100 Springdale Rd, Suite B5, Cherry Hill, NJ 08003',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/uX3L5x9N7Z7G9N7P9',
     placeUrl: 'https://www.google.com/maps?cid=14496800707702671205',
     slug: 'cherry-hill-orthopedics',
     stateAbbr: 'NJ',
-    stateSlug: 'nj',
+    stateSlug: 'new-jersey',
     locationSlug: 'cherry-hill-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -5732,11 +5733,11 @@ export const clinics: ClinicsProps[] = [
     lat: 40.5644,
     lng: -74.3298,
     address: '95 Wood Ave S, Suite 203, Edison, NJ 08820',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
     slug: 'edison-orthopedics',
     stateAbbr: 'NJ',
-    stateSlug: 'nj',
+    stateSlug: 'new-jersey',
     locationSlug: 'edison-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -6024,24 +6025,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Edison, NJ location?",
-        answer: "Our Edison orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Edison, NJ?",
+        answer: "Yes. Our Edison location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Edison without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Edison office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Edison, NJ orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Edison at 95 Wood Ave S, Suite 203, Edison, NJ 08820. We're located near Wood Ave S for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Edison for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Edison location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Edison location?",
+        answer: "Patients visit our Edison clinic from Iselin, Metuchen, Woodbridge, Rahway, Clark, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Edison, NJ?",
-        answer: "Our Edison clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Edison, NJ location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Edison orthopedic office?",
-        answer: "The Edison location offers multilevel parking garage attached to the 95 Wood Ave South office complex. Free parking is available, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Edison, NJ office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -6055,11 +6056,11 @@ export const clinics: ClinicsProps[] = [
     lat: 40.2598,
     lng: -74.2755,
     address: '9 W Main St, Suite 201, Freehold, NJ 07728',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
     slug: 'freehold-orthopedics',
     stateAbbr: 'NJ',
-    stateSlug: 'nj',
+    stateSlug: 'new-jersey',
     locationSlug: 'freehold-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -6378,11 +6379,11 @@ export const clinics: ClinicsProps[] = [
     lat: 40.9412,
     lng: -74.0725,
     address: '140 N State Rt 17, Suite 200, Paramus, NJ 07652',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/qX5N9x7P7Z7G9N7P9',
     slug: 'paramus-orthopedics',
     stateAbbr: 'NJ',
-    stateSlug: 'nj',
+    stateSlug: 'new-jersey',
     locationSlug: 'paramus-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -6670,24 +6671,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Paramus, NJ location?",
-        answer: "Our Paramus orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Paramus, NJ?",
+        answer: "Yes. Our Paramus location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Paramus without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Paramus office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Paramus, NJ orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Paramus at 140 N State Rt 17, Suite 200, Paramus, NJ 07652. We're located near State Rt 17 for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Paramus for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Paramus location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Paramus location?",
+        answer: "Patients visit our Paramus clinic from surrounding Bergen County communities and nearby areas throughout northern New Jersey. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Paramus, NJ?",
-        answer: "Our Paramus clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Paramus, NJ location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Paramus orthopedic office?",
-        answer: "The Paramus location offers a large open surface lot shared with other medical tenants in the professional building. Free parking is available on-site, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Paramus, NJ office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -6700,20 +6701,20 @@ export const clinics: ClinicsProps[] = [
     region: 'West Orange, NJ',
     lat: 40.7904153,
     lng: -74.2611222,
-    address: '375 Mt Pleasant Ave #2E, West Orange, NJ 07052',
-    phone: '(561) 223-9959',
+    address: '375 Mount Pleasant Ave, Unit 2E, West Orange, NJ 07052',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/pX5N9x7P7Z7G9N7P9',
     placeUrl: 'https://www.google.com/maps?cid=3546060446860709693',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.6789012345!2d-74.26098510!3d40.79046780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3f6g7h8i9j0k1%3A0x3l4m5n6o7p8q9r0!2sWest%20Orange%20Surgery%20Center!5e0!3m2!1sen!2sus!4v1705012345683!5m2!1sen!2sus',
     slug: 'west-orange-surgery-center',
     stateAbbr: 'NJ',
-    stateSlug: 'nj',
+    stateSlug: 'new-jersey',
     locationSlug: 'west-orange-surgery-center',
     locationType: 'surgery-center',
     paragraph: `
     The Mountain Spine & Orthopedics Surgery Center in West Orange, NJ provides state-of-the-art ambulatory surgical care for orthopedic and spine procedures. We understand that when surgery is necessary, patients deserve a focused, efficient experience with exceptional outcomes. Our mission is to provide our neighbors with the advanced, compassionate surgical care they need, right here in their own community.
     [PARAGRAPH BREAK]Our West Orange Surgery Center is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized surgical experience with a genuine commitment to patient well-being. Our modern ambulatory surgery facility is equipped with the latest technology for minimally invasive spine surgery, joint procedures, arthroscopic surgery, and other outpatient orthopedic operations. Patients benefit from a focused surgical environment with shorter wait times, lower infection rates, and faster discharge compared to traditional hospital settings. Each surgical plan is highly individualized, ensuring we address the specific surgical needs to achieve lasting clinical results.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced surgical tools and state-of-the-art, minimally invasive techniques, we perform complex procedures with precision and care. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 375 Mt Pleasant Ave, Suite 205, in West Orange, we're easily accessible from I-280 (Exit 6 or 7), Route 10, and Mount Pleasant Avenue, serving patients throughout Essex County, Morris County, and the greater Northern New Jersey region. Trust the West Orange Surgery Center to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced surgical tools and state-of-the-art, minimally invasive techniques, we perform complex procedures with precision and care. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 375 Mount Pleasant Ave, Unit 2E, in West Orange, we're easily accessible from I-280 (Exit 6 or 7), Route 10, and Mount Pleasant Avenue, serving patients throughout Essex County, Morris County, and the greater Northern New Jersey region. Trust the West Orange Surgery Center to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
     keywords: [
       'west orange surgery center',
@@ -6775,7 +6776,7 @@ export const clinics: ClinicsProps[] = [
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our West Orange, NJ Surgery Center</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our West Orange Surgery Center is centrally located in the <strong>Mount Pleasant medical district</strong>. We are located at 375 Mt Pleasant Ave, Suite 205, offering easy access for patients coming from <strong>Livingston</strong> and <strong>Montclair</strong> via Route 10.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our West Orange Surgery Center is centrally located in the <strong>Mount Pleasant medical district</strong>. We are located at 375 Mount Pleasant Ave, Unit 2E, offering easy access for patients coming from <strong>Livingston</strong> and <strong>Montclair</strong> via Route 10.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
           <li><strong>From I-280:</strong> Exit 6 or 7 provides immediate access to Mt Pleasant Ave. The facility is easily accessible from the interstate.</li>
@@ -6805,7 +6806,7 @@ export const clinics: ClinicsProps[] = [
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for West Orange & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern ambulatory surgery center in West Orange, NJ is perfectly positioned to serve <strong>Livingston</strong>, <strong>Montclair</strong>, <strong>Orange</strong>, Verona, South Orange, and Millburn residents who require outpatient orthopedic surgery. Located at 375 Mt Pleasant Ave, Suite 205, we're easily accessible from I-280, Route 10, and Mount Pleasant Avenue, making it simple for the local community to receive advanced surgical care close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern ambulatory surgery center in West Orange, NJ is perfectly positioned to serve <strong>Livingston</strong>, <strong>Montclair</strong>, <strong>Orange</strong>, Verona, South Orange, and Millburn residents who require outpatient orthopedic surgery. Located at 375 Mount Pleasant Ave, Unit 2E, we're easily accessible from I-280, Route 10, and Mount Pleasant Avenue, making it simple for the local community to receive advanced surgical care close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -7021,9 +7022,9 @@ export const clinics: ClinicsProps[] = [
     businessProfileId: '7142349567990884137',
     kgId: '/g/11yt169jlg',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Podiatrist', 'Sports medicine clinic'],
-    formattedAddress: '375 Mt Pleasant Ave, Suite 205, West Orange, NJ 07052',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=375%20Mt%20Pleasant%20Ave%2C%20Suite%20205%2C%20West%20Orange%2C%20NJ%2007052',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=375%20Mt%20Pleasant%20Ave%2C%20Suite%20205%2C%20West%20Orange%2C%20NJ%2007052',
+    formattedAddress: '375 Mount Pleasant Ave, Unit 2E, West Orange, NJ 07052',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=375%20Mount%20Pleasant%20Ave%2C%20Unit%202E%2C%20West%20Orange%2C%20NJ%2007052',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=375%20Mount%20Pleasant%20Ave%2C%20Unit%202E%2C%20West%20Orange%2C%20NJ%2007052',
   },
   // =====================================================
   // NEW YORK LOCATIONS
@@ -7035,13 +7036,13 @@ export const clinics: ClinicsProps[] = [
     lat: 40.754155,
     lng: -73.980395,
     address: '535 5th Ave, Suite 1012, New York, NY 10017',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/oX5N9x7P7Z7G9N7P9',
     placeUrl: 'https://www.google.com/maps?cid=5776462500461449645',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.7890123456!2d-73.97941220!3d40.75483640!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258abcdef0123%4A0x456789abcdef0123!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1705012345684!5m2!1sen!2sus',
     slug: 'new-york-city-orthopedics',
     stateAbbr: 'NY',
-    stateSlug: 'ny',
+    stateSlug: 'new-york',
     locationSlug: 'new-york-city-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -7335,24 +7336,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your NYC location?",
-        answer: "Our NYC orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in New York, NY?",
+        answer: "Yes. Our New York City location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in NYC without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our NYC office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your New York, NY orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in New York City at 535 5th Ave, Suite 1012, New York, NY 10017. We're located near 5th Ave in Midtown Manhattan for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in NYC for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our NYC location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your New York City location?",
+        answer: "Patients visit our New York City clinic from throughout Manhattan, Brooklyn, Queens, the Bronx, and surrounding New York metro area communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics NYC?",
-        answer: "Our NYC clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your New York, NY location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the NYC orthopedic office?",
-        answer: "The NYC location offers paid parking garages available on 44th and 45th St near the office. Street parking is not recommended in Midtown Manhattan. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth. The office is easily accessible by public transportation, with Grand Central Terminal just 0.1 miles away."
+        question: "Do you accept insurance at your New York, NY office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -7376,11 +7377,11 @@ export const clinics: ClinicsProps[] = [
     lat: 40.6035,
     lng: -75.4785,
     address: '487 W Linden St, Allentown, PA 18102',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/nX5N9x7P7Z7G9N7P9',
     slug: 'allentown-orthopedics',
     stateAbbr: 'PA',
-    stateSlug: 'pa',
+    stateSlug: 'pennsylvania',
     locationSlug: 'allentown-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -7665,24 +7666,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Allentown, PA location?",
-        answer: "Our Allentown orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Allentown, PA?",
+        answer: "Yes. Our Allentown location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Allentown without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Allentown office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Allentown, PA orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Allentown at 487 W Linden St, Allentown, PA 18102. We're located near W Linden St for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Allentown for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Allentown location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Allentown location?",
+        answer: "Patients visit our Allentown clinic from surrounding Lehigh Valley communities and nearby areas throughout eastern Pennsylvania. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Allentown, PA?",
-        answer: "Our Allentown clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Allentown, PA location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Allentown orthopedic office?",
-        answer: "The Allentown location offers paid street parking and municipal parking garages nearby (e.g., Spiral Deck). Parking is available, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Allentown, PA office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -7696,11 +7697,11 @@ export const clinics: ClinicsProps[] = [
     lat: 39.9496,
     lng: -75.1685,
     address: '1601 Walnut St, Suite 834, Philadelphia, PA 19102',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-walnut-orthopedics',
     stateAbbr: 'PA',
-    stateSlug: 'pa',
+    stateSlug: 'pennsylvania',
     locationSlug: 'philadelphia-walnut-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -7992,24 +7993,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Center City Philadelphia location?",
-        answer: "Our Center City Philadelphia orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Philadelphia, PA?",
+        answer: "Yes. Our Philadelphia location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Center City Philadelphia without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Center City Philadelphia office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Philadelphia, PA orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 1601 Walnut St, Suite 834, Philadelphia, PA 19102. We're located near Walnut St in Center City for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Center City Philadelphia for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Center City Philadelphia location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Philadelphia location?",
+        answer: "Patients visit our Philadelphia clinic from throughout Center City, surrounding Philadelphia neighborhoods, and nearby suburban communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Center City Philadelphia?",
-        answer: "Our Center City Philadelphia clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Philadelphia, PA location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Center City Philadelphia orthopedic office?",
-        answer: "The Center City Philadelphia location offers paid parking garages available nearby (e.g., 1625 Locust St garage). Limited street parking is available but not recommended. The office is easily accessible by SEPTA regional rail (Suburban Station 0.2 miles) and subway (Walnut-Locust Station 0.1 miles). When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Philadelphia, PA office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -8023,11 +8024,11 @@ export const clinics: ClinicsProps[] = [
     lat: 40.0060,
     lng: -75.1055,
     address: '3401 E. Tioga St, Philadelphia, PA 19134',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/sX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-tioga-orthopedics',
     stateAbbr: 'PA',
-    stateSlug: 'pa',
+    stateSlug: 'pennsylvania',
     locationSlug: 'philadelphia-tioga-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -8348,11 +8349,11 @@ export const clinics: ClinicsProps[] = [
     lat: 40.0340,
     lng: -75.1763,
     address: '5945 Germantown Ave, Suite A, Philadelphia, PA 19144',
-    phone: '(561) 223-9959',
+    phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-germantown-orthopedics',
     stateAbbr: 'PA',
-    stateSlug: 'pa',
+    stateSlug: 'pennsylvania',
     locationSlug: 'philadelphia-germantown-orthopedics',
     locationType: 'office',
     paragraph: `
@@ -8642,24 +8643,24 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
-        question: "What orthopedic and spine conditions do you treat at your Germantown location?",
-        answer: "Our Germantown orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
+        question: "Do you offer same-day orthopedic appointments in Philadelphia, PA?",
+        answer: "Yes. Our Philadelphia location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
       },
       {
-        question: "Can I see a spine surgeon in Germantown without a referral from another doctor?",
-        answer: "In many cases you can schedule directly with a spine surgeon or orthopedic specialist in our Germantown office, especially if you already have an MRI or long-standing pain. Some insurance plans may still require a referral, so our team will review your benefits and let you know if a referral from your primary care doctor is needed."
+        question: "Where is your Philadelphia, PA orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 5945 Germantown Ave, Suite A, Philadelphia, PA 19144. We're located near Germantown Ave for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
-        question: "Do you offer same-day or next-day appointments in Germantown for urgent injuries?",
-        answer: "We do our best to offer same-day or next-day appointments at our Germantown location for urgent orthopedic issues such as new back pain, suspected fractures, severe sciatica, or injuries after a car accident or fall. Call our main office line, and our scheduling team will prioritize your visit based on symptoms and imaging needs."
+        question: "What areas do you serve from your Philadelphia location?",
+        answer: "Patients visit our Philadelphia clinic from throughout Germantown and surrounding Philadelphia neighborhoods and communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
-        question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Germantown?",
-        answer: "Our Germantown clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
+        question: "What conditions do you treat at your Philadelphia, PA location?",
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
       },
       {
-        question: "Where can I park when I visit the Germantown orthopedic office?",
-        answer: "The Germantown location offers street parking available on Germantown Ave and nearby side streets. The office is also easily accessible by SEPTA bus routes along Germantown Ave and the Chestnut Hill West Line (Germantown Station 0.5 miles). When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Do you accept insurance at your Philadelphia, PA office—and what should I bring?",
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
