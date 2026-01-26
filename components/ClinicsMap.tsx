@@ -29,9 +29,10 @@ const defaultMapOptions = {
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
-export default function ClinicsMap({ startingClinic, showEmbed = false }: {
+export default function ClinicsMap({ startingClinic, showEmbed = false, stateName }: {
   startingClinic?: { id: number, name: string, lat: number, lng: number, address: string, link?: string, embedSrc?: string },
   showEmbed?: boolean,
+  stateName?: string,
 }) {
   const { location } = useGeolocation();
   
@@ -207,7 +208,7 @@ export default function ClinicsMap({ startingClinic, showEmbed = false }: {
       <div className="max-w-[1440px] w-full px-4 md:px-[40px] mx-auto mb-6 md:mb-8">
         <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
           <p style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-base md:text-lg text-[#424959] text-center leading-relaxed px-2">
-            Looking for an <strong className="text-[#0A50EC]">orthopedic near me</strong>? Find your nearest Florida spine and joint specialist at <strong>Mountain Spine & Orthopedics</strong>.
+            Looking for an <strong className="text-[#0A50EC]">orthopedic near me</strong>? Find your nearest {stateName ? `${stateName} ` : ''}spine and joint specialist at <strong>Mountain Spine & Orthopedics</strong>.
           </p>
         </div>
       </div>

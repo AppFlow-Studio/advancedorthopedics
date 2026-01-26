@@ -7,6 +7,7 @@ import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Link from 'next/link'
+import { LOCATION_HOURS_DISPLAY } from '@/lib/locationConstants'
 import {
     Carousel,
     CarouselContent,
@@ -89,24 +90,15 @@ export default function LocationsPicker() {
 
     // Location Card Component
     const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
-        <motion.div
-            key={index}
-            variants={isMobile ? undefined : itemVariants}
-            whileHover={isMobile ? undefined : "hover"}
-            onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-            onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-            onClick={() => {
-                // setSelectedLocation(clinic)
-                const goToSection = () => {
-                    const section = document.getElementById('Locations')
-                    if (section) {
-                        section.scrollIntoView({ block: 'start', behavior: 'smooth' })
-                    }
-                }
-                goToSection()
-            }}
-            className="group cursor-pointer h-full"
-        >
+        <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} className="block h-full">
+            <motion.div
+                key={index}
+                variants={isMobile ? undefined : itemVariants}
+                whileHover={isMobile ? undefined : "hover"}
+                onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+                onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+                className="group cursor-pointer h-full"
+            >
             <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5">
@@ -160,8 +152,7 @@ export default function LocationsPicker() {
                     <div className="flex items-start space-x-3 mb-6">
                         <Clock className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" />
                         <div className="text-[#424959] text-sm">
-                            <p className="font-medium">Monday - Saturday</p>
-                            <p>8:00 AM - 8:00 PM</p>
+                            <p className="font-medium">Hours: {LOCATION_HOURS_DISPLAY}</p>
                         </div>
                     </div>
 
@@ -191,7 +182,8 @@ export default function LocationsPicker() {
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
             </div>
-        </motion.div>
+            </motion.div>
+        </Link>
     )
     return (
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">

@@ -61,6 +61,10 @@ const nextConfig: NextConfig = {
     // --- ANTI-INFLAMMATORY INJECTIONS CONDITION TO TREATMENT REDIRECT ---
     {"source":"/area-of-specialty/anti-inflammatory-injections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
     
+    // --- CONDITION TO TREATMENT MIGRATION (surgery pages) ---
+    {"source":"/conditions/degenerative-disc-disease-surgery","destination":"/treatments/degenerative-disc-disease-surgery","permanent":true},
+    {"source":"/conditions/pseudarthrosis-revision-surgery","destination":"/treatments/pseudarthrosis-revision-surgery","permanent":true},
+    
     // --- CLINIC SLUG REDIRECTS ---
     {"source":"/locations/palm-spring-orthopedics","destination":"/locations/palm-springs-orthopedics","permanent":true},
     
@@ -71,6 +75,8 @@ const nextConfig: NextConfig = {
     {"source":"/about/meetourdoctors/dr.monicamcphailpruitt","destination":"/about/meetourdoctors/dr-monica-mcphail-pruitt","permanent":true},
     {"source":"/about/meetourdoctors/dr.douglasslaughter","destination":"/about/meetourdoctors/dr-douglas-slaughter","permanent":true},
     
+    // --- FACET TREATMENT SLUG RENAME (301) ---
+    {"source":"/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information","destination":"/treatments/facet-block-ablation-rhizotomy-and-facet-fusion","permanent":true},
     // --- SITEMAP SLUG REDIRECTS ---
     {"source":"/treatments/backpaintreatmentoptions","destination":"/treatments/back-pain-treatment-options","permanent":true},
     {"source":"/treatments/hammertoes","destination":"/treatments/hammer-toes","permanent":true},
@@ -186,17 +192,28 @@ const nextConfig: NextConfig = {
     {"source":"/treatments/spinalfusion","destination":"/treatments/spinal-fusion","permanent":true},
     
     // --- STATE-FIRST LOCATION URL REDIRECTS (Legacy -> New Canonical) ---
-    // Florida locations - redirect old slugs to new state-first structure
-    {"source":"/locations/hollywood-fl-orthopedics","destination":"/locations/fl/hollywood-orthopedics","permanent":true},
-    {"source":"/locations/palm-springs-orthopedics","destination":"/locations/fl/palm-springs-orthopedics","permanent":true},
-    {"source":"/locations/orlando-orthopedics","destination":"/locations/fl/orlando-orthopedics","permanent":true},
-    {"source":"/locations/fort-pierce-orthopedics","destination":"/locations/fl/fort-pierce-orthopedics","permanent":true},
-    {"source":"/locations/palm-beach-gardens-orthopedics","destination":"/locations/fl/palm-beach-gardens-orthopedics","permanent":true},
-    {"source":"/locations/miami-beach-orthopedics","destination":"/locations/fl/miami-beach-orthopedics","permanent":true},
-    {"source":"/locations/boca-raton-orthopedics","destination":"/locations/fl/boca-raton-orthopedics","permanent":true},
-    {"source":"/locations/altamonte-springs-orthopedics","destination":"/locations/fl/altamonte-springs-orthopedics","permanent":true},
-    {"source":"/locations/davenport-orthopedics","destination":"/locations/fl/davenport-orthopedics","permanent":true},
-    {"source":"/locations/jacksonville-orthopedics","destination":"/locations/fl/jacksonville-orthopedics","permanent":true}
+    // Florida locations - redirect old slugs to new state-first structure (using full state names)
+    {"source":"/locations/hollywood-fl-orthopedics","destination":"/locations/florida/hollywood-orthopedics","permanent":true},
+    {"source":"/locations/palm-springs-orthopedics","destination":"/locations/florida/palm-springs-orthopedics","permanent":true},
+    {"source":"/locations/orlando-orthopedics","destination":"/locations/florida/orlando-orthopedics","permanent":true},
+    {"source":"/locations/fort-pierce-orthopedics","destination":"/locations/florida/fort-pierce-orthopedics","permanent":true},
+    {"source":"/locations/palm-beach-gardens-orthopedics","destination":"/locations/florida/palm-beach-gardens-orthopedics","permanent":true},
+    {"source":"/locations/miami-beach-orthopedics","destination":"/locations/florida/miami-beach-orthopedics","permanent":true},
+    {"source":"/locations/boca-raton-orthopedics","destination":"/locations/florida/boca-raton-orthopedics","permanent":true},
+    {"source":"/locations/altamonte-springs-orthopedics","destination":"/locations/florida/altamonte-springs-orthopedics","permanent":true},
+    {"source":"/locations/davenport-orthopedics","destination":"/locations/florida/davenport-orthopedics","permanent":true},
+    {"source":"/locations/jacksonville-orthopedics","destination":"/locations/florida/jacksonville-orthopedics","permanent":true},
+    
+    // --- STATE SLUG MIGRATION REDIRECTS (Abbreviation -> Full Name) ---
+    // Redirect old abbreviation URLs to new full-name URLs for SEO preservation
+    {"source":"/locations/fl","destination":"/locations/florida","permanent":true},
+    {"source":"/locations/fl/:location*","destination":"/locations/florida/:location*","permanent":true},
+    {"source":"/locations/nj","destination":"/locations/new-jersey","permanent":true},
+    {"source":"/locations/nj/:location*","destination":"/locations/new-jersey/:location*","permanent":true},
+    {"source":"/locations/ny","destination":"/locations/new-york","permanent":true},
+    {"source":"/locations/ny/:location*","destination":"/locations/new-york/:location*","permanent":true},
+    {"source":"/locations/pa","destination":"/locations/pennsylvania","permanent":true},
+    {"source":"/locations/pa/:location*","destination":"/locations/pennsylvania/:location*","permanent":true}
     ];
   },
 

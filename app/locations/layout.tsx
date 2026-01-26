@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
+import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
-import { clinics } from "@/components/data/clinics"; // Import clinics data
-import { LocationItemListSchema } from "@/components/LocationItemListSchema"; // Import the new schema component
 
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Orthopedic Clinic Locations in FL, NJ, NY & PA | Mountain Spine & Orthopedics"),
@@ -37,11 +35,5 @@ export default function LocationsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      {/* Add the ItemList Schema component here */}
-      <LocationItemListSchema clinics={clinics} />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

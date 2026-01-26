@@ -1,8 +1,9 @@
 "use client";
 
 import { clinics } from "@/components/data/clinics";
-import { MapPin } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import Link from "next/link";
+import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, LOCATION_HOURS_DISPLAY } from "@/lib/locationConstants";
 
 export function LocationNAP({ slug }: { slug: string }) {
   const clinic = clinics.find((c) => c.slug === slug);
@@ -20,8 +21,8 @@ export function LocationNAP({ slug }: { slug: string }) {
         rounded-2xl
         px-5 py-3
         shadow-sm
-        flex items-center justify-between
-        flex-wrap
+        flex flex-col
+        space-y-2
       "
     >
       <div className="flex items-center space-x-2">
@@ -31,15 +32,34 @@ export function LocationNAP({ slug }: { slug: string }) {
         </span>
       </div>
 
-      {placeUrl && (
-        <Link
-          href={placeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#0A50EC] underline text-sm whitespace-nowrap ml-2"
+      <div className="flex items-center space-x-2">
+        <Phone className="text-[#0A50EC] w-5 h-5 flex-shrink-0" />
+        <a
+          href={`tel:${MAIN_PHONE_TEL}`}
+          className="text-[#111315] font-semibold text-base leading-tight hover:text-[#0A50EC] transition-colors"
         >
-          View on Google Maps
-        </Link>
+          {MAIN_PHONE_DISPLAY}
+        </a>
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <Clock className="text-[#0A50EC] w-5 h-5 flex-shrink-0" />
+        <span className="text-[#111315] font-semibold text-base leading-tight">
+          Hours: {LOCATION_HOURS_DISPLAY}
+        </span>
+      </div>
+
+      {placeUrl && (
+        <div className="pt-1">
+          <Link
+            href={placeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#0A50EC] underline text-sm whitespace-nowrap"
+          >
+            View on Google Maps
+          </Link>
+        </div>
       )}
     </div>
   );
