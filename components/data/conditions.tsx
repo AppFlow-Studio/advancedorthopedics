@@ -94,6 +94,7 @@ export interface ConditionContent {
   keywords?: string[];
   metaTitle?: string;
   metaDesc?: string;
+  updatedAt?: string;
 }
 
 // Legacy placeholder fallback (kept for backwards compatibility, but array is now empty)

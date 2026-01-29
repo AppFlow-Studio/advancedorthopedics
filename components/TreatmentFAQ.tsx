@@ -44,12 +44,9 @@ export default function TreatmentFAQ({ slug }: TreatmentFAQProps) {
             <article
               key={index}
               className={index !== faqs.length - 1 ? "pb-6 border-b border-[#DCDEE1]" : ""}
-              itemScope
-              itemType="https://schema.org/Question"
             >
               <h3 
                 id={questionId}
-                itemProp="name"
                 style={{
                   fontFamily: 'var(--font-public-sans)',
                   fontWeight: 500,
@@ -60,12 +57,8 @@ export default function TreatmentFAQ({ slug }: TreatmentFAQProps) {
               </h3>
               <div
                 id={answerId}
-                itemScope
-                itemType="https://schema.org/Answer"
-                itemProp="acceptedAnswer"
               >
                 <div
-                  itemProp="text"
                   style={{
                     fontFamily: 'var(--font-inter)',
                     fontWeight: 400,

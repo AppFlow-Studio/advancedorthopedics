@@ -204,7 +204,7 @@ const HomePage = () => {
                                             // href="https://www.mountainspineorthopedics.com/conditions"
                                             className="inline-flex items-center text-medical-blue-600 hover:text-medical-blue-700 text-sm font-medium mt-4 group"
                                         >
-                                            Learn More
+                                            Learn More About Orthopedic Conditions
                                             <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                         </div>
                                     </OrthoCardContent>

@@ -30,6 +30,7 @@ export interface DoctorProp {
     specialties: string[]; // For on-page display
     conditionsTreated: string[]; // For on-page display
     sameAs: string[]; // For schema
+    updatedAt?: string;
 }
 
 export const Doctors: DoctorProp[] = [

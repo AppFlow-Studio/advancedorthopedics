@@ -85,6 +85,7 @@ export interface ClinicsProps {
   // Google Maps URL fields
   googleMapsUrl?: string; // Google Maps search URL (non-GBP)
   hasMap?: string;        // Same as googleMapsUrl (for schema)
+  updatedAt?: string;
 }
 
 export const clinics: ClinicsProps[] = [

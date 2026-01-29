@@ -97,128 +97,7 @@ export async function generateMetadata(
     };
 }
 
-// State hub JSON-LD Schema
-const StateHubJsonLdSchema = async ({ params }: { params: Promise<{ state: string }> }) => {
-    const resolvedParams = await params;
-    const { state } = resolvedParams;
-    
-    if (!isValidStateSlug(state)) {
-        return null;
-    }
-    
-    const stateInfo = STATE_METADATA[state];
-    const stateClinics = getClinicsByState(state);
-    const stateFaqs = STATE_FAQS[state] || [];
-    
-    const canonicalUrl = `https://mountainspineorthopedics.com/locations/${state}`;
-    
-    // Generate top cities list for meta description
-    const topCities = stateClinics
-      .slice(0, 8)
-      .map(clinic => clinic.region.split(',')[0].trim())
-      .join(', ');
-    
-    const pageDescription = `Board-certified spine and orthopedic surgeons across ${stateInfo.name}. Locations in ${topCities}. Same-day and next-day appointments available.`;
-    
-    // CollectionPage Schema (main page schema)
-    const pageSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      'name': `Spine & Orthopedic Surgeons in ${stateInfo.name}`,
-      'description': pageDescription,
-      'url': canonicalUrl,
-      'about': {
-        '@type': 'MedicalOrganization',
-        'name': 'Mountain Spine & Orthopedics'
-      },
-      'areaServed': {
-        '@type': 'AdministrativeArea',
-        'name': stateInfo.name
-      }
-    };
-    
-    // Breadcrumb Schema
-    const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      'itemListElement': [
-        {
-          '@type': 'ListItem',
-          'position': 1,
-          'name': 'Home',
-          'item': 'https://mountainspineorthopedics.com/'
-        },
-        {
-          '@type': 'ListItem',
-          'position': 2,
-          'name': 'Locations',
-          'item': 'https://mountainspineorthopedics.com/locations'
-        },
-        {
-          '@type': 'ListItem',
-          'position': 3,
-          'name': stateInfo.name,
-          'item': `https://mountainspineorthopedics.com/locations/${state}`
-        }
-      ]
-    };
-    
-    // ItemList Schema for state clinics
-    const itemListSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      'name': `Mountain Spine & Orthopedics ${stateInfo.name} Locations`,
-      'description': `Orthopedic and spine clinic locations in ${stateInfo.name}`,
-      'numberOfItems': stateClinics.length,
-      'itemListElement': stateClinics.map((clinic, index) => ({
-        '@type': 'ListItem',
-        'position': index + 1,
-        'name': clinic.name,
-        'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
-        'item': {
-          '@type': 'MedicalBusiness',
-          'name': clinic.name,
-          'address': {
-            '@type': 'PostalAddress',
-            'streetAddress': clinic.address, // Include full address with suite
-            'addressLocality': clinic.region.split(',')[0],
-            'addressRegion': stateInfo.abbr,
-            'addressCountry': 'US'
-          },
-          'telephone': MAIN_PHONE_E164, // E.164 format for schema
-          'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`
-        }
-      }))
-    };
-    
-    // FAQPage Schema
-    const faqSchema = stateFaqs.length > 0
-      ? generateFAQPageSchema(stateFaqs, `https://mountainspineorthopedics.com/locations/${state}`)
-      : null;
-
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-        />
-        {faqSchema && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          />
-        )}
-      </>
-    );
-};
+// State hub JSON-LD Schema removed - moved to page.tsx to avoid duplication on sub-pages
 
 export default async function StateHubLayout({
     children,
@@ -227,12 +106,8 @@ export default async function StateHubLayout({
     children: React.ReactNode;
     params: Promise<{ state: string }>;
 }) {
-    const resolvedParams = await params;
-    const schemaComponent = await StateHubJsonLdSchema({ params: Promise.resolve(resolvedParams) });
-    
     return (
         <>
-            {schemaComponent}
             {children}
         </>
     );
