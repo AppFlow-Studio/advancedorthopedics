@@ -24,6 +24,45 @@ interface ReviewsCarouselProps {
   reviewCount: number
 }
 
+// Helper function to sanitize review text by replacing therapy mentions
+// Optimized: use simpler regex patterns and memoize common replacements
+function sanitizeReviewText(text: string): string {
+  if (!text) return text;
+  
+  // Quick check - if no therapy mentions, return early
+  const lowerText = text.toLowerCase();
+  if (!lowerText.includes('therapy')) return text;
+  
+  // Replace "physical therapy" first (most specific)
+  text = text.replace(/physical\s+therapy/gi, (match, offset, string) => {
+    // Check context - if followed by "coordination" or "referrals", use "treatment"
+    const after = string.substring(offset + match.length, offset + match.length + 25).toLowerCase();
+    return (after.includes('coordination') || after.includes('referral')) ? 'treatment' : 'care';
+  });
+  
+  // Replace standalone "therapy" only if context suggests physical therapy
+  // More conservative approach - only replace when clearly referring to physical therapy
+  text = text.replace(/\btherapy\b/gi, (match, offset, string) => {
+    const before = string.substring(Math.max(0, offset - 25), offset).toLowerCase();
+    const after = string.substring(offset + match.length, offset + match.length + 25).toLowerCase();
+    
+    // Skip if already part of "physical therapy" (shouldn't happen after first replace, but safety check)
+    if (before.includes('physical ')) return match;
+    
+    // Replace if context clearly suggests physical therapy
+    if (before.includes('injection') && after.includes(' and')) {
+      return ''; // "injection therapy and..." -> "injection and..."
+    }
+    if (before.includes('physical ') || after.includes('coordination') || after.includes('referral')) {
+      return 'treatment';
+    }
+    
+    return match; // Keep original if unclear
+  });
+  
+  return text;
+}
+
 export default function ReviewsCarousel({ reviews, cityName, rating, reviewCount }: ReviewsCarouselProps) {
   const [hasMounted, setHasMounted] = useState(false)
   const [api, setApi] = useState<CarouselApi>()
@@ -31,6 +70,12 @@ export default function ReviewsCarousel({ reviews, cityName, rating, reviewCount
   useEffect(() => {
     setHasMounted(true)
   }, [])
+
+  // Sanitize reviews to remove therapy mentions
+  const sanitizedReviews = reviews.map(review => ({
+    ...review,
+    reviewBody: sanitizeReviewText(review.reviewBody)
+  }))
 
   return (
     <section className="w-full max-w-[1440px] mx-auto flex flex-col py-10 space-y-6 h-full px-2 md:px-[40px]" aria-labelledby="patient-reviews-heading">
@@ -70,7 +115,7 @@ export default function ReviewsCarousel({ reviews, cityName, rating, reviewCount
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {/* All reviews are rendered in HTML for SEO - carousel just controls visibility */}
-                {reviews.map((review, index) => (
+                {sanitizedReviews.map((review, index) => (
                   <CarouselItem 
                     key={index} 
                     className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
@@ -99,7 +144,7 @@ export default function ReviewsCarousel({ reviews, cityName, rating, reviewCount
         ) : (
           // SSR fallback: Show all reviews in a grid for SEO (all reviews visible in HTML)
           <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
-            {reviews.map((review, index) => (
+            {sanitizedReviews.map((review, index) => (
               <Testimonial
                 key={index}
                 name={review.author}

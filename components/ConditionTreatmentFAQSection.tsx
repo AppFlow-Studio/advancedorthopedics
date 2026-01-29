@@ -12,8 +12,24 @@ interface ConditionTreatmentFAQSectionProps {
 function processTextWithBoldAndLinks(text: string, currentSlug: string) {
   if (!text || typeof text !== 'string') return text;
   
-  // Step 1: Convert **bold** markdown to <strong> tags first
-  let processed = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Step 0: Remove bold formatting from "Physical Therapy" / "physical therapy" (not a service we offer)
+  let processed = text.replace(/\*\*Physical Therapy\*\*/gi, 'Physical Therapy');
+  processed = processed.replace(/\*\*physical therapy\*\*/gi, 'physical therapy');
+  
+  // Step 1: ALWAYS convert **bold** markdown to <strong> tags first (even if HTML links exist)
+  // This handles cases where markdown is inside HTML links like <a>**text**</a>
+  processed = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  
+  // Step 2: Clean up Physical Therapy links/bold that might have been created
+  processed = processed.replace(/<a[^>]*>Physical Therapy<\/a>/gi, 'Physical Therapy')
+                       .replace(/<a[^>]*>physical therapy<\/a>/gi, 'physical therapy')
+                       .replace(/<strong>Physical Therapy<\/strong>/gi, 'Physical Therapy')
+                       .replace(/<strong>physical therapy<\/strong>/gi, 'physical therapy');
+  
+  // Step 3: If text already contains HTML links, we're done (don't add more links)
+  if (processed.includes('<a href=')) {
+    return processed;
+  }
   
   // Step 2: Build maps from conditions and treatments (include both old and new format)
   const conditionMap = Object.fromEntries([
@@ -31,21 +47,26 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
     ...allTreatmentContent.map(t => t.title)
   ];
   
-  // Step 3: Split text into segments (text and HTML tags) to avoid linking inside HTML
+  // Step 4: Linkify text that doesn't already have links
+  // Sort titles by length descending to avoid partial matches
+  const sortedTitles = allTitles.slice().sort((a, b) => b.length - a.length);
+  
+  // Track which slugs have already been linked
+  const linkedSlugs = new Set<string>();
+  
+  // Split into segments to avoid linking inside existing HTML tags
   const segments: Array<{ type: 'text' | 'html'; content: string }> = [];
   let lastIndex = 0;
   const tagRegex = /<[^>]+>/g;
   let tagMatch;
   
   while ((tagMatch = tagRegex.exec(processed)) !== null) {
-    // Add text before tag
     if (tagMatch.index > lastIndex) {
       segments.push({
         type: 'text',
         content: processed.substring(lastIndex, tagMatch.index)
       });
     }
-    // Add HTML tag
     segments.push({
       type: 'html',
       content: tagMatch[0]
@@ -53,7 +74,6 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
     lastIndex = tagMatch.index + tagMatch[0].length;
   }
   
-  // Add remaining text
   if (lastIndex < processed.length) {
     segments.push({
       type: 'text',
@@ -61,17 +81,14 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
     });
   }
   
-  // Step 4: Process only text segments for linking
-  const sortedTitles = allTitles.slice().sort((a, b) => b.length - a.length);
-  
+  // Process only text segments for linking
   const processedSegments = segments.map(segment => {
     if (segment.type === 'html') {
-      return segment.content; // Keep HTML as-is
+      return segment.content;
     }
     
     let textContent = segment.content;
     
-    // Linkify condition and treatment names in text segments
     sortedTitles.forEach(title => {
       const lowerTitle = title.toLowerCase();
       const cond = conditionMap[lowerTitle];
@@ -80,13 +97,17 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
       const type = cond ? 'condition' : treat ? 'treatment' : null;
       
       if (!slug || slug === currentSlug) return;
+      if (lowerTitle === 'physical therapy') return;
+      if (linkedSlugs.has(slug)) return;
       
-      // Escape special regex characters
       const escapedTitle = title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-      // Match as whole word, case-insensitive
       const titleRegex = new RegExp(`(?<![\\w-])${escapedTitle}(?![\\w-])`, 'gi');
       
+      let hasMatched = false;
       textContent = textContent.replace(titleRegex, (match) => {
+        if (hasMatched) return match;
+        hasMatched = true;
+        linkedSlugs.add(slug);
         const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
         return `<a href="${href}" class="underline text-[#252932] hover:text-[#2358AC]">${match}</a>`;
       });
@@ -95,7 +116,13 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string) {
     return textContent;
   });
   
-  return processedSegments.join('');
+  processed = processedSegments.join('');
+  
+  // Step 5: Final cleanup - remove any Physical Therapy links
+  processed = processed.replace(/<a[^>]*>Physical Therapy<\/a>/gi, 'Physical Therapy')
+                       .replace(/<a[^>]*>physical therapy<\/a>/gi, 'physical therapy');
+  
+  return processed;
 }
 
 /**

@@ -20,6 +20,8 @@
     "seo:check:comprehensive": "tsx scripts/seo/check-canonicals-comprehensive.ts",
     "seo:check:quick": "tsx scripts/seo/check-canonicals-quick.ts",
     "seo:check:gsc": "tsx scripts/seo/check-gsc-duplicates.ts",
+    "audit:content": "tsx scripts/audit-content-sections.ts",
+    "convert:markdown": "tsx scripts/convert-markdown-to-html.ts",
     "indexnow": "tsx scripts/submit-to-indexnow.ts",
     "indexnow:single": "tsx -e \"import { submitSingleUrl } from './lib/indexnow'; submitSingleUrl(process.argv[2] || '/').then(console.log)\""
   },

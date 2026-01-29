@@ -46,7 +46,7 @@ type ECOut = {
  * @param country - Country code (default: US)
  * @returns Phone number in E.164 format or empty string if invalid
  */
-function formatPhoneToE164(phone: string, country: string = 'US'): string {
+export function formatPhoneToE164(phone: string, country: string = 'US'): string {
   const rawPhone = phone.replace(/\D/g, '');
   
   if (!rawPhone || rawPhone.length === 0) {

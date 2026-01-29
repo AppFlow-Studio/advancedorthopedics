@@ -9,6 +9,9 @@ import { NeckAndShoulderDropDown } from '@/components/neck-and-shoulder-dropdown
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { PhoneText } from '@/components/PhoneText';
 import { PhoneCTA } from '@/components/PhoneCTA';
+import Link from 'next/link';
+import { conditions } from '@/components/data/conditions';
+import { AllTreatmentsCombined } from '@/components/data/treatments';
 
 // Helper to resolve specialty slug for cross-linking
 const SPECIALTY_MAP: Record<string, string> = {
@@ -318,6 +321,91 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
 
           {/* Phone CTA Section */}
           <PhoneCTA />
+
+          {/* Possible Causes and Treatments Cross-Links */}
+          <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-6 lg:p-[40px] rounded-[24px]'>
+            <h2 
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#111315] sm:text-4xl text-2xl'
+            >
+              Possible Causes We Evaluate
+            </h2>
+            <p 
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 400,
+              }}
+              className="text-[#424959] text-lg mb-4"
+            >
+              These conditions may cause {condition_details.title.toLowerCase()} symptoms:
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {conditions
+                .filter(c => c.tag === 'Neck' || c.tag === 'Shoulder')
+                .slice(0, 8)
+                .map((condition) => (
+                  <Link
+                    key={condition.slug}
+                    href={`/conditions/${condition.slug}`}
+                    className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] rounded-[62px] text-sm transition-colors hover:bg-[#FAFAFA]"
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontWeight: 400,
+                      }}
+                      className="text-[#252932]"
+                    >
+                      {condition.title}
+                    </span>
+                  </Link>
+                ))}
+            </div>
+
+            <h2 
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 500,
+              }}
+              className='text-[#111315] sm:text-4xl text-2xl mt-8'
+            >
+              Treatments We May Recommend
+            </h2>
+            <p 
+              style={{
+                fontFamily: 'var(--font-public-sans)',
+                fontWeight: 400,
+              }}
+              className="text-[#424959] text-lg mb-4"
+            >
+              Depending on your diagnosis, we may recommend:
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {AllTreatmentsCombined
+                .filter(t => t.tag === 'Neck' || t.tag === 'Shoulder')
+                .slice(0, 6)
+                .map((treatment) => (
+                  <Link
+                    key={treatment.slug}
+                    href={`/treatments/${treatment.slug}`}
+                    className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] rounded-[62px] text-sm transition-colors hover:bg-[#FAFAFA]"
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontWeight: 400,
+                      }}
+                      className="text-[#252932]"
+                    >
+                      {treatment.title}
+                    </span>
+                  </Link>
+                ))}
+            </div>
+          </section>
 
           <section className='bg-white space-y-[40px] '>
             <h2

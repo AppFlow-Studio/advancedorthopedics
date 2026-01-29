@@ -61,18 +61,18 @@ export async function generateMetadata(
   }
 
   const isNewFormat = !!treatmentContent;
-  const canonicalUrl = buildCanonical(`/treatments/${isNewFormat ? treatmentContent!.slug : treatment!.slug}`);
+  const slug = isNewFormat && treatmentContent ? treatmentContent.slug : (treatment?.slug ?? resolvedParams.TreatmentDetails);
+  const canonicalUrl = buildCanonical(`/treatments/${slug}`);
   
-  // Use the specific image for the treatment, with a fallback
-  const ogImage = isNewFormat
-    ? (typeof treatmentContent!.heroImage === 'string' ? treatmentContent!.heroImage : treatmentContent!.heroImage.src)
-    : (typeof treatment!.inTxt_img === 'string' 
-      ? treatment!.inTxt_img 
-      : treatment!.inTxt_img?.src || getOgImageForPath('/treatments'));
+  // Use the specific image for the treatment, with a fallback (treatment is null for new-format)
+  const ogImage = isNewFormat && treatmentContent && treatmentContent.heroImage
+    ? (typeof treatmentContent.heroImage === 'string' ? treatmentContent.heroImage : (treatmentContent.heroImage as StaticImageData).src)
+    : treatment
+      ? (typeof treatment.inTxt_img === 'string' ? treatment.inTxt_img : treatment.inTxt_img?.src || getOgImageForPath('/treatments'))
+      : getOgImageForPath('/treatments');
 
   // Get SEO-optimized metadata from centralized helper
-  const slug = isNewFormat ? treatmentContent!.slug : treatment!.slug;
-  const treatmentTitle = isNewFormat ? treatmentContent!.title : treatment!.title;
+  const treatmentTitle = isNewFormat && treatmentContent ? treatmentContent.title : (treatment?.title ?? '');
   const seoMetadata = getTreatmentMetadata(slug) || generateTreatmentMetadataFallback(treatmentTitle);
   
   // Use SEO metadata with normalization
@@ -82,7 +82,7 @@ export async function generateMetadata(
   return {
     title,
     description,
-    keywords: isNewFormat ? treatmentContent!.keywords : (treatment!.keywords || [treatment!.title, "orthopedic treatment", "spine surgery"]),
+    keywords: isNewFormat && treatmentContent ? treatmentContent.keywords : (treatment?.keywords || [treatment?.title ?? '', "orthopedic treatment", "spine surgery"]),
     openGraph: {
       title,
       description,
@@ -94,7 +94,7 @@ export async function generateMetadata(
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: isNewFormat ? treatmentContent!.title : treatment!.title,
+          alt: treatmentTitle,
         },
       ],
     },
@@ -128,15 +128,17 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
     
     const isNewFormat = !!treatmentContent;
     const baseUrl = 'https://mountainspineorthopedics.com';
-    const treatmentSlug = isNewFormat ? treatmentContent!.slug : treatment!.slug;
-    const treatmentTitle = isNewFormat ? treatmentContent!.title : treatment!.title;
+    const treatmentSlug = isNewFormat && treatmentContent ? treatmentContent.slug : (treatment?.slug ?? resolvedParams.TreatmentDetails);
+    const treatmentTitle = isNewFormat && treatmentContent ? treatmentContent.title : (treatment?.title ?? '');
     const treatmentUrl = `${baseUrl}/treatments/${treatmentSlug}`;
-    const treatmentDescription = stripHtmlAndMarkdown(isNewFormat ? treatmentContent!.overview.body : treatment!.body);
-    const imageUrl = isNewFormat
-        ? (typeof treatmentContent!.heroImage === 'string' ? treatmentContent!.heroImage : treatmentContent!.heroImage.src)
-        : (typeof treatment!.inTxt_img === 'string' 
-            ? treatment!.inTxt_img 
-            : treatment!.inTxt_img?.src || '');
+    const treatmentDescription = stripHtmlAndMarkdown(
+      isNewFormat && treatmentContent
+        ? (treatmentContent.overview?.body ?? treatmentContent.heroDescription ?? treatmentContent.metaDescription ?? '')
+        : (treatment?.body ?? '')
+    );
+    const imageUrl = isNewFormat && treatmentContent && treatmentContent.heroImage
+        ? (typeof treatmentContent.heroImage === 'string' ? treatmentContent.heroImage : treatmentContent.heroImage.src)
+        : (treatment ? (typeof treatment.inTxt_img === 'string' ? treatment.inTxt_img : treatment.inTxt_img?.src ?? '') : '');
 
     // Unique IDs for cross-referencing
     const organizationId = `${baseUrl}#medicalorganization`;
@@ -189,6 +191,11 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                 '@type': 'State',
                 'name': 'New York',
                 'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            },
+            {
+                '@type': 'State',
+                'name': 'Pennsylvania',
+                'sameAs': 'https://en.wikipedia.org/wiki/Pennsylvania'
             }
         ]
     };
@@ -200,16 +207,16 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
         'name': treatmentTitle,
         'description': treatmentDescription,
         'url': treatmentUrl,
-        'bodyLocation': isNewFormat ? 'Spine' : treatment!.tag,
-        'howPerformed': isNewFormat 
-            ? stripHtmlAndMarkdown(treatmentContent!.procedure.steps.join(' ')) 
-            : (treatment!.procedure_info ? stripHtmlAndMarkdown(treatment!.procedure_info) : ''),
-        'preparation': isNewFormat 
-            ? stripHtmlAndMarkdown(treatmentContent!.overview.body) 
-            : (treatment!.detail ? stripHtmlAndMarkdown(treatment!.detail) : ''),
-        'followup': isNewFormat 
-            ? stripHtmlAndMarkdown(treatmentContent!.recovery.details) 
-            : (treatment!.recovery_info ? stripHtmlAndMarkdown(treatment!.recovery_info) : ''),
+        'bodyLocation': isNewFormat && treatmentContent ? 'Spine' : (treatment?.tag ?? 'Spine'),
+        'howPerformed': (isNewFormat && treatmentContent && treatmentContent.procedure)
+            ? stripHtmlAndMarkdown(treatmentContent.procedure.steps.join(' ')) 
+            : (treatment?.procedure_info ? stripHtmlAndMarkdown(treatment.procedure_info) : ''),
+        'preparation': (isNewFormat && treatmentContent && treatmentContent.overview)
+            ? stripHtmlAndMarkdown(treatmentContent.overview.body) 
+            : (treatment?.detail ? stripHtmlAndMarkdown(treatment.detail) : ''),
+        'followup': (isNewFormat && treatmentContent && treatmentContent.recovery)
+            ? stripHtmlAndMarkdown(treatmentContent.recovery.details) 
+            : (treatment?.recovery_info ? stripHtmlAndMarkdown(treatment.recovery_info) : ''),
         'author': {
             '@id': organizationId
         },
@@ -283,6 +290,11 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                 '@type': 'State',
                 'name': 'New York',
                 'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            },
+            {
+                '@type': 'State',
+                'name': 'Pennsylvania',
+                'sameAs': 'https://en.wikipedia.org/wiki/Pennsylvania'
             }
         ],
         'hasOfferCatalog': {
@@ -323,7 +335,7 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
         ]
     };
 
-    // 6. FAQPage Schema - Prioritize dedicated FAQ data file, then fallback to content FAQs or generic
+    // 6. FAQPage Schema - Use only dedicated FAQ data file
     let faqSchema: any = null;
     const specificFAQs = treatmentFAQs[treatmentSlug];
     
@@ -347,21 +359,9 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                 '@id': webpageId
             }
         };
-    } else if (isNewFormat && treatmentContent!.faqs && treatmentContent!.faqs.length > 0) {
-        const faqData = generateFAQPageSchema(treatmentContent!.faqs, treatmentUrl);
-        faqSchema = {
-            '@type': 'FAQPage',
-            '@id': `${treatmentUrl}#faqpage`,
-            'url': treatmentUrl,
-            'mainEntity': faqData.mainEntity,
-            'about': {
-                '@id': medicalProcedureId
-            },
-            'isPartOf': {
-                '@id': webpageId
-            }
-        };
-    } else if (isNewFormat) {
+    } else if (isNewFormat && treatmentContent) {
+        // TypeScript guard: treatmentContent is defined in this block
+        const tc = treatmentContent;
         faqSchema = {
             '@type': 'FAQPage',
             '@id': `${treatmentUrl}#faqpage`,
@@ -372,8 +372,8 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                     'name': `What are the benefits of ${treatmentTitle}?`,
                     'acceptedAnswer': {
                         '@type': 'Answer',
-                        'text': treatmentContent!.benefits.length > 0 
-                            ? stripHtmlAndMarkdown(treatmentContent!.benefits.join(' '))
+                        'text': tc.benefits && tc.benefits.length > 0 
+                            ? stripHtmlAndMarkdown(tc.benefits.join(' '))
                             : "Relieves spine and joint pain and improves mobility."
                     }
                 },
@@ -382,8 +382,8 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                     'name': `Who is a candidate for ${treatmentTitle}?`,
                     'acceptedAnswer': {
                         '@type': 'Answer',
-                        'text': treatmentContent!.candidates.list.length > 0
-                            ? stripHtmlAndMarkdown(treatmentContent!.candidates.list.join(' '))
+                        'text': (tc.candidates?.list && tc.candidates.list.length > 0)
+                            ? stripHtmlAndMarkdown(tc.candidates.list.join(' '))
                             : "Patients with orthopedic or spinal conditions that have not responded to conservative treatments."
                     }
                 },
@@ -392,9 +392,9 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                     'name': 'What is the recovery process like?',
                     'acceptedAnswer': {
                         '@type': 'Answer',
-                        'text': treatmentContent!.recovery.details 
-                            ? stripHtmlAndMarkdown(treatmentContent!.recovery.details)
-                            : "Recovery may include referral to a licensed physical therapist and a gradual return to activities, depending on your specific treatment plan."
+                        'text': tc.recovery?.details 
+                            ? stripHtmlAndMarkdown(tc.recovery.details)
+                            : "Recovery may include follow-up visits, activity modification, and a gradual return to daily activities depending on your treatment plan."
                     }
                 }
             ],
@@ -434,7 +434,7 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
                     'name': 'What is the recovery process like?',
                     'acceptedAnswer': {
                         '@type': 'Answer',
-                        'text': treatment.recovery_info || "Recovery may include referral to a licensed physical therapist and a gradual return to activities, depending on your specific treatment plan."
+                        'text': treatment.recovery_info || "Recovery may include follow-up visits, activity modification, and a gradual return to daily activities depending on your treatment plan."
                     }
                 }
             ],

@@ -1,176 +1,128 @@
-import { GetBlogsPublic } from "@/app/blogs/api/get-blogs";
 import { clinics } from "@/components/data/clinics";
 import { Doctors } from "@/components/data/doctors";
-import { conditions } from "@/components/data/conditions";
+import { conditions, conditionContentPlaceholders } from "@/components/data/conditions";
 import { AllTreatmentsCombined } from "@/components/data/treatments";
 import { BODY_PARTS } from "@/components/data/bodyParts";
-import { buildCanonical } from "@/lib/seo";
+import { GetBlogsPublic } from "@/app/blogs/api/get-blogs";
 import { VALID_STATE_SLUGS } from "@/lib/locationRedirects";
+import { generateSitemapEntry, wrapInUrlset } from "@/lib/sitemap-utils";
 
-export const revalidate = 300;
+export const revalidate = 3600;
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+/**
+ * Comprehensive Sitemap
+ * 
+ * SEO Best Practices Applied:
+ * - No <changefreq> or <priority> tags (Google ignores these)
+ * - <lastmod> only included when accurate data is available
+ * - Consistent ISO 8601 date format
+ * - Only canonical URLs (no area-of-pain duplicates)
+ * - All URLs return 200 status
+ */
 
-// Helper function to ensure valid slugs
-function isValidSlug(slug: string | undefined | null): boolean {
-  if (!slug) return false;
-  const invalid = ["undefined", "null", "faqs", ""];
-  return !invalid.includes(slug);
-}
-
-
-// Helper function to generate URL entry
-function generateUrlEntry(path: string, lastmod: string = new Date().toISOString(), changefreq: string = "yearly", priority: string = "0.8") {
-  const loc = buildCanonical(path);
-  // Self-check assertion
-  if (loc !== buildCanonical(path)) {
-    console.error(`Sitemap canonical mismatch for path: ${path}`);
-  }
-  return `
-  <url>
-    <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-}
-
-// Helper function to create SEO-friendly slugs from titles
-function slugify(text: string): string {
-  if (!text) return "";
-  return text
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-+/g, "-");
-}
-
-const FindCare = [
-  "book-an-appointment",
-  "find-a-doctor",
-  "free-mri-review",
-  "candidacy-check",
-  "insurance-policy",
-  "patient-forms",
+const staticPages = [
+  "/",
+  "/about",
+  "/about/faqs",
+  "/condition-check",
+  "/privacy-policy",
+  "/conditions",
+  "/treatments",
+  "/locations",
+  "/blogs",
+  "/find-care/book-an-appointment",
+  "/find-care/find-a-doctor",
+  "/find-care/free-mri-review",
+  "/find-care/candidacy-check",
+  "/find-care/second-opinion",
+  "/insurance-policy",
+  "/patient-forms",
+  "/injuries/car-accident",
+  "/injuries/slip-and-fall",
+  "/injuries/work-injury",
+  "/injuries/personal-injury",
 ];
-
-const BackPainPages = [
-  "lower-back-pain",
-  'lumbar-degenerative-disc-disease',
-  'lumbar-herniated-disc',
-  'foraminal-stenosis-back-pain',
-  'sciatica-nerve-pain',
-  'tailbone-pain-coccydynia',
-  'back-pain-treatment-options'
-]
-
-const NeckPainPages = [
-  'neck-spinal-stenosis',
-  'neck-herniated-disc',
-  'cervical-degenerative-disc-disease',
-  'neck-shoulder-arthritis-pain',
-  'pinched-nerve-neck-shoulder',
-  'neck-and-shoulder-pain-treatment',
-];
-
-
-const FootPainPages = [
-  'bunion-pain-hallux-valgus',
-  'heel-pain-plantar-fasciitis',
-  'flat-feet-pain',
-  'ankle-arthroscopy-recovery-pain',
-  'hammertoes-foot-pain',
-  'diabetic-foot-ulcer-care',
-  'ankle-replacement-surgery-pain',
-  'achilles-tendon-pain'
-]
-
-const InjuryPages = [
-  'car-accident',
-  'slip-and-fall',
-  'work-injury',
-  'personal-injury'
-]
 
 export async function GET() {
-  if (!baseUrl) {
-    console.error("FATAL: NEXT_PUBLIC_BASE_URL is not defined. Sitemap cannot be generated correctly.");
-    return new Response("Server configuration error: Base URL not set. Sitemap generation failed.", {
-      status: 500,
-      headers: { "Content-Type": "text/plain" },
-    });
-  }
+  // 1. Static pages
+  const staticUrls = staticPages
+    .map((path) => generateSitemapEntry(path))
+    .join("");
 
-  let blogsData: any[] = [];
+  // 2. Location pages (state hubs + individual clinics)
+  const stateHubUrls = VALID_STATE_SLUGS
+    .map((state) => generateSitemapEntry(`/locations/${state}`))
+    .join("");
+
+  const clinicUrls = clinics
+    .map((clinic) =>
+      generateSitemapEntry(
+        `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+        clinic.updatedAt
+      )
+    )
+    .join("");
+
+  // 3. Doctor pages
+  const doctorUrls = Doctors
+    .filter((doctor) => doctor.slug && doctor.slug !== "undefined")
+    .map((doctor) =>
+      generateSitemapEntry(`/about/meetourdoctors/${doctor.slug}`, doctor.updatedAt)
+    )
+    .join("");
+
+  // 4. Condition pages (body part hubs + individual conditions)
+  const allConditions = [...conditions, ...conditionContentPlaceholders];
+  
+  const bodyPartHubUrls = BODY_PARTS
+    .map((bodyPart) => generateSitemapEntry(`/conditions/${bodyPart.slug}`))
+    .join("");
+
+  const conditionUrls = allConditions
+    .filter((c) => c.slug && c.slug !== "undefined")
+    .map((condition) =>
+      generateSitemapEntry(`/conditions/${condition.slug}`, condition.updatedAt)
+    )
+    .join("");
+
+  // 5. Treatment pages
+  const treatmentUrls = AllTreatmentsCombined
+    .filter((treatment) => treatment.slug && treatment.slug !== "undefined")
+    .map((treatment) =>
+      generateSitemapEntry(`/treatments/${treatment.slug}`, treatment.updatedAt)
+    )
+    .join("");
+
+  // 6. Blog pages (fetched from Supabase)
+  let blogUrls = "";
   try {
-    const fetchedBlogs = await GetBlogsPublic();
-    if (Array.isArray(fetchedBlogs)) {
-      blogsData = fetchedBlogs;
-    } else {
-      console.warn("Warning: GetBlogsPublic did not return an array. Proceeding with empty blogs list for sitemap.");
-    }
+    const blogsData = await GetBlogsPublic();
+    blogUrls = (blogsData || [])
+      .filter((blog) => blog?.slug)
+      .map((blog) =>
+        generateSitemapEntry(`/blogs/${blog.slug}`, blog.modified_at || blog.created_at)
+      )
+      .join("");
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);
   }
 
-  const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${generateUrlEntry("/")}
-  ${generateUrlEntry("/about")}
-  ${generateUrlEntry("/about/faqs")}
-  ${generateUrlEntry("/condition-check")}
-  ${generateUrlEntry("/privacy-policy")}
-  ${generateUrlEntry("/conditions")}
-  ${generateUrlEntry("/locations")}
+  // Combine all URLs
+  const allUrls = [
+    staticUrls,
+    stateHubUrls,
+    clinicUrls,
+    doctorUrls,
+    bodyPartHubUrls,
+    conditionUrls,
+    treatmentUrls,
+    blogUrls,
+  ].join("");
 
-  ${/* State hub pages */ ''}
-  ${VALID_STATE_SLUGS.map(state => generateUrlEntry(`/locations/${state}`)).join('')}
-
-  ${/* Individual location pages using new state-first canonical URLs */ ''}
-  ${clinics.map(clinic => generateUrlEntry(`/locations/${clinic.stateSlug}/${clinic.locationSlug}`)).join('')}
-  
-  ${FindCare.map(slug => {
-    if (slug === 'insurance-policy' || slug === 'patient-forms') {
-      return generateUrlEntry(`/${slug}`);
-    }
-    return generateUrlEntry(`/find-care/${slug}`);
-  }).join('')}
-
-  ${generateUrlEntry('/find-care/second-opinion', new Date().toISOString(), 'monthly', '0.7')}
-
-  ${BackPainPages.map(slug => generateUrlEntry(`/area-of-pain/back-pain/${slug}`)).join('')}
-  ${NeckPainPages.map(slug => generateUrlEntry(`/area-of-pain/neck-and-shoulder-pain/${slug}`)).join('')} 
-  ${FootPainPages.map(slug => generateUrlEntry(`/area-of-pain/foot-pain/${slug}`)).join('')}
-
-  ${InjuryPages.map(slug => generateUrlEntry(`/injuries/${slug}`)).join('')}
-
-  ${Doctors.filter(doctor => isValidSlug(doctor.slug))
-      .map(doctor => generateUrlEntry(`/about/meetourdoctors/${doctor.slug}`))
-      .join('')}
-
-  ${conditions.filter(condition => isValidSlug(condition.slug))
-      .map(condition => generateUrlEntry(`/conditions/${condition.slug}`))
-      .join('')}
-
-  ${/* Body-part hub pages - high priority as key aggregation/landing pages */ ''}
-  ${BODY_PARTS.map(bodyPart => generateUrlEntry(`/conditions/${bodyPart.slug}`, new Date().toISOString(), 'monthly', '0.9')).join('')}
-
-  ${AllTreatmentsCombined.filter(treatment => isValidSlug(treatment.slug))
-      .map(treatment => generateUrlEntry(`/treatments/${treatment.slug}`))
-      .join('')}
-
-  ${generateUrlEntry("/blogs")}
-  
-  ${blogsData
-      .filter(blog => blog?.slug)
-      .map(blog => generateUrlEntry(`/blogs/${blog.slug}`, blog.modified_at, "monthly"))
-      .join('')}
-</urlset>`;
-
-  return new Response(xmlContent, {
+  return new Response(wrapInUrlset(allUrls), {
     headers: {
       "Content-Type": "application/xml",
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=59",
     },
   });
 }

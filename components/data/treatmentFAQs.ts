@@ -1025,7 +1025,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   ],
 
   // 52. Facet Block, Ablation, Rhizotomy...
-  "facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information": [
+  "facet-block-ablation-rhizotomy-and-facet-fusion": [
     {
       question: "What is the difference between a block and ablation?",
       answer: "A <strong>block</strong> injects numbing medicine for temporary relief (diagnostic). An <strong>ablation</strong> uses heat to semi-permanently disable the nerve (therapeutic) for long-term relief."
@@ -1281,6 +1281,1060 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     {
       question: "How long does swelling last?",
       answer: "The ankle is gravity-dependent, so swelling can persist for <strong>3 to 6 months</strong>. This is normal and does not mean something is wrong."
+    }
+  ],
+
+  // Cubital Tunnel Surgery
+  "cubital-tunnel-surgery": [
+    {
+      question: "What is the difference between cubital tunnel release and transposition?",
+      answer: "<strong>In-situ release</strong> simply decompresses the nerve by cutting the tissue over it. <strong>Ulnar nerve transposition</strong> moves the nerve to a new location in front of the elbow. Your surgeon will recommend the best option based on your anatomy and nerve compression severity."
+    },
+    {
+      question: "How long does it take for the ulnar nerve to recover after surgery?",
+      answer: "Nerve recovery is gradual. <strong>Numbness typically improves over weeks to months</strong> after surgery. Patients with more severe or long-standing compression may have slower recovery. Some residual numbness may persist, making early intervention important."
+    },
+    {
+      question: "Will I need physical therapy after cubital tunnel surgery?",
+      answer: "Most patients benefit from <strong>hand therapy</strong> after surgery to restore motion and strength. Therapy includes scar management, nerve gliding exercises, and gradual strengthening. Your surgeon will guide the therapy program based on your procedure."
+    },
+    {
+      question: "What are the risks of cubital tunnel surgery?",
+      answer: "Risks include infection, bleeding, incomplete symptom relief, and nerve injury. <strong>Elbow instability</strong> is a rare risk with transposition procedures. Choosing an experienced hand surgeon minimizes these risks."
+    },
+    {
+      question: "Can cubital tunnel syndrome come back after surgery?",
+      answer: "<strong>Recurrence is uncommon</strong> after successful surgery, but it can happen if scar tissue forms around the nerve. Following post-operative instructions and attending therapy helps prevent recurrence."
+    }
+  ],
+
+  // Tennis Elbow Surgery
+  "tennis-elbow-surgery": [
+    {
+      question: "How do I know if I need tennis elbow surgery?",
+      answer: "Surgery is considered after <strong>6-12 months of failed conservative treatment</strong> including rest, therapy, bracing, and injections. If your outer elbow pain significantly limits work or activities despite these treatments, surgery may be appropriate."
+    },
+    {
+      question: "What is the success rate of tennis elbow surgery?",
+      answer: "<strong>Tennis elbow surgery has an 80-90% success rate</strong> for pain relief. Most patients return to their previous activities without significant limitations. Complete relief may take several months after surgery."
+    },
+    {
+      question: "Is tennis elbow surgery done arthroscopically?",
+      answer: "Tennis elbow surgery can be performed <strong>open or arthroscopically</strong>. Both techniques have excellent results. Your surgeon will recommend the best approach based on your specific situation and the extent of tendon damage."
+    },
+    {
+      question: "How long until I can play tennis again after surgery?",
+      answer: "Return to racquet sports typically takes <strong>4-6 months</strong> after surgery. Gradual return begins around 3 months with strengthening, progressing to sport-specific exercises before full return. Rushing back increases re-injury risk."
+    },
+    {
+      question: "Can tennis elbow come back after surgery?",
+      answer: "Recurrence after surgery is <strong>uncommon (less than 10%)</strong>. Using proper technique, equipment, and maintaining forearm strength helps prevent recurrence. Addressing the original cause of overuse is important."
+    }
+  ],
+
+  // Golfer's Elbow Surgery
+  "golfers-elbow-surgery": [
+    {
+      question: "Is golfer's elbow surgery similar to tennis elbow surgery?",
+      answer: "Yes, the procedures are similar but on <strong>opposite sides of the elbow</strong>. Golfer's elbow surgery addresses the medial (inner) side, while tennis elbow surgery addresses the lateral (outer) side. Both involve removing damaged tendon tissue."
+    },
+    {
+      question: "What is recovery like after golfer's elbow surgery?",
+      answer: "Recovery takes <strong>3-6 months</strong> for full return to activities. Early recovery focuses on wound healing and gentle motion. Strengthening begins around 6 weeks. Sports and heavy activities resume at 3-6 months based on strength recovery."
+    },
+    {
+      question: "Will the ulnar nerve be addressed during golfer's elbow surgery?",
+      answer: "Your surgeon will evaluate for <a href=\"/conditions/cubital-tunnel-syndrome\">cubital tunnel syndrome</a> (ulnar nerve compression). If present, the nerve may be <strong>decompressed or transposed</strong> during the same surgery to address both problems."
+    },
+    {
+      question: "When can I return to golf after golfer's elbow surgery?",
+      answer: "Return to golf typically takes <strong>4-6 months</strong>. Chipping and putting may begin around 3 months; full swing practice at 4 months; competitive play by 5-6 months. Your surgeon and therapist will guide progression."
+    },
+    {
+      question: "What is the success rate of golfer's elbow surgery?",
+      answer: "Success rates are similar to tennis elbow surgery, with <strong>80-90% of patients</strong> achieving significant pain relief. Complete recovery of strength may take up to a year in some cases."
+    }
+  ],
+
+  // Elbow Arthroscopy
+  "elbow-arthroscopy": [
+    {
+      question: "What conditions can elbow arthroscopy treat?",
+      answer: "<strong>Elbow arthroscopy</strong> treats loose bodies, bone spurs (osteophytes), arthritis, stiffness (contracture), synovitis, and osteochondritis dissecans. It's also valuable for diagnosing unexplained elbow pain."
+    },
+    {
+      question: "How long is recovery from elbow arthroscopy?",
+      answer: "Recovery varies by procedure. <strong>Simple loose body removal</strong> allows return to activities in 4-6 weeks. <strong>Capsular release for stiffness</strong> requires intensive therapy and 3-4 months for full recovery."
+    },
+    {
+      question: "Will I need physical therapy after elbow arthroscopy?",
+      answer: "<strong>Yes, therapy is essential</strong>, especially for stiffness surgery. The elbow is prone to scarring, so early motion and aggressive therapy are critical to maintaining the gains achieved during surgery."
+    },
+    {
+      question: "Is elbow arthroscopy painful?",
+      answer: "Post-operative pain is typically <strong>less than open surgery</strong> due to smaller incisions. Most patients manage well with oral pain medications for the first few days. Early motion helps reduce stiffness and discomfort."
+    },
+    {
+      question: "What are the risks of elbow arthroscopy?",
+      answer: "Risks include infection, nerve injury (temporary numbness is common), stiffness, and incomplete symptom relief. Choosing an <strong>experienced elbow surgeon</strong> minimizes these risks."
+    }
+  ],
+
+  // Wrist Arthroscopy
+  "wrist-arthroscopy": [
+    {
+      question: "What conditions can wrist arthroscopy diagnose and treat?",
+      answer: "<strong>Wrist arthroscopy</strong> treats <a href=\"/conditions/tfcc-tear\">TFCC tears</a>, ligament injuries (scapholunate), ganglion cysts, cartilage damage, and chronic wrist pain. It's especially valuable when MRI findings are inconclusive."
+    },
+    {
+      question: "How is a TFCC tear repaired arthroscopically?",
+      answer: "Peripheral TFCC tears (in the vascular zone) can be <strong>repaired with sutures</strong> arthroscopically. Central tears (avascular zone) are <strong>debrided (smoothed)</strong> since they cannot heal. Your surgeon determines the best approach during the procedure."
+    },
+    {
+      question: "How long is recovery from wrist arthroscopy?",
+      answer: "Recovery depends on the procedure performed. <strong>Debridement</strong> allows quick return (4-6 weeks). <strong>TFCC repair</strong> requires immobilization and takes 3-4 months. <strong>Ligament repair</strong> may take longer."
+    },
+    {
+      question: "Will I need a cast after wrist arthroscopy?",
+      answer: "Splint or cast use depends on the procedure. <strong>Simple debridement</strong> may only need a soft dressing. <strong>TFCC or ligament repairs</strong> typically require splinting or casting for 4-6 weeks to allow healing."
+    },
+    {
+      question: "What are the risks of wrist arthroscopy?",
+      answer: "Risks include infection, nerve injury (especially to small sensory branches), tendon injury, and stiffness. The wrist's complex anatomy requires an <strong>experienced hand surgeon</strong> for optimal results."
+    }
+  ],
+
+  // Wrist Fracture Surgery
+  "wrist-fracture-surgery": [
+    {
+      question: "When does a wrist fracture need surgery?",
+      answer: "Surgery is needed for fractures that are <strong>displaced, unstable, or involve the joint surface</strong>. Fractures that cannot be held in good position with a cast, or that re-displace after casting, typically require surgical fixation."
+    },
+    {
+      question: "What type of hardware is used for wrist fracture surgery?",
+      answer: "Most wrist fractures are fixed with a <strong>metal plate and screws</strong> (ORIF). The plate is typically placed on the palm side of the wrist. Some fractures may use pins (K-wires) or external fixation depending on the fracture pattern."
+    },
+    {
+      question: "Will the plate need to be removed after my wrist heals?",
+      answer: "Most patients do <strong>not need plate removal</strong>. Modern low-profile plates rarely cause problems. Removal is only considered if the hardware causes irritation, which occurs in less than 5% of cases."
+    },
+    {
+      question: "How long until I can use my hand after wrist fracture surgery?",
+      answer: "Finger motion is encouraged immediately. <strong>Light hand use</strong> (writing, typing) often begins at 2-4 weeks. Grip strength and heavier activities improve as the bone heals, typically by 6-12 weeks."
+    },
+    {
+      question: "What is the recovery timeline for wrist fracture surgery?",
+      answer: "Bone healing takes <strong>6-8 weeks</strong> typically. Full strength and motion recovery takes <strong>3-6 months</strong>. Hand therapy accelerates recovery and helps restore motion and grip strength."
+    }
+  ],
+
+  // De Quervain's Release
+  "de-quervains-release": [
+    {
+      question: "How effective is De Quervain's release surgery?",
+      answer: "<strong>De Quervain's release has a success rate exceeding 90%</strong> for complete pain relief. Most patients experience rapid improvement after surgery and are very satisfied with the results."
+    },
+    {
+      question: "How long does De Quervain's release surgery take?",
+      answer: "The procedure typically takes <strong>15-20 minutes</strong> and is performed as an outpatient under local anesthesia. Most patients go home within an hour of surgery."
+    },
+    {
+      question: "When can I use my hand after De Quervain's release?",
+      answer: "Light hand use is encouraged <strong>immediately after surgery</strong>. Most patients return to normal activities within 2-4 weeks. Grip strengthening begins around 2-3 weeks post-surgery."
+    },
+    {
+      question: "What are the risks of De Quervain's release surgery?",
+      answer: "Risks include infection, nerve injury (causing temporary numbness near the incision), scar tenderness, and tendon bowstringing. These complications are <strong>uncommon with experienced surgeons</strong>."
+    },
+    {
+      question: "Can De Quervain's tenosynovitis come back after surgery?",
+      answer: "<strong>Recurrence is rare</strong> after surgical release. If symptoms persist after surgery, it may indicate an anatomical variation (separate tendon compartment) that wasn't addressed. Re-operation can address this."
+    }
+  ],
+
+  // Dupuytren's Surgery
+  "dupuytrens-surgery": [
+    {
+      question: "What is the difference between fasciectomy and needle aponeurotomy?",
+      answer: "<strong>Fasciectomy</strong> surgically removes the thickened tissue for more complete treatment. <strong>Needle aponeurotomy</strong> uses a needle to divide the cord in the office with faster recovery but higher recurrence rates. Your surgeon will recommend the best option."
+    },
+    {
+      question: "Will Dupuytren's contracture come back after surgery?",
+      answer: "<strong>Recurrence is possible</strong> with any Dupuytren's treatment. Rates vary from 20-50% depending on the procedure, severity, and patient factors. Surgery (fasciectomy) generally has lower recurrence than needle procedures."
+    },
+    {
+      question: "How long is recovery from Dupuytren's surgery?",
+      answer: "Recovery takes <strong>4-12 weeks</strong> depending on severity. Hand therapy is essential for scar management and maintaining finger extension. Night splinting may continue for several months."
+    },
+    {
+      question: "Will I need hand therapy after Dupuytren's surgery?",
+      answer: "<strong>Yes, hand therapy is critical</strong> for optimal outcomes. Therapy includes wound care, scar massage, exercises to maintain finger extension, and night splinting. Therapy typically continues for 2-3 months."
+    },
+    {
+      question: "When should Dupuytren's contracture be treated surgically?",
+      answer: "Surgery is typically recommended when contracture reaches <strong>30 degrees or more</strong>, or when you cannot place your palm flat on a table. Treating before severe contracture improves outcomes and recovery."
+    }
+  ],
+
+  // Hand Fracture Surgery
+  "hand-fracture-surgery": [
+    {
+      question: "When does a hand fracture need surgery?",
+      answer: "Surgery is needed for fractures that are <strong>displaced, rotated, or unstable</strong>. Rotational deformity (causing fingers to overlap when making a fist) and fractures involving the joint surface typically require surgical fixation."
+    },
+    {
+      question: "What type of hardware is used for hand fractures?",
+      answer: "Options include <strong>pins (K-wires), screws, and plates</strong> depending on fracture type and location. Pins may be removed in the office after healing. Plates and screws typically remain permanently."
+    },
+    {
+      question: "How long does a hand fracture take to heal after surgery?",
+      answer: "Bone healing typically takes <strong>6-8 weeks</strong>. Full strength and function recovery takes 3-4 months. Hand therapy accelerates recovery by restoring motion and preventing stiffness."
+    },
+    {
+      question: "Will I have stiff fingers after hand fracture surgery?",
+      answer: "Finger stiffness is a risk with any hand injury. <strong>Early motion</strong> (when the fracture allows) and hand therapy minimize this risk. Following your surgeon's motion protocol is essential for good outcomes."
+    },
+    {
+      question: "When can I return to sports after hand fracture surgery?",
+      answer: "Return to sports depends on the fracture and sport. <strong>Non-contact activities</strong> may resume at 6-8 weeks. <strong>Contact sports</strong> typically require 3 months and may need protective splinting initially."
+    }
+  ],
+
+  // Elbow Fracture Surgery
+  "elbow-fracture-surgery": [
+    {
+      question: "What types of elbow fractures require surgery?",
+      answer: "Surgery is needed for <strong>displaced fractures, fractures involving the joint surface, and unstable fractures</strong>. Radial head, olecranon, and distal humerus fractures commonly require surgical fixation."
+    },
+    {
+      question: "How long is recovery from elbow fracture surgery?",
+      answer: "Bone healing takes <strong>8-12 weeks</strong>. Full recovery of motion and strength takes 3-6 months. The elbow is prone to stiffness, so <strong>early motion is critical</strong> and therapy is essential."
+    },
+    {
+      question: "Will I regain full elbow motion after fracture surgery?",
+      answer: "Most patients regain <strong>functional motion</strong> (enough for daily activities), though some loss of extension is common. Starting motion early and following therapy protocols maximizes recovery."
+    },
+    {
+      question: "Why is physical therapy so important after elbow fracture surgery?",
+      answer: "The elbow is highly prone to <strong>stiffness after injury</strong>. Without proper therapy, scar tissue can limit motion permanently. Therapy maintains motion gained during surgery and prevents contracture."
+    },
+    {
+      question: "What are the risks of elbow fracture surgery?",
+      answer: "Risks include stiffness, infection, hardware irritation, nerve injury, and non-union (failure to heal). <strong>Elbow stiffness</strong> is the most common complication, which is why early motion and therapy are emphasized."
+    }
+  ],
+  "kyphoplasty": [
+    {
+      question: "Is kyphoplasty the same as vertebroplasty?",
+      answer: "Similar procedures with one key difference: kyphoplasty uses a balloon to create space and potentially restore some vertebral height before injecting cement, while vertebroplasty injects cement directly. Kyphoplasty may provide better height restoration but both effectively stabilize fractures."
+    },
+    {
+      question: "Will kyphoplasty fix my osteoporosis?",
+      answer: "No, kyphoplasty stabilizes the fracture but doesn't treat the underlying osteoporosis. You'll still need medical management (calcium, vitamin D, bone-strengthening medications) to prevent future fractures."
+    },
+    {
+      question: "How fast does pain improve after kyphoplasty?",
+      answer: "Many patients experience significant pain relief within 24-48 hours as the cement stabilizes the fracture. However, results vary—some may take a week or more to notice improvement. Overall function typically improves within 2-4 weeks."
+    },
+    {
+      question: "What are the risks of kyphoplasty?",
+      answer: "Risks include cement leakage (usually without symptoms), infection (rare), bleeding, nerve irritation, and adjacent level fractures. The procedure has a strong safety record when performed by experienced specialists using imaging guidance."
+    },
+    {
+      question: "Do I need physical therapy after kyphoplasty?",
+      answer: "Sometimes. PT depends on your functional status and stability. Many patients benefit from gentle strengthening and balance exercises to prevent falls and improve bone health. Your specialist will determine if formal PT is needed."
+    }
+  ],
+  "vertebroplasty": [
+    {
+      question: "Why choose vertebroplasty vs kyphoplasty?",
+      answer: "Choice depends on fracture characteristics, anatomy, and surgeon preference. Vertebroplasty is simpler and may be preferred for flat fractures where height restoration isn't expected. Kyphoplasty may be chosen when height restoration is a goal. Both effectively stabilize fractures."
+    },
+    {
+      question: "How is diagnosis confirmed before vertebroplasty?",
+      answer: "Diagnosis requires imaging (X-ray, MRI, or CT) showing a compression fracture PLUS correlation between fracture level and your pain location. Sometimes a physical exam finding (tenderness over the fracture) helps confirm the painful level, especially if multiple fractures exist."
+    },
+    {
+      question: "Can vertebroplasty be done for old fractures?",
+      answer: "It's most effective for acute or subacute fractures (typically within 2-3 months of occurrence). Chronic fractures (more than 6 months old) may not respond as well since pain may be from other sources rather than fracture instability."
+    },
+    {
+      question: "What are the risks of vertebroplasty?",
+      answer: "Risks include cement leakage into surrounding spaces (usually asymptomatic), infection, bleeding, nerve irritation if cement leaks toward nerves, and increased fracture risk at adjacent levels. Serious complications are rare with proper technique."
+    },
+    {
+      question: "What aftercare is needed after vertebroplasty?",
+      answer: "Activity guidance (gradual increase), pain management as needed, bone health optimization (medications, calcium, vitamin D), fall prevention strategies, and follow-up imaging to monitor healing and check for adjacent fractures."
+    }
+  ],
+  "plif": [
+    {
+      question: "PLIF vs TLIF—what's the difference?",
+      answer: "Both are lumbar fusion techniques. PLIF (Posterior Lumbar Interbody Fusion) approaches from directly behind, accessing both sides of the disc space. TLIF (Transforaminal Lumbar Interbody Fusion) approaches from one side at an angle. Surgeon chooses based on anatomy and preference."
+    },
+    {
+      question: "How long until I feel better after PLIF?",
+      answer: "Varies significantly. Nerve pain (leg symptoms) may improve within weeks, but incisional pain can persist for 6-8 weeks. Bone fusion takes 3-6 months. Maximum improvement is often reached at 6-12 months post-surgery."
+    },
+    {
+      question: "Do I need to wear a brace after PLIF?",
+      answer: "Case-dependent. Some surgeons use braces for the first 6-12 weeks, especially for multilevel fusions or patients with poor bone quality. Others rely on the instrumentation (screws and rods) alone. Follow your surgeon's specific protocol."
+    },
+    {
+      question: "What are common risks of PLIF surgery?",
+      answer: "Risks include infection, bleeding, nerve irritation or injury, dural tear (spinal fluid leak), hardware complications, nonunion (failed fusion), and adjacent segment disease. Serious complications are uncommon but increase with multilevel fusions and patient comorbidities."
+    },
+    {
+      question: "When can I return to work after PLIF?",
+      answer: "Desk work: often 4-8 weeks. Light duty: 8-12 weeks. Heavy labor: 4-6 months or more. Timeline depends on job demands, number of levels fused, and individual healing. Avoid bending, lifting, and twisting until cleared by your surgeon."
+    }
+  ],
+  "thoracic-spine-surgery": [
+    {
+      question: "Is thoracic spine surgery common?",
+      answer: "Less common than cervical or lumbar surgery because thoracic problems are less frequent. Thoracic surgery is performed for specific indications like spinal cord compression, fractures, deformity, or tumors. It requires specialized expertise due to proximity to vital structures."
+    },
+    {
+      question: "What symptoms suggest thoracic spinal cord compression?",
+      answer: "Balance problems, difficulty walking (wide-based or unsteady gait), coordination issues with hands or legs, band-like chest or abdominal tightness, and leg weakness or stiffness. These myelopathy symptoms indicate potential cord compression requiring prompt evaluation."
+    },
+    {
+      question: "Will thoracic spine surgery relieve my pain?",
+      answer: "Depends on pain cause. Surgery aims primarily to protect the spinal cord and prevent neurologic decline. Pain relief is a secondary benefit. Some thoracic conditions (fractures, deformity) cause significant pain that surgery can improve."
+    },
+    {
+      question: "What is recovery like after thoracic spine surgery?",
+      answer: "Varies widely based on procedure complexity and reason for surgery. Hospital stay may be 3-7 days. Brace use is common. Return to light activities takes 6-12 weeks; full recovery can take 6-12 months. Physical therapy is typically important."
+    },
+    {
+      question: "Do I need a second opinion for thoracic spine surgery?",
+      answer: "Reasonable for any major spine surgery, especially thoracic given its complexity and less common nature. A second opinion can confirm diagnosis, validate treatment plan, and provide perspective on surgical vs non-surgical options."
+    }
+  ],
+  "si-joint-fusion": [
+    {
+      question: "How do you confirm SI joint pain?",
+      answer: "Diagnosis combines clinical exam findings (specific provocative tests) with response to diagnostic SI joint injections. If injection provides 50-75%+ temporary pain relief, it confirms SI joint as a primary pain generator. MRI helps rule out other causes."
+    },
+    {
+      question: "Is SI joint pain the same as sciatica?",
+      answer: "Can mimic sciatica but different source. SI joint pain is typically in the lower back, buttock, and back of thigh—usually not below the knee. Sciatica from nerve root compression often goes below the knee with numbness/tingling. Exam and injections differentiate them."
+    },
+    {
+      question: "What if my MRI shows lumbar issues too?",
+      answer: "Common scenario. The key is identifying the PRIMARY pain generator. Diagnostic injections (SI joint injection vs epidural) help determine which structure causes most pain. Treat the true pain generator first; other findings may be incidental."
+    },
+    {
+      question: "How long is recovery from SI joint fusion?",
+      answer: "Gradual improvement over 3-6 months. Early weeks involve activity restrictions and limited weight-bearing on the surgical side. Most patients notice meaningful improvement by 3 months, with continued gains through 6-12 months as fusion solidifies."
+    },
+    {
+      question: "What are alternatives to SI joint fusion?",
+      answer: "Continued physical therapy focusing on pelvic stability, repeated SI joint injections (every 3-6 months), radiofrequency ablation of SI joint nerves (less commonly performed), and activity modification. Fusion is reserved for confirmed SI pain failing comprehensive conservative care."
+    }
+  ],
+  "cervical-laminectomy": [
+    {
+      question: "Is cervical laminectomy the same as ACDF?",
+      answer: "Different procedures with different approaches and indications. Laminectomy approaches from the back to remove bone and create space for the spinal cord (used for stenosis/myelopathy). ACDF approaches from the front to remove disc and fuse vertebrae (used for disc herniation or single-level stenosis)."
+    },
+    {
+      question: "Will my myelopathy symptoms fully reverse after laminectomy?",
+      answer: "Depends on severity and duration before surgery. Early treatment improves odds of recovery. However, goal is often to PREVENT WORSENING rather than reverse established deficits. Some improvement is common, but longstanding severe myelopathy may have permanent effects."
+    },
+    {
+      question: "Do I need fusion added to cervical laminectomy?",
+      answer: "Depends on spine alignment and stability. If you have good neck alignment (normal lordosis), laminectomy alone may suffice. If you have kyphosis (forward curve) or instability, fusion may be added to prevent deformity progression. Surgeon assesses this preoperatively."
+    },
+    {
+      question: "How long is recovery from cervical laminectomy?",
+      answer: "Varies by number of levels and whether fusion is performed. Many patients resume light activities within 2-4 weeks. If fusion is added, recovery is longer (6-12 weeks for basic activities). Avoid heavy lifting and high-impact activities for 3-6 months."
+    },
+    {
+      question: "What are red flags after cervical laminectomy?",
+      answer: "Seek immediate care for worsening weakness (especially in legs), new bowel/bladder problems, increasing neck pain with fever (possible infection), severe headache when sitting up (possible spinal fluid leak), or numbness spreading to new areas."
+    }
+  ],
+  "chronic-pain-treatment": [
+    {
+      question: "Why does pain persist even after imaging looks 'mild'?",
+      answer: "Pain is multifactorial and doesn't always correlate with imaging severity. Factors include nerve sensitization, muscle dysfunction, joint mechanics, inflammation, and central pain processing. Effective treatment addresses the actual pain generators, not just imaging findings."
+    },
+    {
+      question: "Are injections a cure for chronic pain?",
+      answer: "Injections are both diagnostic and therapeutic—they help identify pain sources AND provide relief. They're part of a comprehensive plan, not a standalone cure. Combined with rehab and activity modification, injections can facilitate functional improvement."
+    },
+    {
+      question: "What if I have pain in multiple areas?",
+      answer: "Common in chronic pain. Strategy is to prioritize PRIMARY drivers (which pain limits you most?) and stage care appropriately. Treating the main pain generator often improves secondary pain as movement and function improve."
+    },
+    {
+      question: "How long until improvement with chronic pain treatment?",
+      answer: "Depends on pain duration and complexity. With a structured plan, many patients see measurable progress within 4-8 weeks. However, chronic pain that developed over years may take months to significantly improve. Focus is on functional goals, not complete pain elimination."
+    },
+    {
+      question: "When should I see a specialist urgently for chronic pain?",
+      answer: "Red flags include new or progressive weakness, numbness spreading proximally, loss of bowel/bladder control, severe pain with fever or unexplained weight loss, or pain after significant trauma. These warrant prompt evaluation to rule out serious underlying conditions."
+    }
+  ],
+  "joint-pain-treatment": [
+    {
+      question: "Do I need an MRI for joint pain?",
+      answer: "Not always. X-rays are often first-line for joint pain—they show arthritis, alignment, and bone issues. MRI is ordered when soft tissue injury (cartilage, ligaments, tendons) is suspected, symptoms don't match X-ray findings, or when considering surgery."
+    },
+    {
+      question: "Are joint injections safe?",
+      answer: "Yes, when properly indicated and performed. Risks include infection (very rare), temporary pain increase, allergic reaction, and potential cartilage effects with repeated corticosteroid injections. Benefits often outweigh risks when injections are used appropriately as part of a treatment plan."
+    },
+    {
+      question: "When is surgery considered for joint pain?",
+      answer: "When there's persistent functional limitation despite appropriate conservative care (typically 3-6 months), confirmed structural damage on imaging that correlates with symptoms, and pain/disability significantly impacts quality of life. Surgery is not based on imaging alone."
+    },
+    {
+      question: "Can joint pain come from the spine?",
+      answer: "Yes—referred pain is common. Cervical spine issues can cause shoulder pain; lumbar spine problems can mimic hip pain. Thorough exam differentiates between true joint pathology and referred spine pain. Sometimes both coexist and need addressing."
+    },
+    {
+      question: "What can I do at home for joint pain?",
+      answer: "Activity modification (avoid aggravators but stay active), appropriate exercises (low-impact cardio, strength training), ice for acute flare-ups or heat for stiffness, maintain healthy weight, and over-the-counter anti-inflammatories if cleared by your doctor."
+    }
+  ],
+  "arthritis-treatment": [
+    {
+      question: "Is arthritis always 'bone-on-bone'?",
+      answer: "No, arthritis exists on a spectrum. 'Bone-on-bone' is end-stage severe arthritis. Many people have mild to moderate arthritis with remaining cartilage. These earlier stages are very treatable with conservative care. Surgery is reserved for advanced arthritis causing significant disability."
+    },
+    {
+      question: "Do injections rebuild cartilage for arthritis?",
+      answer: "Current injections don't regrow cartilage. Corticosteroid injections reduce inflammation. Hyaluronic acid (viscosupplementation) may improve joint lubrication. PRP and other biologics show promise but aren't proven to regenerate cartilage. Injections provide symptom relief while cartilage preservation strategies (activity, weight) continue."
+    },
+    {
+      question: "When is joint replacement recommended?",
+      answer: "When severe arthritis symptoms (pain, stiffness, functional limitation) persist despite comprehensive conservative care (PT, medications, injections, activity modification), significantly impact quality of life, and X-rays confirm advanced joint degeneration. It's a quality-of-life decision, not an age-based one."
+    },
+    {
+      question: "Can arthritis affect the spine?",
+      answer: "Yes—facet joint arthritis causes axial back/neck pain; disc degeneration is a form of spinal arthritis. Spinal arthritis can lead to stenosis (nerve compression) as bone spurs and ligament thickening narrow the canal. Treatment is similar—start conservative, consider injections, reserve surgery for significant symptoms."
+    },
+    {
+      question: "What's the fastest way to feel better with arthritis?",
+      answer: "No single 'fastest' way—effective treatment is individualized. Combination approach typically works best: activity modification, targeted strengthening, weight management, appropriate medications, and possibly an injection for acute flare-ups. Starting with proper biomechanics plus pain control addresses root causes."
+    }
+  ],
+  "bursitis-treatment": [
+    {
+      question: "Is bursitis the same as arthritis?",
+      answer: "No, different structures. Bursitis is inflammation of fluid-filled sacs (bursae) that cushion around joints and tendons. Arthritis is cartilage breakdown within the joint itself. However, both can coexist and cause similar symptoms. Treatment approaches differ—bursitis responds well to injections and biomechanical correction."
+    },
+    {
+      question: "Why does my bursitis keep coming back?",
+      answer: "Recurrence usually indicates underlying biomechanical or overuse issues weren't fully addressed. Contributing factors include muscle imbalances, poor mechanics, training errors, or activities repeatedly irritating the bursa. Physical therapy targeting these underlying factors is key to preventing recurrence."
+    },
+    {
+      question: "Do I need imaging for bursitis?",
+      answer: "Sometimes. Ultrasound can confirm bursa inflammation and guide injections. MRI is ordered if diagnosis is unclear or to rule out other issues (tendon tears, arthritis). Often, clinical diagnosis from exam is sufficient to start conservative treatment."
+    },
+    {
+      question: "Will a cortisone injection cure my bursitis?",
+      answer: "It can dramatically reduce bursa inflammation and pain, providing significant relief. However, injection alone doesn't address underlying mechanical causes. Combine injection with physical therapy, activity modification, and correction of contributing factors for best long-term results."
+    },
+    {
+      question: "When should I see a specialist for bursitis?",
+      answer: "If pain persists despite 2-4 weeks of rest and conservative home care, if you have significant weakness, if diagnosis is unclear, or if pain is worsening. Persistent or recurrent bursitis may need imaging, injection, and structured rehab program."
+    }
+  ],
+  "tendonitis-treatment": [
+    {
+      question: "Is tendonitis always inflammation?",
+      answer: "Not always. Acute tendonitis involves inflammation, but chronic tendon pain (tendinopathy) is often degenerative changes rather than active inflammation. This distinction matters—degenerative tendinopathy responds better to loading/strengthening exercises than to anti-inflammatories and rest alone."
+    },
+    {
+      question: "Should I rest completely with tendonitis?",
+      answer: "Short-term relative rest (1-2 weeks) to calm acute flare-ups, then progressive loading is usually best. Complete rest weakens the tendon. The key is finding the 'therapeutic window'—enough load to stimulate healing without aggravating symptoms. Physical therapy guides this process."
+    },
+    {
+      question: "When do I need MRI for tendonitis?",
+      answer: "If pain persists despite 6-8 weeks of appropriate treatment, if there's suspected tendon tear (sudden pain/weakness), if diagnosis is unclear, or when considering advanced treatments (PRP, surgery). MRI differentiates tendinopathy from tears and other issues."
+    },
+    {
+      question: "How long does tendonitis recovery take?",
+      answer: "Acute tendonitis may improve in 2-4 weeks with appropriate care. Chronic tendinopathy (tendinosis) takes much longer—typically 3-6 months of progressive loading exercises. Tendons heal slowly due to limited blood supply. Patience and consistency with rehab are essential."
+    },
+    {
+      question: "Can tendonitis turn into a tear?",
+      answer: "Yes, chronic tendinopathy weakens tendon structure, increasing tear risk. This is why early treatment addressing mechanics and load management is important. However, many people have tendinopathy visible on imaging without ever tearing. Proper rehab strengthens the tendon and reduces tear risk."
+    }
+  ],
+  "osteoporosis-treatment": [
+    {
+      question: "How do I know if I have osteoporosis?",
+      answer: "Bone density testing (DEXA scan) measures bone strength. T-score below -2.5 indicates osteoporosis; -1.0 to -2.5 is osteopenia (low bone density). Risk factors include age over 50, female sex, family history, smoking, low calcium/vitamin D, and certain medications. Testing is recommended for women 65+ and men 70+, or younger with risk factors."
+    },
+    {
+      question: "Can osteoporosis cause back pain?",
+      answer: "Osteoporosis itself doesn't cause pain—it's 'silent' until fracture occurs. However, vertebral compression fractures from osteoporosis cause acute severe back pain. Chronic pain may result from multiple old fractures causing spinal deformity. Prevention and treatment of osteoporosis prevent these painful fractures."
+    },
+    {
+      question: "Do I need spine surgery for osteoporosis?",
+      answer: "Usually no—osteoporosis is primarily treated medically (calcium, vitamin D, bone-strengthening medications like bisphosphonates). However, if osteoporosis causes acute painful compression fractures not responding to conservative care, minimally invasive procedures (kyphoplasty/vertebroplasty) may be considered."
+    },
+    {
+      question: "What is a vertebral compression fracture?",
+      answer: "A compression fracture is collapse of a vertebral body, typically in the thoracic or lumbar spine, due to weakened bone from osteoporosis. It causes sudden severe back pain, often after minor trauma (bending, lifting) or even spontaneously. Can lead to height loss and spinal deformity if multiple levels fracture."
+    },
+    {
+      question: "What can I do now to protect my bones?",
+      answer: "Weight-bearing exercise (walking, jogging), resistance training, adequate calcium (1200mg daily for women 50+) and vitamin D (800-1000 IU daily), avoid smoking and excessive alcohol, fall prevention strategies at home, and bone density testing to guide medical treatment if needed."
+    }
+  ],
+  "hip-labral-repair": [
+    {
+      question: "What is hip labral repair surgery?",
+      answer: "<strong>Hip labral repair</strong> is an arthroscopic procedure that reattaches a torn hip labrum using suture anchors. The labrum is the cartilage ring deepening the hip socket. Surgery addresses the tear and any underlying <a href=\"/conditions/hip-impingement\">hip impingement</a> (FAI) causing it."
+    },
+    {
+      question: "Who is a candidate for hip labral repair?",
+      answer: "Candidates include patients with <strong>symptomatic labral tears</strong> causing groin pain, clicking, or locking that failed conservative treatment. Ideal candidates are younger, active individuals without significant arthritis. Associated hip impingement must be corrected during surgery."
+    },
+    {
+      question: "What is the recovery time for hip labral repair?",
+      answer: "Recovery takes <strong>4 to 6 months</strong> for return to sports. Patients use crutches for 2-4 weeks to protect the repair. Physical therapy progresses from passive motion to strengthening. Full healing and return to impact activities takes 6-12 months."
+    },
+    {
+      question: "What are the risks of hip labral repair surgery?",
+      answer: "Risks include incomplete pain relief (especially with advanced arthritis), stiffness, nerve injury (lateral femoral cutaneous nerve numbness), infection, blood clots, and potential for re-tear. Success rates are <strong>80-90% when properly selected</strong> patients without arthritis."
+    },
+    {
+      question: "What is the difference between labral repair and debridement?",
+      answer: "<strong>Labral repair</strong> reattaches the torn labrum preserving its function, while debridement removes damaged tissue. Repair is preferred in younger patients with repairable tears. Debridement is reserved for degenerative, irreparable tears in older patients."
+    }
+  ],
+  "hip-resurfacing": [
+    {
+      question: "What is hip resurfacing?",
+      answer: "<strong>Hip resurfacing</strong> is an alternative to total hip replacement that caps the femoral head with a metal surface rather than removing it. The acetabulum is also resurfaced with a metal cup. It preserves more bone than traditional replacement."
+    },
+    {
+      question: "Who is a candidate for hip resurfacing?",
+      answer: "Ideal candidates are <strong>younger, active males</strong> under 60 with good bone quality, large femoral heads, and hip arthritis. Women, patients with osteoporosis, kidney disease, or metal allergies are not ideal candidates due to higher failure rates."
+    },
+    {
+      question: "What are the benefits of hip resurfacing over replacement?",
+      answer: "Benefits include <strong>bone preservation</strong> allowing easier revision if needed, more natural hip biomechanics with larger head size reducing dislocation risk, and potentially better activity tolerance. However, long-term outcomes favor traditional <a href=\"/treatments/total-hip-replacement\">total hip replacement</a>."
+    },
+    {
+      question: "What are the risks of hip resurfacing?",
+      answer: "Risks include <strong>metal ion release</strong> into bloodstream (metallosis), femoral neck fracture, higher revision rates in women, and all standard hip surgery risks (infection, dislocation, nerve injury). Metal sensitivity testing may be recommended."
+    },
+    {
+      question: "How long does hip resurfacing last?",
+      answer: "Survival rates are <strong>approximately 85-95% at 10 years</strong> in optimal candidates (young males). However, traditional hip replacements show better long-term outcomes. The procedure has declined in popularity due to concerns about metal-on-metal bearings."
+    }
+  ],
+  "hip-fracture-surgery": [
+    {
+      question: "What types of hip fracture surgery are there?",
+      answer: "<strong>Hip fracture surgery</strong> varies by location. Femoral neck fractures may require hemiarthroplasty (partial replacement) or total hip replacement in elderly, or internal fixation in young patients. Intertrochanteric fractures use sliding hip screws or intramedullary nails."
+    },
+    {
+      question: "How soon after a hip fracture should surgery occur?",
+      answer: "Surgery should ideally occur <strong>within 24-48 hours</strong> after medical optimization. Early surgery reduces complications (pneumonia, blood clots, pressure sores) and mortality. Delays beyond 48 hours significantly increase complication rates in elderly patients."
+    },
+    {
+      question: "Can you walk after hip fracture surgery?",
+      answer: "Most patients begin <strong>walking with assistance within 1-2 days</strong> after surgery. Weight-bearing status depends on fracture type and fixation method. Hemiarthroplasty and nailing typically allow immediate weight-bearing, while some internal fixations require protected weight-bearing."
+    },
+    {
+      question: "What is the recovery time for hip fracture surgery?",
+      answer: "Initial recovery takes <strong>3 to 4 months</strong> for basic mobility. Full recovery varies by age, health, and fracture type, taking 6-12 months. Elderly patients may not return to pre-fracture function. Physical therapy is crucial for regaining strength and preventing falls."
+    },
+    {
+      question: "What are the complications of hip fracture surgery?",
+      answer: "Complications include <strong>infection, blood clots, pneumonia</strong>, avascular necrosis (femoral neck fractures), non-union, hardware failure, and mortality risk (5-10% at 30 days in elderly). Pre-existing medical conditions significantly impact outcomes."
+    }
+  ],
+  "revision-hip-replacement": [
+    {
+      question: "What is revision hip replacement surgery?",
+      answer: "<strong>Revision hip replacement</strong> is surgery to replace a failed or worn-out hip implant. Common reasons include loosening, infection, dislocation, fracture, wear, or instability. It's technically more complex than primary replacement with longer recovery."
+    },
+    {
+      question: "When is revision hip replacement needed?",
+      answer: "Revision is needed for <strong>persistent pain, implant loosening, recurrent dislocations</strong>, infection, component wear causing metallosis or osteolysis, or periprosthetic fracture. Some patients require revision decades after initial replacement due to normal implant wear."
+    },
+    {
+      question: "How long does revision hip replacement take to heal?",
+      answer: "Recovery typically takes <strong>6 to 12 months</strong>, longer than primary replacement. Patients use crutches/walker for 6-12 weeks. Physical therapy is more intensive. Some revisions requiring bone grafting or custom implants need extended protected weight-bearing."
+    },
+    {
+      question: "What are the risks of revision hip surgery?",
+      answer: "Revision surgery carries <strong>higher risks than primary surgery</strong> including infection (2-5%), dislocation, nerve injury, blood loss requiring transfusion, bone fracture during component removal, and re-revision. Success rates are 80-90%, lower than primary surgery."
+    },
+    {
+      question: "Can you have multiple hip revision surgeries?",
+      answer: "Yes, though each subsequent revision becomes <strong>more challenging</strong> due to bone loss and scarring. Modern techniques like trabecular metal cones, modular components, and bone grafting enable multiple revisions. However, outcomes decline and complication rates increase with each revision."
+    }
+  ],
+  "hip-impingement-surgery": [
+    {
+      question: "What is hip impingement surgery?",
+      answer: "<strong>Hip impingement surgery</strong> (FAI surgery) arthroscopically reshapes bone abnormalities causing femoroacetabular impingement. The surgeon trims the femoral head-neck junction (cam lesion) and/or acetabular rim (pincer lesion), then repairs any associated labral tears."
+    },
+    {
+      question: "Who needs hip impingement surgery?",
+      answer: "Candidates include patients with <strong>symptomatic FAI</strong> causing groin pain, clicking, or limited motion that failed 3-6 months of conservative treatment. X-rays or CT show cam/pincer morphology. Ideal candidates are younger, active individuals without significant arthritis."
+    },
+    {
+      question: "What is the recovery time for hip impingement surgery?",
+      answer: "Recovery takes <strong>4 to 6 months</strong> for return to sports. Patients use crutches for 2-3 weeks. Physical therapy begins immediately focusing on motion, then progressive strengthening. Full return to impact activities and sports requires 6-9 months."
+    },
+    {
+      question: "What are the results of hip impingement surgery?",
+      answer: "Studies show <strong>70-85% good to excellent results</strong> with reduced pain and improved function in properly selected patients. Factors predicting success include younger age, absence of arthritis, normal BMI, and addressing both bone and labral pathology."
+    },
+    {
+      question: "Can hip impingement come back after surgery?",
+      answer: "Recurrence is uncommon when bone is adequately resected. However, <strong>residual impingement, new labral tears</strong>, or progression to arthritis can cause persistent symptoms. Some patients require revision surgery (5-10%) or eventually progress to hip replacement if arthritis develops."
+    }
+  ],
+  "core-decompression": [
+    {
+      question: "What is core decompression for avascular necrosis?",
+      answer: "<strong>Core decompression</strong> is a joint-preserving surgery for early-stage <a href=\"/conditions/avascular-necrosis\">avascular necrosis</a> (AVN). The surgeon drills small holes into the femoral head to reduce pressure, stimulate new blood vessel growth, and slow bone death."
+    },
+    {
+      question: "Who is a candidate for core decompression?",
+      answer: "Ideal candidates have <strong>early-stage AVN</strong> (pre-collapse stages) detected on MRI with minimal symptoms. Success rates are highest when performed before femoral head collapse. Late-stage AVN with collapse requires hip replacement rather than decompression."
+    },
+    {
+      question: "What is the success rate of core decompression?",
+      answer: "Success varies by AVN stage. <strong>Early-stage (Ficat I-II) success rates are 60-85%</strong> in slowing progression. Late-stage or post-collapse cases have poor outcomes. Younger patients and those addressing underlying causes (stopping steroids/alcohol) have better results."
+    },
+    {
+      question: "What is the recovery time for core decompression?",
+      answer: "Patients use <strong>crutches with protected weight-bearing for 6-12 weeks</strong> to allow healing. Full recovery takes 3-6 months. Avoiding impact activities initially prevents femoral head collapse during healing. Serial X-rays monitor bone healing and potential progression."
+    },
+    {
+      question: "What happens if core decompression fails?",
+      answer: "If AVN progresses to femoral head collapse despite decompression, <strong><a href=\"/treatments/total-hip-replacement\">total hip replacement</a></strong> becomes necessary. Some patients may undergo vascularized bone grafting as a bridge procedure before eventual replacement if young."
+    }
+  ],
+  "hip-bursectomy": [
+    {
+      question: "What is hip bursectomy?",
+      answer: "<strong>Hip bursectomy</strong> is surgical removal of the inflamed trochanteric bursa on the outer hip. It's typically performed arthroscopically or through a small incision when chronic <a href=\"/conditions/hip-bursitis\">hip bursitis</a> fails to respond to conservative treatment."
+    },
+    {
+      question: "When is hip bursectomy recommended?",
+      answer: "Surgery is considered after <strong>6-12 months of failed conservative treatment</strong> including physical therapy, injections, activity modification, and NSAIDs. Persistent pain limiting daily activities and sleep despite multiple injections indicates surgical candidacy."
+    },
+    {
+      question: "What does hip bursectomy surgery involve?",
+      answer: "The procedure removes the <strong>thickened, inflamed bursa</strong> and addresses underlying causes such as tight IT band (iliotibial band lengthening), gluteal tendon tears (repair), or bone spurs (removal). Addressing causative factors prevents recurrence."
+    },
+    {
+      question: "What is the recovery time for hip bursectomy?",
+      answer: "Most patients resume <strong>light activities within 2-4 weeks</strong> and return to full activities by 6-12 weeks. Physical therapy focuses on IT band stretching, hip strengthening, and correcting biomechanical issues. Success rates exceed 85% when underlying causes are addressed."
+    },
+    {
+      question: "Can hip bursitis come back after surgery?",
+      answer: "Recurrence is uncommon after bursectomy as the bursa is removed. However, <strong>similar pain may return if underlying issues</strong> (IT band tightness, gluteal tears, leg-length discrepancy) aren't addressed. Maintaining hip flexibility and strength prevents recurrent symptoms."
+    }
+  ],
+  "partial-knee-replacement": [
+    {
+      question: "What is partial knee replacement (unicompartmental)?",
+      answer: "<strong>Partial knee replacement</strong> (unicompartmental arthroplasty) replaces only the damaged compartment (medial, lateral, or patellofemoral) rather than the entire knee. It's less invasive than <a href=\"/treatments/total-knee-replacement\">total knee replacement</a>, preserving healthy bone and ligaments."
+    },
+    {
+      question: "Who is a candidate for partial knee replacement?",
+      answer: "Ideal candidates have <strong>isolated arthritis in one compartment</strong>, intact ligaments, minimal deformity, and are typically over 60. The procedure works best for medial compartment arthritis in lower-demand patients. Younger, active patients may be better served by total replacement."
+    },
+    {
+      question: "What are the benefits of partial knee replacement?",
+      answer: "Benefits include <strong>faster recovery (4-6 weeks vs 3 months)</strong>, more natural knee feel, smaller incision, less blood loss, shorter hospital stay, and better preservation of bone stock for future revision. Many patients report the knee feels more normal."
+    },
+    {
+      question: "How long does a partial knee replacement last?",
+      answer: "<strong>Survival rates are 80-90% at 10 years</strong> and 70-80% at 15 years. However, 10-15% of patients eventually require conversion to total knee replacement due to arthritis progression in other compartments. Younger, heavier patients have higher revision rates."
+    },
+    {
+      question: "What are the disadvantages of partial knee replacement?",
+      answer: "Disadvantages include <strong>higher revision rates than total replacement</strong>, potential for arthritis progression in untreated compartments, occasional clicking or clunking, and strict patient selection criteria. Not suitable for inflammatory arthritis or ligament insufficiency."
+    }
+  ],
+  "meniscus-surgery": [
+    {
+      question: "What is meniscus surgery?",
+      answer: "<strong>Meniscus surgery</strong> treats <a href=\"/conditions/torn-meniscus\">torn meniscus</a> through arthroscopic repair (suturing the tear) or partial meniscectomy (removing damaged tissue). Repair is preferred in younger patients with repairable tears in the vascular zone. Debridement removes torn fragments causing mechanical symptoms."
+    },
+    {
+      question: "When is meniscus repair recommended over removal?",
+      answer: "<strong>Meniscus repair</strong> is preferred in younger patients (<40), acute tears, peripheral tears in the vascular zone, and vertical longitudinal tears. Repair preserves the meniscus, protecting against future arthritis. Success rates are 70-90% for appropriate repairs."
+    },
+    {
+      question: "What is the recovery time for meniscus surgery?",
+      answer: "Recovery varies by procedure. <strong>Meniscectomy: 4-6 weeks</strong> for return to activities. Meniscus repair: 3-6 months with initial protected weight-bearing and limited motion to allow healing. Contact sports require full rehabilitation and strength return."
+    },
+    {
+      question: "Can you walk immediately after meniscus surgery?",
+      answer: "Walking depends on procedure type. <strong>Meniscectomy allows immediate weight-bearing</strong> as tolerated. Meniscus repair typically requires crutches with protected weight-bearing for 4-6 weeks to protect the repair. Your surgeon will specify your restrictions."
+    },
+    {
+      question: "Will I develop arthritis after meniscus surgery?",
+      answer: "Risk varies by procedure. <strong>Meniscus removal increases arthritis risk</strong> proportional to amount removed. Meniscus repair preserves the shock-absorbing function, reducing future arthritis risk. Degenerative meniscus tears in older patients often indicate pre-existing arthritis."
+    }
+  ],
+  "knee-ligament-repair": [
+    {
+      question: "What is knee ligament repair surgery?",
+      answer: "<strong>Knee ligament repair</strong> treats tears of the ACL, PCL, MCL, or LCL through reconstruction (using grafts) or direct repair. ACL tears typically require reconstruction. MCL and LCL tears may heal with bracing. Multi-ligament injuries need complex reconstruction."
+    },
+    {
+      question: "Which knee ligament injuries need surgery?",
+      answer: "<strong>Complete ACL tears in active patients</strong> almost always require reconstruction. MCL injuries often heal non-surgically. PCL tears may be treated conservatively. LCL and multi-ligament injuries typically need surgery. Decision factors include activity level, age, and associated injuries."
+    },
+    {
+      question: "What is the recovery time for knee ligament surgery?",
+      answer: "Recovery varies by ligament. <strong>ACL reconstruction: 6-9 months</strong> for return to sports. Multi-ligament reconstruction: 9-12 months. MCL repair: 3-4 months. Early rehabilitation focuses on motion and preventing arthrofibrosis, followed by progressive strengthening."
+    },
+    {
+      question: "What are the success rates of knee ligament surgery?",
+      answer: "Success rates are generally high. <strong>ACL reconstruction: 85-95% return to sports</strong>. MCL healing with bracing: 90%+. Multi-ligament reconstruction: 70-85% good outcomes but higher complication rates. Graft choice, technique, and rehabilitation compliance affect outcomes."
+    },
+    {
+      question: "Can you play sports after knee ligament surgery?",
+      answer: "Yes, most athletes return to sports after <strong>proper rehabilitation and clearance</strong>. ACL reconstruction allows return at 6-9 months with functional testing. Re-injury risk is 5-15%. Addressing biomechanics, strength deficits, and neuromuscular control reduces re-tear risk."
+    }
+  ],
+  "pcl-reconstruction": [
+    {
+      question: "What is PCL reconstruction surgery?",
+      answer: "<strong>PCL reconstruction</strong> replaces a torn posterior cruciate ligament using a graft (allograft or autograft). Unlike ACL tears, isolated PCL tears often heal conservatively. Surgery is reserved for grade III tears, multi-ligament injuries, or symptomatic instability."
+    },
+    {
+      question: "Who needs PCL reconstruction surgery?",
+      answer: "Candidates include patients with <strong>complete PCL tears causing instability</strong>, multi-ligament knee injuries, combined PCL and posterolateral corner injuries, or persistent symptoms (pain, instability) despite 3-6 months of conservative treatment and quadriceps strengthening."
+    },
+    {
+      question: "What is the recovery time for PCL reconstruction?",
+      answer: "Recovery takes <strong>9 to 12 months</strong> for return to sports, longer than ACL reconstruction. Patients use brace with extension lockout for 6 weeks. Quadriceps strengthening is emphasized while avoiding hamstring activation initially. Full recovery requires dedicated rehabilitation."
+    },
+    {
+      question: "What are the outcomes of PCL reconstruction?",
+      answer: "Outcomes are generally good but <strong>less predictable than ACL reconstruction</strong>. Patient satisfaction rates are 70-85%. Some residual posterior laxity often remains, but most patients achieve stable, functional knees. Combined injuries have more variable outcomes."
+    },
+    {
+      question: "Is PCL reconstruction as successful as ACL reconstruction?",
+      answer: "PCL reconstruction is <strong>technically more challenging</strong> with slightly lower success rates (75-85% vs 90-95% for ACL). The PCL's different anatomy, biomechanics, and healing environment make reconstruction more complex. However, modern techniques have improved outcomes significantly."
+    }
+  ],
+  "knee-cartilage-restoration": [
+    {
+      question: "What is knee cartilage restoration?",
+      answer: "<strong>Knee cartilage restoration</strong> treats focal cartilage defects using techniques like microfracture, OATS (osteochondral autograft transfer), ACI (autologous chondrocyte implantation), or MACI (matrix-induced ACI). Choice depends on defect size, location, and patient factors."
+    },
+    {
+      question: "Who is a candidate for cartilage restoration?",
+      answer: "Ideal candidates are <strong>younger patients (<40-50)</strong> with isolated focal defects from trauma, not widespread arthritis. Stable knees with intact meniscus and ligaments have best outcomes. Patients must commit to extended rehabilitation and activity modification."
+    },
+    {
+      question: "What are the different cartilage restoration procedures?",
+      answer: "Options include: <strong>Microfracture</strong> (drilling holes to stimulate fibrocartilage), OATS (transferring plugs of healthy cartilage), ACI/MACI (culturing and implanting patient's cartilage cells). Choice depends on defect size: <2cm² microfracture, 2-4cm² OATS, >4cm² ACI/MACI."
+    },
+    {
+      question: "What is the recovery time for cartilage restoration?",
+      answer: "Recovery varies by procedure. <strong>Microfracture: 4-6 months</strong>. OATS: 6-9 months. ACI/MACI: 9-12 months. All require initial protected weight-bearing (6-8 weeks) and CPM machine use. Full maturation of repair tissue takes 12-18 months."
+    },
+    {
+      question: "What are the success rates of cartilage restoration?",
+      answer: "Success rates vary. <strong>Microfracture: 60-80% at 2 years</strong>, declining after 5 years. OATS: 75-90% good results. ACI/MACI: 70-85% at 5-10 years. Outcomes depend on defect characteristics, patient age, BMI, and activity modification compliance."
+    }
+  ],
+  "knee-osteotomy": [
+    {
+      question: "What is knee osteotomy?",
+      answer: "<strong>Knee osteotomy</strong> is a bone-cutting procedure that realigns the leg to shift weight away from the damaged knee compartment. High tibial osteotomy (HTO) treats medial arthritis in bow-legged patients. Distal femoral osteotomy treats lateral arthritis in knock-kneed patients."
+    },
+    {
+      question: "Who is a candidate for knee osteotomy?",
+      answer: "Ideal candidates are <strong>young, active patients (<60)</strong> with isolated compartment arthritis, malalignment (varus or valgus), intact opposite compartment, stable ligaments, and good range of motion. It delays need for <a href=\"/treatments/total-knee-replacement\">knee replacement</a> by 10+ years."
+    },
+    {
+      question: "What is the recovery time for knee osteotomy?",
+      answer: "Recovery takes <strong>3 to 6 months</strong> for return to activities. Patients use crutches with protected weight-bearing for 6-8 weeks until bone healing. Full weight-bearing resumes at 8-12 weeks. Return to sports requires 6-9 months with complete rehabilitation."
+    },
+    {
+      question: "How long does a knee osteotomy last?",
+      answer: "<strong>Survival rates are 80-90% at 10 years</strong> and 60-70% at 15 years for appropriately selected patients. Success depends on proper patient selection, accurate correction, and activity modification. Eventually, most patients require knee replacement as arthritis progresses."
+    },
+    {
+      question: "What are the advantages of osteotomy over knee replacement?",
+      answer: "Osteotomy <strong>preserves the native knee joint</strong>, allows higher-impact activities, has no implant to wear out, and maintains options for future knee replacement. Ideal for young, active patients wanting to delay replacement. However, recovery is longer than replacement."
+    }
+  ],
+  "revision-knee-replacement": [
+    {
+      question: "What is revision knee replacement surgery?",
+      answer: "<strong>Revision knee replacement</strong> is surgery to replace or repair a failed knee implant. Common reasons include loosening, infection, instability, component wear, fracture around the implant, or stiffness. It's more complex than primary replacement with extended recovery."
+    },
+    {
+      question: "When is revision knee replacement needed?",
+      answer: "Revision is needed for <strong>persistent pain, implant loosening, recurrent instability/dislocations</strong>, infection not controlled by antibiotics, component wear causing metallosis or osteolysis, or periprosthetic fracture. Some revisions occur due to technical errors or component malposition."
+    },
+    {
+      question: "How long does revision knee replacement take to heal?",
+      answer: "Recovery typically takes <strong>6 to 12 months</strong>, significantly longer than primary replacement. Physical therapy is more intensive. Some revisions requiring bone grafting, stems, or augments need extended protected weight-bearing and gradual motion progression."
+    },
+    {
+      question: "What are the risks of revision knee replacement?",
+      answer: "Revision surgery has <strong>higher complication rates</strong> than primary surgery including infection (3-5%), stiffness, instability, nerve injury, blood loss, prolonged recovery, and re-revision risk. Success rates are 80-90%, lower than primary replacement's 95%."
+    },
+    {
+      question: "Can you have multiple knee revision surgeries?",
+      answer: "Yes, though each subsequent revision is <strong>more technically demanding</strong> due to bone loss and scarring. Modern techniques like metaphyseal cones, sleeves, and custom components enable multiple revisions. However, outcomes decline and infection risk increases with each revision."
+    }
+  ],
+  "shoulder-replacement": [
+    {
+      question: "What is total shoulder replacement?",
+      answer: "<strong>Total shoulder replacement</strong> (anatomic arthroplasty) replaces the damaged humeral head with a metal ball and resurfaces the glenoid socket with a plastic component. It treats end-stage <a href=\"/conditions/shoulder-arthritis\">shoulder arthritis</a> when the rotator cuff is intact."
+    },
+    {
+      question: "Who is a candidate for shoulder replacement?",
+      answer: "Candidates include patients with <strong>severe shoulder arthritis</strong> causing pain and limited function despite conservative treatment, intact or repairable rotator cuff, adequate bone quality, and realistic expectations. Common conditions include osteoarthritis, rheumatoid arthritis, and avascular necrosis."
+    },
+    {
+      question: "What is the recovery time for shoulder replacement?",
+      answer: "Initial recovery takes <strong>6 to 12 weeks</strong> with sling use for 4-6 weeks. Full recovery and return to activities requires 4-6 months. Physical therapy begins immediately focusing on passive motion, then progressive strengthening. Heavy lifting restrictions are permanent."
+    },
+    {
+      question: "How long does a shoulder replacement last?",
+      answer: "<strong>Modern shoulder replacements last 15-20+ years</strong> in most patients. Survival rates exceed 90% at 10 years. Younger, more active patients may wear components faster. Glenoid loosening is the most common cause of long-term failure."
+    },
+    {
+      question: "What activities can I do after shoulder replacement?",
+      answer: "Patients can perform <strong>most daily activities and low-impact sports</strong> (golf, swimming, cycling). Avoid heavy lifting (>25-50 lbs), contact sports, and repetitive overhead activities. Tennis doubles and recreational activities are typically allowed with surgeon clearance."
+    }
+  ],
+  "reverse-shoulder-replacement": [
+    {
+      question: "What is reverse shoulder replacement?",
+      answer: "<strong>Reverse shoulder replacement</strong> inverts the ball-and-socket anatomy, placing a metal ball on the glenoid and a socket on the humerus. It treats rotator cuff tear arthropathy, massive irreparable cuff tears, and complex fractures by allowing the deltoid to power the arm."
+    },
+    {
+      question: "Who needs a reverse shoulder replacement?",
+      answer: "Candidates include patients with <strong>rotator cuff tear arthropathy</strong>, massive irreparable cuff tears causing pain and weakness, failed anatomic shoulder replacement, complex proximal humerus fractures in elderly, or tumors requiring proximal humerus resection."
+    },
+    {
+      question: "What is the recovery time for reverse shoulder replacement?",
+      answer: "Recovery takes <strong>3 to 6 months</strong> for most activities. Patients wear a sling for 4-6 weeks. Physical therapy begins immediately with passive motion, progressing to active motion and strengthening. Forward elevation improves quickly; rotation recovery is more gradual."
+    },
+    {
+      question: "What are the advantages of reverse shoulder replacement?",
+      answer: "Advantages include <strong>pain relief and improved function without a functional rotator cuff</strong>, immediate stability (low dislocation risk 3-5%), predictable outcomes, and ability to elevate the arm using deltoid. It revolutionized treatment for cuff tear arthropathy."
+    },
+    {
+      question: "What are the limitations of reverse shoulder replacement?",
+      answer: "Limitations include <strong>restricted external rotation and internal rotation</strong> (reaching behind back), scapular notching (30-50%), higher complication rates than anatomic replacement, permanent heavy lifting restrictions, and potential instability with deltoid damage."
+    }
+  ],
+  "labral-repair-shoulder": [
+    {
+      question: "What is shoulder labral repair surgery?",
+      answer: "<strong>Shoulder labral repair</strong> is an arthroscopic procedure reattaching a torn labrum to the glenoid rim using suture anchors. It treats Bankart lesions (anterior-inferior tears from dislocation) and SLAP tears (superior labrum anterior-posterior tears from overhead sports)."
+    },
+    {
+      question: "Who is a candidate for shoulder labral repair?",
+      answer: "Candidates include patients with <strong>symptomatic labral tears</strong> causing instability, pain, or mechanical symptoms that failed conservative treatment. Bankart repairs prevent recurrent dislocations. SLAP repairs treat overhead athletes with pain and clicking from superior labral tears."
+    },
+    {
+      question: "What is the recovery time for labral repair?",
+      answer: "Recovery varies by tear location. <strong>Bankart repair: 4-6 months</strong> for return to sports. SLAP repair: 6-9 months due to biceps tendon involvement. Patients wear a sling for 4-6 weeks. Physical therapy progresses from motion to strengthening."
+    },
+    {
+      question: "What is the success rate of shoulder labral repair?",
+      answer: "Success rates are high for appropriate indications. <strong>Bankart repair: 85-95% stability restoration</strong>. SLAP repair outcomes are more variable (70-80% good results) depending on patient age, sport, and tear pattern. Young contact athletes have higher re-injury risk."
+    },
+    {
+      question: "What are the complications of labral repair surgery?",
+      answer: "Complications include <strong>recurrent instability (5-15%)</strong>, stiffness, incomplete pain relief, nerve injury (axillary nerve), infection, and anchor-related issues. SLAP repairs have higher dissatisfaction rates in overhead athletes, with some requiring biceps tenodesis revision."
+    }
+  ],
+  "biceps-tenodesis": [
+    {
+      question: "What is biceps tenodesis surgery?",
+      answer: "<strong>Biceps tenodesis</strong> detaches the long head of the biceps tendon from its attachment in the shoulder and reattaches it lower on the humerus bone. It treats chronic biceps tendonitis, SLAP tears, or partial rotator cuff tears by removing a pain generator."
+    },
+    {
+      question: "When is biceps tenodesis recommended?",
+      answer: "Tenodesis is recommended for <strong>chronic biceps tendonitis unresponsive to conservative treatment</strong>, irreparable SLAP tears (especially in patients >40), partial rotator cuff tears with biceps involvement, or painful biceps subluxation. It's often combined with rotator cuff repair."
+    },
+    {
+      question: "What is the recovery time for biceps tenodesis?",
+      answer: "Recovery takes <strong>3 to 4 months</strong> for return to full activities. Patients avoid lifting with the affected arm for 6 weeks to allow tendon healing. Physical therapy focuses on shoulder motion initially, then progressive strengthening. Sports return requires 4-6 months."
+    },
+    {
+      question: "What is the difference between tenodesis and tenotomy?",
+      answer: "<strong>Tenodesis reattaches the tendon</strong> to bone preserving biceps function and cosmesis. Tenotomy simply releases the tendon, allowing it to retract. Tenotomy is quicker with faster recovery but may cause a \"Popeye\" deformity (20-30%) and potential cramping/weakness."
+    },
+    {
+      question: "What are the results of biceps tenodesis?",
+      answer: "Results are generally excellent. <strong>Pain relief rates exceed 85-90%</strong>. The \"Popeye\" deformity is rare (5%) compared to tenotomy (20-30%). Minimal functional strength loss occurs. Patient satisfaction is high, especially when combined with rotator cuff repair or other procedures."
+    }
+  ],
+  "shoulder-instability-surgery": [
+    {
+      question: "What is shoulder instability surgery?",
+      answer: "<strong>Shoulder instability surgery</strong> stabilizes a chronically unstable shoulder through arthroscopic or open Bankart repair (labral repair with capsular tightening), capsular plication, bone grafting (Latarjet), or soft tissue reconstruction. Choice depends on bone loss and tissue quality."
+    },
+    {
+      question: "Who needs surgery for shoulder instability?",
+      answer: "Surgery is recommended for <strong>recurrent dislocations</strong>, especially in young, active patients after first-time dislocation, failed conservative treatment, significant bone loss (>20% glenoid or Hill-Sachs), or high-demand athletes/military personnel requiring reliable stability."
+    },
+    {
+      question: "What is the Latarjet procedure?",
+      answer: "The <strong>Latarjet procedure</strong> transfers the coracoid bone with attached muscles to the front of the glenoid, creating a bone block and sling effect. It's used for significant glenoid bone loss (>20%), failed prior soft tissue repair, or contact athletes."
+    },
+    {
+      question: "What is the recovery time for shoulder stabilization?",
+      answer: "Recovery takes <strong>6 to 9 months</strong> for return to contact sports. Patients wear a sling for 4-6 weeks. Physical therapy progresses cautiously to avoid re-injury. Strengthening begins at 3 months. Full contact sports clearance requires 6-9 months with functional testing."
+    },
+    {
+      question: "What is the success rate of shoulder stabilization surgery?",
+      answer: "<strong>Arthroscopic Bankart repair: 85-95% stability</strong> in first-time surgery. Latarjet procedure: 90-95% even with bone loss. Revision surgery has lower success (70-80%). Young contact athletes (<20 years) have higher re-dislocation risk (10-15%)."
+    }
+  ],
+  "acromioplasty": [
+    {
+      question: "What is shoulder acromioplasty?",
+      answer: "<strong>Acromioplasty</strong> (subacromial decompression) is an arthroscopic procedure that removes bone spurs from the underside of the acromion and bursa to create more space for the rotator cuff. It treats <a href=\"/conditions/shoulder-impingement\">shoulder impingement syndrome</a>."
+    },
+    {
+      question: "Who is a candidate for acromioplasty?",
+      answer: "Candidates include patients with <strong>chronic shoulder impingement</strong> causing pain with overhead activities that failed 3-6 months of conservative treatment (therapy, injections, activity modification). X-rays showing acromial spurs and MRI confirming impingement without large rotator cuff tears."
+    },
+    {
+      question: "What is the recovery time for acromioplasty?",
+      answer: "Recovery takes <strong>3 to 6 months</strong> for full return to activities. Patients typically avoid overhead activities for 6 weeks. Physical therapy begins immediately with motion, progressing to rotator cuff strengthening. Most patients return to work in 2-4 weeks."
+    },
+    {
+      question: "What is the success rate of acromioplasty?",
+      answer: "Success rates vary widely. <strong>Properly selected patients: 70-85% satisfaction</strong>. Outcomes are best when combined with rotator cuff repair if tears exist. Isolated acromioplasty for impingement without tears has more variable results, with some studies questioning its efficacy."
+    },
+    {
+      question: "Is acromioplasty still recommended?",
+      answer: "Recent evidence questions <strong>isolated acromioplasty's effectiveness</strong> for impingement without rotator cuff tears, showing similar results to physical therapy alone. It's now primarily performed alongside rotator cuff repair. Conservative treatment should be exhausted before considering surgery."
+    }
+  ],
+  "shoulder-fracture-surgery": [
+    {
+      question: "What is shoulder fracture surgery?",
+      answer: "<strong>Shoulder fracture surgery</strong> treats broken bones in the proximal humerus, clavicle, or scapula through open reduction internal fixation (plates/screws), intramedullary nailing, or hemiarthroplasty/reverse shoulder replacement for comminuted proximal humerus fractures in elderly patients."
+    },
+    {
+      question: "When does a shoulder fracture need surgery?",
+      answer: "Surgery is needed for <strong>displaced fractures, multiple fragments</strong> (3-4 part proximal humerus), fractures with rotator cuff injury, open fractures, neurovascular injury, or fractures in young, active patients. Many minimally displaced fractures heal non-surgically with immobilization."
+    },
+    {
+      question: "What is the recovery time for shoulder fracture surgery?",
+      answer: "Recovery varies by fracture type. <strong>ORIF fixation: 3-6 months</strong>. Reverse replacement for complex fractures: 4-6 months. Clavicle ORIF: 3-4 months. Initial immobilization lasts 4-6 weeks, followed by progressive motion and strengthening under supervision."
+    },
+    {
+      question: "What determines if I need plates or shoulder replacement?",
+      answer: "Decision factors include <strong>fracture pattern, bone quality, patient age, and function</strong>. Young patients with good bone: ORIF fixation. Elderly with osteoporotic 4-part fractures: reverse shoulder replacement often provides better outcomes than attempting fixation of poor-quality bone."
+    },
+    {
+      question: "What are the complications of shoulder fracture surgery?",
+      answer: "Complications include <strong>stiffness (most common)</strong>, avascular necrosis of the humeral head (10-20% in complex fractures), malunion, nonunion, hardware irritation, infection, nerve injury (axillary nerve), and potential need for revision to shoulder replacement."
+    }
+  ],
+  "sacroiliac-joint-injection": [
+    {
+      question: "What is a sacroiliac joint injection?",
+      answer: "A <strong>sacroiliac (SI) joint injection</strong> delivers corticosteroid and anesthetic into the SI joint to reduce inflammation and diagnose SI joint dysfunction. It's performed under fluoroscopic (X-ray) guidance to ensure accurate needle placement. The procedure is both diagnostic and therapeutic."
+    },
+    {
+      question: "Who is a candidate for SI joint injection?",
+      answer: "Candidates include patients with <strong>lower back or buttock pain</strong> suspected from SI joint dysfunction, pain not responding to physical therapy, pain with provocative tests (FABER, Gaenslen's), or to confirm SI joint as pain source before considering <a href=\"/treatments/si-joint-fusion\">SI joint fusion</a>."
+    },
+    {
+      question: "What is the recovery time after SI joint injection?",
+      answer: "Most patients resume normal activities <strong>within 24-48 hours</strong>. Initial soreness from the needle resolves in 1-2 days. The steroid's full effect develops over 3-7 days. Relief typically lasts 3-6 months, sometimes longer. Multiple injections may be needed."
+    },
+    {
+      question: "How effective are SI joint injections?",
+      answer: "Diagnostic accuracy is high, with <strong>75%+ relief confirming SI joint</strong> as pain source. Therapeutic relief varies: 50-80% experience significant pain reduction lasting months. Combining injections with physical therapy strengthening core and hips provides better long-term results."
+    },
+    {
+      question: "What are the risks of SI joint injection?",
+      answer: "Risks are minimal. Possible complications include <strong>temporary pain increase (2-3 days)</strong>, infection (rare <1%), allergic reaction, bleeding, nerve injury (very rare), and temporary leg weakness. Fluoroscopic guidance minimizes complications."
+    }
+  ],
+  "nerve-block-injection": [
+    {
+      question: "What is a nerve block injection?",
+      answer: "A <strong>nerve block injection</strong> delivers anesthetic (and sometimes steroid) near specific nerves to interrupt pain signals. Types include medial branch blocks (facet joints), selective nerve root blocks (radiculopathy), peripheral nerve blocks, and sympathetic blocks. Both diagnostic and therapeutic."
+    },
+    {
+      question: "What conditions are treated with nerve blocks?",
+      answer: "Nerve blocks treat <strong>facet joint arthritis, radiculopathy</strong>, complex regional pain syndrome, neuralgia, chronic pain, and post-surgical pain. They help diagnose pain sources and predict response to permanent treatments like ablation or surgery."
+    },
+    {
+      question: "How long does a nerve block last?",
+      answer: "Duration varies by type and medication used. <strong>Diagnostic blocks (local anesthetic only): hours</strong>. Therapeutic blocks (with steroid): weeks to months. Radiofrequency ablation following successful blocks provides 6-12+ months relief. Some patients need repeat procedures."
+    },
+    {
+      question: "What is the success rate of nerve blocks?",
+      answer: "<strong>Success rates vary by condition: 60-90%</strong> depending on accurate diagnosis and block type. Medial branch blocks for facet pain: 70-80% response. Selective nerve root blocks: 50-75%. Blocks work best when pain has a clear nerve distribution."
+    },
+    {
+      question: "Are nerve blocks safe?",
+      answer: "Yes, nerve blocks are generally <strong>very safe when performed by experienced specialists</strong> using fluoroscopic or ultrasound guidance. Rare risks include infection, bleeding, nerve injury, allergic reaction, or inadvertent dural puncture. Benefits typically outweigh minimal risks."
+    }
+  ],
+  "sports-injury-treatment": [
+    {
+      question: "What does sports injury treatment involve?",
+      answer: "<strong>Sports injury treatment</strong> follows a phased approach: acute management (RICE protocol), rehabilitation (motion, strengthening, proprioception), return-to-sport progression, and injury prevention strategies. Treatment is tailored to sport demands, injury type, and athlete goals."
+    },
+    {
+      question: "When should an athlete see a sports medicine specialist?",
+      answer: "See a specialist for <strong>pain limiting performance or practice participation</strong>, suspected fractures or ligament tears, swelling not resolving in 72 hours, recurrent injuries, or desire to optimize recovery and prevent re-injury. Early evaluation prevents chronic problems."
+    },
+    {
+      question: "Can I play through a sports injury?",
+      answer: "Playing through <strong>sharp pain or pain altering mechanics</strong> risks worsening injury. Mild soreness may allow modified training. The key question: does pain affect performance or technique? If yes, rest and evaluation are needed. \"Toughness\" leads to prolonged recovery."
+    },
+    {
+      question: "What is the typical recovery timeline for sports injuries?",
+      answer: "Recovery varies widely. <strong>Mild sprains: 2-4 weeks</strong>. Moderate injuries (partial tears, tendonitis): 6-12 weeks. Severe injuries (complete tears, fractures): 3-6 months. Surgical cases: 6-12 months. Return-to-sport requires meeting functional milestones, not arbitrary timelines."
+    },
+    {
+      question: "How can athletes prevent re-injury?",
+      answer: "Prevention includes <strong>completing full rehabilitation</strong>, addressing biomechanical deficits, neuromuscular training, appropriate strength and conditioning, gradual return-to-sport protocols, proper equipment, and addressing training errors that caused the initial injury."
+    }
+  ],
+  "athletic-evaluation": [
+    {
+      question: "What is an athletic evaluation?",
+      answer: "An <strong>athletic evaluation</strong> is a comprehensive sports medicine assessment examining injury risk factors, movement patterns, strength imbalances, flexibility deficits, and biomechanical issues. It helps athletes optimize performance, prevent injuries, and create personalized training programs."
+    },
+    {
+      question: "Who should get an athletic evaluation?",
+      answer: "Athletes with <strong>recurrent injuries, performance plateaus</strong>, chronic pain, starting new sports, returning after long breaks, or those seeking injury prevention benefit from evaluation. It's valuable for competitive athletes, weekend warriors, and youth athletes alike."
+    },
+    {
+      question: "What does an athletic evaluation include?",
+      answer: "Evaluation includes <strong>detailed injury history, movement screening (FMS)</strong>, flexibility testing, strength assessment, sport-specific movement analysis, biomechanical evaluation, and functional testing. Findings guide targeted interventions addressing deficits before they cause injury."
+    },
+    {
+      question: "How can an athletic evaluation prevent injuries?",
+      answer: "<strong>Early identification of risk factors</strong> (muscle imbalances, poor movement patterns, flexibility deficits) allows corrective interventions. Targeted strengthening, technique modifications, and training program adjustments reduce injury risk by 30-50% in many athletes."
+    },
+    {
+      question: "How long does an athletic evaluation take?",
+      answer: "Comprehensive evaluations typically take <strong>45-90 minutes</strong> depending on sport and complexity. Functional testing, movement screening, and discussion of findings are included. Follow-up may include detailed training recommendations and communication with coaches or trainers."
     }
   ]
 };

@@ -71,10 +71,10 @@ export async function generateMetadata(
   const normalizedDesc = data.metaDesc ? normalizeUTF8(data.metaDesc) : undefined;
   
   // Title pattern - prefer data.metaTitle if available
-  const title = safeTitle(normalizedTitle, `${painArea} | Orthopedic Pain Treatment in Florida | Mountain Spine & Orthopedics`);
+  const title = safeTitle(normalizedTitle, `${painArea} | Orthopedic Pain Treatment in FL, NJ, NY, & PA | Mountain Spine & Orthopedics`);
   
   // Description - prefer data.metaDesc if available
-  const description = safeDescription(normalizedDesc, `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments across Florida.`);
+  const description = safeDescription(normalizedDesc, `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments available.`);
 
   return {
     title,

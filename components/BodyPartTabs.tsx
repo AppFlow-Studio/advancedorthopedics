@@ -3,110 +3,81 @@
 import React from 'react';
 import Link from 'next/link';
 import { BODY_PARTS } from '@/components/data/bodyParts';
+import { 
+  Hand, 
+  Footprints, 
+  Zap, 
+  BicepsFlexed
+} from 'lucide-react';
 
-// Anatomically accurate icons for each body part
+// Professional, anatomically-focused icons for each body part
 const BodyPartIcons: Record<string, React.ReactNode> = {
-  // Spine - vertebrae stacked vertically
+  // Spine - stacked vertebrae column
   spine: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <rect x="9" y="2" width="6" height="3" rx="1" />
-      <rect x="8" y="6" width="8" height="3" rx="1" />
-      <rect x="8" y="10" width="8" height="3" rx="1" />
-      <rect x="8" y="14" width="8" height="3" rx="1" />
-      <rect x="9" y="18" width="6" height="4" rx="1" />
-      <line x1="12" y1="5" x2="12" y2="6" />
-      <line x1="12" y1="9" x2="12" y2="10" />
-      <line x1="12" y1="13" x2="12" y2="14" />
-      <line x1="12" y1="17" x2="12" y2="18" />
+      <path d="M12 2v20M9 5h6M8 9h8M8 13h8M9 17h6" strokeLinecap="round" />
+      <rect x="10" y="3" width="4" height="2" rx="1" />
+      <rect x="9" y="7" width="6" height="3" rx="1" />
+      <rect x="9" y="11" width="6" height="3" rx="1" />
+      <rect x="9" y="15" width="6" height="3" rx="1" />
+      <rect x="10" y="19" width="4" height="2" rx="1" />
     </svg>
   ),
-  // Neck - cervical spine with head outline
+  // Neck - cervical spine profile
   neck: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <circle cx="12" cy="5" r="3" />
-      <path d="M10 8v2M14 8v2" />
-      <rect x="9" y="10" width="6" height="2" rx="0.5" />
-      <rect x="9" y="13" width="6" height="2" rx="0.5" />
-      <rect x="9" y="16" width="6" height="2" rx="0.5" />
-      <path d="M8 19h8" strokeLinecap="round" />
+      <path d="M12 2c-2 0-4 1-4 3s1 2 1 4v2c0 2-1 3-3 4" strokeLinecap="round" />
+      <path d="M12 2c2 0 4 1 4 3s-1 2-1 4v2c0 2 1 3 3 4" strokeLinecap="round" />
+      <rect x="10" y="9" width="4" height="2" rx="0.5" />
+      <rect x="10" y="12" width="4" height="2" rx="0.5" />
+      <rect x="10" y="15" width="4" height="2" rx="0.5" />
     </svg>
   ),
-  // Back - lumbar spine region
+  // Back - lumbar region focus
   back: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M7 4c0 0 2-1 5-1s5 1 5 1" strokeLinecap="round" />
-      <rect x="8" y="5" width="8" height="3" rx="1" />
-      <rect x="7" y="9" width="10" height="3" rx="1" />
-      <rect x="7" y="13" width="10" height="3" rx="1" />
-      <rect x="8" y="17" width="8" height="3" rx="1" />
-      <path d="M6 21h4M14 21h4" strokeLinecap="round" />
+      <path d="M7 2c0 0 2 1 5 1s5-1 5-1" strokeLinecap="round" />
+      <path d="M5 22c0 0 3-2 7-2s7 2 7 2" strokeLinecap="round" />
+      <path d="M12 4v14" strokeDasharray="2 2" />
+      <rect x="8" y="6" width="8" height="3" rx="1" />
+      <rect x="7" y="10" width="10" height="3" rx="1" />
+      <rect x="8" y="14" width="8" height="3" rx="1" />
     </svg>
   ),
-  // Shoulder - ball and socket joint
+  // Shoulder - joint focus
   shoulder: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M4 8c0 0 2-4 8-4s8 4 8 4" strokeLinecap="round" />
-      <circle cx="7" cy="10" r="3" />
-      <circle cx="17" cy="10" r="3" />
-      <path d="M7 13v6M17 13v6" strokeLinecap="round" />
-      <path d="M10 10h4" strokeLinecap="round" />
-      <circle cx="7" cy="10" r="1" fill="currentColor" />
-      <circle cx="17" cy="10" r="1" fill="currentColor" />
+      <path d="M4 10c0-4 4-6 8-6s8 2 8 6" strokeLinecap="round" />
+      <circle cx="7" cy="12" r="3" />
+      <path d="M7 15v5M10 12h4" strokeLinecap="round" />
+      <path d="M17 10c0 2-1 4-3 4" strokeLinecap="round" />
     </svg>
   ),
-  // Hip - pelvis with ball joints
+  // Hip - pelvic joint focus
   hip: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M4 6c2-2 6-2 8-2s6 0 8 2" strokeLinecap="round" />
-      <ellipse cx="12" cy="8" rx="8" ry="3" />
-      <circle cx="7" cy="12" r="2" />
-      <circle cx="17" cy="12" r="2" />
-      <path d="M7 14v7M17 14v7" strokeLinecap="round" />
-      <circle cx="7" cy="12" r="0.75" fill="currentColor" />
-      <circle cx="17" cy="12" r="0.75" fill="currentColor" />
+      <path d="M4 8c2-2 6-2 8-2s6 0 8 2" strokeLinecap="round" />
+      <circle cx="7" cy="14" r="3" />
+      <circle cx="17" cy="14" r="3" />
+      <path d="M10 14h4M7 17v4M17 17v4" strokeLinecap="round" />
     </svg>
   ),
-  // Knee - patella and joint
+  // Knee - joint structure
   knee: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M10 2h4v6h-4z" strokeLinejoin="round" />
-      <ellipse cx="12" cy="11" rx="4" ry="3" />
-      <circle cx="12" cy="11" r="1.5" fill="currentColor" />
-      <path d="M10 14h4v8h-4z" strokeLinejoin="round" />
-      <path d="M8 8l2 2M16 8l-2 2" strokeLinecap="round" />
+      <path d="M9 3h6v6c0 2-1 3-3 3s-3-1-3-3V3z" strokeLinejoin="round" />
+      <circle cx="12" cy="13" r="2" />
+      <path d="M9 21h6v-6c0-2-1-3-3-3s-3 1-3 3v6z" strokeLinejoin="round" />
     </svg>
   ),
-  // Hand & Wrist - palm with fingers
-  'hand-wrist': (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M7 13v7a1 1 0 001 1h8a1 1 0 001-1v-7" />
-      <rect x="8" y="11" width="8" height="3" rx="1" />
-      <path d="M6 11V7a1 1 0 012 0v4" />
-      <path d="M9 11V4a1 1 0 012 0v7" />
-      <path d="M12 11V3a1 1 0 012 0v8" />
-      <path d="M15 11V5a1 1 0 012 0v6" />
-      <path d="M18 11V9a1 1 0 012 0v4c0 1-1 2-2 2" />
-    </svg>
-  ),
-  // Foot & Ankle - side view of foot
-  'foot-ankle': (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M6 4v8c0 2 1 4 3 5l8 3c2 1 4 0 4-2v-1c0-1-1-2-2-2H9" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="6" cy="8" r="2" />
-      <path d="M19 18h2M17 18h1M15 18h1" strokeLinecap="round" />
-      <path d="M4 12h4" strokeLinecap="round" />
-    </svg>
-  ),
-  // Elbow - hinge joint
-  elbow: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 sm:w-6 sm:h-6">
-      <path d="M8 2h4v7H8z" strokeLinejoin="round" />
-      <ellipse cx="10" cy="12" rx="5" ry="3" />
-      <circle cx="10" cy="12" r="1.5" fill="currentColor" />
-      <path d="M6 15l-2 7M14 15l2 7" strokeLinecap="round" />
-      <path d="M8 9l-2 2M12 9l2 2" strokeLinecap="round" />
-    </svg>
-  ),
+  // Hand, Wrist & Elbow - represented by Hand
+  'hand-wrist-elbow': <Hand className="w-5 h-5 sm:w-6 sm:h-6" />,
+  // Foot & Ankle - represented by Footprints
+  'foot-ankle': <Footprints className="w-5 h-5 sm:w-6 sm:h-6" />,
+  // Sports Medicine - represented by Biceps/Strength
+  'sports-medicine': <BicepsFlexed className="w-5 h-5 sm:w-6 sm:h-6" />,
+  // Pain Management - represented by Zap/Nerve
+  'pain-management': <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
 };
 
 // Map body part slugs to treatment filter tags
@@ -117,9 +88,10 @@ const BODY_PART_TO_TREATMENT_TAG: Record<string, string> = {
   'shoulder': 'Shoulder',
   'hip': 'Hip',
   'knee': 'Knee',
-  'hand-wrist': 'Hand',
+  'hand-wrist-elbow': 'Hand',
   'foot-ankle': 'Foot',
-  'elbow': 'Elbow',
+  'sports-medicine': 'Sports Medicine',
+  'pain-management': 'Pain Management',
 };
 
 interface BodyPartTabsProps {

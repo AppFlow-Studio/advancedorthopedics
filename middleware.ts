@@ -29,9 +29,9 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // 4. Static files with extensions
+  // 4. Static files with extensions (exclude sitemaps)
   const hasFileExtension = /\.[a-zA-Z0-9]+$/.test(pathname);
-  if (hasFileExtension) {
+  if (hasFileExtension && !pathname.includes("sitemap")) {
     return NextResponse.next();
   }
 

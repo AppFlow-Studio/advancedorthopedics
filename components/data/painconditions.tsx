@@ -1873,7 +1873,7 @@ export const conditions: ConditionInfoProp[] = [
                             >
                                 <li>Cushions and posture correction</li>
                                 <li>Anti-inflammatory medications</li>
-                                <li>Referral for Physical Therapy</li>
+                                <li>Rehabilitation planning</li>
                                 <li>Corticosteroid injections</li>
                             </ul>
                             <p
@@ -4256,7 +4256,7 @@ export const conditions: ConditionInfoProp[] = [
                             Early care focuses on non surgical measures. Custom molded
                             orthotics or ankle foot braces cradle the arch and limit
                             overpronation, while calf stretching and posterior tibial
-                            strengthening exercises improve muscular support. Sessions with a referred physical therapist teach balance drills and gait retraining techniques that
+                            strengthening exercises improve muscular support. Many patients benefit from guided exercise programs that include balance drills and gait retraining techniques that
                             stabilize the entire lower limb chain. When painful flare ups
                             occur, short courses of anti inflammatory medication or precisely
                             guided corticosteroid injections reduce swelling and restore
@@ -4455,7 +4455,7 @@ export const conditions: ConditionInfoProp[] = [
                             balance training, and gradual transition from the boot to
                             supportive athletic shoes. By the third month most patients resume
                             running, court sports, or occupational tasks that require
-                            prolonged standing, guided throughout by our on site physical
+                            prolonged standing, with guidance for optimal recovery
                             therapy team.
                         </p>
                     </div>

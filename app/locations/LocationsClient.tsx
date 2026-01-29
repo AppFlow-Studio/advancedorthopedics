@@ -110,15 +110,14 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
 
   // Location Card Component
   const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
-    <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} className="block h-full">
-      <motion.div
-        key={index}
-        variants={isMobile ? undefined : itemVariants}
-        whileHover={isMobile ? undefined : "hover"}
-        onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-        onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-        className="group cursor-pointer h-full"
-      >
+    <motion.div
+      key={index}
+      variants={isMobile ? undefined : itemVariants}
+      whileHover={isMobile ? undefined : "hover"}
+      onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+      onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+      className="group cursor-pointer h-full relative"
+    >
       <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -158,7 +157,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           </div>
 
           {/* Phone */}
-          <div className="flex items-center space-x-3 mb-4" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center space-x-3 mb-4 relative z-20">
             <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" />
             <button
               type="button"
@@ -202,11 +201,17 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           </motion.div>
         </div>
 
+        {/* Stretched Link */}
+        <Link 
+          href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
+          className="absolute inset-0 z-10"
+          aria-label={`View details for ${clinic.name}`}
+        />
+
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
       </div>
-      </motion.div>
-    </Link>
+    </motion.div>
   )
 
   return (
@@ -560,8 +565,6 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
         <section 
           className="mb-16 px-6 lg:px-8"
           aria-labelledby="locations-faq-heading"
-          itemScope
-          itemType="https://schema.org/FAQPage"
         >
           <h2 
             id="locations-faq-heading"
@@ -578,21 +581,16 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <AccordionItem 
                 value="item-0"
                 className="border-b border-gray-200"
-                itemScope
-                itemType="https://schema.org/Question"
               >
                 <AccordionTrigger 
                   className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
-                  itemProp="name"
                 >
                   How do I choose the best location near me?
                 </AccordionTrigger>
                 <AccordionContent 
                   className="text-[#424959] leading-relaxed pt-2"
-                  itemScope
-                  itemType="https://schema.org/Answer"
                 >
-                  <p itemProp="text">
+                  <p>
                     Choose the closest clinic in your state, then select the office that's most convenient for commuting and scheduling. If you're unsure, call our scheduling team at <a href="tel:5612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a> and we'll recommend the best location based on your symptoms and availability.
                   </p>
                 </AccordionContent>
@@ -601,21 +599,16 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <AccordionItem 
                 value="item-1"
                 className="border-b border-gray-200"
-                itemScope
-                itemType="https://schema.org/Question"
               >
                 <AccordionTrigger 
                   className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
-                  itemProp="name"
                 >
                   Do you offer same-day or next-day appointments?
                 </AccordionTrigger>
                 <AccordionContent 
                   className="text-[#424959] leading-relaxed pt-2"
-                  itemScope
-                  itemType="https://schema.org/Answer"
                 >
-                  <p itemProp="text">
+                  <p>
                     Availability varies by location and day, but many offices can accommodate urgent musculoskeletal concerns quickly. Call to check the earliest openings.
                   </p>
                 </AccordionContent>
@@ -624,21 +617,16 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <AccordionItem 
                 value="item-2"
                 className="border-b border-gray-200"
-                itemScope
-                itemType="https://schema.org/Question"
               >
                 <AccordionTrigger 
                   className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
-                  itemProp="name"
                 >
                   Do I need a referral to see an orthopedic specialist?
                 </AccordionTrigger>
                 <AccordionContent 
                   className="text-[#424959] leading-relaxed pt-2"
-                  itemScope
-                  itemType="https://schema.org/Answer"
                 >
-                  <p itemProp="text">
+                  <p>
                     Referral requirements depend on your insurance plan. If you tell us your coverage, we can confirm what's needed before scheduling.
                   </p>
                 </AccordionContent>
@@ -647,21 +635,16 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <AccordionItem 
                 value="item-3"
                 className="border-b border-gray-200"
-                itemScope
-                itemType="https://schema.org/Question"
               >
                 <AccordionTrigger 
                   className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
-                  itemProp="name"
                 >
                   What conditions do you treat at your locations?
                 </AccordionTrigger>
                 <AccordionContent 
                   className="text-[#424959] leading-relaxed pt-2"
-                  itemScope
-                  itemType="https://schema.org/Answer"
                 >
-                  <p itemProp="text">
+                  <p>
                     Our clinics commonly evaluate back pain, neck pain, sciatica, herniated discs, arthritis, joint injuries, and sports-related injuries. Your location page also lists local services and common conditions treated.
                   </p>
                 </AccordionContent>
@@ -670,21 +653,16 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <AccordionItem 
                 value="item-4"
                 className="border-b border-gray-200"
-                itemScope
-                itemType="https://schema.org/Question"
               >
                 <AccordionTrigger 
                   className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
-                  itemProp="name"
                 >
                   What should I bring to my appointment?
                 </AccordionTrigger>
                 <AccordionContent 
                   className="text-[#424959] leading-relaxed pt-2"
-                  itemScope
-                  itemType="https://schema.org/Answer"
                 >
-                  <p itemProp="text">
+                  <p>
                     Bring your ID, insurance card, a list of medications, and any imaging reports or prior medical records related to your symptoms.
                   </p>
                 </AccordionContent>

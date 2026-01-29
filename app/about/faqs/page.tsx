@@ -42,7 +42,7 @@ const faqSections = [
         question: 'What is orthopedic surgery?',
         answer: (
           <p>
-            Orthopedic surgery focuses on diagnosing and treating conditions affecting bones, joints, muscles, ligaments, and tendons. At <Link href="/about" className="text-blue-600 hover:underline">Mountain Spine & Orthopedics</Link>, our Florida specialists use both surgical and non-surgical methods to relieve pain and restore movement.
+            Orthopedic surgery focuses on diagnosing and treating conditions affecting bones, joints, muscles, ligaments, and tendons. At <Link href="/about" className="text-blue-600 hover:underline">Mountain Spine & Orthopedics</Link>, our specialists across FL, NJ, NY, and PA use both surgical and non-surgical methods to relieve pain and restore movement.
           </p>
         ),
       },
@@ -87,7 +87,7 @@ const faqSections = [
         question: 'What questions should I ask my orthopedic surgeon before surgery?',
         answer: (
           <p>
-            Ask about your diagnosis, treatment options, recovery time, potential risks, and whether minimally invasive techniques are available. Our <Link href="/about/meetourdoctors" className="text-blue-600 hover:underline">Florida orthopedic surgeons</Link> ensure you're informed before any procedure.
+            Ask about your diagnosis, treatment options, recovery time, potential risks, and whether minimally invasive techniques are available. Our <Link href="/about/meetourdoctors" className="text-blue-600 hover:underline">orthopedic surgeons</Link> ensure you're informed before any procedure.
           </p>
         ),
       },
@@ -119,7 +119,7 @@ const faqSections = [
         question: 'How do I schedule an appointment at Mountain Spine & Orthopedics?',
         answer: (
           <p>
-            You can <Link href="/find-care/book-an-appointment" className="text-blue-600 hover:underline">book online 24/7</Link> or call any of our <Link href="/locations" className="text-blue-600 hover:underline">Florida offices</Link> directly. Same-day and next-day appointments are often available for urgent orthopedic care.
+            You can <Link href="/find-care/book-an-appointment" className="text-blue-600 hover:underline">book online 24/7</Link> or call any of our <Link href="/locations" className="text-blue-600 hover:underline">offices</Link> directly. Same-day and next-day appointments are often available for urgent orthopedic care.
           </p>
         ),
       },
@@ -177,7 +177,7 @@ const faqSections = [
         question: 'What conditions do orthopedic surgeons treat?',
         answer: (
           <p>
-            We treat back pain, <Link href="/conditions" className="text-blue-600 hover:underline">spine disorders</Link>, arthritis, sports injuries, joint pain, fractures, and more — for both surgical and non-surgical cases across our Florida locations.
+            We treat back pain, <Link href="/conditions" className="text-blue-600 hover:underline">spine disorders</Link>, arthritis, sports injuries, joint pain, fractures, and more — for both surgical and non-surgical cases across our locations in FL, NJ, NY, and PA.
           </p>
         ),
       },
@@ -222,7 +222,7 @@ const faqSections = [
         question: 'What does it mean when an orthopedic surgeon is board certified?',
         answer: (
           <p>
-            It means the doctor has passed rigorous training and testing standards set by the American Board of Orthopaedic Surgery, demonstrating advanced expertise. All our <Link href="/find-care/find-a-doctor" className="text-blue-600 hover:underline">Florida orthopedic specialists</Link> are board-certified.
+            It means the doctor has passed rigorous training and testing standards set by the American Board of Orthopaedic Surgery, demonstrating advanced expertise. All our <Link href="/find-care/find-a-doctor" className="text-blue-600 hover:underline">board-certified orthopedic specialists</Link> are highly qualified and experienced.
           </p>
         ),
       },
@@ -238,15 +238,15 @@ const faqSections = [
         question: 'What insurance plans do you accept?',
         answer: (
           <p>
-            We accept most major insurance providers in Florida, including many PPO plans. Please <Link href="/insurance-policy" className="text-blue-600 hover:underline">review our insurance policy</Link> or call ahead to confirm coverage for your specific plan.
+            We accept most major insurance providers across our locations in FL, NJ, NY, and PA, including many PPO plans. Please <Link href="/insurance-policy" className="text-blue-600 hover:underline">review our insurance policy</Link> or call ahead to confirm coverage for your specific plan.
           </p>
         ),
       },
       {
-        question: 'Where are Mountain Spine & Orthopedics locations in Florida?',
+        question: 'Where are Mountain Spine & Orthopedics locations?',
         answer: (
           <p>
-            We proudly serve patients across Florida, with offices in <Link href="/locations/boca-raton-orthopedics" className="text-blue-600 hover:underline">Boca Raton</Link>, <Link href="/locations/palm-beach-gardens-orthopedics" className="text-blue-600 hover:underline">Palm Beach Gardens</Link>, <Link href="/locations/fort-pierce-orthopedics" className="text-blue-600 hover:underline">Fort Pierce</Link>, and more. <Link href="/locations" className="text-blue-600 hover:underline">View all locations</Link>.
+            We proudly serve patients across FL, NJ, NY, and PA. Our offices include locations in <Link href="/locations/florida/boca-raton-orthopedics" className="text-blue-600 hover:underline">Boca Raton</Link>, <Link href="/locations/florida/palm-beach-gardens-orthopedics" className="text-blue-600 hover:underline">Palm Beach Gardens</Link>, <Link href="/locations/florida/fort-pierce-orthopedics" className="text-blue-600 hover:underline">Fort Pierce</Link>, and more. <Link href="/locations" className="text-blue-600 hover:underline">View all locations</Link>.
           </p>
         ),
       },
@@ -295,21 +295,21 @@ const faqSections = [
 const allFaqItems = faqSections.flatMap(section => section.items);
 
 export const metadata: Metadata = {
-  title: 'Orthopedic Surgery FAQs | Mountain Spine & Orthopedics Florida',
-  description: 'Get answers to frequently asked questions about orthopedic surgery, spine treatments, recovery times, and patient care at Mountain Spine & Orthopedics. Expert guidance for Florida patients.',
+  title: 'Orthopedic Surgery FAQs | Mountain Spine & Orthopedics',
+  description: 'Get answers to frequently asked questions about orthopedic surgery, spine treatments, recovery times, and patient care at Mountain Spine & Orthopedics across FL, NJ, NY, and PA.',
   alternates: {
     canonical: buildCanonical('/about/faqs'),
   },
   openGraph: {
-    title: 'Orthopedic Surgery FAQs | Mountain Spine & Orthopedics Florida',
-    description: 'Get answers to frequently asked questions about orthopedic surgery, spine treatments, recovery times, and patient care at Mountain Spine & Orthopedics. Expert guidance for Florida patients.',
+    title: 'Orthopedic Surgery FAQs | Mountain Spine & Orthopedics',
+    description: 'Get answers to frequently asked questions about orthopedic surgery, spine treatments, recovery times, and patient care at Mountain Spine & Orthopedics.',
     url: buildCanonical('/about/faqs'),
     images: ['/FAQs.jpeg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Orthopedic Surgery FAQs | Mountain Spine & Orthopedics Florida',
-    description: 'Get answers to frequently asked questions about orthopedic surgery, spine treatments, recovery times, and patient care at Mountain Spine & Orthopedics. Expert guidance for Florida patients.',
+    title: 'Orthopedic Surgery FAQs | Mountain Spine & Orthopedics',
+    description: 'Get answers to frequently asked questions about orthopedic surgery, spine treatments, recovery times, and patient care at Mountain Spine & Orthopedics.',
     images: ['/FAQs.jpeg'],
   },
 };
@@ -351,7 +351,7 @@ export default function FAQs() {
           fetchPriority="high"
           layout='fill'
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt="Orthopedic doctor answering frequently asked questions about spine surgery and joint care with Florida patients"
+          alt="Orthopedic doctor answering frequently asked questions about spine surgery and joint care"
         />
         <div
           className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -394,7 +394,7 @@ export default function FAQs() {
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
             className=' text-[#424959] md:w-[55%] w-full text-xl md:text-2xl'
           >
-            At Mountain Spine & Orthopedics, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. Our board-certified, fellowship-trained orthopedic surgeons across Florida are here to answer your questions and guide you toward the best treatment plan for your needs.
+            At Mountain Spine & Orthopedics, we take the time to listen to each patient to provide you with a positive and individualized treatment experience. Our board-certified, fellowship-trained orthopedic surgeons across FL, NJ, NY, and PA are here to answer your questions and guide you toward the best treatment plan for your needs.
           </p>
         </div>
       </section>

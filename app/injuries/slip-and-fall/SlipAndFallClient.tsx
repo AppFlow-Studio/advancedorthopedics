@@ -29,17 +29,17 @@ import { Marquee } from "@/components/magicui/marquee"
 import { clinics } from "@/components/data/clinics"
 import { motion, AnimatePresence, LazyMotion, domAnimation, useReducedMotion, useInView } from "framer-motion"
 
-import LocationsPicker from "@/components/LocationsPicker"
+import CondensedLocations from "@/components/CondensedLocations"
 // export const metadata: Metadata = {
 //     title: "Slip and Fall Orthopedic Care in Florida | Mountain Spine & Orthopedics",
 //     description:
-//         "Expert orthopedic care for slip and fall injuries in Florida. Immediate evaluation, advanced treatment, and comprehensive recovery plans. Same-day appointments available.",
+//         "Expert orthopedic care for slip and fall injuries in Florida. Immediate evaluation, advanced treatment, and comprehensive recovery plans. Same-week appointments available.",
 //     keywords: "slip and fall, orthopedic care, Florida, fracture treatment, injury evaluation, emergency orthopedics",
 // }
 
 // Data constants
 const siteData = {
-    starRating: 4.9,
+    starRating: 5,
     reviewCount: 327,
     insurers: [
         { name: "Aetna", logo: "/logos/aetna.svg" },
@@ -261,7 +261,7 @@ const data = {
             result: "Back to full desk days by week 2; driving okay.",
         },
     ],
-    starRating: 4.9,
+    starRating: 5,
     reviewCount: 327,
 }
 
@@ -344,7 +344,7 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                                 </h1>
 
                                 <p className="text-xl text-gray-600 text-pretty">
-                                    Immediate evaluation and treatment for fractures, sprains, and soft tissue injuries. Same-day
+                                    Immediate evaluation and treatment for fractures, sprains, and soft tissue injuries. Same-week
                                     appointments available across Florida.
                                 </p>
                             </div>
@@ -474,7 +474,7 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                                 <Clock className="w-6 h-6 text-primary" />
                             </div>
-                            <h3 className="font-semibold text-gray-900">Same-Day Care</h3>
+                            <h3 className="font-semibold text-gray-900">Same-Week Care</h3>
                             <p className="text-gray-600">Urgent appointments available for acute injuries</p>
                         </div>
 
@@ -633,8 +633,8 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
             </section>
 
             {/* Meet Our Experts */}
+            <CondensedLocations />
             <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8"><InjuryDoctorsSection /></div>
-            <LocationsPicker />
 
             {/* FAQ Section */}
             <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="faq">

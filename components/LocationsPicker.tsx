@@ -90,15 +90,14 @@ export default function LocationsPicker() {
 
     // Location Card Component
     const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
-        <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} className="block h-full">
-            <motion.div
-                key={index}
-                variants={isMobile ? undefined : itemVariants}
-                whileHover={isMobile ? undefined : "hover"}
-                onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-                onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-                className="group cursor-pointer h-full"
-            >
+        <motion.div
+            key={index}
+            variants={isMobile ? undefined : itemVariants}
+            whileHover={isMobile ? undefined : "hover"}
+            onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+            onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+            className="group cursor-pointer h-full relative"
+        >
             <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5">
@@ -138,11 +137,12 @@ export default function LocationsPicker() {
                     </div>
 
                     {/* Phone */}
-                    <div className="flex items-center space-x-3 mb-4">
+                    <div className="flex items-center space-x-3 mb-4 relative z-20">
                         <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" />
                         <a
                             href="tel:(561) 223-9959"
                             className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             (561) 223-9959
                         </a>
@@ -161,29 +161,33 @@ export default function LocationsPicker() {
                         variants={isMobile ? undefined : hoverVariants}
                         className="mt-auto"
                     >
-                        <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`}>
-                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-[#252932] font-semibold">View Details</span>
-                                    <motion.div
-                                        animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <svg className="w-5 h-5 text-[#0A50EC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </motion.div>
-                                </div>
+                        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-sm group-hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center justify-between">
+                                <span className="text-[#252932] font-semibold">View Details</span>
+                                <motion.div
+                                    animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <svg className="w-5 h-5 text-[#0A50EC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </motion.div>
                             </div>
-                        </Link>
+                        </div>
                     </motion.div>
                 </div>
+
+                {/* Stretched Link - This makes the whole card clickable without nesting <a> tags */}
+                <Link 
+                    href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
+                    className="absolute inset-0 z-10"
+                    aria-label={`View details for ${clinic.name}`}
+                />
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
             </div>
-            </motion.div>
-        </Link>
+        </motion.div>
     )
     return (
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">

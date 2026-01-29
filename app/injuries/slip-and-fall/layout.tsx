@@ -79,7 +79,7 @@ export default function SlipAndFallLayout({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
             "headline": "Slip and Fall Injury Treatment in Florida - Expert Fracture & Spinal Injury Care",
-            "description": "Expert treatment for slip and fall injuries in Florida including fractures, spinal trauma, and joint injuries. Comprehensive care by board-certified orthopedic specialists with same-day appointments and advanced minimally invasive treatment options.",
+            "description": "Expert treatment for slip and fall injuries in Florida including fractures, spinal trauma, and joint injuries. Comprehensive care by board-certified orthopedic specialists with same-week appointments and advanced minimally invasive treatment options.",
             "keywords": "slip and fall doctor Florida, slip and fall injury treatment, personal injury orthopedic clinic, fracture treatment Florida, spine and joint accident treatment, fall injury specialist, slip fall accident orthopedic care",
             "author": {
               "@type": "Organization",
@@ -109,12 +109,6 @@ export default function SlipAndFallLayout({
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Injuries",
-                  "item": "https://mountainspineorthopedics.com/injuries"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
                   "name": "Slip and Fall",
                   "item": "https://mountainspineorthopedics.com/injuries/slip-and-fall"
                 }

@@ -241,3 +241,44 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* Numbered list styling - bold and bigger font for h3 headings in ordered lists */
+ol li h3 {
+  font-weight: 700;
+  font-size: 1.125rem; /* text-lg */
+  color: #111315;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  ol li h3 {
+    font-size: 1.25rem; /* sm:text-xl */
+  }
+}
+
+/* Style for plain text numbered list items - first part bold and bigger */
+ol li .numbered-list-heading {
+  font-weight: 700;
+  font-size: 1.125rem; /* text-lg */
+  color: #111315;
+  display: inline;
+}
+
+@media (min-width: 640px) {
+  ol li .numbered-list-heading {
+    font-size: 1.25rem; /* sm:text-xl */
+  }
+}
+
+/* Keep paragraphs in numbered lists at normal size and weight */
+ol li p {
+  font-weight: 400;
+  font-size: 0.875rem; /* text-sm */
+  color: #424959;
+}
+
+@media (min-width: 640px) {
+  ol li p {
+    font-size: 1.25rem; /* sm:text-xl */
+  }
+}

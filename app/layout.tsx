@@ -66,10 +66,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_URL),
     title: "Mountain Spine & Orthopedics",
-    description: "Florida's trusted experts in spine and joint care. Book today.",
+    description: "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Book today.",
     openGraph: {
       title: "Mountain Spine & Orthopedics",
-      description: "Florida's trusted experts in spine and joint care. Book today.",
+      description: "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Book today.",
       url: canonicalForOg('/'),
       siteName: "Mountain Spine & Orthopedics",
       type: "website",
@@ -86,7 +86,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "Mountain Spine & Orthopedics",
-      description: "Florida's trusted experts in spine and joint care. Book today.",
+      description: "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Book today.",
       images: [ogImage],
     },
     alternates: {
@@ -120,7 +120,7 @@ export default function RootLayout({
     "@id": "https://mountainspineorthopedics.com#website",
     "url": "https://mountainspineorthopedics.com/",
     "name": "Mountain Spine & Orthopedics",
-    "description": "Florida's trusted experts in spine and joint care. Board-certified orthopedic surgeons specializing in minimally invasive spine surgery, joint replacement, and sports medicine.",
+    "description": "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Board-certified orthopedic surgeons specializing in minimally invasive spine surgery, joint replacement, and sports medicine.",
     "publisher": {
       "@id": "https://mountainspineorthopedics.com#medicalorganization"
     },
@@ -149,7 +149,7 @@ export default function RootLayout({
       "caption": "Mountain Spine & Orthopedics Logo"
     },
     "image": "https://mountainspineorthopedics.com/newlogo4.png",
-    "description": "Mountain Spine & Orthopedics provides expert orthopedic care across Florida, specializing in spine surgery, joint replacement, and minimally invasive procedures.",
+    "description": "Mountain Spine & Orthopedics provides expert orthopedic care across FL, NJ, NY, and PA, specializing in spine surgery, joint replacement, and minimally invasive procedures.",
     "medicalSpecialty": [
       "Orthopedic Surgery",
       "Spine Surgery",
@@ -172,6 +172,11 @@ export default function RootLayout({
       {
         "@type": "PostalAddress",
         "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressRegion": "PA",
         "addressCountry": "US"
       }
     ],
@@ -199,6 +204,11 @@ export default function RootLayout({
         "@type": "State",
         "name": "New York",
         "sameAs": "https://en.wikipedia.org/wiki/New_York_(state)"
+      },
+      {
+        "@type": "State",
+        "name": "Pennsylvania",
+        "sameAs": "https://en.wikipedia.org/wiki/Pennsylvania"
       }
     ],
     "sameAs": [

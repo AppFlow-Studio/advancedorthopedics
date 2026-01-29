@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { conditions } from '@/components/data/conditions';
 import { AllTreatmentsCombined } from '@/components/data/treatments';
-import { ConditionInfoProp } from './ConditionCard';
-import { TreatmentsCardProp } from './data/treatments';
+import { ConditionInfoProp, TreatmentsCardProp } from '@/types/content';
+import { normalizeTag } from '@/lib/tag-utils';
 
 interface InternalLinkingSectionProps {
   currentSlug: string;
@@ -23,6 +23,26 @@ function findRelatedConditions(currentSlug: string, currentCondition: ConditionI
     // Same tag = high relevance
     if (condition.tag === currentCondition.tag) {
       score += 10;
+    }
+    
+    // Check additionalTags overlap
+    if (currentCondition.additionalTags && condition.tag) {
+      if (currentCondition.additionalTags.some(t => normalizeTag(t) === normalizeTag(condition.tag))) {
+        score += 8;
+      }
+    }
+    if (condition.additionalTags && currentCondition.tag) {
+      if (condition.additionalTags.some(t => normalizeTag(t) === normalizeTag(currentCondition.tag))) {
+        score += 8;
+      }
+    }
+    
+    // Check categories overlap
+    if (currentCondition.categories && condition.categories) {
+      const overlap = currentCondition.categories.filter(c1 => 
+        condition.categories!.some(c2 => normalizeTag(c1) === normalizeTag(c2))
+      ).length;
+      score += overlap * 5;
     }
     
     // Keyword overlap
@@ -65,6 +85,26 @@ function findRelatedTreatments(currentSlug: string, currentTreatment: Treatments
     // Same tag = high relevance
     if (treatment.tag === currentTreatment.tag) {
       score += 10;
+    }
+    
+    // Check additionalTags overlap
+    if (currentTreatment.additionalTags && treatment.tag) {
+      if (currentTreatment.additionalTags.some(t => normalizeTag(t) === normalizeTag(treatment.tag))) {
+        score += 8;
+      }
+    }
+    if (treatment.additionalTags && currentTreatment.tag) {
+      if (treatment.additionalTags.some(t => normalizeTag(t) === normalizeTag(currentTreatment.tag))) {
+        score += 8;
+      }
+    }
+    
+    // Check categories overlap
+    if (currentTreatment.categories && treatment.categories) {
+      const overlap = currentTreatment.categories.filter(c1 => 
+        treatment.categories!.some(c2 => normalizeTag(c1) === normalizeTag(c2))
+      ).length;
+      score += overlap * 5;
     }
     
     // Similar conditions_treated (basic text matching)
