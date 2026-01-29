@@ -3,7 +3,7 @@ import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Car Accident Orthopedic Care | Mountain Spine & Orthopedics"),
-  description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries. Same-day appointments, advanced spine & joint treatment."),
+  description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries. Same-week appointments, advanced spine & joint treatment."),
   keywords: [
     "car accident orthopedic care",
     "car accident injury treatment",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: safeTitle(undefined, "Car Accident Orthopedic Care | Mountain Spine & Orthopedics"),
-    description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries. Same-day appointments, advanced spine & joint treatment."),
+    description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries. Same-week appointments, advanced spine & joint treatment."),
     url: buildCanonical("/injuries/car-accident"),
     type: "website",
     images: [
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: safeTitle(undefined, "Car Accident Orthopedic Care in Florida | Mountain Spine & Orthopedics"),
-    description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries in Florida. Same-day appointments, advanced spine & joint treatment."),
+    description: safeDescription(undefined, "Specialized orthopedic care for car accident injuries in Florida. Same-week appointments, advanced spine & joint treatment."),
     images: ["/og-car-accident-treatment.jpg"],
   },
 };
@@ -79,7 +79,7 @@ export default function CarAccidentLayout({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
             "headline": "Car Accident Orthopedic Care in Florida - Expert Whiplash & Spinal Injury Treatment",
-            "description": "Specialized orthopedic care for car accident injuries in Florida including whiplash, spinal trauma, and joint injuries. Same-day appointments, advanced minimally invasive treatment, and comprehensive personal injury care coordination.",
+            "description": "Specialized orthopedic care for car accident injuries in Florida including whiplash, spinal trauma, and joint injuries. Same-week appointments, advanced minimally invasive treatment, and comprehensive personal injury care coordination.",
             "keywords": "car accident orthopedic care, car accident injury treatment Florida, whiplash treatment Florida, car accident spine care, personal injury orthopedic clinic, auto accident injury specialist, motor vehicle accident orthopedic care",
             "author": {
               "@type": "Organization",

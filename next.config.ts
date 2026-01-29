@@ -58,12 +58,22 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-speciality","destination":"/conditions","permanent":true},
     {"source":"/area-of-speciality/:slug*","destination":"/conditions/:slug*","permanent":true},
     
+    // --- THORACIC SPINE SURGERY REDIRECT ---
+    {"source":"/thoracic-spine-surgery","destination":"/treatments/thoracic-spine-surgery","permanent":true},
+    {"source":"/kyphoplasty","destination":"/treatments/kyphoplasty","permanent":true},
+    {"source":"/vertebroplasty","destination":"/treatments/vertebroplasty","permanent":true},
+    {"source":"/si-joint-fusion","destination":"/treatments/si-joint-fusion","permanent":true},
+    
     // --- ANTI-INFLAMMATORY INJECTIONS CONDITION TO TREATMENT REDIRECT ---
     {"source":"/area-of-specialty/anti-inflammatory-injections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
     
     // --- CONDITION TO TREATMENT MIGRATION (surgery pages) ---
     {"source":"/conditions/degenerative-disc-disease-surgery","destination":"/treatments/degenerative-disc-disease-surgery","permanent":true},
-    {"source":"/conditions/pseudarthrosis-revision-surgery","destination":"/treatments/pseudarthrosis-revision-surgery","permanent":true},
+    // REMOVED: destination page doesn't exist - keeping pseudarthrosis-revision-surgery in conditions
+    // {"source":"/conditions/pseudarthrosis-revision-surgery","destination":"/treatments/pseudarthrosis-revision-surgery","permanent":true},
+    {"source":"/conditions/aging-management","destination":"/treatments/aging-management","permanent":true},
+    {"source":"/conditions/ankle-arthroscopy","destination":"/treatments/ankle-arthroscopy-minimally-invasive-surgery","permanent":true},
+    {"source":"/conditions/ankle-replacement","destination":"/treatments/ankle-replacement-surgery","permanent":true},
     
     // --- CLINIC SLUG REDIRECTS ---
     {"source":"/locations/palm-spring-orthopedics","destination":"/locations/palm-springs-orthopedics","permanent":true},

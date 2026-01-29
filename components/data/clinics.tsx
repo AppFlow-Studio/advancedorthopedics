@@ -149,7 +149,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Hollywood & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Hollywood, FL, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -679,7 +679,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs - Casselberry & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</Link>, <Link href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</Link>, <Link href='/conditions/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</Link>, <Link href='/conditions/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, and work injuries with personalized treatment plans.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. We treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'>back pain</Link>, <Link href='/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment' className='text-[#0A50EC] underline'>neck pain</Link>, <Link href='/treatments/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>disc problems</Link>, <Link href='/conditions/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, and work injuries with personalized treatment plans.</p>
       </div>
     ),
     whyChoose: (
@@ -1155,7 +1155,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Orlando & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">disc problems</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, and work injuries. Every patient gets a treatment plan made just for them.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors are specially trained and certified. They mix great medical skills with real care for patients. We treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">disc problems</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, and work injuries. Every patient gets a treatment plan made just for them.</p>
       </div>
     ),
     whyChoose:
@@ -1645,7 +1645,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Fort Pierce & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic doctors in Fort Pierce FL, are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -2133,7 +2133,7 @@ export const clinics: ClinicsProps[] = [
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Florida residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Palm Beach Gardens orthopedic center, Mountain Spine & Orthopedics brings expert clinical care to local families. We understand that life in South Florida is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-2xl'>Highly Skilled Orthopedic Surgeons in Palm Beach Gardens & Nearby Areas</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/treatments/neck-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons in the Palm Beach Gardens, FL area are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/treatments/neck-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment protocol with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -2629,7 +2629,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>World-Class Spine and Orthopedic Care in South Florida</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <span className='font-bold'>orthopedic specialists</span> in South Miami are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <span className='font-bold'>orthopedic specialists</span> in South Miami are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -3120,7 +3120,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Boca Raton & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our experienced <Link href="/locations/florida/fort-pierce-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our experienced <Link href="/locations/florida/fort-pierce-orthopedics" className="text-[#0A50EC] underline">orthopedic specialists</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -3607,7 +3607,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors in Altamonte Springs, FL</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional medical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, herniated discs, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff tears, and workplace injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central Florida families with high patient satisfaction</li>
@@ -4118,7 +4118,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-2xl'>Highly Skilled Orthopedic Surgeons in Davenport & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <Link href="/locations/florida/miami-beach-orthopedics" className="text-[#0A50EC] underline">orthopedic doctors</Link> are specially trained, board-certified, and continuously educated in the latest medical advances, seamlessly combining exceptional clinical expertise with comprehensive patient care protocols. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">back pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">neck pain</Link>, intervertebral disc herniation, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, rotator cuff pathology, and occupational musculoskeletal disorders. Every patient receives a completely personalized treatment protocol with same-day diagnostic consultation results.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-xl'>Why Patients Choose Mountain Spine & Orthopedics:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central Florida families with high patient satisfaction</li>
@@ -5119,7 +5119,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Bridgewater, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Bridgewater, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Somerville', 'Raritan', 'Bound Brook', 'Martinsville', 'Warren'],
@@ -5132,7 +5132,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Bridgewater & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Bridgewater, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Bridgewater, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -5443,7 +5443,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Cherry Hill, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Cherry Hill, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Marlton', 'Voorhees', 'Mount Laurel', 'Haddonfield', 'Moorestown'],
@@ -5456,7 +5456,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Cherry Hill & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Cherry Hill, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Cherry Hill, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -5774,7 +5774,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Edison, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Edison, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Iselin', 'Metuchen', 'Woodbridge', 'Rahway', 'Clark'],
@@ -5787,7 +5787,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Edison & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Edison, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Edison, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -6096,7 +6096,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Freehold, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Freehold, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Freehold Township', 'Howell', 'Marlboro', 'Manalapan', 'Colts Neck'],
@@ -6109,7 +6109,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Freehold & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Freehold, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Freehold, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -6419,7 +6419,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Paramus, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Paramus, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Ridgewood', 'Oradell', 'Maywood', 'Fair Lawn', 'River Edge'],
@@ -6432,7 +6432,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Paramus & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Paramus, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Paramus, NJ, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -6743,7 +6743,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Ambulatory Surgery Center in West Orange, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'State-of-the-art ambulatory surgery center in West Orange, NJ. Mountain Spine & Orthopedics Surgery Center offers minimally invasive spine and orthopedic procedures in a focused, efficient outpatient setting. Book a consultation today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Livingston', 'Montclair', 'Orange', 'Verona', 'South Orange'],
@@ -6756,7 +6756,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons at West Orange Surgery Center</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons at the West Orange Surgery Center are specially trained and continuously educated in the latest surgical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully perform <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">minimally invasive spine procedures</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical spine surgery</Link>, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease surgery</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">arthroscopic procedures</Link>, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. Every patient receives a completely personalized surgical plan with comprehensive pre-operative consultation.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic surgeons at the West Orange Surgery Center are specially trained and continuously educated in the latest surgical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully perform <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">minimally invasive spine procedures</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical spine surgery</Link>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease surgery</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">arthroscopic procedures</Link>, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. Every patient receives a completely personalized surgical plan with comprehensive pre-operative consultation.</p>
       </div>
     ),
     whyChoose: (
@@ -7079,7 +7079,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in NYC | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in New York City. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Murray Hill', "Hell's Kitchen", 'Upper East Side', 'Upper West Side', 'Chelsea'],
@@ -7092,7 +7092,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in NYC & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in New York City are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in New York City are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -7417,7 +7417,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Allentown, PA | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Allentown, PA. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Bethlehem', 'Fullerton', 'Emmaus', 'Whitehall', 'Catasauqua'],
@@ -7430,7 +7430,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Allentown & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Allentown, PA, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Allentown, PA, are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -7738,7 +7738,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Philadelphia (Center City) | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Center City Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Rittenhouse Square', 'Washington Square West', 'Old City', 'Society Hill', 'Fairmount'],
@@ -7751,7 +7751,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Center City Philadelphia & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Center City Philadelphia are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Center City Philadelphia are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -8064,7 +8064,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in North Philadelphia | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in North Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Kensington', 'Port Richmond', 'Juniata Park', 'Frankford', 'Fishtown'],
@@ -8077,7 +8077,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in North Philadelphia & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in North Philadelphia are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in North Philadelphia are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (
@@ -8389,7 +8389,7 @@ export const clinics: ClinicsProps[] = [
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Germantown Philadelphia | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Germantown, Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
-    rating: 4.9,
+    rating: 5,
     reviewCount: 0,
     reviews: [],
     neighborhoodsWeServe: ['Mount Airy', 'Chestnut Hill', 'East Falls', 'Roxborough', 'Manayunk'],
@@ -8402,7 +8402,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Germantown & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Germantown are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/conditions/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified orthopedic specialists in Germantown are specially trained and continuously educated in the latest medical advances, seamlessly combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline">lumbar and cervical pain</Link>, <Link href="/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, herniated nucleus pulposus, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, rotator cuff pathology, and occupational injuries. Every patient receives a completely personalized treatment plan with same-day consultation results.</p>
       </div>
     ),
     whyChoose: (

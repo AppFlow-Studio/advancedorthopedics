@@ -7,6 +7,7 @@ import { getOgImageForPath } from "@/lib/og";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { conditionFAQs } from "@/components/data/conditionFAQs";
 import { getConditionMetadata, generateConditionMetadataFallback } from "@/lib/metadata-seo";
+import { conditionThumbnailBySlug, hubThumbnailBySlug } from "@/lib/seo/condition-images";
 
 // Helper to strip HTML and markdown from text for schema
 function stripHtmlAndMarkdown(text: string): string {
@@ -30,7 +31,9 @@ export async function generateMetadata(
     const bodyPart = BODY_PARTS.find(bp => bp.slug === slug);
     if (bodyPart) {
         const url = buildCanonical(`/conditions/${slug}`);
-        const ogImage = getOgImageForPath(`/conditions/${slug}`);
+        const hubImage = hubThumbnailBySlug[slug];
+        const ogImage = hubImage?.url || getOgImageForPath(`/conditions/${slug}`);
+        const ogAlt = hubImage?.alt || bodyPart.seoH1;
         
         // Generate comprehensive keywords for the body part
         const bodyPartKeywords = [
@@ -88,8 +91,8 @@ export async function generateMetadata(
                         url: ogImage,
                         width: 1200,
                         height: 630,
-                        alt: bodyPart.seoH1,
-                        type: 'image/jpeg',
+                        alt: ogAlt,
+                        type: 'image/png',
                     },
                 ],
                 countryName: 'United States',
@@ -134,16 +137,21 @@ export async function generateMetadata(
     const isNewFormat = !!conditionContent;
     const canonicalUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
     
-    const ogImage = isNewFormat
+    const slugForMetadata = isNewFormat ? conditionContent!.slug : condition!.slug;
+    const title = isNewFormat ? conditionContent!.title : condition!.title;
+    
+    // Use new thumbnail mapping first, fallback to existing logic
+    const conditionImage = conditionThumbnailBySlug[slugForMetadata];
+    const ogImage = conditionImage?.url || (isNewFormat
         ? (conditionContent!.heroImage 
                ? (typeof conditionContent!.heroImage === 'string' ? conditionContent!.heroImage : conditionContent!.heroImage.src)
                : getOgImageForPath('/conditions'))
         : (typeof condition!.card_img === 'string' 
             ? condition!.card_img 
-            : condition!.card_img?.src || getOgImageForPath('/conditions'));
-
-    const slugForMetadata = isNewFormat ? conditionContent!.slug : condition!.slug;
-    const title = isNewFormat ? conditionContent!.title : condition!.title;
+            : condition!.card_img?.src || getOgImageForPath('/conditions')));
+    
+    const ogAlt = conditionImage?.alt || `Illustration of ${title}`;
+    
     const seoMetadata = getConditionMetadata(slugForMetadata) || generateConditionMetadataFallback(title);
     
     const finalTitle = normalizeUTF8(seoMetadata.metaTitle);
@@ -166,7 +174,7 @@ export async function generateMetadata(
             url: ogImage,
             width: 1200,
             height: 630,
-            alt: `Illustration of ${isNewFormat ? conditionContent!.title : condition!.title}`,
+            alt: ogAlt,
         }],
       },
       twitter: {
@@ -196,11 +204,15 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
     const conditionTitle = isNewFormat ? conditionContent!.title : condition!.title;
     const conditionDescription = stripHtmlAndMarkdown(isNewFormat ? conditionContent!.overview.body : condition!.body);
     const conditionUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
-    const imageUrl = isNewFormat
+    
+    // Use new thumbnail mapping first, fallback to existing image logic
+    const conditionSlug = isNewFormat ? conditionContent!.slug : condition!.slug;
+    const mappedImage = conditionThumbnailBySlug[conditionSlug];
+    const imageUrl = mappedImage?.url || (isNewFormat
         ? (conditionContent!.heroImage 
             ? (typeof conditionContent!.heroImage === 'string' ? conditionContent!.heroImage : conditionContent!.heroImage.src)
             : '')
-        : (typeof condition!.card_img === 'string' ? condition!.card_img : condition!.card_img?.src || '');
+        : (typeof condition!.card_img === 'string' ? condition!.card_img : condition!.card_img?.src || ''));
 
     // Get meta description for WebPage schema
     const metaDescription = isNewFormat
@@ -283,6 +295,11 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
                 '@type': 'State',
                 'name': 'New York',
                 'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            },
+            {
+                '@type': 'State',
+                'name': 'Pennsylvania',
+                'sameAs': 'https://en.wikipedia.org/wiki/Pennsylvania'
             }
         ]
     };
@@ -416,6 +433,11 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
                 '@type': 'State',
                 'name': 'New York',
                 'sameAs': 'https://en.wikipedia.org/wiki/New_York_(state)'
+            },
+            {
+                '@type': 'State',
+                'name': 'Pennsylvania',
+                'sameAs': 'https://en.wikipedia.org/wiki/Pennsylvania'
             }
         ],
         'hasOfferCatalog': {
@@ -456,9 +478,8 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
         ]
     };
 
-    // 6. FAQPage Schema
+    // 6. FAQPage Schema - Use only dedicated FAQ data file
     let faqSchema: any = null;
-    const conditionSlug = isNewFormat ? conditionContent!.slug : condition!.slug;
     const specificFAQs = conditionFAQs[conditionSlug];
     
     if (specificFAQs && specificFAQs.length > 0) {
@@ -474,20 +495,6 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
                     'text': faq.answer
                 }
             })),
-            'about': {
-                '@id': medicalConditionId
-            },
-            'isPartOf': {
-                '@id': webpageId
-            }
-        };
-    } else if (isNewFormat && conditionContent!.faqs && conditionContent!.faqs.length > 0) {
-        const faqData = generateFAQPageSchema(conditionContent!.faqs, conditionUrl);
-        faqSchema = {
-            '@type': 'FAQPage',
-            '@id': `${conditionUrl}#faqpage`,
-            'url': conditionUrl,
-            'mainEntity': faqData.mainEntity,
             'about': {
                 '@id': medicalConditionId
             },

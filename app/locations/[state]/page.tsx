@@ -177,18 +177,17 @@ export default function StateHubPage() {
   const LocationCard = ({ clinic, index, isMobile = false }: { clinic: typeof clinics[0], index: number, isMobile?: boolean }) => (
     <article
       key={index}
-      className="group cursor-pointer h-full"
+      className="group cursor-pointer h-full relative"
       itemScope
       itemType="https://schema.org/MedicalBusiness"
     >
-      <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} className="block h-full">
-        <motion.div
-          variants={isMobile ? undefined : itemVariants}
-          whileHover={isMobile ? undefined : "hover"}
-          onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-          onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-          className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
-        >
+      <motion.div
+        variants={isMobile ? undefined : itemVariants}
+        whileHover={isMobile ? undefined : "hover"}
+        onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+        onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+        className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-4 right-4 w-16 h-16 bg-[#0A50EC] rounded-full"></div>
           <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#252932] rounded-full"></div>
@@ -221,7 +220,7 @@ export default function StateHubPage() {
             </address>
           </div>
 
-          <div className="flex items-center space-x-3 mb-4" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center space-x-3 mb-4 relative z-20">
             <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" aria-hidden="true" />
             <a
               href={`tel:${MAIN_PHONE_TEL}`}
@@ -241,9 +240,15 @@ export default function StateHubPage() {
           </div>
         </div>
 
+        {/* Stretched Link */}
+        <Link 
+          href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
+          className="absolute inset-0 z-10"
+          aria-label={`View details for ${clinic.name}`}
+        />
+
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
       </motion.div>
-      </Link>
     </article>
   )
 

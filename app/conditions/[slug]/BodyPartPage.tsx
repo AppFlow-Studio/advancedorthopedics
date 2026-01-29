@@ -10,14 +10,8 @@ import TreatmentCard from '@/components/TreatmentCard';
 import ExpandableCardGrid from '@/components/ExpandableCardGrid';
 import BodyPartHeroForm from '@/components/BodyPartHeroForm';
 import { buildCanonical } from '@/lib/seo';
-
-// Helper function to check if a tag matches any of the tagMatchers (case-insensitive)
-function matchesTag(tag: string | undefined, tagMatchers: string[]): boolean {
-  if (!tag) return false;
-  return tagMatchers.some(matcher => 
-    tag.toLowerCase() === matcher.toLowerCase()
-  );
-}
+import { tagMatches } from '@/lib/tag-utils';
+import { hubThumbnailBySlug } from '@/lib/seo/condition-images';
 
 // Map body part slugs to medical specialties for schema markup
 const BODY_PART_SPECIALTIES: Record<string, string[]> = {
@@ -27,9 +21,8 @@ const BODY_PART_SPECIALTIES: Record<string, string[]> = {
   'shoulder': ['Shoulder Surgery', 'Orthopedic Surgery', 'Sports Medicine', 'Arthroscopic Surgery'],
   'hip': ['Hip Surgery', 'Orthopedic Surgery', 'Joint Replacement', 'Sports Medicine'],
   'knee': ['Knee Surgery', 'Orthopedic Surgery', 'Joint Replacement', 'Sports Medicine', 'Arthroscopic Surgery'],
-  'hand-wrist': ['Hand Surgery', 'Orthopedic Surgery', 'Microsurgery', 'Nerve Surgery'],
+  'hand-wrist-elbow': ['Hand Surgery', 'Elbow Surgery', 'Orthopedic Surgery', 'Microsurgery', 'Nerve Surgery', 'Sports Medicine'],
   'foot-ankle': ['Foot and Ankle Surgery', 'Orthopedic Surgery', 'Podiatric Surgery'],
-  'elbow': ['Elbow Surgery', 'Orthopedic Surgery', 'Sports Medicine', 'Arthroscopic Surgery'],
 };
 
 // Map body part slugs to anatomical terms for schema
@@ -40,9 +33,8 @@ const BODY_PART_ANATOMY: Record<string, string> = {
   'shoulder': 'Glenohumeral Joint',
   'hip': 'Hip Joint',
   'knee': 'Knee Joint',
-  'hand-wrist': 'Hand and Wrist',
+  'hand-wrist-elbow': 'Hand, Wrist, and Elbow',
   'foot-ankle': 'Foot and Ankle',
-  'elbow': 'Elbow Joint',
 };
 
 // This component is used internally by the unified [slug] route
@@ -54,14 +46,14 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
     notFound();
   }
 
-  // Filter conditions by tag
+  // Filter conditions by tag, additionalTags, and categories
   const filteredConditions = conditions.filter(condition =>
-    matchesTag(condition.tag, bodyPart.tagMatchers)
+    tagMatches(condition.tag, condition.additionalTags, condition.categories, bodyPart.tagMatchers)
   );
 
-  // Filter treatments by tag
+  // Filter treatments by tag, additionalTags, and categories
   const filteredTreatments = AllTreatmentsCombined.filter(treatment =>
-    matchesTag(treatment.tag, bodyPart.tagMatchers)
+    tagMatches(treatment.tag, treatment.additionalTags, treatment.categories, bodyPart.tagMatchers)
   );
 
   // Build JSON-LD schemas with comprehensive SEO optimization
@@ -84,7 +76,7 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
     '@id': organizationId,
     'name': 'Mountain Spine & Orthopedics',
     'alternateName': 'MSO',
-    'description': 'Leading spine and orthopedic specialists in Florida, New Jersey, and New York providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.',
+    'description': 'Leading spine and orthopedic specialists in Florida, New Jersey, New York, and Pennsylvania providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.',
     'url': baseUrl,
     'logo': {
       '@type': 'ImageObject',
@@ -202,6 +194,7 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
   };
 
   // 4. MedicalWebPage Schema (comprehensive)
+  const hubImage = hubThumbnailBySlug[bodyPartSlug];
   const medicalWebPageSchema = {
     '@type': 'MedicalWebPage',
     '@id': webpageId,
@@ -220,9 +213,9 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
     'breadcrumb': { '@id': breadcrumbId },
     'primaryImageOfPage': {
       '@type': 'ImageObject',
-      'url': `${baseUrl}/herosectionimg.jpg`,
-      'width': 1920,
-      'height': 1080
+      'url': hubImage?.url || `${baseUrl}/herosectionimg.jpg`,
+      'width': 1200,
+      'height': 630
     },
     'specialty': { '@id': specialtyId },
     'about': [

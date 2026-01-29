@@ -30,7 +30,7 @@ import {
 import { clinics } from './data/clinics';
 import { GetLatestBlog } from "@/app/blogs/api/get-blogs";
 import { SidebarNavItem } from './SidebarNavItem';
-import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight, Car, CarFront } from 'lucide-react';
+import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight, Car, CarFront, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion'
 import PromoOverlayCard from './PromoOverlayCard';
 import { useQuery } from '@tanstack/react-query';
@@ -477,6 +477,42 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                     link="/locations"
                   />
                 </div>
+              ) : title == 'INJURIES' ? (
+                <div className='w-130 flex flex-col p-2'>
+                  <ul className='flex flex-col w-full'>
+                    {
+                      sublinks.map((link, linkIndex) => {
+                        const IconComponent = link.icon;
+                        return (
+                          <li key={`${link.title}-${linkIndex}`}>
+                            <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4 '>
+                              <Link href={link.href} className='w-full block px-4 py-3 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center justify-between group'>
+                                <div className='flex flex-row items-center gap-x-4'>
+                                  <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center bg-white group-hover:border-[#0A50EC] transition-colors'>
+                                    <IconComponent className='w-6 h-6 text-[#252932] group-hover:text-[#0A50EC]' />
+                                  </div>
+                                  <div className='flex flex-col gap-y-0'>
+                                    <span
+                                      style={{
+                                        fontFamily: "var(--font-public-sans)",
+                                        fontWeight: 500,
+                                      }}
+                                      className='group-hover:text-[#0A50EC] transition-colors'
+                                    >
+                                      {link.title}
+                                    </span>
+                                    <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                                  </div>
+                                </div>
+                                <ChevronRight className='w-4 h-4 text-[#252932] group-hover:text-[#0A50EC] group-hover:translate-x-1 transition-all' />
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                </div>
               )
                 :
                 (
@@ -831,6 +867,18 @@ const NavBarLinks = [
             short_desc: 'Foot & ankle conditions',
             icon: Footprints,
           },
+          {
+            title: 'Sports Medicine Conditions',
+            href: '/conditions/sports-medicine',
+            short_desc: 'Sports medicine conditions',
+            icon: Activity,
+          },
+          {
+            title: 'Pain Management Conditions',
+            href: '/conditions/pain-management',
+            short_desc: 'Pain management conditions',
+            icon: Droplet,
+          },
         ]
       },
       {
@@ -841,51 +889,63 @@ const NavBarLinks = [
         subLinks: [
           {
             title: 'Spine Treatments',
-            href: '/conditions/spine',
+            href: '/treatments?category=Spine',
             short_desc: 'Spine procedures',
             icon: Activity,
           },
           {
             title: 'Neck Treatments',
-            href: '/conditions/neck',
+            href: '/treatments?category=Neck',
             short_desc: 'Neck procedures',
             icon: Headphones,
           },
           {
             title: 'Back Treatments',
-            href: '/conditions/back',
+            href: '/treatments?category=Lower%20Spine',
             short_desc: 'Back procedures',
             icon: Zap,
           },
           {
             title: 'Shoulder Treatments',
-            href: '/conditions/shoulder',
+            href: '/treatments?category=Shoulder',
             short_desc: 'Shoulder procedures',
             icon: Circle,
           },
           {
             title: 'Hip Treatments',
-            href: '/conditions/hip',
+            href: '/treatments?category=Hip',
             short_desc: 'Hip procedures',
             icon: Target,
           },
           {
             title: 'Knee Treatments',
-            href: '/conditions/knee',
+            href: '/treatments?category=Knee',
             short_desc: 'Knee procedures',
             icon: Bone,
           },
           {
             title: 'Hand, Wrist & Elbow Treatments',
-            href: '/conditions/hand-wrist-elbow',
+            href: '/treatments?category=Hand',
             short_desc: 'Hand, wrist & elbow procedures',
             icon: AlertCircle,
           },
           {
             title: 'Foot & Ankle Treatments',
-            href: '/conditions/foot-ankle',
+            href: '/treatments?category=Foot',
             short_desc: 'Foot & ankle procedures',
             icon: Footprints,
+          },
+          {
+            title: 'Sports Medicine Treatments',
+            href: '/treatments?category=Sports%20Medicine',
+            short_desc: 'Sports medicine procedures',
+            icon: Activity,
+          },
+          {
+            title: 'Pain Management Treatments',
+            href: '/treatments?category=Pain%20Management',
+            short_desc: 'Pain management procedures',
+            icon: Droplet,
           },
         ]
       }
@@ -1005,6 +1065,20 @@ const NavBarLinks = [
         href: '/injuries/car-accident',
         short_desc: 'Learn about how to handle car accident injuries',
         icon: CarFront,
+        subLinks: []
+      },
+      {
+        title: 'Work Injury',
+        href: '/injuries/work-injury',
+        short_desc: 'Orthopedic care for workplace injuries',
+        icon: Briefcase,
+        subLinks: []
+      },
+      {
+        title: 'Personal Injury',
+        href: '/injuries/personal-injury',
+        short_desc: 'Evaluation and treatment after trauma',
+        icon: User,
         subLinks: []
       }
     ]

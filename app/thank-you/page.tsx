@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { restoreECFromSession } from "@/utils/enhancedConversions";
+import { restoreECFromSession, formatPhoneToE164 } from "@/utils/enhancedConversions";
 
 export default function ThankYouPage() {
   useEffect(() => {
@@ -19,13 +19,16 @@ export default function ThankYouPage() {
     // This helps with cases where the conversion tag fires before the event
     if (typeof window !== 'undefined') {
       try {
+        const country = (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase();
+        const rawPhone = sessionStorage.getItem('ec_phone') || '';
+        
         const ec = {
           email: (sessionStorage.getItem('ec_email') || '').trim().toLowerCase(),
-          phone_number: (sessionStorage.getItem('ec_phone') || '').replace(/\D/g, ''),
+          phone_number: formatPhoneToE164(rawPhone, country),
           address: {
             first_name: (sessionStorage.getItem('ec_first') || '').trim(),
             last_name: (sessionStorage.getItem('ec_last') || '').trim(),
-            country: (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase(),
+            country: country,
             postal_code: (sessionStorage.getItem('ec_postal') || '').trim(),
           },
         };
