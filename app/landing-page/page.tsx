@@ -28,6 +28,7 @@ import {
 import Link from "next/link"
 import { DoctorContactForm } from "@/components/DoctorContactForm"
 import Testimonials from "./components/Testimonials"
+import { LOCATION_HOURS_DISPLAY } from "@/lib/locationConstants"
 import { clinics } from "@/components/data/clinics"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import { PhoneTextLink } from "@/components/PhoneTextLink"
@@ -101,7 +102,7 @@ const HomePage = () => {
                                         {[1, 2, 3, 4, 5].map((i) => (
                                             <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                                         ))}
-                                        <span className="text-sm text-gray-600 ml-2">4.9/5 rating</span>
+                                        <span className="text-sm text-gray-600 ml-2">5/5 rating</span>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +149,7 @@ const HomePage = () => {
                                 icon: Activity,
                                 title: "Sports Medicine",
                                 description: "Advanced treatment for athletic injuries and performance optimization.",
-                                features: ["ACL Reconstruction", "Rotator Cuff Repair", "Concussion Management"],
+                                features: ["ACL Reconstruction", "Rotator Cuff Repair", "Meniscus Repair"],
                             },
                             {
                                 icon: Shield,
@@ -176,9 +177,9 @@ const HomePage = () => {
                             },
                             {
                                 icon: Award,
-                                title: "Hand & Wrist",
-                                description: "Microsurgical expertise for complex hand and wrist conditions.",
-                                features: ["Carpal Tunnel Surgery", "Tendon Repair", "Nerve Reconstruction"],
+                                title: "Hand, Wrist & Elbow",
+                                description: "Microsurgical expertise for complex hand, wrist, and elbow conditions.",
+                                features: ["Carpal Tunnel Surgery", "Tennis Elbow Treatment", "Nerve Reconstruction"],
                             },
                         ].map((service, index) => (
                             <Link href="https://mountainspineorthopedics.com/conditions" key={index}>
@@ -339,7 +340,7 @@ const HomePage = () => {
                                         </div>
                                         <div className="flex items-center gap-2 text-sm text-warm-gray-600">
                                             <Clock className="w-4 h-4" />
-                                            Monday - Saturday: 8:00 AM - 8:00 PM
+                                            Hours: {LOCATION_HOURS_DISPLAY}
                                         </div>
                                         <OrthoButton variant="outline" size="sm" className="w-full mt-4">
                                             Get Directions

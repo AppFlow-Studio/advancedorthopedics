@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
-import { ConditionInfoProp } from '@/components/ConditionCard';
-import { AllTreatments, TreatmentsCardProp } from '@/components/data/treatments';
+import { TreatmentsCardProp } from '@/types/content';
+import { AllTreatments } from '@/components/data/treatments';
 import { ConsultationForm } from '@/components/ContactForm';
 import { Input } from '@/components/ui/input';
 import { Doctors } from '@/components/data/doctors';
@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import TreatmentsList from '@/components/TreatmentsList';
 import { notFound, redirect } from 'next/navigation';
+import { treatmentThumbnailBySlug } from '@/lib/seo/treatment-images';
 
 interface TreatmentDetailsClientProps {
     treatment: TreatmentsCardProp;
@@ -73,7 +74,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                     }}
                     className="w-full h-[120px] absolute top-0 z-[1] border border-red-500"
                 />
-                <Image src={ConditionDetialsLanding} fill className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt={`Orthopedic surgeon explaining ${treatment.title} procedure options to patient in Florida`} />
+                <Image src={ConditionDetialsLanding} fill className="h-full absolute top-0 object-cover object-top self-end w-full pl-[100px]" alt={`Orthopedic surgeon explaining ${treatment.title} procedure options to patient at Mountain Spine & Orthopedics`} />
 
                 <div className="z-[1] flex flex-col w-full h-full  text-left relative md:pt-20 lg:pt-40">
                     <div className="lg:w-[60%] w-full h-full absolute left-0 top-0"
@@ -192,28 +193,8 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
 
                 <div className=' w-full lg:w-[70%] lg:order-2 order-1  flex flex-col space-y-[60px] lg:mt-0 mt-6 rounded-[24px] '>
                     <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
-                        {/* Detail */}
-                        <div className=' flex flex-col space-y-[16px] '>
-                            <h2
-                                style={{
-                                    fontFamily: 'var(--font-public-sans)',
-                                    fontWeight: 500,
-                                }}
-                                className='text-[#111315] sm:text-5xl text-3xl'
-                            >
-                                About {treatment.title}
-                            </h2>
-                            <p
-                                style={{
-                                    fontWeight: 400,
-                                }}
-                                className="text-[#424959] sm:text-xl text-sm"
-                            >
-                                {treatment.body}
-                            </p>
-                        </div>
-
-                        {/* What are symptoms of */}
+                        {/* Detail (skip redundant "About" - same text as hero subtitle) */}
+                        {/* What is {treatment.title}? */}
                         <div className=' flex flex-col space-y-[16px] '>
                             <h2
                                 style={{
@@ -235,14 +216,24 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                         </div>
 
 
-                        <Image
-                            src={treatment.inTxt_img || '/default-treatment.png'}
-                            alt={treatment.title}
-                            width={300}
-                            height={300}
-                            layout="responsive"
-                            className="w-full h-full object-cover object-center rounded-[24px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden aspect-video"
-                        />
+                        {/* Get SEO metadata from mapping if available */}
+                        {(() => {
+                            const seoMetadata = typeof treatment.inTxt_img === 'string' ? treatmentThumbnailBySlug[treatment.slug] : null;
+                            const imageAlt = seoMetadata?.alt || `Medical illustration of ${treatment.title} treatment at Mountain Spine & Orthopedics`;
+                            const imageTitle = seoMetadata?.title || `${treatment.title} | Mountain Spine & Orthopedics`;
+                            
+                            return (
+                                <Image
+                                    src={treatment.inTxt_img || '/default-treatment.png'}
+                                    alt={imageAlt}
+                                    title={imageTitle}
+                                    width={300}
+                                    height={300}
+                                    layout="responsive"
+                                    className="w-full h-full object-cover object-center rounded-[24px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden aspect-video"
+                                />
+                            );
+                        })()}
 
                         <div className=' flex flex-col space-y-[16px] '>
                             <h2

@@ -37,18 +37,20 @@ function ConditionList({ currentCondition }: { currentCondition: string }) {
 
 
   return (
-    <div className="w-full max-w-lg mx-auto space-y-10"> {/* Optional: Container styling */}
-      <ConditionsSearchBar conditions={conditions} onSelect={handleConditionSelect} onClear={handleSearchClear} />
-      <nav aria-label="Conditions" className='mt-[32px]'>
-        <h2 className='text-xl font-bold mb-2'>All Conditions</h2>
-        <ul className='flex flex-col space-y-[20px]'>
+    <div className="w-full max-w-lg mx-auto space-y-10 lg:space-y-0 lg:h-full lg:flex lg:flex-col lg:min-h-0">
+      <div className="lg:flex-shrink-0">
+        <ConditionsSearchBar conditions={conditions} onSelect={handleConditionSelect} onClear={handleSearchClear} />
+      </div>
+      <nav aria-label="Conditions" className='mt-[32px] lg:mt-4 lg:flex-1 lg:min-h-0 lg:flex lg:flex-col lg:overflow-hidden'>
+        <h2 className='text-xl font-bold mb-2 lg:flex-shrink-0'>All Conditions</h2>
+        <ul className='flex flex-col space-y-[20px] lg:overflow-y-auto lg:flex-1 lg:min-h-0 lg:pr-1'>
           {data.map((condition: ConditionInfoProp, index: number) => {
             const isInitiallyHidden = index >= VisibilityCount;
             const visibilityClasses = isInitiallyHidden
               ? `${isExpanded ? 'flex' : 'hidden'} lg:flex`
               : 'flex';
             return (
-              <li key={condition.title} className={visibilityClasses}>
+              <li key={condition.title} className={`${visibilityClasses} lg:flex-shrink-0`}>
                 <Link href={`/conditions/${condition.slug}`} className={`${currentCondition == condition.title ? 'bg-[#252932] text-white' : 'bg-[#FAFAFA] text-[#111315]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]`}>
                   <span
                     style={{

@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { AllTreatmentsCombined, TreatmentsCardProp } from './data/treatments';
+import { AllTreatmentsCombined } from './data/treatments';
+import type { TreatmentsCardProp } from '@/types/content';
 import TreatmentsSearchBar from './ui/TreatmentsSearchBar';
 // Your data - replace with your actual list items
 
@@ -32,13 +33,15 @@ function TreatmentsList({ currentTreatment }: { currentTreatment: string }) {
 
 
   return (
-    <div className="w-full max-w-lg mx-auto space-y-10"> {/* Optional: Container styling */}
-      <TreatmentsSearchBar
-        treatments={data}           // Pass the full list for searching
-        onSelect={handleSelectTreatment} // Handler for selecting an item
-        onClear={handleClearSearch}      // Handler for clearing the search
-      />
-      <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
+    <div className="w-full max-w-lg mx-auto space-y-10 lg:space-y-0 lg:h-full lg:flex lg:flex-col lg:min-h-0">
+      <div className="lg:flex-shrink-0">
+        <TreatmentsSearchBar
+          treatments={data}           // Pass the full list for searching
+          onSelect={handleSelectTreatment} // Handler for selecting an item
+          onClear={handleClearSearch}      // Handler for clearing the search
+        />
+      </div>
+      <div className='flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px] lg:mt-4 lg:flex-1 lg:min-h-0 lg:overflow-y-auto lg:pr-1'>
         {data.map((treatment, index) => {
           // Determine if this item is beyond the initial visible count
           const isInitiallyHidden = index >= VisibilityCount;
@@ -53,7 +56,7 @@ function TreatmentsList({ currentTreatment }: { currentTreatment: string }) {
             : 'flex'; // Always show if it's within the initial count
 
           return (
-            <Link href={`/treatments/${treatment.slug}`} key={treatment.title} className={`${currentTreatment == treatment.title ? 'bg-[#252932] text-white' : 'bg-[#FAFAFA] text-[#111315]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px] ${visibilityClasses}`} >
+            <Link href={`/treatments/${treatment.slug}`} key={treatment.slug} className={`${currentTreatment == treatment.title ? 'bg-[#252932] text-white' : 'bg-[#FAFAFA] text-[#111315]'} p-[16px] w-full flex flex-row justify-between items-center rounded-[10px] ${visibilityClasses} lg:flex-shrink-0`} >
               <span
                 style={{
                   fontFamily: "var(--font-public-sans)",

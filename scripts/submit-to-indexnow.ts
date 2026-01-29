@@ -160,7 +160,7 @@ const SITEMAP_URLS = [
   'https://mountainspineorthopedics.com/treatments/epidural-steroid-injection',
   'https://mountainspineorthopedics.com/treatments/extreme-lateral-interbody-fusion-surgery',
   'https://mountainspineorthopedics.com/treatments/facet-ablation-rhizotomy-treatment',
-  'https://mountainspineorthopedics.com/treatments/facet-block-ablation-rhizotomy-and-facet-fusion-treatment-information',
+  'https://mountainspineorthopedics.com/treatments/facet-block-ablation-rhizotomy-and-facet-fusion',
   'https://mountainspineorthopedics.com/treatments/fracture-fixation',
   'https://mountainspineorthopedics.com/treatments/impar-block-treatment',
   'https://mountainspineorthopedics.com/treatments/neck-pain-treatment-and-shoulder-pain-relief',

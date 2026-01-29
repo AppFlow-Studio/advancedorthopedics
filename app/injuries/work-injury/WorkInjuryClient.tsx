@@ -1,0 +1,338 @@
+"use client"
+
+import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
+import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
+import { Star, Shield, Clock, MapPin, Phone, Calendar, AlertTriangle, CheckCircle, Award, Briefcase } from "lucide-react"
+import { WorkInjuryLeadCaptureForm } from "./lead-capture-form"
+import InjuriesCarousel from "@/components/InjuriesCarousel"
+import RatingsAndReviews from "@/components/RatingsAndReviews"
+import CondensedLocations from "@/components/CondensedLocations"
+import { clinics } from "@/components/data/clinics"
+import { motion } from "framer-motion"
+import Image from "next/image"
+
+const siteData = {
+  starRating: 5,
+  reviewCount: 327,
+  citiesPill: "FL • NJ • NY • PA",
+  injuries: [
+    { title: "Back strain", slug: "back-strain", blurb: "Lower or upper back pain from lifting or repetitive work.", link: "/conditions/lumbar-strain" },
+    { title: "Neck strain", slug: "neck-strain", blurb: "Neck pain from desk work, lifting, or impact.", link: "/conditions/whiplash-neck-strain" },
+    { title: "Shoulder injury", slug: "shoulder-injury", blurb: "Rotator cuff, labrum, or strain from overhead work.", link: "/conditions/shoulder-dislocation-rotator-cuff" },
+    { title: "Knee injury", slug: "knee-injury", blurb: "Meniscus, ligament, or strain from kneeling or twisting.", link: "/conditions/knee-meniscus-tear" },
+    { title: "Wrist/hand injury", slug: "wrist-hand", blurb: "Strain, fracture, or repetitive use injury.", link: "/conditions/wrist-fracture" },
+    { title: "Hip injury", slug: "hip-injury", blurb: "Strain or hip pain from lifting or falls at work.", link: "/conditions/hip-fracture" },
+    { title: "Ankle/foot injury", slug: "ankle-foot", blurb: "Sprain, strain, or fracture from slips or impact.", link: "/conditions/ankle-sprain" },
+    { title: "Spinal injury", slug: "spine-injury", blurb: "Disc, compression, or nerve-related back or neck pain.", link: "/conditions/herniated-disc-sciatica" },
+  ],
+}
+
+interface WorkInjuryClientProps {
+  faqs: Array<{ q: string; a: string }>
+}
+
+export default function WorkInjuryClient({ faqs }: WorkInjuryClientProps) {
+  return (
+    <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+      {/* Hero Section */}
+      <section className="w-full h-full sm:py-26 py-10 flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+        <div
+          style={{
+            filter: 'blur(30px)'
+          }}
+          className="w-full h-[120px] absolute top-0 z-[1]"
+        />
+        <Image
+          src={'/herosectionimg.jpg'}
+          priority={true}
+          fetchPriority="high"
+          layout='fill'
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt="Work injury orthopedic specialist providing care"
+        />
+        <div
+          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
+          }}
+        />
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-[60px] z-10 relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="space-y-4 mt-10">
+                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                  <AlertTriangle className="w-3 h-3 mr-1" />
+                  Workers&apos; Comp Friendly
+                </Badge>
+
+                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
+                  Work Injury Orthopedic Care in FL, NJ, NY & PA
+                </h1>
+
+                <p className="text-xl text-gray-600 text-pretty">
+                  Same-week evaluation and treatment for work-related spine, joint, and extremity injuries. We coordinate with employers and workers&apos; compensation so you can focus on recovery.
+                </p>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <motion.div whileHover={{ scale: 1.02 }}>
+                  <BookAnAppoitmentButton bordered className="h-10" />
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9, duration: 0.4 }}
+                className="space-y-4"
+              >
+                <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <span>We coordinate with employers and workers&apos; comp</span>
+                  <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="font-medium">{siteData.starRating}</span>
+                    <span>({siteData.reviewCount}+)</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2 text-sm text-gray-500">
+                  <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
+                  <span>{siteData.citiesPill}</span>
+                </div>
+              </motion.div>
+            </div>
+            <div className="lg:pl-8">
+              <WorkInjuryLeadCaptureForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators */}
+      <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="trust-indicators">
+        <div className="w-full">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-gray-900">Board Certified</h3>
+              <p className="text-gray-600">Orthopedic specialists with experience in work-related injuries</p>
+            </div>
+            <div className="space-y-2">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                <Clock className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-gray-900">Same-Week Care</h3>
+              <p className="text-gray-600">Urgent appointments available for acute work injuries</p>
+            </div>
+            <div className="space-y-2">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                <Briefcase className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-gray-900">Workers&apos; Comp</h3>
+              <p className="text-gray-600">We provide notes, restrictions, and documentation for your claim</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Common Work Injuries */}
+      <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="common-injuries">
+        <div className="w-full">
+          <div className="text-center mb-12">
+            <h2
+              style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
+              className="text-[#111315] text-3xl md:text-5xl mb-4 text-balance"
+            >
+              Common Work Injuries We Treat
+            </h2>
+            <p
+              style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
+              className="text-[#424959] text-lg max-w-2xl mx-auto text-pretty"
+            >
+              From back strain to shoulder and knee injuries, our specialists provide comprehensive orthopedic care for work-related injuries.
+            </p>
+          </div>
+          <InjuriesCarousel injuries={siteData.injuries} />
+        </div>
+      </section>
+
+      {/* Treatment Approach */}
+      <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="treatment-approach">
+        <div className="w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-balance sm:text-start text-center">
+                Our Work Injury Treatment Approach
+              </h2>
+
+              <Tabs defaultValue="evaluation" className="w-full">
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="evaluation">Evaluation</TabsTrigger>
+                  <TabsTrigger value="treatment">Treatment</TabsTrigger>
+                  <TabsTrigger value="recovery">Recovery</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="evaluation" className="space-y-4">
+                  <div className="space-y-4 mt-4">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Immediate Assessment</h4>
+                        <p className="text-gray-600">Focused exam and pain evaluation; we document for your claim</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Imaging When Needed</h4>
+                        <p className="text-gray-600">X-ray, MRI, or CT when medically necessary</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Clear Documentation</h4>
+                        <p className="text-gray-600">Notes and records for your employer and workers&apos; comp</p>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="treatment" className="space-y-4">
+                  <div className="space-y-4 mt-4">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Conservative First</h4>
+                        <p className="text-gray-600">Non-surgical options when appropriate</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Pain Management</h4>
+                        <p className="text-gray-600">Multimodal approach for comfort and function</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Surgery When Needed</h4>
+                        <p className="text-gray-600">Minimally invasive techniques when surgery is indicated</p>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="recovery" className="space-y-4">
+                  <div className="space-y-4 mt-4">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Return-to-Work Plans</h4>
+                        <p className="text-gray-600">Clear restrictions and progression for your job</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Ongoing Coordination</h4>
+                        <p className="text-gray-600">We work with adjusters and employers when you authorize</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Prevention Guidance</h4>
+                        <p className="text-gray-600">Strategies to reduce risk of reinjury at work</p>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
+
+            <div className="space-y-6">
+              <Card className="medical-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <Award className="w-6 h-6 text-[#0A50EC]" />
+                    <h3 className="font-semibold text-gray-900">Quality Commitment</h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Our evidence-based protocols and clear documentation support your recovery and your workers&apos; compensation claim.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Experts */}
+      <CondensedLocations />
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8">
+        <InjuryDoctorsSection />
+      </div>
+
+      {/* FAQ Section */}
+      <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="faq">
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-balance">Frequently Asked Questions</h2>
+            <p className="text-lg text-gray-600 text-pretty">Get answers to common questions about work injury care.</p>
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg medical-shadow">
+                <AccordionTrigger className="px-6 py-4 text-left font-medium">{faq.q}</AccordionTrigger>
+                <AccordionContent className="px-6 pb-4 text-gray-600">{faq.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="w-full flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
+        <div className="w-full max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4 text-balance">Don&apos;t Wait — Get Expert Care Today</h2>
+          <p className="text-xl mb-8 text-blue-100 text-pretty">
+            Work injuries can worsen without proper treatment. Schedule your evaluation with Mountain Spine & Orthopedics across FL, NJ, NY & PA.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+              asChild
+              data-cta="final-call"
+            >
+              <a href="tel:5612239959">
+                <Phone className="w-5 h-5 mr-2" />
+                Call (561) 223-9959
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <RatingsAndReviews />
+    </main>
+  )
+}

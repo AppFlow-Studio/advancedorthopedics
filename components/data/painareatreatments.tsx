@@ -36,7 +36,7 @@ export const PainAreaTreatments: ConditionInfoProp[] = [
                                 }}
                                 className="text-[#424959] text-xl"
                             >
-                                At Mountain Spine & Orthopedics, we specialize in personalized back pain care, starting with conservative options like referrals for physical therapy, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
+                                At Mountain Spine & Orthopedics, we specialize in personalized back pain care, starting with conservative options like rehabilitation planning, medications, and lifestyle adjustments. For more severe cases, we offer advanced minimally invasive spine surgery techniques that reduce tissue disruption, shorten recovery times, and provide lasting relief.
                             </p>
 
                             <GradientOverlayImage
@@ -369,7 +369,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                             >
                                 <p className="mb-4">We take a comprehensive approach to neck and shoulder care, beginning with a detailed evaluation and diagnosis. Treatments may include:</p>
                                 <ul className="list-disc pl-6 space-y-2">
-                                    <li>A referral for physical therapy to improve flexibility and reduce muscle strain</li>
+                                    <li>Rehabilitation planning to improve flexibility and reduce muscle strain</li>
                                     <li>Anti-inflammatory medications and muscle relaxants</li>
                                     <li>Corticosteroid injections to reduce inflammation around joints or nerves</li>
                                     <li>Trigger point injections for myofascial pain</li>
@@ -490,7 +490,7 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                 }}
                                 className="text-[#424959] text-xl">
                                 <p className="mb-4"><span className="text-black">Do I need surgery for chronic neck or shoulder pain?</span></p>
-                                Not necessarily. Many conditions can be treated effectively with a referral for physical therapy, medications, or injections.
+                                Not necessarily. Many conditions can be treated effectively with rehabilitation planning, medications, or injections.
                             </div>
                             <div
                                 style={{
@@ -516,8 +516,8 @@ At Mountain Spine & Orthopedics, our team specializes in diagnosing and treating
                                     fontWeight: 400,
                                 }}
                                 className="text-[#424959] text-xl">
-                                <p className="mb-4"><span className="text-black">Will I need physical therapy (if recommended) after surgery?</span></p>
-                                In most cases, yes. We will coordinate a referral to a physical therapist, who helps improve range of motion and strengthen supporting muscles.
+                                <p className="mb-4"><span className="text-black">What does recovery after surgery involve?</span></p>
+                                Recovery typically includes guided exercise programs to improve range of motion and strengthen supporting muscles. Many patients benefit from structured rehabilitation as part of their recovery plan.
                             </div>
                         </div>
                     </div>

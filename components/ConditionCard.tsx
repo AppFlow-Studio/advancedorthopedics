@@ -4,33 +4,7 @@ import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
 import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
-
-export interface ConditionInfoProp {
-  title: string;
-  body: string;
-  tag: string;
-  slug: string;
-  forum?: { post: React.ReactNode }[];
-  card_img?: StaticImageData | string;
-  inTxt_img?: StaticImageData | string;
-  side_img?: StaticImageData | string;
-  detail?: string;
-  what_sym?: string;
-  risk_fac?: string;
-  diagnose?: string | React.ReactNode;
-  treatment?: string;
-  procedure_info?: string;
-  recovery_info?: string;
-  benefits?: string;
-  why_choose_us?: string;
-  pain_info?: string;
-  prevent?: string;
-  schedule?: string;
-  keywords?: string[];
-  metaTitle?: string;
-  metaDesc?: string;
-  ogImage?: string;
-}
+import { ConditionInfoProp } from '@/types/content'
 
 function truncateString(str: string, maxLength = 125) {
   if (str.length <= maxLength) return str;
@@ -38,11 +12,27 @@ function truncateString(str: string, maxLength = 125) {
 }
 
 export default function ConditionCard({ ConditionInfo }: { ConditionInfo: ConditionInfoProp }) {
+  // Check if ConditionInfo.card_img is a valid image source (string or static import object)
+  const imageSource = ConditionInfo?.card_img ? ConditionInfo?.card_img : Logo;
+  
+  // Get SEO metadata from mapping if available
+  const seoMetadata = typeof imageSource === 'string' ? conditionThumbnailBySlug[ConditionInfo.slug] : null;
+  const imageAlt = seoMetadata?.alt || `Treatment for ${ConditionInfo.title} at Mountain Spine & Orthopedics`;
+  const imageTitle = seoMetadata?.title || `${ConditionInfo.title} | Mountain Spine & Orthopedics`;
+
   return (
     <Link className="bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/conditions/${ConditionInfo.slug}`}>
       <div>
         <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden">
-          <Image src={ConditionInfo?.card_img ? ConditionInfo?.card_img : Logo} width={240} height={240} layout="cover" alt={ConditionInfo.title} className="w-full h-full object-cover aspect-video object-center" />
+          <Image 
+            src={imageSource} 
+            width={240} 
+            height={240} 
+            layout="cover" 
+            alt={imageAlt}
+            title={imageTitle}
+            className="w-full h-full object-cover aspect-video object-center" 
+          />
         </div>
       </div>
       <div className="flex flex-col space-y-[16px]">

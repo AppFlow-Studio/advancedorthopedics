@@ -62,7 +62,7 @@ import { Marquee } from "@/components/magicui/marquee"
 import { clinics } from "@/components/data/clinics"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
-import LocationsPicker from "@/components/LocationsPicker"
+import CondensedLocations from "@/components/CondensedLocations"
 import { LawyerContactForm } from "@/components/LawyerContactForm"
 import Reveal from "@/components/RevealAnimation"
 import TreatmentPathCarousel from "@/components/TreatmentPathCarousel"
@@ -1178,9 +1178,9 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                     </div>
                 </Reveal>
 
-                <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8"><InjuryDoctorsSection /></div>
+                <CondensedLocations />
 
-                <LocationsPicker />
+                <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8"><InjuryDoctorsSection /></div>
 
                 {/* FAQs */}
                 <Reveal width="100%" className="bg-gray-50 sm:py-16 py-8" data-section="faqs">

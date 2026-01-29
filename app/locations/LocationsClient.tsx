@@ -110,15 +110,14 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
 
   // Location Card Component
   const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
-    <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} className="block h-full">
-      <motion.div
-        key={index}
-        variants={isMobile ? undefined : itemVariants}
-        whileHover={isMobile ? undefined : "hover"}
-        onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-        onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-        className="group cursor-pointer h-full"
-      >
+    <motion.div
+      key={index}
+      variants={isMobile ? undefined : itemVariants}
+      whileHover={isMobile ? undefined : "hover"}
+      onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
+      onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
+      className="group cursor-pointer h-full relative"
+    >
       <div className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -158,7 +157,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           </div>
 
           {/* Phone */}
-          <div className="flex items-center space-x-3 mb-4" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center space-x-3 mb-4 relative z-20">
             <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" />
             <button
               type="button"
@@ -202,11 +201,17 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
           </motion.div>
         </div>
 
+        {/* Stretched Link */}
+        <Link 
+          href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
+          className="absolute inset-0 z-10"
+          aria-label={`View details for ${clinic.name}`}
+        />
+
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
       </div>
-      </motion.div>
-    </Link>
+    </motion.div>
   )
 
   return (

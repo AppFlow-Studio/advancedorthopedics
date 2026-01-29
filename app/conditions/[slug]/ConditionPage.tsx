@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg'
-import { ConditionInfoProp } from '@/components/ConditionCard'
+import { ConditionInfoProp } from '@/types/content'
 import { conditions, conditionContentPlaceholders, ConditionContent } from '@/components/data/conditions'
-import { AllTreatments, allTreatmentContent } from '@/components/data/treatments'
+import { AllTreatments, allTreatmentContent, AllTreatmentsCombined } from '@/components/data/treatments'
 import { ConsultationForm } from '@/components/ContactForm'
 import { Input } from '@/components/ui/input'
 import { Doctors } from '@/components/data/doctors'
@@ -17,8 +17,12 @@ import Logo from '@/public/newlogo4.png'
 import { notFound } from 'next/navigation';
 import { srOnly } from '@/lib/seo';
 import InternalLinkingSection from '@/components/InternalLinkingSection';
-import ConditionTreatmentFAQSection from '@/components/ConditionTreatmentFAQSection';
 import ConditionFAQ from '@/components/ConditionFAQ';
+import { getBodyPartSlugFromTag, getBodyPartFromTag } from '@/lib/bodyPartMapping';
+import { BODY_PARTS } from '@/components/data/bodyParts';
+import { RichTextContent } from '@/components/RichTextContent';
+import { tagMatches } from '@/lib/tag-utils';
+import { isNonEmptyString } from '@/lib/content-validation';
 
 // Helper: Build a map of all condition/treatment titles to their slugs and type
 // Include both old and new format data
@@ -41,24 +45,45 @@ const allTitles = [
 function processTextWithBoldAndLinks(text: string, currentSlug: string): string {
   if (!text || typeof text !== 'string') return text;
   
-  // Step 1: Convert **bold** markdown to <strong> tags first
-  let processed = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Step 0: Remove bold formatting from "Physical Therapy" / "physical therapy" (not a service we offer)
+  let processed = text.replace(/\*\*Physical Therapy\*\*/gi, 'Physical Therapy');
+  processed = processed.replace(/\*\*physical therapy\*\*/gi, 'physical therapy');
   
-  // Step 2: Split text into segments (text and HTML tags) to avoid linking inside HTML
+  // Step 1: ALWAYS convert **bold** markdown to <strong> tags first (even if HTML links exist)
+  // This handles cases where markdown is inside HTML links like <a>**text**</a>
+  processed = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  
+  // Step 2: Clean up Physical Therapy links/bold that might have been created
+  processed = processed.replace(/<a[^>]*>Physical Therapy<\/a>/gi, 'Physical Therapy')
+                       .replace(/<a[^>]*>physical therapy<\/a>/gi, 'physical therapy')
+                       .replace(/<strong>Physical Therapy<\/strong>/gi, 'Physical Therapy')
+                       .replace(/<strong>physical therapy<\/strong>/gi, 'physical therapy');
+  
+  // Step 3: If text already contains HTML links, we're done (don't add more links)
+  if (processed.includes('<a href=')) {
+    return processed;
+  }
+  
+  // Step 4: Linkify text that doesn't already have links
+  // Sort titles by length descending to avoid partial matches
+  const sortedTitles = allTitles.slice().sort((a, b) => b.length - a.length);
+  
+  // Track which slugs have already been linked
+  const linkedSlugs = new Set<string>();
+  
+  // Split into segments to avoid linking inside existing HTML tags
   const segments: Array<{ type: 'text' | 'html'; content: string }> = [];
   let lastIndex = 0;
   const tagRegex = /<[^>]+>/g;
   let tagMatch;
   
   while ((tagMatch = tagRegex.exec(processed)) !== null) {
-    // Add text before tag
     if (tagMatch.index > lastIndex) {
       segments.push({
         type: 'text',
         content: processed.substring(lastIndex, tagMatch.index)
       });
     }
-    // Add HTML tag
     segments.push({
       type: 'html',
       content: tagMatch[0]
@@ -66,7 +91,6 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string): string 
     lastIndex = tagMatch.index + tagMatch[0].length;
   }
   
-  // Add remaining text
   if (lastIndex < processed.length) {
     segments.push({
       type: 'text',
@@ -74,18 +98,14 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string): string 
     });
   }
   
-  // Step 3: Process only text segments for linking
-  // Sort titles by length descending to avoid partial matches
-  const sortedTitles = allTitles.slice().sort((a, b) => b.length - a.length);
-  
+  // Process only text segments for linking
   const processedSegments = segments.map(segment => {
     if (segment.type === 'html') {
-      return segment.content; // Keep HTML as-is
+      return segment.content;
     }
     
     let textContent = segment.content;
     
-    // Linkify condition and treatment names in text segments
     sortedTitles.forEach(title => {
       const lowerTitle = title.toLowerCase();
       const cond = conditionMap[lowerTitle];
@@ -94,13 +114,17 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string): string 
       const type = cond ? 'condition' : treat ? 'treatment' : null;
       
       if (!slug || slug === currentSlug) return;
+      if (lowerTitle === 'physical therapy') return;
+      if (linkedSlugs.has(slug)) return;
       
-      // Escape special regex characters
       const escapedTitle = title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-      // Match as whole word, case-insensitive
       const titleRegex = new RegExp(`(?<![\\w-])${escapedTitle}(?![\\w-])`, 'gi');
       
+      let hasMatched = false;
       textContent = textContent.replace(titleRegex, (match) => {
+        if (hasMatched) return match;
+        hasMatched = true;
+        linkedSlugs.add(slug);
         const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
         return `<a href="${href}" class="underline text-[#252932] hover:text-[#2358AC]">${match}</a>`;
       });
@@ -109,7 +133,13 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string): string 
     return textContent;
   });
   
-  return processedSegments.join('');
+  processed = processedSegments.join('');
+  
+  // Step 5: Final cleanup - remove any Physical Therapy links
+  processed = processed.replace(/<a[^>]*>Physical Therapy<\/a>/gi, 'Physical Therapy')
+                       .replace(/<a[^>]*>physical therapy<\/a>/gi, 'physical therapy');
+  
+  return processed;
 }
 
 // Legacy function for old format data (backward compatibility)
@@ -157,18 +187,11 @@ function ensureConditionHeadingIncludesKeyword(
 function renderField(field: any, currentSlug: string) {
   if (!field) return null;
 
-  // If its astring, apply linkification and render as HTML
+  // If it's a string, convert ** to <strong> and add internal links, then render with RichTextContent
   if (typeof field === 'string') {
     return (
-      <p
-        style={{
-          fontFamily: "var(--font-inter)",
-          fontWeight: 400,
-        }}
-        className="text-[#424959] sm:text-xl text-sm"
-        dangerouslySetInnerHTML={{
-          __html: linkifyText(field, currentSlug)
-        }}
+      <RichTextContent 
+        html={processTextWithBoldAndLinks(field, currentSlug)}
       />
     );
   }
@@ -311,7 +334,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                 }}
                 className="text-[#424959] text-center sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                 dangerouslySetInnerHTML={{
-                  __html: linkifyText(condition_details!.body, condition_details!.slug)
+                  __html: processTextWithBoldAndLinks(condition_details!.body, condition_details!.slug)
                 }}
               />
             )}
@@ -319,11 +342,15 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
         </div>
       </section>
 
-      <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
-        <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
-          <DoctorContactForm backgroundcolor={'#FAFAFA'} />
-          <div className='mt-10' />
-          <ConditionList currentCondition={isNewFormat ? conditionContent!.title : condition_details!.title} />
+      <section className='max-w-[1440px] w-full flex lg:flex-row flex-col px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <aside className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col lg:overflow-hidden lg:flex-shrink-0 lg:items-stretch'>
+          <div className='lg:flex-shrink-0'>
+            <DoctorContactForm backgroundcolor={'#FAFAFA'} />
+          </div>
+          <div className='mt-10 lg:flex-shrink-0' />
+          <div className='lg:flex-1 lg:min-h-0 lg:overflow-hidden flex flex-col'>
+            <ConditionList currentCondition={isNewFormat ? conditionContent!.title : condition_details!.title} />
+          </div>
 
           <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6' aria-label="Our Doctors">
             <p
@@ -348,7 +375,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
             <InternalLinkingSection currentSlug={isNewFormat ? conditionContent!.slug : condition_details!.slug} pageType="condition" />
           </div>
 
-        </div>
+        </aside>
 
 
         <div className=' w-full lg:w-[70%] lg:order-2 order-1  flex flex-col space-y-[60px] lg:mt-0 mt-6 rounded-[24px] '>
@@ -531,48 +558,160 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                   </div>
                 )}
 
-                {/* Internal Links Section */}
-                {conditionContent!.internalLinks && conditionContent!.internalLinks.length > 0 && (
-                  <div className=' flex flex-col space-y-[16px] '>
-                    <h2
-                      style={{
-                        fontFamily: 'var(--font-public-sans)',
-                        fontWeight: 500,
-                      }}
-                      className='text-[#111315] sm:text-4xl text-2xl'
-                    >
-                      Related Treatments & Conditions
-                    </h2>
-                    <div className="flex flex-wrap gap-3">
-                      {conditionContent!.internalLinks.map((link, index) => {
-                        // Check if slug exists in conditions or treatments arrays
-                        const isCondition = conditions.some(c => c.slug === link.slug) || conditionContentPlaceholders.some(c => c.slug === link.slug);
-                        const isTreatment = AllTreatments.some(t => t.slug === link.slug) || allTreatmentContent.some(t => t.slug === link.slug);
-                        
-                        // Default to treatment if not found in conditions (most internal links are treatments)
-                        const href = isCondition ? `/conditions/${link.slug}` : `/treatments/${link.slug}`;
-                        
-                        return (
-                          <Link
-                            key={index}
-                            href={href}
-                            className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] rounded-[62px] text-sm transition-colors hover:bg-[#FAFAFA]"
+                {/* Back to Hub Callout */}
+                {(() => {
+                  // Get tag: new format may need lookup, old format has tag directly
+                  const conditionTag = isNewFormat 
+                    ? (conditions.find(c => c.slug === conditionSlug)?.tag || null)
+                    : (condition_details?.tag || null);
+                  
+                  const bodyPartSlug = conditionTag ? getBodyPartSlugFromTag(conditionTag) : null;
+                  if (bodyPartSlug) {
+                    const hub = getBodyPartFromTag(conditionTag);
+                    return (
+                      <div className="mb-8 p-4 bg-[#F0F7FF] border-l-4 border-[#0A50EC] rounded">
+                        <p 
+                          style={{
+                            fontFamily: 'var(--font-public-sans)',
+                            fontWeight: 400,
+                          }}
+                          className="text-[#424959] text-base mb-2"
+                        >
+                          <strong 
+                            style={{
+                              fontFamily: 'var(--font-public-sans)',
+                              fontWeight: 600,
+                            }}
                           >
-                            <span
-                              style={{
-                                fontFamily: "var(--font-inter)",
-                                fontWeight: 400,
-                              }}
-                              className="text-[#252932]"
-                            >
-                              {link.text}
-                            </span>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+                            Explore {hub?.title} Conditions & Treatments
+                          </strong>
+                        </p>
+                        <Link 
+                          href={`/conditions/${bodyPartSlug}`}
+                          className="text-[#0A50EC] hover:underline font-medium"
+                          style={{
+                            fontFamily: 'var(--font-public-sans)',
+                            fontWeight: 500,
+                          }}
+                        >
+                          View all {hub?.title.toLowerCase()} conditions and treatment options →
+                        </Link>
+                      </div>
+                    );
+                  }
+                  return null;
+                })()}
+
+                {/* Internal Links Section - includes hub link */}
+                {(() => {
+                  // Get tag for hub link
+                  const conditionTag = isNewFormat 
+                    ? (conditions.find(c => c.slug === conditionSlug)?.tag || null)
+                    : (condition_details?.tag || null);
+                  const bodyPartSlug = conditionTag ? getBodyPartSlugFromTag(conditionTag) : null;
+                  const hub = bodyPartSlug ? getBodyPartFromTag(conditionTag) : null;
+                  
+                  // Build links array: hub link first, then existing internalLinks (for new format only)
+                  const allLinks: Array<{ slug: string; text: string }> = [];
+                  
+                  // Add hub link if available
+                  if (hub && bodyPartSlug) {
+                    // For new format, check if hub link already exists in internalLinks
+                    if (isNewFormat && conditionContent?.internalLinks) {
+                      const hubLinkExists = conditionContent.internalLinks.some(
+                        link => link.slug === bodyPartSlug
+                      );
+                      if (!hubLinkExists) {
+                        allLinks.push({
+                          slug: bodyPartSlug,
+                          text: `View all ${hub.title.toLowerCase()} conditions and treatments`
+                        });
+                      }
+                    } else {
+                      // For old format or new format without internalLinks, always add hub link
+                      allLinks.push({
+                        slug: bodyPartSlug,
+                        text: `View all ${hub.title.toLowerCase()} conditions and treatments`
+                      });
+                    }
+                  }
+                  
+                  // Add existing internalLinks (new format only)
+                  if (isNewFormat && conditionContent?.internalLinks && conditionContent.internalLinks.length > 0) {
+                    allLinks.push(...conditionContent.internalLinks);
+                  }
+                  
+                  // Add related treatments by tag matching (limit to 3-4 treatments)
+                  if (conditionTag) {
+                    const condition = isNewFormat 
+                      ? conditions.find(c => c.slug === conditionSlug)
+                      : condition_details;
+                    const relatedTreatments = AllTreatmentsCombined
+                      .filter(t => tagMatches(t.tag, t.additionalTags, t.categories, [conditionTag]))
+                      .slice(0, 4)
+                      .map(t => ({
+                        slug: t.slug,
+                        text: t.title
+                      }));
+                    allLinks.push(...relatedTreatments);
+                  }
+                  
+                  // If we have any links, render the section
+                  if (allLinks.length > 0) {
+                    return (
+                      <div className=' flex flex-col space-y-[16px] '>
+                        <h2
+                          style={{
+                            fontFamily: 'var(--font-public-sans)',
+                            fontWeight: 500,
+                          }}
+                          className='text-[#111315] sm:text-4xl text-2xl'
+                        >
+                          Related Treatments & Conditions
+                        </h2>
+                        <div className="flex flex-wrap gap-3">
+                          {allLinks.map((link, index) => {
+                            // Check if slug exists in conditions or treatments arrays
+                            const isCondition = conditions.some(c => c.slug === link.slug) || conditionContentPlaceholders.some(c => c.slug === link.slug);
+                            const isTreatment = AllTreatments.some(t => t.slug === link.slug) || allTreatmentContent.some(t => t.slug === link.slug);
+                            // Check if it's a body-part hub
+                            const isBodyPart = BODY_PARTS.some(bp => bp.slug === link.slug);
+                            
+                            // Determine href
+                            let href: string;
+                            if (isBodyPart) {
+                              href = `/conditions/${link.slug}`;
+                            } else if (isCondition) {
+                              href = `/conditions/${link.slug}`;
+                            } else {
+                              href = `/treatments/${link.slug}`;
+                            }
+                            
+                            return (
+                              <Link
+                                key={index}
+                                href={href}
+                                className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] rounded-[62px] text-sm transition-colors hover:bg-[#FAFAFA]"
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "var(--font-inter)",
+                                    fontWeight: 400,
+                                  }}
+                                  className="text-[#252932]"
+                                >
+                                  {link.text}
+                                </span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })()}
+
 
                 {/* Schedule a Consultation Today */}
                 <div className=' flex flex-col space-y-[16px] '>
@@ -605,14 +744,64 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                   </Link>
                 </div>
 
-                {/* FAQ Section */}
-                {conditionContent!.faqs && conditionContent!.faqs.length > 0 && (
-                  <ConditionTreatmentFAQSection 
-                    faqs={conditionContent!.faqs} 
-                    pageTitle={conditionContent!.title}
-                    currentSlug={conditionContent!.slug}
-                  />
-                )}
+                {/* Locations Offering Evaluation - visually connected to Schedule CTA */}
+                <div className=' flex flex-col space-y-[16px] '>
+                  <h2
+                    style={{
+                      fontFamily: 'var(--font-public-sans)',
+                      fontWeight: 500,
+                    }}
+                    className='text-[#111315] sm:text-4xl text-2xl'
+                  >
+                    Locations Offering Evaluation
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 400,
+                    }}
+                    className="text-[#424959] sm:text-xl text-sm"
+                  >
+                    Our board-certified specialists offer {conditionContent!.title.toLowerCase()} evaluation and treatment at locations across Florida, New Jersey, New York, and Pennsylvania. Schedule a consultation at a clinic near you.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/locations"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      View All Locations
+                    </Link>
+                    <Link
+                      href="/locations/florida"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      Florida Locations
+                    </Link>
+                    <Link
+                      href="/locations/new-jersey"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      New Jersey Locations
+                    </Link>
+                    <Link
+                      href="/locations/new-york"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      New York Locations
+                    </Link>
+                    <Link
+                      href="/locations/pennsylvania"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      Pennsylvania Locations
+                    </Link>
+                  </div>
+                </div>
 
                 {/* FAQ Section from dedicated data file */}
                 <ConditionFAQ slug={conditionContent!.slug} />
@@ -621,32 +810,36 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
               <>
                 {/* Legacy Format - Keep existing rendering */}
                 {/* Detail */}
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-5xl text-2xl'
-                  >
-                    About {condition_details!.title}
-                  </h2>
-                  {renderField(condition_details?.detail, condition_details!.slug)}
-                </div>
+                {condition_details && isNonEmptyString(condition_details.detail) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-5xl text-2xl'
+                    >
+                      About {condition_details.title}
+                    </h2>
+                    {renderField(condition_details.detail, condition_details.slug)}
+                  </div>
+                )}
 
                 {/* What are symptoms of */}
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-4xl text-2xl'
-                  >
-                    What Are the Symptoms of {condition_details!.title}?
-                  </h2>
-                  {renderField(condition_details?.what_sym, condition_details!.slug)}
-                </div>
+                {condition_details && isNonEmptyString(condition_details.what_sym) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-4xl text-2xl'
+                    >
+                      What Are the Symptoms of {condition_details.title}?
+                    </h2>
+                    {renderField(condition_details.what_sym, condition_details.slug)}
+                  </div>
+                )}
 
                 {/* Video */}
                 <Image src={condition_details?.inTxt_img ? condition_details?.inTxt_img : Logo} alt={condition_details!.title} width={300} height={300} layout="responsive" className="w-full h-full object-cover object-center aspect-video rounded-[24px]   " />
@@ -654,80 +847,89 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
 
 
                 {/* Are There Specific Risk Factors  */}
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-4xl text-2xl'
-                  >
-                    Are There Specific Risk Factors for {condition_details!.title}?
-                  </h2>
-                  {renderField(condition_details?.risk_fac, condition_details!.slug)}
-                </div>
+                {condition_details && isNonEmptyString(condition_details.risk_fac) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-4xl text-2xl'
+                    >
+                      Are There Specific Risk Factors for {condition_details.title}?
+                    </h2>
+                    {renderField(condition_details.risk_fac, condition_details.slug)}
+                  </div>
+                )}
 
                 {/*  Diagnosing */}
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-4xl text-2xl'
-                  >
-                    Diagnosing {condition_details!.title}?
-                  </h2>
-                  {renderField(condition_details?.diagnose, condition_details!.slug)}
-                </div>
+                {condition_details && condition_details.diagnose && (typeof condition_details.diagnose === 'string' ? isNonEmptyString(condition_details.diagnose) : true) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-4xl text-2xl'
+                    >
+                      Diagnosing {condition_details.title}?
+                    </h2>
+                    {renderField(condition_details.diagnose, condition_details.slug)}
+                  </div>
+                )}
 
                 {/* Treatment for  */}
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-4xl text-2xl'
-                  >
-                    Treatment for {condition_details!.title}?
-                  </h2>
-                  {renderField(
-                    condition_details?.slug === 'synovitis'
-                      ? `Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue. For targeted relief, see our <Link href="/treatments/anti-inflammatory-injections-for-joint-and-spine-pain">Anti-Inflammatory Injections for Joint and Spine Pain</Link> and <Link href="/treatments/arthroscopic-knee-surgery">Arthroscopic Knee Surgery</Link>.`
-                      : condition_details?.treatment,
-                    condition_details!.slug
-                  )}
-                </div>
+                {condition_details && (condition_details.slug === 'synovitis' || isNonEmptyString(condition_details.treatment)) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-4xl text-2xl'
+                    >
+                      Treatment for {condition_details.title}?
+                    </h2>
+                    {renderField(
+                      condition_details.slug === 'synovitis'
+                        ? `Treatment depends on the underlying cause. Nonsteroidal anti-inflammatory drugs (NSAIDs) and corticosteroid injections are often used to reduce inflammation and restore function. If the cause is an autoimmune condition, specific medications like DMARDs may be prescribed. In persistent cases, a minimally invasive procedure called an arthroscopic synovectomy may be recommended to remove the inflamed tissue. For targeted relief, see our <Link href="/treatments/anti-inflammatory-injections-for-joint-and-spine-pain">Anti-Inflammatory Injections for Joint and Spine Pain</Link> and <Link href="/treatments/arthroscopic-knee-surgery">Arthroscopic Knee Surgery</Link>.`
+                        : condition_details.treatment,
+                      condition_details.slug
+                    )}
+                  </div>
+                )}
 
                 {/* Does ... Cause Pain? */}
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-4xl text-2xl'
-                  >
-                    Does {condition_details!.title} Cause Pain?
-                  </h2>
-                  {renderField(condition_details?.pain_info, condition_details!.slug)}
-                </div>
+                {condition_details && isNonEmptyString(condition_details.pain_info) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-4xl text-2xl'
+                    >
+                      Does {condition_details.title} Cause Pain?
+                    </h2>
+                    {renderField(condition_details.pain_info, condition_details.slug)}
+                  </div>
+                )}
 
                 {/* What Can Patients Do to Prevent It? */}
-
-                <div className=' flex flex-col space-y-[16px] '>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-public-sans)',
-                      fontWeight: 500,
-                    }}
-                    className='text-[#111315] sm:text-4xl text-2xl'
-                  >
-                    What Can Patients Do to Prevent It?
-                  </h2>
-                  {renderField(condition_details?.prevent, condition_details!.slug)}
-                </div>
+                {condition_details && isNonEmptyString(condition_details.prevent) && (
+                  <div className=' flex flex-col space-y-[16px] '>
+                    <h2
+                      style={{
+                        fontFamily: 'var(--font-public-sans)',
+                        fontWeight: 500,
+                      }}
+                      className='text-[#111315] sm:text-4xl text-2xl'
+                    >
+                      What Can Patients Do to Prevent It?
+                    </h2>
+                    {renderField(condition_details.prevent, condition_details.slug)}
+                  </div>
+                )}
 
                 {/* Schedule a Consultation Today */}
                 <div className=' flex flex-col space-y-[16px] '>
@@ -755,6 +957,65 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       </svg>
                     </button>
                   </Link>
+                </div>
+
+                {/* Locations Offering Evaluation - visually connected to Schedule CTA */}
+                <div className=' flex flex-col space-y-[16px] '>
+                  <h2
+                    style={{
+                      fontFamily: 'var(--font-public-sans)',
+                      fontWeight: 500,
+                    }}
+                    className='text-[#111315] sm:text-4xl text-2xl'
+                  >
+                    Locations Offering Evaluation
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 400,
+                    }}
+                    className="text-[#424959] sm:text-xl text-sm"
+                  >
+                    Our board-certified specialists offer {condition_details!.title.toLowerCase()} evaluation and treatment at locations across Florida, New Jersey, New York, and Pennsylvania. Schedule a consultation at a clinic near you.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/locations"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      View All Locations
+                    </Link>
+                    <Link
+                      href="/locations/florida"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      Florida Locations
+                    </Link>
+                    <Link
+                      href="/locations/new-jersey"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      New Jersey Locations
+                    </Link>
+                    <Link
+                      href="/locations/new-york"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      New York Locations
+                    </Link>
+                    <Link
+                      href="/locations/pennsylvania"
+                      className="bg-white border border-[#252932] text-[#252932] px-5 py-2.5 rounded-full text-sm hover:bg-[#F0F0F0] transition-colors"
+                      style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                    >
+                      Pennsylvania Locations
+                    </Link>
+                  </div>
                 </div>
 
                 {/* FAQ Section from dedicated data file */}

@@ -6,6 +6,7 @@ import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
 import { TreatmentsCardProp } from './data/treatments'
 import { StaticImageData } from 'next/image'
+import { treatmentThumbnailBySlug } from '@/lib/seo/treatment-images'
 
 function truncateString(str: string, maxLength = 125) {
     if (str.length <= maxLength) return str;
@@ -17,12 +18,27 @@ export default function TreatmentCard({ ConditionInfo }: { ConditionInfo: Treatm
     const imageSource = (ConditionInfo.card_img && typeof ConditionInfo.card_img !== 'string' && ConditionInfo.card_img !== null) || (typeof ConditionInfo.card_img === 'string' && ConditionInfo.card_img.length > 0 && !ConditionInfo.card_img.includes('Placeholder'))
         ? ConditionInfo.card_img // Use the provided image if it seems valid
         : Logo; // Otherwise, use the default Logo
+    
+    // Get SEO metadata from mapping if available
+    const seoMetadata = typeof imageSource === 'string' ? treatmentThumbnailBySlug[ConditionInfo.slug] : null;
+    const imageAlt = seoMetadata?.alt || `Treatment for ${ConditionInfo.title} at Mountain Spine & Orthopedics`;
+    const imageTitle = seoMetadata?.title || `${ConditionInfo.title} | Mountain Spine & Orthopedics`;
+
     console.log(ConditionInfo.tag, ConditionInfo.title)
     return (
         <Link className=" bg-white flex flex-col p-4 rounded-[24px] space-y-[32px]" href={`/treatments/${ConditionInfo.slug}`}>
             <div >
                 <div className="w-full max-h-[240px] h-full object-cover rounded-[24px] lg:h-[240px] bg-[#FAFAFA] items-center justify-center flex overflow-hidden">
-                    <Image src={imageSource} draggable={false} alt="Mountain Spine & Orthopedics Logo" width={240} height={240} layout="cover" className="h-full w-full aspect-video object-cover object-center" />
+                    <Image 
+                        src={imageSource} 
+                        draggable={false} 
+                        alt={imageAlt}
+                        title={imageTitle}
+                        width={240} 
+                        height={240} 
+                        layout="cover" 
+                        className="h-full w-full aspect-video object-cover object-center" 
+                    />
                 </div>
             </div>
 
