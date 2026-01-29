@@ -109,12 +109,6 @@ export default function CarAccidentLayout({
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Injuries",
-                  "item": "https://mountainspineorthopedics.com/injuries"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
                   "name": "Car Accident",
                   "item": "https://mountainspineorthopedics.com/injuries/car-accident"
                 }

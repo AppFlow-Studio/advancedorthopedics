@@ -91,8 +91,7 @@ export default function WorkInjuryLayout({
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: "https://mountainspineorthopedics.com" },
-                { "@type": "ListItem", position: 2, name: "Injuries", item: "https://mountainspineorthopedics.com/injuries" },
-                { "@type": "ListItem", position: 3, name: "Work Injury", item: "https://mountainspineorthopedics.com/injuries/work-injury" },
+                { "@type": "ListItem", position: 2, name: "Work Injury", item: "https://mountainspineorthopedics.com/injuries/work-injury" },
               ],
             },
           }),

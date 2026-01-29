@@ -93,12 +93,6 @@ export default function PersonalInjuryLayout({
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: "Injuries",
-                  item: "https://mountainspineorthopedics.com/injuries",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
                   name: "Personal Injury",
                   item: "https://mountainspineorthopedics.com/injuries/personal-injury",
                 },

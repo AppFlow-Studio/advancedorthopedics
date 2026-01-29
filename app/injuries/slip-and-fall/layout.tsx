@@ -109,12 +109,6 @@ export default function SlipAndFallLayout({
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Injuries",
-                  "item": "https://mountainspineorthopedics.com/injuries"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
                   "name": "Slip and Fall",
                   "item": "https://mountainspineorthopedics.com/injuries/slip-and-fall"
                 }
