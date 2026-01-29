@@ -1,10 +1,10 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image'
-import { Avatars } from './ui/avatar'
 import DoctorsAvatar from './ui/doctorsavatar'
 import Logo from '../public/newlogo4.png'
 import Link from 'next/link'
 import { ConditionInfoProp } from '@/types/content'
+import { conditionThumbnailBySlug } from '@/lib/seo/condition-images';
 
 function truncateString(str: string, maxLength = 125) {
   if (str.length <= maxLength) return str;
