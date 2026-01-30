@@ -473,7 +473,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                     className="max-w-70 w-70"
                     imageUrl="/centralflorida.png"
                     title="Serving 4 States"
-                    subtitle="21+ Locations Across FL, NJ, NY & PA"
+                    subtitle="23+ Locations Across FL, NJ, NY & PA"
                     link="/locations"
                   />
                 </div>
@@ -1011,7 +1011,7 @@ const NavBarLinks = [
       {
         title: 'New Jersey',
         href: '/locations/new-jersey',
-        short_desc: '6 locations',
+        short_desc: '8 locations',
         icon: MapPin,
         subLinks: clinics.filter(c => c.stateSlug === 'new-jersey').map((clinic) => ({
           title: clinic.name.split('Mountain Spine & Orthopedics')[1]?.trim() || clinic.region.split(',')[0].trim(),

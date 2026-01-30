@@ -8668,5 +8668,249 @@ export const clinics: ClinicsProps[] = [
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=5945%20Germantown%20Ave%2C%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=5945%20Germantown%20Ave%2C%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
   },
+
+  {
+    id: 22, // Ensure this ID is unique in your array
+    name: 'Mountain Spine & Orthopedics Voorhees Township, NJ',
+    region: 'Voorhees, NJ',
+    lat: 39.8512,
+    lng: -74.9984,
+    address: '701 White Horse Rd Unit 5, Voorhees Township, NJ 08043',
+    phone: MAIN_PHONE_DISPLAY,
+    link: '#', // Placeholder for future GBP link
+    slug: 'voorhees-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'new-jersey',
+    locationSlug: 'voorhees-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics is proud to expand our world-class orthopedic and spine care to Voorhees Township, serving Camden County and the greater South Jersey region. We recognize that South Jersey families lead active, fast-paced lives, and persistent musculoskeletal pain shouldn't keep you from enjoying your community. Our mission is to provide our neighbors with the advanced, compassionate orthopedic treatment they need to restore function and live pain-free.
+    [PARAGRAPH BREAK]
+    Our Voorhees clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located conveniently on White Horse Road, our specialists are experts in diagnosing and treating the full spectrum of conditions, including sciatica, herniated discs, spinal stenosis, and degenerative disc disease. Whether you are dealing with a sports injury or a complex work-related injury, each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their goals.
+    [PARAGRAPH BREAK]
+    Utilizing the industry's most advanced diagnostic tools and state-of-the-art minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic spine surgery and minimally invasive joint procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Serving patients throughout Voorhees, Cherry Hill, Marlton, and Gibbsboro, we are your local partner in reclaiming your active lifestyle.
+    `,
+    keywords: [
+      'voorhees orthopedic surgeon',
+      'voorhees spine surgeon',
+      'orthopedic doctor voorhees nj',
+      'spine specialist voorhees township',
+      'minimally invasive spine surgery voorhees nj',
+      'orthopedic surgery voorhees nj',
+      'joint replacement voorhees nj',
+      'back pain treatment voorhees',
+      'neck pain treatment voorhees',
+      'sports medicine voorhees nj',
+      'camden county orthopedic surgeon',
+      'voorhees orthopedic clinic',
+      'best orthopedic surgeon voorhees nj'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Voorhees, NJ',
+    metaDescription: 'Expert orthopedic and spine care in Voorhees Township, NJ. Specializing in back pain relief, sciatica treatment, and minimally invasive spine surgery. Schedule your consultation today.',
+    neighborhoodsWeServe: ['Marlton', 'Cherry Hill', 'Gibbsboro', 'Stratford', 'Lindenwold', 'Berlin'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Voorhees Spine and Orthopedic Specialists of Camden County</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Residents of <strong>South Jersey</strong> can now access world-class <strong>spinal and musculoskeletal care</strong> right here in <strong>Voorhees Township</strong>. As your trusted local <strong>orthopedic center</strong>, Mountain Spine & Orthopedics brings expert care to families in <strong>Camden</strong> and <strong>Burlington Counties</strong>. Our goal is to provide evidence-based care to get you back to the activities you love.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Voorhees & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>board-certified specialists</strong> are trained in the latest medical advances. We successfully treat <Link href="/conditions/back-pain" className="text-[#0A50EC] font-bold underline">lumbar and cervical pain</Link>, <Link href="/conditions/sciatica" className="text-[#0A50EC] font-bold underline">sciatica</Link>, and <Link href="/conditions/sports-medicine" className="text-[#0A50EC] font-bold underline">sports injuries</Link> with personalized plans and same-day consultation results.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Our Voorhees, NJ Orthopedic Clinic:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li><strong>Expert Surgeons:</strong> Fellowship-trained specialists serving the Voorhees and Cherry Hill communities.</li>
+          <li><strong>Same-Day Access:</strong> We offer <strong>same-day appointments</strong> for acute back or neck pain.</li>
+          <li><strong>Modern Facility:</strong> State-of-the-art equipment for accurate diagnostics and treatment.</li>
+          <li><strong>Comprehensive Care:</strong> Specialized in <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] font-bold underline">minimally invasive spine surgery</Link> and joint preservation.</li>
+          <li><strong>Convenience:</strong> Located on <strong>White Horse Road</strong> near <strong>Virtua Voorhees Hospital</strong>.</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Voorhees, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our <strong>Voorhees clinic</strong> is centrally located at <strong>701 White Horse Rd</strong>, providing easy access for patients coming from <strong>Cherry Hill</strong>, <strong>Marlton</strong>, and the <strong>Jersey Shore</strong> via the Atlantic City Expressway.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Routes:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From I-295:</strong> Take Exit 32 for Haddonfield/Voorhees, head south on Haddonfield-Berlin Rd, then turn onto White Horse Rd.</li>
+          <li><strong>From Route 73:</strong> Head toward Evesham Rd or Kresson Rd, connecting to White Horse Rd.</li>
+          <li><strong>From Route 70:</strong> Accessible via Springdale Rd or Cropwell Rd to reach the clinic location.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Virtua Voorhees Hospital</strong> - 2.5 miles</li>
+          <li><strong>Voorhees Town Center</strong> - 1.2 miles</li>
+          <li><strong>Eastern Regional High School</strong> - 1.5 miles</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Voorhees & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our facility is perfectly positioned to serve <strong>Cherry Hill</strong>, <strong>Marlton</strong>, <strong>Gibbsboro</strong>, <strong>Stratford</strong>, and <strong>Lindenwold</strong>. Located directly on <strong>White Horse Road</strong>, we are easily accessible from I-295 and major South Jersey arteries.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className="text-2xl md:text-3xl font-bold text-[#062044]">Advanced Orthopedic Technology in Voorhees</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our specialists utilize cutting-edge <strong>diagnostic imaging</strong> and <strong>minimally invasive surgical platforms</strong> to ensure high-precision outcomes for patients in <strong>Camden County</strong>.</p>
+        
+      </div>
+    ),
+    faqs: [
+      {
+        question: "Do you offer same-day orthopedic appointments in Voorhees, NJ?",
+        answer: "Yes. Our Voorhees location prioritizes same-day and next-day visits for urgent needs such as severe back pain or sports injuries. Call (561) 223-9959 to schedule."
+      },
+      {
+        question: "Where is your Voorhees, NJ orthopedic office located?",
+        answer: "We are located at 701 White Horse Rd Unit 5, Voorhees Township, NJ 08043, conveniently situated near the Virtua Voorhees health campus."
+      },
+      {
+        question: "What conditions do you treat at your Voorhees, NJ clinic?",
+        answer: "We specialize in treating a wide range of conditions including sciatica, herniated discs, spinal stenosis, degenerative disc disease, and sports injuries. Our fellowship-trained surgeons offer both surgical and non-surgical solutions."
+      },
+      {
+        question: "Do you accept insurance and Workers' Compensation in Voorhees?",
+        answer: "Yes, we accept most major insurance plans and specialize in Workers' Compensation claims. Our staff is experienced in handling the paperwork necessary for work-related injury cases to ensure you get the care you need."
+      },
+      {
+        question: "Which areas do you serve from the Voorhees location?",
+        answer: "Our Voorhees clinic serves patients throughout Camden County and South Jersey, including Cherry Hill, Marlton, Gibbsboro, Stratford, Lindenwold, and Berlin."
+      }
+    ],
+    rating: 5,
+    reviewCount: 0,
+    reviews: [],
+    ogImage: '/newlogo4.png',
+  },
+  {
+    id: 23,
+    name: 'Mountain Spine & Orthopedics Princeton, NJ',
+    region: 'Princeton, NJ',
+    lat: 40.3573,
+    lng: -74.6672,
+    address: '601 Ewing Street, Suite A8, Princeton, NJ 08540',
+    phone: MAIN_PHONE_DISPLAY,
+    link: '#',
+    slug: 'princeton-orthopedics',
+    stateAbbr: 'NJ',
+    stateSlug: 'new-jersey',
+    locationSlug: 'princeton-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics is proud to bring elite orthopedic and spine care to historic Princeton, NJ, serving Mercer County and the greater Central Jersey region. We understand that the Princeton community values excellence and precision in healthcare. Our mission is to provide world-class, fellowship-trained orthopedic care that matches the standards of this world-renowned academic hub, right here in the heart of town.
+    [PARAGRAPH BREAK]
+    Our Princeton clinic, located on Ewing Street, is staffed by board-certified orthopedic surgeons who specialize in complex musculoskeletal conditions. Whether you are a student-athlete, a busy professional, or an active retiree, we provide expert diagnosis and treatment for sciatica, herniated discs, spinal stenosis, and advanced joint pain. We combine academic-level clinical expertise with a boutique, patient-first experience.
+    [PARAGRAPH BREAK]
+    We utilize state-of-the-art minimally invasive techniques, including motion-preserving spine surgery and advanced sports medicine, to ensure the fastest possible recovery. Serving Princeton, Plainsboro, West Windsor, and Montgomery, our facility at 601 Ewing Street is designed for patient comfort and clinical excellence. Trust Mountain Spine & Orthopedics to be your partner in maintaining your health and mobility in Central Jersey.
+    `,
+    keywords: [
+      'princeton orthopedic surgeon',
+      'princeton spine surgeon',
+      'orthopedic doctor princeton nj',
+      'spine specialist princeton',
+      'minimally invasive spine surgery princeton nj',
+      'orthopedic surgery princeton nj',
+      'joint replacement princeton nj',
+      'back pain treatment princeton',
+      'neck pain treatment princeton',
+      'sports medicine princeton nj',
+      'mercer county orthopedic surgeon',
+      'princeton orthopedic clinic',
+      'best orthopedic surgeon princeton nj'
+    ],
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Princeton, NJ',
+    metaDescription: 'Expert orthopedic and spine care in Princeton, NJ. Specializing in minimally invasive spine surgery, sports medicine, and joint replacement. Book your consultation at our Ewing St clinic.',
+    neighborhoodsWeServe: ['Plainsboro', 'West Windsor', 'Lawrenceville', 'Montgomery', 'Hopewell', 'South Brunswick'],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Princeton Spine and Orthopedic Specialists of Mercer County</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'><strong>Mercer County</strong> residents can access top-tier <strong>spinal and joint care</strong> in the heart of <strong>Princeton</strong>. As your trusted local <strong>orthopedic center</strong>, Mountain Spine & Orthopedics brings fellowship-trained expertise to the community. Our goal is to provide advanced, data-driven care to get you back to your active life.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Princeton & Nearby Areas</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>board-certified specialists</strong> utilize the latest medical breakthroughs to treat <Link href="/conditions/spine" className="text-[#0A50EC] font-bold underline">spinal conditions</Link>, <Link href="/conditions/hip" className="text-[#0A50EC] font-bold underline">hip pain</Link>, and <Link href="/conditions/knee" className="text-[#0A50EC] font-bold underline">knee injuries</Link>. Every patient receives a personalized treatment plan designed for long-term recovery.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Our Princeton, NJ Orthopedic Clinic:</h2>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li><strong>Elite Surgeons:</strong> Fellowship-trained specialists serving the Princeton and West Windsor area.</li>
+          <li><strong>Advanced Spine Care:</strong> Leaders in <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] font-bold underline">artificial disc replacement</Link> and motion preservation.</li>
+          <li><strong>Hyper-Local Access:</strong> Conveniently located near the <strong>Princeton Shopping Center</strong>.</li>
+          <li><strong>Comprehensive Diagnostics:</strong> On-site evaluation and rapid <Link href="/find-care/free-mri-review" className="text-[#0A50EC] font-bold underline">MRI reviews</Link>.</li>
+          <li><strong>Insurance Friendly:</strong> We accept most major plans and specialize in <strong>Workers' Compensation</strong>.</li>
+        </ul>
+      </div>
+    ),
+    easyToReach: (
+      <div className='flex flex-col space-y-[10px]'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Princeton, NJ Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our <strong>Princeton clinic</strong> is located at <strong>601 Ewing Street</strong>, offering easy access for patients coming from <strong>Route 1</strong>, <strong>Route 206</strong>, and <strong>Route 27</strong>.</p>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>From Route 1:</strong> Take the exit toward Harrison St or Washington Rd, then head toward Ewing St near the shopping district.</li>
+          <li><strong>From Route 206:</strong> Follow NJ-206 into Princeton, turning onto Valley Rd or Terhune Rd to reach Ewing St.</li>
+          <li><strong>From NJ Turnpike:</strong> Take Exit 8A (Cranbury) or Exit 9 (New Brunswick) to reach Route 1 South toward Princeton.</li>
+        </ul>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Local Landmarks:</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
+          <li><strong>Princeton University</strong> - 1.5 miles</li>
+          <li><strong>Princeton Shopping Center</strong> - 0.2 miles (Walking distance)</li>
+          <li><strong>Penn Medicine Princeton Medical Center</strong> - 3.2 miles</li>
+        </ul>
+      </div>
+    ),
+    nearby: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Princeton & Surrounding Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our facility is perfectly positioned to serve <strong>Plainsboro</strong>, <strong>West Windsor</strong>, <strong>Montgomery</strong>, and <strong>Lawrenceville</strong>. Located just off <strong>Ewing Street</strong>, we are easily accessible for the entire <strong>Mercer County</strong> and southern <strong>Middlesex County</strong> region.</p>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className="text-2xl md:text-3xl font-bold text-[#062044]">Advanced Orthopedic Care in Princeton</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">We provide sophisticated surgical and non-surgical treatments, including <strong>robot-assisted surgery</strong> and <strong>biologics</strong>, to restore function for the <strong>Princeton</strong> community.</p>
+        
+      </div>
+    ),
+    faqs: [
+      {
+        question: "Do you offer same-day orthopedic appointments in Princeton, NJ?",
+        answer: "Yes. Our Princeton clinic offers same-day and next-day appointments for acute injuries. Call (561) 223-9959 to book."
+      },
+      {
+        question: "Where is your Princeton, NJ orthopedic office located?",
+        answer: "We are located at 601 Ewing Street, Suite A8, Princeton, NJ 08540, right near the Princeton Shopping Center."
+      },
+      {
+        question: "What orthopedic specialties are available at the Princeton office?",
+        answer: "Our Princeton location offers expert care in minimally invasive spine surgery, artificial disc replacement, sports medicine, and joint replacement. Our surgeons are board-certified and fellowship-trained in the latest orthopedic advancements."
+      },
+      {
+        question: "How do I get to your Princeton, NJ orthopedic clinic?",
+        answer: "The clinic is easily accessible from Route 1, Route 206, and Route 27. We are located on Ewing Street, within walking distance of the Princeton Shopping Center and just 1.5 miles from Princeton University."
+      },
+      {
+        question: "Do you offer MRI reviews for Princeton patients?",
+        answer: "Yes, we offer rapid complimentary MRI reviews for patients in Princeton and surrounding areas. This helps our specialists quickly diagnose your condition and develop a personalized treatment plan for faster recovery."
+      }
+    ],
+    rating: 5,
+    reviewCount: 0,
+    reviews: [],
+    ogImage: '/newlogo4.png',
+  },
+  
 ];
 
