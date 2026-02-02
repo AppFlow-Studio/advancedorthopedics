@@ -21,6 +21,7 @@ export interface BaseContentProp {
   keywords?: string[];
   card_img?: StaticImageData | string;
   inTxt_img?: StaticImageData | string;
+  updatedAt?: string;
 }
 
 export interface ConditionInfoProp extends BaseContentProp {

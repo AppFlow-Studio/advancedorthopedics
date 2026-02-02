@@ -25,8 +25,9 @@ import {
 } from "@/components/ui/accordion"
 import { STATE_METADATA, VALID_STATE_SLUGS } from '@/lib/locationRedirects'
 import { STATE_FAQS } from '@/lib/state-faqs'
+import { generateFAQPageSchema } from "@/lib/faq-utils"
+import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, LOCATION_HOURS_DISPLAY, MAIN_PHONE_E164 } from '@/lib/locationConstants'
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
-import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, LOCATION_HOURS_DISPLAY } from '@/lib/locationConstants'
 import StateSeoSections from '@/components/StateSeoSections'
 
 export default function StateHubPage() {
@@ -110,6 +111,82 @@ export default function StateHubPage() {
   
   const nearbyRegions = nearbyRegionsByState[state] || []
   
+  // Generate JSON-LD schemas
+  const canonicalUrl = `https://mountainspineorthopedics.com/locations/${state}`
+  const pageDescription = `Board-certified spine and orthopedic surgeons across ${stateInfo?.name || ''}. Locations in ${topCities}. Same-day and next-day appointments available.`
+
+  const pageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': `Spine & Orthopedic Surgeons in ${stateInfo?.name || ''}`,
+    'description': pageDescription,
+    'url': canonicalUrl,
+    'about': {
+      '@type': 'MedicalOrganization',
+      'name': 'Mountain Spine & Orthopedics'
+    },
+    'areaServed': {
+      '@type': 'AdministrativeArea',
+      'name': stateInfo?.name || ''
+    }
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://mountainspineorthopedics.com/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Locations',
+        'item': 'https://mountainspineorthopedics.com/locations'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': stateInfo?.name || '',
+        'item': canonicalUrl
+      }
+    ]
+  }
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': `Mountain Spine & Orthopedics ${stateInfo?.name || ''} Locations`,
+    'description': `Orthopedic and spine clinic locations in ${stateInfo?.name || ''}`,
+    'numberOfItems': stateClinics.length,
+    'itemListElement': stateClinics.map((clinic, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': clinic.name,
+      'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+      'item': {
+        '@type': 'MedicalBusiness',
+        'name': clinic.name,
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': clinic.address,
+          'addressLocality': clinic.region.split(',')[0],
+          'addressRegion': stateInfo?.abbr || '',
+          'addressCountry': 'US'
+        },
+        'telephone': MAIN_PHONE_E164,
+        'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`
+      }
+    }))
+  }
+
+  const faqSchema = stateFaqs.length > 0
+    ? generateFAQPageSchema(stateFaqs, canonicalUrl)
+    : null
+
   // Create local state for selected location
   const [selectedLocation, setSelectedLocation] = useState(stateClinics[0] || null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -269,7 +346,26 @@ export default function StateHubPage() {
   ]
 
   return (
-    <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10' itemScope itemType="https://schema.org/MedicalOrganization">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10'>
       {/* 1. HERO SECTION */}
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-label={`Spine & Orthopedic Surgeons in ${stateInfo?.name}`}>
         <div
@@ -536,8 +632,6 @@ export default function StateHubPage() {
           <section
             className="mb-16"
             aria-labelledby="faq-heading"
-            itemScope
-            itemType="https://schema.org/FAQPage"
           >
             <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center">
               Frequently Asked Questions About Orthopedic Care in {stateInfo?.name}
@@ -549,21 +643,16 @@ export default function StateHubPage() {
                     key={index} 
                     value={`item-${index}`} 
                     className="border-b border-gray-200"
-                    itemScope
-                    itemType="https://schema.org/Question"
                   >
                     <AccordionTrigger 
                       className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
-                      itemProp="name"
                     >
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent 
                       className="text-[#424959] leading-relaxed pt-2"
-                      itemScope
-                      itemType="https://schema.org/Answer"
                     >
-                      <p itemProp="text">{faq.answer}</p>
+                      <p>{faq.answer}</p>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -574,5 +663,6 @@ export default function StateHubPage() {
         </div>
       </div>
     </main>
+    </>
   )
 }

@@ -191,6 +191,7 @@ export interface TreatmentContent {
   
   // Schedule CTA text
   schedule?: string;
+  updatedAt?: string;
 }
 
 export const AllTreatments : TreatmentsCardProp[] = [

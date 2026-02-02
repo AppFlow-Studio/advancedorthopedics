@@ -201,7 +201,7 @@ export default function InsurancePolicyClient() {
             </div>
             <div className=" mt-[40px] w-fit ">
               <div className=" max-h-[56px] h-full px-[16px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-pointer">
-                <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Learn More</span>
+                <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500, fontSize: "16px", lineHeight: "24px", letterSpacing: "0.02em" }}>Learn More About Our Concierge Services</span>
                 <div className='pl-[10px]'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M12.5303 0.469668C12.2374 0.176776 11.7626 0.176778 11.4697 0.469672C11.1768 0.762566 11.1768 1.23744 11.4697 1.53033L15.1894 5.25H1C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75H15.1893L11.4697 10.4697C11.1768 10.7626 11.1768 11.2374 11.4697 11.5303C11.7626 11.8232 12.2375 11.8232 12.5304 11.5303L17.5258 6.53486C17.542 6.51892 17.5575 6.50224 17.5722 6.48489C17.619 6.42974 17.6566 6.36941 17.685 6.30596C17.7268 6.21252 17.75 6.10898 17.75 6C17.75 5.99768 17.75 5.99537 17.75 5.99305C17.7491 5.90338 17.7323 5.81382 17.6996 5.72903C17.663 5.63451 17.6066 5.5459 17.5303 5.46963L12.5303 0.469668Z" fill="#FAFAFA" />
