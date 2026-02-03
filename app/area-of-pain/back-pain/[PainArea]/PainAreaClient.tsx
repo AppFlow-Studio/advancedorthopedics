@@ -181,7 +181,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md text-xs sm:block hidden text-[#111315]"
               >
                 Area of Pain
               </span>
@@ -190,7 +190,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md text-xs sm:block hidden text-[#111315]"
               >
                 /
               </span>
@@ -201,7 +201,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
                 }}
                 className="sm:text-md text-xs text-[#2358AC]"
               >
-                Back Pain
+                Back Pain 
               </span>
               <span
                 style={{
@@ -210,7 +210,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
                 }}
                 className="sm:text-md text-xs text-[#111315]"
               >
-                /
+                / 
               </span>
               <span
                 style={{
