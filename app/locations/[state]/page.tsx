@@ -254,7 +254,7 @@ export default function StateHubPage() {
   const LocationCard = ({ clinic, index, isMobile = false }: { clinic: typeof clinics[0], index: number, isMobile?: boolean }) => (
     <article
       key={index}
-      className="group cursor-pointer h-full relative"
+      className="group cursor-pointer h-full relative min-w-0 w-full"
       itemScope
       itemType="https://schema.org/MedicalBusiness"
     >
@@ -263,36 +263,36 @@ export default function StateHubPage() {
         whileHover={isMobile ? undefined : "hover"}
         onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
         onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-        className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+        className="relative h-full min-w-0 w-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
       >
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-4 right-4 w-16 h-16 bg-[#0A50EC] rounded-full"></div>
           <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#252932] rounded-full"></div>
         </div>
 
-        <div className="relative z-10 h-full flex flex-col">
-          <div className="flex items-center justify-between mb-6">
+        <div className="relative z-10 h-full flex flex-col min-w-0">
+          <div className="flex items-center justify-between gap-2 mb-6 min-w-0">
             <motion.div
               animate={hoveredIndex === index ? { rotate: 360 } : { rotate: 0 }}
               transition={{ duration: 0.6 }}
-              className="w-12 h-12 bg-[#0A50EC] rounded-2xl flex items-center justify-center shadow-lg"
+              className="w-12 h-12 flex-shrink-0 bg-[#0A50EC] rounded-2xl flex items-center justify-center shadow-lg"
             >
               <Building2 className="w-6 h-6 text-white" />
             </motion.div>
-            <div className="text-right">
-              <span className="text-sm font-medium text-[#0A50EC] bg-white/80 px-3 py-1 rounded-full">
+            <div className="text-right min-w-0 flex-shrink">
+              <span className="text-sm font-medium text-[#0A50EC] bg-white/80 px-3 py-1 rounded-full break-words inline-block max-w-full">
                 {clinic.region ? clinic.region.split(',')[0].trim() : (stateInfo?.name || 'Location')}
               </span>
             </div>
           </div>
 
-          <h3 className="text-2xl font-bold text-[#252932] mb-4 group-hover:text-[#0A50EC] transition-colors duration-300" itemProp="name">
+          <h3 className="text-lg sm:text-2xl font-bold text-[#252932] mb-4 group-hover:text-[#0A50EC] transition-colors duration-300 break-words" itemProp="name">
             {clinic.name}
           </h3>
 
-          <div className="flex items-start space-x-3 mb-4" itemScope itemType="https://schema.org/PostalAddress">
+          <div className="flex items-start space-x-3 mb-4 min-w-0" itemScope itemType="https://schema.org/PostalAddress">
             <MapPin className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" aria-hidden="true" />
-            <address className="text-[#424959] text-sm leading-relaxed not-italic" itemProp="streetAddress">
+            <address className="text-[#424959] text-sm leading-relaxed not-italic break-words min-w-0" itemProp="streetAddress">
               {clinic.address || '123 Medical Center Dr, Suite 100'}
             </address>
           </div>
@@ -392,8 +392,8 @@ export default function StateHubPage() {
             background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)',
           }}
         />
-        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
-          <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-4 sm:px-6 lg:px-[80px] min-w-0">
+          <div className='max-w-[1440px] w-full min-w-0 flex flex-col items-start justify-start'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-4'
               style={{ background: 'rgba(255, 255, 255, 0.50)' }}
             >
@@ -408,14 +408,14 @@ export default function StateHubPage() {
               <span className="text-[#2258AC]">{stateInfo?.name}</span>
             </div>
             
-            {/* H1 - Exact format from template */}
+            {/* H1 - by="word" so state name (Florida, Pennsylvania, etc.) never splits mid-word */}
             <TextAnimate 
               animation="blurInUp" 
-              by="character" 
+              by="word" 
               once 
               as="h1"
               style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-              className='text-[#252932] text-6xl'
+              className='text-[#252932] text-2xl sm:text-4xl lg:text-6xl leading-tight'
             >
               {`Spine & Orthopedic Surgeons in ${stateInfo?.name || ''}`}
             </TextAnimate>
@@ -423,7 +423,7 @@ export default function StateHubPage() {
             {/* Subhead - using paragraph for better heading hierarchy */}
             <p
               style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-              className='text-[#252932] text-2xl mt-2'
+              className='text-[#252932] text-lg sm:text-2xl mt-2 break-words'
             >
               Board-certified specialists at {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''}.
             </p>
@@ -435,21 +435,21 @@ export default function StateHubPage() {
         {/* 2. LOCATIONS GRID - First after hero */}
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
           <section id="locations" className="scroll-mt-20" aria-labelledby="locations-heading">
-            <h2 id="locations-heading" className="text-4xl md:text-5xl font-bold text-[#252932] my-6 text-center mb-12">
+            <h2 id="locations-heading" className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#252932] my-6 text-center mb-12 break-words px-2">
               Our {stateInfo?.name} Locations
             </h2>
 
             {/* Mobile Carousel - Always rendered for SEO, interactive on client */}
-            <div className="block md:hidden mb-16">
-              <div className="w-full">
+            <div className="block md:hidden mb-16 w-full min-w-0 overflow-hidden">
+              <div className="w-full min-w-0">
                 <Carousel
                   setApi={setApi}
-                  className="w-full"
+                  className="w-full min-w-0"
                   opts={{ align: "center", containScroll: "trimSnaps" }}
                 >
-                  <CarouselContent>
+                  <CarouselContent className="min-w-0">
                     {stateClinics.map((clinic, index) => (
-                      <CarouselItem key={index} className="basis-full py-6">
+                      <CarouselItem key={index} className="basis-full min-w-0 py-6">
                         <LocationCard clinic={clinic} index={index} isMobile={true} />
                       </CarouselItem>
                     ))}
@@ -528,7 +528,7 @@ export default function StateHubPage() {
             className="mb-16 bg-gradient-to-r from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-8 md:p-12 border border-white/50"
             aria-labelledby="why-choose-heading"
           >
-            <h2 id="why-choose-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center">
+            <h2 id="why-choose-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center break-words px-2">
               Why Patients Choose Mountain Spine & Orthopedics in {stateInfo?.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -554,7 +554,7 @@ export default function StateHubPage() {
             className="mb-16"
             aria-labelledby="reviews-heading"
           >
-            <h2 id="reviews-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-6 text-center">
+            <h2 id="reviews-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-6 text-center break-words px-2">
               Patient Reviews in {stateInfo?.name}
             </h2>
             <p className="text-[#424959] text-lg mb-6 text-center max-w-3xl mx-auto">
