@@ -53,7 +53,7 @@ export default function BlogSections({ sections }: BlogSectionsProps) {
             </div>
           )}
           <div 
-            className='text-[#424959] text-lg mb-4 [&_p]:mb-4 [&_br]:block'
+            className='text-[#424959] text-lg mb-4 [&_p]:mb-4 [&_br]:block [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-6 [&_li]:mb-2 [&_li]:leading-[1.75]'
             dangerouslySetInnerHTML={{ __html: processBlogHTML(section.body) }}
           />
           {section.sub_stories && section.sub_stories.length > 0 && (
@@ -85,7 +85,7 @@ export default function BlogSections({ sections }: BlogSectionsProps) {
                     <h3 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className='text-[#252932] text-xl mb-1'>{sub.header}</h3>
                   )}
                   <div 
-                    className='text-[#424959] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base [&_p]:mb-4 [&_br]:block'
+                    className='text-[#424959] ml-2 border-l-2 border-gray-200 pl-6 mb-8 text-base [&_p]:mb-4 [&_br]:block [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-6 [&_li]:mb-2 [&_li]:leading-[1.75]'
                     dangerouslySetInnerHTML={{ __html: processBlogHTML(sub.body) }}
                   />
                 </div>
