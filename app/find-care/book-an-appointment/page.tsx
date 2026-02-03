@@ -211,7 +211,7 @@ const BookAppointmentJsonLdSchema = () => {
         "telephone": "(561) 223-9959",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "8000 SW 67th Ave",
+          "streetAddress": "7000 SW 62nd Ave, Suite 330",
           "addressLocality": "Miami",
           "addressRegion": "FL",
           "postalCode": "33143",

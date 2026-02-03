@@ -2580,7 +2580,7 @@ export const clinics: ClinicsProps[] = [
     region: 'South Miami, FL',
     lat: 25.69602070,
     lng: -80.30127530,
-    address: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
+    address: '7000 SW 62nd Ave, Suite 330, Miami, FL 33143',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://www.google.com/maps/place/7000+SW+62+AVE+Suite+330,+South+Miami,+FL+33143-4716',
     slug: 'miami-beach-orthopedics',
@@ -3033,7 +3033,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your South Miami, FL orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in South Miami at 8000 SW 67th Ave 2nd Floor, Miami, FL 33143. We're located near SW 67th Ave for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in South Miami at 7000 SW 62nd Ave, Suite 330, Miami, FL 33143. We're located near SW 62nd Ave for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your South Miami location?",
@@ -3056,10 +3056,10 @@ export const clinics: ClinicsProps[] = [
     businessProfileId: '8553019631701086019',
     kgId: '/g/11xg49h3z1',
     categories: ['Orthopedic surgeon', 'Orthopedic clinic', 'Pain management physician', 'Physiatrist', 'Podiatrist'],
-    formattedAddress: '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
+    formattedAddress: '7000 SW 62nd Ave, Suite 330, Miami, FL 33143',
     placeUrl: 'https://www.google.com/maps?cid=5072257544612706635',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=8000%20SW%2067th%20Ave%202nd%20Floor%2C%20Miami%2C%20FL%2033143',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=8000%20SW%2067th%20Ave%202nd%20Floor%2C%20Miami%2C%20FL%2033143',
+    googleMapsUrl: 'https://www.google.com/maps/place/7000+SW+62nd+Ave+STE+330,+Miami,+FL+33143/@25.7053911,-80.2962448,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9c7f200e55555:0x6b480b738e8603a3!8m2!3d25.7053911!4d-80.2936699!16s%2Fg%2F11nssd7s7n?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D',
+    hasMap: 'https://www.google.com/maps/place/7000+SW+62nd+Ave+STE+330,+Miami,+FL+33143/@25.7053911,-80.2962448,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9c7f200e55555:0x6b480b738e8603a3!8m2!3d25.7053911!4d-80.2936699!16s%2Fg%2F11nssd7s7n?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D',
   },
   {
     id: 8,

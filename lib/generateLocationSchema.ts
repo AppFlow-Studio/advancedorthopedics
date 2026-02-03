@@ -3,7 +3,7 @@ import { MAIN_PHONE_E164, LOCATION_OPENING_HOURS } from '@/lib/locationConstants
 
 // Expected GBP addresses for validation (development mode only)
 const GBP_ADDRESSES: Record<string, string> = {
-  'miami-beach-orthopedics': '8000 SW 67th Ave 2nd Floor, Miami, FL 33143',
+  'miami-beach-orthopedics': '7000 SW 62nd Ave, Suite 330, Miami, FL 33143',
   'hollywood-fl-orthopedics': '3500 Tyler St, Hollywood, FL 33021',
   'palm-beach-gardens-orthopedics': '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
   'fort-pierce-orthopedics': '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
