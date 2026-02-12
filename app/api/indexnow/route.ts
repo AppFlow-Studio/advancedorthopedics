@@ -19,6 +19,7 @@ export async function POST(request: NextRequest) {
       status: result.success ? 200 : 400
     });
   } catch (error) {
+    console.error('[IndexNow API] Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

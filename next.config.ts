@@ -76,7 +76,7 @@ const nextConfig: NextConfig = {
     {"source":"/conditions/ankle-replacement","destination":"/treatments/ankle-replacement-surgery","permanent":true},
     
     // --- CLINIC SLUG REDIRECTS ---
-    {"source":"/locations/palm-spring-orthopedics","destination":"/locations/palm-springs-orthopedics","permanent":true},
+    {"source":"/locations/palm-spring-orthopedics","destination":"/locations/florida/palm-springs-orthopedics","permanent":true},
     
     // --- DOCTOR SLUG REDIRECTS (from dot notation to kebab-case) ---
     {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors/dr-scott-katzman","permanent":true},

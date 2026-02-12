@@ -58,6 +58,49 @@ curl -X POST https://mountainspineorthopedics.com/api/indexnow \
 - ✅ All pain area pages
 - ✅ All injury pages
 
+## 🧪 Testing
+
+Use these to verify IndexNow without PowerShell/curl quoting issues.
+
+### 1. Test the API route (local or production)
+**Option A – npm script (cross-platform, no curl):**
+```bash
+# Start dev server in another terminal: npm run dev
+npm run indexnow:test
+# Or test production API:
+npm run indexnow:test:prod
+```
+
+**Option B – curl with JSON file** (avoids PowerShell quoting issues):
+```bash
+# From project root (Windows: use curl.exe)
+curl.exe -i -X POST "http://localhost:3000/api/indexnow" -H "Content-Type: application/json" -d "@scripts/indexnow-test-body.json"
+```
+For production, use `https://mountainspineorthopedics.com/api/indexnow`. Expect **200** and `{"success":true,...}` on success.
+
+### 2. Test the central IndexNow API directly
+If you call `https://api.indexnow.org/indexnow` yourself, **use the same key as the app** (the one in your key file). Wrong key → 400/403.
+
+- **Key:** `2b2b0d92dff54d44860bb79905ef711b`
+- **keyLocation:** `https://mountainspineorthopedics.com/2b2b0d92dff54d44860bb79905ef711b.txt`
+
+Example (body from file to avoid escaping; run from project root):
+```bash
+curl.exe -i -X POST "https://api.indexnow.org/indexnow" -H "Content-Type: application/json; charset=utf-8" -d "@scripts/indexnow-direct-body.json"
+```
+Expect **200** or **202 Accepted**.
+
+### 3. Run the bulk submit script (canonical URLs only)
+```bash
+npm run indexnow
+```
+This submits all sitemap canonicals (core pages, state hubs, location pages from `clinics`). Check the console for success/failure per batch.
+
+### 4. If the API returns 500
+Check the server logs. The route logs the thrown error as `[IndexNow API] Error: ...` (e.g. invalid JSON body or network failure).
+
+---
+
 ## 🔍 Verification
 
 ### 1. Check Bing Webmaster Tools

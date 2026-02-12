@@ -17,28 +17,20 @@ export async function generateMetadata(
     
     // Validate state slug
     if (!isValidStateSlug(state)) {
-        const canonicalUrl = buildCanonical(`/locations/${state}/${locationSlug}`);
         return {
             title: 'Location Not Found | Mountain Spine & Orthopedics',
             description: 'The requested location could not be found. Please check the URL or navigate to our locations page to find a clinic.',
-            alternates: {
-                canonical: canonicalUrl,
-            },
         };
     }
-    
+
     // Find the specific clinic data based on state and location slugs
     const location = findClinicByStateAndLocation(state, locationSlug);
 
-    // If no matching location is found, return default metadata.
+    // If no matching location is found, return default metadata (omit canonical so 404 is not indexed).
     if (!location) {
-        const canonicalUrl = buildCanonical(`/locations/${state}/${locationSlug}`);
         return {
             title: 'Location Not Found | Mountain Spine & Orthopedics',
             description: 'The requested location could not be found. Please check the URL or navigate to our locations page to find a clinic.',
-            alternates: {
-                canonical: canonicalUrl,
-            },
         };
     }
 
