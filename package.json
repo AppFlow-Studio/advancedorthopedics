@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "crawl": "node scripts/live-crawl-links.js",
-    "dev": "next dev",
+    "dev": "node --max-old-space-size=8192 node_modules/next/dist/bin/next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

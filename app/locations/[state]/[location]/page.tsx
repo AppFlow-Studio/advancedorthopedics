@@ -36,6 +36,7 @@ import { PhoneTextLink } from '@/components/PhoneTextLink'
 import LocationFAQSection from '@/components/LocationFAQSection'
 import { LocationNAP } from '@/components/LocationNAP'
 import LocationSeoSections from '@/components/LocationSeoSections'
+import LocationGallerySection from '@/components/LocationGallerySection'
 import { findClinicByStateAndLocation, getAllLocationParams, isValidStateSlug, STATE_METADATA } from '@/lib/locationRedirects'
 
 export const dynamicParams = false;
@@ -384,6 +385,13 @@ export default async function LocationDetails(
 
             </section>
             <ClinicsMap startingClinic={locationData} />
+            <LocationGallerySection
+              clinic={locationData}
+              city={locationData.region.split(',')[0].trim()}
+              stateAbbr={stateInfo?.abbr || state}
+              stateSlug={state}
+              locationUrl={`/locations/${state}/${locationSlug}`}
+            />
             {/* Our Specialty */}
             <section className=" w-full flex flex-col py-[50px] h-full px-2 md:px-[40px] items-center justify-center space-y-[60px]">
                 <Reveal className="w-full" width="100%">
