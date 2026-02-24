@@ -969,7 +969,7 @@ const NavBarLinks = [
       {
         title: 'Meet our Doctors',
         href: '/about/meetourdoctors',
-        short_desc: 'Our expert physicians',
+        short_desc: 'Our expert specialists',
         icon: Users,
         subLinks: []
       },
