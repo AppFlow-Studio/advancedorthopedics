@@ -203,7 +203,7 @@ export const Doctors: DoctorProp[] = [
         img: Shumway,
         slug: 'dr-clay-shumway',
         name: 'Dr. Clay Shumway',
-        practice: 'Foot & Ankle Orthopedic Surgeon',
+        practice: 'Foot & Ankle Podiatric Surgeon',
         socials: '',
         short_bio: 'Dr. Clay Shumway is a fellowship-trained foot and ankle surgeon specializing in advanced, minimally invasive techniques, including total ankle replacement and 3D bunion correction. His patient-first philosophy prioritizes conservative care, utilizing surgery only when necessary to restore mobility and ensure lasting relief.',
         desc: 'Dr. Clay Shumway is a board-qualified foot and ankle surgeon with prestigious fellowship training in advanced lower extremity reconstruction, sports medicine, and total ankle replacement. He is a leading expert in 3D bunion correction.',

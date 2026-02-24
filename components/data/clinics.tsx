@@ -29,6 +29,17 @@ export type StateAbbr = 'FL' | 'NJ' | 'NY' | 'PA';
 export type StateSlug = 'florida' | 'new-jersey' | 'new-york' | 'pennsylvania';
 export type LocationType = 'office' | 'surgery-center';
 
+export type LocationGalleryCategory = 'Facility' | 'Parking' | 'Interior' | 'Team' | 'Treatments' | 'Other';
+
+export interface LocationGalleryImage {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption?: string;
+  category: LocationGalleryCategory;
+}
+
 export interface ClinicsProps {
   id: number;
   name: string;
@@ -86,6 +97,9 @@ export interface ClinicsProps {
   googleMapsUrl?: string; // Google Maps search URL (non-GBP)
   hasMap?: string;        // Same as googleMapsUrl (for schema)
   updatedAt?: string;
+  // Location photo gallery (SEO/CRO)
+  gallery?: LocationGalleryImage[];
+  galleryIntro?: string;
 }
 
 export const clinics: ClinicsProps[] = [
@@ -619,6 +633,11 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '3500 Tyler St, Hollywood, FL 33021',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=3500%20Tyler%20St%2C%20Hollywood%2C%20FL%2033021',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=3500%20Tyler%20St%2C%20Hollywood%2C%20FL%2033021',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Hollywood-Building-Exterior.jpeg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Hollywood, Florida', caption: 'Building exterior (Hollywood, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Hollywood-Exterior.png', width: 1200, height: 900, alt: 'Exterior view at Mountain Spine & Orthopedics Hollywood, Florida', caption: 'Exterior view (Hollywood, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Hollywood-Waiting-Room.jpg', width: 1200, height: 900, alt: 'Waiting room at Mountain Spine & Orthopedics Hollywood, Florida', caption: 'Waiting room (Hollywood, FL)', category: 'Interior' },
+    ],
   },
   {
     id: 3,
@@ -1095,6 +1114,16 @@ export const clinics: ClinicsProps[] = [
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14002.606566307608!2d-81.38488004357872!3d28.670147561592515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186497809!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=652%20Palm%20Springs%20Dr%2C%20Altamonte%20Springs%2C%20FL%2032701',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=652%20Palm%20Springs%20Dr%2C%20Altamonte%20Springs%2C%20FL%2032701',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Building-Exterior-2.jpeg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Building exterior (Altamonte Springs - Casselberry, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Building exterior (Altamonte Springs - Casselberry, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Building-Exterior.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Building exterior (Altamonte Springs - Casselberry, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Casselberry-Building-Exterior-2.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Building exterior (Altamonte Springs - Casselberry, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Casselberry-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Building exterior (Altamonte Springs - Casselberry, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Casselberry-Building-Exterior.png', width: 1200, height: 900, alt: 'Casselberry building exterior at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Casselberry building exterior (Altamonte Springs - Casselberry, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Casselberry-Surgery-Room.jpg', width: 1200, height: 900, alt: 'Surgery room at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Surgery room (Altamonte Springs - Casselberry, FL)', category: 'Treatments' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Altamonte-Springs-Casselberry-Waiting-Room.jpg', width: 1200, height: 900, alt: 'Waiting room at Mountain Spine & Orthopedics Altamonte Springs - Casselberry, Florida', caption: 'Waiting room (Altamonte Springs - Casselberry, FL)', category: 'Interior' },
+    ],
   },
   {
     id: 5,
@@ -1586,6 +1615,12 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '6150 Metrowest Blvd STE 102, Orlando, FL 32835',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6150%20Metrowest%20Blvd%20STE%20102%2C%20Orlando%2C%20FL%2032835',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=6150%20Metrowest%20Blvd%20STE%20102%2C%20Orlando%2C%20FL%2032835',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Orlando-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Orlando, Florida', caption: 'Building exterior (Orlando, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Orlando-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Orlando, Florida', caption: 'Building exterior (Orlando, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Orlando-Building-Exterior-3.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Orlando, Florida', caption: 'Building exterior (Orlando, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Orlando-Building-Exterior-4.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Orlando, Florida', caption: 'Building exterior (Orlando, FL)', category: 'Facility' },
+    ],
   },
   {
     id: 9,
@@ -2070,6 +2105,10 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '2215 Nebraska Ave Suite 1C, Fort Pierce, FL 34950',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2215%20Nebraska%20Ave%20Suite%201C%2C%20Fort%20Pierce%2C%20FL%2034950',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=2215%20Nebraska%20Ave%20Suite%201C%2C%20Fort%20Pierce%2C%20FL%2034950',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Fort-Pierce-Building-Exterior.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Fort Pierce, Florida', caption: 'Building exterior (Fort Pierce, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Fort-Pierce-Building-Exterior-2.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Fort Pierce, Florida', caption: 'Building exterior (Fort Pierce, FL)', category: 'Facility' },
+    ],
   },
   {
     id: 6,
@@ -2573,6 +2612,10 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '3355 Burns Rd STE 304, Palm Beach Gardens, FL 33410',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=3355%20Burns%20Rd%20STE%20304%2C%20Palm%20Beach%20Gardens%2C%20FL%2033410',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=3355%20Burns%20Rd%20STE%20304%2C%20Palm%20Beach%20Gardens%2C%20FL%2033410',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Palm-Beach-Gardens-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Palm Beach Gardens, Florida', caption: 'Building exterior (Palm Beach Gardens, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Palm-Beach-Gardens-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Palm Beach Gardens, Florida', caption: 'Building exterior (Palm Beach Gardens, FL)', category: 'Facility' },
+    ],
   },
   {
     id: 7,
@@ -3060,6 +3103,16 @@ export const clinics: ClinicsProps[] = [
     placeUrl: 'https://www.google.com/maps?cid=5072257544612706635',
     googleMapsUrl: 'https://www.google.com/maps/place/7000+SW+62nd+Ave+STE+330,+Miami,+FL+33143/@25.7053911,-80.2962448,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9c7f200e55555:0x6b480b738e8603a3!8m2!3d25.7053911!4d-80.2936699!16s%2Fg%2F11nssd7s7n?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D',
     hasMap: 'https://www.google.com/maps/place/7000+SW+62nd+Ave+STE+330,+Miami,+FL+33143/@25.7053911,-80.2962448,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9c7f200e55555:0x6b480b738e8603a3!8m2!3d25.7053911!4d-80.2936699!16s%2Fg%2F11nssd7s7n?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Building-Exterior.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Building exterior (South Miami, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Building-Exterior-2.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Building exterior (South Miami, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Building-Exterior-3.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Building exterior (South Miami, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Front-Desk.png', width: 1200, height: 900, alt: 'Front desk at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Front desk (South Miami, FL)', category: 'Interior' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Interior-Hallway.png', width: 1200, height: 900, alt: 'Interior hallway at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Interior hallway (South Miami, FL)', category: 'Interior' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-MRI-Room.png', width: 1200, height: 900, alt: 'MRI room at Mountain Spine & Orthopedics South Miami, Florida', caption: 'MRI room (South Miami, FL)', category: 'Interior' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Surgery-Room.png', width: 1200, height: 900, alt: 'Surgery room at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Surgery room (South Miami, FL)', category: 'Treatments' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Miami-Waiting-Room.png', width: 1200, height: 900, alt: 'Waiting room at Mountain Spine & Orthopedics South Miami, Florida', caption: 'Waiting room (South Miami, FL)', category: 'Interior' },
+    ],
   },
   {
     id: 8,
@@ -3546,6 +3599,16 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '1905 Clint Moore Rd #300, Boca Raton, FL 33496',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1905%20Clint%20Moore%20Rd%20%23300%2C%20Boca%20Raton%2C%20FL%2033496',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=1905%20Clint%20Moore%20Rd%20%23300%2C%20Boca%20Raton%2C%20FL%2033496',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior-2.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior-4.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior-5.jpeg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior-6.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Building-Exterior-7.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Building exterior (Boca Raton, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Boca-Raton-Surgery-Room.png', width: 1200, height: 900, alt: 'Surgery room at Mountain Spine & Orthopedics Boca Raton, Florida', caption: 'Surgery room (Boca Raton, FL)', category: 'Treatments' },
+    ],
   },
   {
     id: 1,
@@ -4059,6 +4122,9 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '499 E Central Pkwy, Suite 130, Altamonte Springs, FL 32701',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=499%20E%20Central%20Pkwy%2C%20Altamonte%20Springs%2C%20FL%2032701',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=499%20E%20Central%20Pkwy%2C%20Altamonte%20Springs%2C%20FL%2032701',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Orthopedic-Gallery-Placeholder.png', width: 1200, height: 900, alt: 'Mountain Spine & Orthopedics orthopedic clinic', caption: 'Clinic photo (Altamonte Springs, FL)', category: 'Other' },
+    ],
   },
   {
     id: 2,
@@ -4562,6 +4628,9 @@ export const clinics: ClinicsProps[] = [
     ogImage: "/newlogo4.png",
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2400%20North%20Blvd%20W%20Suite%20C%2C%20Davenport%2C%20FL%2033837',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=2400%20North%20Blvd%20W%20Suite%20C%2C%20Davenport%2C%20FL%2033837',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Davenport-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Davenport, Florida', caption: 'Building exterior (Davenport, FL)', category: 'Facility' },
+    ],
   },
   {
     id: 10,
@@ -5069,6 +5138,12 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '1205 Monument Rd, Suite 202, Jacksonville, FL 32225',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=1205%20Monument%20Rd%2C%20Jacksonville%2C%20FL%2032225',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Jacksonville-building-exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Jacksonville, Florida', caption: 'Building exterior (Jacksonville, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Jacksonville-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Jacksonville, Florida', caption: 'Building exterior (Jacksonville, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Jacksonville-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Jacksonville, Florida', caption: 'Building exterior (Jacksonville, FL)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Jacksonville-Exterior-4.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Jacksonville, Florida', caption: 'Building exterior (Jacksonville, FL)', category: 'Facility' },
+    ],
   },
   // =====================================================
   // NEW JERSEY LOCATIONS
@@ -5393,8 +5468,12 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%2C%20Suite%20101%2C%20Bridgewater%2C%20NJ%2008807',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%2C%20Suite%20101%2C%20Bridgewater%2C%20NJ%2008807',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%20%2314%2C%20Bridgewater%2C%20NJ%2008807',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%20%2314%2C%20Bridgewater%2C%20NJ%2008807',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Bridgewater-Building-Exterior-2.jpeg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Bridgewater, NJ', caption: 'Building exterior (Bridgewater, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Bridgewater-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Bridgewater, NJ', caption: 'Building exterior (Bridgewater, NJ)', category: 'Facility' },
+    ],
   },
   {
     id: 12,
@@ -5726,16 +5805,19 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '100 Springdale Rd, Suite B5, Cherry Hill, NJ 08003',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=100%20Springdale%20Rd%2C%20Suite%20B5%2C%20Cherry%20Hill%2C%20NJ%2008003',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=100%20Springdale%20Rd%2C%20Suite%20B5%2C%20Cherry%20Hill%2C%20NJ%2008003',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Cherryhill-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Cherry Hill, NJ', caption: 'Building exterior (Cherry Hill, NJ)', category: 'Facility' },
+    ],
   },
   {
     id: 13,
     name: 'Mountain Spine & Orthopedics Edison, NJ',
     region: 'Edison, NJ',
-    lat: 40.5644,
-    lng: -74.3298,
-    address: '95 Wood Ave S, Suite 203, Edison, NJ 08820',
+    lat: 40.5218,
+    lng: -74.3644,
+    address: '25 Main St suite 12, Edison, NJ 08837',
     phone: MAIN_PHONE_DISPLAY,
-    link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
+    link: 'https://www.google.com/maps/dir/?api=1&destination=25+Main+St+suite+12%2C+Edison%2C+NJ+08837',
     slug: 'edison-orthopedics',
     stateAbbr: 'NJ',
     stateSlug: 'new-jersey',
@@ -5743,8 +5825,8 @@ export const clinics: ClinicsProps[] = [
     locationType: 'office',
     paragraph: `
     Mountain Spine & Orthopedics is proud to serve Edison, NJ and the central New Jersey community with expert orthopedic and spine care. We understand that life in Central New Jersey is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
-    [PARAGRAPH BREAK]Our Edison clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in the Metropark corporate hub, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 95 Wood Ave S, Suite 203, in the Metropark corporate center, we're easily accessible from the Garden State Parkway (Exit 131), NJ Turnpike (Exit 11), and Route 1, serving patients throughout Middlesex County, Union County, and the greater Central New Jersey region. Trust Mountain Spine & Orthopedics in Edison to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    [PARAGRAPH BREAK]Our Edison clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located near the Edison/Metuchen border, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 25 Main St, Suite 12, near the Edison Train Station, we're easily accessible from the Garden State Parkway (Exit 131), NJ Turnpike (Exit 10), and Route 27, serving patients throughout Middlesex County, Union County, and the greater Central New Jersey region. Trust Mountain Spine & Orthopedics in Edison to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
     keywords: [
       'edison orthopedic surgeon',
@@ -5761,7 +5843,7 @@ export const clinics: ClinicsProps[] = [
       'sports medicine edison nj',
       'middlesex county orthopedic surgeon',
       'edison orthopedic clinic',
-      'metropark orthopedic',
+      'metuchen orthopedic',
       'orthopedic in edison nj',
       'orthopedic surgeon in edison new jersey',
       'best orthopedic surgeon edison nj',
@@ -5771,18 +5853,18 @@ export const clinics: ClinicsProps[] = [
       'spine surgeon near me edison',
       'orthopedic doctor near me edison',
       'best orthopedic near me edison',
-      'metropark spine specialist'
+      'highland park orthopedic'
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Edison, NJ | Mountain Spine & Orthopedics',
     metaDescription: 'Top-rated orthopedic and spine specialists in Edison, NJ. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    neighborhoodsWeServe: ['Iselin', 'Metuchen', 'Woodbridge', 'Rahway', 'Clark'],
+    neighborhoodsWeServe: ['Metuchen', 'Iselin', 'Highland Park', 'Woodbridge', 'New Brunswick', 'Piscataway'],
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Edison Spine and Orthopedic Specialists of Central New Jersey</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Edison/Metropark orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Central New Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access world-class spinal and musculoskeletal care right here in their community. As your trusted Edison orthopedic center, Mountain Spine & Orthopedics brings expert care to local families. We understand that life in Central New Jersey is active, and our goal is to provide the best evidence-based care so you can return to work and play.</p>
       </div>
     ),
     skilled: (
@@ -5797,47 +5879,46 @@ export const clinics: ClinicsProps[] = [
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central New Jersey families with high patient satisfaction rates</li>
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
-          <li>Multilevel parking garage attached to the office complex</li>
+          <li>On-site dedicated surface parking available for patients</li>
           <li>Most insurance plans accepted, including Workers' Compensation claims</li>
           <li>Sports medicine orthopedic specialists in Edison, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
-          <li>Conveniently located in Metropark corporate hub near Garden State Parkway</li>
+          <li>Conveniently located near the Edison Train Station and Route 27</li>
         </ul>
       </div>
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Edison, NJ Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Edison clinic is centrally located in the <strong>Metropark corporate hub</strong>. We are located at 95 Wood Ave S, Suite 203, offering easy access for patients coming from <strong>Iselin</strong> and <strong>Metuchen</strong> via Route 1 or Garden State Parkway.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Edison clinic is centrally located near the <strong>Edison/Metuchen border</strong>. We are located at 25 Main St, Suite 12, offering easy access for patients coming from <strong>Metuchen</strong>, <strong>Highland Park</strong>, and <strong>South Edison</strong> via Route 27 (Lincoln Highway).</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>From Garden State Parkway:</strong> Exit 131 (Iselin/Metropark) is less than 0.5 miles from the building. The clinic is directly adjacent to the Metropark Station.</li>
-          <li><strong>From NJ Turnpike (I-95):</strong> Exit 11 is approximately 3 miles away. Follow signs to Metropark.</li>
-          <li><strong>From US Route 1:</strong> Accessible within 1.5 miles via Wood Ave. Free parking available in multilevel garage.</li>
+          <li><strong>From Garden State Parkway:</strong> Exit 131 (Iselin/Metropark) or Exit 132. Follow NJ-27 South toward Edison. The clinic is on Main St.</li>
+          <li><strong>From NJ Turnpike (I-95):</strong> Exit 10 (Edison). Follow signs for Route 514 (Woodbridge Ave) to Main St.</li>
+          <li><strong>From Route 27:</strong> Direct access. Free on-site parking available.</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li>Iselin - 0.5 miles (Immediate vicinity)</li>
-          <li>Metuchen - 3.1 miles via NJ-27 S</li>
-          <li>Woodbridge - 2.5 miles via Wood Ave S</li>
-          <li>Rahway - 3.5 miles via Route 1 N</li>
-          <li>Clark - 4.5 miles via Route 1</li>
-          <li>Avenel - 3.2 miles via Route 1</li>
-          <li>Colonia - 2.8 miles via Route 1</li>
+          <li>Metuchen - 0.8 miles (Immediate vicinity)</li>
+          <li>Highland Park - 2.5 miles via NJ-27 S</li>
+          <li>Iselin - 2.4 miles via NJ-27 S</li>
+          <li>Woodbridge - 3.2 miles via Wood Ave S and NJ-27 S</li>
+          <li>New Brunswick - 4.2 miles via NJ-27 N</li>
+          <li>Piscataway - 4.5 miles via Stelton Rd</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>Metropark Station</strong> - 0.3 miles (NJ Transit / Amtrak hub)</li>
-          <li><strong>Menlo Park Mall</strong> - 2.1 miles (Local landmark)</li>
-          <li><strong>JFK University Medical Center</strong> - 3.5 miles (Anchor Entity)</li>
-          <li><strong>Woodbridge Center</strong> - 2.9 miles (Local mall)</li>
+          <li><strong>Edison Train Station</strong> - 0.4 miles (Walking distance / NJ Transit)</li>
+          <li><strong>Roosevelt Park</strong> - 2.5 miles (Local landmark)</li>
+          <li><strong>Menlo Park Mall</strong> - 2.0 miles via NJ-27</li>
+          <li><strong>JFK University Medical Center</strong> - 2.8 miles (Anchor Entity)</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Edison & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Edison, NJ is perfectly positioned to serve <strong>Iselin</strong>, <strong>Metuchen</strong>, <strong>Woodbridge</strong>, Rahway, Clark, and Avenel residents who need expert spine care. Located in the Metropark corporate center near the Garden State Parkway and NJ Turnpike interchange, we're easily accessible from major New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Edison, NJ is perfectly positioned to serve <strong>Metuchen</strong>, <strong>Iselin</strong>, <strong>Highland Park</strong>, Woodbridge, New Brunswick, and Piscataway residents who need expert spine care. Located near the Edison Train Station and Route 27, we're easily accessible from major New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -6031,11 +6112,11 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your Edison, NJ orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Edison at 95 Wood Ave S, Suite 203, Edison, NJ 08820. We're located near Wood Ave S for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Edison at 25 Main St, Suite 12, Edison, NJ 08837. We're located near the Edison Train Station for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Edison location?",
-        answer: "Patients visit our Edison clinic from Iselin, Metuchen, Woodbridge, Rahway, Clark, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Edison clinic from Metuchen, Highland Park, Iselin, Woodbridge, New Brunswick, Piscataway, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Edison, NJ location?",
@@ -6047,18 +6128,21 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=95%20Wood%20Ave%20S%2C%20Suite%20203%2C%20Edison%2C%20NJ%2008820',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=95%20Wood%20Ave%20S%2C%20Suite%20203%2C%20Edison%2C%20NJ%2008820',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=25%20Main%20St%20suite%2012%2C%20Edison%2C%20NJ%2008837',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=25%20Main%20St%20suite%2012%2C%20Edison%2C%20NJ%2008837',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Edison-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Edison, NJ', caption: 'Building exterior (Edison, NJ)', category: 'Facility' },
+    ],
   },
   {
     id: 14,
     name: 'Mountain Spine & Orthopedics Freehold, NJ',
     region: 'Freehold, NJ',
-    lat: 40.2598,
-    lng: -74.2755,
-    address: '9 W Main St, Suite 201, Freehold, NJ 07728',
+    lat: 40.2445,
+    lng: -74.2748,
+    address: '77 Schanck Rd, Suite B17, Freehold, NJ 07728',
     phone: MAIN_PHONE_DISPLAY,
-    link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
+    link: 'https://www.google.com/maps/search/?api=1&query=77+Schanck+Rd%2C+Suite+B17%2C+Freehold%2C+NJ+07728',
     slug: 'freehold-orthopedics',
     stateAbbr: 'NJ',
     stateSlug: 'new-jersey',
@@ -6066,8 +6150,8 @@ export const clinics: ClinicsProps[] = [
     locationType: 'office',
     paragraph: `
     Mountain Spine & Orthopedics provides expert orthopedic and spine care to Freehold, NJ and the Monmouth County community. We understand that life in Central New Jersey is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
-    [PARAGRAPH BREAK]Our Freehold clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in the historic Freehold Borough seat of Monmouth County, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 9 W Main St, Suite 201, in downtown Freehold Borough, we're easily accessible from Route 9, Route 33, and Route 79, serving patients throughout Monmouth County, the Jersey Shore region, and surrounding Central New Jersey communities. Trust Mountain Spine & Orthopedics in Freehold to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    [PARAGRAPH BREAK]Our Freehold clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in the Schanck Road professional district, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 77 Schanck Rd, Suite B17, just off the Route 9 and Route 33 corridors, we're easily accessible from throughout Monmouth County, the Jersey Shore region, and surrounding Central New Jersey communities. Trust Mountain Spine & Orthopedics in Freehold to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
     keywords: [
       'freehold orthopedic surgeon',
@@ -6119,48 +6203,45 @@ export const clinics: ClinicsProps[] = [
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Central New Jersey families with high patient satisfaction rates</li>
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
-          <li>Street parking and municipal lot parking available</li>
+          <li>Ample free on-site surface parking available for patients</li>
           <li>Most insurance plans accepted, including Workers' Compensation claims</li>
           <li>Sports medicine orthopedic specialists in Freehold, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
-          <li>Conveniently located in historic Freehold Borough</li>
+          <li>Conveniently located near the Route 9 and Route 33 interchange</li>
         </ul>
       </div>
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Freehold, NJ Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Freehold clinic is centrally located in <strong>historic Freehold Borough</strong>. We are located at 9 W Main St, Suite 201, offering easy access for patients coming from <strong>Freehold Township</strong> and <strong>Manalapan</strong> via Route 33.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Freehold clinic is centrally located in the <strong>Schanck Road professional district</strong>. We are located at 77 Schanck Rd, Suite B17, offering easy access for patients coming from <strong>Freehold Township</strong> and <strong>Manalapan</strong> via Route 9.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>From US Route 9:</strong> Major north-south thoroughfare within 0.8 miles. Main St becomes Route 33 Business.</li>
-          <li><strong>From NJ Route 33:</strong> Main St becomes Route 33 Business. Free parking available in municipal lot behind the building.</li>
-          <li><strong>From NJ Route 79:</strong> Terminates in downtown Freehold within blocks of the office.</li>
+          <li><strong>From US Route 9:</strong> Schanck Road is directly accessible from Route 9. Turn onto Schanck Rd (near iPlay America). Our clinic is in the professional complex on the right.</li>
+          <li><strong>From NJ Route 33:</strong> Take the exit for Route 9 North and follow the directions above. We are less than a mile from the interchange.</li>
+          <li><strong>Parking:</strong> Ample free surface parking is available directly in front of the building.</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li>Freehold Township - 1.0 mile (Immediate vicinity)</li>
-          <li>Howell - 6.2 miles via Route 33 S</li>
-          <li>Marlboro - 5.5 miles via Route 79 N</li>
-          <li>Manalapan - 4.8 miles via Route 33 W</li>
-          <li>Colts Neck - 5.2 miles via Route 537 E</li>
-          <li>Englishtown - 5.1 miles via Route 33 W</li>
-          <li>Jackson - 10.5 miles via Route 527 S</li>
-          <li>Tinton Falls - 9.8 miles via Route 33 E</li>
+          <li>Freehold Township - 0.5 miles (Immediate vicinity)</li>
+          <li>Manalapan - 4.5 miles via Route 33 E</li>
+          <li>Howell - 5.8 miles via Route 9 N</li>
+          <li>Marlboro - 5.2 miles via Route 79 S</li>
+          <li>Colts Neck - 5.5 miles via NJ-537 W</li>
         </ul>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>Monmouth County Courthouse</strong> - 0.2 miles (Immediate vicinity)</li>
-          <li><strong>Freehold Raceway Mall</strong> - 1.4 miles (Local landmark)</li>
+          <li><strong>iPlay America</strong> - 0.2 miles (Walking distance)</li>
+          <li><strong>Freehold Raceway Mall</strong> - 1.5 miles (Local landmark)</li>
           <li><strong>CentraState Medical Center</strong> - 1.8 miles (Anchor Entity)</li>
-          <li><strong>Freehold Raceway</strong> - 0.9 miles (Local landmark)</li>
+          <li><strong>Freehold Raceway</strong> - 1.2 miles (Local landmark)</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Freehold & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Freehold, NJ is perfectly positioned to serve <strong>Freehold Township</strong>, <strong>Howell</strong>, <strong>Marlboro</strong>, Manalapan, Colts Neck, and Englishtown residents who need expert spine care. Located in the historic Freehold Borough seat at 9 W Main St, Suite 201, we're easily accessible from Route 9, Route 33, and Route 79, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Freehold, NJ is perfectly positioned to serve <strong>Freehold Township</strong>, <strong>Howell</strong>, <strong>Marlboro</strong>, Manalapan, and Colts Neck residents. Located in the Schanck Road professional district at 77 Schanck Rd, Suite B17, we're easily accessible from Route 9 and Route 33, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -6349,6 +6430,14 @@ export const clinics: ClinicsProps[] = [
     ),
     faqs: [
       {
+        question: "Where can I park when I visit the Freehold orthopedic office?",
+        answer: "The Freehold location offers ample free surface parking directly in front of the building within the professional complex. There is no need for street or municipal lot parking, and the office is fully wheelchair-accessible."
+      },
+      {
+        question: "Where is your Freehold, NJ orthopedic office located?",
+        answer: "You can find Mountain Spine & Orthopedics in Freehold at 77 Schanck Rd, Suite B17, Freehold, NJ 07728. We're located near iPlay America and the Route 9 corridor for convenient access."
+      },
+      {
         question: "What orthopedic and spine conditions do you treat at your Freehold, NJ location?",
         answer: "Our Freehold orthopedic clinic treats a full range of problems, including herniated discs, sciatica, spinal stenosis, neck and lower-back pain, arthritis, joint pain, rotator cuff tears, knee and hip injuries, and foot and ankle issues. We also care for car-accident, slip-and-fall, and work-related orthopedic injuries, from the first evaluation through surgical and non-surgical treatment."
       },
@@ -6364,14 +6453,14 @@ export const clinics: ClinicsProps[] = [
         question: "Which insurance plans are accepted at Mountain Spine & Orthopedics Freehold, NJ?",
         answer: "Our Freehold clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
       },
-      {
-        question: "Where can I park when I visit the Freehold orthopedic office?",
-        answer: "The Freehold location offers street parking available on Main St, and a municipal lot located behind the building off Mechanic St. Free parking is available, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
-      }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=9%20W%20Main%20St%2C%20Suite%20201%2C%20Freehold%2C%20NJ%2007728',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=9%20W%20Main%20St%2C%20Suite%20201%2C%20Freehold%2C%20NJ%2007728',
+    formattedAddress: '77 Schanck Rd, Suite B17, Freehold, NJ 07728',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=77%20Schanck%20Rd%2C%20Suite%20B17%2C%20Freehold%2C%20NJ%2007728',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=77%20Schanck%20Rd%2C%20Suite%20B17%2C%20Freehold%2C%20NJ%2007728',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Freehold-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Freehold, NJ', caption: 'Building exterior (Freehold, NJ)', category: 'Facility' },
+    ],
   },
   {
     id: 15,
@@ -6379,7 +6468,7 @@ export const clinics: ClinicsProps[] = [
     region: 'Paramus, NJ',
     lat: 40.9412,
     lng: -74.0725,
-    address: '140 N State Rt 17, Suite 200, Paramus, NJ 07652',
+    address: '140 NJ-17, Suite 101B, Paramus, NJ 07652',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/qX5N9x7P7Z7G9N7P9',
     slug: 'paramus-orthopedics',
@@ -6390,7 +6479,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Mountain Spine & Orthopedics brings world-class orthopedic and spine care to Paramus, NJ, serving Bergen County and northern New Jersey. We understand that life in Northern New Jersey is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
     [PARAGRAPH BREAK]Our Paramus clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located on Route 17, the commercial corridor of Bergen County, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 140 N State Rt 17, Suite 200, we're easily accessible from Route 17, Route 4, and the Garden State Parkway (Exit 161 or 163), serving patients throughout Bergen County, the greater New York metropolitan area, and surrounding Northern New Jersey communities. Trust Mountain Spine & Orthopedics in Paramus to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 140 NJ-17, Suite 101B, we're easily accessible from Route 17, Route 4, and the Garden State Parkway (Exit 161 or 163), serving patients throughout Bergen County, the greater New York metropolitan area, and surrounding Northern New Jersey communities. Trust Mountain Spine & Orthopedics in Paramus to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
     keywords: [
       'paramus orthopedic surgeon',
@@ -6453,7 +6542,7 @@ export const clinics: ClinicsProps[] = [
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Paramus, NJ Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Paramus clinic is centrally located in the <strong>Route 17 commercial corridor</strong>. We are located at 140 N State Rt 17, Suite 200, offering easy access for patients coming from <strong>Ridgewood</strong> and <strong>Oradell</strong> via Route 17.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Paramus clinic is centrally located in the <strong>Route 17 commercial corridor</strong>. We are located at 140 NJ-17, Suite 101B, offering easy access for patients coming from <strong>Ridgewood</strong> and <strong>Oradell</strong> via Route 17.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
           <li><strong>From NJ Route 17:</strong> Direct access on the Northbound side. Building has direct frontage on Route 17.</li>
@@ -6483,7 +6572,7 @@ export const clinics: ClinicsProps[] = [
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Paramus & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Paramus, NJ is perfectly positioned to serve <strong>Ridgewood</strong>, <strong>Oradell</strong>, <strong>Maywood</strong>, Fair Lawn, River Edge, Glen Rock, and Hackensack residents who need expert spine care. Located directly on Route 17 at 140 N State Rt 17, Suite 200, we're easily accessible from Route 4, Garden State Parkway, and major Northern New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Paramus, NJ is perfectly positioned to serve <strong>Ridgewood</strong>, <strong>Oradell</strong>, <strong>Maywood</strong>, Fair Lawn, River Edge, Glen Rock, and Hackensack residents who need expert spine care. Located directly on Route 17 at 140 NJ-17, Suite 101B, we're easily accessible from Route 4, Garden State Parkway, and major Northern New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -6677,7 +6766,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your Paramus, NJ orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Paramus at 140 N State Rt 17, Suite 200, Paramus, NJ 07652. We're located near State Rt 17 for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Paramus at 140 NJ-17, Suite 101B, Paramus, NJ 07652. We're located near Route 17 for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Paramus location?",
@@ -6693,8 +6782,16 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=140%20N%20State%20Rt%2017%2C%20Suite%20200%2C%20Paramus%2C%20NJ%2007652',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=140%20N%20State%20Rt%2017%2C%20Suite%20200%2C%20Paramus%2C%20NJ%2007652',
+    formattedAddress: '140 NJ-17, Suite 101B, Paramus, NJ 07652',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=140%20NJ-17%2C%20Suite%20101B%2C%20Paramus%2C%20NJ%2007652',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=140%20NJ-17%2C%20Suite%20101B%2C%20Paramus%2C%20NJ%2007652',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior-3.png', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior-4.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior-5.webp', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
+    ],
   },
   {
     id: 16,
@@ -7026,6 +7123,12 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '375 Mount Pleasant Ave, Unit 2E, West Orange, NJ 07052',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=375%20Mount%20Pleasant%20Ave%2C%20Unit%202E%2C%20West%20Orange%2C%20NJ%2007052',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=375%20Mount%20Pleasant%20Ave%2C%20Unit%202E%2C%20West%20Orange%2C%20NJ%2007052',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-West-Orange-Building-Exterior.jpeg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics West Orange Surgery Center, NJ', caption: 'Building exterior (West Orange, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-West-Orange-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics West Orange Surgery Center, NJ', caption: 'Building exterior (West Orange, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-West-Orange-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics West Orange Surgery Center, NJ', caption: 'Building exterior (West Orange, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-West-Orange-Building-Exterior-4.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics West Orange Surgery Center, NJ', caption: 'Building exterior (West Orange, NJ)', category: 'Facility' },
+    ],
   },
   // =====================================================
   // NEW YORK LOCATIONS
@@ -7367,6 +7470,11 @@ export const clinics: ClinicsProps[] = [
     formattedAddress: '535 5th Ave, Suite 1012, New York, NY 10017',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=535%205th%20Ave%2C%20Suite%201012%2C%20New%20York%2C%20NY%2010017',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=535%205th%20Ave%2C%20Suite%201012%2C%20New%20York%2C%20NY%2010017',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-New-York-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics New York City, NY', caption: 'Building exterior (New York City, NY)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-New-York-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics New York City, NY', caption: 'Building exterior (New York City, NY)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-New-York-Building-Exterior-3.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics New York City, NY', caption: 'Building exterior (New York City, NY)', category: 'Facility' },
+    ],
   },
   // =====================================================
   // PENNSYLVANIA LOCATIONS
@@ -7375,9 +7483,9 @@ export const clinics: ClinicsProps[] = [
     id: 18,
     name: 'Mountain Spine & Orthopedics Allentown, PA',
     region: 'Allentown, PA',
-    lat: 40.6035,
-    lng: -75.4785,
-    address: '487 W Linden St, Allentown, PA 18102',
+    lat: 40.6033,
+    lng: -75.4775,
+    address: '451 W. Linden St., Allentown, PA 18102',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/nX5N9x7P7Z7G9N7P9',
     slug: 'allentown-orthopedics',
@@ -7386,42 +7494,24 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'allentown-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics brings expert orthopedic and spine care to Allentown, PA, serving the Lehigh Valley and eastern Pennsylvania. We understand that life in the Lehigh Valley is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
-    [PARAGRAPH BREAK]Our Allentown clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located in Center City Allentown, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 487 W Linden St in Center City Allentown, we're easily accessible from Route 22 (accessible via 15th St exit 2 miles north), I-78 (Exit 57 is approximately 3.5 miles south), and Route 145 (MacArthur Rd), serving patients throughout Lehigh County, Northampton County, and the greater Lehigh Valley region. Trust Mountain Spine & Orthopedics in Allentown to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    Mountain Spine & Orthopedics brings expert orthopedic and spine care to Center City Allentown, PA. Located at 451 W. Linden St., we serve the Lehigh Valley with advanced treatments for chronic back and neck pain. Our fellowship-trained surgeons specialize in minimally invasive techniques, helping Allentown residents return to their active lifestyles faster.
+    [PARAGRAPH BREAK]Conveniently situated near the PPL Center and the Hamilton District, our clinic is easily accessible for patients throughout Lehigh and Northampton Counties. Whether you're dealing with a sports injury or degenerative disc disease, our team provides personalized care right in the heart of Allentown.
     `,
     keywords: [
       'allentown orthopedic surgeon',
-      'allentown spine surgeon',
+      'center city allentown spine doctor',
       'orthopedic doctor allentown pa',
       'spine specialist allentown pa',
-      'minimally invasive spine surgery allentown pa',
-      'orthopedic surgery allentown pa',
-      'joint replacement allentown pa',
-      'orthopedic same-day appointments allentown pa',
-      'orthopedic urgent care allentown pa',
-      'back pain treatment allentown',
-      'neck pain treatment allentown',
-      'sports medicine allentown pa',
-      'lehigh valley orthopedic surgeon',
-      'allentown orthopedic clinic',
-      'orthopedic in allentown pa',
-      'orthopedic surgeon in allentown pennsylvania',
-      'best orthopedic surgeon allentown pa',
-      'spine surgeon allentown',
-      'foot and ankle surgeon allentown pa',
-      'orthopedic near me allentown',
-      'spine surgeon near me allentown',
-      'orthopedic doctor near me allentown',
-      'best orthopedic near me allentown',
-      'lehigh valley spine specialist'
+      'minimally invasive spine surgery allentown',
+      'lehigh valley orthopedic clinic',
+      'orthopedic surgeon near PPL Center'
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Allentown, PA | Mountain Spine & Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Allentown, PA. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Top-rated orthopedic and spine specialists at 451 W. Linden St., Allentown, PA. Specializing in back pain, neck pain, and minimally invasive surgery in Center City Allentown. Book today.',
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    neighborhoodsWeServe: ['Bethlehem', 'Fullerton', 'Emmaus', 'Whitehall', 'Catasauqua'],
+    neighborhoodsWeServe: ['Center City', 'Hamilton District', 'Bethlehem', 'Fullerton', 'Whitehall'],
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Allentown Spine and Orthopedic Specialists of the Lehigh Valley</h2>
@@ -7440,7 +7530,7 @@ export const clinics: ClinicsProps[] = [
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Serving Lehigh Valley families with high patient satisfaction rates</li>
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
-          <li>Paid street parking and municipal parking garages nearby</li>
+          <li>On-site parking and nearby municipal decks like the Spiral Deck are available</li>
           <li>Most insurance plans accepted, including Workers' Compensation claims</li>
           <li>Sports medicine orthopedic specialists in Allentown, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
@@ -7450,35 +7540,25 @@ export const clinics: ClinicsProps[] = [
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Allentown, PA Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Allentown clinic is centrally located in <strong>Center City Allentown</strong>. We are located at 487 W Linden St, offering easy access for patients coming from <strong>Bethlehem</strong> and <strong>Fullerton</strong> via Route 22.</p>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Center City Allentown Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Allentown clinic is located at <strong>451 W. Linden St.</strong>, just blocks from the <strong>PPL Center</strong>.</p>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>From US Route 22:</strong> Accessible via 15th St exit 2 miles north. Parking available in municipal Spiral Deck nearby.</li>
-          <li><strong>From I-78:</strong> Exit 57 (Lehigh St) provides access 3.5 miles south. Free parking available on-site.</li>
-          <li><strong>From PA Route 145 (MacArthur Rd):</strong> Primary north-south corridor through the city.</li>
+          <li><strong>From Route 22:</strong> Take the 15th St exit south toward Center City. Turn left onto Linden St.</li>
+          <li><strong>From I-78:</strong> Take the Lehigh St exit North. Follow Lehigh St to 5th St, then turn left onto Linden St.</li>
+          <li><strong>Parking:</strong> On-site parking and nearby municipal decks like the Spiral Deck are available.</li>
         </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Cities:</h3>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Nearby Landmarks:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li>Bethlehem - 5.5 miles via Hanover Ave</li>
-          <li>Fullerton - 2.8 miles via Route 22</li>
-          <li>Emmaus - 5.2 miles via Route 29</li>
-          <li>Whitehall - 4.1 miles via Route 145</li>
-          <li>Catasauqua - 3.5 miles via Route 22</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>PPL Center</strong> - 0.3 miles (Immediate vicinity)</li>
-          <li><strong>Allentown Art Museum</strong> - 0.4 miles (Local landmark)</li>
-          <li><strong>Lehigh Valley Hospital - Cedar Crest</strong> - 4.5 miles (Anchor Entity)</li>
-          <li><strong>St. Luke's University Hospital - Allentown</strong> - 1.2 miles (Anchor Entity)</li>
+          <li><strong>PPL Center</strong> - 0.2 miles (2 blocks away)</li>
+          <li><strong>Allentown Art Museum</strong> - 0.3 miles</li>
+          <li><strong>Miller Symphony Hall</strong> - 0.4 miles</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Allentown & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Allentown, PA is perfectly positioned to serve <strong>Bethlehem</strong>, <strong>Fullerton</strong>, <strong>Emmaus</strong>, Whitehall, and Catasauqua residents who need expert spine care. Located in Center City Allentown at 487 W Linden St, we're easily accessible from Route 22, I-78, and Route 145, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Allentown, PA is perfectly positioned to serve <strong>Center City</strong>, <strong>Hamilton District</strong>, <strong>Bethlehem</strong>, Fullerton, and Whitehall residents. Located at 451 W. Linden St., just blocks from the PPL Center, we're easily accessible from Route 22 and I-78, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -7672,7 +7752,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your Allentown, PA orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Allentown at 487 W Linden St, Allentown, PA 18102. We're located near W Linden St for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Allentown at 451 W. Linden St., Allentown, PA 18102. We're located near the PPL Center for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Allentown location?",
@@ -7688,8 +7768,12 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=487%20W%20Linden%20St%2C%20Allentown%2C%20PA%2018102',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=487%20W%20Linden%20St%2C%20Allentown%2C%20PA%2018102',
+    formattedAddress: '451 W. Linden St., Allentown, PA 18102',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=451%20W.%20Linden%20St.%2C%20Allentown%2C%20PA%2018102',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=451%20W.%20Linden%20St.%2C%20Allentown%2C%20PA%2018102',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Orthopedic-Gallery-Placeholder.png', width: 1200, height: 900, alt: 'Mountain Spine & Orthopedics orthopedic clinic', caption: 'Clinic photo (Allentown, PA)', category: 'Other' },
+    ],
   },
   {
     id: 19,
@@ -7697,7 +7781,7 @@ export const clinics: ClinicsProps[] = [
     region: 'Philadelphia, PA',
     lat: 39.9496,
     lng: -75.1685,
-    address: '1601 Walnut St, Suite 834, Philadelphia, PA 19102',
+    address: '1601 Walnut St. Suite 514, Philadelphia, PA 19102',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-walnut-orthopedics',
@@ -7706,43 +7790,23 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'philadelphia-walnut-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics serves Center City Philadelphia from our convenient Walnut Street location. We understand that life in Philadelphia is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
-    [PARAGRAPH BREAK]Our Philadelphia clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 1601 Walnut St, Suite 834, in the heart of Center City Philadelphia, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 1601 Walnut St, Suite 834, we're easily accessible from SEPTA regional rail (Suburban Station 0.2 miles), subway lines (Walnut-Locust Station 0.1 miles), I-76 (Schuylkill Expressway), and I-95, serving patients throughout Philadelphia, the Main Line, Bucks County, Montgomery County, Delaware County, South Jersey, and the greater Delaware Valley region. Trust Mountain Spine & Orthopedics in Center City Philadelphia to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    Mountain Spine & Orthopedics serves Center City Philadelphia from our premier Walnut Street location in Suite 514. We provide world-class orthopedic care just steps from Rittenhouse Square and the city's major transit hubs. Our board-certified surgeons specialize in diagnosing complex spine conditions and joint pain, offering both surgical and non-surgical solutions to Philadelphia's active community.
+    [PARAGRAPH BREAK]Located at the intersection of 16th and Walnut, we are perfectly positioned for professionals and residents in the medical district. Trust our expert team to help you reclaim your mobility with the latest in minimally invasive orthopedic advancements.
     `,
     keywords: [
       'philadelphia orthopedic surgeon',
       'center city spine surgeon',
-      'orthopedic doctor philadelphia pa',
-      'spine specialist philadelphia',
-      'minimally invasive spine surgery philadelphia pa',
-      'orthopedic surgery philadelphia pa',
-      'joint replacement philadelphia pa',
-      'orthopedic same-day appointments philadelphia pa',
-      'orthopedic urgent care philadelphia pa',
-      'back pain treatment philadelphia',
-      'neck pain treatment philadelphia',
-      'sports medicine philadelphia pa',
-      'center city orthopedic surgeon',
-      'philadelphia orthopedic clinic',
-      'walnut street orthopedic',
-      'orthopedic in philadelphia pa',
-      'orthopedic surgeon in philadelphia pennsylvania',
-      'best orthopedic surgeon philadelphia pa',
-      'spine surgeon philadelphia',
-      'foot and ankle surgeon philadelphia pa',
-      'orthopedic near me philadelphia',
-      'spine surgeon near me philadelphia',
-      'orthopedic doctor near me philadelphia',
-      'best orthopedic near me philadelphia',
-      'delaware valley spine specialist'
+      'walnut street orthopedic doctor',
+      'rittenhouse square spine specialist',
+      'orthopedic surgeon 19102',
+      'best spine doctor center city philly'
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Philadelphia (Center City) | Mountain Spine & Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Center City Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Expert orthopedic and spine care at 1601 Walnut St. Suite 514, Philadelphia, PA. Located in Center City near Rittenhouse Square. Specializing in minimally invasive spine surgery.',
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    neighborhoodsWeServe: ['Rittenhouse Square', 'Washington Square West', 'Old City', 'Society Hill', 'Fairmount'],
+    neighborhoodsWeServe: ['Rittenhouse Square', 'Washington Square West', 'Society Hill', 'Old City', 'Graduate Hospital'],
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Center City Philadelphia Spine and Orthopedic Specialists</h2>
@@ -7771,41 +7835,19 @@ export const clinics: ClinicsProps[] = [
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Center City Philadelphia Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Center City clinic is centrally located in the <strong>Walnut Street medical district</strong>. We are located at 1601 Walnut St, Suite 834, offering easy access for patients coming from <strong>Rittenhouse Square</strong> and <strong>Washington Square West</strong> via walking or public transit.</p>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Center City Philadelphia Office</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>We are located at <strong>1601 Walnut St., Suite 514</strong>, in the historic medical district.</p>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>SEPTA Suburban Station:</strong> 0.2 miles - Regional Rail lines. Walk 2 blocks east on Locust St, then 1 block south on 16th St to Walnut St.</li>
-          <li><strong>SEPTA Walnut-Locust Station:</strong> 0.1 miles - Broad Street Line (Orange Line). Exit at Walnut St, walk 1 block west to 16th St.</li>
-          <li><strong>SEPTA Bus Routes:</strong> Routes 9, 12, 21, 42, 44 stop at 16th & Walnut St</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>From I-76 (Schuylkill Expressway):</strong> Exit 344 (Center City) provides access 0.8 miles west</li>
-          <li><strong>From I-95:</strong> Exit 22 (Center City) provides access 1.2 miles east</li>
-          <li><strong>Parking:</strong> Paid parking garages available nearby (e.g., 1625 Locust St garage). Limited street parking.</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li>Rittenhouse Square - 0.3 miles (Walking distance)</li>
-          <li>Washington Square West - 0.4 miles via Walnut St</li>
-          <li>Old City - 0.8 miles via Walnut St E</li>
-          <li>Society Hill - 0.9 miles via Walnut St E</li>
-          <li>Fairmount - 1.2 miles via 16th St N</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>Rittenhouse Square</strong> - 0.3 miles (Immediate vicinity)</li>
-          <li><strong>Philadelphia Museum of Art</strong> - 1.5 miles (Local landmark)</li>
-          <li><strong>Thomas Jefferson University Hospital</strong> - 0.7 miles (Anchor Entity)</li>
-          <li><strong>Independence Hall</strong> - 0.9 miles (Local landmark)</li>
+          <li><strong>By Subway:</strong> Use the Broad Street Line (Orange Line) to Walnut-Locust Station. Walk 1 block west.</li>
+          <li><strong>By Regional Rail:</strong> Suburban Station is just 0.2 miles north. Walk south on 16th St to Walnut.</li>
+          <li><strong>Parking:</strong> Validated parking is available at several nearby garages, including the 1625 Locust St garage.</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Center City Philadelphia & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Center City Philadelphia is perfectly positioned to serve <strong>Rittenhouse Square</strong>, <strong>Washington Square West</strong>, <strong>Old City</strong>, Society Hill, and Fairmount residents who need expert spine care. Located at 1601 Walnut St, Suite 834, we're easily accessible from SEPTA regional rail, subway lines, I-76, and I-95, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Center City Philadelphia is perfectly positioned to serve <strong>Rittenhouse Square</strong>, <strong>Washington Square West</strong>, <strong>Society Hill</strong>, Old City, and Graduate Hospital residents. Located at 1601 Walnut St., Suite 514, we're easily accessible from SEPTA regional rail, subway lines, and nearby parking garages, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -7999,7 +8041,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your Philadelphia, PA orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 1601 Walnut St, Suite 834, Philadelphia, PA 19102. We're located near Walnut St in Center City for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 1601 Walnut St. Suite 514, Philadelphia, PA 19102. We're located in the historic medical district near Rittenhouse Square. Call (561) 223-9959 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Philadelphia location?",
@@ -8015,16 +8057,20 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St%2C%20Suite%20834%2C%20Philadelphia%2C%20PA%2019102',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St%2C%20Suite%20834%2C%20Philadelphia%2C%20PA%2019102',
+    formattedAddress: '1601 Walnut St. Suite 514, Philadelphia, PA 19102',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St.%20Suite%20514%2C%20Philadelphia%2C%20PA%2019102',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St.%20Suite%20514%2C%20Philadelphia%2C%20PA%2019102',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Orthopedic-Gallery-Placeholder.png', width: 1200, height: 900, alt: 'Mountain Spine & Orthopedics orthopedic clinic', caption: 'Clinic photo (Philadelphia Walnut, PA)', category: 'Other' },
+    ],
   },
   {
     id: 20,
     name: 'Mountain Spine & Orthopedics Philadelphia (Tioga)',
     region: 'Philadelphia, PA',
-    lat: 40.0060,
-    lng: -75.1055,
-    address: '3401 E. Tioga St, Philadelphia, PA 19134',
+    lat: 39.9912,
+    lng: -75.0934,
+    address: '2401 E. Tioga St., Philadelphia, PA 19134',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/sX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-tioga-orthopedics',
@@ -8033,42 +8079,23 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'philadelphia-tioga-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics serves North Philadelphia and the surrounding communities from our Tioga Street location. We understand that life in North Philadelphia is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
-    [PARAGRAPH BREAK]Our Tioga clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 3401 E. Tioga St in North Philadelphia, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 3401 E. Tioga St, we're easily accessible from SEPTA bus routes, the Market-Frankford Line (Tioga Station 0.3 miles), I-95, and Route 1 (Roosevelt Boulevard), serving patients throughout North Philadelphia, Kensington, Port Richmond, Juniata Park, Frankford, and surrounding northeast Philadelphia neighborhoods. Trust Mountain Spine & Orthopedics in North Philadelphia to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    Mountain Spine & Orthopedics serves Port Richmond, Kensington, and North Philadelphia from our newly located Tioga Street office. At 2401 E. Tioga St., we provide expert spine and joint care focused on getting you back to work and life. Our fellowship-trained surgeons are experts in treating sciatica, herniated discs, and work-related injuries using the most advanced minimally invasive techniques available in Northeast Philadelphia.
+    [PARAGRAPH BREAK]Conveniently located near Aramingo Avenue and the I-95 corridor, our Tioga clinic offers same-day appointments for acute orthopedic needs. We are proud to serve the local neighborhoods with compassionate, high-tech orthopedic care.
     `,
     keywords: [
-      'north philadelphia orthopedic surgeon',
-      'tioga spine surgeon',
-      'orthopedic doctor north philadelphia',
-      'spine specialist north philadelphia pa',
-      'minimally invasive spine surgery north philadelphia pa',
-      'orthopedic surgery north philadelphia pa',
-      'joint replacement north philadelphia pa',
-      'orthopedic same-day appointments north philadelphia pa',
-      'orthopedic urgent care north philadelphia pa',
-      'back pain treatment north philly',
-      'neck pain treatment north philly',
-      'sports medicine north philadelphia pa',
-      'kensington orthopedic surgeon',
-      'tioga orthopedic clinic',
-      'orthopedic in north philadelphia pa',
-      'orthopedic surgeon in north philadelphia pennsylvania',
-      'best orthopedic surgeon north philadelphia pa',
-      'spine surgeon kensington',
-      'foot and ankle surgeon north philadelphia pa',
-      'orthopedic near me north philadelphia',
-      'spine surgeon near me north philadelphia',
-      'orthopedic doctor near me north philadelphia',
-      'best orthopedic near me north philadelphia',
-      'northeast philadelphia spine specialist'
+      'port richmond orthopedic surgeon',
+      'kensington spine surgeon',
+      'orthopedic doctor 19134',
+      'tioga street spine specialist',
+      'north philadelphia orthopedic clinic',
+      'sciatica treatment port richmond'
     ],
-    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in North Philadelphia | Mountain Spine & Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in North Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in North Philadelphia (Port Richmond) | Mountain Spine & Orthopedics',
+    metaDescription: 'Leading orthopedic and spine specialists at 2401 E. Tioga St., Philadelphia, PA. Serving Port Richmond, Kensington, and North Philly. Expert back and joint pain treatment.',
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    neighborhoodsWeServe: ['Kensington', 'Port Richmond', 'Juniata Park', 'Frankford', 'Fishtown'],
+    neighborhoodsWeServe: ['Port Richmond', 'Kensington', 'Fishtown', 'Frankford', 'Juniata Park'],
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>North Philadelphia Spine and Orthopedic Specialists</h2>
@@ -8097,40 +8124,19 @@ export const clinics: ClinicsProps[] = [
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our North Philadelphia Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our North Philadelphia clinic is centrally located in the <strong>Tioga neighborhood</strong>. We are located at 3401 E. Tioga St, offering easy access for patients coming from <strong>Kensington</strong> and <strong>Port Richmond</strong> via SEPTA or driving.</p>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Port Richmond / Tioga Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our clinic is located at <strong>2401 E. Tioga St.</strong>, easily accessible from the riverfront neighborhoods.</p>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>SEPTA Market-Frankford Line:</strong> Tioga Station 0.3 miles - Walk east on Tioga St</li>
-          <li><strong>SEPTA Bus Routes:</strong> Routes 3, 5, 56, 60, 89 stop at Tioga St & Kensington Ave</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>From I-95:</strong> Exit 25 (Allegheny Ave) provides access 0.8 miles south</li>
-          <li><strong>From PA Route 1 (Roosevelt Boulevard):</strong> Accessible via Castor Ave or Aramingo Ave exits</li>
-          <li><strong>Parking:</strong> Street parking available on Tioga St and nearby side streets</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li>Kensington - 0.5 miles (Immediate vicinity)</li>
-          <li>Port Richmond - 1.2 miles via Tioga St E</li>
-          <li>Juniata Park - 1.5 miles via Castor Ave N</li>
-          <li>Frankford - 2.1 miles via Frankford Ave N</li>
-          <li>Fishtown - 1.8 miles via Girard Ave</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>Kensington Avenue</strong> - 0.2 miles (Immediate vicinity)</li>
-          <li><strong>McPherson Square Park</strong> - 0.4 miles (Local park)</li>
-          <li><strong>Temple University Hospital - Episcopal Campus</strong> - 2.1 miles (Anchor Entity)</li>
-          <li><strong>Frankford Hospital</strong> - 2.5 miles (Anchor Entity)</li>
+          <li><strong>From I-95:</strong> Take Exit 25 (Allegheny Ave/Castor Ave). Follow Allegheny Ave to Aramingo Ave, then turn toward Tioga St.</li>
+          <li><strong>From Aramingo Ave:</strong> Turn east onto Tioga Street; the clinic is located just blocks from the main commercial corridor.</li>
+          <li><strong>Public Transit:</strong> Accessible via the SEPTA Route 60 bus along Allegheny Ave and several nearby routes.</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for North Philadelphia & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in North Philadelphia is perfectly positioned to serve <strong>Kensington</strong>, <strong>Port Richmond</strong>, <strong>Juniata Park</strong>, Frankford, and Fishtown residents who need expert spine care. Located at 3401 E. Tioga St, we're easily accessible from SEPTA Market-Frankford Line, bus routes, I-95, and Route 1, making it simple for the local community to receive advanced treatment close to home.</p>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Port Richmond & North Philadelphia Communities</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic facility at 2401 E. Tioga St. is perfectly positioned to serve <strong>Port Richmond</strong>, <strong>Kensington</strong>, <strong>Fishtown</strong>, Frankford, and Juniata Park residents. Easily accessible from I-95 and Aramingo Avenue, we provide advanced spine and joint care close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -8335,21 +8341,25 @@ export const clinics: ClinicsProps[] = [
         answer: "Our North Philadelphia clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
       },
       {
-        question: "Where can I park when I visit the North Philadelphia orthopedic office?",
-        answer: "The North Philadelphia location offers street parking available on Tioga St and nearby side streets. The office is also easily accessible by SEPTA Market-Frankford Line (Tioga Station 0.3 miles) and bus routes. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
+        question: "Where can I park when I visit the Port Richmond / Tioga orthopedic office?",
+        answer: "Our clinic at 2401 E. Tioga St. offers street parking on Tioga St and nearby side streets. The office is easily accessible from I-95 Exit 25 and Aramingo Ave, and by SEPTA Route 60 along Allegheny Ave. When you schedule, our team can give you detailed directions for parking and building entry."
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=3401%20E.%20Tioga%20St%2C%20Philadelphia%2C%20PA%2019134',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=3401%20E.%20Tioga%20St%2C%20Philadelphia%2C%20PA%2019134',
+    formattedAddress: '2401 E. Tioga St., Philadelphia, PA 19134',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2401%20E.%20Tioga%20St.%2C%20Philadelphia%2C%20PA%2019134',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=2401%20E.%20Tioga%20St.%2C%20Philadelphia%2C%20PA%2019134',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Orthopedic-Gallery-Placeholder.png', width: 1200, height: 900, alt: 'Mountain Spine & Orthopedics orthopedic clinic', caption: 'Clinic photo (Philadelphia Tioga, PA)', category: 'Other' },
+    ],
   },
   {
     id: 21,
     name: 'Mountain Spine & Orthopedics Philadelphia (Germantown)',
     region: 'Philadelphia, PA',
-    lat: 40.0340,
-    lng: -75.1763,
-    address: '5945 Germantown Ave, Suite A, Philadelphia, PA 19144',
+    lat: 40.0275,
+    lng: -75.1668,
+    address: '5245 Germantown Ave. Suite A, Philadelphia, PA 19144',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-germantown-orthopedics',
@@ -8358,42 +8368,23 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'philadelphia-germantown-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics serves the Germantown community and northwest Philadelphia from our Germantown Avenue location. We understand that life in northwest Philadelphia is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
-    [PARAGRAPH BREAK]Our Germantown clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 5945 Germantown Ave, Suite A, in the historic Germantown neighborhood, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
-    [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located at 5945 Germantown Ave, Suite A, we're easily accessible from SEPTA bus routes along Germantown Avenue, the Chestnut Hill West Line (Germantown Station 0.5 miles), Route 309 (Germantown Pike), and Route 73 (Germantown Ave), serving patients throughout Germantown, Mount Airy, Chestnut Hill, East Falls, Roxborough, and surrounding northwest Philadelphia neighborhoods, as well as nearby Montgomery County communities. Trust Mountain Spine & Orthopedics in Germantown to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
+    Mountain Spine & Orthopedics serves historic Germantown and Northwest Philadelphia from our centrally located Germantown Avenue office. Located at 5245 Germantown Ave. Suite A, our clinic provides elite orthopedic and spine care to the local community. We specialize in treating chronic neck and back pain, sports injuries, and complex musculoskeletal issues with a focus on patient-first, fellowship-trained expertise.
+    [PARAGRAPH BREAK]Our team is dedicated to providing residents of Mount Airy, Germantown, and East Falls with the advanced medical technology they deserve. From artificial disc replacement to minimally invasive joint care, find world-class treatment right on your neighborhood's main corridor.
     `,
     keywords: [
       'germantown orthopedic surgeon',
-      'germantown spine surgeon',
-      'orthopedic doctor germantown philadelphia',
-      'spine specialist germantown pa',
-      'minimally invasive spine surgery germantown pa',
-      'orthopedic surgery germantown pa',
-      'joint replacement germantown pa',
-      'orthopedic same-day appointments germantown pa',
-      'orthopedic urgent care germantown pa',
-      'back pain treatment germantown',
-      'neck pain treatment germantown',
-      'sports medicine germantown pa',
-      'mount airy orthopedic surgeon',
-      'germantown orthopedic clinic',
-      'orthopedic in germantown philadelphia',
-      'orthopedic surgeon in germantown pennsylvania',
-      'best orthopedic surgeon germantown pa',
-      'spine surgeon mount airy',
-      'foot and ankle surgeon germantown pa',
-      'orthopedic near me germantown',
-      'spine surgeon near me germantown',
-      'orthopedic doctor near me germantown',
-      'best orthopedic near me germantown',
-      'northwest philadelphia spine specialist'
+      'northwest philadelphia spine specialist',
+      'orthopedic doctor 19144',
+      'mount airy spine surgeon',
+      'germantown avenue orthopedic clinic',
+      'best orthopedic doctor philadelphia 19144'
     ],
     metaTitle: 'Top Orthopedic Surgeons & Spine Specialists in Germantown Philadelphia | Mountain Spine & Orthopedics',
-    metaDescription: 'Top-rated orthopedic and spine specialists in Germantown, Philadelphia. Mountain Spine Orthopedics provides back pain, neck pain treatment, advanced minimally invasive surgery, sports injury care, and joint pain treatment. Book an appointment with a leading orthopedic surgeon today.',
+    metaDescription: 'Expert orthopedic and spine care at 5245 Germantown Ave. Suite A, Philadelphia, PA. Serving Germantown, Mount Airy, and Northwest Philly. Book a consultation today.',
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    neighborhoodsWeServe: ['Mount Airy', 'Chestnut Hill', 'East Falls', 'Roxborough', 'Manayunk'],
+    neighborhoodsWeServe: ['Germantown', 'Mount Airy', 'East Falls', 'Nicetown', 'Wissahickon'],
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Germantown Spine and Orthopedic Specialists of Northwest Philadelphia</h2>
@@ -8422,40 +8413,25 @@ export const clinics: ClinicsProps[] = [
     ),
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Germantown, Philadelphia Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Germantown clinic is centrally located in the <strong>historic Germantown neighborhood</strong>. We are located at 5945 Germantown Ave, Suite A, offering easy access for patients coming from <strong>Mount Airy</strong> and <strong>Chestnut Hill</strong> via Germantown Ave.</p>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>By Public Transportation:</h3>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Directions to Our Germantown Orthopedic Clinic</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Located at <strong>5245 Germantown Ave.</strong>, near the heart of the business district and <strong>Vernon Park</strong>.</p>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>SEPTA Chestnut Hill West Line:</strong> Germantown Station 0.5 miles - Walk south on Germantown Ave</li>
-          <li><strong>SEPTA Bus Routes:</strong> Routes 23, 26, 53, H, XH stop along Germantown Ave</li>
+          <li><strong>By Train:</strong> The <strong>Germantown Station</strong> (Chestnut Hill West Line) and <strong>Chelten Ave Station</strong> are both within walking distance.</li>
+          <li><strong>By Bus:</strong> SEPTA Route 23 stops directly along Germantown Avenue.</li>
+          <li><strong>Parking:</strong> Street parking is available along Germantown Ave and neighboring streets.</li>
         </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>By Car:</h3>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Nearby Landmarks:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>From PA Route 309 (Germantown Pike):</strong> Primary north-south access. Germantown Ave intersects Route 309.</li>
-          <li><strong>From PA Route 73 (Germantown Ave):</strong> Direct access - the facility is located on Germantown Ave</li>
-          <li><strong>Parking:</strong> Street parking available on Germantown Ave and nearby side streets</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>From Nearby Neighborhoods:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li>Mount Airy - 1.2 miles via Germantown Ave N</li>
-          <li>Chestnut Hill - 2.5 miles via Germantown Ave N</li>
-          <li>East Falls - 2.8 miles via Ridge Ave</li>
-          <li>Roxborough - 3.5 miles via Ridge Ave</li>
-          <li>Manayunk - 4.2 miles via Ridge Ave</li>
-        </ul>
-        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg mt-4'>Hyper-Local Landmarks:</h3>
-        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
-          <li><strong>Cliveden (Historic Site)</strong> - 0.3 miles (Local landmark)</li>
-          <li><strong>Germantown Avenue</strong> - 0.0 miles (Immediate vicinity)</li>
-          <li><strong>Einstein Medical Center Philadelphia</strong> - 1.8 miles (Anchor Entity)</li>
-          <li><strong>Wissahickon Valley Park</strong> - 2.2 miles (Local park)</li>
+          <li><strong>Vernon Park</strong> - 0.2 miles</li>
+          <li><strong>Germantown White House (Deshler-Morris)</strong> - 0.4 miles</li>
+          <li><strong>La Salle University</strong> - 1.2 miles</li>
         </ul>
       </div>
     ),
     nearby: (
       <div className='flex flex-col space-y-4'>
-        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Germantown & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Germantown is perfectly positioned to serve <strong>Mount Airy</strong>, <strong>Chestnut Hill</strong>, <strong>East Falls</strong>, Roxborough, and Manayunk residents who need expert spine care. Located at 5945 Germantown Ave, Suite A, we're easily accessible from SEPTA bus routes, the Chestnut Hill West Line, Route 309, and Route 73, making it simple for the local community to receive advanced treatment close to home.</p>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Germantown & Northwest Philadelphia</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our orthopedic facility at 5245 Germantown Ave. Suite A is perfectly positioned to serve <strong>Germantown</strong>, <strong>Mount Airy</strong>, <strong>East Falls</strong>, Nicetown, and Wissahickon residents. Conveniently located near Vernon Park with easy access via Germantown Station, Chelten Ave Station, and Route 23 bus.</p>
       </div>
     ),
     advancedTreatments: (
@@ -8649,7 +8625,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your Philadelphia, PA orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 5945 Germantown Ave, Suite A, Philadelphia, PA 19144. We're located near Germantown Ave for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 5245 Germantown Ave. Suite A, Philadelphia, PA 19144. We're located near Vernon Park for convenient access. Call (561) 223-9959 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Philadelphia location?",
@@ -8665,8 +8641,12 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/newlogo4.png',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=5945%20Germantown%20Ave%2C%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=5945%20Germantown%20Ave%2C%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
+    formattedAddress: '5245 Germantown Ave. Suite A, Philadelphia, PA 19144',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=5245%20Germantown%20Ave.%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=5245%20Germantown%20Ave.%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Orthopedic-Gallery-Placeholder.png', width: 1200, height: 900, alt: 'Mountain Spine & Orthopedics orthopedic clinic', caption: 'Clinic photo (Philadelphia Germantown, PA)', category: 'Other' },
+    ],
   },
 
   {
@@ -8789,6 +8769,10 @@ export const clinics: ClinicsProps[] = [
     reviewCount: 0,
     reviews: [],
     ogImage: '/newlogo4.png',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Voorhees-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Voorhees, NJ', caption: 'Building exterior (Voorhees, NJ)', category: 'Facility' },
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Voorhees-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Voorhees, NJ', caption: 'Building exterior (Voorhees, NJ)', category: 'Facility' },
+    ],
   },
   {
     id: 23,
@@ -8910,7 +8894,10 @@ export const clinics: ClinicsProps[] = [
     reviewCount: 0,
     reviews: [],
     ogImage: '/newlogo4.png',
+    gallery: [
+      { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Princeton-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Princeton, NJ', caption: 'Building exterior (Princeton, NJ)', category: 'Facility' },
+    ],
   },
-  
+
 ];
 

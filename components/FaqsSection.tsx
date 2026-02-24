@@ -19,7 +19,7 @@ export default function FAQsSection({ header, faqItems }: { header: React.ReactE
                         fontFamily: 'var(--font-public-sans)',
                         fontWeight: 500,
                     }}
-                    className=' text-black text-6xl text-center w-[90%] self-center'
+                    className=' text-black sm:text-6xl text-4xl text-center w-[90%] self-center'
                 >{header}</h2>
 
                 <div className="space-y-[20px] flex flex-col">

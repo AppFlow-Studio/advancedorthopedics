@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "crawl": "node scripts/live-crawl-links.js",
-    "dev": "next dev",
+    "dev": "node --max-old-space-size=8192 node_modules/next/dist/bin/next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -23,7 +23,9 @@
     "audit:content": "tsx scripts/audit-content-sections.ts",
     "convert:markdown": "tsx scripts/convert-markdown-to-html.ts",
     "indexnow": "tsx scripts/submit-to-indexnow.ts",
-    "indexnow:single": "tsx -e \"import { submitSingleUrl } from './lib/indexnow'; submitSingleUrl(process.argv[2] || '/').then(console.log)\""
+    "indexnow:single": "tsx -e \"import { submitSingleUrl } from './lib/indexnow'; submitSingleUrl(process.argv[2] || '/').then(console.log)\"",
+    "indexnow:test": "node scripts/test-indexnow-api.mjs",
+    "indexnow:test:prod": "node scripts/test-indexnow-api.mjs https://mountainspineorthopedics.com"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

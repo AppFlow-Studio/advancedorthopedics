@@ -1,22 +1,13 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { MapPin, Phone, Clock, Building2, CheckCircle } from 'lucide-react'
+import React, { useState } from 'react'
+import { CheckCircle } from 'lucide-react'
 import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound, useParams } from 'next/navigation'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-  type CarouselApi,
-} from "@/components/ui/carousel"
 import {
   Accordion,
   AccordionContent,
@@ -29,6 +20,9 @@ import { generateFAQPageSchema } from "@/lib/faq-utils"
 import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, LOCATION_HOURS_DISPLAY, MAIN_PHONE_E164 } from '@/lib/locationConstants'
 import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 import StateSeoSections from '@/components/StateSeoSections'
+import StateLocationsCarouselMobile from '@/components/StateLocationsCarouselMobile.client'
+import StateLocationCard from '@/components/StateLocationCard'
+import StateLocationsGridDesktop from '@/components/StateLocationsGridDesktop.client'
 
 export default function StateHubPage() {
   const params = useParams()
@@ -189,145 +183,6 @@ export default function StateHubPage() {
 
   // Create local state for selected location
   const [selectedLocation, setSelectedLocation] = useState(stateClinics[0] || null)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [hasMounted, setHasMounted] = useState(false)
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-  const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    setHasMounted(true)
-    const updateDimensions = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-    }
-    updateDimensions()
-    window.addEventListener('resize', updateDimensions)
-    return () => window.removeEventListener('resize', updateDimensions)
-  }, [])
-
-  useEffect(() => {
-    if (!api) return
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
-  }, [api])
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const hoverVariants = {
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  // Location Card Component - SEO optimized with semantic HTML
-  const LocationCard = ({ clinic, index, isMobile = false }: { clinic: typeof clinics[0], index: number, isMobile?: boolean }) => (
-    <article
-      key={index}
-      className="group cursor-pointer h-full relative"
-      itemScope
-      itemType="https://schema.org/MedicalBusiness"
-    >
-      <motion.div
-        variants={isMobile ? undefined : itemVariants}
-        whileHover={isMobile ? undefined : "hover"}
-        onHoverStart={isMobile ? undefined : () => setHoveredIndex(index)}
-        onHoverEnd={isMobile ? undefined : () => setHoveredIndex(null)}
-        className="relative h-full bg-gradient-to-br from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-6 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
-      >
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-4 right-4 w-16 h-16 bg-[#0A50EC] rounded-full"></div>
-          <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#252932] rounded-full"></div>
-        </div>
-
-        <div className="relative z-10 h-full flex flex-col">
-          <div className="flex items-center justify-between mb-6">
-            <motion.div
-              animate={hoveredIndex === index ? { rotate: 360 } : { rotate: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-12 h-12 bg-[#0A50EC] rounded-2xl flex items-center justify-center shadow-lg"
-            >
-              <Building2 className="w-6 h-6 text-white" />
-            </motion.div>
-            <div className="text-right">
-              <span className="text-sm font-medium text-[#0A50EC] bg-white/80 px-3 py-1 rounded-full">
-                {clinic.region ? clinic.region.split(',')[0].trim() : (stateInfo?.name || 'Location')}
-              </span>
-            </div>
-          </div>
-
-          <h3 className="text-2xl font-bold text-[#252932] mb-4 group-hover:text-[#0A50EC] transition-colors duration-300" itemProp="name">
-            {clinic.name}
-          </h3>
-
-          <div className="flex items-start space-x-3 mb-4" itemScope itemType="https://schema.org/PostalAddress">
-            <MapPin className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" aria-hidden="true" />
-            <address className="text-[#424959] text-sm leading-relaxed not-italic" itemProp="streetAddress">
-              {clinic.address || '123 Medical Center Dr, Suite 100'}
-            </address>
-          </div>
-
-          <div className="flex items-center space-x-3 mb-4 relative z-20">
-            <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" aria-hidden="true" />
-            <a
-              href={`tel:${MAIN_PHONE_TEL}`}
-              className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300"
-              itemProp="telephone"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {MAIN_PHONE_DISPLAY}
-            </a>
-          </div>
-
-          <div className="flex items-start space-x-3 mb-6">
-            <Clock className="w-5 h-5 text-[#0A50EC] mt-0.5 flex-shrink-0" aria-hidden="true" />
-            <div className="text-[#424959] text-sm">
-              <p className="font-medium">Hours: {LOCATION_HOURS_DISPLAY}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Stretched Link */}
-        <Link 
-          href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`} 
-          className="absolute inset-0 z-10"
-          aria-label={`View details for ${clinic.name}`}
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-      </motion.div>
-    </article>
-  )
 
   if (stateClinics.length === 0) {
     notFound()
@@ -392,8 +247,8 @@ export default function StateHubPage() {
             background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)',
           }}
         />
-        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
-          <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-8 sm:pb-12 lg:pb-20 px-4 sm:px-6 lg:px-[80px] min-w-0">
+          <div className='max-w-[1440px] w-full min-w-0 flex flex-col items-start justify-start'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-4'
               style={{ background: 'rgba(255, 255, 255, 0.50)' }}
             >
@@ -408,14 +263,15 @@ export default function StateHubPage() {
               <span className="text-[#2258AC]">{stateInfo?.name}</span>
             </div>
             
-            {/* H1 - Exact format from template */}
-            <TextAnimate 
-              animation="blurInUp" 
-              by="character" 
-              once 
+            {/* H1 - animate only on mount so hover on location cards does not retrigger */}
+            <TextAnimate
+              animation="blurInUp"
+              by="word"
+              once
+              startOnView={false}
               as="h1"
               style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-              className='text-[#252932] text-6xl'
+              className='text-[#252932] text-2xl sm:text-4xl lg:text-6xl leading-tight'
             >
               {`Spine & Orthopedic Surgeons in ${stateInfo?.name || ''}`}
             </TextAnimate>
@@ -423,7 +279,7 @@ export default function StateHubPage() {
             {/* Subhead - using paragraph for better heading hierarchy */}
             <p
               style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-              className='text-[#252932] text-2xl mt-2'
+              className='text-[#252932] text-lg sm:text-2xl mt-2 break-words'
             >
               Board-certified specialists at {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''}.
             </p>
@@ -433,60 +289,20 @@ export default function StateHubPage() {
 
       <div className="bg-white w-full">
         {/* 2. LOCATIONS GRID - First after hero */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
+        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-6 sm:pt-8 md:py-16 pb-16">
           <section id="locations" className="scroll-mt-20" aria-labelledby="locations-heading">
-            <h2 id="locations-heading" className="text-4xl md:text-5xl font-bold text-[#252932] my-6 text-center mb-12">
+            <h2 id="locations-heading" className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#252932] mt-2 sm:my-6 text-center mb-8 sm:mb-12 break-words px-2">
               Our {stateInfo?.name} Locations
             </h2>
 
-            {/* Mobile Carousel - Always rendered for SEO, interactive on client */}
-            <div className="block md:hidden mb-16">
-              <div className="w-full">
-                <Carousel
-                  setApi={setApi}
-                  className="w-full"
-                  opts={{ align: "center", containScroll: "trimSnaps" }}
-                >
-                  <CarouselContent>
-                    {stateClinics.map((clinic, index) => (
-                      <CarouselItem key={index} className="basis-full py-6">
-                        <LocationCard clinic={clinic} index={index} isMobile={true} />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -left-5 top-1/2 -translate-y-1/2" />
-                  <CarouselNext className="bg-white/90 backdrop-blur-sm border border-[#0A50EC]/20 hover:bg-white hover:shadow-xl transition-all duration-300 absolute -right-5 top-1/2 -translate-y-1/2" />
-                </Carousel>
-                {hasMounted && (
-                  <div className="flex justify-center mt-6 space-x-2">
-                    {stateClinics.map((_, index) => (
-                      <motion.button
-                        key={index}
-                        onClick={() => api?.scrollTo(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current
-                          ? 'bg-[#0A50EC] w-6'
-                          : 'bg-[#0A50EC]/30 hover:bg-[#0A50EC]/50'
-                        }`}
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+            {/* Mobile Carousel - Isolated state so swiping does not re-render hero / re-trigger header animation */}
+            <StateLocationsCarouselMobile
+              stateClinics={stateClinics}
+              renderCard={(clinic, index) => <StateLocationCard clinic={clinic} index={index} isMobile stateInfo={stateInfo} />}
+            />
 
-            {/* Desktop Grid - Always rendered for SEO, visible to crawlers */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-            >
-              {stateClinics.map((clinic, index) => (
-                <LocationCard key={index} clinic={clinic} index={index} />
-              ))}
-            </motion.div>
+            {/* Desktop Grid - Own hover state so hovering does not re-render page / re-trigger hero animation */}
+            <StateLocationsGridDesktop stateClinics={stateClinics} stateInfo={stateInfo} />
             
             {/* Static HTML fallback for crawlers - Always visible, hidden visually but accessible to bots */}
             <div className="sr-only" aria-hidden="false">
@@ -528,7 +344,7 @@ export default function StateHubPage() {
             className="mb-16 bg-gradient-to-r from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-8 md:p-12 border border-white/50"
             aria-labelledby="why-choose-heading"
           >
-            <h2 id="why-choose-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center">
+            <h2 id="why-choose-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center break-words px-2">
               Why Patients Choose Mountain Spine & Orthopedics in {stateInfo?.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -554,7 +370,7 @@ export default function StateHubPage() {
             className="mb-16"
             aria-labelledby="reviews-heading"
           >
-            <h2 id="reviews-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-6 text-center">
+            <h2 id="reviews-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-6 text-center break-words px-2">
               Patient Reviews in {stateInfo?.name}
             </h2>
             <p className="text-[#424959] text-lg mb-6 text-center max-w-3xl mx-auto">

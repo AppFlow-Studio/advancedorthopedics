@@ -186,7 +186,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md text-[11px] sm:block hidden text-[#111315]"
               >
                 Area of Pain
               </span>
@@ -195,7 +195,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md text-[11px] sm:block hidden text-[#111315]"
               >
                 /
               </span>
@@ -204,7 +204,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#2358AC]"
+                className="sm:text-md text-[11px] text-[#2358AC]"
               >
                 Foot & Ankle Pain
               </span>
@@ -213,7 +213,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#111315]"
+                className="sm:text-md text-[11px] text-[#111315]"
               >
                 /
               </span>
@@ -222,7 +222,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 400,
                 }}
-                className="sm:text-md text-xs text-[#5093FF]"
+                className="sm:text-md text-[11px] text-[#5093FF]"
               >
                 {condition_details.title}
               </span>

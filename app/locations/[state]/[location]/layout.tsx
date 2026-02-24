@@ -4,6 +4,7 @@ import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import { generateLocationSchema } from "@/lib/generateLocationSchema";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
+import { buildLocationBreadcrumbJsonLd, buildLocationImageItemListJsonLd } from "@/lib/locationGallerySchema";
 import { findClinicByStateAndLocation, isValidStateSlug, STATE_METADATA } from "@/lib/locationRedirects";
 
 // This function dynamically generates metadata for each location page.
@@ -17,28 +18,20 @@ export async function generateMetadata(
     
     // Validate state slug
     if (!isValidStateSlug(state)) {
-        const canonicalUrl = buildCanonical(`/locations/${state}/${locationSlug}`);
         return {
             title: 'Location Not Found | Mountain Spine & Orthopedics',
             description: 'The requested location could not be found. Please check the URL or navigate to our locations page to find a clinic.',
-            alternates: {
-                canonical: canonicalUrl,
-            },
         };
     }
-    
+
     // Find the specific clinic data based on state and location slugs
     const location = findClinicByStateAndLocation(state, locationSlug);
 
-    // If no matching location is found, return default metadata.
+    // If no matching location is found, return default metadata (omit canonical so 404 is not indexed).
     if (!location) {
-        const canonicalUrl = buildCanonical(`/locations/${state}/${locationSlug}`);
         return {
             title: 'Location Not Found | Mountain Spine & Orthopedics',
             description: 'The requested location could not be found. Please check the URL or navigate to our locations page to find a clinic.',
-            alternates: {
-                canonical: canonicalUrl,
-            },
         };
     }
 
@@ -117,42 +110,29 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ state: strin
     
     // Get state info for breadcrumbs
     const stateInfo = STATE_METADATA[state];
-  
-    // Breadcrumb Schema for navigation - Updated with state level
-    const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      'itemListElement': [
-        {
-          '@type': 'ListItem',
-          'position': 1,
-          'name': 'Home',
-          'item': 'https://mountainspineorthopedics.com/'
-        },
-        {
-          '@type': 'ListItem',
-          'position': 2,
-          'name': 'Locations',
-          'item': 'https://mountainspineorthopedics.com/locations'
-        },
-        {
-          '@type': 'ListItem',
-          'position': 3,
-          'name': stateInfo?.name || location.stateSlug,
-          'item': `https://mountainspineorthopedics.com/locations/${location.stateSlug}`
-        },
-        {
-          '@type': 'ListItem',
-          'position': 4,
-          'name': location.name,
-          'item': `https://mountainspineorthopedics.com/locations/${location.stateSlug}/${location.locationSlug}`
-        }
-      ]
-    };
+    const pageUrl = buildCanonical(`/locations/${location.stateSlug}/${location.locationSlug}`);
+
+    // Breadcrumb Schema (single source of truth from lib)
+    const breadcrumbSchema = buildLocationBreadcrumbJsonLd({
+      clinic: location,
+      stateSlug: location.stateSlug,
+      pageUrl,
+      stateName: stateInfo?.name ?? location.stateSlug,
+    });
+
+    // Gallery ItemList schema (when location has 1+ gallery images)
+    const galleryItemListSchema =
+      location.gallery && location.gallery.length >= 1
+        ? buildLocationImageItemListJsonLd({
+            clinic: location,
+            images: location.gallery,
+            pageUrl,
+          })
+        : null;
 
     // FAQPage Schema (if FAQs exist)
     const faqSchema = location.faqs && location.faqs.length > 0
-      ? generateFAQPageSchema(location.faqs, `https://mountainspineorthopedics.com/locations/${location.stateSlug}/${location.locationSlug}`)
+      ? generateFAQPageSchema(location.faqs, pageUrl)
       : null;
 
     return (
@@ -165,6 +145,12 @@ const LocationJsonLdSchema = async ({ params }: { params: Promise<{ state: strin
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
+        {galleryItemListSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryItemListSchema) }}
+          />
+        )}
         {faqSchema && (
           <script
             type="application/ld+json"
