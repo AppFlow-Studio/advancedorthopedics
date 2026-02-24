@@ -392,7 +392,7 @@ export default function StateHubPage() {
             background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)',
           }}
         />
-        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-4 sm:px-6 lg:px-[80px] min-w-0">
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-8 sm:pb-12 lg:pb-20 px-4 sm:px-6 lg:px-[80px] min-w-0">
           <div className='max-w-[1440px] w-full min-w-0 flex flex-col items-start justify-start'>
             <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-4'
               style={{ background: 'rgba(255, 255, 255, 0.50)' }}
@@ -433,9 +433,9 @@ export default function StateHubPage() {
 
       <div className="bg-white w-full">
         {/* 2. LOCATIONS GRID - First after hero */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
+        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-6 sm:pt-8 md:py-16 pb-16">
           <section id="locations" className="scroll-mt-20" aria-labelledby="locations-heading">
-            <h2 id="locations-heading" className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#252932] my-6 text-center mb-12 break-words px-2">
+            <h2 id="locations-heading" className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#252932] mt-2 sm:my-6 text-center mb-8 sm:mb-12 break-words px-2">
               Our {stateInfo?.name} Locations
             </h2>
 
