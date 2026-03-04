@@ -10,9 +10,17 @@ interface EmailTemplateProps {
   injury_type?: string,
   pain_level?: string,
   location?: string,
+  state?: string,
 }
 
 
+
+const STATE_PHONE_MAP: Record<string, { display: string; tel: string }> = {
+  FL: { display: '(561) 223-9959', tel: '5612239959' },
+  NJ: { display: '(973) 259-6756', tel: '9732596756' },
+  NY: { display: '(646) 389-5606', tel: '6463895606' },
+  PA: { display: '(561) 223-9959', tel: '5612239959' },
+};
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   name,
@@ -24,7 +32,10 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   injury_type,
   pain_level,
   location,
-}) => (
+  state,
+}) => {
+  const statePhone = (state && STATE_PHONE_MAP[state]) || STATE_PHONE_MAP.FL;
+  return (
   <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6', color: '#333', margin: '0 auto', border: '1px solid #ddd', borderRadius: '8px', height: '100%' }}>
     {/* Header Section - Updated to primary color #252932 */}
     <div style={{ backgroundColor: '#0A50EC', color: 'white', padding: '20px', textAlign: 'center' }} className='flex flex-row items-center justify-center'>
@@ -85,6 +96,12 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
             <td style={{ padding: '10px 0' }}>{location}</td>
           </tr>
           )}
+          {state && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>State:</td>
+            <td style={{ padding: '10px 0' }}>{state}</td>
+          </tr>
+          )}
         </tbody>
       </table>
 
@@ -102,7 +119,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         We will do our best to reach you during your preferred contact time of <strong>{bestTime}</strong>, using the contact details you provided.
       </p>
       <p style={{ color: 'black' }}>
-        If you have any immediate questions, please don't hesitate to contact us at <a href="tel:5612239959" style={{ color: '#0A50EC' }}>(561) 223-9959</a> or reply to this email. {/* Updated link color to secondary color #0A50EC */}
+        If you have any immediate questions, please don't hesitate to contact us at <a href={`tel:+1${statePhone.tel}`} style={{ color: '#0A50EC' }}>{statePhone.display}</a> or reply to this email.
       </p>
       <p style={{ marginTop: '30px', color: 'black' }}>
         Sincerely,
@@ -121,4 +138,5 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       </p> */}
     </div>
   </div>
-);
+  );
+};

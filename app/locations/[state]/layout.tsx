@@ -1,114 +1,67 @@
-import { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
-import { getClinicsByState, isValidStateSlug, STATE_METADATA, VALID_STATE_SLUGS } from "@/lib/locationRedirects";
-import { STATE_FAQS } from "@/lib/state-faqs";
-import { generateFAQPageSchema } from "@/lib/faq-utils";
-import { MAIN_PHONE_E164 } from "@/lib/locationConstants";
+import { STATE_METADATA, VALID_STATE_SLUGS } from "@/lib/locationRedirects";
+import { clinics } from "@/components/data/clinics";
 
-// Generate static params for all valid states
-export async function generateStaticParams() {
-  return VALID_STATE_SLUGS.map(state => ({ state }));
-}
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{ state: string }>;
+};
 
-// Ensure dynamic params are allowed (for runtime validation)
-export const dynamicParams = true;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { state } = await params;
 
-// This function dynamically generates metadata for each state hub page.
-export async function generateMetadata(
-    { params }: { params: Promise<{ state: string }> },
-    parent: ResolvingMetadata
-): Promise<Metadata> {
-    const resolvedParams = await params;
-    const { state } = resolvedParams;
-    
-    // Validate state slug
-    if (!isValidStateSlug(state)) {
-        const canonicalUrl = buildCanonical(`/locations/${state}`);
-        return {
-            title: 'Locations Not Found | Mountain Spine & Orthopedics',
-            description: 'The requested state locations could not be found. Please check the URL or navigate to our locations page to find a clinic.',
-            alternates: {
-                canonical: canonicalUrl,
-            },
-        };
-    }
-    
-    const stateInfo = STATE_METADATA[state];
-    const stateClinics = getClinicsByState(state);
-    
-    const canonicalUrl = buildCanonical(`/locations/${state}`);
-    const ogImage = getOgImageForPath('/locations');
-    
-    // Generate top cities list for meta description (first 4-8 location names)
-    const topCities = stateClinics
-      .slice(0, 8)
-      .map(clinic => clinic.region.split(',')[0].trim())
-      .join(', ');
-    
-    // New meta title format
-    const title = `Spine & Orthopedic Surgeons in ${stateInfo.name} | Mountain Spine & Orthopedics`;
-    
-    // New meta description format (~150-160 chars)
-    const description = `Board-certified spine and orthopedic surgeons across ${stateInfo.name}. Locations in ${topCities}. Same-day and next-day appointments available.`;
-    
-    return {
-      title: safeTitle(undefined, title),
-      description: safeDescription(undefined, description),
-      keywords: [
-        `${stateInfo.name.toLowerCase()} orthopedic surgeon`,
-        `${stateInfo.name.toLowerCase()} spine surgeon`,
-        `orthopedic doctor ${stateInfo.name.toLowerCase()}`,
-        `spine specialist ${stateInfo.name.toLowerCase()}`,
-        `back pain treatment ${stateInfo.name.toLowerCase()}`,
-        `minimally invasive spine surgery ${stateInfo.name.toLowerCase()}`,
-        `orthopedic clinic ${stateInfo.name.toLowerCase()}`,
-        `orthopedic surgeon near me`,
-        `spine surgeon near me`,
+  if (!VALID_STATE_SLUGS.includes(state as (typeof VALID_STATE_SLUGS)[number])) {
+    return {};
+  }
+
+  const stateInfo = STATE_METADATA[state];
+  const stateClinics = clinics.filter((c) => c.stateSlug === state);
+  const topCities = stateClinics
+    .slice(0, 5)
+    .map((c) => c.region.split(",")[0].trim())
+    .join(", ");
+
+  const title = safeTitle(
+    undefined,
+    `Orthopedic Surgeons in ${stateInfo?.name || state} | Same-Day Appointments | Mountain Spine & Orthopedics`
+  );
+  const description = safeDescription(
+    undefined,
+    `Board-certified spine and orthopedic surgeons in ${stateInfo?.name || state}. Locations in ${topCities}. Same-day and next-day appointments. Call today.`
+  );
+  const canonicalPath = `/locations/${state}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: buildCanonical(canonicalPath),
+    },
+    openGraph: {
+      title,
+      description,
+      url: buildCanonical(canonicalPath),
+      type: "website",
+      images: [
+        {
+          url: getOgImageForPath(canonicalPath),
+          width: 1200,
+          height: 630,
+          alt: `Mountain Spine & Orthopedics - Orthopedic care in ${stateInfo?.name || state}`,
+        },
       ],
-
-      alternates: {
-        canonical: canonicalUrl,
-      },
-
-      openGraph: {
-        title: safeTitle(undefined, title),
-        description: safeDescription(undefined, description),
-        url: canonicalUrl,
-        siteName: 'Mountain Spine & Orthopedics',
-        images: [
-          {
-            url: ogImage,
-            width: 1200,
-            height: 630,
-            alt: `Mountain Spine & Orthopedics ${stateInfo.name} clinic locations`,
-          },
-        ],
-        locale: 'en_US',
-        type: 'website',
-      },
-
-      twitter: {
-        card: 'summary_large_image',
-        title: safeTitle(undefined, title),
-        description: safeDescription(undefined, description),
-        images: [ogImage],
-      },
-    };
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [getOgImageForPath(canonicalPath)],
+    },
+  };
 }
 
-// State hub JSON-LD Schema removed - moved to page.tsx to avoid duplication on sub-pages
-
-export default async function StateHubLayout({
-    children,
-    params,
-}: {
-    children: React.ReactNode;
-    params: Promise<{ state: string }>;
-}) {
-    return (
-        <>
-            {children}
-        </>
-    );
+export default function StateLayout({ children, params }: Props) {
+  return <>{children}</>;
 }

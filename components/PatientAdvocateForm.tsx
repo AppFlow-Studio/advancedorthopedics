@@ -17,7 +17,8 @@ import { useState } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
 import { motion } from "framer-motion"
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS } from "@/lib/stateUtils"
 import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
@@ -29,7 +30,8 @@ const formSchema = z.object({
   bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
   postalCode: z.string()
     .regex(/^\d{5}(?:-\d{4})?$/, "Please enter a valid ZIP code"),
-  country: z.literal("US").default("US"),
+  country: z.string(),
+  state: z.string().min(1, "Please select your state"),
 })
 const timeSlots = [
   "9:00 AM - 10:00 AM",
@@ -56,6 +58,7 @@ export function PatientAdvocateForm() {
       bestTime: "",
       postalCode: "",
       country: "US",
+      state: "",
     },
   })
 
@@ -75,6 +78,7 @@ export function PatientAdvocateForm() {
           bestTime: values.bestTime,
           postalCode: values.postalCode,
           country: values.country,
+          state: values.state,
         }),
       })
 
@@ -87,24 +91,7 @@ export function PatientAdvocateForm() {
         return
       }
 
-      // Enhanced Conversions
-      persistEC({
-        email: values.email,
-        phone: values.phone,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        postalCode: values.postalCode,
-        country: "US",
-      });
-      pushEC({
-        email: values.email,
-        phone: values.phone,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        postalCode: values.postalCode,
-        country: "US",
-      });
-      pushEvent('lead_form_submit', { form_name: 'PatientAdvocateForm' });
+      pushFormSubmit({ form_name: 'PatientAdvocateForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode });
 
       setAppointmentConfirm(true)
       form.reset()
@@ -243,6 +230,28 @@ export function PatientAdvocateForm() {
                   </FormItem>
                 );
               }}
+            />
+            <FormField
+              control={form.control}
+              name="state"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-[#838890] font-semibold">State<span className="text-red-500">*</span></FormLabel>
+                  <FormControl>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border border-[#DCDEE1] rounded-sm">
+                        <SelectValue placeholder="Select your state" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {STATE_OPTIONS.map(({ value, label }) => (
+                          <SelectItem key={value} value={value}>{label}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
           </div>
 

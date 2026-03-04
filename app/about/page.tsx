@@ -153,7 +153,7 @@ const aboutPageSchema = {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "reviewCount": "1247",
+      "reviewCount": "200",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -260,7 +260,7 @@ export default function AboutUs() {
             }}
             className='text-[#424959] text-xl'
           >
-            250k+ Reviews
+            200+ reviews for all locations
           </span>
         </div>
 

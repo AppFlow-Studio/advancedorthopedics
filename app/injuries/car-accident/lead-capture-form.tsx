@@ -17,7 +17,8 @@ import { redirect } from "next/navigation"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { clinics } from "@/components/data/clinics"
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS } from "@/lib/stateUtils"
 
 const leadSchema = z.object({
     firstName: z.string().min(2, "First name is required"),
@@ -29,6 +30,7 @@ const leadSchema = z.object({
     painLevel: z.string().min(1, "Please select your pain level"),
     location: z.string().min(1, "Please select preferred location"),
     hasAttorney: z.string().min(1, "Please let us know about attorney representation"),
+    state: z.string().min(1, "Please select your state"),
 })
 
 type LeadFormData = z.infer<typeof leadSchema>
@@ -51,7 +53,6 @@ const painLevels = [
     "Very severe (9-10)",
 ]
 
-const locations = ["Altamonte Springs", "Hollywood", "Fort Pierce", "Davenport", "Orlando"]
 
 const accidentDates = [
     "Today",
@@ -79,21 +80,16 @@ export function CarAccidentLeadCaptureForm() {
             painLevel: "",
             location: "",
             hasAttorney: "",
+            state: "",
         },
     })
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
-        const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location })
+        const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location, state: values.state })
         await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
         
         // Enhanced Conversions
-        persistEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
-        pushEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
-        pushEvent('injury_form_submit', {
-            form_type: 'car_accident',
-            form_name: 'PersonalInjuryLead',
-            city_selected: values.location || '',
-        });
+        pushFormSubmit({ form_name: 'CarAccidentLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
         
         setIsSubmitting(false)
         if (data) {
@@ -366,17 +362,9 @@ export function CarAccidentLeadCaptureForm() {
 
                     <Dialog onOpenChange={setIsOpen} open={isOpen}>
                         <DialogContent className="w-full max-w-3xl">
-                            <DialogTitle>
-                                <h3
-                                    style={{
-                                        fontFamily: 'var(--font-public-sans)',
-                                        fontWeight: 500,
-                                    }}
-                                    className='text-[#111315] text-2xl mb-2 flex items-center space-x-2'
-                                >
-                                    <Calendar className="w-5 h-5 text-[#0A50EC]" />
-                                    <span>Schedule Your Car Accident Evaluation</span>
-                                </h3>
+                            <DialogTitle className="flex items-center gap-2 text-[#111315] text-2xl" style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}>
+                                <Calendar className="w-5 h-5 text-[#0A50EC] shrink-0" />
+                                Schedule Your Car Accident Evaluation
                             </DialogTitle>
                             <form className="space-y-6 flex flex-col">
 
@@ -617,12 +605,39 @@ export function CarAccidentLeadCaptureForm() {
                                     )}
                                 />
 
+                                <FormField
+                                    control={form.control}
+                                    name="state"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel className="text-sm text-[#838890] font-semibold">
+                                                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className="text-[#111315] text-md">
+                                                    State <span className="text-red-500">*</span>
+                                                </span>
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Select onValueChange={field.onChange} value={field.value}>
+                                                    <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border border-[#DCDEE1] rounded-sm">
+                                                        <SelectValue placeholder="Select your state" />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        {STATE_OPTIONS.map(({ value, label }) => (
+                                                            <SelectItem key={value} value={value}>{label}</SelectItem>
+                                                        ))}
+                                                    </SelectContent>
+                                                </Select>
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+
                                 <Button
                                     className="w-full max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold justify-center items-center hover:cursor-pointer"
                                     disabled={isSubmitting}
                                     onClick={(e) => {
                                         e.preventDefault()
-                                        onSubmit(form.getValues())
+                                        form.handleSubmit(onSubmit)()
                                     }}
                                     data-cta="car-accident-schedule-evaluation"
                                 >

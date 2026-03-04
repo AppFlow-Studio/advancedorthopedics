@@ -270,7 +270,7 @@ export const LawyerEmailTemplate: React.FC<Readonly<LawyerEmailProps>> = ({
                             <a href="https://mountainspineorthopedics.com/locations" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}>
                                 Locations
                             </a>
-                            <a href="tel:5612239959" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px' }}>
+                            <a href="tel:+15612239959" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px' }}>
                                 Contact Us
                             </a>
                         </div>

@@ -38,6 +38,8 @@ import { Marquee } from '@/components/magicui/marquee'
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { sendMRIContactEmail, sendUserEmail } from '@/components/email/sendcontactemail'
 import { redirect } from 'next/navigation'
+import { pushFormSubmit } from '@/utils/enhancedConversions'
+import { normalizeState } from '@/lib/stateUtils'
 
 const formSchema = z.object({
   // Step 1 Questions
@@ -185,13 +187,7 @@ const FreeMriReviewSteps = [
       {
         question: "State",
         control: "state" as FormFieldName,
-        options: [
-          "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
-        ]
+        options: ["Florida", "New Jersey", "New York", "Pennsylvania"]
       },
       {
         question: "Insurance Type",
@@ -242,13 +238,11 @@ export default function FreeMRIReviewClient() {
   })
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone })
     const data = await sendMRIContactEmail(values)
     if (data) {
+      pushFormSubmit({ form_name: 'FreeMRIReviewForm', state: normalizeState(values.state), email: values.email, phone: values.phone, firstName: values.first_name, lastName: values.last_name })
       ConditionForm.reset()
-      //setAppointmentConfirm(true) 
       redirect('/thank-you')
       setDisabled(false)
     }

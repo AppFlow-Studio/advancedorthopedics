@@ -207,7 +207,7 @@ const TreatmentSchemas = async ({ params }: { params: Promise<{ TreatmentDetails
         'name': treatmentTitle,
         'description': treatmentDescription,
         'url': treatmentUrl,
-        'bodyLocation': isNewFormat && treatmentContent ? 'Spine' : (treatment?.tag ?? 'Spine'),
+        'bodyLocation': isNewFormat && treatmentContent ? (treatmentContent.tag ?? 'Spine') : (treatment?.tag ?? 'Spine'),
         'howPerformed': (isNewFormat && treatmentContent && treatmentContent.procedure)
             ? stripHtmlAndMarkdown(treatmentContent.procedure.steps.join(' ')) 
             : (treatment?.procedure_info ? stripHtmlAndMarkdown(treatment.procedure_info) : ''),

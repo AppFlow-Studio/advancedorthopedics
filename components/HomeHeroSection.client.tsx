@@ -225,7 +225,7 @@ export default function HomeHeroSection() {
             <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]">
               {/* SEO-Optimized H1 - Hidden but accessible */}
               <h1 className="sr-only">
-                Leading Spine & Orthopedic Specialists in Florida - Mountain Spine & Orthopedics
+                Trusted Spine & Orthopedic Specialists in Florida - Mountain Spine & Orthopedics
               </h1>
 
               {/* Visual Header - User-Friendly */}

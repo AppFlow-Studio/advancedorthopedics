@@ -1,34 +1,49 @@
 import type { Metadata } from "next";
 import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
+import { slipFallFaqs } from "./faqs";
+import {
+  buildInjuryMedicalWebPageSchema,
+  buildInjuryClinicItemListSchema,
+  buildInjuryFAQPageSchema,
+} from "@/lib/injuryPageSchema";
+
+const PAGE_URL = "https://mountainspineorthopedics.com/injuries/slip-and-fall";
 
 export const metadata: Metadata = {
-  title: safeTitle(undefined, "Slip and Fall Injury Treatment | Mountain Spine & Orthopedics"),
-  description: safeDescription(undefined, "Expert treatment for slip and fall injuries. Spine, joint, and fracture care by board-certified orthopedic specialists."),
+  title: safeTitle(
+    undefined,
+    "Slip and Fall Orthopedic Doctor Near Me | FL, NJ, NY & PA | Mountain Spine & Orthopedics"
+  ),
+  description: safeDescription(
+    undefined,
+    "Board-certified slip and fall orthopedic doctors in FL, NJ, NY & PA. Fractures, spine & hip injuries treated same-week. Lien & liability insurance accepted. (561) 223-9959."
+  ),
   keywords: [
-    "slip and fall doctor",
-    "slip and fall injury treatment",
-    "personal injury orthopedic clinic",
-    "fracture treatment",
-    "spine and joint accident treatment",
-    "orthopedic injury care",
-    "slip fall fracture repair",
-    "accident injury specialist",
-    "orthopedic trauma care",
-    "bone fracture treatment",
-    "spinal injury treatment",
-    "joint injury rehabilitation",
-    "slip and fall spine specialist",
-    "fall injury orthopedic care",
-    "slip fall accident doctor",
-    "fall injury fracture treatment",
-    "slip and fall whiplash treatment",
-    "fall accident spinal injury care",
-    "slip fall back injury treatment",
-    "fall injury joint damage care",
-    "slip and fall hip fracture treatment",
-    "fall accident orthopedic specialist",
-    "slip fall injury rehabilitation",
-    "fall injury physical therapy"
+    "slip and fall doctor near me",
+    "slip and fall orthopedic specialist",
+    "fall injury treatment FL NJ NY PA",
+    "slip fall fracture doctor",
+    "hip fracture slip and fall",
+    "FOOSH injury treatment",
+    "premises liability orthopedic doctor",
+    "slip and fall spine injury",
+    "fall accident orthopedic care",
+    "slip fall wrist fracture",
+    "fall injury same day appointment",
+    "slip and fall medical lien",
+    "premises liability injury care",
+    "slip fall back pain doctor",
+    "fall injury lien doctor",
+    "New York slip and fall orthopedic",
+    "Florida premises liability doctor",
+    "NJ slip and fall specialist",
+    "PA fall injury orthopedic",
+    "workers comp slip and fall",
+    "slip and fall herniated disc",
+    "fall injury hip fracture treatment",
+    "slip fall ankle fracture",
+    "personal injury fracture care",
+    "fall accident medical documentation",
   ],
   robots: {
     index: true,
@@ -41,23 +56,35 @@ export const metadata: Metadata = {
     canonical: buildCanonical("/injuries/slip-and-fall"),
   },
   openGraph: {
-    title: safeTitle(undefined, "Slip and Fall Injury Treatment | Mountain Spine & Orthopedics"),
-    description: safeDescription(undefined, "Expert treatment for slip and fall injuries. Spine, joint, and fracture care by board-certified orthopedic specialists."),
+    title: safeTitle(
+      undefined,
+      "Slip and Fall Orthopedic Doctor Near Me | FL, NJ, NY & PA | Mountain Spine & Orthopedics"
+    ),
+    description: safeDescription(
+      undefined,
+      "Board-certified slip and fall orthopedic doctors in FL, NJ, NY & PA. Fractures, spine & hip injuries treated same-week. Lien accepted. (561) 223-9959."
+    ),
     url: buildCanonical("/injuries/slip-and-fall"),
-    type: "website",
+    type: "article",
     images: [
       {
         url: "/og-slip-fall-treatment.jpg",
         width: 1200,
         height: 630,
-        alt: "Orthopedic doctor treating slip and fall back injury in Florida",
+        alt: "Orthopedic doctor treating slip and fall fracture injury at Mountain Spine & Orthopedics",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: safeTitle(undefined, "Slip and Fall Injury Treatment in Florida | Mountain Spine & Orthopedics"),
-    description: safeDescription(undefined, "Expert treatment for slip and fall injuries in Florida. Spine, joint, and fracture care by board-certified orthopedic specialists."),
+    title: safeTitle(
+      undefined,
+      "Slip and Fall Orthopedic Doctor Near Me | FL, NJ, NY & PA | Mountain Spine & Orthopedics"
+    ),
+    description: safeDescription(
+      undefined,
+      "Board-certified slip and fall orthopedic doctors in FL, NJ, NY & PA. Fractures, spine & hip injuries treated same-week. Lien accepted."
+    ),
     images: ["/og-slip-fall-treatment.jpg"],
   },
 };
@@ -69,71 +96,79 @@ export default function SlipAndFallLayout({
 }) {
   return (
     <>
-      <h2 className={srOnly}>Specialized Trauma Treatment</h2>
-      
-      {/* JSON-LD Structured Data */}
+      <h2 className={srOnly}>Expert Slip and Fall Orthopedic Treatment</h2>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            "headline": "Slip and Fall Injury Treatment in Florida - Expert Fracture & Spinal Injury Care",
-            "description": "Expert treatment for slip and fall injuries in Florida including fractures, spinal trauma, and joint injuries. Comprehensive care by board-certified orthopedic specialists with same-week appointments and advanced minimally invasive treatment options.",
-            "keywords": "slip and fall doctor Florida, slip and fall injury treatment, personal injury orthopedic clinic, fracture treatment Florida, spine and joint accident treatment, fall injury specialist, slip fall accident orthopedic care",
-            "author": {
-              "@type": "Organization",
-              "name": "Mountain Spine & Orthopedics"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Mountain Spine & Orthopedics",
-              "url": "https://mountainspineorthopedics.com"
-            },
-            "url": "https://mountainspineorthopedics.com/injuries/slip-and-fall",
-            "mainEntity": {
-              "@type": "MedicalCondition",
-              "name": "Slip and Fall Injuries",
-              "description": "Orthopedic and spinal injuries resulting from slip and fall accidents, including fractures, joint damage, and soft tissue injuries.",
-              "alternateName": "Fall Accident Injuries"
-            },
-            "breadcrumb": {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://mountainspineorthopedics.com"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Slip and Fall",
-                  "item": "https://mountainspineorthopedics.com/injuries/slip-and-fall"
-                }
-              ]
-            }
-          }),
+          __html: JSON.stringify(
+            buildInjuryMedicalWebPageSchema({
+              url: PAGE_URL,
+              headline:
+                "Slip and Fall Orthopedic Doctor Near Me — FL, NJ, NY & PA",
+              description:
+                "Board-certified orthopedic and spine specialists treating slip and fall injuries in Florida, New Jersey, New York, and Pennsylvania. Fractures, hip injuries, FOOSH, and spinal trauma treated same-week. Premises liability lien billing accepted. 22+ locations open 8 AM–8 PM, 7 days.",
+              injuryName: "Slip and Fall Orthopedic Injuries",
+              alternateNames: [
+                "Fall Accident Injuries",
+                "Premises Liability Injuries",
+                "Trip and Fall Injuries",
+              ],
+              anatomy: [
+                "Hip",
+                "Wrist",
+                "Cervical Spine",
+                "Lumbar Spine",
+                "Shoulder",
+                "Ankle",
+                "Knee",
+              ],
+              treatments: [
+                "Fracture Management",
+                "Hip Fracture Evaluation",
+                "Orthopedic Evaluation",
+                "MRI and Diagnostic Imaging",
+                "Lumbar and Cervical Injections",
+                "Surgical Consultation",
+                "Physical Therapy Referral",
+              ],
+              symptoms: [
+                "Hip Pain",
+                "Wrist Pain",
+                "Neck Pain",
+                "Back Pain",
+                "Ankle Swelling",
+                "FOOSH Wrist Fracture",
+                "Herniated Disc",
+                "Knee Pain",
+              ],
+              breadcrumbLabel: "Slip and Fall",
+            })
+          ),
         }}
       />
-      
-      {/* FAQPage JSON-LD Structured Data */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: require("./faqs").slipFallFaqs.map((f: { q: string; a: string }) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          }),
+          __html: JSON.stringify(
+            buildInjuryClinicItemListSchema({
+              injuryPageUrl: PAGE_URL,
+              availableService: "Slip and Fall Orthopedic Care",
+            })
+          ),
         }}
       />
-      
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildInjuryFAQPageSchema(slipFallFaqs, PAGE_URL)
+          ),
+        }}
+      />
+
       {children}
     </>
   );

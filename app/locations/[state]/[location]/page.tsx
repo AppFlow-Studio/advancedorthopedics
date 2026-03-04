@@ -38,6 +38,7 @@ import { LocationNAP } from '@/components/LocationNAP'
 import LocationSeoSections from '@/components/LocationSeoSections'
 import LocationGallerySection from '@/components/LocationGallerySection'
 import { findClinicByStateAndLocation, getAllLocationParams, isValidStateSlug, STATE_METADATA } from '@/lib/locationRedirects'
+import { STATE_PHONE_NUMBERS, MAIN_PHONE_DISPLAY } from '@/lib/locationConstants'
 
 export const dynamicParams = false;
 
@@ -107,6 +108,7 @@ export default async function LocationDetails(
     
     // Get state metadata for breadcrumb
     const stateInfo = STATE_METADATA[state];
+    const statePhone = STATE_PHONE_NUMBERS[state as keyof typeof STATE_PHONE_NUMBERS] || { display: MAIN_PHONE_DISPLAY };
     
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
@@ -204,7 +206,7 @@ export default async function LocationDetails(
                         </SlidingDiv>
 
                         <SlidingDiv position="left" className="z-[2] sm:hidden block px-4 mt-4">
-                            <div className="xl:w-[65%] w-[95%] rounded-3xl mx-auto"><DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" /></div>
+                            <div className="xl:w-[65%] w-[95%] rounded-3xl mx-auto"><DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" defaultState={stateInfo?.abbr || state.toUpperCase()} /></div>
                         </SlidingDiv>
 
                         <SlidingDiv position="left" className="z-[2]">
@@ -221,11 +223,11 @@ export default async function LocationDetails(
                             </div>
                             {/* NAP Block - Mobile */}
                             <div className="xl:px-[80px] px-8 mt-1 sm:hidden block">
-                                <LocationNAP slug={locationData.slug} />
+                                <LocationNAP slug={locationData.slug} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
                             </div>
                             {/* NAP Block - Desktop */}
                             <div className="xl:px-[80px] px-8 mt-1 sm:block hidden">
-                                <LocationNAP slug={locationData.slug} />
+                                <LocationNAP slug={locationData.slug} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
                             </div>
                         </SlidingDiv>
 
@@ -237,6 +239,8 @@ export default async function LocationDetails(
                                     <PhoneTextLink
                                         trackLocation="LocationPageMobile"
                                         className="justify-center"
+                                        phoneNumber={statePhone.display}
+                                        displayText={statePhone.display}
                                     />
                                 </div>
 
@@ -295,6 +299,8 @@ export default async function LocationDetails(
                                     <div className="flex-shrink-0 lg:flex hidden">
                                         <PhoneTextLink
                                             trackLocation="LocationPageDesktop"
+                                            phoneNumber={statePhone.display}
+                                            displayText={statePhone.display}
                                         />
                                     </div>
                                 </div>
@@ -359,7 +365,7 @@ export default async function LocationDetails(
 
                     {/* Desktop Form - Positioned higher for above the fold */}
                     <div className="w-[50%] sm:flex hidden flex-col z-[2] justify-start items-center xl:pt-8 lg:pt-12 md:pt-16">
-                        <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" /></div>
+                        <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" defaultState={stateInfo?.abbr || state.toUpperCase()} /></div>
                     </div>
                 </div>
 

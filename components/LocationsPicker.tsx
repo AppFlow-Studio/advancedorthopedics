@@ -7,7 +7,7 @@ import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import Link from 'next/link'
-import { LOCATION_HOURS_DISPLAY } from '@/lib/locationConstants'
+import { LOCATION_HOURS_DISPLAY, MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, STATE_PHONE_NUMBERS } from '@/lib/locationConstants'
 import {
     Carousel,
     CarouselContent,
@@ -89,7 +89,9 @@ export default function LocationsPicker() {
     }
 
     // Location Card Component
-    const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
+    const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => {
+        const statePhone = STATE_PHONE_NUMBERS[clinic.stateSlug as keyof typeof STATE_PHONE_NUMBERS] ?? { display: MAIN_PHONE_DISPLAY, tel: MAIN_PHONE_TEL };
+        return (
         <motion.div
             key={index}
             variants={isMobile ? undefined : itemVariants}
@@ -140,11 +142,11 @@ export default function LocationsPicker() {
                     <div className="flex items-center space-x-3 mb-4 relative z-20">
                         <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" />
                         <a
-                            href="tel:(561) 223-9959"
+                            href={`tel:+1${statePhone.tel}`}
                             className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            (561) 223-9959
+                            {statePhone.display}
                         </a>
                     </div>
 
@@ -188,7 +190,8 @@ export default function LocationsPicker() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
             </div>
         </motion.div>
-    )
+        );
+    }
     return (
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
             {/* Header Section */}
@@ -280,8 +283,8 @@ export default function LocationsPicker() {
                         <div className="w-16 h-16 bg-[#0A50EC] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                             <Phone className="w-8 h-8 text-white" />
                         </div>
-                        <h3 className="text-xl font-bold text-[#252932] mb-2">Same Phone Number</h3>
-                        <p className="text-[#424959]">Call (561) 223-9959 for all locations</p>
+                        <h3 className="text-xl font-bold text-[#252932] mb-2">State Phone Numbers</h3>
+                        <p className="text-[#424959] text-sm">FL/PA: <a href="tel:+15612239959" className="text-[#0A50EC] hover:underline">(561) 223-9959</a> · NJ: <a href="tel:+19732596756" className="text-[#0A50EC] hover:underline">(973) 259-6756</a> · NY: <a href="tel:+16463895606" className="text-[#0A50EC] hover:underline">(646) 389-5606</a></p>
                     </div>
 
                     <div className="text-center">

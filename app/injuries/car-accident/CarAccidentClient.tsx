@@ -64,6 +64,11 @@ import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import CondensedLocations from "@/components/CondensedLocations"
 import { LawyerContactForm } from "@/components/LawyerContactForm"
+import InjuryUrgencyBanner from "@/components/InjuryUrgencyBanner"
+import InjuryClinicFinder from "@/components/InjuryClinicFinder"
+import InjuryInsuranceCoverage from "@/components/InjuryInsuranceCoverage"
+import InjuryHotspots from "@/components/InjuryHotspots"
+import InjuryAttorneyPanel from "@/components/InjuryAttorneyPanel"
 import Reveal from "@/components/RevealAnimation"
 import TreatmentPathCarousel from "@/components/TreatmentPathCarousel"
 import {
@@ -162,39 +167,46 @@ const data = {
     ],
     locations: [
         {
-            name: "Altamonte Springs",
+            name: "Altamonte Springs, FL",
             slug: "altamonte-springs",
             parking: "Free lot; enter from W Town Pkwy.",
             nextOpen: "Today 3:40 PM",
             map: "https://maps.example.com/altamonte",
         },
         {
-            name: "Hollywood",
+            name: "Hollywood, FL",
             slug: "hollywood",
             parking: "Garage behind clinic; 1 hr validation.",
             nextOpen: "Tomorrow 10:15 AM",
             map: "https://maps.example.com/hollywood",
         },
         {
-            name: "Fort Pierce",
-            slug: "fort-pierce",
-            parking: "Surface lot on 6th St.",
-            nextOpen: "Wed 11:20 AM",
-            map: "https://maps.example.com/fort-pierce",
-        },
-        {
-            name: "Davenport",
+            name: "Davenport, FL",
             slug: "davenport",
             parking: "Shared plaza parking.",
-            nextOpen: "Thu 9:50 AM",
+            nextOpen: "Today 9:50 AM",
             map: "https://maps.example.com/davenport",
         },
         {
-            name: "Orlando",
-            slug: "orlando",
-            parking: "Garage on Pine St.",
-            nextOpen: "Fri 2:05 PM",
-            map: "https://maps.example.com/orlando",
+            name: "Hackensack, NJ",
+            slug: "hackensack",
+            parking: "Street parking available.",
+            nextOpen: "Today 2:00 PM",
+            map: "https://maps.example.com/hackensack",
+        },
+        {
+            name: "New York City, NY",
+            slug: "new-york-city",
+            parking: "Nearby public parking garages.",
+            nextOpen: "Tomorrow 9:00 AM",
+            map: "https://maps.example.com/nyc",
+        },
+        {
+            name: "Philadelphia, PA",
+            slug: "philadelphia",
+            parking: "Street and garage parking available.",
+            nextOpen: "Today 4:00 PM",
+            map: "https://maps.example.com/philadelphia",
         },
     ],
     stories: [
@@ -567,6 +579,8 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                         If you have emergency symptoms, call 911 or go to the nearest ER.
                     </motion.div>
                 </section>
+
+                <InjuryUrgencyBanner injuryType="car-accident" />
 
                 {/* Quick Triage Stepper */}
                 {/* <MotionSection className="bg-white sm:py-16 py-8" data-section="triage">
@@ -1178,7 +1192,12 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                     </div>
                 </Reveal>
 
-                <CondensedLocations />
+                <InjuryInsuranceCoverage injuryType="car-accident" />
+
+                {/* Clinic Finder */}
+                <InjuryClinicFinder />
+
+                <InjuryHotspots injuryType="car-accident" />
 
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8"><InjuryDoctorsSection /></div>
 
@@ -1258,8 +1277,10 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                     </div>
                 </Reveal>
 
-                {/* Attorney Collaboration */}
-                <Reveal width="100%" className="sm:py-16 py-8" data-section="attorney">
+                {/* Attorney & Patient Panel */}
+                <InjuryAttorneyPanel showAttorneyPanel={true} />
+                {/* Attorney Collaboration (legacy — replaced by InjuryAttorneyPanel above) */}
+                {false && <Reveal width="100%" className="sm:py-16 py-8" data-section="attorney">
                     <div className="container mx-auto px-4">
                         <motion.h2
                             variants={{
@@ -1372,7 +1393,7 @@ export default function CarAccidentClient({ faqs }: CarAccidentClientProps) {
                             </Tabs>
                         </div>
                     </div>
-                </Reveal>
+                </Reveal>}
 
                 {/* Final CTA */}
                 <Reveal width="100%" className="bg-[#0A84FF] text-white sm:py-16 py-8" data-section="final-cta">

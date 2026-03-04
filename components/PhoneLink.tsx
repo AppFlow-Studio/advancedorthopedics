@@ -26,7 +26,7 @@ export function PhoneLink({ phone, className = '', children, trackLocation = 'Un
 
   return (
     <a 
-      href={`tel:${cleanPhone}`}
+      href={`tel:+1${cleanPhone}`}
       className={`hover:text-[#0A50EC] hover:underline transition-colors duration-200 ${className}`}
       onClick={handleClick}
       style={{

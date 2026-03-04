@@ -14,6 +14,11 @@ import Image from "next/image"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import RatingsAndReviews from "@/components/RatingsAndReviews"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
+import InjuryUrgencyBanner from "@/components/InjuryUrgencyBanner"
+import InjuryClinicFinder from "@/components/InjuryClinicFinder"
+import InjuryInsuranceCoverage from "@/components/InjuryInsuranceCoverage"
+import InjuryHotspots from "@/components/InjuryHotspots"
+import InjuryAttorneyPanel from "@/components/InjuryAttorneyPanel"
 import { Star, Shield, Clock, MapPin, Phone, Calendar, AlertTriangle, CheckCircle, Award, FileText, Stethoscope } from "lucide-react"
 import { LeadCaptureForm } from "./lead-capture-form"
 import InjuriesCarousel from "@/components/InjuriesCarousel"
@@ -29,7 +34,7 @@ import { Marquee } from "@/components/magicui/marquee"
 import { clinics } from "@/components/data/clinics"
 import { motion, AnimatePresence, LazyMotion, domAnimation, useReducedMotion, useInView } from "framer-motion"
 
-import CondensedLocations from "@/components/CondensedLocations"
+// CondensedLocations replaced by InjuryClinicFinder
 // export const metadata: Metadata = {
 //     title: "Slip and Fall Orthopedic Care in Florida | Mountain Spine & Orthopedics",
 //     description:
@@ -47,7 +52,7 @@ const siteData = {
         { name: "UnitedHealthcare", logo: "/logos/uhc.svg" },
         { name: "Blue Cross Blue Shield", logo: "/logos/bcbs.svg" },
     ],
-    citiesPill: "Altamonte Springs • Hollywood • Fort Pierce • Davenport • Orlando • West Palm Beach • Boca Raton ",
+    citiesPill: "Altamonte Springs • Hollywood • Davenport • Orlando • West Palm Beach • Hackensack • Newark • Jersey City • New York City • Philadelphia ",
     injuries: [
         {
             title: "Wrist fracture",
@@ -218,39 +223,46 @@ const data = {
     ],
     locations: [
         {
-            name: "Altamonte Springs",
+            name: "Altamonte Springs, FL",
             slug: "altamonte-springs",
             parking: "Free lot; enter from W Town Pkwy.",
             nextOpen: "Today 3:40 PM",
             map: "https://maps.example.com/altamonte",
         },
         {
-            name: "Hollywood",
+            name: "Hollywood, FL",
             slug: "hollywood",
             parking: "Garage behind clinic; 1 hr validation.",
             nextOpen: "Tomorrow 10:15 AM",
             map: "https://maps.example.com/hollywood",
         },
         {
-            name: "Fort Pierce",
-            slug: "fort-pierce",
-            parking: "Surface lot on 6th St.",
-            nextOpen: "Wed 11:20 AM",
-            map: "https://maps.example.com/fort-pierce",
-        },
-        {
-            name: "Davenport",
+            name: "Davenport, FL",
             slug: "davenport",
             parking: "Shared plaza parking.",
-            nextOpen: "Thu 9:50 AM",
+            nextOpen: "Today 9:50 AM",
             map: "https://maps.example.com/davenport",
         },
         {
-            name: "Orlando",
-            slug: "orlando",
-            parking: "Garage on Pine St.",
-            nextOpen: "Fri 2:05 PM",
-            map: "https://maps.example.com/orlando",
+            name: "Hackensack, NJ",
+            slug: "hackensack",
+            parking: "Street parking available.",
+            nextOpen: "Today 2:00 PM",
+            map: "https://maps.example.com/hackensack",
+        },
+        {
+            name: "New York City, NY",
+            slug: "new-york-city",
+            parking: "Nearby public parking garages.",
+            nextOpen: "Tomorrow 9:00 AM",
+            map: "https://maps.example.com/nyc",
+        },
+        {
+            name: "Philadelphia, PA",
+            slug: "philadelphia",
+            parking: "Street and garage parking available.",
+            nextOpen: "Today 4:00 PM",
+            map: "https://maps.example.com/philadelphia",
         },
     ],
     stories: [
@@ -321,7 +333,7 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                     fetchPriority="high"
                     layout='fill'
                     className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-                    alt="Doctor evaluating Florida patient with slip and fall fracture injury"
+                    alt="Doctor evaluating patient with slip and fall fracture injury"
                 />
                 <div
                     className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
@@ -340,12 +352,12 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                                 </Badge>
 
                                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
-                                    Slip and Fall Injury Treatment in Florida
+                                    Slip and Fall Injury Treatment
                                 </h1>
 
                                 <p className="text-xl text-gray-600 text-pretty">
                                     Immediate evaluation and treatment for fractures, sprains, and soft tissue injuries. Same-week
-                                    appointments available across Florida.
+                                    appointments available in FL, NJ, NY &amp; PA.
                                 </p>
                             </div>
 
@@ -457,6 +469,8 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
 
                 </div>
             </section>
+
+            <InjuryUrgencyBanner injuryType="slip-and-fall" />
 
             {/* Trust Indicators */}
             <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="trust-indicators">
@@ -632,8 +646,14 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                 </div>
             </section>
 
+            <InjuryInsuranceCoverage injuryType="slip-and-fall" />
+
+            {/* Clinic Finder */}
+            <InjuryClinicFinder />
+
+            <InjuryHotspots injuryType="slip-and-fall" />
+
             {/* Meet Our Experts */}
-            <CondensedLocations />
             <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8"><InjuryDoctorsSection /></div>
 
             {/* FAQ Section */}
@@ -681,19 +701,21 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                                 </Marquee>
 
                             </div>
-                            <p className="text-gray-600">Don't see your insurance? Call us at <a href="tel:5612239959" className="text-[#0A50EC] hover:underline">(561) 223-9959</a> to verify coverage.</p>
+                            <p className="text-gray-600">Don't see your insurance? Call us at <a href="tel:+15612239959" className="text-[#0A50EC] hover:underline">(561) 223-9959</a> to verify coverage.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <InjuryAttorneyPanel showAttorneyPanel={true} />
 
             {/* Final CTA */}
             <section className="w-full flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
                 <div className="w-full max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold mb-4 text-balance">Don't Wait - Get Expert Care Today</h2>
                     <p className="text-xl mb-8 text-blue-100 text-pretty">
-                        Slip and fall injuries can worsen without proper treatment. Schedule your evaluation with Florida's
-                        leading orthopedic specialists.
+                        Slip and fall injuries can worsen without proper treatment. Schedule your evaluation with our
+                        board-certified orthopedic specialists across FL, NJ, NY &amp; PA.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -710,7 +732,7 @@ export default function SlipAndFallClient({ faqs }: SlipAndFallClientProps) {
                             asChild
                             data-cta="final-call"
                         >
-                            <a href="tel:5612239959"
+                            <a href="tel:+15612239959"
                             >
                                 <Phone className="w-5 h-5 mr-2" />
                                 Call (561) 223-9959

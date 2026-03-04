@@ -15,8 +15,8 @@ import {
 
 interface TreatmentPhase {
     phase: string
-    icon: any
-    color: string
+    icon: React.ElementType
+    color: string // format: "bg-{x}-100 text-{x}-600"
     description: string
     treatments: string[]
 }
@@ -29,28 +29,28 @@ const treatmentPhases: TreatmentPhase[] = [
     {
         phase: "Relief",
         icon: Heart,
-        color: "red",
+        color: "bg-red-100 text-red-600",
         description: "Immediate pain management and inflammation control",
         treatments: ["Pain medication", "Ice/heat therapy", "Gentle movement", "Rest guidance"],
     },
     {
         phase: "Restore",
         icon: Activity,
-        color: "blue",
+        color: "bg-blue-100 text-blue-600",
         description: "Rebuild strength and mobility safely",
         treatments: ["Rehabilitation referral", "Targeted exercises", "Manual therapy", "Progress tracking"],
     },
     {
         phase: "Protect",
         icon: Shield,
-        color: "green",
+        color: "bg-green-100 text-green-600",
         description: "Prevent re-injury and future problems",
         treatments: ["Ergonomic training", "Body mechanics", "Strengthening", "Education"],
     },
     {
         phase: "Perform",
         icon: Target,
-        color: "purple",
+        color: "bg-purple-100 text-purple-600",
         description: "Return to full activities and sports",
         treatments: [
             "Sport-specific training",
@@ -84,22 +84,18 @@ export default function TreatmentPathCarousel({ shouldReduceMotion = false }: Tr
     const TreatmentPhaseCard = ({ phase, index, isMobile = false }: { phase: TreatmentPhase, index: number, isMobile?: boolean }) => (
         <motion.div
             key={phase.phase}
-            variants={isMobile ? undefined : {
-                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
-                visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { delay: index * 0.1 },
-                },
-            }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: isMobile ? 0 : index * 0.1 }}
             className="relative h-full"
         >
             <Card className="h-full p-6 text-center">
                 <motion.div
                     whileHover={{ scale: shouldReduceMotion ? 1 : 1.1 }}
-                    className={`w-16 h-16 mx-auto mb-4 rounded-full bg-${phase.color}-100 flex items-center justify-center`}
+                    className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${phase.color.split(' ')[0]}`}
                 >
-                    <phase.icon className={`h-8 w-8 text-${phase.color}-600`} />
+                    <phase.icon className={`h-8 w-8 ${phase.color.split(' ')[1]}`} />
                 </motion.div>
 
                 <h3 className="text-xl font-semibold mb-2">{phase.phase}</h3>
@@ -184,24 +180,11 @@ export default function TreatmentPathCarousel({ shouldReduceMotion = false }: Tr
             </div>
 
             {/* Desktop Grid - Only visible on desktop */}
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                    hidden: { opacity: 0 },
-                    visible: {
-                        opacity: 1,
-                        transition: {
-                            staggerChildren: 0.1,
-                        },
-                    },
-                }}
-                className="hidden md:grid md:grid-cols-4 gap-6"
-            >
+            <div className="hidden md:grid md:grid-cols-4 gap-6">
                 {treatmentPhases.map((phase, index) => (
                     <TreatmentPhaseCard key={phase.phase} phase={phase} index={index} />
                 ))}
-            </motion.div>
+            </div>
         </div>
     )
 }

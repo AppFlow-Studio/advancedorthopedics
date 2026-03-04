@@ -127,7 +127,7 @@ const LocationsFAQSchema = () => {
         'name': 'How do I choose the best location near me?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Choose the closest clinic in your state, then select the office that\'s most convenient for commuting and scheduling. If you\'re unsure, call our scheduling team at (561) 223-9959 and we\'ll recommend the best location based on your symptoms and availability.'
+          'text': 'Choose the closest clinic in your state, then select the office that\'s most convenient for commuting and scheduling. If you\'re unsure, call our scheduling team: FL/PA (561) 223-9959, NJ (973) 259-6756, or NY (646) 389-5606, and we\'ll recommend the best location based on your symptoms and availability.'
         }
       },
       {

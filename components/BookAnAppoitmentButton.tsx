@@ -22,8 +22,9 @@ import { useState, useEffect, useRef } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { useRouter, usePathname } from 'next/navigation'
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtils"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { FileUpload } from './ui/file-upload'
 const formSchema = z.object({
@@ -37,7 +38,8 @@ const formSchema = z.object({
     insuranceCardBack: z.instanceof(File).optional().or(z.null()),
     postalCode: z.string()
         .regex(/^\d{5}(?:-\d{4})?$/, "Please enter a valid ZIP code"),
-    country: z.literal("US").default("US"),
+    country: z.string(),
+    state: z.string().min(1, "Please select your state"),
 })
 const TIME_SLOTS = [
     "9:00 AM",
@@ -77,6 +79,8 @@ export default function BookAnAppoitmentButton({
     const [disabled, setDisabled] = useState(false)
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
     const router = useRouter()
+    const pathname = usePathname()
+    const resolvedState = slugFromPathname(pathname)
     const formRef = useRef<HTMLFormElement>(null)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -91,6 +95,7 @@ export default function BookAnAppoitmentButton({
             insuranceCardBack: null,
             postalCode: "",
             country: "US",
+            state: resolvedState,
         },
     })
 
@@ -206,6 +211,7 @@ export default function BookAnAppoitmentButton({
                 bestTime: values.bestTime,
                 postalCode: values.postalCode,
                 country: values.country,
+                state: values.state,
                 insuranceCardFront: await toFilePayload(values.insuranceCardFront),
                 insuranceCardBack: await toFilePayload(values.insuranceCardBack),
             }
@@ -225,32 +231,7 @@ export default function BookAnAppoitmentButton({
                 return
             }
 
-            // Enhanced Conversions
-            persistEC({
-                email: values.email,
-                phone: values.phone,
-                firstName: values.firstName,
-                lastName: values.lastName,
-                postalCode: values.postalCode,
-                country: "US",
-            });
-            pushEC({
-                email: values.email,
-                phone: values.phone,
-                firstName: values.firstName,
-                lastName: values.lastName,
-                postalCode: values.postalCode,
-                country: "US",
-            });
-            pushEvent('lead_form_submit', { form_name: 'BookAnAppoitmentButton' });
-
-            if (typeof window !== 'undefined' && window.dataLayer) {
-                window.dataLayer.push({
-                    event: 'form_submission',
-                    formName: 'BookAnAppointmentForm',
-                    pagePath: window.location.pathname,
-                });
-            }
+            pushFormSubmit({ form_name: 'BookAnAppoitmentButton', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode });
 
             setOpen(false)
             form.reset()
@@ -440,6 +421,30 @@ export default function BookAnAppoitmentButton({
                                                 </FormItem>
                                             );
                                         }}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="state"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel className="text-sm text-[#111315] font-semibold">State<span className="text-red-500">*</span></FormLabel>
+                                                <FormControl>
+                                                    <Select onValueChange={field.onChange} value={field.value}>
+                                                        <SelectTrigger className="w-full h-10 px-4 bg-[#f0f5ff] border rounded-sm">
+                                                            <SelectValue placeholder="Select your state" />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            <SelectGroup>
+                                                                {STATE_OPTIONS.map(({ value, label }) => (
+                                                                    <SelectItem key={value} value={value}>{label}</SelectItem>
+                                                                ))}
+                                                            </SelectGroup>
+                                                        </SelectContent>
+                                                    </Select>
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
                                     />
                                 </div>
 

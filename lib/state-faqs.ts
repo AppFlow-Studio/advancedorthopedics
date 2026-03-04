@@ -34,7 +34,7 @@ export const STATE_FAQS: Record<string, StateFAQ[]> = {
   'new-jersey': [
     {
       question: "Do you have orthopedic clinics in North, Central, and South New Jersey?",
-      answer: "Yes. Our New Jersey locations serve patients throughout North Jersey, Central Jersey, and South Jersey. You can find our clinics in cities across these regions, with convenient access via major corridors including the Garden State Parkway and Route 22. Each location page lists nearby communities commonly served. View the Locations section on this page to find the clinic nearest you or call (561) 223-9959 for assistance selecting the best location for your needs."
+      answer: "Yes. Our New Jersey locations serve patients throughout North Jersey, Central Jersey, and South Jersey. You can find our clinics in cities across these regions, with convenient access via major corridors including the Garden State Parkway and Route 22. Each location page lists nearby communities commonly served. View the Locations section on this page to find the clinic nearest you or call (973) 259-6756 for assistance selecting the best location for your needs."
     },
     {
       question: "Can I get a second opinion from an orthopedic specialist in New Jersey?",
@@ -46,29 +46,29 @@ export const STATE_FAQS: Record<string, StateFAQ[]> = {
     },
     {
       question: "Do you accept insurance at your New Jersey orthopedic locations?",
-      answer: "Yes. We accept most major PPO insurance plans and Personal Injury Protection (PIP) coverage at our New Jersey locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred New Jersey office directly or call (561) 223-9959 before your visit. Our team can help you understand your benefits and any out-of-pocket costs."
+      answer: "Yes. We accept most major PPO insurance plans and Personal Injury Protection (PIP) coverage at our New Jersey locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred New Jersey office directly or call (973) 259-6756 before your visit. Our team can help you understand your benefits and any out-of-pocket costs."
     },
     {
       question: "How quickly can I be seen at a New Jersey location?",
-      answer: "Same-day and next-day appointments are often available at our New Jersey locations, subject to provider schedules. We prioritize urgent orthopedic needs when possible. To request the earliest available appointment, call (561) 223-9959 or use our online booking system. Our clinics are open 8AM–8PM, 7 days a week, providing flexible scheduling options to accommodate your needs."
+      answer: "Same-day and next-day appointments are often available at our New Jersey locations, subject to provider schedules. We prioritize urgent orthopedic needs when possible. To request the earliest available appointment, call (973) 259-6756 or use our online booking system. Our clinics are open 8AM–8PM, 7 days a week, providing flexible scheduling options to accommodate your needs."
     }
   ],
   'new-york': [
     {
       question: "Do you see patients from outside Manhattan (Brooklyn, Queens, NJ)?",
-      answer: "Yes. Our New York location serves patients from throughout the New York metropolitan area, including Brooklyn, Queens, the Bronx, and nearby communities in New Jersey such as Jersey City and Hoboken. We're easily accessible via public transit and offer convenient parking for those driving. Patients from throughout the region visit our Manhattan location for expert orthopedic and spine care. Call (561) 223-9959 to schedule your appointment."
+      answer: "Yes. Our New York location serves patients from throughout the New York metropolitan area, including Brooklyn, Queens, the Bronx, and nearby communities in New Jersey such as Jersey City and Hoboken. We're easily accessible via public transit and offer convenient parking for those driving. Patients from throughout the region visit our Manhattan location for expert orthopedic and spine care. Call (646) 389-5606 to schedule your appointment."
     },
     {
       question: "What orthopedic services are available at your New York location?",
-      answer: "Our New York location provides comprehensive orthopedic and spine services including evaluation and treatment for back pain, neck pain, joint conditions (knee, hip, shoulder), sports injuries, work-related injuries, and chronic pain conditions. We offer advanced diagnostic imaging coordination, targeted injections when appropriate, and both non-surgical and surgical treatment options. Visit our body-part service pages (Spine Care, Knee Care, Hip Care, etc.) on this page to learn more about specific services, or call (561) 223-9959 to discuss your needs."
+      answer: "Our New York location provides comprehensive orthopedic and spine services including evaluation and treatment for back pain, neck pain, joint conditions (knee, hip, shoulder), sports injuries, work-related injuries, and chronic pain conditions. We offer advanced diagnostic imaging coordination, targeted injections when appropriate, and both non-surgical and surgical treatment options. Visit our body-part service pages (Spine Care, Knee Care, Hip Care, etc.) on this page to learn more about specific services, or call (646) 389-5606 to discuss your needs."
     },
     {
       question: "How do I schedule an orthopedic appointment in NYC?",
-      answer: "Schedule an appointment by calling (561) 223-9959 or using our online booking system. Same-day and next-day appointments are often available, subject to provider schedules. Our scheduling team will confirm your appointment time and match you with the appropriate specialist based on your symptoms. You'll receive confirmation details and information about what to bring to your visit, including any prior imaging or medical records."
+      answer: "Schedule an appointment by calling (646) 389-5606 or using our online booking system. Same-day and next-day appointments are often available, subject to provider schedules. Our scheduling team will confirm your appointment time and match you with the appropriate specialist based on your symptoms. You'll receive confirmation details and information about what to bring to your visit, including any prior imaging or medical records."
     },
     {
       question: "Do you treat neck and back pain in New York?",
-      answer: "Yes. Our New York specialists evaluate and treat neck and back pain resulting from various spine conditions including herniated discs, degenerative disc disease, spinal stenosis, sciatica, pinched nerves, and arthritis. We provide comprehensive evaluation using advanced imaging when needed, and offer both conservative and surgical treatment options tailored to your specific condition. Treatment plans may include medications, targeted injections, or minimally invasive surgical procedures when appropriate. Call (561) 223-9959 to schedule your evaluation."
+      answer: "Yes. Our New York specialists evaluate and treat neck and back pain resulting from various spine conditions including herniated discs, degenerative disc disease, spinal stenosis, sciatica, pinched nerves, and arthritis. We provide comprehensive evaluation using advanced imaging when needed, and offer both conservative and surgical treatment options tailored to your specific condition. Treatment plans may include medications, targeted injections, or minimally invasive surgical procedures when appropriate. Call (646) 389-5606 to schedule your evaluation."
     },
     {
       question: "What should I bring to my first NYC orthopedic consultation?",
@@ -77,24 +77,24 @@ export const STATE_FAQS: Record<string, StateFAQ[]> = {
   ],
   pennsylvania: [
     {
-      question: "Will Mountain Spine & Orthopedics expand locations in Pennsylvania?",
-      answer: "This page supports Pennsylvania expansion as new offices open. Locations and services will be listed here as they become available. When Pennsylvania locations are added, they will offer the same comprehensive orthopedic and spine care available at our other locations, including same-day and next-day appointments when available."
+      question: "Where are your Pennsylvania orthopedic locations?",
+      answer: "We have multiple Pennsylvania locations serving patients across the state, including Allentown and Philadelphia. Each location page lists the address, hours, and nearby communities served. View the Locations section on this page to find the clinic nearest you or call (561) 223-9959 for help selecting the best location for your needs."
     },
     {
-      question: "What orthopedic services will be offered in Pennsylvania?",
-      answer: "Core services at Pennsylvania locations will include spine care for back and neck pain, joint care for knee, hip, and shoulder conditions, sports medicine evaluation and treatment, pain management options including targeted injections, advanced diagnostic imaging coordination, and both non-surgical and surgical treatment options for qualifying patients. Services will be similar to those offered at our Florida, New Jersey, and New York locations."
+      question: "What orthopedic services are offered at your Pennsylvania locations?",
+      answer: "Our Pennsylvania locations provide comprehensive spine and orthopedic care including treatment for back and neck pain, joint conditions (knee, hip, and shoulder), sports injuries, work-related injuries, and chronic pain. Services include advanced diagnostic imaging coordination, targeted injections, and both non-surgical and surgical treatment options. Our care is consistent with what we offer at our Florida, New Jersey, and New York locations."
     },
     {
       question: "Do you offer same-day appointments in Pennsylvania?",
-      answer: "As Pennsylvania locations are added, same-day or next-day appointments will be available subject to office and provider schedules. Scheduling options and availability will appear on each city page once locations open. We aim to provide timely access to orthopedic care across all our locations, including Pennsylvania."
+      answer: "Yes, same-day and next-day appointments are often available at our Pennsylvania locations, subject to provider schedules. We prioritize urgent orthopedic needs when possible. To request the earliest available appointment, call (561) 223-9959 or use our online booking system. Our clinics are open 8AM–8PM, 7 days a week."
     },
     {
-      question: "Do you accept insurance in Pennsylvania locations?",
-      answer: "Yes. We accept PPO insurance plans and Personal Injury Protection (PIP) coverage. As Pennsylvania clinics open, contact the location directly to verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements. Our team can help you understand your benefits and any out-of-pocket costs."
+      question: "Do you accept insurance at your Pennsylvania locations?",
+      answer: "Yes. We accept most major PPO insurance plans and Personal Injury Protection (PIP) coverage at our Pennsylvania locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred Pennsylvania office directly or call (561) 223-9959 before your visit."
     },
     {
-      question: "How can I find the nearest Pennsylvania location when available?",
-      answer: "Use the Locations directory on our website and select Pennsylvania to view the most current list of city pages, addresses, and contact details. As new Pennsylvania locations open, they will appear on this state page and in our locations directory. You can also call (561) 223-9959 for information about Pennsylvania locations and services."
+      question: "Do you treat auto accident and work injuries in Pennsylvania?",
+      answer: "Yes. Our Pennsylvania specialists evaluate and treat injuries from auto accidents, workplace incidents, and slip-and-fall cases. We work with Personal Injury Protection (PIP) insurance and can coordinate with your attorney if needed. Our team develops personalized treatment plans that may include conservative care, injections, or surgery when appropriate. Call (561) 223-9959 or visit your nearest Pennsylvania location to schedule an evaluation."
     }
   ]
 };
