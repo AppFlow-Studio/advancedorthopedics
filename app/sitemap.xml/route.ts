@@ -44,80 +44,70 @@ const staticPages = [
 ];
 
 export async function GET() {
+  const sitemapEntries = new Map<string, string | undefined>();
+
+  const addEntry = (path: string, lastmod?: string) => {
+    // Normalize path (ensure leading slash, no trailing slash)
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    const finalPath =
+      normalizedPath === "/" ? "/" : normalizedPath.replace(/\/$/, "");
+    sitemapEntries.set(finalPath, lastmod);
+  };
+
   // 1. Static pages
-  const staticUrls = staticPages
-    .map((path) => generateSitemapEntry(path))
-    .join("");
+  staticPages.forEach((path) => addEntry(path));
 
   // 2. Location pages (state hubs + individual clinics)
-  const stateHubUrls = VALID_STATE_SLUGS
-    .map((state) => generateSitemapEntry(`/locations/${state}`))
-    .join("");
+  VALID_STATE_SLUGS.forEach((state) => addEntry(`/locations/${state}`));
 
-  const clinicUrls = clinics
-    .map((clinic) =>
-      generateSitemapEntry(
-        `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
-        clinic.updatedAt
-      )
+  clinics.forEach((clinic) =>
+    addEntry(
+      `/locations/${clinic.stateSlug}/${clinic.locationSlug}`,
+      clinic.updatedAt
     )
-    .join("");
+  );
 
   // 3. Doctor pages
-  const doctorUrls = Doctors
-    .filter((doctor) => doctor.slug && doctor.slug !== "undefined")
-    .map((doctor) =>
-      generateSitemapEntry(`/about/meetourdoctors/${doctor.slug}`, doctor.updatedAt)
-    )
-    .join("");
+  Doctors.filter((doctor) => doctor.slug && doctor.slug !== "undefined").forEach(
+    (doctor) => addEntry(`/about/meetourdoctors/${doctor.slug}`, doctor.updatedAt)
+  );
 
   // 4. Condition pages (body part hubs + individual conditions)
-  const allConditions = [...conditions, ...conditionContentPlaceholders];
-  
-  const bodyPartHubUrls = BODY_PARTS
-    .map((bodyPart) => generateSitemapEntry(`/conditions/${bodyPart.slug}`))
-    .join("");
+  BODY_PARTS.forEach((bodyPart) => addEntry(`/conditions/${bodyPart.slug}`));
 
-  const conditionUrls = allConditions
+  const allConditions = [...conditions, ...conditionContentPlaceholders];
+  allConditions
     .filter((c) => c.slug && c.slug !== "undefined")
-    .map((condition) =>
-      generateSitemapEntry(`/conditions/${condition.slug}`, condition.updatedAt)
-    )
-    .join("");
+    .forEach((condition) =>
+      addEntry(`/conditions/${condition.slug}`, condition.updatedAt)
+    );
 
   // 5. Treatment pages
-  const treatmentUrls = AllTreatmentsCombined
-    .filter((treatment) => treatment.slug && treatment.slug !== "undefined")
-    .map((treatment) =>
-      generateSitemapEntry(`/treatments/${treatment.slug}`, treatment.updatedAt)
-    )
-    .join("");
+  AllTreatmentsCombined.filter(
+    (treatment) => treatment.slug && treatment.slug !== "undefined"
+  ).forEach((treatment) =>
+    addEntry(`/treatments/${treatment.slug}`, treatment.updatedAt)
+  );
 
   // 6. Blog pages (fetched from Supabase)
-  let blogUrls = "";
   try {
     const blogsData = await GetBlogsPublic();
-    blogUrls = (blogsData || [])
+    (blogsData || [])
       .filter((blog) => blog?.slug)
-      .map((blog) =>
-        generateSitemapEntry(`/blogs/${blog.slug}`, blog.modified_at || blog.created_at)
-      )
-      .join("");
+      .forEach((blog) =>
+        addEntry(
+          `/blogs/${blog.slug}`,
+          blog.modified_at || blog.created_at
+        )
+      );
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);
   }
 
-  // Combine all URLs
-  const allUrls = [
-    staticUrls,
-    stateHubUrls,
-    clinicUrls,
-    doctorUrls,
-    bodyPartHubUrls,
-    conditionUrls,
-    treatmentUrls,
-    blogUrls,
-  ].join("");
+  // Generate all XML entries from the deduplicated Map
+  const allUrls = Array.from(sitemapEntries.entries())
+    .map(([path, lastmod]) => generateSitemapEntry(path, lastmod))
+    .join("");
 
   return new Response(wrapInUrlset(allUrls), {
     headers: {

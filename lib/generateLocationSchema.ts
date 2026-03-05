@@ -1,5 +1,5 @@
 import { ClinicsProps } from '@/components/data/clinics';
-import { MAIN_PHONE_E164, LOCATION_OPENING_HOURS } from '@/lib/locationConstants';
+import { MAIN_PHONE_E164, LOCATION_OPENING_HOURS, STATE_PHONE_NUMBERS } from '@/lib/locationConstants';
 
 // Expected GBP addresses for validation (development mode only)
 const GBP_ADDRESSES: Record<string, string> = {
@@ -178,7 +178,7 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
     'name': clinic.name,
     'description': clinic.metaDescription,
     'url': canonicalUrl,
-    'telephone': MAIN_PHONE_E164,
+    'telephone': STATE_PHONE_NUMBERS[clinic.stateSlug as keyof typeof STATE_PHONE_NUMBERS]?.e164 || MAIN_PHONE_E164,
     'identifier': identifiers.length > 0 ? identifiers : undefined,
     'sameAs': sameAs.length > 0 ? sameAs : undefined,
     'hasMap': hasMapUrl,

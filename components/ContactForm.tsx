@@ -18,8 +18,9 @@ import { DialogContent, DialogTitle } from "./ui/dialog"
 import { Dialog } from "./ui/dialog"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { useRouter, usePathname } from "next/navigation"
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtils"
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -30,13 +31,16 @@ const formSchema = z.object({
   bestTime: z.string().min(1, "Please provide more detail about your consultation needs"),
   postalCode: z.string()
     .regex(/^\d{5}(?:-\d{4})?$/, "Please enter a valid ZIP code"),
-  country: z.literal("US").default("US"),
+  country: z.string(),
+  state: z.string().min(1, "Please select your state"),
 })
 
-export function ConsultationForm() {
+export function ConsultationForm({ defaultState = "" }: { defaultState?: string }) {
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
   const router = useRouter()
+  const pathname = usePathname()
+  const resolvedState = normalizeState(defaultState) || slugFromPathname(pathname)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,6 +52,7 @@ export function ConsultationForm() {
       bestTime: "",
       postalCode: "",
       country: "US",
+      state: resolvedState,
     },
   })
 
@@ -67,6 +72,7 @@ export function ConsultationForm() {
           bestTime: values.bestTime,
           postalCode: values.postalCode,
           country: values.country,
+          state: values.state,
         }),
       })
 
@@ -80,24 +86,7 @@ export function ConsultationForm() {
         return
       }
 
-      // Enhanced Conversions
-      persistEC({
-        email: values.email,
-        phone: values.phone,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        postalCode: values.postalCode,
-        country: "US",
-      });
-      pushEC({
-        email: values.email,
-        phone: values.phone,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        postalCode: values.postalCode,
-        country: "US",
-      });
-      pushEvent('lead_form_submit', { form_name: 'ConsultationForm' });
+      pushFormSubmit({ form_name: 'ConsultationForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode });
 
       form.reset()
       router.push('/thank-you')
@@ -221,6 +210,30 @@ export function ConsultationForm() {
                   </FormItem>
                 );
               }}
+            />
+            <FormField
+              control={form.control}
+              name="state"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-[#838890] font-semibold">State<span className="text-red-500">*</span></FormLabel>
+                  <FormControl>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm">
+                        <SelectValue placeholder="Select your state" className="font-[var(--font-inter)] h-12 text-lg" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          {STATE_OPTIONS.map(({ value, label }) => (
+                            <SelectItem key={value} value={value}>{label}</SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
           </div>
 

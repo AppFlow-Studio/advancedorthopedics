@@ -16,7 +16,7 @@ import { StaticImageData } from 'next/image';
 import { Testimonial } from '../ui/testimonial-card';
 import { Marquee } from '../magicui/marquee';
 import Link from 'next/link';
-import { MAIN_PHONE_DISPLAY } from '@/lib/locationConstants';
+import { MAIN_PHONE_DISPLAY, NJ_PHONE_DISPLAY, NY_PHONE_DISPLAY } from '@/lib/locationConstants';
 
 export interface Review {
   author: string;
@@ -5155,7 +5155,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.5937911,
     lng: -74.6589961,
     address: '1200 US-22 #14, Bridgewater, NJ 08807',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/y9VbYhJzV7zL8A6L6',
     slug: 'bridgewater-orthopedics',
     stateAbbr: 'NJ',
@@ -5482,7 +5482,7 @@ export const clinics: ClinicsProps[] = [
     lat: 39.8611882,
     lng: -74.976089,
     address: '100 Springdale Rd, Suite B5, Cherry Hill, NJ 08003',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/uX3L5x9N7Z7G9N7P9',
     placeUrl: 'https://www.google.com/maps?cid=14496800707702671205',
     slug: 'cherry-hill-orthopedics',
@@ -5816,7 +5816,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.5218,
     lng: -74.3644,
     address: '25 Main St suite 12, Edison, NJ 08837',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: 'https://www.google.com/maps/dir/?api=1&destination=25+Main+St+suite+12%2C+Edison%2C+NJ+08837',
     slug: 'edison-orthopedics',
     stateAbbr: 'NJ',
@@ -6141,7 +6141,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.2445,
     lng: -74.2748,
     address: '77 Schanck Rd, Suite B17, Freehold, NJ 07728',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: 'https://www.google.com/maps/search/?api=1&query=77+Schanck+Rd%2C+Suite+B17%2C+Freehold%2C+NJ+07728',
     slug: 'freehold-orthopedics',
     stateAbbr: 'NJ',
@@ -6469,7 +6469,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.9412,
     lng: -74.0725,
     address: '140 NJ-17, Suite 101B, Paramus, NJ 07652',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/qX5N9x7P7Z7G9N7P9',
     slug: 'paramus-orthopedics',
     stateAbbr: 'NJ',
@@ -6800,7 +6800,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.7904153,
     lng: -74.2611222,
     address: '375 Mount Pleasant Ave, Unit 2E, West Orange, NJ 07052',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/pX5N9x7P7Z7G9N7P9',
     placeUrl: 'https://www.google.com/maps?cid=3546060446860709693',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.6789012345!2d-74.26098510!3d40.79046780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3f6g7h8i9j0k1%3A0x3l4m5n6o7p8q9r0!2sWest%20Orange%20Surgery%20Center!5e0!3m2!1sen!2sus!4v1705012345683!5m2!1sen!2sus',
@@ -7140,7 +7140,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.754155,
     lng: -73.980395,
     address: '535 5th Ave, Suite 1012, New York, NY 10017',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NY_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/oX5N9x7P7Z7G9N7P9',
     placeUrl: 'https://www.google.com/maps?cid=5776462500461449645',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.7890123456!2d-73.97941220!3d40.75483640!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258abcdef0123%4A0x456789abcdef0123!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1705012345684!5m2!1sen!2sus',
@@ -8653,10 +8653,10 @@ export const clinics: ClinicsProps[] = [
     id: 22, // Ensure this ID is unique in your array
     name: 'Mountain Spine & Orthopedics Voorhees Township, NJ',
     region: 'Voorhees, NJ',
-    lat: 39.8512,
+    lat: 40.8512,
     lng: -74.9984,
     address: '701 White Horse Rd Unit 5, Voorhees Township, NJ 08043',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: '#', // Placeholder for future GBP link
     slug: 'voorhees-orthopedics',
     stateAbbr: 'NJ',
@@ -8781,7 +8781,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.3573,
     lng: -74.6672,
     address: '601 Ewing Street, Suite A8, Princeton, NJ 08540',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: NJ_PHONE_DISPLAY,
     link: '#',
     slug: 'princeton-orthopedics',
     stateAbbr: 'NJ',

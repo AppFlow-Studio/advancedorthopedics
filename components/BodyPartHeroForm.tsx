@@ -5,8 +5,9 @@ import { Phone, User, ArrowRight, CheckCircle, Loader2, Mail, ChevronDown, Shiel
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { persistEC, pushEC, pushEvent } from '@/utils/enhancedConversions';
+import { pushFormSubmit } from '@/utils/enhancedConversions';
 import { formatPhoneInput } from '@/lib/phone-formatter';
+import { STATE_OPTIONS } from '@/lib/stateUtils';
 
 interface BodyPartHeroFormProps {
   bodyPartTitle: string;
@@ -19,6 +20,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
     phone: '',
     email: '',
     postalCode: '',
+    state: '',
     bestTime: '',
     reason: '',
     insuranceCardFront: null as File | null,
@@ -113,6 +115,11 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
       return; // Silently reject bot submission
     }
 
+    if (!formData.state) {
+      setError('Please select your state.');
+      return;
+    }
+
     setIsSubmitting(true);
     setError('');
 
@@ -125,6 +132,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
         reason: formData.reason || `${bodyPartTitle} pain consultation`,
         bestTime: formData.bestTime,
         postalCode: formData.postalCode,
+        state: formData.state,
         country: 'US',
         painArea: bodyPartTitle,
         source: `${bodyPartTitle} Body Part Page`,
@@ -147,27 +155,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
         throw new Error('Submission failed');
       }
 
-      // Enhanced Conversions tracking
-      persistEC({
-        email: formData.email,
-        phone: formData.phone,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        postalCode: formData.postalCode,
-        country: 'US',
-      });
-      pushEC({
-        email: formData.email,
-        phone: formData.phone,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        postalCode: formData.postalCode,
-        country: 'US',
-      });
-      pushEvent('lead_form_submit', {
-        form_name: 'BodyPartHeroForm',
-        body_part: bodyPartTitle,
-      });
+      pushFormSubmit({ form_name: 'BodyPartHeroForm', state: formData.state, email: formData.email, phone: formData.phone, firstName: formData.firstName, lastName: formData.lastName, postalCode: formData.postalCode });
 
       setShowDialog(false);
       setIsSubmitted(true);
@@ -398,23 +386,44 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
               </div>
             </div>
 
-            {/* ZIP Code */}
-            <div>
-              <label
-                className="block text-sm font-medium text-[#111315] mb-1.5"
-                style={{ fontFamily: 'var(--font-public-sans)' }}
-              >
-                ZIP / Postal Code
-              </label>
-              <input
-                type="text"
-                inputMode="numeric"
-                placeholder="e.g., 33463"
-                value={formData.postalCode}
-                onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
-                className="w-full px-4 py-2.5 text-sm bg-[#FAFAFA] border border-[#DCDEE1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2358AC]/20 focus:border-[#2358AC]"
-                style={{ fontFamily: 'var(--font-inter)' }}
-              />
+            {/* ZIP Code + State */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  className="block text-sm font-medium text-[#111315] mb-1.5"
+                  style={{ fontFamily: 'var(--font-public-sans)' }}
+                >
+                  ZIP / Postal Code
+                </label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="e.g., 33463"
+                  value={formData.postalCode}
+                  onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
+                  className="w-full px-4 py-2.5 text-sm bg-[#FAFAFA] border border-[#DCDEE1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2358AC]/20 focus:border-[#2358AC]"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                />
+              </div>
+              <div>
+                <label
+                  className="block text-sm font-medium text-[#111315] mb-1.5"
+                  style={{ fontFamily: 'var(--font-public-sans)' }}
+                >
+                  State <span className="text-red-500">*</span>
+                </label>
+                <select
+                  value={formData.state}
+                  onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                  className="w-full px-4 py-2.5 text-sm bg-[#f0f5ff] border border-[#DCDEE1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2358AC]/20 focus:border-[#2358AC] appearance-none"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
+                  <option value="">Select your state</option>
+                  {STATE_OPTIONS.map(({ value, label }) => (
+                    <option key={value} value={value}>{label}</option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* Best Time to Contact */}

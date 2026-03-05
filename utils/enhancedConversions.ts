@@ -232,6 +232,67 @@ export function pushEvent(name: string, params: Record<string, any> = {}) {
 }
 
 /**
+ * Single entry point for all form conversion tracking.
+ *
+ * Internally calls persistEC → pushEC → dataLayer form_submit in the correct order.
+ * No other code should call persistEC or pushEC directly after form submission.
+ *
+ * Must be called once, BEFORE navigation to /thank-you.
+ * State MUST be one of: "florida" | "new-jersey" | "new-york" | "pennsylvania"
+ */
+export function pushFormSubmit({
+  form_name,
+  state,
+  email,
+  phone,
+  firstName,
+  lastName,
+  postalCode,
+  country = 'US',
+}: {
+  form_name: string;
+  state: string;
+  email?: string;
+  phone?: string;
+  firstName?: string;
+  lastName?: string;
+  postalCode?: string;
+  country?: string;
+}) {
+  if (typeof window === 'undefined') return;
+
+  // Normalize phone to E.164 once here so every downstream consumer gets the correct format.
+  // formatPhoneToE164 returns '' for invalid/short numbers; treat those as absent.
+  const normalizedPhone = phone ? formatPhoneToE164(phone, country) : '';
+
+  const ecData: ECIn = {
+    email,
+    phone: normalizedPhone || phone, // pass E.164 to EC; fall back to raw only if normalization fails
+    firstName,
+    lastName,
+    postalCode,
+    country,
+  };
+
+  // 1. Persist enhanced conversion data to sessionStorage (for thank-you page restore)
+  persistEC(ecData);
+
+  // 2. Push enhanced conversion data to dataLayer (for GTM EC tag)
+  pushEC(ecData);
+
+  // 3. Push standardized form_submit event (for GTM conversion + state segmentation)
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  (window as any).dataLayer.push({
+    event: 'form_submit',
+    form_name,
+    state: state || '',
+    ...(email ? { email } : {}),
+    // Always use E.164 in dataLayer so GTM audience rules work without transformation
+    ...(normalizedPhone ? { phone: normalizedPhone } : {}),
+  });
+}
+
+/**
  * Debug helper: Check if enhanced conversion data is in dataLayer
  * Useful for troubleshooting in browser console
  * 

@@ -29,7 +29,7 @@ export async function sendUserEmail(formData: { name: string, email: string, pho
     }
 }
 
-export async function sendContactEmail(formData: { name: string, email: string, phone: string, reason: string, bestTime: string, has_attorney?: string | undefined, injury_type?: string | undefined, pain_level?: string | undefined, location?: string | undefined, insuranceCardFront?: File | undefined, insuranceCardBack?: File | undefined }) {
+export async function sendContactEmail(formData: { name: string, email: string, phone: string, reason: string, bestTime: string, has_attorney?: string | undefined, injury_type?: string | undefined, pain_level?: string | undefined, location?: string | undefined, state?: string | undefined, insuranceCardFront?: File | undefined, insuranceCardBack?: File | undefined }) {
     try {
         // Prepare attachments if files are provided
         const attachments = formData.insuranceCardFront || formData.insuranceCardBack ? await Promise.all(
@@ -47,7 +47,7 @@ export async function sendContactEmail(formData: { name: string, email: string, 
             from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
             to: ['info@mountainspineorthopedics.com'],
             subject: 'New Contact Form Submission',
-            react: await EmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone, reason: formData.reason, bestTime: formData.bestTime, has_attorney: formData.has_attorney, injury_type: formData.injury_type, pain_level: formData.pain_level, location: formData.location }),
+            react: await EmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone, reason: formData.reason, bestTime: formData.bestTime, has_attorney: formData.has_attorney, injury_type: formData.injury_type, pain_level: formData.pain_level, location: formData.location, state: formData.state }),
             attachments: attachments?.filter(Boolean) as any[],
         });
         return data;

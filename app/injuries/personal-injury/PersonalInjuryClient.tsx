@@ -7,11 +7,16 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
+import InjuryUrgencyBanner from "@/components/InjuryUrgencyBanner"
+import InjuryClinicFinder from "@/components/InjuryClinicFinder"
+import InjuryInsuranceCoverage from "@/components/InjuryInsuranceCoverage"
+import InjuryHotspots from "@/components/InjuryHotspots"
+import InjuryAttorneyPanel from "@/components/InjuryAttorneyPanel"
 import { Star, Shield, Clock, MapPin, Phone, AlertTriangle, CheckCircle, Award, Stethoscope } from "lucide-react"
 import { PersonalInjuryLeadCaptureForm } from "./lead-capture-form"
 import InjuriesCarousel from "@/components/InjuriesCarousel"
 import RatingsAndReviews from "@/components/RatingsAndReviews"
-import CondensedLocations from "@/components/CondensedLocations"
+// CondensedLocations replaced by InjuryClinicFinder
 import { clinics } from "@/components/data/clinics"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -157,6 +162,8 @@ export default function PersonalInjuryClient({ faqs }: PersonalInjuryClientProps
           </div>
         </div>
       </section>
+
+      <InjuryUrgencyBanner injuryType="personal-injury" />
 
       {/* Trust Indicators */}
       <section
@@ -332,8 +339,14 @@ export default function PersonalInjuryClient({ faqs }: PersonalInjuryClientProps
         </div>
       </section>
 
+      <InjuryInsuranceCoverage injuryType="personal-injury" />
+
+      {/* Clinic Finder */}
+      <InjuryClinicFinder />
+
+      <InjuryHotspots injuryType="personal-injury" />
+
       {/* Meet Our Experts */}
-      <CondensedLocations />
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8">
         <InjuryDoctorsSection />
       </div>
@@ -362,6 +375,8 @@ export default function PersonalInjuryClient({ faqs }: PersonalInjuryClientProps
         </div>
       </section>
 
+      <InjuryAttorneyPanel showAttorneyPanel={true} />
+
       {/* Final CTA */}
       <section
         className="w-full flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px] bg-primary text-white"
@@ -382,7 +397,7 @@ export default function PersonalInjuryClient({ faqs }: PersonalInjuryClientProps
               asChild
               data-cta="final-call"
             >
-              <a href="tel:5612239959">
+              <a href="tel:+15612239959">
                 <Phone className="w-5 h-5 mr-2" />
                 Call (561) 223-9959
               </a>

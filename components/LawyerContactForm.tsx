@@ -15,7 +15,9 @@ import { Calendar, Clock, User, Mail, Phone, Building, FileText, Scale } from "l
 import { BorderBeam } from "@/components/magicui/border-beam"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
+import { pushFormSubmit, persistEC, pushEC } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS, slugFromPathname } from "@/lib/stateUtils"
 
 const lawyerSchema = z.object({
     firmName: z.string().min(2, "Firm name is required"),
@@ -32,6 +34,7 @@ const lawyerSchema = z.object({
     injuryDescription: z.string().min(10, "Please provide injury description"),
     urgency: z.string().min(1, "Please select urgency level"),
     additionalInfo: z.string().optional(),
+    clientState: z.string().min(1, "Please select the client's state"),
 })
 
 type LawyerFormData = z.infer<typeof lawyerSchema>
@@ -72,6 +75,7 @@ export function LawyerContactForm() {
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [openDialog, setOpenDialog] = useState(false)
     const router = useRouter()
+    const pathname = usePathname()
 
     const form = useForm<LawyerFormData>({
         resolver: zodResolver(lawyerSchema),
@@ -90,6 +94,7 @@ export function LawyerContactForm() {
             injuryDescription: "",
             urgency: "",
             additionalInfo: "",
+            clientState: "",
         },
     })
 
@@ -111,6 +116,7 @@ export function LawyerContactForm() {
                 return
             }
 
+            pushFormSubmit({ form_name: 'LawyerContactForm', state: values.clientState, email: values.email, phone: values.phone })
             setOpenDialog(false)
             setIsSubmitted(true)
             router.push('/thank-you')
@@ -462,6 +468,20 @@ export function LawyerContactForm() {
                                                         <SelectItem value="high">High (This week)</SelectItem>
                                                         <SelectItem value="medium">Medium (Next week)</SelectItem>
                                                         <SelectItem value="low">Low (Flexible)</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )} />
+                                        <FormField control={form.control} name="clientState" render={({ field }) => (
+                                            <FormItem className="flex flex-col">
+                                                <FormLabel>Client State<span className="text-red-500">*</span></FormLabel>
+                                                <Select onValueChange={field.onChange} value={field.value}>
+                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select state" /></SelectTrigger>
+                                                    <SelectContent>
+                                                        {STATE_OPTIONS.map(({ value, label }) => (
+                                                            <SelectItem key={value} value={value}>{label}</SelectItem>
+                                                        ))}
                                                     </SelectContent>
                                                 </Select>
                                                 <FormMessage />

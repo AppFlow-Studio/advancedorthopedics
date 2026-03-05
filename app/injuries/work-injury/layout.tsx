@@ -1,24 +1,49 @@
 import type { Metadata } from "next";
 import { buildCanonical, safeTitle, safeDescription, srOnly } from "@/lib/seo";
 import { workInjuryFaqs } from "./faqs";
+import {
+  buildInjuryMedicalWebPageSchema,
+  buildInjuryClinicItemListSchema,
+  buildInjuryFAQPageSchema,
+} from "@/lib/injuryPageSchema";
+
+const PAGE_URL = "https://mountainspineorthopedics.com/injuries/work-injury";
 
 export const metadata: Metadata = {
-  title: safeTitle(undefined, "Work Injury Orthopedic Care | Mountain Spine & Orthopedics"),
+  title: safeTitle(
+    undefined,
+    "Work Injury Orthopedic Doctor Near Me | FL, NJ, NY & PA | Mountain Spine & Orthopedics"
+  ),
   description: safeDescription(
     undefined,
-    "Expert orthopedic care for work-related injuries. Workers' comp coordination, same-week evaluation, and treatment across FL, NJ, NY & PA."
+    "Board-certified work injury orthopedic doctors in FL, NJ, NY & PA. Workers' comp coordinated, ATP provider, same-week eval. Call (561) 223-9959 — WC accepted."
   ),
   keywords: [
-    "work injury doctor",
-    "workers compensation orthopedic",
-    "work-related injury treatment",
-    "occupational injury specialist",
-    "work injury evaluation",
-    "workers comp orthopedics",
-    "workplace injury care",
-    "on-the-job injury doctor",
-    "work injury spine specialist",
-    "work injury knee shoulder back",
+    "work injury doctor near me",
+    "workers compensation orthopedic doctor",
+    "work injury orthopedic specialist",
+    "workers comp spine doctor",
+    "occupational injury orthopedic",
+    "on-the-job injury treatment",
+    "work injury back pain doctor",
+    "ATP authorized treating physician Florida",
+    "workers comp NJ doctor",
+    "NY WCB orthopedic provider",
+    "PA panel physician orthopedic",
+    "work injury shoulder treatment",
+    "workers comp knee specialist",
+    "repetitive stress injury doctor",
+    "FCE functional capacity evaluation",
+    "IME independent medical exam",
+    "Scaffold Law NY construction injury",
+    "work injury same day appointment",
+    "construction injury orthopedic",
+    "warehouse work injury doctor",
+    "workers comp fracture treatment",
+    "occupational lumbar injury",
+    "carpal tunnel workers comp",
+    "rotator cuff work injury",
+    "work-related injury documentation",
   ],
   robots: {
     index: true,
@@ -31,20 +56,26 @@ export const metadata: Metadata = {
     canonical: buildCanonical("/injuries/work-injury"),
   },
   openGraph: {
-    title: safeTitle(undefined, "Work Injury Orthopedic Care | Mountain Spine & Orthopedics"),
+    title: safeTitle(
+      undefined,
+      "Work Injury Orthopedic Doctor Near Me | FL, NJ, NY & PA | Mountain Spine & Orthopedics"
+    ),
     description: safeDescription(
       undefined,
-      "Expert orthopedic care for work-related injuries. Workers' comp coordination across FL, NJ, NY & PA."
+      "Board-certified work injury orthopedic doctors in FL, NJ, NY & PA. Workers' comp coordinated. Same-week eval. Call (561) 223-9959."
     ),
     url: buildCanonical("/injuries/work-injury"),
-    type: "website",
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: safeTitle(undefined, "Work Injury Orthopedic Care | Mountain Spine & Orthopedics"),
+    title: safeTitle(
+      undefined,
+      "Work Injury Orthopedic Doctor Near Me | FL, NJ, NY & PA | Mountain Spine & Orthopedics"
+    ),
     description: safeDescription(
       undefined,
-      "Expert orthopedic care for work-related injuries. Workers' comp coordination across FL, NJ, NY & PA."
+      "Board-certified work injury orthopedic doctors in FL, NJ, NY & PA. Workers' comp coordinated. Same-week eval."
     ),
   },
 };
@@ -58,59 +89,75 @@ export default function WorkInjuryLayout({
     <>
       <h2 className={srOnly}>Work Injury Orthopedic Care</h2>
 
-      {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalWebPage",
-            headline: "Work Injury Orthopedic Care - Mountain Spine & Orthopedics",
-            description:
-              "Expert orthopedic and spine care for work-related injuries. Workers' compensation coordination, same-week evaluation, and treatment across Florida, New Jersey, New York, and Pennsylvania.",
-            keywords:
-              "work injury doctor, workers compensation orthopedic, work-related injury treatment, occupational injury specialist",
-            author: {
-              "@type": "Organization",
-              name: "Mountain Spine & Orthopedics",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Mountain Spine & Orthopedics",
-              url: "https://mountainspineorthopedics.com",
-            },
-            url: "https://mountainspineorthopedics.com/injuries/work-injury",
-            mainEntity: {
-              "@type": "MedicalCondition",
-              name: "Work-Related Orthopedic Injuries",
+          __html: JSON.stringify(
+            buildInjuryMedicalWebPageSchema({
+              url: PAGE_URL,
+              headline:
+                "Work Injury Orthopedic Doctor Near Me — FL, NJ, NY & PA",
               description:
-                "Orthopedic and spinal injuries sustained at work, including back strain, shoulder and knee injuries, and extremity trauma.",
-              alternateName: "Workplace Injury",
-            },
-            breadcrumb: {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: "https://mountainspineorthopedics.com" },
-                { "@type": "ListItem", position: 2, name: "Work Injury", item: "https://mountainspineorthopedics.com/injuries/work-injury" },
+                "Board-certified orthopedic and spine specialists treating work-related injuries in Florida, New Jersey, New York, and Pennsylvania. Workers' compensation coordination, ATP provider, FCE referrals, same-week evaluation. 22+ locations open 8 AM–8 PM, 7 days.",
+              injuryName: "Work-Related Orthopedic Injuries",
+              alternateNames: [
+                "Workplace Injury",
+                "Occupational Injury",
+                "Workers Compensation Injury",
               ],
-            },
-          }),
+              anatomy: [
+                "Lumbar Spine",
+                "Shoulder",
+                "Knee",
+                "Cervical Spine",
+                "Wrist",
+                "Hip",
+                "Elbow",
+              ],
+              treatments: [
+                "Workers Compensation Evaluation",
+                "Orthopedic Evaluation",
+                "MRI and Diagnostic Imaging",
+                "Functional Capacity Evaluation",
+                "Work Status Documentation",
+                "Lumbar Injections",
+                "Shoulder Injections",
+                "Minimally Invasive Surgery",
+              ],
+              symptoms: [
+                "Back Pain",
+                "Shoulder Pain",
+                "Knee Pain",
+                "Repetitive Stress Injury",
+                "Carpal Tunnel",
+                "Rotator Cuff Tear",
+                "Lumbar Strain",
+                "Fracture",
+              ],
+              breadcrumbLabel: "Work Injury",
+            })
+          ),
         }}
       />
 
-      {/* FAQPage JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: workInjuryFaqs.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          }),
+          __html: JSON.stringify(
+            buildInjuryClinicItemListSchema({
+              injuryPageUrl: PAGE_URL,
+              availableService: "Work Injury Orthopedic Care",
+            })
+          ),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildInjuryFAQPageSchema(workInjuryFaqs, PAGE_URL)
+          ),
         }}
       />
 

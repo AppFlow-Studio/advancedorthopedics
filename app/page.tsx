@@ -149,7 +149,7 @@ const HomePageJsonLdSchema = () => {
     'aggregateRating': {
       '@type': 'AggregateRating',
       'ratingValue': '5',
-      'reviewCount': '250000',
+      'reviewCount': '200',
       'bestRating': '5',
       'worstRating': '1'
     },

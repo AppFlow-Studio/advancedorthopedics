@@ -18,9 +18,10 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { motion } from 'framer-motion'
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { BorderBeam } from "@/components/magicui/border-beam";
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtils"
 import { formatPhone, validatePhoneNumber, formatPhoneInput } from "@/lib/phone-formatter"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 import { verifyCaptcha } from "@/seo/verify-captcha"
@@ -44,7 +45,8 @@ const formSchema = z.object({
     website: z.string().max(0, "Bot detected").optional(),
     postalCode: z.string()
         .regex(/^\d{5}(?:-\d{4})?$/, "Please enter a valid ZIP code"),
-    country: z.literal("US").default("US"),
+    country: z.string(),
+    state: z.string().min(1, "Please select your state"),
 })
 
 const TIME_SLOTS = [
@@ -79,8 +81,9 @@ interface DoctorContactFormProp {
     header?: string
     buttonText?: string
     timePeriod?: string
+    defaultState?: string
 }
-export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment', timePeriod = 'day' }: DoctorContactFormProp) {
+export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an Appointment', buttonText = 'Book an Appointment', timePeriod = 'day', defaultState = "" }: DoctorContactFormProp) {
 
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
@@ -88,6 +91,8 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
     const formRef = useRef<HTMLFormElement>(null)
     const router = useRouter()
+    const pathname = usePathname()
+    const resolvedState = normalizeState(defaultState) || slugFromPathname(pathname)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -103,6 +108,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             website: "", // honeypot
             postalCode: "",
             country: "US",
+            state: resolvedState,
         },
     })
 
@@ -212,6 +218,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                 bestTime: values.bestTime,
                 postalCode: values.postalCode,
                 country: values.country,
+                state: values.state,
                 insuranceCardFront: await toFilePayload(values.insuranceCardFront),
                 insuranceCardBack: await toFilePayload(values.insuranceCardBack),
             }
@@ -231,24 +238,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                 return
             }
 
-            // Enhanced Conversions
-            persistEC({
-                email: values.email,
-                phone: values.phone,
-                firstName: values.firstName,
-                lastName: values.lastName,
-                postalCode: values.postalCode,
-                country: "US",
-            });
-            pushEC({
-                email: values.email,
-                phone: values.phone,
-                firstName: values.firstName,
-                lastName: values.lastName,
-                postalCode: values.postalCode,
-                country: "US",
-            });
-            pushEvent('lead_form_submit', { form_name: 'DoctorContactForm' });
+            pushFormSubmit({ form_name: 'DoctorContactForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode });
 
             setOpenContactForm(false)
             router.push('/thank-you')
@@ -486,42 +476,72 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                 }}
                             />
 
-                            <FormField
-                                control={form.control}
-                                name="postalCode"
-                                render={({ field }) => {
-                                    const { name: _, ...fieldProps } = field;
-                                    return (
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <FormField
+                                    control={form.control}
+                                    name="postalCode"
+                                    render={({ field }) => {
+                                        const { name: _, ...fieldProps } = field;
+                                        return (
+                                            <FormItem>
+                                                <FormLabel className="">
+                                                    <span
+                                                        style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+                                                        className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
+                                                    >
+                                                        ZIP / Postal Code
+                                                    </span>
+                                                </FormLabel>
+                                                <FormControl>
+                                                    <div className="flex">
+                                                        <Input
+                                                            id="postal_code"
+                                                            name="postalCode"
+                                                            inputMode="numeric"
+                                                            autoComplete="postal-code"
+                                                            placeholder="e.g., 33463"
+                                                            className="sm:h-12 h-10 text-lg border-[#DCDEE1] bg-[#FAFAFA]"
+                                                            {...fieldProps}
+                                                        />
+                                                    </div>
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        );
+                                    }}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="state"
+                                    render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="">
+                                            <FormLabel>
                                                 <span
-                                                    style={{
-                                                        fontFamily: 'var(--font-public-sans)',
-                                                        fontWeight: 500,
-                                                    }}
+                                                    style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
                                                     className={`${timePeriod !== 'night' ? 'text-[#111315]' : 'text-white'} sm:text-md text-sm`}
                                                 >
-                                                    ZIP / Postal Code
+                                                    State
                                                 </span>
                                             </FormLabel>
                                             <FormControl>
-                                                <div className=" flex  ">
-                                                    <Input
-                                                        id="postal_code"
-                                                        name="postalCode"
-                                                        inputMode="numeric"
-                                                        autoComplete="postal-code"
-                                                        placeholder="e.g., 33463"
-                                                        className="sm:h-12 h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
-                                                        {...fieldProps}
-                                                    />
-                                                </div>
+                                                <Select onValueChange={field.onChange} value={field.value}>
+                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-4 bg-[#f0f5ff] border rounded-sm">
+                                                        <SelectValue placeholder="Select state" />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectGroup>
+                                                            {STATE_OPTIONS.map(({ value, label }) => (
+                                                                <SelectItem key={value} value={value}>{label}</SelectItem>
+                                                            ))}
+                                                        </SelectGroup>
+                                                    </SelectContent>
+                                                </Select>
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
-                                    );
-                                }}
-                            />
+                                    )}
+                                />
+                            </div>
 
                             <FormField
                                 control={form.control}
@@ -591,9 +611,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                         onSubmit={form.handleSubmit(onSubmit, () => { console.log('error') })}
                                     >
                                         <input type="hidden" name="country" value="US" />
-                                        <div className="w-full  space-y-6"
-                                        >
-
+                                        <div className="w-full  space-y-6">
                                             {/* Name Fields */}
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 <FormField
@@ -724,40 +742,70 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                 />
                                             </div>
 
-                                            <FormField
-                                                control={form.control}
-                                                name="postalCode"
-                                                render={({ field }) => {
-                                                    const { name: _, ...fieldProps } = field;
-                                                    return (
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <FormField
+                                                    control={form.control}
+                                                    name="postalCode"
+                                                    render={({ field }) => {
+                                                        const { name: _, ...fieldProps } = field;
+                                                        return (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    <span
+                                                                        style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+                                                                        className="text-[#111315] sm:text-md text-sm"
+                                                                    >
+                                                                        ZIP / Postal Code
+                                                                    </span>
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <Input
+                                                                        id="postal_code"
+                                                                        name="postalCode"
+                                                                        inputMode="numeric"
+                                                                        autoComplete="postal-code"
+                                                                        placeholder="e.g., 33463"
+                                                                        className="h-10 text-lg border-[#DCDEE1] bg-[#FAFAFA]"
+                                                                        {...fieldProps}
+                                                                    />
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        );
+                                                    }}
+                                                />
+                                                <FormField
+                                                    control={form.control}
+                                                    name="state"
+                                                    render={({ field }) => (
                                                         <FormItem>
                                                             <FormLabel>
                                                                 <span
-                                                                    style={{
-                                                                        fontFamily: 'var(--font-public-sans)',
-                                                                        fontWeight: 500,
-                                                                    }}
-                                                                    className={`text-[#111315] sm:text-md text-sm`}
+                                                                    style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+                                                                    className="text-[#111315] sm:text-md text-sm"
                                                                 >
-                                                                    ZIP / Postal Code
+                                                                    State
                                                                 </span>
                                                             </FormLabel>
                                                             <FormControl>
-                                                                <Input
-                                                                    id="postal_code"
-                                                                    name="postalCode"
-                                                                    inputMode="numeric"
-                                                                    autoComplete="postal-code"
-                                                                    placeholder="e.g., 33463"
-                                                                    className="h-10 text-lg  border-[#DCDEE1] bg-[#FAFAFA]"
-                                                                    {...fieldProps}
-                                                                />
+                                                                <Select onValueChange={field.onChange} value={field.value}>
+                                                                    <SelectTrigger className="w-full h-10 px-4 bg-[#f0f5ff] border rounded-sm">
+                                                                        <SelectValue placeholder="Select state" />
+                                                                    </SelectTrigger>
+                                                                    <SelectContent>
+                                                                        <SelectGroup>
+                                                                            {STATE_OPTIONS.map(({ value, label }) => (
+                                                                                <SelectItem key={value} value={value}>{label}</SelectItem>
+                                                                            ))}
+                                                                        </SelectGroup>
+                                                                    </SelectContent>
+                                                                </Select>
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
-                                                    );
-                                                }}
-                                            />
+                                                    )}
+                                                />
+                                            </div>
 
                                             <FormField
                                                 control={form.control}

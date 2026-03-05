@@ -71,7 +71,7 @@ export default function LocationGallerySection({
           <span style={{ fontFamily: 'var(--font-public-sans)' }}>Get Directions</span>
         </Link>
         <a
-          href={`tel:${clinic.phone?.replace(/\D/g, '') || '5612239959'}`}
+          href={`tel:+1${clinic.phone?.replace(/\D/g, '') || '5612239959'}`}
           className="h-full max-h-[56px] flex flex-row items-center justify-center px-[24px] py-[16px] rounded-[62px] bg-[#E5E7EB] text-[#252932] w-fit font-[500] text-[14px] hover:bg-[#D1D5DB] transition-colors min-h-[44px]"
           style={{ fontFamily: 'var(--font-public-sans)' }}
         >

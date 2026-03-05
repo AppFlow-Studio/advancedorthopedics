@@ -30,6 +30,8 @@ interface StateLocationCardProps {
   hoveredIndex?: number | null;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
+  phoneDisplay?: string;
+  phoneTel?: string;
 }
 
 export default function StateLocationCard({
@@ -40,7 +42,11 @@ export default function StateLocationCard({
   hoveredIndex = null,
   onHoverStart,
   onHoverEnd,
+  phoneDisplay,
+  phoneTel,
 }: StateLocationCardProps) {
+  const displayPhone = phoneDisplay ?? MAIN_PHONE_DISPLAY;
+  const telPhone = phoneTel ?? MAIN_PHONE_TEL;
   return (
     <article
       className="group cursor-pointer h-full relative min-w-0 w-full"
@@ -97,12 +103,12 @@ export default function StateLocationCard({
           <div className="flex items-center space-x-3 mb-4 relative z-20">
             <Phone className="w-5 h-5 text-[#0A50EC] flex-shrink-0" aria-hidden="true" />
             <a
-              href={`tel:${MAIN_PHONE_TEL}`}
+              href={`tel:+1${telPhone}`}
               className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300"
               itemProp="telephone"
               onClick={(e) => e.stopPropagation()}
             >
-              {MAIN_PHONE_DISPLAY}
+              {displayPhone}
             </a>
           </div>
 

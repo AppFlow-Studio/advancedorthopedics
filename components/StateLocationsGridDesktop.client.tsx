@@ -19,6 +19,8 @@ const containerVariants = {
 interface StateLocationsGridDesktopProps {
   stateClinics: ClinicsProps[];
   stateInfo: { name?: string } | undefined;
+  phoneDisplay?: string;
+  phoneTel?: string;
 }
 
 /**
@@ -28,6 +30,8 @@ interface StateLocationsGridDesktopProps {
 export default function StateLocationsGridDesktop({
   stateClinics,
   stateInfo,
+  phoneDisplay,
+  phoneTel,
 }: StateLocationsGridDesktopProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -48,6 +52,8 @@ export default function StateLocationsGridDesktop({
           hoveredIndex={hoveredIndex}
           onHoverStart={() => setHoveredIndex(index)}
           onHoverEnd={() => setHoveredIndex(null)}
+          phoneDisplay={phoneDisplay}
+          phoneTel={phoneTel}
         />
       ))}
     </motion.div>

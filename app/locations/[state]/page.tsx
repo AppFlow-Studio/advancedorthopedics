@@ -1,28 +1,32 @@
 'use client'
 
 import React, { useState } from 'react'
-import { CheckCircle } from 'lucide-react'
+import Image from 'next/image'
 import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
-import { TextAnimate } from '@/components/magicui/text-animate'
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound, useParams } from 'next/navigation'
+import { STATE_METADATA, VALID_STATE_SLUGS } from '@/lib/locationRedirects'
+import { STATE_FAQS } from '@/lib/state-faqs'
+import { generateFAQPageSchema } from "@/lib/faq-utils"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { STATE_METADATA, VALID_STATE_SLUGS } from '@/lib/locationRedirects'
-import { STATE_FAQS } from '@/lib/state-faqs'
-import { generateFAQPageSchema } from "@/lib/faq-utils"
-import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, LOCATION_HOURS_DISPLAY, MAIN_PHONE_E164 } from '@/lib/locationConstants'
-import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
+import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, MAIN_PHONE_E164, STATE_PHONE_NUMBERS } from '@/lib/locationConstants'
 import StateSeoSections from '@/components/StateSeoSections'
 import StateLocationsCarouselMobile from '@/components/StateLocationsCarouselMobile.client'
 import StateLocationCard from '@/components/StateLocationCard'
 import StateLocationsGridDesktop from '@/components/StateLocationsGridDesktop.client'
+import StateWhyChoose from '@/components/StateWhyChoose'
+import StateInsurance from '@/components/StateInsurance'
+import StateCTA from '@/components/StateCTA'
+import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
+import { PhoneTextLink } from '@/components/PhoneTextLink'
+import SlidingDiv from '@/components/SlidingAnimation'
+import StateHeroForm from '@/components/StateHeroForm'
 
 export default function StateHubPage() {
   const params = useParams()
@@ -35,6 +39,8 @@ export default function StateHubPage() {
   }
   
   const stateInfo = STATE_METADATA[state]
+  const statePhone = STATE_PHONE_NUMBERS[state as keyof typeof STATE_PHONE_NUMBERS] || { display: MAIN_PHONE_DISPLAY, tel: MAIN_PHONE_TEL, e164: MAIN_PHONE_E164 };
+  
   // Filter clinics client-side to avoid server-side require issues
   const stateClinics = clinics.filter(clinic => clinic.stateSlug === state)
   const stateFaqs = STATE_FAQS[state] || []
@@ -171,7 +177,7 @@ export default function StateHubPage() {
           'addressRegion': stateInfo?.abbr || '',
           'addressCountry': 'US'
         },
-        'telephone': MAIN_PHONE_E164,
+        'telephone': statePhone.e164,
         'url': `https://mountainspineorthopedics.com/locations/${clinic.stateSlug}/${clinic.locationSlug}`
       }
     }))
@@ -187,18 +193,6 @@ export default function StateHubPage() {
   if (stateClinics.length === 0) {
     notFound()
   }
-
-  // Services data for the services section
-  const services = [
-    { slug: 'spine', name: 'Spine Care', description: 'Evaluation and treatment for back pain, neck pain, herniated discs, spinal stenosis, and degenerative disc disease.' },
-    { slug: 'back', name: 'Back Pain', description: 'Comprehensive care for lower back pain, sciatica, and lumbar spine conditions.' },
-    { slug: 'neck', name: 'Neck Pain', description: 'Specialized treatment for cervical spine conditions, neck pain, and related symptoms.' },
-    { slug: 'shoulder', name: 'Shoulder Care', description: 'Evaluation and treatment for shoulder injuries, arthritis, rotator cuff tears, and shoulder pain.' },
-    { slug: 'hip', name: 'Hip Care', description: 'Treatment for hip pain, arthritis, hip impingement, and hip replacement options.' },
-    { slug: 'knee', name: 'Knee Care', description: 'Comprehensive knee care including arthritis, ACL injuries, meniscus tears, and knee replacement.' },
-    { slug: 'hand-wrist-elbow', name: 'Hand, Wrist & Elbow', description: 'Specialized care for carpal tunnel syndrome, trigger finger, tennis elbow, golfer\'s elbow, and other hand, wrist, and elbow conditions.' },
-    { slug: 'foot-ankle', name: 'Foot & Ankle', description: 'Expert care for foot pain, ankle injuries, bunions, and plantar fasciitis.' },
-  ]
 
   return (
     <>
@@ -220,89 +214,112 @@ export default function StateHubPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10'>
-      {/* 1. HERO SECTION */}
-      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-label={`Spine & Orthopedic Surgeons in ${stateInfo?.name}`}>
-        <div
-          style={{ filter: 'blur(30px)' }}
-          className="w-full h-[120px] absolute top-0 z-[1]"
-        />
+      <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-6 md:pb-10'>
+      {/* 1. HERO - 2-column: text left, form right */}
+      <section className="w-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-label={`Spine & Orthopedic Surgeons in ${stateInfo?.name}`}>
+        <div style={{ filter: 'blur(30px)' }} className="w-full h-[120px] absolute top-0 z-[1]" />
         <Image
-          src={'/herosectionimg.jpg'}
-          priority={true}
+          src="/herosectionimg.jpg"
+          priority
           fetchPriority="high"
-          layout='fill'
-          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt={`Board-certified spine and orthopedic surgeons providing expert care across ${stateInfo?.name}. Same-day and next-day appointments available.`}
+          fill
+          className="absolute top-0 object-cover object-center w-full h-full"
+          alt={`Board-certified spine and orthopedic surgeons across ${stateInfo?.name}. Same-day and next-day appointments available.`}
         />
         <div
-          className="lg:w-[100%] z-[1] h-full absolute left-0 top-0 md:w-[100%] w-full"
-          style={{
-            background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
-          }}
+          className="z-[1] absolute inset-0 w-full h-full"
+          style={{ background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)' }}
         />
         <div
           className="w-full h-[100px] absolute bottom-0 z-[1]"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)',
-          }}
+          style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.8) 100%)' }}
         />
-        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-8 sm:pb-12 lg:pb-20 px-4 sm:px-6 lg:px-[80px] min-w-0">
-          <div className='max-w-[1440px] w-full min-w-0 flex flex-col items-start justify-start'>
-            <div className='flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-4'
-              style={{ background: 'rgba(255, 255, 255, 0.50)' }}
-            >
-              <Link
-                href="/locations"
-                style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }}
-                className="text-[#111315] hover:text-[#2258AC] transition-colors"
-              >
-                Locations
-              </Link>
-              <span className="text-[#111315]">/</span>
-              <span className="text-[#2258AC]">{stateInfo?.name}</span>
+
+        {/* 2-column content grid */}
+        <div className="z-[2] relative w-full pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-14 lg:pb-16 px-4 sm:px-6 lg:px-[80px]">
+          <div className="max-w-[1440px] w-full mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 xl:gap-16">
+
+            {/* LEFT: Text content */}
+            <div className="flex-1 min-w-0 flex flex-col items-start">
+              <SlidingDiv position="left">
+                <div className="flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[16px] sm:px-[20px] py-[8px] sm:py-[10px] mb-4" style={{ background: 'rgba(255, 255, 255, 0.50)' }}>
+                  <Link href="/locations" style={{ fontFamily: "var(--font-public-sans)", fontWeight: 400 }} className="text-[#111315] hover:text-[#2258AC] transition-colors text-sm sm:text-base">Locations</Link>
+                  <span className="text-[#111315]">/</span>
+                  <span className="text-[#2258AC]">{stateInfo?.name}</span>
+                </div>
+              </SlidingDiv>
+
+              <SlidingDiv position="left">
+                <h1 style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className="text-[#252932] text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-3">
+                  Spine &amp; Orthopedic Surgeons in {stateInfo?.name || ''}
+                </h1>
+              </SlidingDiv>
+
+              <SlidingDiv position="left">
+                <p style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className="text-[#252932] text-base sm:text-lg lg:text-xl mb-5 break-words">
+                  Board-certified specialists at {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''}. Same-day and next-day appointments.
+                </p>
+              </SlidingDiv>
+
+              {/* Trust bullets */}
+              <SlidingDiv position="left">
+                <ul className="flex flex-col gap-2 mb-6">
+                  {[
+                    'Board-certified spine & orthopedic surgeons',
+                    'Same-day & next-day appointments available',
+                    `${stateClinics.length} convenient ${stateInfo?.name} location${stateClinics.length > 1 ? 's' : ''}`,
+                    'Most major insurance plans accepted',
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#0A50EC] flex items-center justify-center">
+                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true">
+                          <path d="M1 4l2.5 2.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span style={{ fontFamily: 'var(--font-public-sans)' }} className="text-[#252932] text-sm sm:text-base font-medium">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </SlidingDiv>
+
+              {/* Phone CTA */}
+              <SlidingDiv position="left">
+                <PhoneTextLink
+                  trackLocation={`StateHero-${stateInfo?.name}`}
+                  phoneNumber={statePhone.display}
+                  displayText={statePhone.display}
+                  className="text-lg sm:text-xl"
+                />
+              </SlidingDiv>
             </div>
-            
-            {/* H1 - animate only on mount so hover on location cards does not retrigger */}
-            <TextAnimate
-              animation="blurInUp"
-              by="word"
-              once
-              startOnView={false}
-              as="h1"
-              style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-              className='text-[#252932] text-2xl sm:text-4xl lg:text-6xl leading-tight'
-            >
-              {`Spine & Orthopedic Surgeons in ${stateInfo?.name || ''}`}
-            </TextAnimate>
-            
-            {/* Subhead - using paragraph for better heading hierarchy */}
-            <p
-              style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
-              className='text-[#252932] text-lg sm:text-2xl mt-2 break-words'
-            >
-              Board-certified specialists at {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''}.
-            </p>
+
+            {/* RIGHT: Hero form card */}
+            <SlidingDiv position="right" className="w-full lg:w-[420px] xl:w-[460px] flex-shrink-0">
+              <StateHeroForm defaultState={state} stateName={stateInfo?.name || ''} />
+            </SlidingDiv>
+
           </div>
         </div>
       </section>
 
       <div className="bg-white w-full">
-        {/* 2. LOCATIONS GRID - First after hero */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-6 sm:pt-8 md:py-16 pb-16">
+        {/* 2. LOCATIONS GRID - Immediately after hero */}
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 md:pt-12 pb-8 sm:pb-12 md:pb-16">
           <section id="locations" className="scroll-mt-20" aria-labelledby="locations-heading">
-            <h2 id="locations-heading" className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#252932] mt-2 sm:my-6 text-center mb-8 sm:mb-12 break-words px-2">
+            <h2 id="locations-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mt-0 sm:mt-2 text-center mb-6 sm:mb-8 md:mb-10 break-words px-2">
               Our {stateInfo?.name} Locations
             </h2>
 
             {/* Mobile Carousel - Isolated state so swiping does not re-render hero / re-trigger header animation */}
             <StateLocationsCarouselMobile
               stateClinics={stateClinics}
-              renderCard={(clinic, index) => <StateLocationCard clinic={clinic} index={index} isMobile stateInfo={stateInfo} />}
+              renderCard={(clinic, index) => <StateLocationCard clinic={clinic} index={index} isMobile stateInfo={stateInfo} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />}
             />
 
             {/* Desktop Grid - Own hover state so hovering does not re-render page / re-trigger hero animation */}
-            <StateLocationsGridDesktop stateClinics={stateClinics} stateInfo={stateInfo} />
+            <StateLocationsGridDesktop stateClinics={stateClinics} stateInfo={stateInfo} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
             
             {/* Static HTML fallback for crawlers - Always visible, hidden visually but accessible to bots */}
             <div className="sr-only" aria-hidden="false">
@@ -311,7 +328,7 @@ export default function StateHubPage() {
                 {stateClinics.map((clinic) => (
                   <li key={clinic.id}>
                     <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`}>
-                      {clinic.name} - {clinic.address} - {MAIN_PHONE_DISPLAY}
+                      {clinic.name} - {clinic.address} - {statePhone.display}
                     </Link>
                   </li>
                 ))}
@@ -324,8 +341,8 @@ export default function StateHubPage() {
         <ClinicsMap startingClinic={selectedLocation} stateName={stateInfo?.name} />
         
         {/* 4. INTRO PARAGRAPH - Third after map */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-16">
-          <section className="mb-16" aria-labelledby="intro-heading">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16">
+          <section className="mb-8 sm:mb-12 md:mb-16" aria-labelledby="intro-heading">
             <h2 id="intro-heading" className="sr-only">About Our {stateInfo?.name} Locations</h2>
             <p className="text-lg text-[#424959] leading-relaxed max-w-4xl mx-auto">
               Mountain Spine & Orthopedics provides comprehensive orthopedic and spine care across {stateInfo?.name}, with board-certified surgeons specializing in spine surgery, joint replacement, minimally invasive spine surgery, sports medicine, and pain management. Our {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''} serve patients in {topCities} and surrounding communities.{state === 'new-jersey' ? ' Our New Jersey clinics serve patients throughout North, Central, and South Jersey, with convenient access via major corridors including the Garden State Parkway and Route 22.' : state === 'new-york' ? ' Our New York locations provide accessible orthopedic care with convenient parking and easy transit access for patients throughout the region.' : state === 'pennsylvania' ? ' Our Pennsylvania clinics serve patients across the state with convenient locations and accessible parking for easy appointments.' : ' Our Florida clinics serve patients throughout the state with convenient locations and ample parking for easy access.'} We offer same-day and next-day appointments for urgent orthopedic needs, advanced diagnostic imaging coordination, and personalized treatment plans that may include non-surgical options like medications and injections, or surgical interventions when appropriate. Our team focuses on accurate diagnosis, evidence-based care, and helping patients return to their active lifestyles.
@@ -339,44 +356,20 @@ export default function StateHubPage() {
             nearbyRegions={nearbyRegions}
           />
 
-          {/* 5. WHY CHOOSE US */}
-          <section
-            className="mb-16 bg-gradient-to-r from-[#E0F5FF] to-[#F8FAFC] rounded-3xl p-8 md:p-12 border border-white/50"
-            aria-labelledby="why-choose-heading"
-          >
-            <h2 id="why-choose-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center break-words px-2">
-              Why Patients Choose Mountain Spine & Orthopedics in {stateInfo?.name}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                'Board-certified, fellowship-trained orthopedic and spine surgeons with advanced training',
-                'Minimally invasive surgical techniques when appropriate, reducing recovery time',
-                'Same-day and next-day appointment availability for urgent needs',
-                'Advanced diagnostic imaging coordination and comprehensive evaluation',
-                'Non-surgical treatment options including medications, injections, and activity modification when appropriate',
-                `${stateClinics.length} convenient ${stateInfo?.name} location${stateClinics.length > 1 ? 's' : ''} for easy access`,
-                'Most major insurance plans accepted'
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-[#0A50EC] flex-shrink-0 mt-0.5" />
-                  <p className="text-[#424959]">{item}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <StateWhyChoose stateName={stateInfo?.name || state} />
 
           {/* 6. PATIENT REVIEWS */}
           <section
-            className="mb-16"
+            className="mb-8 sm:mb-12 md:mb-16"
             aria-labelledby="reviews-heading"
           >
-            <h2 id="reviews-heading" className="text-xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-6 text-center break-words px-2">
+            <h2 id="reviews-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-[#252932] mb-4 sm:mb-6 text-center break-words px-2">
               Patient Reviews in {stateInfo?.name}
             </h2>
-            <p className="text-[#424959] text-lg mb-6 text-center max-w-3xl mx-auto">
+            <p className="text-[#424959] text-base sm:text-lg mb-4 sm:mb-6 text-center max-w-3xl mx-auto px-2">
               Our patients share their experiences at our {stateInfo?.name} locations. Read location-specific reviews and ratings on each city page.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {stateClinics.slice(0, 6).map((clinic) => (
                 <Link
                   key={clinic.id}
@@ -401,72 +394,37 @@ export default function StateHubPage() {
             </div>
           </section>
 
-          {/* 7. INSURANCE ACCEPTED */}
-          <section
-            className="mb-16"
-            aria-labelledby="insurance-heading"
-          >
-            <h2 id="insurance-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-6 text-center">
-              Insurance Accepted in {stateInfo?.name}
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-4 text-[#424959]">
-              <p className="text-lg">
-                We accept PPO insurance plans and Personal Injury Protection (PIP) coverage at our {stateInfo?.name} locations. This allows many patients to access our orthopedic and spine care services.
-              </p>
-              <p>
-                To verify that your specific PPO plan or PIP coverage is accepted and to understand your coverage details, please contact your preferred location. Our team can help you understand your benefits and any authorization requirements.
-              </p>
-              <p>
-                For detailed information about insurance acceptance and billing, please review our <Link href="/insurance-policy" className="text-[#0A50EC] hover:underline font-medium">insurance and billing details</Link>.
-              </p>
-            </div>
-          </section>
+          <StateInsurance stateName={stateInfo?.name || state} />
 
-          {/* 8. FINAL CTA */}
-          <section
-            className="mb-16 text-center bg-gradient-to-r from-[#0A50EC] to-[#0840C0] rounded-3xl p-8 md:p-12 text-white"
-            aria-labelledby="cta-heading"
-          >
-            <h2 id="cta-heading" className="text-3xl md:text-4xl font-bold mb-4">
-              Book an Appointment in {stateInfo?.name}
-            </h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-              Schedule your consultation with a board-certified orthopedic or spine specialist at one of our convenient {stateInfo?.name} locations.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <BookAnAppoitmentButton />
-              <Link
-                href="/find-care/book-an-appointment"
-                className="px-8 py-4 bg-white text-[#0A50EC] rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300"
-              >
-                Request Appointment
-              </Link>
-            </div>
-          </section>
+          <StateCTA 
+            stateName={stateInfo?.name || state}
+            phoneNumber={statePhone.display}
+            phoneNumberRaw={statePhone.tel}
+          />
 
-          {/* 9. FAQ SECTION */}
+          {/* FAQ SECTION */}
           <section
-            className="mb-16"
+            className="mb-8 sm:mb-12 md:mb-16"
             aria-labelledby="faq-heading"
           >
-            <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-[#252932] mb-8 text-center">
+            <h2 id="faq-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-6 sm:mb-8 text-center px-2">
               Frequently Asked Questions About Orthopedic Care in {stateInfo?.name}
             </h2>
             <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
+              <Accordion type="single" collapsible className="w-full flex flex-col gap-3">
                 {stateFaqs.map((faq, index) => (
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`} 
-                    className="border-b border-gray-200"
+                    className="!border !border-gray-200 !rounded-xl overflow-hidden bg-[#FAFAFA] data-[state=open]:bg-white data-[state=open]:shadow-md transition-all duration-200"
                   >
                     <AccordionTrigger 
-                      className="text-left text-lg font-semibold text-[#252932] hover:text-[#0A50EC]"
+                      className="text-left text-base sm:text-lg font-semibold text-[#252932] hover:text-[#0A50EC] px-4 sm:px-6 py-4 sm:py-5 hover:no-underline [&[data-state=open]]:bg-white"
                     >
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent 
-                      className="text-[#424959] leading-relaxed pt-2"
+                      className="text-[#424959] leading-relaxed px-4 sm:px-6 pb-5 pt-0"
                     >
                       <p>{faq.answer}</p>
                     </AccordionContent>

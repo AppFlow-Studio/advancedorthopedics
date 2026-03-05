@@ -5,11 +5,13 @@ import { MapPin, Phone, Clock } from "lucide-react";
 import Link from "next/link";
 import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, LOCATION_HOURS_DISPLAY } from "@/lib/locationConstants";
 
-export function LocationNAP({ slug }: { slug: string }) {
+export function LocationNAP({ slug, phoneDisplay, phoneTel }: { slug: string; phoneDisplay?: string; phoneTel?: string }) {
   const clinic = clinics.find((c) => c.slug === slug);
   if (!clinic) return null;
 
   const { address, placeUrl } = clinic;
+  const displayPhone = phoneDisplay ?? MAIN_PHONE_DISPLAY;
+  const telPhone = phoneTel ?? MAIN_PHONE_TEL;
 
   return (
     <div
@@ -35,10 +37,10 @@ export function LocationNAP({ slug }: { slug: string }) {
       <div className="flex items-center space-x-2">
         <Phone className="text-[#0A50EC] w-5 h-5 flex-shrink-0" />
         <a
-          href={`tel:${MAIN_PHONE_TEL}`}
+          href={`tel:+1${telPhone}`}
           className="text-[#111315] font-semibold text-base leading-tight hover:text-[#0A50EC] transition-colors"
         >
-          {MAIN_PHONE_DISPLAY}
+          {displayPhone}
         </a>
       </div>
 

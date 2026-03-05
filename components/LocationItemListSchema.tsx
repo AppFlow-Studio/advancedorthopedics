@@ -1,6 +1,6 @@
 import { ClinicsProps } from '@/components/data/clinics';
 import { buildCanonical } from '@/lib/seo';
-import { MAIN_PHONE_E164 } from '@/lib/locationConstants';
+import { MAIN_PHONE_E164, STATE_PHONE_NUMBERS } from '@/lib/locationConstants';
 
 export function LocationItemListSchema({ clinics }: { clinics: ClinicsProps[] }) {
   const itemListSchema = {
@@ -24,7 +24,7 @@ export function LocationItemListSchema({ clinics }: { clinics: ClinicsProps[] })
           "addressRegion": clinic.stateAbbr,
           "addressCountry": "US"
         },
-        "telephone": MAIN_PHONE_E164, // E.164 format for schema
+        "telephone": STATE_PHONE_NUMBERS[clinic.stateSlug as keyof typeof STATE_PHONE_NUMBERS]?.e164 || MAIN_PHONE_E164,
       }
     })),
   };

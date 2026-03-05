@@ -96,7 +96,7 @@ export default function CondensedLocations() {
                 
                 <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-gray-500">
-                        All locations reached at <a href="tel:5612239959" className="font-semibold text-gray-700 hover:text-[#0A50EC]">(561) 223-9959</a>
+                        By state: FL/PA <a href="tel:+15612239959" className="font-semibold text-gray-700 hover:text-[#0A50EC]">(561) 223-9959</a> · NJ <a href="tel:+19732596756" className="font-semibold text-gray-700 hover:text-[#0A50EC]">(973) 259-6756</a> · NY <a href="tel:+16463895606" className="font-semibold text-gray-700 hover:text-[#0A50EC]">(646) 389-5606</a>
                     </p>
                     <Link 
                         href="/locations"

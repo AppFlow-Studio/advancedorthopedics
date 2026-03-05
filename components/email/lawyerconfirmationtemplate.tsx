@@ -139,7 +139,7 @@ export const LawyerConfirmationTemplate: React.FC<Readonly<LawyerConfirmationPro
                         <p style={{ color: '#374151', marginBottom: '24px' }}>
                             If you need immediate assistance or have urgent coordination needs, please call our main office at{" "}
                             <span style={{ color: '#0A50EC', fontWeight: '500' }}>
-                                <a href="tel:5612239959">(561) 223-9959</a>
+                                <a href="tel:+15612239959">(561) 223-9959</a>
                             </span>.
                         </p>
 
@@ -217,7 +217,7 @@ export const LawyerConfirmationTemplate: React.FC<Readonly<LawyerConfirmationPro
                             <a href="https://mountainspineorthopedics.com/locations" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px', marginRight: '8px' }}>
                                 Locations
                             </a>
-                            <a href="tel:5612239959" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px' }}>
+                            <a href="tel:+15612239959" style={{ color: '#0A50EC', textDecoration: 'underline', marginLeft: '8px' }}>
                                 Contact Us
                             </a>
                         </div>

@@ -16,7 +16,9 @@ import { Dialog, DialogTitle, DialogContent } from "@/components/ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { sendContactEmail, sendUserEmail } from "@/components/email/sendcontactemail"
 import { redirect } from "next/navigation"
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS } from "@/lib/stateUtils"
+import { clinics } from "@/components/data/clinics"
 
 const leadSchema = z.object({
     firstName: z.string().min(2, "First name is required"),
@@ -26,6 +28,7 @@ const leadSchema = z.object({
     injury: z.string().min(1, "Please select your injury type"),
     urgency: z.string().min(1, "Please select urgency level"),
     location: z.string().min(1, "Please select preferred location"),
+    state: z.string().min(1, "Please select your state"),
 })
 
 type LeadFormData = z.infer<typeof leadSchema>
@@ -40,7 +43,6 @@ const injuries = [
     "Other injury",
 ]
 
-const locations = ["Altamonte Springs", "Hollywood", "Fort Pierce", "Davenport", "Orlando"]
 
 export function LeadCaptureForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -56,23 +58,18 @@ export function LeadCaptureForm() {
             injury: "",
             urgency: "",
             location: "",
+            state: "",
         },
     })
 
 
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
-        const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injury, bestTime: values.urgency, injury_type: values.injury, location: values.location })
+        const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injury, bestTime: values.urgency, injury_type: values.injury, location: values.location, state: values.state })
         await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
         
         // Enhanced Conversions
-        persistEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
-        pushEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
-        pushEvent('injury_form_submit', {
-            form_type: 'slip_fall',
-            form_name: 'PersonalInjuryLead',
-            city_selected: values.location || '',
-        });
+        pushFormSubmit({ form_name: 'SlipAndFallLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
         
         setIsSubmitting(false)
         if (data) {
@@ -364,17 +361,9 @@ export function LeadCaptureForm() {
                         <Dialog open={isOpen} onOpenChange={setIsOpen}>
 
                             <DialogContent>
-                                <DialogTitle>
-                                    <h3
-                                        style={{
-                                            fontFamily: 'var(--font-public-sans)',
-                                            fontWeight: 500,
-                                        }}
-                                        className='text-[#111315] text-2xl mb-2 flex items-center space-x-2'
-                                    >
-                                        <Calendar className="w-5 h-5 text-[#0A50EC]" />
-                                        <span>Schedule Your Evaluation</span>
-                                    </h3>
+                                <DialogTitle className="flex items-center gap-2 text-[#111315] text-2xl" style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}>
+                                    <Calendar className="w-5 h-5 text-[#0A50EC] shrink-0" />
+                                    Schedule Your Evaluation
                                 </DialogTitle>
                                 <form className="space-y-4 flex flex-col ">
 
@@ -555,14 +544,33 @@ export function LeadCaptureForm() {
                                                 <SelectValue placeholder="Select location" className="font-[var(--font-inter)] h-12 text-lg" />
                                             </SelectTrigger>
                                             <SelectContent>
-                                                {locations.map((location) => (
-                                                    <SelectItem key={location} value={location}>
-                                                        {location}
+                                                {clinics.map((clinic) => (
+                                                    <SelectItem key={clinic.id} value={clinic.region}>
+                                                        {clinic.region}
                                                     </SelectItem>
                                                 ))}
                                             </SelectContent>
                                         </Select>
                                         {form.formState.errors.location && <p className="text-sm text-red-600 mt-1">{form.formState.errors.location.message}</p>}
+                                    </div>
+
+                                    <div className="gap-y-2 flex flex-col">
+                                        <Label>
+                                            <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }} className="text-[#111315] text-md">
+                                                State <span className="text-red-500">*</span>
+                                            </span>
+                                        </Label>
+                                        <Select onValueChange={(value) => form.setValue("state", value)}>
+                                            <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.state ? "border-red-500" : ""}`}>
+                                                <SelectValue placeholder="Select your state" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {STATE_OPTIONS.map(({ value, label }) => (
+                                                    <SelectItem key={value} value={value}>{label}</SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                        {form.formState.errors.state && <p className="text-sm text-red-600 mt-1">{form.formState.errors.state.message}</p>}
                                     </div>
 
                                     <Button
@@ -571,7 +579,8 @@ export function LeadCaptureForm() {
                                         disabled={isSubmitting}
                                         data-cta="schedule-evaluation"
                                         onClick={(e) => {
-                                            onSubmit(form.getValues())
+                                            e.preventDefault()
+                                            form.handleSubmit(onSubmit)()
                                         }}
                                     >
                                         {isSubmitting ? (

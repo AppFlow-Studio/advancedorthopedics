@@ -14,7 +14,8 @@ import { BorderBeam } from "@/components/magicui/border-beam"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { sendContactEmail, sendUserEmail } from "@/components/email/sendcontactemail"
 import { redirect } from "next/navigation"
-import { persistEC, pushEC, pushEvent } from "@/utils/enhancedConversions"
+import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { STATE_OPTIONS } from "@/lib/stateUtils"
 import { clinics } from "@/components/data/clinics"
 
 const leadSchema = z.object({
@@ -25,6 +26,7 @@ const leadSchema = z.object({
     injury: z.string().min(1, "Please select your injury type"),
     urgency: z.string().min(1, "Please select urgency level"),
     location: z.string().min(1, "Please select preferred location"),
+    state: z.string().min(1, "Please select your state"),
 })
 
 type LeadFormData = z.infer<typeof leadSchema>
@@ -62,6 +64,7 @@ export function WorkInjuryLeadCaptureForm() {
             injury: "",
             urgency: "",
             location: "",
+            state: "",
         },
     })
 
@@ -75,16 +78,11 @@ export function WorkInjuryLeadCaptureForm() {
             bestTime: values.urgency,
             injury_type: values.injury,
             location: values.location,
+            state: values.state,
         })
         await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
 
-        persistEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName })
-        pushEC({ email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName })
-        pushEvent("injury_form_submit", {
-            form_type: "work_injury",
-            form_name: "WorkInjuryLead",
-            city_selected: values.location || "",
-        })
+        pushFormSubmit({ form_name: 'WorkInjuryLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName })
 
         setIsSubmitting(false)
         if (data) {
@@ -294,14 +292,9 @@ export function WorkInjuryLeadCaptureForm() {
 
                     <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogContent>
-                            <DialogTitle>
-                                <h3
-                                    style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
-                                    className="text-[#111315] text-2xl mb-2 flex items-center space-x-2"
-                                >
-                                    <Briefcase className="w-5 h-5 text-[#0A50EC]" />
-                                    <span>Schedule Your Work Injury Evaluation</span>
-                                </h3>
+                            <DialogTitle className="flex items-center gap-2 text-[#111315] text-2xl" style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}>
+                                <Briefcase className="w-5 h-5 text-[#0A50EC] shrink-0" />
+                                Schedule Your Work Injury Evaluation
                             </DialogTitle>
                             <form className="space-y-4 flex flex-col">
                                 <div className="grid grid-cols-2 gap-4">
@@ -446,6 +439,25 @@ export function WorkInjuryLeadCaptureForm() {
                                         </SelectContent>
                                     </Select>
                                     {form.formState.errors.location && <p className="text-sm text-red-600 mt-1">{form.formState.errors.location.message}</p>}
+                                </div>
+
+                                <div className="gap-y-2 flex flex-col">
+                                    <Label>
+                                        <span style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] text-md">
+                                            State <span className="text-red-500">*</span>
+                                        </span>
+                                    </Label>
+                                    <Select onValueChange={(value) => form.setValue("state", value)}>
+                                        <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.state ? "border-red-500" : ""}`}>
+                                            <SelectValue placeholder="Select your state" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {STATE_OPTIONS.map(({ value, label }) => (
+                                                <SelectItem key={value} value={value}>{label}</SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                    {form.formState.errors.state && <p className="text-sm text-red-600 mt-1">{form.formState.errors.state.message}</p>}
                                 </div>
 
                                 <Button

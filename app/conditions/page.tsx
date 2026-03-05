@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { buildCanonical, canonicalForOg } from '@/lib/seo';
 import { getOgImageForPath } from '@/lib/og';
@@ -41,5 +41,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function ConditionsPage() {
-  return <ConditionsHubClient />;
+  return (
+    <Suspense fallback={
+      <main className="w-full flex flex-col items-center justify-center bg-white h-screen">
+        <div className="animate-pulse flex flex-col items-center">
+          <div className="h-12 w-64 bg-gray-200 rounded mb-4"></div>
+          <div className="h-4 w-48 bg-gray-200 rounded"></div>
+        </div>
+      </main>
+    }>
+      <ConditionsHubClient />
+    </Suspense>
+  );
 }

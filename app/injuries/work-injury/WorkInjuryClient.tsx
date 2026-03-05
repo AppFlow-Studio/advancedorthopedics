@@ -9,11 +9,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton"
 import InjuryDoctorsSection from "@/components/InjuryDoctorsSection.client"
+import InjuryUrgencyBanner from "@/components/InjuryUrgencyBanner"
+import InjuryClinicFinder from "@/components/InjuryClinicFinder"
+import InjuryInsuranceCoverage from "@/components/InjuryInsuranceCoverage"
+import InjuryHotspots from "@/components/InjuryHotspots"
+import InjuryAttorneyPanel from "@/components/InjuryAttorneyPanel"
 import { Star, Shield, Clock, MapPin, Phone, Calendar, AlertTriangle, CheckCircle, Award, Briefcase } from "lucide-react"
 import { WorkInjuryLeadCaptureForm } from "./lead-capture-form"
 import InjuriesCarousel from "@/components/InjuriesCarousel"
 import RatingsAndReviews from "@/components/RatingsAndReviews"
-import CondensedLocations from "@/components/CondensedLocations"
+// CondensedLocations replaced by InjuryClinicFinder
 import { clinics } from "@/components/data/clinics"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -118,6 +123,8 @@ export default function WorkInjuryClient({ faqs }: WorkInjuryClientProps) {
           </div>
         </div>
       </section>
+
+      <InjuryUrgencyBanner injuryType="work-injury" />
 
       {/* Trust Indicators */}
       <section className="w-full max-w-[1440px] flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px]" data-section="trust-indicators">
@@ -282,8 +289,14 @@ export default function WorkInjuryClient({ faqs }: WorkInjuryClientProps) {
         </div>
       </section>
 
+      <InjuryInsuranceCoverage injuryType="work-injury" />
+
+      {/* Clinic Finder */}
+      <InjuryClinicFinder />
+
+      <InjuryHotspots injuryType="work-injury" />
+
       {/* Meet Our Experts */}
-      <CondensedLocations />
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:py-16 py-8">
         <InjuryDoctorsSection />
       </div>
@@ -307,6 +320,8 @@ export default function WorkInjuryClient({ faqs }: WorkInjuryClientProps) {
         </div>
       </section>
 
+      <InjuryAttorneyPanel showAttorneyPanel={false} />
+
       {/* Final CTA */}
       <section className="w-full flex flex-col sm:py-[50px] py-10 h-full px-2 md:px-[40px] bg-primary text-white" data-section="final-cta">
         <div className="w-full max-w-4xl mx-auto text-center">
@@ -323,7 +338,7 @@ export default function WorkInjuryClient({ faqs }: WorkInjuryClientProps) {
               asChild
               data-cta="final-call"
             >
-              <a href="tel:5612239959">
+              <a href="tel:+15612239959">
                 <Phone className="w-5 h-5 mr-2" />
                 Call (561) 223-9959
               </a>

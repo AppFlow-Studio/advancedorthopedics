@@ -23,7 +23,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { STATE_METADATA, VALID_STATE_SLUGS, getClinicsByState } from '@/lib/locationRedirects'
-import { LOCATION_HOURS_DISPLAY, MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL } from '@/lib/locationConstants'
+import { LOCATION_HOURS_DISPLAY, MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, STATE_PHONE_NUMBERS } from '@/lib/locationConstants'
 
 interface LocationsClientProps {
   selectedLocation?: any
@@ -109,7 +109,9 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
   }
 
   // Location Card Component
-  const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => (
+  const LocationCard = ({ clinic, index, isMobile = false }: { clinic: any, index: number, isMobile?: boolean }) => {
+    const statePhone = STATE_PHONE_NUMBERS[clinic.stateSlug as keyof typeof STATE_PHONE_NUMBERS] ?? { display: MAIN_PHONE_DISPLAY, tel: MAIN_PHONE_TEL };
+    return (
     <motion.div
       key={index}
       variants={isMobile ? undefined : itemVariants}
@@ -164,11 +166,11 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
-                window.location.href = `tel:${MAIN_PHONE_TEL}`;
+                window.location.href = `tel:+1${statePhone.tel}`;
               }}
               className="text-[#252932] font-medium hover:text-[#0A50EC] transition-colors duration-300 text-left"
             >
-              {MAIN_PHONE_DISPLAY}
+              {statePhone.display}
             </button>
           </div>
 
@@ -212,7 +214,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A50EC]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
       </div>
     </motion.div>
-  )
+    );
+  }
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-10'>
@@ -273,7 +276,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 }}
                 className='text-[#424959] text-lg leading-relaxed'
               >
-                Use the state picker and map to find the most convenient clinic, then select a location to view directions, hours, and local details. If you need help scheduling, call <a href="tel:5612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a> and our team will match you with the best office for your symptoms and availability.
+                Use the state picker and map to find the most convenient clinic, then select a location to view directions, hours, and local details. If you need help scheduling, call the number for your state—FL/PA <a href="tel:+15612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a>, NJ <a href="tel:+19732596756" className="text-[#0A50EC] hover:underline font-medium">(973) 259-6756</a>, NY <a href="tel:+16463895606" className="text-[#0A50EC] hover:underline font-medium">(646) 389-5606</a>—and our team will match you with the best office for your symptoms and availability.
               </p>
             </div>
           </div>
@@ -590,7 +593,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                   className="text-[#424959] leading-relaxed pt-2"
                 >
                   <p>
-                    Choose the closest clinic in your state, then select the office that's most convenient for commuting and scheduling. If you're unsure, call our scheduling team at <a href="tel:5612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a> and we'll recommend the best location based on your symptoms and availability.
+                    Choose the closest clinic in your state, then select the office that's most convenient for commuting and scheduling. If you're unsure, call our scheduling team: FL/PA <a href="tel:+15612239959" className="text-[#0A50EC] hover:underline font-medium">(561) 223-9959</a>, NJ <a href="tel:+19732596756" className="text-[#0A50EC] hover:underline font-medium">(973) 259-6756</a>, or NY <a href="tel:+16463895606" className="text-[#0A50EC] hover:underline font-medium">(646) 389-5606</a>, and we'll recommend the best location based on your symptoms and availability.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -690,8 +693,8 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
               <div className="w-16 h-16 bg-[#0A50EC] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Phone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#252932] mb-2">Same Phone Number</h3>
-              <p className="text-[#424959]">Call (561) 223-9959 for all locations</p>
+              <h3 className="text-xl font-bold text-[#252932] mb-2">State Phone Numbers</h3>
+              <p className="text-[#424959] text-sm">FL/PA: <a href="tel:+15612239959" className="text-[#0A50EC] hover:underline">(561) 223-9959</a> · NJ: <a href="tel:+19732596756" className="text-[#0A50EC] hover:underline">(973) 259-6756</a> · NY: <a href="tel:+16463895606" className="text-[#0A50EC] hover:underline">(646) 389-5606</a></p>
             </div>
 
             <div className="text-center">
