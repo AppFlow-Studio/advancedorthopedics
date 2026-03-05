@@ -27,6 +27,7 @@ import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 import { PhoneTextLink } from '@/components/PhoneTextLink'
 import SlidingDiv from '@/components/SlidingAnimation'
 import StateHeroForm from '@/components/StateHeroForm'
+import BarTrans from '@/components/BarTrans'
 
 export default function StateHubPage() {
   const params = useParams()
@@ -401,10 +402,11 @@ export default function StateHubPage() {
             phoneNumber={statePhone.display}
             phoneNumberRaw={statePhone.tel}
           />
+          <BarTrans />
 
           {/* FAQ SECTION */}
           <section
-            className="mb-8 sm:mb-12 md:mb-16"
+            className="mb-8 sm:mb-12 md:mb-16 mt-8"
             aria-labelledby="faq-heading"
           >
             <h2 id="faq-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#252932] mb-6 sm:mb-8 text-center px-2">

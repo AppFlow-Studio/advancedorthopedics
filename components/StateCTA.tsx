@@ -75,14 +75,16 @@ export default function StateCTA({ stateName, phoneNumber, phoneNumberRaw }: Sta
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <BookAnAppoitmentButton className="w-full sm:w-auto !bg-white !text-[#0A50EC] hover:!bg-gray-100 py-5 sm:py-6 px-8 sm:px-10 text-lg sm:text-xl font-bold rounded-2xl shadow-xl transition-all border-2 border-white/20" />
+              <BookAnAppoitmentButton 
+              bordered
+              className="w-full sm:w-auto !bg-white !text-[#0A50EC] hover:!bg-gray-100 py-5 sm:py-6 px-8 sm:px-10 text-lg sm:text-xl font-bold rounded-2xl shadow-xl transition-all border-2 border-white/20" />
             </motion.div>
 
             <div className="flex flex-col items-center sm:items-center text-white group">
               <span className="text-xs sm:text-sm font-medium text-white/80 uppercase tracking-wider mb-1">Call Our {stateName} Office</span>
               <a 
                 href={`tel:+1${phoneNumberRaw}`}
-                className="text-2xl sm:text-3xl md:text-4xl font-bold flex items-center gap-3 hover:text-white transition-all border-b-2 border-white/40 group-hover:border-white pb-1"
+                className="text-2xl font-bold flex items-center gap-3 hover:text-white transition-all border-b-2 border-white/40 group-hover:border-white pb-1"
                 onClick={() => {
                   if (typeof window !== "undefined" && window.dataLayer) {
                     window.dataLayer.push({
