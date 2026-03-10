@@ -3,7 +3,7 @@ import { geolocation } from "@vercel/functions";
 import {
   sendLawyerConfirmationEmail,
   sendLawyerContactEmail,
-} from "@/components/email/sendlawyeremail";
+} from "@/components/email/sendcontactemail";
 
 type LawyerPayload = {
   firmName: string;
