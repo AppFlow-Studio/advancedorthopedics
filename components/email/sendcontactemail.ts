@@ -29,8 +29,11 @@ export async function sendUserEmail(formData: { name: string, email: string, pho
     }
 }
 
-export async function sendContactEmail(formData: { name: string, email: string, phone: string, reason: string, bestTime: string, has_attorney?: string | undefined, injury_type?: string | undefined, pain_level?: string | undefined, location?: string | undefined, state?: string | undefined, insuranceCardFront?: File | undefined, insuranceCardBack?: File | undefined }) {
+export async function sendContactEmail(formData: { name: string, email: string, phone: string, reason: string, bestTime: string, has_attorney?: string | undefined, injury_type?: string | undefined, pain_level?: string | undefined, location?: string | undefined, state?: string | undefined, destinationEmail?: string | undefined, insuranceCardFront?: File | undefined, insuranceCardBack?: File | undefined, gclid?: string | undefined, utm_source?: string | undefined, utm_medium?: string | undefined, utm_campaign?: string | undefined, utm_term?: string | undefined, utm_content?: string | undefined }) {
     try {
+        // Route to state-specific inbox when provided, otherwise fall back to general inbox.
+        const toEmail = formData.destinationEmail || 'info@mountainspineorthopedics.com';
+
         // Prepare attachments if files are provided
         const attachments = formData.insuranceCardFront || formData.insuranceCardBack ? await Promise.all(
             [formData.insuranceCardFront, formData.insuranceCardBack].map(async (file) => {
@@ -45,9 +48,9 @@ export async function sendContactEmail(formData: { name: string, email: string, 
         ) : undefined;
         const data = await resend.emails.send({
             from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
-            to: ['info@mountainspineorthopedics.com'],
+            to: [toEmail],
             subject: 'New Contact Form Submission',
-            react: await EmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone, reason: formData.reason, bestTime: formData.bestTime, has_attorney: formData.has_attorney, injury_type: formData.injury_type, pain_level: formData.pain_level, location: formData.location, state: formData.state }),
+            react: await EmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone, reason: formData.reason, bestTime: formData.bestTime, has_attorney: formData.has_attorney, injury_type: formData.injury_type, pain_level: formData.pain_level, location: formData.location, state: formData.state, gclid: formData.gclid, utm_source: formData.utm_source, utm_medium: formData.utm_medium, utm_campaign: formData.utm_campaign, utm_term: formData.utm_term, utm_content: formData.utm_content }),
             attachments: attachments?.filter(Boolean) as any[],
         });
         return data;

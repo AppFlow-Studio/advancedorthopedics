@@ -13,8 +13,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
+import { getAttributionData } from "@/lib/gclid"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
 import { motion } from "framer-motion"
 import { pushFormSubmit } from "@/utils/enhancedConversions"
@@ -46,7 +47,12 @@ const timeSlots = [
 export function PatientAdvocateForm() {
   const [appointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
   const router = useRouter()
+
+  useEffect(() => {
+    setAttribution(getAttributionData())
+  }, [])
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -79,6 +85,12 @@ export function PatientAdvocateForm() {
           postalCode: values.postalCode,
           country: values.country,
           state: values.state,
+          gclid: attribution.gclid,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content,
         }),
       })
 
@@ -111,6 +123,12 @@ export function PatientAdvocateForm() {
       >
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 px-1">
           <input type="hidden" name="country" value="US" />
+          <input type="hidden" name="gclid" value={attribution.gclid} />
+          <input type="hidden" name="utm_source" value={attribution.utm_source} />
+          <input type="hidden" name="utm_medium" value={attribution.utm_medium} />
+          <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} />
+          <input type="hidden" name="utm_term" value={attribution.utm_term} />
+          <input type="hidden" name="utm_content" value={attribution.utm_content} />
           <h2
             style={{
               fontFamily: 'var(--font-public-sans)',

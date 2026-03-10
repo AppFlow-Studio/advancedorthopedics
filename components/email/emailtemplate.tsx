@@ -11,6 +11,12 @@ interface EmailTemplateProps {
   pain_level?: string,
   location?: string,
   state?: string,
+  gclid?: string,
+  utm_source?: string,
+  utm_medium?: string,
+  utm_campaign?: string,
+  utm_term?: string,
+  utm_content?: string,
 }
 
 
@@ -33,6 +39,12 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   pain_level,
   location,
   state,
+  gclid,
+  utm_source,
+  utm_medium,
+  utm_campaign,
+  utm_term,
+  utm_content,
 }) => {
   const statePhone = (state && STATE_PHONE_MAP[state]) || STATE_PHONE_MAP.FL;
   return (
@@ -100,6 +112,18 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
           <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
             <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>State:</td>
             <td style={{ padding: '10px 0' }}>{state}</td>
+          </tr>
+          )}
+          {gclid && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>GCLID:</td>
+            <td style={{ padding: '10px 0', fontFamily: 'monospace', fontSize: '12px' }}>{gclid}</td>
+          </tr>
+          )}
+          {utm_source && (
+          <tr style={{ borderBottom: '1px solid #eee', justifyContent: 'space-evenly', width: '100%' }}>
+            <td style={{ padding: '10px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>UTM Source:</td>
+            <td style={{ padding: '10px 0' }}>{utm_source}{utm_medium ? ` / ${utm_medium}` : ''}{utm_campaign ? ` / ${utm_campaign}` : ''}</td>
           </tr>
           )}
         </tbody>

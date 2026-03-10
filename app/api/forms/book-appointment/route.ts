@@ -23,6 +23,12 @@ type BookAppointmentPayload = {
   country?: string;
   insuranceCardFront?: FilePayload;
   insuranceCardBack?: FilePayload;
+  gclid?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
 };
 
 type FileLike = {
@@ -70,6 +76,12 @@ export async function POST(request: Request) {
       bestTime: body.bestTime,
       insuranceCardFront: toFileLike(body.insuranceCardFront) as any,
       insuranceCardBack: toFileLike(body.insuranceCardBack) as any,
+      gclid: body.gclid,
+      utm_source: body.utm_source,
+      utm_medium: body.utm_medium,
+      utm_campaign: body.utm_campaign,
+      utm_term: body.utm_term,
+      utm_content: body.utm_content,
     });
 
     await sendUserEmail({

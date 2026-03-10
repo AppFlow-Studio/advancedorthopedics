@@ -20,6 +20,12 @@ type LawyerPayload = {
   injuryDescription: string;
   urgency: string;
   additionalInfo?: string;
+  gclid?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
 };
 
 export async function POST(request: Request) {
@@ -34,6 +40,16 @@ export async function POST(request: Request) {
 
   try {
     const body: LawyerPayload = await request.json();
+
+    if (body.gclid) {
+      console.log("[LawyerForm] GCLID:", body.gclid, "UTM:", {
+        source: body.utm_source,
+        medium: body.utm_medium,
+        campaign: body.utm_campaign,
+        term: body.utm_term,
+        content: body.utm_content,
+      });
+    }
 
     await sendLawyerContactEmail(body);
     await sendLawyerConfirmationEmail({

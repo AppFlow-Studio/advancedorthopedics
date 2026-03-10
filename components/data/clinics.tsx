@@ -5448,23 +5448,23 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in Bridgewater, NJ?",
-        answer: "Yes. Our Bridgewater location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our Bridgewater location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (973) 259-6756 to book the earliest appointment."
       },
       {
         question: "Where is your Bridgewater, NJ orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Bridgewater at 1200 US-22 #14, Bridgewater, NJ 08807. We're located near US-22 for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Bridgewater at 1200 US-22 #14, Bridgewater, NJ 08807. We're located near US-22 for convenient access. Call (973) 259-6756 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Bridgewater location?",
-        answer: "Patients visit our Bridgewater clinic from Somerville, Raritan, Bound Brook, Martinsville, Warren, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Bridgewater clinic from Somerville, Raritan, Bound Brook, Martinsville, Warren, and surrounding communities. If you're not sure which location is closest, call (973) 259-6756 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Bridgewater, NJ location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (973) 259-6756 to schedule."
       },
       {
         question: "Do you accept insurance at your Bridgewater, NJ office—and what should I bring?",
-        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (973) 259-6756 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -6108,23 +6108,23 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in Edison, NJ?",
-        answer: "Yes. Our Edison location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our Edison location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (973) 259-6756 to book the earliest appointment."
       },
       {
         question: "Where is your Edison, NJ orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Edison at 25 Main St, Suite 12, Edison, NJ 08837. We're located near the Edison Train Station for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Edison at 25 Main St, Suite 12, Edison, NJ 08837. We're located near the Edison Train Station for convenient access. Call (973) 259-6756 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Edison location?",
-        answer: "Patients visit our Edison clinic from Metuchen, Highland Park, Iselin, Woodbridge, New Brunswick, Piscataway, and surrounding communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Edison clinic from Metuchen, Highland Park, Iselin, Woodbridge, New Brunswick, Piscataway, and surrounding communities. If you're not sure which location is closest, call (973) 259-6756 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Edison, NJ location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (973) 259-6756 to schedule."
       },
       {
         question: "Do you accept insurance at your Edison, NJ office—and what should I bring?",
-        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (973) 259-6756 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -6762,23 +6762,23 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in Paramus, NJ?",
-        answer: "Yes. Our Paramus location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our Paramus location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (973) 259-6756 to book the earliest appointment."
       },
       {
         question: "Where is your Paramus, NJ orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Paramus at 140 NJ-17, Suite 101B, Paramus, NJ 07652. We're located near Route 17 for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Paramus at 140 NJ-17, Suite 101B, Paramus, NJ 07652. We're located near Route 17 for convenient access. Call (973) 259-6756 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Paramus location?",
-        answer: "Patients visit our Paramus clinic from surrounding Bergen County communities and nearby areas throughout northern New Jersey. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Paramus clinic from surrounding Bergen County communities and nearby areas throughout northern New Jersey. If you're not sure which location is closest, call (973) 259-6756 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Paramus, NJ location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (973) 259-6756 to schedule."
       },
       {
         question: "Do you accept insurance at your Paramus, NJ office—and what should I bring?",
-        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (973) 259-6756 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',
@@ -7441,23 +7441,23 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in New York, NY?",
-        answer: "Yes. Our New York City location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our New York City location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (646) 389-5606 to book the earliest appointment."
       },
       {
         question: "Where is your New York, NY orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in New York City at 535 5th Ave, Suite 1012, New York, NY 10017. We're located near 5th Ave in Midtown Manhattan for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in New York City at 535 5th Ave, Suite 1012, New York, NY 10017. We're located near 5th Ave in Midtown Manhattan for convenient access. Call (646) 389-5606 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your New York City location?",
-        answer: "Patients visit our New York City clinic from throughout Manhattan, Brooklyn, Queens, the Bronx, and surrounding New York metro area communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our New York City clinic from throughout Manhattan, Brooklyn, Queens, the Bronx, and surrounding New York metro area communities. If you're not sure which location is closest, call (646) 389-5606 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your New York, NY location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (646) 389-5606 to schedule."
       },
       {
         question: "Do you accept insurance at your New York, NY office—and what should I bring?",
-        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
+        answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (646) 389-5606 before your visit."
       }
     ],
     ogImage: '/newlogo4.png',

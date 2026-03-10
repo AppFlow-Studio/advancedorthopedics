@@ -1,4 +1,5 @@
 "use client"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -13,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
+import { getAttributionData } from "@/lib/gclid"
 import { User, Mail, Phone } from "lucide-react"
 import { DialogContent, DialogTitle } from "./ui/dialog"
 import { Dialog } from "./ui/dialog"
@@ -38,7 +40,12 @@ const formSchema = z.object({
 export function ConsultationForm({ defaultState = "" }: { defaultState?: string }) {
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
   const router = useRouter()
+
+  useEffect(() => {
+    setAttribution(getAttributionData())
+  }, [])
   const pathname = usePathname()
   const resolvedState = normalizeState(defaultState) || slugFromPathname(pathname)
   const form = useForm<z.infer<typeof formSchema>>({
@@ -73,6 +80,12 @@ export function ConsultationForm({ defaultState = "" }: { defaultState?: string 
           postalCode: values.postalCode,
           country: values.country,
           state: values.state,
+          gclid: attribution.gclid,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content,
         }),
       })
 
@@ -106,6 +119,12 @@ export function ConsultationForm({ defaultState = "" }: { defaultState?: string 
       >
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 px-1">
           <input type="hidden" name="country" value="US" />
+          <input type="hidden" name="gclid" value={attribution.gclid} />
+          <input type="hidden" name="utm_source" value={attribution.utm_source} />
+          <input type="hidden" name="utm_medium" value={attribution.utm_medium} />
+          <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} />
+          <input type="hidden" name="utm_term" value={attribution.utm_term} />
+          <input type="hidden" name="utm_content" value={attribution.utm_content} />
 
           {/* Name Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
