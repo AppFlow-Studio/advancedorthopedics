@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { getAttributionData } from "@/lib/gclid"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -74,8 +75,13 @@ export function LawyerContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [openDialog, setOpenDialog] = useState(false)
+    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
     const router = useRouter()
     const pathname = usePathname()
+
+    useEffect(() => {
+        setAttribution(getAttributionData())
+    }, [])
 
     const form = useForm<LawyerFormData>({
         resolver: zodResolver(lawyerSchema),
@@ -104,7 +110,7 @@ export function LawyerContactForm() {
             const res = await fetch("/api/forms/lawyer", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(values),
+                body: JSON.stringify({ ...values, ...attribution }),
             })
 
             if (res.redirected) {

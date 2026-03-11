@@ -9,6 +9,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { DelayedLocationPopup } from "@/components/delayedlocationpopup";
 import Script from "next/script";
 import TanstackProvider from "@/providers/tanstack";
+import GclidCapture from "@/components/GclidCapture";
 import { buildCanonical, SITE_URL, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 import RecaptchaProvider from "@/providers/recaptchaprovider";
@@ -273,6 +274,7 @@ export default function RootLayout({
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T57SB8NQ"
             height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe>
         </noscript>
+        <GclidCapture />
         <TanstackProvider>
           <NavBar />
           <MapProvider>

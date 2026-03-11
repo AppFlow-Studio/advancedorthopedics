@@ -21,6 +21,7 @@ import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { getAttributionData } from "@/lib/gclid"
 import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtils"
 import { formatPhone, validatePhoneNumber, formatPhoneInput } from "@/lib/phone-formatter"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
@@ -88,6 +89,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
+    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
     const formRef = useRef<HTMLFormElement>(null)
     const router = useRouter()
@@ -111,6 +113,10 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             state: resolvedState,
         },
     })
+
+    useEffect(() => {
+        setAttribution(getAttributionData())
+    }, [])
 
     // Handle scroll indicator visibility
     useEffect(() => {
@@ -221,6 +227,12 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                 state: values.state,
                 insuranceCardFront: await toFilePayload(values.insuranceCardFront),
                 insuranceCardBack: await toFilePayload(values.insuranceCardBack),
+                gclid: attribution.gclid,
+                utm_source: attribution.utm_source,
+                utm_medium: attribution.utm_medium,
+                utm_campaign: attribution.utm_campaign,
+                utm_term: attribution.utm_term,
+                utm_content: attribution.utm_content,
             }
 
             const res = await fetch("/api/forms/doctor", {

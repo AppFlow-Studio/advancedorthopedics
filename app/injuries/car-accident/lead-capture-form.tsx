@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { getAttributionData } from "@/lib/gclid"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -68,6 +69,11 @@ export function CarAccidentLeadCaptureForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+
+    useEffect(() => {
+        setAttribution(getAttributionData())
+    }, [])
     const form = useForm<LeadFormData>({
         resolver: zodResolver(leadSchema),
         defaultValues: {
@@ -85,7 +91,7 @@ export function CarAccidentLeadCaptureForm() {
     })
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
-        const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location, state: values.state })
+        const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location, state: values.state, gclid: attribution.gclid, utm_source: attribution.utm_source, utm_medium: attribution.utm_medium, utm_campaign: attribution.utm_campaign, utm_term: attribution.utm_term, utm_content: attribution.utm_content })
         await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
         
         // Enhanced Conversions

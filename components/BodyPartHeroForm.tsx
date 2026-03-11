@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { pushFormSubmit } from '@/utils/enhancedConversions';
+import { getAttributionData } from '@/lib/gclid';
 import { formatPhoneInput } from '@/lib/phone-formatter';
 import { STATE_OPTIONS } from '@/lib/stateUtils';
 
@@ -32,8 +33,13 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
   const [error, setError] = useState('');
   const [showDialog, setShowDialog] = useState(false);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' });
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    setAttribution(getAttributionData());
+  }, []);
 
   // Handle scroll indicator visibility
   useEffect(() => {
@@ -138,6 +144,12 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
         source: `${bodyPartTitle} Body Part Page`,
         insuranceCardFront: await toFilePayload(formData.insuranceCardFront),
         insuranceCardBack: await toFilePayload(formData.insuranceCardBack),
+        gclid: attribution.gclid,
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign,
+        utm_term: attribution.utm_term,
+        utm_content: attribution.utm_content,
       };
 
       const res = await fetch('/api/forms/doctor', {

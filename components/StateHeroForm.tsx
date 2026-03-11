@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -25,6 +25,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { User, Mail, Phone, Lock } from 'lucide-react'
 import { formatPhoneInput } from '@/lib/phone-formatter'
 import { pushFormSubmit } from '@/utils/enhancedConversions'
+import { getAttributionData } from '@/lib/gclid'
 import { useRouter } from 'next/navigation'
 import { STATE_OPTIONS, normalizeState } from '@/lib/stateUtils'
 
@@ -50,7 +51,12 @@ interface Props {
 export default function StateHeroForm({ defaultState, stateName }: Props) {
   const [expanded, setExpanded] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
   const router = useRouter()
+
+  useEffect(() => {
+    setAttribution(getAttributionData())
+  }, [])
 
   const resolvedState = normalizeState(defaultState)
   const form = useForm<z.infer<typeof formSchema>>({
@@ -89,6 +95,12 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
           postalCode: values.postalCode,
           country: values.country,
           state: values.state,
+          gclid: attribution.gclid,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content,
         }),
       })
 

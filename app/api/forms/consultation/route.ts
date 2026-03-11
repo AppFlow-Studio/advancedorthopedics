@@ -14,6 +14,13 @@ type ConsultationPayload = {
   bestTime: string;
   postalCode?: string;
   country?: string;
+  state?: string;
+  gclid?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
 };
 
 export async function POST(request: Request) {
@@ -37,11 +44,28 @@ export async function POST(request: Request) {
       phone: body.phone,
       reason: body.reason,
       bestTime: body.bestTime,
+      state: body.state,
+      gclid: body.gclid,
+      utm_source: body.utm_source,
+      utm_medium: body.utm_medium,
+      utm_campaign: body.utm_campaign,
+      utm_term: body.utm_term,
+      utm_content: body.utm_content,
     });
     await sendUserEmail({
       name: fullName,
       email: body.email,
       phone: body.phone,
+      state: body.state,
+      reason: body.reason,
+      bestTime: body.bestTime,
+      form_source: 'state-consultation',
+      gclid: body.gclid,
+      utm_source: body.utm_source,
+      utm_medium: body.utm_medium,
+      utm_campaign: body.utm_campaign,
+      utm_term: body.utm_term,
+      utm_content: body.utm_content,
     });
 
     return NextResponse.json({ ok: true });
