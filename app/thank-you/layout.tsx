@@ -4,6 +4,10 @@ import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Thank You | Mountain Spine & Orthopedics"),
   description: safeDescription(undefined, "Thank you for contacting Mountain Spine & Orthopedics. We'll get back to you soon to schedule your consultation."),
+  robots: {
+    index: false,
+    follow: false,
+  },
   alternates: {
     canonical: buildCanonical("/thank-you"),
   },

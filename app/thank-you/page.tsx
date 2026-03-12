@@ -1,27 +1,36 @@
 "use client";
 
-import { useEffect } from 'react';
-import { CheckCircle, Mail, Users, Share2, Instagram } from "lucide-react"
+import { useEffect, useState } from 'react';
+import { CheckCircle, Mail, Users, Share2, Instagram, Star } from "lucide-react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { restoreECFromSession, formatPhoneToE164 } from "@/utils/enhancedConversions";
+import { getReviewLink, getReviewLocations } from "@/lib/reviewLinks";
 
 export default function ThankYouPage() {
+  // LOCATION-AWARE REVIEW CTA
+  // Priority 1: sessionStorage — set automatically when a patient visits a location page
+  //   via ReviewLocationCapture component (key: 'review_location_slug')
+  // Priority 2: Dropdown — patient selects their clinic manually if no sessionStorage data
+  // The locationSlug values are defined in /components/data/clinics.tsx
+  const [resolvedSlug, setResolvedSlug] = useState<string | null>(null);
+  const [selectedSlug, setSelectedSlug] = useState<string>('');
+
   useEffect(() => {
     // Restore enhanced conversion data from sessionStorage immediately
     // This ensures the data is available when Google Ads conversion tags fire
     restoreECFromSession(); // pushes {event:'ec_restore', enhanced_conversion_data:{...}}
-    
+
     // Also push the data silently (without event) to ensure it's in dataLayer
     // This helps with cases where the conversion tag fires before the event
     if (typeof window !== 'undefined') {
       try {
         const country = (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase();
         const rawPhone = sessionStorage.getItem('ec_phone') || '';
-        
+
         const ec = {
           email: (sessionStorage.getItem('ec_email') || '').trim().toLowerCase(),
           phone_number: formatPhoneToE164(rawPhone, country),
@@ -32,7 +41,7 @@ export default function ThankYouPage() {
             postal_code: (sessionStorage.getItem('ec_postal') || '').trim(),
           },
         };
-        
+
         // Check if we have valid data before pushing
         if (ec.email || ec.phone_number) {
           (window as any).dataLayer = (window as any).dataLayer || [];
@@ -54,6 +63,18 @@ export default function ThankYouPage() {
       }
     }
   }, []);
+
+  useEffect(() => {
+    try {
+      const stored = sessionStorage.getItem('review_location_slug');
+      if (stored) setResolvedSlug(stored);
+    } catch {
+      // fail silently
+    }
+  }, []);
+
+  const activeSlug = resolvedSlug || selectedSlug || null;
+  const reviewLink = activeSlug ? getReviewLink(activeSlug) : null;
 
   return (
     <div className="lg:py-[80px] py-[40px] w-full bg-gradient-to-br from-blue-50 to-slate-50">
@@ -93,6 +114,80 @@ export default function ThankYouPage() {
                           Please look out for a confirmation email in your inbox with your appointment details. Our team
                           will contact you ASAP to confirm your appointment time.
                         </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* ── Google Review CTA ── */}
+                <Card className="border-l-[#0A50EC] bg-[#0A50EC]/10">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3">
+                      <Star className="h-10 w-10 text-[#0A50EC] mt-1 flex-shrink-0" />
+                      <div className="flex-1 space-y-3">
+                        <div>
+                          <h3 className="font-semibold text-[#252932] mb-1">
+                            Leave Us a Google Review
+                          </h3>
+                          <p className="text-gray-700 text-sm">
+                            A quick review helps other patients find trusted spine and orthopedic
+                            care — and only takes a minute.
+                          </p>
+                        </div>
+
+                        {/* Auto-resolved from sessionStorage — show confirmation chip */}
+                        {resolvedSlug && (
+                          <p className="text-xs text-[#0A50EC] font-medium">
+                            ✓ Showing review link for your location
+                          </p>
+                        )}
+
+                        {/* Dropdown — only show if sessionStorage didn't resolve a location */}
+                        {!resolvedSlug && (
+                          <div>
+                            <label
+                              htmlFor="review-location-select"
+                              className="block text-sm text-gray-600 mb-1"
+                            >
+                              Select your clinic location:
+                            </label>
+                            <select
+                              id="review-location-select"
+                              value={selectedSlug}
+                              onChange={(e) => setSelectedSlug(e.target.value)}
+                              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#0A50EC] focus:border-transparent"
+                            >
+                              <option value="">— Choose your location —</option>
+                              {getReviewLocations().map(({ locationSlug, region }) => (
+                                <option key={locationSlug} value={locationSlug}>
+                                  {region}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        )}
+
+                        {/* Review button — only renders when a valid review link is available */}
+                        {reviewLink && (
+                          <>
+                            <p className="text-xs text-gray-500 italic">
+                              Feel free to mention your doctor, the condition you came in for,
+                              and how your treatment went.
+                            </p>
+                            <Button
+                              asChild
+                              className="bg-[#0A50EC] hover:bg-[#252932] text-white w-full"
+                            >
+                              <a
+                                href={reviewLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Leave a Google Review
+                              </a>
+                            </Button>
+                          </>
+                        )}
                       </div>
                     </div>
                   </CardContent>
