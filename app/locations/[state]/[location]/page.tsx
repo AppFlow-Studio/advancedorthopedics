@@ -38,6 +38,7 @@ import { LocationNAP } from '@/components/LocationNAP'
 import LocationSeoSections from '@/components/LocationSeoSections'
 import LocationGallerySection from '@/components/LocationGallerySection'
 import { findClinicByStateAndLocation, getAllLocationParams, isValidStateSlug, STATE_METADATA } from '@/lib/locationRedirects'
+import { ReviewLocationCapture } from '@/components/ReviewLocationCapture'
 import { STATE_PHONE_NUMBERS, MAIN_PHONE_DISPLAY } from '@/lib/locationConstants'
 
 export const dynamicParams = false;
@@ -112,6 +113,7 @@ export default async function LocationDetails(
     
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
+            <ReviewLocationCapture locationSlug={locationData.locationSlug} />
             <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]  justify-between" >
                 <div
                     style={{
