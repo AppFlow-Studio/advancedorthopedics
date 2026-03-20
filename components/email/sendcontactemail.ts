@@ -96,7 +96,7 @@ export async function sendUserEmail(formData: {
       state:         formData.state,
       reason:        formData.reason,
       best_time:     formData.bestTime,
-      form_source:   formData.form_source || 'book-appointment',
+      form_source:   formData.form_source || 'unknown',
       gclid:         formData.gclid,
       utm_source:    formData.utm_source,
       utm_medium:    formData.utm_medium,

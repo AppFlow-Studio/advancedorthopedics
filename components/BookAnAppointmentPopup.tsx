@@ -15,10 +15,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import BookAnAppointmentClient from "./BookAnAppointmentClient"
-import { sendContactEmail, sendUserEmail } from "./email/sendcontactemail"
 import Link from "next/link"
+import { getAttributionData } from "@/lib/gclid"
+import { useRouter } from "next/navigation"
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
     email: z.string().email("Invalid email address"),
@@ -39,6 +40,13 @@ export default function BookAnAppointmentPopup() {
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+    const router = useRouter()
+
+    useEffect(() => {
+        setAttribution(getAttributionData())
+    }, [])
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -51,15 +59,50 @@ export default function BookAnAppointmentPopup() {
     })
 
 
+    async function serializeFile(file: File | null | undefined): Promise<{ name: string; type: string; base64: string } | null> {
+        if (!file) return null;
+        const buffer = await file.arrayBuffer();
+        const bytes = new Uint8Array(buffer);
+        let binary = '';
+        bytes.forEach(b => { binary += String.fromCharCode(b); });
+        return { name: file.name, type: file.type, base64: btoa(binary) };
+    }
+
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
             setLoading(true)
-            console.log('Called')
-            // Do something with the form values.
-            // ✅ This will be type-safe and validated.
-            console.log(values)
-            await sendUserEmail(values)
-            await sendContactEmail(values)
+
+            const [insuranceCardFront, insuranceCardBack] = await Promise.all([
+                serializeFile(values.insuranceCardFront),
+                serializeFile(values.insuranceCardBack),
+            ]);
+
+            const res = await fetch('/api/forms/book-appointment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    firstName: values.name.split(' ')[0] || values.name,
+                    lastName: values.name.split(' ').slice(1).join(' ') || '',
+                    email: values.email,
+                    phone: values.phone,
+                    reason: values.reason,
+                    bestTime: values.bestTime,
+                    form_source: 'book-appointment',
+                    insuranceCardFront,
+                    insuranceCardBack,
+                    gclid: attribution.gclid,
+                    utm_source: attribution.utm_source,
+                    utm_medium: attribution.utm_medium,
+                    utm_campaign: attribution.utm_campaign,
+                    utm_term: attribution.utm_term,
+                    utm_content: attribution.utm_content,
+                }),
+            })
+
+            if (res.redirected) {
+                router.push(res.url)
+                return
+            }
 
             if (typeof window !== 'undefined' && window.dataLayer) {
                 window.dataLayer.push({
@@ -69,7 +112,7 @@ export default function BookAnAppointmentPopup() {
                 });
             }
 
-            setAppointmentConfirm(true)
+            router.push('/thank-you')
         } catch (error) {
             console.error('Error submitting form:', error)
         } finally {

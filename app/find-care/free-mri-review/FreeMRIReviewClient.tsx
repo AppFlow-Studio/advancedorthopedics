@@ -36,10 +36,11 @@ import DoctorsTestitmonial from '@/components/DoctorsTestitmonial';
 import { TextAnimate } from '@/components/magicui/text-animate'
 import { Marquee } from '@/components/magicui/marquee'
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { sendMRIContactEmail, sendUserEmail } from '@/components/email/sendcontactemail'
+import { sendMRIContactEmail } from '@/components/email/sendcontactemail'
 import { redirect } from 'next/navigation'
 import { pushFormSubmit } from '@/utils/enhancedConversions'
 import { normalizeState } from '@/lib/stateUtils'
+import { getAttributionData } from '@/lib/gclid'
 
 const formSchema = z.object({
   // Step 1 Questions
@@ -219,6 +220,12 @@ export default function FreeMRIReviewClient() {
   const [ConditionStep, setConditionStep] = useState(1)
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+
+  React.useEffect(() => {
+    setAttribution(getAttributionData())
+  }, [])
+
   const ConditionForm = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -238,8 +245,15 @@ export default function FreeMRIReviewClient() {
   })
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone })
-    const data = await sendMRIContactEmail(values)
+    const data = await sendMRIContactEmail({
+      ...values,
+      gclid: attribution.gclid,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_term: attribution.utm_term,
+      utm_content: attribution.utm_content,
+    })
     if (data) {
       pushFormSubmit({ form_name: 'FreeMRIReviewForm', state: normalizeState(values.state), email: values.email, phone: values.phone, firstName: values.first_name, lastName: values.last_name })
       ConditionForm.reset()

@@ -2,40 +2,33 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
+import { useEffect, useState } from "react"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import BookAnAppoitmentButton from "./BookAnAppoitmentButton"
+import { getAttributionData } from "@/lib/gclid"
+import { useRouter } from "next/navigation"
+
 const formSchema = z.object({
   name: z.string().min(2, "name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
   bestTime: z.string().min(1, "Please select a time"),
-  date: z.date({
-    required_error: "Please select a date",
-  }),
-  reason: z.string().min(10, "Please provide more detail about your consultation needs"),
+  reason: z.string().min(2, "Please provide more detail about your consultation needs"),
 })
 
-const timeSlots = [
-  "9:00 AM - 10:00 AM",
-  "10:00 AM - 11:00 AM",
-  "11:00 AM - 12:00 PM",
-  "1:00 PM - 2:00 PM",
-  "2:00 PM - 3:00 PM",
-  "3:00 PM - 4:00 PM",
-  "4:00 PM - 5:00 PM",
-]
-
 export function MiniContactForm({ backgroundcolor = 'white' }: { backgroundcolor?: string }) {
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+  const [disabled, setDisabled] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    setAttribution(getAttributionData())
+  }, [])
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,9 +40,43 @@ export function MiniContactForm({ backgroundcolor = 'white' }: { backgroundcolor
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    // Handle form submission here
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setDisabled(true)
+    try {
+      const nameParts = values.name.trim().split(' ')
+      const firstName = nameParts[0] || values.name
+      const lastName = nameParts.slice(1).join(' ') || ''
+      const res = await fetch('/api/forms/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: values.email,
+          phone: values.phone,
+          reason: values.reason,
+          bestTime: values.bestTime,
+          form_source: 'state-consultation',
+          gclid: attribution.gclid,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content,
+        }),
+      })
+      if (res.redirected) {
+        router.push(res.url)
+        return
+      }
+      if (res.ok) {
+        router.push('/thank-you')
+      }
+    } catch (error) {
+      console.error('[MiniContactForm] Submit failed', error)
+    } finally {
+      setDisabled(false)
+    }
   }
 
   return (

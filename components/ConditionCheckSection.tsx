@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { m, motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,8 +9,9 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
-import { sendConditionCheckEmail, sendUserEmail } from '@/components/email/sendcontactemail'
+import { sendConditionCheckEmail } from '@/components/email/sendcontactemail'
 import { redirect } from 'next/navigation'
+import { getAttributionData } from '@/lib/gclid'
 
 
 const formSchema = z.object({
@@ -64,6 +65,12 @@ export default function ConditionCheckSection({
   const [ConditionStep, setConditionStep] = useState(1)
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+
+  useEffect(() => {
+    setAttribution(getAttributionData())
+  }, [])
+
   const ConditionForm = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -91,8 +98,15 @@ export default function ConditionCheckSection({
   })
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    const data = await sendConditionCheckEmail(values)
-    await sendUserEmail({ name: values.first_name + " " + values.last_name, email: values.email, phone: values.phone })
+    const data = await sendConditionCheckEmail({
+      ...values,
+      gclid: attribution.gclid,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_term: attribution.utm_term,
+      utm_content: attribution.utm_content,
+    })
     if (data) {
       ConditionForm.reset()
       //setAppointmentConfirm(true)
