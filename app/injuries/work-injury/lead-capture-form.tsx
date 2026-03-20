@@ -92,7 +92,20 @@ export function WorkInjuryLeadCaptureForm() {
             utm_term: attribution.utm_term,
             utm_content: attribution.utm_content,
         })
-        await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
+        await sendUserEmail({
+            name: values.firstName,
+            email: values.email,
+            phone: values.phone,
+            state: values.state,
+            reason: values.injury,
+            form_source: 'work-injury',
+            gclid: attribution.gclid,
+            utm_source: attribution.utm_source,
+            utm_medium: attribution.utm_medium,
+            utm_campaign: attribution.utm_campaign,
+            utm_term: attribution.utm_term,
+            utm_content: attribution.utm_content,
+        })
 
         pushFormSubmit({ form_name: 'WorkInjuryLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName })
 

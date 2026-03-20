@@ -92,7 +92,20 @@ export function CarAccidentLeadCaptureForm() {
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
         const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location, state: values.state, gclid: attribution.gclid, utm_source: attribution.utm_source, utm_medium: attribution.utm_medium, utm_campaign: attribution.utm_campaign, utm_term: attribution.utm_term, utm_content: attribution.utm_content })
-        await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
+        await sendUserEmail({
+            name: values.firstName,
+            email: values.email,
+            phone: values.phone,
+            state: values.state,
+            reason: values.injuryType,
+            form_source: 'car-accident',
+            gclid: attribution.gclid,
+            utm_source: attribution.utm_source,
+            utm_medium: attribution.utm_medium,
+            utm_campaign: attribution.utm_campaign,
+            utm_term: attribution.utm_term,
+            utm_content: attribution.utm_content,
+        })
         
         // Enhanced Conversions
         pushFormSubmit({ form_name: 'CarAccidentLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });

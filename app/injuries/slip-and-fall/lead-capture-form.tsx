@@ -72,7 +72,20 @@ export function LeadCaptureForm() {
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
         const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injury, bestTime: values.urgency, injury_type: values.injury, location: values.location, state: values.state, gclid: attribution.gclid, utm_source: attribution.utm_source, utm_medium: attribution.utm_medium, utm_campaign: attribution.utm_campaign, utm_term: attribution.utm_term, utm_content: attribution.utm_content })
-        await sendUserEmail({ name: values.firstName, email: values.email, phone: values.phone })
+        await sendUserEmail({
+            name: values.firstName,
+            email: values.email,
+            phone: values.phone,
+            state: values.state,
+            reason: values.injury,
+            form_source: 'slip-and-fall',
+            gclid: attribution.gclid,
+            utm_source: attribution.utm_source,
+            utm_medium: attribution.utm_medium,
+            utm_campaign: attribution.utm_campaign,
+            utm_term: attribution.utm_term,
+            utm_content: attribution.utm_content,
+        })
         
         // Enhanced Conversions
         pushFormSubmit({ form_name: 'SlipAndFallLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });

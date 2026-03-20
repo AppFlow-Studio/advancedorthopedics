@@ -25,6 +25,7 @@ import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { pushFormSubmit } from "@/utils/enhancedConversions"
 import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtils"
+import { getAttributionData } from "@/lib/gclid"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { FileUpload } from './ui/file-upload'
 const formSchema = z.object({
@@ -78,6 +79,7 @@ export default function BookAnAppoitmentButton({
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
     const router = useRouter()
     const pathname = usePathname()
     const resolvedState = slugFromPathname(pathname)
@@ -98,6 +100,10 @@ export default function BookAnAppoitmentButton({
             state: resolvedState,
         },
     })
+
+    useEffect(() => {
+        setAttribution(getAttributionData())
+    }, [])
 
     const handleOpen = () => {
         console.log('Opening dialog...')
@@ -214,6 +220,12 @@ export default function BookAnAppoitmentButton({
                 state: values.state,
                 insuranceCardFront: await toFilePayload(values.insuranceCardFront),
                 insuranceCardBack: await toFilePayload(values.insuranceCardBack),
+                gclid: attribution.gclid,
+                utm_source: attribution.utm_source,
+                utm_medium: attribution.utm_medium,
+                utm_campaign: attribution.utm_campaign,
+                utm_term: attribution.utm_term,
+                utm_content: attribution.utm_content,
             }
 
             const res = await fetch("/api/forms/book-appointment", {
