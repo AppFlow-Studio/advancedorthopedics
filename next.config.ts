@@ -204,6 +204,7 @@ const nextConfig: NextConfig = {
     // --- STATE-FIRST LOCATION URL REDIRECTS (Legacy -> New Canonical) ---
     // Florida locations - redirect old slugs to new state-first structure (using full state names)
     {"source":"/locations/hollywood-fl-orthopedics","destination":"/locations/florida/hollywood-orthopedics","permanent":true},
+    {"source":"/locations/hollywood-orthopedics","destination":"/locations/florida/hollywood-orthopedics","permanent":true},
     {"source":"/locations/palm-springs-orthopedics","destination":"/locations/florida/palm-springs-orthopedics","permanent":true},
     {"source":"/locations/orlando-orthopedics","destination":"/locations/florida/orlando-orthopedics","permanent":true},
     {"source":"/locations/fort-pierce-orthopedics","destination":"/locations/florida/fort-pierce-orthopedics","permanent":true},
