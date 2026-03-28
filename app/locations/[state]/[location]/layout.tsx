@@ -59,6 +59,7 @@ export async function generateMetadata(
       description: consistentDescription,
       keywords: location.keywords,
 
+      robots: { index: true, follow: true },
       alternates: {
         canonical: canonicalUrl,
       },

@@ -622,7 +622,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/hollywood-orthopedics-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.6782655543784!2d-80.18377821793146!3d26.011354718397076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ab9e1d398c07%3A0xbd8cdbc95bd7808a!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186369851!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJB4w5HZ6r2YgRioDXW8nbjL0',
@@ -1110,7 +1110,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/altamonte-springs-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14002.606566307608!2d-81.38488004357872!3d28.670147561592515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7716ad1bcb58d%3A0x3cdecf35c87d93bc!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186497809!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=652%20Palm%20Springs%20Dr%2C%20Altamonte%20Springs%2C%20FL%2032701',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=652%20Palm%20Springs%20Dr%2C%20Altamonte%20Springs%2C%20FL%2032701',
@@ -1604,7 +1604,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/orlando-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8682598319447!2d-81.46883192446174!3d28.51361107572991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e779a3bc5009bf%3A0x93000f928bdda86c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186387828!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJvwlQvKN554gRbKjdi5IPAJM',
@@ -2094,7 +2094,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/fort-pierce-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.2857638186815!2d-80.09235541774463!3d26.8308618166085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88df2b301813d549%3A0x848ccbabe8c43243!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186670783!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJt0ir7Mzx3ogRPKKGsVdXn4c',
@@ -2601,7 +2601,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/palm-beach-gardens-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.207042187583!2d-80.35092002450014!3d27.431657576341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88def1ccecab48b7%3A0x879f5757b186a23c!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186735573!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJSdUTGDAr34gRQzLE6KvLjIQ',
@@ -3091,7 +3091,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/south-miami-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.2537668334203!2d-80.30385022455886!3d25.696020677393292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9c7231a96fdfd%3A0x4664475ce3ef794b!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186588208!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJ_f2WGiPH2YgRS3nv41xHZEY',
@@ -3588,7 +3588,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/Boca-Raton-og.png",
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.4534743206004!2d-80.13086991784148!3d26.408838917521138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91f1fadf45eb3%3A0xd66ee5235fec0fec!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186820033!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJs170rR8f2YgR7A_sXyPlbtY',
@@ -4112,7 +4112,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/altamonte-springs-og.png",
     // GBP data
     placeId: 'ChIJUbdY9Fxx54gRl00KhSxpTm8',
     cid: '8020463626324954519',
@@ -4625,7 +4625,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: "/newlogo4.png",
+    ogImage: "/Davenport-og.png",
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2400%20North%20Blvd%20W%20Suite%20C%2C%20Davenport%2C%20FL%2033837',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=2400%20North%20Blvd%20W%20Suite%20C%2C%20Davenport%2C%20FL%2033837',
     gallery: [
@@ -5127,7 +5127,7 @@ export const clinics: ClinicsProps[] = [
         answer: "If you or a family member are more comfortable in another language, please let us know when you schedule. We will work to arrange interpretation resources or allow a trusted family member to assist so that you fully understand your diagnosis and treatment options."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/jacksonville-og.png',
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.321547399935!2d-81.5408642243937!3d30.341810274775245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b5809a58ec6d%3A0x7a347fd4fc09870b!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1764186780156!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     // GBP data
     placeId: 'ChIJbexYmoC15YgRC4cJ_NR_NHo',
@@ -5467,7 +5467,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (973) 259-6756 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/bridgewater-og.png',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%20%2314%2C%20Bridgewater%2C%20NJ%2008807',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=1200%20US-22%20%2314%2C%20Bridgewater%2C%20NJ%2008807',
     gallery: [
@@ -5795,7 +5795,7 @@ export const clinics: ClinicsProps[] = [
         answer: "The Cherry Hill location offers dedicated surface parking for patients within the Springdale Commons medical/professional complex. Free parking is available on-site, and the office is wheelchair-accessible. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/cherry-hill-og.png',
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3062.574443079649!2d-74.97861262420156!3d39.8613688715344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6cdee112fa449%3A0xc92efb6fb23fc765!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1768179320198!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     placeId: 'ChIJSaQvEe7NxokRZcc_sm_7Lsk',
     cid: '14496800707702671205',
@@ -6127,7 +6127,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (973) 259-6756 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Edison-og.png',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=25%20Main%20St%20suite%2012%2C%20Edison%2C%20NJ%2008837',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=25%20Main%20St%20suite%2012%2C%20Edison%2C%20NJ%2008837',
     gallery: [
@@ -6454,7 +6454,7 @@ export const clinics: ClinicsProps[] = [
         answer: "Our Freehold clinic works with many major commercial insurance plans and PPO products. We also see patients involved in car accidents and injuries covered under workers' compensation. Because plans change, our staff will verify your coverage and review any out-of-pocket costs before your visit."
       },
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Freehold-og.png',
     formattedAddress: '77 Schanck Rd, Suite B17, Freehold, NJ 07728',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=77%20Schanck%20Rd%2C%20Suite%20B17%2C%20Freehold%2C%20NJ%2007728',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=77%20Schanck%20Rd%2C%20Suite%20B17%2C%20Freehold%2C%20NJ%2007728',
@@ -6781,7 +6781,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (973) 259-6756 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/locations-new-jersey-og.png',
     formattedAddress: '140 NJ-17, Suite 101B, Paramus, NJ 07652',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=140%20NJ-17%2C%20Suite%20101B%2C%20Paramus%2C%20NJ%2007652',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=140%20NJ-17%2C%20Suite%20101B%2C%20Paramus%2C%20NJ%2007652',
@@ -7113,7 +7113,7 @@ export const clinics: ClinicsProps[] = [
         answer: "The West Orange Surgery Center offers a large onsite surface lot with direct building access for surgical patients and caregivers. Free parking is available, and the facility is located on the second floor, accessible via elevator. When you schedule, our team can give you detailed directions for parking and building entry so your arrival and check-in are smooth."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/West-Orange-og.png',
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.7064279504357!2d-74.26356002415302!3d40.79046777138188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3ab6fe543ed67%3A0x3136233047320f3d!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1768179278444!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     placeId: 'ChIJZ-1D5W-rw4kRPQ8yRzAjNjE',
     cid: '3546060446860709693',
@@ -7460,7 +7460,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (646) 389-5606 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/New-York-City-og.png',
     mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.326804405799!2d-73.98198712415494!3d40.75483637138718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25936badb443d%3A0x502a1e0a065e91ad!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1768179204841!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     placeId: 'ChIJPUTbujZZwokRrZFeBgoeKlA',
     cid: '5776462500461449645',
@@ -7767,7 +7767,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/locations-pennsylvania-og.png',
     formattedAddress: '451 W. Linden St., Allentown, PA 18102',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=451%20W.%20Linden%20St.%2C%20Allentown%2C%20PA%2018102',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=451%20W.%20Linden%20St.%2C%20Allentown%2C%20PA%2018102',
@@ -8056,7 +8056,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Philadelphia-og.png',
     formattedAddress: '1601 Walnut St. Suite 514, Philadelphia, PA 19102',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St.%20Suite%20514%2C%20Philadelphia%2C%20PA%2019102',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=1601%20Walnut%20St.%20Suite%20514%2C%20Philadelphia%2C%20PA%2019102',
@@ -8345,7 +8345,7 @@ export const clinics: ClinicsProps[] = [
         answer: "Our clinic at 2401 E. Tioga St. offers street parking on Tioga St and nearby side streets. The office is easily accessible from I-95 Exit 25 and Aramingo Ave, and by SEPTA Route 60 along Allegheny Ave. When you schedule, our team can give you detailed directions for parking and building entry."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Philadelphia-og.png',
     formattedAddress: '2401 E. Tioga St., Philadelphia, PA 19134',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2401%20E.%20Tioga%20St.%2C%20Philadelphia%2C%20PA%2019134',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=2401%20E.%20Tioga%20St.%2C%20Philadelphia%2C%20PA%2019134',
@@ -8640,7 +8640,7 @@ export const clinics: ClinicsProps[] = [
         answer: "We accept most major insurance plans. When you arrive, bring your photo ID, insurance card, and any recent imaging (X-ray/MRI) if available. For plan-specific questions, call (561) 223-9959 before your visit."
       }
     ],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Philadelphia-og.png',
     formattedAddress: '5245 Germantown Ave. Suite A, Philadelphia, PA 19144',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=5245%20Germantown%20Ave.%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=5245%20Germantown%20Ave.%20Suite%20A%2C%20Philadelphia%2C%20PA%2019144',
@@ -8768,7 +8768,7 @@ export const clinics: ClinicsProps[] = [
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Voorhees-og.png',
     gallery: [
       { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Voorhees-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Voorhees, NJ', caption: 'Building exterior (Voorhees, NJ)', category: 'Facility' },
       { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Voorhees-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Voorhees, NJ', caption: 'Building exterior (Voorhees, NJ)', category: 'Facility' },
@@ -8893,7 +8893,7 @@ export const clinics: ClinicsProps[] = [
     rating: 5,
     reviewCount: 0,
     reviews: [],
-    ogImage: '/newlogo4.png',
+    ogImage: '/Princeton-og.png',
     gallery: [
       { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Princeton-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Princeton, NJ', caption: 'Building exterior (Princeton, NJ)', category: 'Facility' },
     ],

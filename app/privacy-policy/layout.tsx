@@ -4,6 +4,7 @@ import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Privacy Policy | Mountain Spine & Orthopedics"),
   description: safeDescription(undefined, "Mountain Spine & Orthopedics privacy policy. Learn how we protect your personal information and medical data in accordance with HIPAA regulations."),
+  robots: { index: true, follow: true },
   alternates: {
     canonical: buildCanonical("/privacy-policy"),
   },

@@ -11,10 +11,13 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import type { ClinicsProps } from '@/components/data/clinics';
+import StateLocationCard from '@/components/StateLocationCard';
 
 interface StateLocationsCarouselMobileProps {
   stateClinics: ClinicsProps[];
-  renderCard: (clinic: ClinicsProps, index: number) => React.ReactNode;
+  stateInfo: { name?: string } | undefined;
+  phoneDisplay: string;
+  phoneTel: string;
 }
 
 /**
@@ -24,7 +27,9 @@ interface StateLocationsCarouselMobileProps {
  */
 export default function StateLocationsCarouselMobile({
   stateClinics,
-  renderCard,
+  stateInfo,
+  phoneDisplay,
+  phoneTel,
 }: StateLocationsCarouselMobileProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -52,7 +57,7 @@ export default function StateLocationsCarouselMobile({
           <CarouselContent className="min-w-0">
             {stateClinics.map((clinic, index) => (
               <CarouselItem key={index} className="basis-full min-w-0 py-6">
-                {renderCard(clinic, index)}
+                <StateLocationCard clinic={clinic} index={index} isMobile stateInfo={stateInfo} phoneDisplay={phoneDisplay} phoneTel={phoneTel} />
               </CarouselItem>
             ))}
           </CarouselContent>

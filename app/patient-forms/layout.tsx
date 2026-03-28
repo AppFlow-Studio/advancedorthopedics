@@ -4,6 +4,7 @@ import { buildCanonical, safeTitle, safeDescription } from "@/lib/seo";
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Patient Forms | Mountain Spine & Orthopedics"),
   description: safeDescription(undefined, "Download patient forms and medical questionnaires for your appointment at Mountain Spine & Orthopedics. Complete forms online for faster check-in."),
+  robots: { index: true, follow: true },
   alternates: {
     canonical: buildCanonical("/patient-forms"),
   },

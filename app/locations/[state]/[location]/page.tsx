@@ -1,7 +1,7 @@
 import ClinicsMap from '@/components/ClinicsMap'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import RatingsAndReviews from '@/components/RatingsAndReviews'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { clinics } from '@/components/data/clinics'
 import ContactUsSection from '@/components/ContactUsSection'
 import AAOS from '@/public/AAOS.png';

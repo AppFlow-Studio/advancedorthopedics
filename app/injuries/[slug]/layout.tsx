@@ -23,6 +23,7 @@ export async function generateMetadata(
     title: injury.metaTitle || `${injury.title} | Mountain Spine & Orthopedics`,
     description: injury.metaDesc || injury.body,
     keywords: injury.keywords,
+    robots: { index: true, follow: true },
     alternates: {
       canonical: canonicalUrl,
     },

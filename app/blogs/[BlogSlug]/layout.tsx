@@ -60,6 +60,7 @@ export async function generateMetadata(
       description: info.metaDescription || info.desc,
       images: [blogImage],
     },
+    robots: { index: true, follow: true },
     alternates: {
       canonical: canonicalUrl
     }

@@ -5,8 +5,9 @@ import { getOgImageForPath } from "@/lib/og";
 export const metadata: Metadata = {
   title: 'Get a Second Opinion From Spine Experts | Mountain Spine & Orthopedics',
   description: 'Upload your MRI or X-ray and receive a board-certified orthopedic surgeon\'s second opinion within 24 hours — 100% free.',
-  alternates: { 
-    canonical: buildCanonical('/find-care/second-opinion') 
+  robots: { index: true, follow: true },
+  alternates: {
+    canonical: buildCanonical('/find-care/second-opinion')
   },
   openGraph: {
     title: 'Get a Second Opinion From Spine Experts | Mountain Spine & Orthopedics',

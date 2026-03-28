@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = safeTitle(
     undefined,
-    `Orthopedic Surgeons in ${stateInfo?.name || state} | Same-Day Appointments | Mountain Spine & Orthopedics`
+    `Spine & Orthopedic Surgeons in ${stateInfo?.name || state} | Mountain Spine & Orthopedics`
   );
   const description = safeDescription(
     undefined,
@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    robots: { index: true, follow: true },
     alternates: {
       canonical: buildCanonical(canonicalPath),
     },
@@ -62,6 +63,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function StateLayout({ children, params }: Props) {
-  return <>{children}</>;
+export default async function StateLayout({ children, params }: Props) {
+  const { state } = await params;
+  const stateInfo = STATE_METADATA[state];
+
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalOrganization',
+    'name': 'Mountain Spine & Orthopedics',
+    'url': 'https://mountainspineorthopedics.com',
+    'logo': {
+      '@type': 'ImageObject',
+      'url': 'https://mountainspineortho.b-cdn.net/logoSearch.png',
+      'width': 500,
+      'height': 500,
+    },
+    'areaServed': {
+      '@type': 'AdministrativeArea',
+      'name': stateInfo?.name || state,
+    },
+    'medicalSpecialty': [
+      'Orthopedic Surgery',
+      'Spine Surgery',
+      'Pain Management',
+      'Podiatric Medicine',
+    ],
+    'sameAs': ['https://mountainspineorthopedics.com'],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      {children}
+    </>
+  );
 }
