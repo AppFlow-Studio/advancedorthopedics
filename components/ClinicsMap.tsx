@@ -153,11 +153,11 @@ export default function ClinicsMap({ startingClinic, showEmbed = false, stateNam
  `;
 
 
-  const defaultMarkerIcon = {
+  const defaultMarkerIcon = isLoaded ? {
     url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(defaultSvg),
-    scaledSize: new window.google.maps.Size(60, 40), // Display size
-    anchor: new window.google.maps.Point(30, 20),    // Anchor at center
-  };
+    scaledSize: new window.google.maps.Size(60, 40),
+    anchor: new window.google.maps.Point(30, 20),
+  } : null;
 
 
   // --- Marker Click Handler ---

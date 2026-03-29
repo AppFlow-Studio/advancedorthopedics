@@ -207,7 +207,9 @@ export default function Home() {
   return (
     <>
       <HomePageJsonLdSchema />
-      <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+        <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+        {/* sr-only H1 for first-wave crawlers — visible H1 renders inside HomeHeroSection (client) */}
+        <h1 className="sr-only">Mountain Spine &amp; Orthopedics | Top Orthopedic &amp; Spine Surgeons in FL, NJ, NY &amp; PA</h1>
         {/* Hero Section - Interactive */}
         <HomeHeroSection />
 
