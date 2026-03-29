@@ -113,6 +113,8 @@ export default async function LocationDetails(
     
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
+            {/* sr-only H1 for first-wave crawlers — visible H1 renders inside SlidingDiv (client) */}
+            <h1 className="sr-only">Orthopedic Surgeons &amp; Spine Specialists in {locationData.region.split(',')[0].trim()}</h1>
             <ReviewLocationCapture locationSlug={locationData.locationSlug} />
             <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]  justify-between" >
                 <div

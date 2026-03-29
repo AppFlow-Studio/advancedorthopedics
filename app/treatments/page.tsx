@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { buildCanonical, canonicalForOg } from '@/lib/seo';
 import { getOgImageForPath } from '@/lib/og';
@@ -41,5 +41,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function TreatmentsPage() {
-  return <TreatmentsHubClient />;
+  return (
+    <Suspense>
+      <TreatmentsHubClient />
+    </Suspense>
+  );
 }

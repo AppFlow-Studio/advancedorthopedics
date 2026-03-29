@@ -214,6 +214,8 @@ export default async function StateHubPage({
         />
       )}
       <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-6 md:pb-10'>
+      {/* sr-only H1 for first-wave crawlers — visible H1 renders inside SlidingDiv (client) */}
+      <h1 className="sr-only">Spine &amp; Orthopedic Surgeons in {stateInfo?.name || ''}</h1>
       {/* 1. HERO - 2-column: text left, form right */}
       <section className="w-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-label={`Spine & Orthopedic Surgeons in ${stateInfo?.name}`}>
         <div style={{ filter: 'blur(30px)' }} className="w-full h-[120px] absolute top-0 z-[1]" />
