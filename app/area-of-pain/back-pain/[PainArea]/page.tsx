@@ -5,6 +5,13 @@ import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { notFound } from 'next/navigation'
 import { PainAreaClient } from './PainAreaClient'
 
+export async function generateStaticParams() {
+  const conditionSlugs = conditions.map((c) => c.slug)
+  const painSlugs = painconditions.map((c) => c.slug)
+  const allSlugs = Array.from(new Set([...painSlugs, ...conditionSlugs, 'back-pain-treatment-options']))
+  return allSlugs.map((PainArea) => ({ PainArea }))
+}
+
 // This function shuffles an array and is used to display random doctors.
 // It's defined here because it's only used for this server component.
 function shuffleArray(array: any[]) {

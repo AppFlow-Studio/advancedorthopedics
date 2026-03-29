@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     'orthopedic credentials',
     'orthopedic team'
   ],
+  robots: { index: true, follow: true },
   alternates: {
     canonical: buildCanonical("/about"),
   },

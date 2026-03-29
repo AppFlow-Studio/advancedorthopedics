@@ -83,6 +83,7 @@ export async function generateMetadata(
     title,
     description,
     keywords: isNewFormat && treatmentContent ? treatmentContent.keywords : (treatment?.keywords || [treatment?.title ?? '', "orthopedic treatment", "spine surgery"]),
+    robots: { index: true, follow: true },
     openGraph: {
       title,
       description,

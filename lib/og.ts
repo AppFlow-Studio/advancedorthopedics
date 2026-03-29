@@ -6,21 +6,35 @@ import { SITE_URL } from '@/lib/seo';
  * ✱  Keep everything 1200×630 px and in /public for zero-runtime cost.
  */
 const OG_IMAGE_MAP: Record<string, string> = {
-  // ----- high-intent landing buckets -----
-  '/find-care/free-mri-review':          '/MRI_og.png',
-  '/find-care/book-an-appointment':      '/Appointment_og.png',
-  '/find-care':                          '/default_og.png',
+  // ----- find-care pages (longest prefix first) -----
+  '/find-care/free-mri-review':          '/free-MRI-review.png',
+  '/find-care/book-an-appointment':      '/book-appointment-og.png',
+  '/find-care/second-opinion':           '/second-opinion-og.png',
+  '/find-care/candidacy-check':          '/candidacy-check-og.png',
+  '/find-care/find-a-doctor':            '/find-a-doctor-og.png',
+  '/find-care':                          '/default-og.png',
 
-  '/conditions':                         '/conditions_og.png',   // master list (canonical URL)
-  '/area-of-pain':                       '/conditions_og.png',   // sub-folders
-  '/treatments':                         '/treatments_og.png',
-  '/about/meetourdoctors':               '/doctors_og.png',
-  '/locations':                          '/locations_og.png',
-  '/blogs':                              '/blogs_og.png',
+  // ----- condition / treatment pages -----
+  '/conditions':                         '/conditions-og.png',   // master list (canonical URL)
+  '/area-of-pain':                       '/conditions-og.png',   // sub-folders
+  '/condition-check':                    '/condition-check-og.png',
+  '/treatments':                         '/treatments-og.png',
+  '/insurance-policy':                   '/Insurance-Policy-og.png',
+
+  // ----- location hub pages (sub-regions before parent) -----
+  '/locations/florida':                  '/locations-florida-og.png',
+  '/locations/new-jersey':               '/locations-new-jersey-og.png',
+  '/locations/new-york':                 '/locations-new-york-og.png',
+  '/locations/pennsylvania':             '/locations-pennsylvania-og.png',
+  '/locations':                          '/locations-og.png',
+
+  // ----- other hub pages -----
+  '/about/meetourdoctors':               '/meetourdoctors-og.png',
+  '/blogs':                              '/blog-og.png',
 
   // ----- site-wide defaults -----
-  '/':                                   '/default_og.png',      // homepage
-  DEFAULT:                               '/default_og.png',      // safety-net
+  '/':                                   '/default-og.png',      // homepage
+  DEFAULT:                               '/default-og.png',      // safety-net
 };
 
 /**

@@ -5,6 +5,13 @@ import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { notFound } from 'next/navigation'
 import { FootPainAreaClient } from './FootPainAreaClient'
 
+export async function generateStaticParams() {
+  const conditionSlugs = conditions.map((c) => c.slug)
+  const painSlugs = painconditions.map((c) => c.slug)
+  const allSlugs = Array.from(new Set([...painSlugs, ...conditionSlugs, 'footpaintreatmentoptions']))
+  return allSlugs.map((FootSlug) => ({ FootSlug }))
+}
+
 function shuffleArray(array: any[]) {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {

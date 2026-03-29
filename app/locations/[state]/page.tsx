@@ -1,11 +1,9 @@
-'use client'
-
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { clinics } from '@/components/data/clinics'
 import ClinicsMap from '@/components/ClinicsMap'
 import Link from 'next/link'
-import { notFound, useParams } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { STATE_METADATA, VALID_STATE_SLUGS } from '@/lib/locationRedirects'
 import { STATE_FAQS } from '@/lib/state-faqs'
 import { generateFAQPageSchema } from "@/lib/faq-utils"
@@ -18,24 +16,27 @@ import {
 import { MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, MAIN_PHONE_E164, STATE_PHONE_NUMBERS } from '@/lib/locationConstants'
 import StateSeoSections from '@/components/StateSeoSections'
 import StateLocationsCarouselMobile from '@/components/StateLocationsCarouselMobile.client'
-import StateLocationCard from '@/components/StateLocationCard'
 import StateLocationsGridDesktop from '@/components/StateLocationsGridDesktop.client'
 import StateWhyChoose from '@/components/StateWhyChoose'
 import StateInsurance from '@/components/StateInsurance'
 import StateCTA from '@/components/StateCTA'
-import BookAnAppoitmentButton from '@/components/BookAnAppoitmentButton'
 import { PhoneTextLink } from '@/components/PhoneTextLink'
 import SlidingDiv from '@/components/SlidingAnimation'
 import StateHeroForm from '@/components/StateHeroForm'
 import BarTrans from '@/components/BarTrans'
 
-export default function StateHubPage() {
-  const params = useParams()
-  const state = params.state as string
-  
-  // Validate state slug (client-side validation)
-  const isValidState = VALID_STATE_SLUGS.includes(state as any)
-  if (!isValidState) {
+export async function generateStaticParams() {
+  return VALID_STATE_SLUGS.map((state) => ({ state }))
+}
+
+export default async function StateHubPage({
+  params,
+}: {
+  params: Promise<{ state: string }>
+}) {
+  const { state } = await params
+
+  if (!VALID_STATE_SLUGS.includes(state as any)) {
     notFound()
   }
   
@@ -188,9 +189,6 @@ export default function StateHubPage() {
     ? generateFAQPageSchema(stateFaqs, canonicalUrl)
     : null
 
-  // Create local state for selected location
-  const [selectedLocation, setSelectedLocation] = useState(stateClinics[0] || null)
-
   if (stateClinics.length === 0) {
     notFound()
   }
@@ -316,30 +314,19 @@ export default function StateHubPage() {
             {/* Mobile Carousel - Isolated state so swiping does not re-render hero / re-trigger header animation */}
             <StateLocationsCarouselMobile
               stateClinics={stateClinics}
-              renderCard={(clinic, index) => <StateLocationCard clinic={clinic} index={index} isMobile stateInfo={stateInfo} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />}
+              stateInfo={stateInfo}
+              phoneDisplay={statePhone.display}
+              phoneTel={statePhone.tel}
             />
 
             {/* Desktop Grid - Own hover state so hovering does not re-render page / re-trigger hero animation */}
             <StateLocationsGridDesktop stateClinics={stateClinics} stateInfo={stateInfo} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
             
-            {/* Static HTML fallback for crawlers - Always visible, hidden visually but accessible to bots */}
-            <div className="sr-only" aria-hidden="false">
-              <h3>All {stateInfo?.name} Locations</h3>
-              <ul>
-                {stateClinics.map((clinic) => (
-                  <li key={clinic.id}>
-                    <Link href={`/locations/${clinic.stateSlug}/${clinic.locationSlug}`}>
-                      {clinic.name} - {clinic.address} - {statePhone.display}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </section>
         </div>
 
         {/* 3. MAP - Second after locations */}
-        <ClinicsMap startingClinic={selectedLocation} stateName={stateInfo?.name} />
+        <ClinicsMap startingClinic={stateClinics[0] || null} stateName={stateInfo?.name} />
         
         {/* 4. INTRO PARAGRAPH - Third after map */}
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16">

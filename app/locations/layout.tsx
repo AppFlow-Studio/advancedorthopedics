@@ -5,6 +5,7 @@ import { getOgImageForPath } from "@/lib/og";
 export const metadata: Metadata = {
   title: safeTitle(undefined, "Orthopedic Clinic Locations in FL, NJ, NY & PA | Mountain Spine & Orthopedics"),
   description: safeDescription(undefined, "Find Mountain Spine & Orthopedics clinic locations across Florida, New Jersey, New York, and Pennsylvania. Convenient orthopedic and spine care near you with expert specialists."),
+  robots: { index: true, follow: true },
   alternates: {
     canonical: buildCanonical("/locations"),
   },

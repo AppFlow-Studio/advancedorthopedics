@@ -109,6 +109,7 @@ export async function generateMetadata({
   return {
     title: tagMetadata.title,
     description: tagMetadata.desc,
+    robots: { index: true, follow: true },
     alternates: {
       canonical: canonicalUrl
     },
