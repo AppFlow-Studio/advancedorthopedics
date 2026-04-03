@@ -704,6 +704,8 @@ export default function OrthopedicInjectionsPage() {
                     ['Facet joint arthritis / spondylosis', 'Facet Joint Injection'],
                     ['Sacroiliac (SI) joint dysfunction', 'SI Joint Injection'],
                     ['Piriformis syndrome', 'Trigger Point, Nerve Block'],
+                    ['Facet block / medial branch block (diagnostic + therapeutic)', 'Facet Block, Medial Branch Block'],
+                    ['Sympathetic block — severe leg pain / CRPS', 'Sympathetic Nerve Block'],
                     ['Failed back surgery syndrome', 'ESI, Nerve Block'],
                   ].map(([condition, injection]) => (
                     <li key={condition} className="flex items-start gap-2">
@@ -743,6 +745,7 @@ export default function OrthopedicInjectionsPage() {
                     ['Cervical radiculopathy (arm pain)', 'Cervical ESI, Nerve Block'],
                     ['Cervical facet arthritis', 'Cervical Facet Injection'],
                     ['Neck-related headaches', 'Cervical Facet, Nerve Block'],
+                    ['Occipital neuralgia / chronic headaches', 'Occipital Nerve Block'],
                     ['Whiplash / cervical strain', 'Trigger Point, Cervical ESI'],
                   ].map(([condition, injection]) => (
                     <li key={condition} className="flex items-start gap-2">
