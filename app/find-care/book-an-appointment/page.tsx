@@ -391,7 +391,22 @@ export default function BookAnAppointment() {
         restored above form on lg+ (lg:order-1 / lg:order-2).
         pt-24 on the form wrapper clears the fixed nav height on mobile.
       */}
-      <div className="order-1 lg:order-2 w-full pt-24 lg:pt-0">
+      <div className="order-1 lg:order-2 w-full pt-20 lg:pt-0">
+        {/* Mobile-only header — mirrors the hero text shown on desktop */}
+        <div className="lg:hidden px-6 pt-6 pb-2">
+          <h1
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+            className="text-[#252932] text-3xl"
+          >
+            Book an Appointment
+          </h1>
+          <p
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+            className="text-[#424959] text-base mt-2"
+          >
+            Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
+          </p>
+        </div>
         <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
       </div>
 

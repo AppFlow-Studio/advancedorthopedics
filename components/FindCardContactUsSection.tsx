@@ -76,7 +76,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
               fontFamily: "var(--font-public-sans)",
               fontWeight: 500, color: '#252932',
             }}
-            className="text-5xl text-center"
+            className="hidden lg:block text-5xl text-center"
           >
             Contact Us
           </h3>
@@ -86,7 +86,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
               fontFamily: "var(--font-public-sans)",
               fontWeight: 500, color: '#424959',
             }}
-            className="text-lg mt-[24px] text-center w-[60%]"
+            className="hidden lg:block text-lg mt-[24px] text-center w-[60%]"
           >
             Have questions or need support?
             Reach out to us anytime - we're here to help.
