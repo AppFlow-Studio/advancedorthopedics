@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getReviewLocations } from '@/lib/reviewLinks';
+import { ReviewDropdownButton } from '@/components/ReviewDropdownButton';
 
 export type GoogleStyleReview = {
   quote: string;
@@ -8,7 +10,7 @@ export type GoogleStyleReview = {
   detail: string;
   /** Shown next to stars, Google-style */
   date: string;
-  /** Optional link for location-specific “Write a review” on the card */
+  /** Optional link for location-specific "Write a review" on the card */
   writeReviewHref?: string;
 };
 
@@ -44,9 +46,9 @@ function avatarFromName(name: string): { initial: string; hue: string } {
 
 type Props = {
   testimonials: GoogleStyleReview[];
-  /** Primary “Write a review” target (e.g. main location Google review URL) */
+  /** Primary "Write a review" target — kept for backwards compat, used as fallback on cards */
   writeReviewHref: string;
-  /** Optional aggregate count label, e.g. “500+ reviews” */
+  /** Optional aggregate count label, e.g. "500+ reviews" */
   aggregateReviewLabel?: string;
 };
 
@@ -55,6 +57,8 @@ export function GoogleStylePatientReviews({
   writeReviewHref,
   aggregateReviewLabel = 'Patient feedback',
 }: Props) {
+  const reviewLocations = getReviewLocations();
+
   return (
     <section
       className="w-full bg-[#F8F9FA] border-y border-[#E8EAED] py-10 px-6 xl:px-[80px]"
@@ -106,25 +110,28 @@ export function GoogleStylePatientReviews({
               </div>
             </div>
           </div>
-          <Link
-            href={writeReviewHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className="inline-flex items-center justify-center bg-[#1A73E8] hover:bg-[#1557B0] text-white text-sm px-5 py-2.5 rounded-full shadow-sm transition-colors w-full sm:w-auto"
-          >
-            Write a review
-          </Link>
+
+          {/* Location-selector dropdown — client component */}
+          <ReviewDropdownButton locations={reviewLocations} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        {/*
+          Carousel: horizontal scroll-snap on mobile, equal-width flex row on md+.
+          Content is always in the DOM (SSR'd) — no JS needed for the scroll itself.
+          Cards are sized so exactly one fits on mobile, ~2 on sm, and 3 fill md+.
+        */}
+        <div
+          className="flex gap-4 md:gap-5 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none pb-3 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth"
+          role="list"
+        >
           {testimonials.map((t) => {
             const { initial, hue } = avatarFromName(t.name);
             const cardReviewLink = t.writeReviewHref ?? writeReviewHref;
             return (
               <article
                 key={`${t.name}-${t.date}`}
-                className="bg-white rounded-2xl p-5 shadow-[0_1px_2px_rgba(60,64,67,0.15),0_1px_3px_1px_rgba(60,64,67,0.1)] border border-[#E8EAED] flex flex-col min-h-[200px]"
+                role="listitem"
+                className="snap-start flex-shrink-0 w-[calc(100vw-4rem)] sm:w-[min(380px,72vw)] md:flex-1 md:w-auto bg-white rounded-2xl p-5 shadow-[0_1px_2px_rgba(60,64,67,0.15),0_1px_3px_1px_rgba(60,64,67,0.1)] border border-[#E8EAED] flex flex-col min-h-[200px]"
               >
                 <div className="flex gap-3 mb-3">
                   <div

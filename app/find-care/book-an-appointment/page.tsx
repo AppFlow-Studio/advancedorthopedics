@@ -383,7 +383,19 @@ export default function BookAnAppointment() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* MedicalOrganization Schema for SEO */}
       <BookAppointmentJsonLdSchema />
-      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+
+      {/*
+        CRO: On mobile the booking form is the primary conversion goal.
+        Form is rendered first (order-1) so it appears above fold on mobile.
+        Hero is decorative context — pushed below form on mobile (order-2),
+        restored above form on lg+ (lg:order-1 / lg:order-2).
+        pt-24 on the form wrapper clears the fixed nav height on mobile.
+      */}
+      <div className="order-1 lg:order-2 w-full pt-24 lg:pt-0">
+        <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
+      </div>
+
+      <section className="order-2 lg:order-1 w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
         <div
           style={{
             filter: 'blur(30px)'
@@ -427,8 +439,8 @@ export default function BookAnAppointment() {
           </div>
         </div>
       </section>
-      <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
-      <div className="w-full flex flex-row items-center justify-evenly py-20 "
+
+      <div className="order-3 w-full flex flex-row items-center justify-evenly py-20 "
       >
 
         <Marquee pauseOnHover className='w-full' >
@@ -447,7 +459,9 @@ export default function BookAnAppointment() {
         </Marquee>
 
       </div>
-      <RatingsAndReviews />
+      <div className="order-4 w-full">
+        <RatingsAndReviews />
+      </div>
     </main>
   )
 }
