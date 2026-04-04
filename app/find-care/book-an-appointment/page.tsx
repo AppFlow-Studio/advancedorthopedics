@@ -391,26 +391,43 @@ export default function BookAnAppointment() {
         restored above form on lg+ (lg:order-1 / lg:order-2).
         pt-24 on the form wrapper clears the fixed nav height on mobile.
       */}
-      <div className="order-1 lg:order-2 w-full pt-20 lg:pt-0">
-        {/* Mobile-only header — mirrors the hero text shown on desktop */}
-        <div className="lg:hidden px-6 pt-6 pb-2">
-          <h1
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className="text-[#252932] text-3xl"
-          >
-            Book an Appointment
-          </h1>
-          <p
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className="text-[#424959] text-base mt-2"
-          >
-            Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
-          </p>
+      <div className="order-1 lg:order-2 w-full">
+        {/* Mobile-only compact hero — background image + title above the form.
+            Hidden on lg+ where the full hero section (order-2 lg:order-1) takes over. */}
+        <div className="lg:hidden relative overflow-hidden pt-20 pb-8 px-6 [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+          <Image
+            src="/herosectionimg.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            aria-hidden="true"
+          />
+          {/* Bottom fade to white so the form below blends in */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.85) 70%, #fff)' }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
+            <h1
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+              className="text-[#252932] text-3xl"
+            >
+              Book an Appointment
+            </h1>
+            <p
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+              className="text-[#252932] text-base mt-2"
+            >
+              Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
+            </p>
+          </div>
         </div>
         <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
       </div>
 
-      <section className="order-2 lg:order-1 w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+      <section className="order-2 lg:order-1 hidden lg:flex w-full h-full flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
         <div
           style={{
             filter: 'blur(30px)'
