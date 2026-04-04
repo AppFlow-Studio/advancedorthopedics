@@ -5,7 +5,7 @@ import HomeContactUs from '../public/HomeContactUs.jpeg'
 import { DoctorContactForm } from './DoctorContactForm'
 export default function FindCareContactUsSection({ page, backgroundcolor = '#FAFCFF' }: { page: string, backgroundcolor?: string }) {
   return (
-    <section className={`bg-[${backgroundcolor}] w-full h-full py-[50px]`}>
+    <section className={`bg-[${backgroundcolor}] w-full h-full pt-3 lg:pt-[50px] pb-[50px]`}>
       <div className="max-w-[1440px] w-full px-6 lg:px-[40px] mx-auto flex flex-col lg:flex-row space-x-[60px]">
         <div className="order-2 lg:order-1 w-full lg:w-[50%] flex flex-col p-[24px]">
           <div className='z-[2] w-full pb-2'>
@@ -70,7 +70,7 @@ export default function FindCareContactUsSection({ page, backgroundcolor = '#FAF
 
         </div>
 
-        <div className="order-1 lg:order-2 w-full lg:w-[50%] flex flex-col bg-white p-[24px] rounded-[24px] items-center justify-center">
+        <div className="order-1 lg:order-2 w-full lg:w-[50%] flex flex-col bg-white pt-2 px-[24px] pb-[24px] lg:p-[24px] rounded-[24px] items-center justify-center">
           <h3
             style={{
               fontFamily: "var(--font-public-sans)",

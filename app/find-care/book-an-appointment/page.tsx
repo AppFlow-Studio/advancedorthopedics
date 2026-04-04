@@ -394,7 +394,7 @@ export default function BookAnAppointment() {
       <div className="order-1 lg:order-2 w-full">
         {/* Mobile-only compact hero — background image + title above the form.
             Hidden on lg+ where the full hero section (order-2 lg:order-1) takes over. */}
-        <div className="lg:hidden relative overflow-hidden pt-20 pb-8 px-6 [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+        <div className="lg:hidden relative overflow-hidden pt-20 pb-3 px-6">
           <Image
             src="/herosectionimg.jpg"
             alt=""
@@ -403,10 +403,10 @@ export default function BookAnAppointment() {
             className="object-cover object-center"
             aria-hidden="true"
           />
-          {/* Bottom fade to white so the form below blends in */}
+          {/* Subtle bottom fade so hero blends into the form */}
           <div
-            className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
-            style={{ background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.85) 70%, #fff)' }}
+            className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.6))' }}
             aria-hidden="true"
           />
           <div className="relative z-10">
@@ -418,13 +418,16 @@ export default function BookAnAppointment() {
             </h1>
             <p
               style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-              className="text-[#252932] text-base mt-2"
+              className="text-[#252932] text-base mt-1"
             >
               Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
             </p>
           </div>
         </div>
-        <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
+        {/* Negative top margin pulls the form up flush under the hero on mobile */}
+        <div className="-mt-3 lg:mt-0">
+          <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
+        </div>
       </div>
 
       <section className="order-2 lg:order-1 hidden lg:flex w-full h-full flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
