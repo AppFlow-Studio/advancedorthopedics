@@ -1,9 +1,17 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { conditions } from './data/conditions';
+import { conditions, conditionContentPlaceholders } from './data/conditions';
 import { ConditionInfoProp } from './ConditionCard';
 import ConditionsSearchBar from './ConditionsSearchBar';
+
+// Unified lookup list: new-format entries (with tag) + old-format entries
+const allConditionsForFilter: { title: string; slug: string; tag?: string }[] = [
+  ...conditionContentPlaceholders.map((c) => ({ title: c.title, slug: c.slug, tag: c.tag })),
+  ...conditions.filter(
+    (c) => !conditionContentPlaceholders.some((p) => p.slug === c.slug)
+  ),
+];
 
 const CHEVRON = (
   <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
@@ -28,7 +36,7 @@ const TAG_HUB_SLUG: Record<string, string> = {
 
 // ── Filtered sidebar (individual condition pages) ─────────────────────────────
 function FilteredConditionList({ currentCondition, tag }: { currentCondition: string; tag: string }) {
-  const related = conditions
+  const related = allConditionsForFilter
     .filter((c) => c.tag === tag)
     .slice(0, 9);
 
