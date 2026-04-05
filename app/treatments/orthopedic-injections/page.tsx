@@ -1275,17 +1275,33 @@ export default function OrthopedicInjectionsPage() {
                 className="text-white sm:text-xl text-sm opacity-90"
               >
                 For most patients, orthopedic injections are an effective non-surgical treatment
-                that provides meaningful pain relief for months. For some patients, injections help
-                us understand the source of your pain more precisely — and when injections alone
-                cannot provide lasting relief, our surgeons offer minimally invasive spine and joint
-                procedures that treat the root cause.
+                that provides meaningful pain relief for months. Beyond relief, injections serve a
+                critical diagnostic role — pinpointing the exact nerve, joint, or spinal structure
+                responsible for your pain with a precision that imaging alone cannot always confirm.
               </p>
               <p
                 style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
                 className="text-white sm:text-xl text-sm opacity-90"
               >
-                Either way, your care stays with the same board-certified team from your first
-                injection to any surgical consultation — no referrals, no starting over.
+                When injections alone cannot provide lasting relief, that diagnostic information
+                guides our surgeons toward the right surgical solution. Many of our injection
+                patients go on to explore minimally invasive options such as{' '}
+                <Link href="/treatments/lumbar-microdiscectomy-surgery" className="underline opacity-90 hover:opacity-100">microdiscectomy</Link>,{' '}
+                <Link href="/treatments/lumbar-laminectomy-surgery" className="underline opacity-90 hover:opacity-100">lumbar laminectomy</Link>,{' '}
+                <Link href="/treatments/cervical-disc-replacement" className="underline opacity-90 hover:opacity-100">cervical disc replacement</Link>, or{' '}
+                <Link href="/treatments/total-knee-replacement" className="underline opacity-90 hover:opacity-100">joint replacement</Link>{' '}
+                when conservative treatment has been exhausted. Each procedure directly addresses
+                the root cause that injections were managing.
+              </p>
+              <p
+                style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
+                className="text-white sm:text-xl text-sm opacity-90"
+              >
+                Most patients are bounced between a pain management clinic, a spine specialist, and
+                a surgeon — three separate practices, three separate intake processes, no shared
+                history. At Mountain Spine &amp; Orthopedics, all three are available under one
+                roof. Your care — from your first injection to any surgical consultation — stays
+                with the same board-certified team, with no referrals and no starting over.
               </p>
             </div>
             <div className="flex flex-row flex-wrap gap-4">
