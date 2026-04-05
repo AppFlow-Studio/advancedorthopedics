@@ -214,8 +214,6 @@ export default async function StateHubPage({
         />
       )}
       <main className='w-full flex flex-col items-center justify-center bg-white h-full pb-6 md:pb-10'>
-      {/* sr-only H1 for first-wave crawlers — visible H1 renders inside SlidingDiv (client) */}
-      <h1 className="sr-only">Spine &amp; Orthopedic Surgeons in {stateInfo?.name || ''}</h1>
       {/* 1. HERO - 2-column: text left, form right */}
       <section className="w-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]" aria-label={`Spine & Orthopedic Surgeons in ${stateInfo?.name}`}>
         <div style={{ filter: 'blur(30px)' }} className="w-full h-[120px] absolute top-0 z-[1]" />
@@ -333,7 +331,7 @@ export default async function StateHubPage({
         {/* 4. INTRO PARAGRAPH - Third after map */}
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16">
           <section className="mb-8 sm:mb-12 md:mb-16" aria-labelledby="intro-heading">
-            <h2 id="intro-heading" className="sr-only">About Our {stateInfo?.name} Locations</h2>
+            <h2 id="intro-heading" style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 700 }} className="text-[#062044] text-xl sm:text-2xl mb-4">About Our {stateInfo?.name} Orthopedic & Spine Locations</h2>
             <p className="text-lg text-[#424959] leading-relaxed max-w-4xl mx-auto">
               Mountain Spine & Orthopedics provides comprehensive orthopedic and spine care across {stateInfo?.name}, with board-certified surgeons specializing in spine surgery, joint replacement, minimally invasive spine surgery, sports medicine, and pain management. Our {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''} serve patients in {topCities} and surrounding communities.{state === 'new-jersey' ? ' Our New Jersey clinics serve patients throughout North, Central, and South Jersey, with convenient access via major corridors including the Garden State Parkway and Route 22.' : state === 'new-york' ? ' Our New York locations provide accessible orthopedic care with convenient parking and easy transit access for patients throughout the region.' : state === 'pennsylvania' ? ' Our Pennsylvania clinics serve patients across the state with convenient locations and accessible parking for easy appointments.' : ' Our Florida clinics serve patients throughout the state with convenient locations and ample parking for easy access.'} We offer same-day and next-day appointments for urgent orthopedic needs, advanced diagnostic imaging coordination, and personalized treatment plans that may include non-surgical options like medications and injections, or surgical interventions when appropriate. Our team focuses on accurate diagnosis, evidence-based care, and helping patients return to their active lifestyles.
             </p>

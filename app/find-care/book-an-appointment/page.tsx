@@ -383,7 +383,54 @@ export default function BookAnAppointment() {
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* MedicalOrganization Schema for SEO */}
       <BookAppointmentJsonLdSchema />
-      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+
+      {/*
+        CRO: On mobile the booking form is the primary conversion goal.
+        Form is rendered first (order-1) so it appears above fold on mobile.
+        Hero is decorative context — pushed below form on mobile (order-2),
+        restored above form on lg+ (lg:order-1 / lg:order-2).
+        pt-24 on the form wrapper clears the fixed nav height on mobile.
+      */}
+      <div className="order-1 lg:order-2 w-full">
+        {/* Mobile-only compact hero — background image + title above the form.
+            Hidden on lg+ where the full hero section (order-2 lg:order-1) takes over. */}
+        <div className="lg:hidden relative overflow-hidden pt-20 pb-3 px-6">
+          <Image
+            src="/herosectionimg.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            aria-hidden="true"
+          />
+          {/* Subtle bottom fade so hero blends into the form */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.6))' }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
+            <h1
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+              className="text-[#252932] text-3xl"
+            >
+              Book an Appointment
+            </h1>
+            <p
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+              className="text-[#252932] text-base mt-1"
+            >
+              Our patient advocates are here to help. Schedule a virtual or in-person appointment at your earliest convenience.
+            </p>
+          </div>
+        </div>
+        {/* Negative top margin pulls the form up flush under the hero on mobile */}
+        <div className="-mt-3 lg:mt-0">
+          <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
+        </div>
+      </div>
+
+      <section className="order-2 lg:order-1 hidden lg:flex w-full h-full flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
         <div
           style={{
             filter: 'blur(30px)'
@@ -427,8 +474,8 @@ export default function BookAnAppointment() {
           </div>
         </div>
       </section>
-      <FindCareContactUsSection page={'Book an Appointment'} backgroundcolor="white" />
-      <div className="w-full flex flex-row items-center justify-evenly py-20 "
+
+      <div className="order-3 w-full flex flex-row items-center justify-evenly py-20 "
       >
 
         <Marquee pauseOnHover className='w-full' >
@@ -447,7 +494,9 @@ export default function BookAnAppointment() {
         </Marquee>
 
       </div>
-      <RatingsAndReviews />
+      <div className="order-4 w-full">
+        <RatingsAndReviews />
+      </div>
     </main>
   )
 }
