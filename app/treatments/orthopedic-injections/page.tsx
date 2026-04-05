@@ -61,7 +61,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'Does insurance cover orthopedic injections?',
     answer:
-      'Yes. **Most PPO, HMO, and major insurance plans** cover medically necessary orthopedic injections — including cortisone shots, epidural steroid injections, facet joint injections, SI joint injections, and nerve blocks — when ordered by a physician for a documented diagnosis. **Medicare Part B** also covers many orthopedic injections. Mountain Spine & Orthopedics accepts Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, Humana, Medicare, Tricare, and most other major carriers. Call (561) 223-9959 or use our online tool to verify your specific coverage before your appointment.',
+      'Yes. **Most PPO, HMO, and major insurance plans** cover medically necessary orthopedic injections — including cortisone shots, epidural steroid injections, facet joint injections, SI joint injections, and nerve blocks — when ordered by a physician for a documented diagnosis. Mountain Spine & Orthopedics accepts Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, Humana, and most other major carriers. Call (561) 223-9959 or use our online tool to verify your specific coverage before your appointment.',
   },
   {
     question: 'How quickly can I get an orthopedic injection appointment?',
@@ -976,7 +976,7 @@ export default function OrthopedicInjectionsPage() {
                     'Facet joint injections for spinal arthritis',
                     'SI joint injections for sacroiliac dysfunction',
                     'Nerve block injections for targeted nerve pain',
-                    'Hyaluronic acid (gel) knee injections — covered by most PPO and Medicare',
+                    'Hyaluronic acid (gel) knee injections — covered by most PPO plans',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="flex-shrink-0 mt-0.5" aria-hidden="true">
@@ -1003,20 +1003,13 @@ export default function OrthopedicInjectionsPage() {
                 >
                   <p>
                     <strong style={{ fontWeight: 600, color: '#111315' }}>With PPO insurance:</strong>{' '}
-                    Most patients pay their standard specialist copay — typically{' '}
-                    <strong style={{ fontWeight: 600, color: '#111315' }}>$20–$60 per visit</strong> — plus any
-                    remaining deductible. The injection itself is billed separately and is usually covered
-                    in full after your copay.
-                  </p>
-                  <p>
-                    <strong style={{ fontWeight: 600, color: '#111315' }}>With Medicare:</strong>{' '}
-                    Medicare Part B covers medically necessary orthopedic injections. You typically pay 20%
-                    of the Medicare-approved amount after your Part B deductible.
+                    Most patients pay their standard specialist copay plus any remaining deductible.
+                    The injection itself is billed separately and is usually covered in full after your copay.
                   </p>
                   <p>
                     <strong style={{ fontWeight: 600, color: '#111315' }}>Without insurance:</strong>{' '}
-                    Self-pay cortisone shots range from $100–$500+ depending on injection type and location.
-                    Call our office to discuss self-pay pricing.
+                    Self-pay options are available and vary by injection type and location.
+                    Call our office to discuss pricing.
                   </p>
                 </div>
                 <div className="pt-2 border-t border-[#E5E7EB]">
@@ -1027,7 +1020,7 @@ export default function OrthopedicInjectionsPage() {
                     Insurance carriers we accept:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare', 'Humana', 'Medicare', 'Tricare'].map((carrier) => (
+                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare', 'Humana'].map((carrier) => (
                       <span
                         key={carrier}
                         style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
