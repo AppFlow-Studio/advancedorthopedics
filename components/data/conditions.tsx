@@ -524,6 +524,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
             { slug: "sciatica", text: "Sciatica Relief" },
             { slug: "lumbar-herniated-disc", text: "Lumbar Disc Issues" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -578,6 +579,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
             { slug: "neck-pain", text: "Neck Pain Relief" },
             { slug: "spinal-stenosis", text: "Spinal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -794,6 +796,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "back-pain", text: "Back Pain Relief" },
             { slug: "neck-pain", text: "Neck Pain Relief" },
             { slug: "degenerative-disc-disease", text: "Degenerative Disc Disease" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -848,6 +851,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "sciatica", text: "Sciatica Relief" },
             { slug: "herniated-disc", text: "Herniated Discs" },
             { slug: "spinal-stenosis", text: "Spinal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -902,6 +906,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
             { slug: "herniated-disc", text: "Herniated Discs" },
             { slug: "spinal-stenosis", text: "Spinal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -1118,6 +1123,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "cervical-herniated-disc", text: "Cervical Herniated Disc" },
             { slug: "cervical-spinal-stenosis", text: "Cervical Stenosis" },
             { slug: "facet-joint-disease", text: "Facet Joint Arthritis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -1226,6 +1232,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "cervical-spinal-stenosis", text: "Neck Stenosis" },
             { slug: "herniated-disc", text: "Herniated Discs" },
             { slug: "foraminal-stenosis", text: "Foraminal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -1280,6 +1287,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "sciatica", text: "Sciatica Relief" },
             { slug: "bulging-disc", text: "Bulging Discs" },
             { slug: "pinched-nerve", text: "Pinched Nerve Relief" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],

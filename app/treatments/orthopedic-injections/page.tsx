@@ -50,7 +50,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'How much does a cortisone shot cost with insurance?',
     answer:
-      'With most PPO and major insurance plans, your out-of-pocket cost for a **cortisone shot** at an orthopedic specialist is typically your standard specialist copay ($20–$60 depending on your plan) plus any deductible responsibility. Most insurance plans cover medically necessary orthopedic injections when documented as treatment for a diagnosed condition. Without insurance, cortisone shot costs range from $100–$500+ depending on joint location and facility. Mountain Spine & Orthopedics accepts most major insurance plans. Call our office or check our website to verify your coverage before your appointment.',
+      'With PPO insurance, your out-of-pocket cost for a **cortisone shot** at an orthopedic specialist is typically your standard specialist copay plus any deductible responsibility. PPO and major insurance plans cover medically necessary orthopedic injections when documented as treatment for a diagnosed condition. Mountain Spine & Orthopedics accepts PPO and major commercial insurance plans. Call our office or check our website to verify your coverage before your appointment.',
   },
   {
     question: 'Who qualifies for the free MRI review?',
@@ -60,7 +60,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'Does insurance cover orthopedic injections?',
     answer:
-      'Yes. **Most PPO and major insurance plans** cover medically necessary orthopedic injections — including cortisone shots, epidural steroid injections, facet joint injections, SI joint injections, and nerve blocks — when ordered by a physician for a documented diagnosis. Mountain Spine & Orthopedics accepts Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, Humana, and most other major carriers. Call (561) 223-9959 or use our online tool to verify your specific coverage before your appointment.',
+      'Yes. **PPO and major insurance plans** cover medically necessary orthopedic injections — including cortisone shots, epidural steroid injections, facet joint injections, SI joint injections, and nerve blocks — when ordered by a physician for a documented diagnosis. Mountain Spine & Orthopedics accepts Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, and other major PPO carriers. Call (561) 223-9959 or use our online tool to verify your specific coverage before your appointment.',
   },
   {
     question: 'How quickly can I get an orthopedic injection appointment?',
@@ -993,7 +993,7 @@ export default function OrthopedicInjectionsPage() {
                 style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
                 className="text-[#424959] sm:text-xl text-sm"
               >
-                <strong style={{ fontWeight: 600, color: '#111315' }}>Yes — most major insurance plans cover orthopedic injections</strong>{' '}
+                <strong style={{ fontWeight: 600, color: '#111315' }}>Yes — PPO and major insurance plans cover orthopedic injections</strong>{' '}
                 when ordered by a physician for a documented diagnosis. Here is what to expect.
               </p>
             </div>
@@ -1246,7 +1246,7 @@ export default function OrthopedicInjectionsPage() {
               {[
                 {
                   state: 'Florida',
-                  cities: ['Boca Raton', 'Hollywood', 'Palm Beach Gardens', 'South Miami', 'Orlando', 'Altamonte Springs', 'Davenport', 'Fort Pierce', 'Jacksonville'],
+                  cities: ['Boca Raton', 'Hollywood', 'Palm Beach Gardens', 'Palm Springs', 'Miami Beach', 'Orlando', 'Altamonte Springs', 'Davenport', 'Fort Pierce', 'Jacksonville'],
                   href: '/locations/florida',
                 },
                 {
