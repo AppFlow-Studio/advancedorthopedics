@@ -5,7 +5,7 @@ import { buildCanonical } from '@/lib/seo';
 const BASE_URL = 'https://mountainspineorthopedics.com';
 const PAGE_PATH = '/treatments/orthopedic-injections';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
-const OG_IMAGE = 'https://mountainspineortho.b-cdn.net/public/default-treatment-image.jpg';
+const OG_IMAGE = 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/orthopedic-injections-mountain-spine-orthopedics.png';
 const DATE_PUBLISHED = '2024-01-15';
 const DATE_MODIFIED  = '2026-04-03';
 
