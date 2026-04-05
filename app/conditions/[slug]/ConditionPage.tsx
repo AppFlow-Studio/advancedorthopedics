@@ -320,7 +320,10 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
           </div>
           <div className='mt-10 lg:flex-shrink-0' />
           <div className='lg:flex-1 lg:min-h-0 lg:overflow-hidden flex flex-col'>
-            <ConditionList currentCondition={isNewFormat ? conditionContent!.title : condition_details!.title} />
+            <ConditionList
+              currentCondition={isNewFormat ? conditionContent!.title : condition_details!.title}
+              filterByTag={isNewFormat ? conditionContent!.tag : condition_details!.tag}
+            />
           </div>
 
           <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6' aria-label="Our Doctors">
