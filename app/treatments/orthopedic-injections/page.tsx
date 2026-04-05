@@ -1061,7 +1061,7 @@ export default function OrthopedicInjectionsPage() {
                     Insurance carriers we accept:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare', 'Humana'].map((carrier) => (
+                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare'].map((carrier) => (
                       <span
                         key={carrier}
                         style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
