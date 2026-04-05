@@ -325,7 +325,7 @@ const consolidatedSchema = {
           name: 'Do I need a referral for an orthopedic injection?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. At Mountain Spine & Orthopedics, you do not need a referral to schedule a consultation for injection therapy. You can book directly online or by calling your nearest location. Most PPO insurance plans allow direct access to specialists.',
+            text: 'No. At Mountain Spine & Orthopedics, you do not need a referral to schedule a consultation for injection therapy. You can book directly online or by calling your nearest location. PPO insurance plans allow direct access to specialists.',
           },
         },
         {
@@ -349,7 +349,7 @@ const consolidatedSchema = {
           name: 'How much does a cortisone shot cost with insurance?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'With most PPO and major insurance plans, your out-of-pocket cost is typically your standard specialist copay plus any remaining deductible responsibility. Most insurance plans cover medically necessary orthopedic injections when documented as treatment for a diagnosed condition. Mountain Spine & Orthopedics accepts most major insurance plans.',
+            text: 'With PPO insurance, your out-of-pocket cost is typically your standard specialist copay plus any remaining deductible responsibility. PPO insurance plans cover medically necessary orthopedic injections when documented as treatment for a diagnosed condition. Mountain Spine & Orthopedics accepts PPO insurance plans.',
           },
         },
         {

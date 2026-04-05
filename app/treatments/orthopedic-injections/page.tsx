@@ -36,7 +36,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'Do I need a referral for an orthopedic injection?',
     answer:
-      'No. At Mountain Spine & Orthopedics, you do not need a referral to schedule a consultation for injection therapy. You can book directly online or by calling your nearest location. If your insurance requires a referral for coverage purposes, we can help you navigate that process — but you do not need a referral to start the conversation with our specialists. Most PPO insurance plans allow direct access to specialists.',
+      'No. At Mountain Spine & Orthopedics, you do not need a referral to schedule a consultation for injection therapy. You can book directly online or by calling your nearest location. If your insurance requires a referral for coverage purposes, we can help you navigate that process — but you do not need a referral to start the conversation with our specialists. PPO insurance plans allow direct access to specialists.',
   },
   {
     question: 'What is an epidural steroid injection?',
@@ -300,7 +300,7 @@ export default function OrthopedicInjectionsPage() {
                 },
                 {
                   title: 'PPO Insurance Accepted',
-                  body: 'Most PPO and major insurance plans accepted. No-surprise billing policy. Call to verify your coverage before your appointment.',
+                  body: 'PPO insurance accepted. No-surprise billing policy. Call to verify your coverage before your appointment.',
                 },
                 {
                   title: 'No Referral Required',
@@ -976,7 +976,7 @@ export default function OrthopedicInjectionsPage() {
                     'Facet joint injections for spinal arthritis',
                     'SI joint injections for sacroiliac dysfunction',
                     'Nerve block injections for targeted nerve pain',
-                    'Hyaluronic acid (gel) knee injections — covered by most PPO plans',
+                    'Hyaluronic acid (gel) knee injections — covered by PPO plans',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="flex-shrink-0 mt-0.5" aria-hidden="true">
@@ -1205,22 +1205,22 @@ export default function OrthopedicInjectionsPage() {
               {[
                 {
                   state: 'Florida',
-                  cities: ['Boca Raton', 'Fort Lauderdale', 'Hollywood', 'Palm Beach Gardens', 'Wellington', 'West Palm Beach', 'Orlando', 'Kissimmee', 'Lakeland', 'Plantation', 'Deerfield Beach'],
+                  cities: ['Boca Raton', 'Hollywood', 'Palm Beach Gardens', 'South Miami', 'Orlando', 'Altamonte Springs', 'Davenport', 'Fort Pierce', 'Jacksonville'],
                   href: '/locations/florida',
                 },
                 {
                   state: 'New Jersey',
-                  cities: ['Cherry Hill', 'Marlton', 'Mount Laurel', 'Voorhees', 'Sewell'],
+                  cities: ['Bridgewater', 'Cherry Hill', 'Edison', 'Freehold', 'Paramus', 'Princeton', 'Voorhees', 'West Orange'],
                   href: '/locations/new-jersey',
                 },
                 {
                   state: 'New York',
-                  cities: ['New York City', 'Brooklyn'],
+                  cities: ['New York City'],
                   href: '/locations/new-york',
                 },
                 {
                   state: 'Pennsylvania',
-                  cities: ['Philadelphia', 'Bala Cynwyd'],
+                  cities: ['Allentown', 'Philadelphia'],
                   href: '/locations/pennsylvania',
                 },
               ].map(({ state, cities, href }) => (
