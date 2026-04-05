@@ -4,11 +4,11 @@ import Image from "next/image"
 import JamalLawMeeting from '@/public/JamalLawMeeting.jpeg'
 import { motion, useInView, useAnimation } from 'framer-motion'
 interface SlidingDivProps {
-    className : string
+    className?: string
     position: "left" | "right"
     children : React.ReactNode
 }
-export default function SlidingDiv({ position, className, children }: SlidingDivProps) {
+export default function SlidingDiv({ position, className = '', children }: SlidingDivProps) {
     const ref = useRef(null)
     const isInView = useInView(ref, { once : true })
 
