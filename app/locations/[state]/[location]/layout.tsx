@@ -37,20 +37,27 @@ export async function generateMetadata(
 
     // Use new canonical URL structure
     const canonicalUrl = buildCanonical(`/locations/${location.stateSlug}/${location.locationSlug}`);
-    const ogImage = getOgImageForPath('/locations');
+    // SEO-FIX: Use per-location ogImage when available, fall back to generic locations OG image
+    const ogImagePath = location.ogImage
+      ? `https://mountainspineorthopedics.com${location.ogImage}`
+      : getOgImageForPath('/locations');
+    const ogImage = ogImagePath;
 
     // Extract city name from location data
     const cityName = location.region.split(',')[0].trim();
     const stateInfo = STATE_METADATA[state];
     
-    // Create consistent title format: "Top Orthopedic Surgeons & Spine Specialists in [City] | Mountain Spine & Orthopedics"
-    const standardizedTitle = `Top Orthopedic Surgeons & Spine Specialists in ${cityName} | Mountain Spine & Orthopedics`;
+    // SEO-FIX: Shortened title template to <65 chars, front-loaded primary keyword
+    const stateAbbr = stateInfo?.abbr || state.toUpperCase();
+    const standardizedTitle = cityName.length > 15
+      ? `${cityName} Orthopedic & Spine Surgeon | Mountain Spine`
+      : `${cityName} Orthopedic Surgeon & Spine Specialist | Mountain Spine`;
     const consistentTitle = safeTitle(location.metaTitle, standardizedTitle);
-    
-    // Standardized description format with rating mention
-    const standardizedDescription = location.rating && location.reviewCount 
-      ? `Top-rated orthopedic and spine specialists in ${cityName}, ${stateInfo?.abbr || state.toUpperCase()}. Mountain Spine Orthopedics offers back pain, neck pain treatment, minimally invasive spine surgery, and joint pain treatment. Rated ${location.rating} stars by over ${location.reviewCount} patients. Book an appointment today.`
-      : `Visit our orthopedic and spine clinic in ${cityName}, ${stateInfo?.abbr || state.toUpperCase()}. Our specialists provide back pain, neck pain treatment, minimally invasive spine surgery, and joint pain treatment. Book an appointment today.`;
+
+    // SEO-FIX: Shortened meta description template to <160 chars with CTR-optimized copy
+    const standardizedDescription = location.rating && location.reviewCount && location.reviewCount > 0
+      ? `Rated ${location.rating}★ by ${location.reviewCount}+ patients. Orthopedic surgeons & spine specialists in ${cityName}, ${stateAbbr}. Back pain, herniated disc, sciatica. PPO accepted.`
+      : `Board-certified orthopedic surgeons & spine specialists in ${cityName}, ${stateAbbr}. Herniated disc, back pain, sciatica, joint pain. PPO accepted. Book today.`;
     const consistentDescription = safeDescription(location.metaDescription, standardizedDescription);
     
     // --- SEO ENHANCEMENT: Integrating Homepage SEO Structure ---
@@ -59,7 +66,7 @@ export async function generateMetadata(
       description: consistentDescription,
       keywords: location.keywords,
 
-      robots: { index: true, follow: true },
+      robots: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
       alternates: {
         canonical: canonicalUrl,
       },

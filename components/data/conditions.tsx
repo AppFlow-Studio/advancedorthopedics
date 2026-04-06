@@ -102,6 +102,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Adult Degenerative Scoliosis",
         slug: "adult-degenerative-scoliosis",
+        tag: "Spine",
         subtitle: "Expert Care for Age-Related Spinal Curvature",
         overview: {
             heading: "What is Adult Degenerative Scoliosis?",
@@ -155,6 +156,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Adjacent Segment Disease",
         slug: "adjacent-segment-disease",
+        tag: "Spine",
         subtitle: "Managing Pain After Spinal Fusion",
         overview: {
             heading: "Understanding Adjacent Segment Disease (ASD)",
@@ -208,6 +210,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Degenerative Disc Disease",
         slug: "degenerative-disc-disease",
+        tag: "Spine",
         subtitle: "Relief for Age-Related Spinal Wear",
         overview: {
             heading: "What is Degenerative Disc Disease?",
@@ -261,6 +264,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Cervical Spinal Stenosis",
         slug: "cervical-spinal-stenosis",
+        tag: "Neck",
         subtitle: "Protecting Spinal Cord Health in the Neck",
         overview: {
             heading: "What is Cervical Spinal Stenosis?",
@@ -314,6 +318,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Spondylolisthesis",
         slug: "spondylolisthesis",
+        tag: "Spine",
         subtitle: "Resolving Spinal Instability and Slippage",
         overview: {
             heading: "What is Spondylolisthesis?",
@@ -367,6 +372,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Cervical Herniated Disc",
         slug: "cervical-herniated-disc",
+        tag: "Neck",
         subtitle: "Restoring Comfort for Neck and Arm Pain",
         overview: {
             heading: "What is a Cervical Herniated Disc?",
@@ -420,6 +426,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Spinal Compression Fractures",
         slug: "spinal-compression-fractures",
+        tag: "Spine",
         subtitle: "Restoring Height and Stability After Fracture",
         overview: {
             heading: "What is a Spinal Compression Fracture?",
@@ -473,6 +480,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Sacroiliac Joint Dysfunction",
         slug: "sacroiliac-joint-dysfunction",
+        tag: "Spine",
         subtitle: "Resolving Lower Back and Pelvic Pain",
         overview: {
             heading: "What is SI Joint Dysfunction?",
@@ -516,6 +524,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
             { slug: "sciatica", text: "Sciatica Relief" },
             { slug: "lumbar-herniated-disc", text: "Lumbar Disc Issues" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -526,6 +535,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Back Pain",
         slug: "back-pain",
+        tag: "Spine",
         subtitle: "Comprehensive Solutions for Chronic and Acute Pain",
         overview: {
             heading: "Understanding Your Back Pain",
@@ -569,6 +579,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
             { slug: "neck-pain", text: "Neck Pain Relief" },
             { slug: "spinal-stenosis", text: "Spinal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -579,6 +590,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Bulging Disc",
         slug: "bulging-disc",
+        tag: "Spine",
         subtitle: "Managing Spinal Disc Protrusion",
         overview: {
             heading: "What is a Bulging Disc?",
@@ -632,6 +644,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Pinched Nerve",
         slug: "pinched-nerve",
+        tag: "Spine",
         subtitle: "Direct Relief for Radiculopathy and Nerve Pain",
         overview: {
             heading: "What is a Pinched Nerve?",
@@ -685,6 +698,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Disc Tear",
         slug: "disc-tear",
+        tag: "Spine",
         subtitle: "Managing Annular Tears and Chemical Inflammation",
         overview: {
             heading: "What is a Disc Tear?",
@@ -738,6 +752,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Facet Joint Disease",
         slug: "facet-joint-disease",
+        tag: "Spine",
         subtitle: "Relief for Spinal Arthritis and Joint Pain",
         overview: {
             heading: "What is Facet Joint Disease?",
@@ -781,6 +796,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "back-pain", text: "Back Pain Relief" },
             { slug: "neck-pain", text: "Neck Pain Relief" },
             { slug: "degenerative-disc-disease", text: "Degenerative Disc Disease" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -791,6 +807,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Lower Back Pain",
         slug: "lower-back-pain",
+        tag: "Lower Spine",
         subtitle: "Expert Solutions for Lumbar Discomfort",
         overview: {
             heading: "Managing Your Lower Back Pain",
@@ -834,6 +851,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "sciatica", text: "Sciatica Relief" },
             { slug: "herniated-disc", text: "Herniated Discs" },
             { slug: "spinal-stenosis", text: "Spinal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -844,6 +862,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Sciatica",
         slug: "sciatica",
+        tag: "Lower Spine",
         subtitle: "Relief for Radiating Leg Pain",
         overview: {
             heading: "What is Sciatica?",
@@ -887,6 +906,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
             { slug: "herniated-disc", text: "Herniated Discs" },
             { slug: "spinal-stenosis", text: "Spinal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -897,6 +917,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Coccydynia",
         slug: "coccydynia",
+        tag: "Lower Spine",
         subtitle: "Tailbone Pain Relief and Management",
         overview: {
             heading: "What is Coccydynia?",
@@ -950,6 +971,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Failed Back Surgery Syndrome",
         slug: "failed-back-surgery-syndrome",
+        tag: "Spine",
         subtitle: "Expert Solutions for Persistent Post-Operative Pain",
         overview: {
             heading: "What is Failed Back Surgery Syndrome (FBSS)?",
@@ -1003,6 +1025,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Foraminal Stenosis",
         slug: "foraminal-stenosis",
+        tag: "Spine",
         subtitle: "Relieving Pinched Nerves in the Spinal Openings",
         overview: {
             heading: "What is Foraminal Stenosis?",
@@ -1056,6 +1079,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Neck Pain",
         slug: "neck-pain",
+        tag: "Neck",
         subtitle: "Solutions for Cervical Stiffness and Radiating Pain",
         overview: {
             heading: "Understanding Your Neck Pain",
@@ -1099,6 +1123,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "cervical-herniated-disc", text: "Cervical Herniated Disc" },
             { slug: "cervical-spinal-stenosis", text: "Cervical Stenosis" },
             { slug: "facet-joint-disease", text: "Facet Joint Arthritis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -1109,6 +1134,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Spinal Bone Spurs",
         slug: "spinal-bone-spurs",
+        tag: "Spine",
         subtitle: "Managing Osteophytes and Nerve Irritation",
         overview: {
             heading: "What are Spinal Bone Spurs?",
@@ -1162,6 +1188,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Spinal Stenosis",
         slug: "spinal-stenosis",
+        tag: "Spine",
         subtitle: "Relief for Narrowing of the Spinal Canal",
         overview: {
             heading: "What is Spinal Stenosis?",
@@ -1205,6 +1232,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "cervical-spinal-stenosis", text: "Neck Stenosis" },
             { slug: "herniated-disc", text: "Herniated Discs" },
             { slug: "foraminal-stenosis", text: "Foraminal Stenosis" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
@@ -1215,6 +1243,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Herniated Disc",
         slug: "herniated-disc",
+        tag: "Spine",
         subtitle: "Comprehensive Relief for Slipped or Ruptured Discs",
         overview: {
             heading: "What is a Herniated Disc?",
@@ -1258,6 +1287,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "sciatica", text: "Sciatica Relief" },
             { slug: "bulging-disc", text: "Bulging Discs" },
             { slug: "pinched-nerve", text: "Pinched Nerve Relief" },
+            { slug: "orthopedic-injections", text: "Orthopedic Injections" },
             { slug: "free-mri-review", text: "Free MRI Review" },
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],

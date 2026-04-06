@@ -166,7 +166,7 @@ export default function TreatmentDetailsClient({ treatment }: TreatmentDetailsCl
                     <ConsultationForm />
                     <div className='mt-10' />
                     <div className=' flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px]'>
-                        <TreatmentsList currentTreatment={treatment.title} />
+                        <TreatmentsList currentTreatment={treatment.title} filterByTag={treatment.tag} />
                     </div>
 
                     <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>

@@ -27,26 +27,36 @@ const mapCategoryToMedicalSpecialty = (category: string): string | null => {
   return categoryMap[category] || null;
 };
 
-// Robust address parsing for schema
+// SEO-FIX: Fixed address parser to correctly set addressLocality=city, postalCode=zip
+// Handles all formats: "Street, City, ST ZIP" (3 parts) and "Street, Suite X, City, ST ZIP" (4+ parts)
 const parseAddress = (fullAddress: string, defaultStateAbbr: string = 'FL') => {
   const addressParts = fullAddress.split(', ');
-  
+
   let streetAddress = fullAddress;
   let addressLocality = '';
   let addressRegion = defaultStateAbbr;
   let postalCode = '';
 
-  if (addressParts.length >= 2) {
-    // Handles formats like "Street, City, State ZIP" or "Street, City"
+  if (addressParts.length >= 3) {
+    // Last part is "STATE ZIP"
+    const lastPart = addressParts[addressParts.length - 1];
+    const stateZipMatch = lastPart.match(/^([A-Z]{2})\s+(\d{5}(?:-\d{4})?)$/);
+    if (stateZipMatch) {
+      addressRegion = stateZipMatch[1];
+      postalCode = stateZipMatch[2];
+      // Second-to-last part is the city
+      addressLocality = addressParts[addressParts.length - 2];
+      // Everything before the city is the street address
+      streetAddress = addressParts.slice(0, addressParts.length - 2).join(', ');
+    } else {
+      // Fallback: treat as before
+      streetAddress = addressParts[0];
+      addressLocality = addressParts[1];
+    }
+  } else if (addressParts.length === 2) {
     streetAddress = addressParts[0];
     addressLocality = addressParts[1];
-
-    if (addressParts.length === 3) {
-      const stateZip = addressParts[2].split(' ');
-      addressRegion = stateZip[0];
-      postalCode = stateZip[1];
-    }
-  } else if (addressParts.length === 1) {
+  } else {
     // Fallback for formats like "Street City State ZIP" without commas
     const stateMatch = fullAddress.match(/\b([A-Z]{2})\s+(\d{5}(?:-\d{4})?)\s*$/);
     if (stateMatch) {
@@ -54,7 +64,7 @@ const parseAddress = (fullAddress: string, defaultStateAbbr: string = 'FL') => {
       postalCode = stateMatch[2];
       const cityAndStreet = fullAddress.substring(0, stateMatch.index).trim();
       const lastSpaceIndex = cityAndStreet.lastIndexOf(' ');
-      
+
       if (lastSpaceIndex > -1) {
         streetAddress = cityAndStreet.substring(0, lastSpaceIndex);
         addressLocality = cityAndStreet.substring(lastSpaceIndex + 1);
@@ -173,12 +183,52 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
   // Build the enhanced schema
   const enhancedSchema: Record<string, any> = {
     '@context': 'https://schema.org',
-    '@type': 'MedicalBusiness',
+    '@type': ['MedicalBusiness', 'LocalBusiness'],
     '@id': canonicalUrl,
     'name': clinic.name,
     'description': clinic.metaDescription,
     'url': canonicalUrl,
     'telephone': STATE_PHONE_NUMBERS[clinic.stateSlug as keyof typeof STATE_PHONE_NUMBERS]?.e164 || MAIN_PHONE_E164,
+    'dateModified': new Date().toISOString().split('T')[0],
+    'currenciesAccepted': 'USD',
+    'paymentAccepted': 'Cash, Credit Card, PPO Insurance, Out-of-Network Insurance, Workers Compensation',
+    'knowsAbout': [
+      'Herniated Disc Treatment',
+      'Spinal Stenosis Surgery',
+      'Sciatica Treatment',
+      'Degenerative Disc Disease',
+      'Minimally Invasive Spine Surgery',
+      'Microdiscectomy',
+      'Laminectomy',
+      'Spinal Fusion',
+      'Orthopedic Surgery',
+      'Joint Replacement',
+      'Rotator Cuff Repair',
+      'Knee Replacement',
+      'Hip Replacement',
+      'Sports Medicine',
+      'Workers Compensation Orthopedics',
+      'Back Pain Treatment',
+      'Neck Pain Treatment',
+      'Bone Fracture Treatment'
+    ],
+    'potentialAction': [
+      {
+        '@type': 'ReserveAction',
+        'target': {
+          '@type': 'EntryPoint',
+          'urlTemplate': 'https://mountainspineorthopedics.com/find-care/book-an-appointment',
+          'actionPlatform': [
+            'https://schema.org/DesktopWebPlatform',
+            'https://schema.org/MobileWebPlatform'
+          ]
+        },
+        'result': {
+          '@type': 'Reservation',
+          'name': 'Book Orthopedic Appointment'
+        }
+      }
+    ],
     'identifier': identifiers.length > 0 ? identifiers : undefined,
     'sameAs': sameAs.length > 0 ? sameAs : undefined,
     'hasMap': hasMapUrl,
@@ -213,6 +263,7 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
       }
     },
     'medicalSpecialty': uniqueSpecialties,
+    // SEO-FIX: Removed bare state abbreviation (e.g. "NJ") from areaServed — not a real geographic area
     'areaServed': clinic.neighborhoodsWeServe && clinic.neighborhoodsWeServe.length > 0
       ? [
           ...clinic.neighborhoodsWeServe.map((neighborhood: string) => ({
@@ -222,20 +273,12 @@ export function generateLocationSchema(clinic: ClinicsProps): Record<string, any
           {
             '@type': 'AdministrativeArea',
             'name': `${addressLocality}, ${addressRegion}`
-          },
-          {
-            '@type': 'AdministrativeArea',
-            'name': addressRegion
           }
         ]
       : [
           {
             '@type': 'AdministrativeArea',
             'name': `${addressLocality}, ${addressRegion}`
-          },
-          {
-            '@type': 'AdministrativeArea',
-            'name': addressRegion
           }
         ],
     'openingHours': LOCATION_OPENING_HOURS,

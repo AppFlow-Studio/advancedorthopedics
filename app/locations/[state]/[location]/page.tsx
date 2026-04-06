@@ -70,7 +70,7 @@ export default async function LocationDetails(
     const OurSpecialtyItems = [
         {
             icon: () => (
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 18 22" fill="none">
+                <svg role="img" aria-label="Board-certified orthopedic specialist adding a patient to care" xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 18 22" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M7 11.2502C7.19892 11.2502 7.38968 11.3293 7.53033 11.4699L9 12.9396L10.4697 11.4699C10.6103 11.3293 10.8011 11.2502 11 11.2502H11H11.0001C12.3676 11.2502 13.5248 11.2502 14.3918 11.3668C15.2919 11.4878 16.0497 11.7467 16.6517 12.3486C17.2536 12.9505 17.5125 13.7084 17.6335 14.6085C17.75 15.4755 17.75 16.5778 17.75 17.9454V21.0002C17.75 21.4145 17.4142 21.7502 17 21.7502L1 21.7502C0.585789 21.7502 0.250001 21.4145 0.250001 21.0002L0.250001 17.9454V17.9454V17.9453C0.249981 16.5778 0.249965 15.4755 0.366525 14.6085C0.487541 13.7084 0.746435 12.9505 1.34835 12.3486C1.95027 11.7467 2.70814 11.4878 3.60825 11.3668C4.4752 11.2502 5.63238 11.2502 6.99994 11.2502H6.99998H7ZM13 13.7502C13.4142 13.7502 13.75 14.086 13.75 14.5002V15.7502H15C15.4142 15.7502 15.75 16.086 15.75 16.5002C15.75 16.9145 15.4142 17.2502 15 17.2502H13.75V18.5002C13.75 18.9145 13.4142 19.2502 13 19.2502C12.5858 19.2502 12.25 18.9145 12.25 18.5002V17.2502H11C10.5858 17.2502 10.25 16.9145 10.25 16.5002C10.25 16.086 10.5858 15.7502 11 15.7502H12.25V14.5002C12.25 14.086 12.5858 13.7502 13 13.7502ZM9 0.250137C6.65279 0.250137 4.75 2.15293 4.75 4.50014V5.50014C4.75 7.84735 6.65279 9.75014 9 9.75014C11.3472 9.75014 13.25 7.84735 13.25 5.50014L13.25 4.50014C13.25 2.15293 11.3472 0.250137 9 0.250137Z" fill="#0A50EC" />
                 </svg>
             ),
@@ -79,7 +79,7 @@ export default async function LocationDetails(
         },
         {
             icon: () => (
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Spine--Streamline-Simple-Icons" height="24" width="24">
+                <svg role="img" aria-label="Spine anatomy diagram representing advanced spine care" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Spine--Streamline-Simple-Icons" height="24" width="24">
                     <path d="M7.157 2.207c0.066 2.004 1.454 3.117 4.221 3.55 2.345 0.368 4.46 0.181 5.151 -1.829C17.874 0.01 14.681 0.985 11.915 0.55S7.051 -1.013 7.157 2.207m0.831 8.23c0.257 1.497 1.652 2.355 3.786 2.297 2.135 -0.059 3.728 -0.892 3.949 -2.507 0.409 -2.988 -1.946 -1.832 -4.08 -1.774 -2.136 0.059 -4.161 -0.952 -3.655 1.984m2.778 6.852c0.424 1.117 1.587 1.589 3.159 1.253 1.569 -0.335 2.656 -0.856 2.568 -2.129 -0.159 -2.357 -1.713 -1.616 -3.283 -1.279 -1.571 0.333 -3.272 -0.039 -2.444 2.155m1.348 5.221c0.123 0.943 0.939 1.5 2.215 1.49 1.279 -0.011 2.248 -0.515 2.412 -1.525 0.308 -1.871 -1.123 -1.175 -2.4 -1.165 -1.28 0.01 -2.47 -0.65 -2.227 1.2" fill="#0A50EC" strokeWidth="1"></path>
                 </svg>
             ),
@@ -88,7 +88,7 @@ export default async function LocationDetails(
         },
         {
             icon: () => (
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
+                <svg role="img" aria-label="Medical clipboard with plus symbol representing comprehensive orthopedic care" xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M7.02299 3.376C7.03911 3.15406 7.06365 2.97295 7.09643 2.82372C7.15781 2.54433 7.23372 2.44399 7.27636 2.40136C7.31899 2.35872 7.41933 2.28281 7.69872 2.22143C7.98944 2.15756 8.40114 2.125 9 2.125H13C13.5989 2.125 14.0106 2.15756 14.3013 2.22143C14.5807 2.28281 14.681 2.35872 14.7236 2.40136C14.7663 2.44399 14.8422 2.54433 14.9036 2.82372C14.9364 2.97295 14.9609 3.15406 14.977 3.376C14.6818 3.37499 14.3738 3.375 14.0527 3.375H14.0527H14.0527H7.94732H7.94731H7.9473C7.62618 3.375 7.31821 3.37499 7.02299 3.376ZM5.01648 3.41956C5.03581 3.05074 5.07429 2.70741 5.14301 2.39459C5.25632 1.8788 5.46503 1.38426 5.86214 0.987143C6.25926 0.59003 6.7538 0.381319 7.26959 0.268009C7.77406 0.157186 8.35786 0.125 9 0.125H13C13.6421 0.125 14.2259 0.157186 14.7304 0.268009C15.2462 0.381319 15.7407 0.59003 16.1379 0.987143C16.535 1.38426 16.7437 1.8788 16.857 2.39459C16.9257 2.70741 16.9642 3.05074 16.9835 3.41956C17.325 3.43802 17.6415 3.46412 17.9342 3.50102C18.9621 3.63057 19.8113 3.90463 20.4878 4.5389C21.1712 5.1796 21.4729 5.99471 21.6143 6.98061C21.75 7.92738 21.75 9.13186 21.75 10.6289V10.6289V10.6289V10.6289V12.6211V12.6211V12.6211V12.6211C21.75 14.1181 21.75 15.3226 21.6143 16.2694C21.4729 17.2553 21.1712 18.0704 20.4878 18.7111C19.8113 19.3454 18.9621 19.6194 17.9342 19.749C16.9342 19.875 15.6579 19.875 14.0527 19.875H7.94733C6.3421 19.875 5.06579 19.875 4.06576 19.749C3.03794 19.6194 2.18873 19.3454 1.51217 18.7111C0.828766 18.0704 0.527127 17.2553 0.385739 16.2694C0.249962 15.3226 0.249979 14.1181 0.250001 12.6211V12.6211V12.6211V12.6211V10.6289V10.6289V10.6289V10.6289C0.249979 9.13188 0.249962 7.92739 0.385739 6.98061C0.527127 5.99471 0.828765 5.1796 1.51217 4.5389C2.18873 3.90463 3.03794 3.63057 4.06576 3.50102C4.35855 3.46412 4.67501 3.43802 5.01648 3.41956ZM11 7.625C11.5523 7.625 12 8.07272 12 8.625V10.625H14C14.5523 10.625 15 11.0727 15 11.625C15 12.1773 14.5523 12.625 14 12.625H12V14.625C12 15.1773 11.5523 15.625 11 15.625C10.4477 15.625 10 15.1773 10 14.625V12.625H8C7.44772 12.625 7 12.1773 7 11.625C7 11.0727 7.44772 10.625 8 10.625H10V8.625C10 8.07272 10.4477 7.625 11 7.625Z" fill="#0A50EC" />
                 </svg>
             ),
@@ -97,7 +97,7 @@ export default async function LocationDetails(
         },
         {
             icon: () => (
-                <svg className="text-[#0A50EC]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 22 22">
+                <svg role="img" aria-label="Orthopedic surgical tool icon representing patient-centered care" className="text-[#0A50EC]" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 22 22">
                     <path d="m17.9646 5.49185.3705.37054c.3906.39052 1.0237.39052 1.4142 0 .3906-.39053.3906-1.02369 0-1.41422L17.594 2.29283c-.3905-.39052-1.0237-.39052-1.4142 0-.3905.39053-.3905 1.02369 0 1.41422l.3706.37059-.7412.74118-.3706-.37059c-.3905-.39053-1.0237-.39053-1.4142 0L9.71372 8.75891c-.39053.39053-.39053 1.02369 0 1.41419l.34948.3495-.77031.7703c-.39053.3905-.39053 1.0237 0 1.4142.39052.3905 1.02371.3905 1.41421 0l.7703-.7703.3917.3917c.3905.3905 1.0236.3905 1.4142 0l2.0628-2.0629c.4145.6745.6539 1.4706.6539 2.3256 0 2.4448-1.9584 4.4087-4.3521 4.4087-1.0458 0-2.00787-.3737-2.76051-.9999H11c.5523 0 1-.4477 1-1s-.4477-1-1-1H5c-.55228 0-1 .4477-1 1s.44772 1 1 1h1.26803C6.92225 17.0489 7.8715 17.8952 9 18.4182V20H5c-.55228 0-1 .4477-1 1s.44772 1 1 1h14c.5523 0 1-.4477 1-1s-.4477-1-1-1h-4v-1.9637c1.8034-1.1328 3-3.1517 3-5.4451 0-1.4061-.4498-2.70897-1.2126-3.76687l.8066-.80655c.3905-.39052.3905-1.02369 0-1.41421l-.3706-.37054.7412-.74118Z" />
                 </svg>
 
@@ -113,8 +113,6 @@ export default async function LocationDetails(
     
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
-            {/* sr-only H1 for first-wave crawlers — visible H1 renders inside SlidingDiv (client) */}
-            <h1 className="sr-only">Orthopedic Surgeons &amp; Spine Specialists in {locationData.region.split(',')[0].trim()}</h1>
             <ReviewLocationCapture locationSlug={locationData.locationSlug} />
             <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]  justify-between" >
                 <div
@@ -221,8 +219,9 @@ export default async function LocationDetails(
                                     }}
                                     className="text-[#424959] text-base lg:text-lg"
                                 >
-                                    Experience the future of orthopedic care at our modern facility, where our expert team combines advanced technology with personalized treatment plans to deliver comprehensive orthopedic care.<br />
-                                    {locationData.region.split(',')[0].trim()} most trusted spine and joint care center, serving {stateInfo?.name || state.toUpperCase()} families at their convenience.
+                                    {locationData.paragraph
+                                      ? locationData.paragraph.split('[PARAGRAPH BREAK]')[0].replace(/\s+/g, ' ').trim()
+                                      : `${locationData.region.split(',')[0].trim()}'s trusted orthopedic and spine center — board-certified surgeons, same-day appointments, and minimally invasive treatments that get you back to your life faster.`}
                                 </p>
                             </div>
                             {/* NAP Block - Mobile */}
@@ -413,7 +412,7 @@ export default async function LocationDetails(
                             }}
                             className=" text-6xl w-[100%]"
                         >
-                            Why Choose<br /> {locationData.name}
+                            Why Choose<br /> Mountain Spine & Orthopedics {locationData.region.split(',')[0].trim()}
                         </h2>
 
                         <div>
@@ -550,12 +549,42 @@ export default async function LocationDetails(
 
             <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
                 {locationData && locationData.reviews && locationData.reviews.length > 0 && (
-                    <ReviewsCarousel
-                        reviews={locationData.reviews}
-                        cityName={locationData.region.split(',')[0]}
-                        rating={locationData.rating}
-                        reviewCount={locationData.reviewCount}
-                    />
+                    <>
+                        {/*
+                          SSR-only reviews block — always present in HTML source for Googlebot.
+                          The interactive carousel below is client-rendered; this ensures review
+                          content (author, rating, text) is indexed without JS execution.
+                          sr-only hides it visually without aria-hidden so crawlers read it fully.
+                        */}
+                        <div className="sr-only" aria-hidden="false">
+                            <p><strong>Patient Reviews — {locationData.region.split(',')[0]}</strong></p>
+                            {locationData.rating && locationData.reviewCount && locationData.reviewCount > 0 && (
+                                <p>Rated {locationData.rating} out of 5 based on {locationData.reviewCount} patient reviews.</p>
+                            )}
+                            <ul>
+                                {locationData.reviews.map((review, i) => (
+                                    <li key={i} itemScope itemType="https://schema.org/Review">
+                                        <span itemProp="author" itemScope itemType="https://schema.org/Person">
+                                            <span itemProp="name">{review.author}</span>
+                                        </span>
+                                        <span itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                                            <meta itemProp="ratingValue" content={String(review.reviewRating)} />
+                                            <meta itemProp="bestRating" content="5" />
+                                            {review.reviewRating} out of 5 stars
+                                        </span>
+                                        <span itemProp="reviewBody">{review.reviewBody}</span>
+                                        {review.date && <time itemProp="datePublished" dateTime={review.date}>{review.date}</time>}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <ReviewsCarousel
+                            reviews={locationData.reviews}
+                            cityName={locationData.region.split(',')[0]}
+                            rating={locationData.rating}
+                            reviewCount={locationData.reviewCount}
+                        />
+                    </>
                 )}
             </section>
             {/* <RatingsAndReviews /> */}

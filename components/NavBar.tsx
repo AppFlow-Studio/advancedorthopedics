@@ -31,7 +31,7 @@ import {
 import { clinics } from './data/clinics';
 import { GetLatestBlog } from "@/app/blogs/api/get-blogs";
 import { SidebarNavItem } from './SidebarNavItem';
-import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Info, List, ChevronRight, Car, CarFront, Briefcase } from 'lucide-react';
+import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Syringe, Info, List, ChevronRight, Car, CarFront, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion'
 import PromoOverlayCard from './PromoOverlayCard';
 import { useQuery } from '@tanstack/react-query';
@@ -895,16 +895,16 @@ const NavBarLinks = [
             icon: Activity,
           },
           {
+            title: 'Orthopedic Injections',
+            href: '/treatments/orthopedic-injections',
+            short_desc: 'Injection-based treatments',
+            icon: Syringe,
+          },
+          {
             title: 'Neck Treatments',
             href: '/treatments?category=Neck',
             short_desc: 'Neck procedures',
             icon: Headphones,
-          },
-          {
-            title: 'Back Treatments',
-            href: '/treatments?category=Lower%20Spine',
-            short_desc: 'Back procedures',
-            icon: Zap,
           },
           {
             title: 'Shoulder Treatments',
@@ -941,12 +941,6 @@ const NavBarLinks = [
             href: '/treatments?category=Sports%20Medicine',
             short_desc: 'Sports medicine procedures',
             icon: Activity,
-          },
-          {
-            title: 'Pain Management Treatments',
-            href: '/treatments?category=Pain%20Management',
-            short_desc: 'Pain management procedures',
-            icon: Droplet,
           },
         ]
       }

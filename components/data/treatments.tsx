@@ -8678,7 +8678,21 @@ const uniqueOldTreatments = AllTreatments.filter(t => !newFormatSlugs.has(t.slug
 
 // Combined array of all treatments in TreatmentsCardProp format (64 total, no duplicates)
 // Prioritizes new format (allTreatmentContent) over old format (AllTreatments)
+const orthopedicInjectionsCard: TreatmentsCardProp = {
+  title: 'Orthopedic Injections',
+  slug: 'orthopedic-injections',
+  body: 'Board-certified orthopedic specialists offering cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections for back, neck, knee, shoulder, and hip pain. Same-week appointments, no referral needed.',
+  tag: 'Pain Management',
+  card_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/orthopedic-injections-mountain-spine-orthopedics.png',
+  inTxt_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/orthopedic-injections-mountain-spine-orthopedics.png',
+  conditions_treated: 'Back pain, neck pain, knee osteoarthritis, shoulder bursitis, hip arthritis, sciatica, herniated disc, spinal stenosis, facet joint pain, SI joint pain',
+  metaTitle: 'Orthopedic Injections & Cortisone Shots Near Me | Mountain Spine & Orthopedics',
+  metaDesc: 'Board-certified orthopedic specialists offering cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections. 23 locations across FL, NJ, NY & PA.',
+  keywords: ['orthopedic injections', 'cortisone shot', 'epidural steroid injection', 'facet joint injection', 'SI joint injection', 'nerve block injection'],
+};
+
 export const AllTreatmentsCombined: TreatmentsCardProp[] = [
+  orthopedicInjectionsCard,
   ...allTreatmentContentAsCardProps,
   ...uniqueOldTreatments,
 ];

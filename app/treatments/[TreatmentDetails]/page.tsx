@@ -5,6 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
 import { ConsultationForm } from '@/components/ContactForm';
+import BodyPartHeroForm from '@/components/BodyPartHeroForm';
 import { Doctors } from '@/components/data/doctors';
 import DoctorCard from '@/components/DoctorCard';
 import TreatmentsList from '@/components/TreatmentsList';
@@ -231,6 +232,13 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
   // Use new format if available, otherwise use old format
   const isNewFormat = !!treatmentContent;
 
+  // Derive a meaningful body-part label for the hero form (e.g. "Neck", "Spine", "Knee")
+  // so the form reads "Experiencing Neck Pain?" instead of the full procedure name
+  const _treatmentSlug = isNewFormat ? treatmentContent!.slug : treatment!.slug;
+  const _combinedTreatment = AllTreatmentsCombined.find(t => t.slug === _treatmentSlug);
+  const _bodyPartHub = getBodyPartFromTag(_combinedTreatment?.tag);
+  const heroFormLabel = _bodyPartHub?.title ?? 'Orthopedic';
+
   // Function to perform a Fisher-Yates shuffle on the array
   function shuffleArray<T>(array: T[]): T[] {
     const newArray = [...array]; // Clone the array
@@ -274,80 +282,41 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
           background: '#5FBBEC',
         }}
       /> */}
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pb-20">
-
-          <div className='px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
-            <div className=' mt-[220px] text-xs md:text-md flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px]'
-              style={{
-                background: 'rgba(255, 255, 255, 0.50)'
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#252932]"
+        <div className="z-[1] flex flex-col w-full h-full text-left relative">
+          <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row items-start px-6 xl:px-[80px] pt-[220px] pb-10 gap-8 lg:gap-12 z-[2]">
+            {/* Left: Breadcrumb + H1 + Description */}
+            <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left pb-6 lg:pb-0">
+              <div
+                className="text-xs md:text-md flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-4"
+                style={{ background: 'rgba(255, 255, 255, 0.50)' }}
               >
-                Treatment
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#252932]"
-              >
-                /
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#2358AC]"
-              >
-                Treatment Details
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#252932] sm:flex hidden"
-              >
-                /
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#2358AC] sm:flex hidden"
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#252932]">Treatment</span>
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#252932]">/</span>
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#2358AC]">Treatment Details</span>
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#252932] sm:inline hidden">/</span>
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#2358AC] sm:inline hidden">
+                  {isNewFormat ? treatmentContent!.title : treatment!.title}
+                </span>
+              </div>
+              <h1
+                style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl"
               >
                 {isNewFormat ? treatmentContent!.title : treatment!.title}
-              </span>
+              </h1>
+              <div className="mt-[24px] lg:max-w-[600px]">
+                {renderField(
+                  isNewFormat
+                    ? (treatmentContent!.heroDescription || treatmentContent!.metaDescription)
+                    : treatment!.body,
+                  isNewFormat ? treatmentContent!.slug : treatment!.slug
+                )}
+              </div>
             </div>
-          </div>
-          <div className=" px-6 xl:px-[80px] z-[2] flex flex-row items-center justify-center mt-[12px] lg:w-full">
-            <h1
-              style={{
-                fontFamily: "var(--font-public-sans)",
-                fontWeight: 400,
-              }}
-              className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl text-center"
-            >
-              {isNewFormat ? treatmentContent!.title : treatment!.title}
-            </h1>
-          </div>
-
-          <div className="z-[2] px-10 xl:px-[80px] mt-[24px] self-center text-center lg:w-[70%] w-full pb-8">
-            {renderField(
-              isNewFormat 
-                ? (treatmentContent!.heroDescription || treatmentContent!.metaDescription) 
-                : treatment!.body, 
-              isNewFormat ? treatmentContent!.slug : treatment!.slug
-            )}
+            {/* Right: Hero Form — aligned with H1, not breadcrumb */}
+            <div className="w-full max-w-[340px] sm:max-w-[360px] flex-shrink-0 mx-auto lg:mx-0 lg:mt-[52px]">
+              <BodyPartHeroForm bodyPartTitle={heroFormLabel} />
+            </div>
           </div>
         </div>
       </section>
@@ -359,7 +328,10 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
           </div>
           <div className='mt-10 lg:flex-shrink-0' />
           <div className='flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px] lg:mt-4 lg:flex-1 lg:min-h-0 lg:overflow-hidden'>
-            <TreatmentsList currentTreatment={isNewFormat ? treatmentContent!.title : treatment!.title} />
+            <TreatmentsList
+              currentTreatment={isNewFormat ? treatmentContent!.title : treatment!.title}
+              filterByTag={AllTreatmentsCombined.find(t => t.slug === _treatmentSlug)?.tag}
+            />
           </div>
 
           <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>

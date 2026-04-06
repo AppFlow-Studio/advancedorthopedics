@@ -194,6 +194,13 @@ for (const url of ALL_TREATMENT_THUMBNAIL_URLS) {
   treatmentMap[slug] = generateMetadata(url, slug);
 }
 
+// Manual entries for URLs with non-standard naming patterns
+treatmentMap['orthopedic-injections'] = {
+  url: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/orthopedic-injections-mountain-spine-orthopedics.png',
+  alt: 'Medical illustration of Orthopedic Injections procedure at Mountain Spine & Orthopedics.',
+  title: 'Orthopedic Injections Treatment | Mountain Spine & Orthopedics',
+};
+
 // Export mapping
 export const treatmentThumbnailBySlug = treatmentMap;
 

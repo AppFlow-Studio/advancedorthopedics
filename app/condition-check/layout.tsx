@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'Answer a few quick questions to see if you\'re a candidate for minimally invasive spine or joint treatment. Takes less than 2 minutes.',
     images: [getOgImageForPath('/')],
   },
-  robots: { index: true, follow: true, maxSnippet: -1, maxImagePreview: "large", maxVideoPreview: -1 },
+  robots: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
 };
 
 export default function ConditionCheckLayout({
