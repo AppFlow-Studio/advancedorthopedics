@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ConsultationForm } from '@/components/ContactForm';
 import { Doctors } from '@/components/data/doctors';
 import DoctorCard from '@/components/DoctorCard';
-import TreatmentsList from '@/components/TreatmentsList';
 import InternalLinkingSection from '@/components/InternalLinkingSection';
 import InjectionsFAQ, { FAQItem } from './InjectionsFAQ';
 import BodyPartHeroForm from '@/components/BodyPartHeroForm';
@@ -36,7 +35,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'Do I need a referral for an orthopedic injection?',
     answer:
-      'No. At Mountain Spine & Orthopedics, you do not need a referral to schedule a consultation for injection therapy. You can book directly online or by calling your nearest location. If your insurance requires a referral for coverage purposes, we can help you navigate that process — but you do not need a referral to start the conversation with our specialists. Most PPO insurance plans allow direct access to specialists.',
+      'No. At Mountain Spine & Orthopedics, you do not need a referral to schedule a consultation for injection therapy. You can book directly online or by calling your nearest location. If your insurance requires a referral for coverage purposes, we can help you navigate that process — but you do not need a referral to start the conversation with our specialists. PPO insurance plans allow direct access to specialists.',
   },
   {
     question: 'What is an epidural steroid injection?',
@@ -51,7 +50,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'How much does a cortisone shot cost with insurance?',
     answer:
-      'With most PPO and major insurance plans, your out-of-pocket cost for a **cortisone shot** at an orthopedic specialist is typically your standard specialist copay ($20–$60 depending on your plan) plus any deductible responsibility. Most insurance plans cover medically necessary orthopedic injections when documented as treatment for a diagnosed condition. Without insurance, cortisone shot costs range from $100–$500+ depending on joint location and facility. Mountain Spine & Orthopedics accepts most major insurance plans. Call our office or check our website to verify your coverage before your appointment.',
+      'With PPO insurance, your out-of-pocket cost for a **cortisone shot** at an orthopedic specialist is typically your standard specialist copay plus any deductible responsibility. PPO and major insurance plans cover medically necessary orthopedic injections when documented as treatment for a diagnosed condition. Mountain Spine & Orthopedics accepts PPO and major commercial insurance plans. Call our office or check our website to verify your coverage before your appointment.',
   },
   {
     question: 'Who qualifies for the free MRI review?',
@@ -61,7 +60,7 @@ const INJECTION_FAQS: FAQItem[] = [
   {
     question: 'Does insurance cover orthopedic injections?',
     answer:
-      'Yes. **Most PPO, HMO, and major insurance plans** cover medically necessary orthopedic injections — including cortisone shots, epidural steroid injections, facet joint injections, SI joint injections, and nerve blocks — when ordered by a physician for a documented diagnosis. **Medicare Part B** also covers many orthopedic injections. Mountain Spine & Orthopedics accepts Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, Humana, Medicare, Tricare, and most other major carriers. Call (561) 223-9959 or use our online tool to verify your specific coverage before your appointment.',
+      'Yes. **PPO and major insurance plans** cover medically necessary orthopedic injections — including cortisone shots, epidural steroid injections, facet joint injections, SI joint injections, and nerve blocks — when ordered by a physician for a documented diagnosis. Mountain Spine & Orthopedics accepts Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, and other major PPO carriers. Call (561) 223-9959 or use our online tool to verify your specific coverage before your appointment.',
   },
   {
     question: 'How quickly can I get an orthopedic injection appointment?',
@@ -247,8 +246,50 @@ export default function OrthopedicInjectionsPage() {
             </a>
           </div>
 
-          <div className="flex flex-col space-y-[20px] hover:cursor-pointer mt-[32px] lg:mt-6 lg:flex-1 lg:min-h-0 lg:overflow-hidden">
-            <TreatmentsList currentTreatment="Orthopedic Injections for Pain Relief" />
+          {/* Related injection treatments — focused sidebar replacing full treatment list */}
+          <div className="mt-6 flex flex-col space-y-2">
+            <p
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+              className="text-[#111315] text-xs uppercase tracking-wide mb-1"
+            >
+              Related Injection Treatments
+            </p>
+            {[
+              { title: 'Orthopedic Injections', slug: 'orthopedic-injections' },
+              { title: 'Epidural Steroid Injection', slug: 'epidural-steroid-injection' },
+              { title: 'Cortisone Injections for Back Pain', slug: 'cortisone-injections-for-back-pain' },
+              { title: 'Nerve Block Injection', slug: 'nerve-block-injection' },
+              { title: 'Facet Ablation & Rhizotomy', slug: 'facet-ablation-rhizotomy-treatment' },
+              { title: 'SI Joint Injection', slug: 'sacroiliac-joint-injection' },
+              { title: 'Anti-Inflammatory Injections', slug: 'anti-inflammatory-injections-for-joint-and-spine-pain' },
+              { title: 'Impar Block Treatment', slug: 'impar-block-treatment' },
+            ].map(({ title, slug }) => {
+              const isCurrent = slug === 'orthopedic-injections';
+              return (
+                <Link
+                  key={slug}
+                  href={`/treatments/${slug}`}
+                  style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                  className={`flex flex-row items-center justify-between px-4 py-3 rounded-[10px] text-sm transition-colors ${
+                    isCurrent
+                      ? 'bg-[#252932] text-white'
+                      : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F1F3]'
+                  }`}
+                >
+                  <span>{title}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+                    <path d="M0.55723 12.3964C0.718604 12.2745 1.20035 11.9106 1.47806 11.6939C2.03427 11.2598 2.77336 10.6667 3.51025 10.0269C4.25087 9.38385 4.97216 8.70833 5.50241 8.10822C5.76829 7.80731 5.97032 7.54297 6.10182 7.32484C6.22549 7.11969 6.25121 6.99851 6.25121 6.99851C6.25121 6.99851 6.22549 6.88088 6.10182 6.67574C5.97032 6.45761 5.76829 6.19328 5.50241 5.89236C4.97217 5.29225 4.25087 4.61674 3.51024 3.9737C2.77334 3.3339 2.03424 2.74079 1.47802 2.30671C1.20031 2.08998 0.719248 1.72658 0.557872 1.6047C0.224349 1.35906 0.152413 0.889059 0.398046 0.555536C0.643678 0.222013 1.11318 0.150764 1.4467 0.396397L1.44924 0.398315C1.6185 0.526155 2.11751 0.903056 2.40086 1.12419C2.96965 1.56806 3.73055 2.17849 4.49365 2.84105C5.25303 3.50037 6.03173 4.22604 6.62649 4.89916C6.9231 5.23486 7.18982 5.57515 7.38645 5.90131C7.57066 6.20689 7.75195 6.59379 7.75194 7.0003C7.75194 7.40681 7.57066 7.7937 7.38644 8.09927C7.18982 8.42544 6.9231 8.76573 6.62648 9.10143C6.03173 9.77454 5.25304 10.5002 4.49367 11.1595C3.73058 11.8221 2.96968 12.4325 2.40091 12.8764C2.11735 13.0977 1.61832 13.4746 1.44941 13.6022L1.44723 13.6038C1.11371 13.8495 0.643732 13.7786 0.398097 13.4451C0.152471 13.1115 0.223736 12.642 0.55723 12.3964Z" fill="currentColor" />
+                  </svg>
+                </Link>
+              );
+            })}
+            <Link
+              href="/treatments"
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+              className="text-[#2358AC] text-xs text-center mt-2 hover:underline"
+            >
+              View all treatments →
+            </Link>
           </div>
 
           {/* Doctors — mobile only */}
@@ -300,7 +341,7 @@ export default function OrthopedicInjectionsPage() {
                 },
                 {
                   title: 'PPO Insurance Accepted',
-                  body: 'Most PPO and major insurance plans accepted. No-surprise billing policy. Call to verify your coverage before your appointment.',
+                  body: 'PPO insurance accepted. No-surprise billing policy. Call to verify your coverage before your appointment.',
                 },
                 {
                   title: 'No Referral Required',
@@ -952,7 +993,7 @@ export default function OrthopedicInjectionsPage() {
                 style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
                 className="text-[#424959] sm:text-xl text-sm"
               >
-                <strong style={{ fontWeight: 600, color: '#111315' }}>Yes — most major insurance plans cover orthopedic injections</strong>{' '}
+                <strong style={{ fontWeight: 600, color: '#111315' }}>Yes — PPO and major insurance plans cover orthopedic injections</strong>{' '}
                 when ordered by a physician for a documented diagnosis. Here is what to expect.
               </p>
             </div>
@@ -976,7 +1017,7 @@ export default function OrthopedicInjectionsPage() {
                     'Facet joint injections for spinal arthritis',
                     'SI joint injections for sacroiliac dysfunction',
                     'Nerve block injections for targeted nerve pain',
-                    'Hyaluronic acid (gel) knee injections — covered by most PPO and Medicare',
+                    'Hyaluronic acid (gel) knee injections — covered by PPO plans',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="flex-shrink-0 mt-0.5" aria-hidden="true">
@@ -1003,20 +1044,13 @@ export default function OrthopedicInjectionsPage() {
                 >
                   <p>
                     <strong style={{ fontWeight: 600, color: '#111315' }}>With PPO insurance:</strong>{' '}
-                    Most patients pay their standard specialist copay — typically{' '}
-                    <strong style={{ fontWeight: 600, color: '#111315' }}>$20–$60 per visit</strong> — plus any
-                    remaining deductible. The injection itself is billed separately and is usually covered
-                    in full after your copay.
-                  </p>
-                  <p>
-                    <strong style={{ fontWeight: 600, color: '#111315' }}>With Medicare:</strong>{' '}
-                    Medicare Part B covers medically necessary orthopedic injections. You typically pay 20%
-                    of the Medicare-approved amount after your Part B deductible.
+                    Most patients pay their standard specialist copay plus any remaining deductible.
+                    The injection itself is billed separately and is usually covered in full after your copay.
                   </p>
                   <p>
                     <strong style={{ fontWeight: 600, color: '#111315' }}>Without insurance:</strong>{' '}
-                    Self-pay cortisone shots range from $100–$500+ depending on injection type and location.
-                    Call our office to discuss self-pay pricing.
+                    Self-pay options are available and vary by injection type and location.
+                    Call our office to discuss pricing.
                   </p>
                 </div>
                 <div className="pt-2 border-t border-[#E5E7EB]">
@@ -1027,7 +1061,7 @@ export default function OrthopedicInjectionsPage() {
                     Insurance carriers we accept:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare', 'Humana', 'Medicare', 'Tricare'].map((carrier) => (
+                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare'].map((carrier) => (
                       <span
                         key={carrier}
                         style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
@@ -1212,22 +1246,22 @@ export default function OrthopedicInjectionsPage() {
               {[
                 {
                   state: 'Florida',
-                  cities: ['Boca Raton', 'Fort Lauderdale', 'Hollywood', 'Palm Beach Gardens', 'Wellington', 'West Palm Beach', 'Orlando', 'Kissimmee', 'Lakeland', 'Plantation', 'Deerfield Beach'],
+                  cities: ['Boca Raton', 'Hollywood', 'Palm Beach Gardens', 'Palm Springs', 'Miami Beach', 'Orlando', 'Altamonte Springs', 'Davenport', 'Fort Pierce', 'Jacksonville'],
                   href: '/locations/florida',
                 },
                 {
                   state: 'New Jersey',
-                  cities: ['Cherry Hill', 'Marlton', 'Mount Laurel', 'Voorhees', 'Sewell'],
+                  cities: ['Bridgewater', 'Cherry Hill', 'Edison', 'Freehold', 'Paramus', 'Princeton', 'Voorhees', 'West Orange'],
                   href: '/locations/new-jersey',
                 },
                 {
                   state: 'New York',
-                  cities: ['New York City', 'Brooklyn'],
+                  cities: ['New York City'],
                   href: '/locations/new-york',
                 },
                 {
                   state: 'Pennsylvania',
-                  cities: ['Philadelphia', 'Bala Cynwyd'],
+                  cities: ['Allentown', 'Philadelphia'],
                   href: '/locations/pennsylvania',
                 },
               ].map(({ state, cities, href }) => (
@@ -1282,17 +1316,33 @@ export default function OrthopedicInjectionsPage() {
                 className="text-white sm:text-xl text-sm opacity-90"
               >
                 For most patients, orthopedic injections are an effective non-surgical treatment
-                that provides meaningful pain relief for months. For some patients, injections help
-                us understand the source of your pain more precisely — and when injections alone
-                cannot provide lasting relief, our surgeons offer minimally invasive spine and joint
-                procedures that treat the root cause.
+                that provides meaningful pain relief for months. Beyond relief, injections serve a
+                critical diagnostic role — pinpointing the exact nerve, joint, or spinal structure
+                responsible for your pain with a precision that imaging alone cannot always confirm.
               </p>
               <p
                 style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
                 className="text-white sm:text-xl text-sm opacity-90"
               >
-                Either way, your care stays with the same board-certified team from your first
-                injection to any surgical consultation — no referrals, no starting over.
+                When injections alone cannot provide lasting relief, that diagnostic information
+                guides our surgeons toward the right surgical solution. Many of our injection
+                patients go on to explore minimally invasive options such as{' '}
+                <Link href="/treatments/lumbar-microdiscectomy-surgery" className="underline opacity-90 hover:opacity-100">microdiscectomy</Link>,{' '}
+                <Link href="/treatments/lumbar-laminectomy-surgery" className="underline opacity-90 hover:opacity-100">lumbar laminectomy</Link>,{' '}
+                <Link href="/treatments/cervical-disc-replacement" className="underline opacity-90 hover:opacity-100">cervical disc replacement</Link>, or{' '}
+                <Link href="/treatments/total-knee-replacement" className="underline opacity-90 hover:opacity-100">joint replacement</Link>{' '}
+                when conservative treatment has been exhausted. Each procedure directly addresses
+                the root cause that injections were managing.
+              </p>
+              <p
+                style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
+                className="text-white sm:text-xl text-sm opacity-90"
+              >
+                Most patients are bounced between a pain management clinic, a spine specialist, and
+                a surgeon — three separate practices, three separate intake processes, no shared
+                history. At Mountain Spine &amp; Orthopedics, all three are available under one
+                roof. Your care — from your first injection to any surgical consultation — stays
+                with the same board-certified team, with no referrals and no starting over.
               </p>
             </div>
             <div className="flex flex-row flex-wrap gap-4">

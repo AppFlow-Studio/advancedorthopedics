@@ -42,6 +42,11 @@ const nextConfig: NextConfig = {
     // --- CONDITIONS URL MIGRATION (301s) ---
     { source: "/area-of-specialty", destination: "/conditions", permanent: true },
     { source: "/area-of-specialty/:slug", destination: "/conditions/:slug", permanent: true },
+
+    // SEO-FIX: Fixed broken /area-of-pain/ internal links to canonical /conditions/ paths
+    { source: "/area-of-pain/back-pain/sciatica-nerve-pain", destination: "/conditions/sciatica", permanent: true },
+    { source: "/area-of-pain/back-pain/lumbar-degenerative-disc-disease", destination: "/conditions/degenerative-disc-disease", permanent: true },
+    { source: "/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment", destination: "/conditions/neck-pain", permanent: true },
     
     // --- HOST/PROTOCOL/CASE NORMALIZATION (301s) - PRODUCTION ONLY ---
     ...(isProduction ? [
@@ -146,9 +151,7 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-pain/foot-pain/diabetic-foot-ulcers","destination":"/area-of-pain/foot-pain/diabetic-foot-ulcer-care","permanent":true},
     {"source":"/area-of-pain/foot-pain/ankle-replacement","destination":"/area-of-pain/foot-pain/ankle-replacement-surgery-pain","permanent":true},
     
-    // Legacy DDD redirects (from audit)
-    {"source":"/area-of-pain/back-pain/degenerative-disc-disease","destination":"/area-of-pain/back-pain/lumbar-degenerative-disc-disease","permanent":true},
-    {"source":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","destination":"/area-of-pain/neck-and-shoulder-pain/cervical-degenerative-disc-disease","permanent":true},
+    // (Legacy DDD redirects handled above — duplicates removed)
     
     // --- EXISTING AREA-OF-SPECIALITY REDIRECTS ---
     {"source":"/area-of-specialty/trochantericbursitis","destination":"/conditions/trochanteric-bursitis","permanent":true},
@@ -177,12 +180,7 @@ const nextConfig: NextConfig = {
     {"source":"/treatments/non-surgical","destination":"/treatments/non-surgical-spine-treatment","permanent":true},
     {"source":"/treatments/neck-pain-treatment","destination":"/treatments/cervical-facet-radiofrequency","permanent":true},
     
-    // --- Mountain Spine legacy → kebab-case --- //
-    {"source":"/about/meetourdoctors/dr.monicamcphail-pruitt","destination":"/about/meetourdoctors/dr-monica-mcphail-pruitt","permanent":true},
-    {"source":"/about/meetourdoctors/dr.douglasslaughter","destination":"/about/meetourdoctors/dr-douglas-slaughter","permanent":true},
-    {"source":"/about/meetourdoctors/dr.christophermccarthy","destination":"/about/meetourdoctors/dr-christopher-mccarthy","permanent":true},
-    {"source":"/about/meetourdoctors/dr.davidcowin","destination":"/about/meetourdoctors/dr-david-cowin","permanent":true},
-    {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors/dr-scott-katzman","permanent":true},
+    // (Doctor slug redirects handled above — duplicates removed)
     // area-of-specialty old camel → conditions (canonical)
     {"source":"/area-of-specialty/antiinflammatoryinjections","destination":"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain","permanent":true},
     {"source":"/area-of-specialty/backpain","destination":"/conditions/back-pain","permanent":true},
@@ -196,10 +194,7 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-specialty/rheumatoidarthritis","destination":"/conditions/rheumatoid-arthritis","permanent":true},
     {"source":"/area-of-specialty/tenniselbow","destination":"/conditions/tennis-elbow","permanent":true},
     {"source":"/area-of-specialty/loosebodies","destination":"/conditions/loose-bodies","permanent":true},
-    // treatments camel/dot variants
-    {"source":"/treatments/totalkneereplacement","destination":"/treatments/total-knee-replacement","permanent":true},
-    {"source":"/treatments/rotatorcuffrepair","destination":"/treatments/rotator-cuff-repair-surgery","permanent":true},
-    {"source":"/treatments/spinalfusion","destination":"/treatments/spinal-fusion","permanent":true},
+    // (camelCase treatment redirects handled above — duplicates removed)
     
     // --- STATE-FIRST LOCATION URL REDIRECTS (Legacy -> New Canonical) ---
     // Florida locations - redirect old slugs to new state-first structure (using full state names)

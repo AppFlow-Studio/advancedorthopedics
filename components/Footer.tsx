@@ -26,7 +26,7 @@ const socials = [
 
 export default function Footer() {
     return (
-        <main className='bg-black w-full flex-col flex py-[60px]'>
+        <footer className='bg-black w-full flex-col flex py-[60px]'>{/* SEO-FIX: Changed footer outer element from <main> to <footer> for valid HTML landmark */}
             {/* Top Section: Logo & Description + Contact */}
             <section className='w-full max-w-[1440px] mx-auto px-[40px] flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16'>
                 {/* Left: Logo and description */}
@@ -202,7 +202,7 @@ export default function Footer() {
                         fontWeight: 400,
                         color: '#DCDEE1'
                     }}
-                >Copyright © 2025 Mountain Spine & Orthopedics.</p>
+                >Copyright © 2026 Mountain Spine & Orthopedics.</p>
 
                 <div className='flex md:flex-row flex-col md:space-x-[40px] md:space-y-0 space-y-[10px]'>
                     <Link href={'/privacy-policy'}
@@ -234,6 +234,6 @@ export default function Footer() {
                     </Link>
                 </div>
             </div>
-        </main>
+        </footer>
     )
 }

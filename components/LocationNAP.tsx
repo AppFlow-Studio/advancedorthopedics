@@ -1,5 +1,3 @@
-"use client";
-
 import { clinics } from "@/components/data/clinics";
 import { MapPin, Phone, Clock } from "lucide-react";
 import Link from "next/link";

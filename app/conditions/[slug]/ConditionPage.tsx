@@ -10,6 +10,7 @@ import { Doctors } from '@/components/data/doctors'
 import DoctorCard from '@/components/DoctorCard'
 import { MiniContactForm } from '@/components/MiniContactForm'
 import { DoctorContactForm } from '@/components/DoctorContactForm'
+import BodyPartHeroForm from '@/components/BodyPartHeroForm'
 import Link from 'next/link'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import ConditionList from '@/components/ConditionsList'
@@ -32,7 +33,8 @@ const conditionMap = Object.fromEntries([
 ]);
 const treatmentMap = Object.fromEntries([
   ...AllTreatments.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }]),
-  ...allTreatmentContent.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }])
+  ...allTreatmentContent.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }]),
+  ...AllTreatmentsCombined.map(t => [t.title.toLowerCase(), { slug: t.slug, type: 'treatment' }]),
 ]);
 const allTitles = [
   ...conditions.map(c => c.title),
@@ -261,83 +263,52 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
             background: 'linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)',
           }}
         />
-        <div className="z-[1] flex flex-col w-full h-full text-left relative pb-20">
-
-          <div className=' px-6 xl:px-[80px] z-[2] w-full flex items-center justify-center'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
-              style={{
-                background: 'rgba(255, 255, 255, 0.50)'
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#252932]"
+        <div className="z-[1] flex flex-col w-full h-full text-left relative">
+          <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row items-start px-6 xl:px-[80px] pt-[220px] pb-10 gap-8 lg:gap-12 z-[2]">
+            {/* Left: Breadcrumb + H1 + Description */}
+            <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left pb-6 lg:pb-0">
+              <div
+                className="flex flex-row space-x-[4px] rounded-[62px] w-fit items-center justify-center px-[20px] py-[10px] mb-4"
+                style={{ background: 'rgba(255, 255, 255, 0.50)' }}
               >
-                Condition
-              </span>
-
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#252932]"
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#252932]">Condition</span>
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#252932]">/</span>
+                <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-[#2358AC]">Condition Details</span>
+              </div>
+              <h1
+                style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+                className="text-[#252932] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                /
-              </span>
-
-              <span
-                style={{
-                  fontFamily: "var(--font-public-sans)",
-                  fontWeight: 400,
-                }}
-                className="text-[#2358AC]"
-              >
-                Condition Details
-              </span>
+                {isNewFormat ? conditionContent!.title : condition_details!.title}
+              </h1>
+              <div className="mt-[24px] lg:max-w-[600px]">
+                {isNewFormat ? (
+                  <div
+                    style={{ fontWeight: 400 }}
+                    className="text-[#424959] sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    dangerouslySetInnerHTML={{
+                      __html: processTextWithBoldAndLinks(
+                        conditionContent!.subtitle ||
+                          `Comprehensive care and treatment options for ${conditionContent!.title} at Mountain Spine & Orthopedics.`,
+                        conditionContent!.slug
+                      )
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{ fontWeight: 400 }}
+                    className="text-[#424959] sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    dangerouslySetInnerHTML={{
+                      __html: processTextWithBoldAndLinks(condition_details!.body, condition_details!.slug)
+                    }}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-          <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center mt-[12px] w-full">
-            <h1
-              style={{
-                fontFamily: "var(--font-public-sans)",
-                fontWeight: 400,
-              }}
-              className="text-[#252932] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center"
-            >
-              {isNewFormat ? conditionContent!.title : condition_details!.title}
-            </h1>
-          </div>
-
-          <div className="z-[2] px-10 self-center xl:px-[80px] mt-[24px]  lg:w-[70%] pb-8">
-            {isNewFormat ? (
-              <div
-                style={{
-                  fontWeight: 400,
-                }}
-                className="text-[#424959] text-center sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
-                dangerouslySetInnerHTML={{
-                  __html: processTextWithBoldAndLinks(
-                    conditionContent!.subtitle ||
-                      `Comprehensive care and treatment options for ${conditionContent!.title} at Mountain Spine & Orthopedics.`,
-                    conditionContent!.slug
-                  )
-                }}
-              />
-            ) : (
-              <div
-                style={{
-                  fontWeight: 400,
-                }}
-                className="text-[#424959] text-center sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
-                dangerouslySetInnerHTML={{
-                  __html: processTextWithBoldAndLinks(condition_details!.body, condition_details!.slug)
-                }}
-              />
-            )}
+            {/* Right: Hero Form — aligned with H1, not breadcrumb */}
+            <div className="w-full max-w-[340px] sm:max-w-[360px] flex-shrink-0 mx-auto lg:mx-0 lg:mt-[52px]">
+              <BodyPartHeroForm bodyPartTitle={isNewFormat ? conditionContent!.title : condition_details!.title} />
+            </div>
           </div>
         </div>
       </section>
@@ -349,7 +320,10 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
           </div>
           <div className='mt-10 lg:flex-shrink-0' />
           <div className='lg:flex-1 lg:min-h-0 lg:overflow-hidden flex flex-col'>
-            <ConditionList currentCondition={isNewFormat ? conditionContent!.title : condition_details!.title} />
+            <ConditionList
+              currentCondition={isNewFormat ? conditionContent!.title : condition_details!.title}
+              filterByTag={isNewFormat ? conditionContent!.tag : condition_details!.tag}
+            />
           </div>
 
           <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6' aria-label="Our Doctors">
