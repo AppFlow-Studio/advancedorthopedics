@@ -91,7 +91,7 @@ const TESTIMONIALS = [
     quote:
       'My knee was so bad I could barely walk. The cortisone shot they gave me at the Wellington office worked better than anything I had tried before. Six months later and I am still doing well.',
     name: 'Christina J.',
-    location: 'Wellington, FL',
+    location: 'Bridgewater, NJ',
     detail: 'Cortisone Shot — Knee Osteoarthritis',
     date: 'November 2024',
     writeReviewHref: REVIEW_LINKS['palm-beach-gardens-orthopedics'],
@@ -1061,7 +1061,17 @@ export default function OrthopedicInjectionsPage() {
                     Insurance carriers we accept:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare'].map((carrier) => (
+                    {[
+                      'Aetna',
+                      'Blue Cross Blue Shield',
+                      'Cigna Healthcare',
+                      'United Healthcare',
+                      'Meritan Healthcare',
+                      'Multiplan',
+                      'Bright Health Group',
+                      'PPO',
+                      'Emblem Health',
+                    ].map((carrier) => (
                       <span
                         key={carrier}
                         style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
