@@ -1179,7 +1179,7 @@ export default function OrthopedicInjectionsPage() {
                 >
                   {[
                     'You have an active infection near the injection site or elsewhere in the body',
-                    'You are on blood thinners (warfarin, Eliquis, Xarelto) — may need temporary pause',
+                    'You are currently taking prescription blood thinners — your doctor will advise whether a temporary pause is needed before your procedure',
                     'You are pregnant or may be pregnant',
                     'You have uncontrolled diabetes — steroids can temporarily elevate blood sugar',
                     'You have received 3–4 cortisone shots in the same joint within the past year',
