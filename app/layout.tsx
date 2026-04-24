@@ -287,6 +287,11 @@ export default function RootLayout({
             </GeolocationProvider>
           </MapProvider>
         </TanstackProvider>
+        <Script
+          id="callrail-dni"
+          src="//cdn.callrail.com/companies/773929113/e6e5de417599bf7a871c/12/swap.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
