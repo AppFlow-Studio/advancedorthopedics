@@ -57,7 +57,7 @@ export default function LocationGallerySection({
         <LocationGallerySlideshow images={clinic.gallery} />
       </div>
 
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center justify-center gap-4">
         <Link
           href={directionsUrl}
           target="_blank"
