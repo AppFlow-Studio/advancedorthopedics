@@ -26,6 +26,7 @@ import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtil
 import { formatPhone, validatePhoneNumber, formatPhoneInput } from "@/lib/phone-formatter"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 import { verifyCaptcha } from "@/seo/verify-captcha"
+import { appendPreparedUploads } from "@/lib/client-upload"
 
 const formSchema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -191,54 +192,39 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
 
         setDisabled(true)
 
-        const toFilePayload = async (file?: File | null) => {
-            if (!file) {
-                return null
-            }
-
-            const base64 = await new Promise<string>((resolve, reject) => {
-                const reader = new FileReader()
-                reader.onload = () => {
-                    const result = reader.result?.toString() || ""
-                    const [, content] = result.split(",")
-                    resolve(content || "")
-                }
-                reader.onerror = (event) => reject(event)
-                reader.readAsDataURL(file)
-            })
-
-            return {
-                name: file.name,
-                type: file.type,
-                base64,
-            }
-        }
-
         try {
-            const payload = {
-                firstName: values.firstName,
-                lastName: values.lastName,
-                email: values.email,
-                phone: values.phone,
-                reason: values.reason,
-                bestTime: values.bestTime,
-                postalCode: values.postalCode,
-                country: values.country,
-                state: values.state,
-                insuranceCardFront: await toFilePayload(values.insuranceCardFront),
-                insuranceCardBack: await toFilePayload(values.insuranceCardBack),
-                gclid: attribution.gclid,
-                utm_source: attribution.utm_source,
-                utm_medium: attribution.utm_medium,
-                utm_campaign: attribution.utm_campaign,
-                utm_term: attribution.utm_term,
-                utm_content: attribution.utm_content,
+            const payload = new FormData()
+            payload.append("firstName", values.firstName)
+            payload.append("lastName", values.lastName)
+            payload.append("email", values.email)
+            payload.append("phone", values.phone)
+            payload.append("reason", values.reason)
+            payload.append("bestTime", values.bestTime)
+            payload.append("postalCode", values.postalCode)
+            payload.append("country", values.country)
+            payload.append("state", values.state)
+            payload.append("gclid", attribution.gclid)
+            payload.append("utm_source", attribution.utm_source)
+            payload.append("utm_medium", attribution.utm_medium)
+            payload.append("utm_campaign", attribution.utm_campaign)
+            payload.append("utm_term", attribution.utm_term)
+            payload.append("utm_content", attribution.utm_content)
+
+            const uploadError = await appendPreparedUploads(payload, [
+                { fieldName: "insuranceCardFront", file: values.insuranceCardFront },
+                { fieldName: "insuranceCardBack", file: values.insuranceCardBack },
+            ])
+            if (uploadError) {
+                uploadError.fieldNames.forEach((fieldName) => {
+                    form.setValue(fieldName as "insuranceCardFront" | "insuranceCardBack", null)
+                })
+                form.setError(uploadError.fieldNames[0] as "insuranceCardFront" | "insuranceCardBack", { message: uploadError.message })
+                return
             }
 
             const res = await fetch("/api/forms/doctor", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
+                body: payload,
             })
 
             if (res.redirected) {
@@ -911,7 +897,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                                 <p className="mb-2 text-sm text-[#111315]">
                                                                                     <span className="font-semibold">Click to upload</span> or drag and drop
                                                                                 </p>
-                                                                                <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                                                <p className="text-xs text-[#838890]">PNG, JPG, PDF up to 15MB</p>
                                                                                 {value && (
                                                                                     <p className="text-xs text-green-600 mt-1 font-medium">
                                                                                         ✓ {value.name}
@@ -958,7 +944,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                                                 <p className="mb-2 text-sm text-[#111315]">
                                                                                     <span className="font-semibold">Click to upload</span> or drag and drop
                                                                                 </p>
-                                                                                <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                                                <p className="text-xs text-[#838890]">PNG, JPG, PDF up to 15MB</p>
                                                                                 {value && (
                                                                                     <p className="text-xs text-green-600 mt-1 font-medium">
                                                                                         ✓ {value.name}

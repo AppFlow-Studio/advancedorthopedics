@@ -9,6 +9,7 @@ import { pushFormSubmit } from '@/utils/enhancedConversions';
 import { getAttributionData } from '@/lib/gclid';
 import { formatPhoneInput } from '@/lib/phone-formatter';
 import { STATE_OPTIONS } from '@/lib/stateUtils';
+import { appendPreparedUploads } from '@/lib/client-upload';
 
 interface BodyPartHeroFormProps {
   bodyPartTitle: string;
@@ -92,27 +93,6 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
     setShowDialog(true);
   };
 
-  const toFilePayload = async (file?: File | null) => {
-    if (!file) return null;
-
-    const base64 = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result?.toString() || '';
-        const [, content] = result.split(',');
-        resolve(content || '');
-      };
-      reader.onerror = (event) => reject(event);
-      reader.readAsDataURL(file);
-    });
-
-    return {
-      name: file.name,
-      type: file.type,
-      base64,
-    };
-  };
-
   const handleFullSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -130,32 +110,46 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
     setError('');
 
     try {
-      const payload = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        reason: formData.reason || `${bodyPartTitle} pain consultation`,
-        bestTime: formData.bestTime,
-        postalCode: formData.postalCode,
-        state: formData.state,
-        country: 'US',
-        painArea: bodyPartTitle,
-        source: `${bodyPartTitle} Body Part Page`,
-        insuranceCardFront: await toFilePayload(formData.insuranceCardFront),
-        insuranceCardBack: await toFilePayload(formData.insuranceCardBack),
-        gclid: attribution.gclid,
-        utm_source: attribution.utm_source,
-        utm_medium: attribution.utm_medium,
-        utm_campaign: attribution.utm_campaign,
-        utm_term: attribution.utm_term,
-        utm_content: attribution.utm_content,
-      };
+      const payload = new FormData();
+      payload.append('firstName', formData.firstName);
+      payload.append('lastName', formData.lastName);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('reason', formData.reason || `${bodyPartTitle} pain consultation`);
+      payload.append('bestTime', formData.bestTime);
+      payload.append('postalCode', formData.postalCode);
+      payload.append('state', formData.state);
+      payload.append('country', 'US');
+      payload.append('painArea', bodyPartTitle);
+      payload.append('source', `${bodyPartTitle} Body Part Page`);
+      payload.append('gclid', attribution.gclid);
+      payload.append('utm_source', attribution.utm_source);
+      payload.append('utm_medium', attribution.utm_medium);
+      payload.append('utm_campaign', attribution.utm_campaign);
+      payload.append('utm_term', attribution.utm_term);
+      payload.append('utm_content', attribution.utm_content);
+
+      const uploadError = await appendPreparedUploads(payload, [
+        { fieldName: 'insuranceCardFront', file: formData.insuranceCardFront },
+        { fieldName: 'insuranceCardBack', file: formData.insuranceCardBack },
+      ]);
+      if (uploadError) {
+        const clearedFields = uploadError.fieldNames.reduce(
+          (nextFormData, fieldName) => ({
+            ...nextFormData,
+            [fieldName]: null,
+          }),
+          formData,
+        );
+
+        setFormData(clearedFields);
+        setError(uploadError.message);
+        return;
+      }
 
       const res = await fetch('/api/forms/doctor', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: payload,
       });
 
       if (res.redirected) {
