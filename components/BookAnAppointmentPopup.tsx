@@ -20,6 +20,7 @@ import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import Link from "next/link"
 import { getAttributionData } from "@/lib/gclid"
 import { useRouter } from "next/navigation"
+import { appendPreparedUploads } from "@/lib/client-upload"
 const formSchema = z.object({
     name: z.string().min(2, "name must be at least 2 characters"),
     email: z.string().email("Invalid email address"),
@@ -58,45 +59,40 @@ export default function BookAnAppointmentPopup() {
         },
     })
 
-
-    async function serializeFile(file: File | null | undefined): Promise<{ name: string; type: string; base64: string } | null> {
-        if (!file) return null;
-        const buffer = await file.arrayBuffer();
-        const bytes = new Uint8Array(buffer);
-        let binary = '';
-        bytes.forEach(b => { binary += String.fromCharCode(b); });
-        return { name: file.name, type: file.type, base64: btoa(binary) };
-    }
-
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
             setLoading(true)
 
-            const [insuranceCardFront, insuranceCardBack] = await Promise.all([
-                serializeFile(values.insuranceCardFront),
-                serializeFile(values.insuranceCardBack),
-            ]);
+            const payload = new FormData()
+            payload.append('firstName', values.name.split(' ')[0] || values.name)
+            payload.append('lastName', values.name.split(' ').slice(1).join(' ') || '')
+            payload.append('email', values.email)
+            payload.append('phone', values.phone)
+            payload.append('reason', values.reason)
+            payload.append('bestTime', values.bestTime)
+            payload.append('form_source', 'book-appointment')
+            payload.append('gclid', attribution.gclid)
+            payload.append('utm_source', attribution.utm_source)
+            payload.append('utm_medium', attribution.utm_medium)
+            payload.append('utm_campaign', attribution.utm_campaign)
+            payload.append('utm_term', attribution.utm_term)
+            payload.append('utm_content', attribution.utm_content)
+
+            const uploadError = await appendPreparedUploads(payload, [
+                { fieldName: 'insuranceCardFront', file: values.insuranceCardFront },
+                { fieldName: 'insuranceCardBack', file: values.insuranceCardBack },
+            ])
+            if (uploadError) {
+                uploadError.fieldNames.forEach((fieldName) => {
+                    form.setValue(fieldName as 'insuranceCardFront' | 'insuranceCardBack', null)
+                })
+                form.setError(uploadError.fieldNames[0] as 'insuranceCardFront' | 'insuranceCardBack', { message: uploadError.message })
+                return
+            }
 
             const res = await fetch('/api/forms/book-appointment', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    firstName: values.name.split(' ')[0] || values.name,
-                    lastName: values.name.split(' ').slice(1).join(' ') || '',
-                    email: values.email,
-                    phone: values.phone,
-                    reason: values.reason,
-                    bestTime: values.bestTime,
-                    form_source: 'book-appointment',
-                    insuranceCardFront,
-                    insuranceCardBack,
-                    gclid: attribution.gclid,
-                    utm_source: attribution.utm_source,
-                    utm_medium: attribution.utm_medium,
-                    utm_campaign: attribution.utm_campaign,
-                    utm_term: attribution.utm_term,
-                    utm_content: attribution.utm_content,
-                }),
+                body: payload,
             })
 
             if (res.redirected) {
@@ -298,7 +294,7 @@ export default function BookAnAppointmentPopup() {
                                                         <p className="mb-2 text-sm text-[#111315]">
                                                             <span className="font-semibold">Click to upload</span> or drag and drop
                                                         </p>
-                                                        <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                        <p className="text-xs text-[#838890]">PNG, JPG, PDF up to 15MB</p>
                                                         {value && (
                                                             <p className="text-xs text-green-600 mt-1 font-medium">
                                                                 ✓ {value.name}
@@ -345,7 +341,7 @@ export default function BookAnAppointmentPopup() {
                                                         <p className="mb-2 text-sm text-[#111315]">
                                                             <span className="font-semibold">Click to upload</span> or drag and drop
                                                         </p>
-                                                        <p className="text-xs text-[#838890]">PNG, JPG, PDF (MAX. 10MB)</p>
+                                                        <p className="text-xs text-[#838890]">PNG, JPG, PDF up to 15MB</p>
                                                         {value && (
                                                             <p className="text-xs text-green-600 mt-1 font-medium">
                                                                 ✓ {value.name}
@@ -379,7 +375,6 @@ export default function BookAnAppointmentPopup() {
                             type="submit"
                             disabled={loading}
                             className="w-full self-center flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                            onClick={() => setLoading(true)}
                         >
                             {loading ? (
                                 <div className="flex items-center gap-2">

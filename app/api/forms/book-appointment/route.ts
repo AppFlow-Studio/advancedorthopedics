@@ -1,57 +1,35 @@
 import { NextResponse } from "next/server";
 import { geolocation } from "@vercel/functions";
-import { Buffer } from "buffer";
 import {
   sendContactEmail,
   sendUserEmail,
 } from "@/components/email/sendcontactemail";
 
-type FilePayload = {
-  name: string;
-  type?: string;
-  base64: string;
-} | null;
+const MAX_UPLOAD_SIZE = 4 * 1024 * 1024;
 
-type BookAppointmentPayload = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  reason: string;
-  bestTime: string;
-  postalCode?: string;
-  country?: string;
-  state?: string;
-  insuranceCardFront?: FilePayload;
-  insuranceCardBack?: FilePayload;
-  gclid?: string;
-  utm_source?: string;
-  utm_medium?: string;
-  utm_campaign?: string;
-  utm_term?: string;
-  utm_content?: string;
-};
+function getString(formData: FormData, key: string) {
+  const value = formData.get(key);
+  return typeof value === "string" ? value : "";
+}
 
-type FileLike = {
-  name: string;
-  arrayBuffer: () => Promise<ArrayBuffer>;
-};
+function getUpload(formData: FormData, key: string) {
+  const value = formData.get(key);
+  return value instanceof File && value.size > 0 ? value : undefined;
+}
 
-function toFileLike(file?: FilePayload): FileLike | undefined {
-  if (!file) {
-    return undefined;
-  }
+function validateUpload(file?: File) {
+  return !file || file.size <= MAX_UPLOAD_SIZE;
+}
 
-  const buffer = Buffer.from(file.base64, "base64");
-  const arrayBuffer = buffer.buffer.slice(
-    buffer.byteOffset,
-    buffer.byteOffset + buffer.byteLength,
+function validateTotalUploads(...files: Array<File | undefined>) {
+  return files.reduce((total, file) => total + (file?.size || 0), 0) <= MAX_UPLOAD_SIZE;
+}
+
+export async function GET() {
+  return NextResponse.json(
+    { ok: false, message: "Method not allowed" },
+    { status: 405, headers: { Allow: "POST" } },
   );
-
-  return {
-    name: file.name,
-    arrayBuffer: async () => arrayBuffer,
-  };
 }
 
 export async function POST(request: Request) {
@@ -65,41 +43,61 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body: BookAppointmentPayload = await request.json();
+    const formData = await request.formData();
+    const insuranceCardFront = getUpload(formData, "insuranceCardFront");
+    const insuranceCardBack = getUpload(formData, "insuranceCardBack");
 
-    const fullName = `${body.firstName} ${body.lastName}`.trim();
+    if (
+      !validateUpload(insuranceCardFront) ||
+      !validateUpload(insuranceCardBack) ||
+      !validateTotalUploads(insuranceCardFront, insuranceCardBack)
+    ) {
+      return NextResponse.json(
+        { ok: false, message: "Uploaded file is too large." },
+        { status: 413 },
+      );
+    }
+
+    const firstName = getString(formData, "firstName");
+    const lastName = getString(formData, "lastName");
+    const email = getString(formData, "email");
+    const phone = getString(formData, "phone");
+    const reason = getString(formData, "reason");
+    const bestTime = getString(formData, "bestTime");
+    const state = getString(formData, "state");
+    const fullName = `${firstName} ${lastName}`.trim();
 
     await sendContactEmail({
       name: fullName,
-      email: body.email,
-      phone: body.phone,
-      reason: body.reason,
-      bestTime: body.bestTime,
-      state: body.state,
-      insuranceCardFront: toFileLike(body.insuranceCardFront) as any,
-      insuranceCardBack: toFileLike(body.insuranceCardBack) as any,
-      gclid: body.gclid,
-      utm_source: body.utm_source,
-      utm_medium: body.utm_medium,
-      utm_campaign: body.utm_campaign,
-      utm_term: body.utm_term,
-      utm_content: body.utm_content,
+      email,
+      phone,
+      reason,
+      bestTime,
+      state,
+      insuranceCardFront,
+      insuranceCardBack,
+      gclid: getString(formData, "gclid"),
+      utm_source: getString(formData, "utm_source"),
+      utm_medium: getString(formData, "utm_medium"),
+      utm_campaign: getString(formData, "utm_campaign"),
+      utm_term: getString(formData, "utm_term"),
+      utm_content: getString(formData, "utm_content"),
     });
 
     await sendUserEmail({
       name: fullName,
-      email: body.email,
-      phone: body.phone,
-      state: body.state,
-      reason: body.reason,
-      bestTime: body.bestTime,
-      form_source: 'book-appointment',
-      gclid: body.gclid,
-      utm_source: body.utm_source,
-      utm_medium: body.utm_medium,
-      utm_campaign: body.utm_campaign,
-      utm_term: body.utm_term,
-      utm_content: body.utm_content,
+      email,
+      phone,
+      state,
+      reason,
+      bestTime,
+      form_source: "book-appointment",
+      gclid: getString(formData, "gclid"),
+      utm_source: getString(formData, "utm_source"),
+      utm_medium: getString(formData, "utm_medium"),
+      utm_campaign: getString(formData, "utm_campaign"),
+      utm_term: getString(formData, "utm_term"),
+      utm_content: getString(formData, "utm_content"),
     });
 
     return NextResponse.json({ ok: true });
@@ -108,5 +106,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 }
-
-

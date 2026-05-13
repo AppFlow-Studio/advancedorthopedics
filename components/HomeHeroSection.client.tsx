@@ -30,6 +30,61 @@ import { Clock } from 'lucide-react';
 
 type TimePeriod = 'day' | 'sunset' | 'night';
 
+function HeroPhoneCTA({ timePeriod }: { timePeriod: TimePeriod }) {
+  const isNight = timePeriod === 'night';
+  const defaultPhoneText = '(561) 223-9959';
+  const defaultPhoneHref = 'tel:+15612239959';
+
+  const getDisplayedPhone = () => {
+    if (typeof document === 'undefined') {
+      return defaultPhoneText;
+    }
+    const phoneNode = document.querySelector('[data-callrail-phone="hero-mobile-phone"]');
+    return phoneNode?.textContent?.trim() || defaultPhoneText;
+  };
+
+  return (
+    <div className="w-full mb-3 rounded-2xl border border-white/25 bg-white/10 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.18)] px-4 py-3 text-white">
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <p className={`text-xs font-semibold uppercase tracking-wide ${isNight ? 'text-white/80' : 'text-[#EAF1FF]'}`}>
+            Prefer to call?
+          </p>
+          <p className={`text-xs ${isNight ? 'text-white/80' : 'text-[#F3F7FF]'}`}>
+            Tap to speak with our team
+          </p>
+        </div>
+        <a
+          href={defaultPhoneHref}
+          aria-label="Call Mountain Spine and Orthopedics at 561-223-9959"
+          data-cta="hero-phone-call"
+          data-location="homepage-hero"
+          data-phone="+15612239959"
+          className="ctm-phone-number shrink-0 rounded-full bg-white text-[#0A50EC] px-3 py-2 text-sm font-bold shadow-sm hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/70"
+          onClick={() => {
+            const displayPhone = getDisplayedPhone();
+            const cleanPhone = displayPhone.replace(/\D/g, '');
+            if (typeof window !== "undefined" && window.dataLayer) {
+              window.dataLayer.push({
+                event: 'call_click',
+                phone_number: cleanPhone || '5612239959',
+                location: 'HomeHero'
+              });
+            }
+          }}
+        >
+          <span className="inline-flex items-center gap-1.5">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18" fill="none" className="flex-shrink-0">
+              <path fillRule="evenodd" clipRule="evenodd" d="M11.3852 0.0666578C11.0536 -0.0290477 10.7071 0.162219 10.6114 0.493864C10.5157 0.825509 10.707 1.17194 11.0386 1.26765C13.78 2.05874 15.9419 4.22057 16.7331 6.96182C16.8288 7.29347 17.1752 7.48472 17.5069 7.389C17.8385 7.29328 18.0298 6.94684 17.9341 6.6152C17.0238 3.46127 14.5392 0.976833 11.3852 0.0666578ZM10.9112 4.11842C10.5935 3.9835 10.2266 4.13169 10.0916 4.4494C9.95671 4.76712 10.1049 5.13406 10.4226 5.26898C11.4596 5.70934 12.2914 6.54113 12.7318 7.57812C12.8667 7.89584 13.2336 8.04402 13.5514 7.9091C13.8691 7.77417 14.0173 7.40724 13.8823 7.08952C13.3154 5.75446 12.2463 4.68536 10.9112 4.11842ZM4.51311 0.906545C4.27945 0.487351 3.90337 0.170069 3.43113 0.0724652C2.95397 -0.0261574 2.47434 0.119319 2.08015 0.440604C0.649844 1.60636 -0.260852 3.47409 0.134395 5.43344C0.377348 6.63783 0.78211 7.82615 1.60638 9.26341C3.2606 12.1479 5.84983 14.7385 8.73763 16.3947C10.1749 17.2189 11.3632 17.6237 12.5676 17.8666C14.5269 18.2619 16.3947 17.3512 17.5604 15.9209C17.8817 15.5267 18.0272 15.0471 17.9286 14.5699C17.831 14.0977 17.5137 13.7216 17.0945 13.4879L15.7591 12.7436L15.7591 12.7436C15.2673 12.4694 14.8534 12.2387 14.4936 12.088C14.1119 11.9282 13.7355 11.8332 13.3194 11.8766C12.9032 11.92 12.5545 12.0906 12.2141 12.3257C11.8931 12.5474 11.5357 12.8585 11.111 13.2283L8.97846 15.0848C6.56267 13.611 4.38855 11.4359 2.91618 9.02257L4.77273 6.89005C5.14248 6.46536 5.45365 6.10797 5.67532 5.78698C5.91047 5.44649 6.08101 5.0978 6.12441 4.68166C6.1678 4.26553 6.07287 3.88915 5.91303 3.50747C5.76236 3.14766 5.53163 2.73376 5.25746 2.24192L5.25745 2.24191L4.51311 0.906545Z" fill="#0A50EC" />
+            </svg>
+            <span data-callrail-phone="hero-mobile-phone" className="ctm-phone-number">{defaultPhoneText}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function HomeHeroSection() {
   const [hasMounted, setHasMounted] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -245,6 +300,7 @@ export default function HomeHeroSection() {
             <div className="rounded-2xl">
               <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod}/>
             </div>
+            <HeroPhoneCTA timePeriod={timePeriod} />
           </div>
           <SlidingDiv position="left" className="z-[2] ">
             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
@@ -252,7 +308,7 @@ export default function HomeHeroSection() {
                 style={{
                   fontWeight: 400,
                 }}
-                className={`${timePeriod !== 'night' ? 'sm:text-[#424959] text-[#252932]' : 'text-white'} text-xl lg:text-2xl sm:text-left text-center`}
+                className={`${timePeriod !== 'night' ? 'sm:text-[#424959] text-[#252932]' : 'text-white'} text-xl lg:text-2xl sm:text-left text-center hidden sm:block`}
               >
                 Expert orthopedic and spine surgeons offering minimally invasive spine surgery, joint replacement, and advanced back pain treatment across Florida, New Jersey, New York, and Pennsylvania. Same-day and next-day appointments at convenient locations. Book your orthopedic consultation today.
               </p>

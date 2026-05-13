@@ -155,14 +155,14 @@ export default function HomeInteractiveAnatomy() {
           <div className="flex flex-col space-y-[10px] xl:w-[20%] w-full xl:pt-50 z-20">
             <TextAnimate
               animation="blurInUp"
-              by="character"
+              by="word"
               once
               as="p"
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500, color: '#0A50EC',
               }}
-              className="xl:text-2xl lg:text-3xl"
+              className="xl:text-2xl lg:text-3xl break-keep"
             >
               {selectedOrthoCondition.area_procedures.title}
             </TextAnimate>
