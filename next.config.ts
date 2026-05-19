@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'originui.com',
-        pathname: '/**', 
+        pathname: '/**',
       },
       {
         protocol: 'https',
@@ -30,9 +30,17 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  // experimental: {
-  //   optimizeCss: true,
-  // },
+  // Per-icon tree-shake for big barrel exports — Next 15 supports this natively.
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      'date-fns',
+      'react-icons',
+      '@radix-ui/react-icons',
+      '@tabler/icons-react',
+    ],
+  },
 
   async redirects() {
   // Only apply host redirects in production

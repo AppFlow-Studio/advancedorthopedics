@@ -104,6 +104,56 @@ html {
   }
 }
 
+/* CSS-only entrance animations — replaces framer-motion Reveal/SlidingDiv for entrance use */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-slide-in-left {
+  from { opacity: 0; transform: translateX(-150px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes hero-slide-in-right {
+  from { opacity: 0; transform: translateX(150px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.hero-fade-up    { animation: hero-fade-up 0.5s ease-out 0.1s both; }
+.hero-slide-left { animation: hero-slide-in-left 0.5s ease-out 0.25s both; }
+.hero-slide-right{ animation: hero-slide-in-right 0.5s ease-out 0.25s both; }
+
+/* Anatomy-dot pulse — replaces framer-motion motion.div scale loops */
+@keyframes anatomy-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+.anatomy-pulse { animation: anatomy-pulse 1.5s ease-in-out infinite; }
+
+/* Reveal-on-view primitive (paired with IntersectionObserver in RevealOnView.tsx) */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(75px);
+  transition: opacity 0.5s ease-out 0.1s, transform 0.5s ease-out 0.1s;
+  will-change: opacity, transform;
+}
+[data-reveal="left"]  { transform: translateX(-150px); }
+[data-reveal="right"] { transform: translateX(150px); }
+[data-reveal-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal-visible="true"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-fade-up, .hero-slide-left, .hero-slide-right, .anatomy-pulse {
+    animation: none;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

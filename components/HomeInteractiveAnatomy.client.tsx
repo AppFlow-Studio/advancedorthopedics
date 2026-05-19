@@ -3,10 +3,15 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { OrthoConditionsWeTreat } from '@/components/data/homepage-data';
 import HumanModel from '@/public/HumanModel.png';
+
+const dotBaseStyle = {
+  background: 'rgba(255, 255, 255, 0.40)',
+  boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)',
+  backdropFilter: 'blur(2.95px)',
+} as const;
 
 export default function HomeInteractiveAnatomy() {
   const [selectedOrthoCondition, setSelectedOrthoCondition] = useState(OrthoConditionsWeTreat[0]);
@@ -78,77 +83,63 @@ export default function HomeInteractiveAnatomy() {
                 layout="responsive"
                 className="w-full max-h-[800px] max-h-sm xl:max-h-[800px] h-full object-contain xl:object-cover py-4"
               />
-              {/* Dots - use exact positions from original */}
+              {/* Dots — CSS-keyframed pulse when selected; plain div otherwise (no framer-motion) */}
               {/* Neck */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] top-[22%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hover:cursor-pointer"
-                style={{ background: 'rgba(255, 255, 255, 0.40)', boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)', backdropFilter: 'blur(2.95px)' }}
-                animate={selectedOrthoCondition.area === 'Neck' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Neck' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] top-[22%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hover:cursor-pointer ${selectedOrthoCondition.area === 'Neck' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[0])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Neck' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
               {/* Right Shoulder */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] top-[24%] sm:top-48 z-20 xl:left-[65%] left-[63%] md:left-[55%] hover:cursor-pointer"
-                style={{ background: "rgba(255, 255, 255, 0.40)", boxShadow: "0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)", backdropFilter: "blur(2.95px)" }}
-                animate={selectedOrthoCondition.area === 'Shoulder' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Shoulder' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] top-[24%] sm:top-48 z-20 xl:left-[65%] left-[63%] md:left-[55%] hover:cursor-pointer ${selectedOrthoCondition.area === 'Shoulder' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[1])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Shoulder' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
               {/* Hand */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] top-[50%] z-20 transform -translate-x-1/3 xl:-translate-x-1/2 -translate-y-1/2 xl:left-10 lg:left-1/3 md:left-[calc(1/3.6*100%)] sm:left-[calc(1/3.5*100%)] left-[calc(1/6*100%)] hover:cursor-pointer"
-                style={{ background: 'rgba(255, 255, 255, 0.40)', boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)', backdropFilter: 'blur(2.95px)' }}
-                animate={selectedOrthoCondition.area === 'Hand' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Hand' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] top-[50%] z-20 transform -translate-x-1/3 xl:-translate-x-1/2 -translate-y-1/2 xl:left-10 lg:left-1/3 md:left-[calc(1/3.6*100%)] sm:left-[calc(1/3.5*100%)] left-[calc(1/6*100%)] hover:cursor-pointer ${selectedOrthoCondition.area === 'Hand' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[2])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Hand' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
               {/* Spine */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] top-[30%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer"
-                style={{ background: 'rgba(255, 255, 255, 0.40)', boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)', backdropFilter: 'blur(2.95px)' }}
-                animate={selectedOrthoCondition.area === 'Spine' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Spine' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] top-[30%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer ${selectedOrthoCondition.area === 'Spine' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[3])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Spine' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
               {/* Lower Spine */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] top-[42%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer"
-                style={{ background: 'rgba(255, 255, 255, 0.40)', boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)', backdropFilter: 'blur(2.95px)' }}
-                animate={selectedOrthoCondition.area === 'Lower Spine' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Lower Spine' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] top-[42%] z-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:cursor-pointer ${selectedOrthoCondition.area === 'Lower Spine' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[4])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Lower Spine' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
               {/* Knee */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] xl:top-124 top-[65%] sm:top-120 z-20 xl:right-[53%] right-[54%] hover:cursor-pointer"
-                style={{ background: 'rgba(255, 255, 255, 0.40)', boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)', backdropFilter: 'blur(2.95px)' }}
-                animate={selectedOrthoCondition.area === 'Knee' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Knee' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] xl:top-124 top-[65%] sm:top-120 z-20 xl:right-[53%] right-[54%] hover:cursor-pointer ${selectedOrthoCondition.area === 'Knee' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[5])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Knee' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
               {/* Foot */}
-              <motion.div
-                className="rounded-[50px] absolute p-[4px] xl:top-170 top-[85%] xs:top-132 sm:top-160 z-20 left-[57%] hover:cursor-pointer"
-                style={{ background: 'rgba(255, 255, 255, 0.40)', boxShadow: '0px 4px 13.9px 0px rgba(0, 0, 0, 0.15)', backdropFilter: 'blur(2.95px)' }}
-                animate={selectedOrthoCondition.area === 'Foot' ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.5, repeat: selectedOrthoCondition.area === 'Foot' ? Infinity : 0, ease: "easeInOut" }}
+              <div
+                className={`rounded-[50px] absolute p-[4px] xl:top-170 top-[85%] xs:top-132 sm:top-160 z-20 left-[57%] hover:cursor-pointer ${selectedOrthoCondition.area === 'Foot' ? 'anatomy-pulse' : ''}`}
+                style={dotBaseStyle}
                 onClick={() => setSelectedOrthoCondition(OrthoConditionsWeTreat[6])}
               >
                 <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full ${selectedOrthoCondition.area === 'Foot' ? 'bg-[#0A50EC]' : 'bg-white'}`} />
-              </motion.div>
+              </div>
             </div>
           </div>
 

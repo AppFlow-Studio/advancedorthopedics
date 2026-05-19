@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Reem_Kufi, Inter, Sora, Lato, Public_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Reem_Kufi, Inter, Public_Sans } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -12,7 +12,6 @@ import TanstackProvider from "@/providers/tanstack";
 import GclidCapture from "@/components/GclidCapture";
 import { buildCanonical, SITE_URL, canonicalForOg } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
-import RecaptchaProvider from "@/providers/recaptchaprovider";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -24,40 +23,33 @@ export const viewport: Viewport = {
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const ReemKufi = Reem_Kufi({
   variable: "--font-reem-kufi",
   weight: ["500"],
   subsets: ["latin"],
-});
-
-const sora = Sora({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-public-sans",
-});
-
-const lato = Lato({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-public-sans",
+  display: "swap",
 });
 
 const publicSans = Public_Sans({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-public-sans",
+  display: "swap",
 });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -223,6 +215,9 @@ export default function RootLayout({
       <head>
         {/* Preconnect to CDN for performance */}
         <link rel="preconnect" href="https://mountainspineortho.b-cdn.net" crossOrigin="" />
+        {/* Preconnect to Google Maps (lazy-loaded; warming the handshake saves ~100-200ms when it does mount) */}
+        <link rel="preconnect" href="https://maps.googleapis.com" crossOrigin="" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="" />
         {/* Favicons and icons for SEO and device support */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -256,7 +251,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} ${sora.variable} ${publicSans.variable} antialiased  overscroll-none `}
+        className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} ${publicSans.variable} antialiased  overscroll-none `}
         suppressHydrationWarning
       >
         {/* WebSite Schema for Search Functionality */}
@@ -279,9 +274,7 @@ export default function RootLayout({
           <NavBar />
           <MapProvider>
             <GeolocationProvider>
-              {/* <RecaptchaProvider> */}
-                {children}
-              {/* </RecaptchaProvider> */}
+              {children}
               <Footer />
               <DelayedLocationPopup delayInSeconds={8} />
             </GeolocationProvider>

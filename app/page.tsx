@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Image from "next/image";
 import Link from "next/link";
 import { buildCanonical } from "@/lib/seo";
@@ -7,35 +8,32 @@ import { getOgImageForPath } from "@/lib/og";
 // Data Imports from the centralized file
 import {
   ServicesAndExpertise,
-  OurSpecialtyItems,
-  Testimonials,
   Amenities,
-  PainToProgress,
-  OrthoConditionsWeTreat
 } from '@/components/data/homepage-data';
 
-// Component Imports
+// Component Imports (kept static — above the fold or tiny)
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton";
-import DoctorCard from "@/components/DoctorCard";
-import ClinicsMap from "@/components/ClinicsMap";
-import ContactUsSection from "@/components/ContactUsSection";
-import RatingsAndReviews from "@/components/RatingsAndReviews";
-import { DoctorContactForm } from "@/components/DoctorContactForm";
-import { Doctors } from "@/components/data/doctors";
-import FeaturedDoctorsSection from '@/components/FeaturedDoctorsSection.client'
+import MountOnView from "@/components/MountOnView";
 
 // Animation & UI Imports
 import Reveal from "@/components/RevealAnimation";
-import SlidingDiv from "@/components/SlidingAnimation";
-import { TextAnimate } from "@/components/magicui/text-animate";
 
-// Interactive Client Components
+// Above-the-fold (sync — hero owns the LCP)
 import HomeHeroSection from '@/components/HomeHeroSection.client';
-import HomeInteractiveAnatomy from '@/components/HomeInteractiveAnatomy.client';
 import HomeStatisticsBar from '@/components/HomeStatisticsBar.client';
-import HomePainToProgress from '@/components/HomePainToProgress.client';
-import OurSpecialtySection from '@/components/OurSpecialtySection.client'
-import ServicesAndExpertiseSection from '@/components/ServicesAndExpertiseSection.client'
+
+// Below-the-fold client sections — split into separate JS chunks (still SSR'd for SEO)
+const ServicesAndExpertiseSection = dynamic(() => import('@/components/ServicesAndExpertiseSection.client'));
+const OurSpecialtySection         = dynamic(() => import('@/components/OurSpecialtySection.client'));
+const HomeInteractiveAnatomy      = dynamic(() => import('@/components/HomeInteractiveAnatomy.client'));
+const FeaturedDoctorsSection      = dynamic(() => import('@/components/FeaturedDoctorsSection.client'));
+const HomePainToProgress          = dynamic(() => import('@/components/HomePainToProgress.client'));
+const RatingsAndReviews           = dynamic(() => import('@/components/RatingsAndReviews'));
+const ContactUsSection            = dynamic(() => import('@/components/ContactUsSection'));
+
+// Google Maps lives in its own chunk and only mounts when the user scrolls near it.
+// Wrapper is a client component so we can use `dynamic({ ssr: false })`.
+import ClinicsMap from '@/components/ClinicsMapLazy.client';
 
 // Image Asset Imports - Using CDN URLs since local files don't exist
 const AAOS = 'https://mountainspineortho.b-cdn.net/public/AAOS.png';
@@ -208,9 +206,7 @@ export default function Home() {
     <>
       <HomePageJsonLdSchema />
         <main className="w-full flex flex-col items-center justify-center bg-white h-full">
-        {/* sr-only H1 for first-wave crawlers — visible H1 renders inside HomeHeroSection (client) */}
-        <h1 className="sr-only">Mountain Spine &amp; Orthopedics | Top Orthopedic &amp; Spine Surgeons in FL, NJ, NY &amp; PA</h1>
-        {/* Hero Section - Interactive */}
+        {/* Hero Section - Interactive (renders the visible <h1>) */}
         <HomeHeroSection />
 
         {/* Statistics/Testimonials Bar - Interactive - MOVED UP FOR IMMEDIATE SOCIAL PROOF */}
@@ -432,8 +428,10 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* ClinicsMap */}
-        <ClinicsMap />
+        {/* ClinicsMap — Google Maps JS only fetches when user scrolls near */}
+        <MountOnView rootMargin="400px" fallback={<div className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[680px] bg-gray-50 rounded-3xl mx-auto max-w-[1440px] my-12" aria-hidden="true" />}>
+          <ClinicsMap />
+        </MountOnView>
 
         {/* ContactUsSection */}
         <ContactUsSection />

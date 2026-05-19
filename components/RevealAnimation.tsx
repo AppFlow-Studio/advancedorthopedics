@@ -1,35 +1,25 @@
-"use client"
-import React, { JSX, useEffect, useRef } from 'react'
-import { motion, useInView, useAnimation } from 'framer-motion'
-import { cn } from '@/lib/utils'
+"use client";
 
-export default function Reveal({children, width = 'fit-content', className} : { children : JSX.Element, width : "fit-content"|"100%", className : string | undefined}) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once : true })
+import type { ReactElement } from "react";
+import { cn } from "@/lib/utils";
+import RevealOnView from "./RevealOnView";
 
-  const mainControls = useAnimation()
-
-  useEffect(() => {
-    if( isInView ){
-        // Fire Animation
-        mainControls.start('visible')
-    }
-  }, [isInView])
+export default function Reveal({
+  children,
+  width = "fit-content",
+  className,
+}: {
+  children: ReactElement;
+  width: "fit-content" | "100%";
+  className: string | undefined;
+}) {
   return (
-    <div ref={ref} style={{ position : 'relative', overflow : 'hidden'}}
-    className={cn(" bg-transparent ", className)}
+    <RevealOnView
+      direction="up"
+      className={cn("bg-transparent relative overflow-hidden", className)}
+      style={width === "100%" ? { width: "100%" } : undefined}
     >
-        <motion.div 
-            variants={{
-                hidden : { opacity : 0, y : 75 },
-                visible : { opacity : 1, y : 0}
-            }}
-            initial='hidden'
-            animate={mainControls}
-            transition={{ duration : 0.5, delay : 0.25 }}
-        >
-            {children}
-        </motion.div>
-    </div>
-  )
+      {children}
+    </RevealOnView>
+  );
 }

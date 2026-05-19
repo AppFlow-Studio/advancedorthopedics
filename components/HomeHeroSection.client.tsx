@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-import Link from "next/link";
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton";
-import { DoctorContactForm } from "@/components/DoctorContactForm";
-import SlidingDiv from "@/components/SlidingAnimation";
+import HeroContactFormIdle from "@/components/HeroContactFormIdle.client";
 import { Marquee } from "@/components/magicui/marquee";
 
 // Image Asset Imports
@@ -25,7 +23,6 @@ const associationLogoAlt: Record<string, string> = {
   'Serpent': 'Medical caduceus symbol representing healthcare excellence',
   'SMIS': 'Society for Minimally Invasive Spine Surgery (SMISS) member'
 };
-import Reveal from './RevealAnimation';
 import { Clock } from 'lucide-react';
 
 type TimePeriod = 'day' | 'sunset' | 'night';
@@ -90,9 +87,7 @@ export default function HomeHeroSection() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [currentTime, setCurrentTime] = useState<string>('');
   const [timePeriod, setTimePeriod] = useState<TimePeriod>('day');
-  const [fadeKey, setFadeKey] = useState(0);
   const [initialLoad, setInitialLoad] = useState(true);
-  const [initialFadeIn, setInitialFadeIn] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
@@ -110,24 +105,39 @@ export default function HomeHeroSection() {
     // Add resize listener
     window.addEventListener('resize', updateDimensions);
 
-    // Preload sunset and night images for smooth transitions
-    const preloadImages = () => {
-      const sunsetImg = new window.Image();
-      sunsetImg.src = '/homemountain2.png';
-      const nightImg = new window.Image();
-      nightImg.src = '/homemountain3.png';
+    // Prefetch sunset and night variants once the browser is idle, so we
+    // don't waste critical-path bandwidth on images that may never display.
+    type IdleWindow = Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
     };
-    preloadImages();
-
-    // Trigger initial fade-in after a brief delay
-    const fadeInTimeout = setTimeout(() => {
-      setInitialFadeIn(true);
-    }, 100);
+    const w = window as IdleWindow;
+    const injectPrefetch = () => {
+      ['https://mountainspineortho.b-cdn.net/public/homemountain2.png',
+       'https://mountainspineortho.b-cdn.net/public/homemountain3.png'].forEach((href) => {
+        if (document.querySelector(`link[rel="prefetch"][href="${href}"]`)) return;
+        const l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.as = 'image';
+        l.href = href;
+        document.head.appendChild(l);
+      });
+    };
+    let prefetchTimer: ReturnType<typeof setTimeout> | undefined;
+    let prefetchIdle: number | undefined;
+    if (typeof w.requestIdleCallback === 'function') {
+      prefetchIdle = w.requestIdleCallback(injectPrefetch, { timeout: 4000 });
+    } else {
+      prefetchTimer = setTimeout(injectPrefetch, 2500);
+    }
 
     // Cleanup
     return () => {
       window.removeEventListener('resize', updateDimensions);
-      clearTimeout(fadeInTimeout);
+      if (prefetchIdle !== undefined && typeof w.cancelIdleCallback === 'function') {
+        w.cancelIdleCallback(prefetchIdle);
+      }
+      if (prefetchTimer !== undefined) clearTimeout(prefetchTimer);
     };
   }, []);
 
@@ -215,30 +225,30 @@ export default function HomeHeroSection() {
       />
       {/* Time-based background images with smooth transitions */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Daytime image - homemountain1.png */}
+        {/* Daytime image - homemountain1.png — LCP candidate, paints at full opacity on first frame */}
         <Image
           key="day-image"
           src={'https://mountainspineortho.b-cdn.net/public/homemountain1.png'}
           priority={true}
           fetchPriority="high"
           fill
-          className={`absolute inset-0 object-cover object-center md:object-center transition-opacity duration-[1500ms] ease-in-out ${timePeriod === 'day' && initialFadeIn
-            ? 'opacity-100'
-            : timePeriod === 'day' && !initialFadeIn
-              ? 'opacity-0'
-              : 'opacity-0'
-            }`}
+          sizes="100vw"
+          className={`absolute inset-0 object-cover object-center md:object-center transition-opacity duration-[1500ms] ease-in-out ${
+            timePeriod === 'day' ? 'opacity-100' : 'opacity-0'
+          }`}
           style={{
             pointerEvents: 'none',
             zIndex: timePeriod === 'day' ? 1 : 0
           }}
           alt="Board-certified spine and orthopedic surgeons consulting with Florida patients at Mountain Spine & Orthopedics - Daytime"
         />
-        {/* Sunset image - homemountain2.png */}
+        {/* Sunset image - homemountain2.png — lazy, prefetched after idle */}
         <Image
           key="sunset-image"
           src={'https://mountainspineortho.b-cdn.net/public/homemountain2.png'}
           fill
+          sizes="100vw"
+          loading="lazy"
           className={`absolute inset-0 object-cover object-center md:object-center transition-opacity duration-[1500ms] ease-in-out ${timePeriod === 'sunset' ? 'opacity-100' : 'opacity-0'
             }`}
           style={{
@@ -247,11 +257,13 @@ export default function HomeHeroSection() {
           }}
           alt="Board-certified spine and orthopedic surgeons consulting with Florida patients at Mountain Spine & Orthopedics - Sunset"
         />
-        {/* Night image - homemountain3.png */}
+        {/* Night image - homemountain3.png — lazy, prefetched after idle */}
         <Image
           key="night-image"
           src={'https://mountainspineortho.b-cdn.net/public/homemountain3.png'}
           fill
+          sizes="100vw"
+          loading="lazy"
           className={`absolute inset-0 object-cover object-center md:object-center transition-opacity duration-[1500ms] ease-in-out ${timePeriod === 'night' ? 'opacity-100' : 'opacity-0'
             }`}
           style={{
@@ -276,15 +288,10 @@ export default function HomeHeroSection() {
 
       <div className="w-full h-full flex flex-row relative overflow-hidden justify-between  xl:pb-[160px] xl:py-0 lg:py-10">
         <div className="z-[2] flex flex-col xl:w-[50%] sm:w-[70%] w-full h-full text-left xl:px-6 xl:py-8 relative ">
-          <SlidingDiv position="left" className="z-[2] sm:mt-30 mt-16">
+          <div className="z-[2] sm:mt-30 mt-16 hero-slide-left">
             <div className="xl:px-[80px] px-8 my-[24px] xl:w-[90%]">
-              {/* SEO-Optimized H1 - Hidden but accessible */}
-              <h1 className="sr-only">
-                Trusted Spine & Orthopedic Specialists in Florida - Mountain Spine & Orthopedics
-              </h1>
-
-              {/* Visual Header - User-Friendly */}
-              <p
+              {/* Visible, SEO-relevant H1 — server-rendered text LCP candidate */}
+              <h1
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
@@ -292,17 +299,17 @@ export default function HomeHeroSection() {
                 className={`${timePeriod !== 'night'  ? 'text-[#252932]' : 'text-white'} text-4xl sm:text-6xl xl:text-6xl sm:text-left text-center`}
               >
                 Welcome to<br /> Mountain <br /> Spine & Orthopedics
-              </p>
+              </h1>
 
             </div>
-          </SlidingDiv>
+          </div>
           <div className="z-[2] sm:hidden block px-4 mb-4">
             <div className="rounded-2xl">
-              <DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod}/>
+              <HeroContactFormIdle backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod}/>
             </div>
             <HeroPhoneCTA timePeriod={timePeriod} />
           </div>
-          <SlidingDiv position="left" className="z-[2] ">
+          <div className="z-[2] hero-slide-left">
             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
               <p
                 style={{
@@ -313,9 +320,9 @@ export default function HomeHeroSection() {
                 Expert orthopedic and spine surgeons offering minimally invasive spine surgery, joint replacement, and advanced back pain treatment across Florida, New Jersey, New York, and Pennsylvania. Same-day and next-day appointments at convenient locations. Book your orthopedic consultation today.
               </p>
             </div>
-          </SlidingDiv>
+          </div>
 
-          <SlidingDiv position="left" className="z-[2]">
+          <div className="z-[2] hero-slide-left">
             <div className="xl:px-[80px] px-8 mt-[24px] xl:w-full md:flex-row sm:flex hidden flex-col md:space-y-0 space-y-4 md:space-x-[16px] items-center">
               <div className="">
                 <BookAnAppoitmentButton />
@@ -344,7 +351,7 @@ export default function HomeHeroSection() {
                 </a>
               </div>
             </div>
-          </SlidingDiv>
+          </div>
         </div>
 
         <div className="w-[50%] self-end h-full sm:flex hidden flex-col z-[2] mb-2 relative">
@@ -360,7 +367,7 @@ export default function HomeHeroSection() {
                 <p className="font-semibold">{currentTime}</p> <span><Clock className='w-4 h-4' /></span>
               </div>
             </div>
-            <DoctorContactForm backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod} />
+            <HeroContactFormIdle backgroundcolor={'rgba(255,255,255,0.00)'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod} />
           </div>
         </div>
       </div>
