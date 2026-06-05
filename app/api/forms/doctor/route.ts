@@ -6,6 +6,8 @@ import {
 } from "@/components/email/sendcontactemail";
 
 const MAX_UPLOAD_SIZE = 4 * 1024 * 1024;
+const MAX_REQUEST_SIZE = 6 * 1024 * 1024;
+const ALLOWED_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif", "application/pdf"]);
 
 function getString(formData: FormData, key: string) {
   const value = formData.get(key);
@@ -18,7 +20,10 @@ function getUpload(formData: FormData, key: string) {
 }
 
 function validateUpload(file?: File) {
-  return !file || file.size <= MAX_UPLOAD_SIZE;
+  if (!file) return true;
+  if (file.size > MAX_UPLOAD_SIZE) return false;
+  if (!ALLOWED_MIME_TYPES.has(file.type)) return false;
+  return true;
 }
 
 function validateTotalUploads(...files: Array<File | undefined>) {
@@ -40,6 +45,14 @@ export async function POST(request: Request) {
   if (requestCountry !== "US") {
     console.warn("[GeoBlock] Blocked non-US submission:", requestCountry);
     return NextResponse.redirect(new URL("/unavailable", request.url));
+  }
+
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (contentLength > MAX_REQUEST_SIZE) {
+    return NextResponse.json(
+      { ok: false, message: "Uploaded file is too large." },
+      { status: 413 },
+    );
   }
 
   try {
