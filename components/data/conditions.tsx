@@ -103,55 +103,60 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Adult Degenerative Scoliosis",
         slug: "adult-degenerative-scoliosis",
         tag: "Spine",
-        subtitle: "Expert Care for Age-Related Spinal Curvature",
+        subtitle: "Comprehensive evaluation and treatment for progressive spinal curvature causing back pain, leg symptoms, and functional limitation.",
         overview: {
             heading: "What is Adult Degenerative Scoliosis?",
-            body: "Adult degenerative scoliosis is a sideways spinal curve that develops with age, often causing back pain and stiffness. It occurs when wear on the <strong>spinal discs</strong> and <strong>facet joints</strong> causes the spine to tilt and rotate, typically affecting adults over 50."
+            body: "Adult degenerative scoliosis is a sideways spinal curve that develops in adulthood due to asymmetric wear on <strong>spinal discs</strong> and <strong>facet joints</strong> — not from growth, but from age-related degeneration. As one side of a disc collapses faster than the other, the vertebrae begin to tilt and stack into a progressive curve, typically in the lumbar spine. Unlike adolescent scoliosis, this condition commonly presents after age 40 and tends to worsen over time."
         },
-        detailedOverview: "<p>This condition can lead to <strong>chronic back pain</strong>, nerve compression, and difficulty with daily activities as the spine loses its natural alignment. At Mountain Spine & Orthopedics, our team uses precise diagnostics to measure the curvature and create a personalized treatment plan aimed at restoring balance and reducing discomfort.</p>",
+        detailedOverview: "<p>The lumbar spine is especially vulnerable because disc height loss is rarely symmetric. As discs degenerate unevenly, the vertebrae tilt and rotate, stacking into a gradual curve. <strong>Facet joint arthritis</strong> accelerates this process, destabilizing individual segments. Once a curve begins, the body compensates with muscle tension, altered gait, and pelvic tilt — creating secondary pain throughout the lower back, hips, and legs. Many patients are surprised to learn their leg pain, numbness, or weakness is coming from spinal nerve compression caused by the curve, not a hip or knee problem. A comprehensive evaluation — including full-length standing X-rays and MRI — is the only way to accurately characterize the curve's severity and its effect on nerve structures.</p><p>At Mountain Spine & Orthopedics, our board-certified spine specialists evaluate the full clinical picture: curve magnitude, rate of progression, neurological symptoms, and overall spinal alignment. We offer a <strong>complimentary MRI review</strong> for new patients, and <strong>PPO Insurance is Accepted</strong> at 10+ locations across Florida, New Jersey, New York, and Pennsylvania.</p>",
         symptoms: {
-            heading: "Common Symptoms",
-            intro: "Symptoms of adult degenerative scoliosis often develop gradually and may include:",
+            heading: "Symptoms of Adult Degenerative Scoliosis",
+            intro: "Symptoms often develop gradually and may be mistaken for normal aging. Watch for:",
             list: [
-                "Chronic lower back pain and stiffness",
-                "Visibly uneven shoulders or hips",
-                "A noticeable sideways spinal curve",
-                "Radiating pain, numbness, or weakness in the legs",
-                "Difficulty standing straight or walking long distances"
+                "<strong>Persistent lower back pain</strong> that worsens with prolonged standing or walking",
+                "<strong>Leg pain, numbness, or tingling</strong> (radiculopathy or neurogenic claudication from nerve compression)",
+                "<strong>Visible postural changes</strong> — leaning to one side, uneven shoulder or hip height, or forward trunk tilt",
+                "Back stiffness worse in the morning or after inactivity",
+                "<strong>Difficulty walking distances</strong> that was not present previously",
+                "Pain relief when sitting or bending forward (a classic sign of accompanying spinal stenosis)",
+                "Muscle weakness in the legs or feet in more advanced cases"
             ]
         },
         heroImage: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--adult-degenerative-scoliosis--thumbnail.png",
-        heroImageAlt: "Illustration of adult degenerative scoliosis affecting the spine",
+        heroImageAlt: "Illustration of adult degenerative scoliosis affecting the lumbar spine with visible lateral curvature",
         causes: {
-            heading: "Causes and Risk Factors",
-            body: "The primary cause is the natural aging process and the resulting degeneration of spinal structures. Risk factors include a history of <strong>degenerative disc disease</strong>, osteoporosis, and previous spinal injuries. Smoking and a sedentary lifestyle can also accelerate these changes."
+            heading: "Causes and Risk Factors of Adult Degenerative Scoliosis",
+            body: "Degenerative scoliosis develops from asymmetric spinal degeneration rather than a single cause. Key risk factors include: <strong>pre-existing degenerative disc disease</strong> or spinal arthritis; prior lumbar spine surgery, particularly at adjacent levels; <strong>osteoporosis</strong> or reduced bone density; female sex (more prevalent in postmenopausal women); obesity, which increases compressive load and accelerates disc breakdown; a history of repetitive spinal stress or heavy labor; and age over 50, with risk increasing each decade. Patients with curves above 30 degrees at initial diagnosis tend to progress more rapidly and should be monitored with periodic imaging."
         },
         conservativeCare: {
-            heading: "Non-Surgical Treatment Options",
-            body: "We prioritize conservative treatments to manage symptoms and improve quality of life.",
+            heading: "Non-Surgical Treatment Options for Degenerative Scoliosis",
+            body: "Most adults with degenerative scoliosis are managed non-surgically first. Our approach is comprehensive, addressing both the structural curve and its symptoms:",
             methods: [
-                "Targeted physical therapy and core strengthening",
-                "Low-impact exercise programs",
-                "Anti-inflammatory medications",
-                "Epidural steroid injections for nerve relief",
-                "Supportive bracing for spinal stability"
+                "<strong>Pain management injections</strong> — Epidural steroid injections, facet joint injections, and nerve blocks can provide meaningful relief from nerve-related pain and inflammation",
+                "Activity modification and postural guidance to reduce mechanical load on the curved segments",
+                "Anti-inflammatory medications as appropriate for pain and inflammation management",
+                "Core strengthening and low-impact exercise programs to support spinal stability",
+                "Serial imaging at appropriate intervals to monitor curve progression"
             ]
         },
         surgeryOption: {
-            heading: "Minimally Invasive Correction",
-            description: "When conservative care is not enough to relieve symptoms, our surgeons may suggest minimally invasive surgery to correct the deformity and stabilize the spine.",
-            slug: "minimally-invasive-spine-surgery"
+            heading: "When Surgery is Needed for Adult Degenerative Scoliosis",
+            description: "When curves progress beyond 40–50 degrees, neurological symptoms worsen, or spinal imbalance causes significant disability, surgery may be recommended. Our spine surgeons offer the full spectrum of surgical options for adult scoliosis, including <a href=\"/treatments/spinal-fusion\" class=\"underline text-[#252932] hover:text-[#2358AC]\">spinal fusion for scoliosis correction</a>, minimally invasive approaches such as <a href=\"/treatments/understanding-tlif-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">TLIF</a> and <a href=\"/treatments/anterior-lumbar-interbody-fusion\" class=\"underline text-[#252932] hover:text-[#2358AC]\">ALIF</a>, and complex multilevel deformity correction. The appropriate procedure is determined only after comprehensive evaluation — we do not apply a one-size-fits-all approach to scoliosis surgery.",
+            slug: "spinal-fusion"
         },
         internalLinks: [
-            { slug: "lower-back-pain", text: "Lower Back Pain" },
+            { slug: "spinal-fusion", text: "Spinal Fusion for Scoliosis" },
+            { slug: "lumbar-fusion-surgery", text: "Lumbar Fusion Surgery" },
+            { slug: "understanding-tlif-surgery", text: "TLIF Surgery" },
+            { slug: "anterior-lumbar-interbody-fusion", text: "ALIF Surgery" },
+            { slug: "spine-deformities", text: "Spine Deformities" },
             { slug: "degenerative-disc-disease", text: "Degenerative Disc Disease" },
-            { slug: "free-mri-review", text: "Free MRI Review" },
-            { slug: "second-opinion", text: "Free Second Opinion" },
+            { slug: "revision-spinal-surgery", text: "Revision Spinal Surgery" },
             { slug: "epidural-steroid-injection", text: "Epidural Steroid Injections" }
         ],
-        keywords: ["adult degenerative scoliosis", "scoliosis treatment FL, NJ, NY, & PA", "spinal deformity", "back pain relief"],
-        metaTitle: "Adult Degenerative Scoliosis Treatment | Mountain Spine & Orthopedics",
-        metaDesc: "Relieve pain from adult degenerative scoliosis. Our FL, NJ, NY, & PA specialists offer advanced diagnosis and minimally invasive care for spinal curvature."
+        keywords: ["degenerative scoliosis", "adult scoliosis treatment", "adult degenerative scoliosis", "scoliosis surgery", "adult scoliosis surgery", "scoliosis treatment", "scoliosis pain treatment"],
+        metaTitle: "Degenerative Scoliosis: Adult Treatment & Surgical Options | Mountain Spine",
+        metaDesc: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Board-certified surgeons at Mountain Spine evaluate surgical and non-surgical options. PPO Insurance Accepted."
     },
     {
         title: "Adjacent Segment Disease",
@@ -6888,29 +6893,30 @@ export const conditions: ConditionInfoProp[] = [
         tag: "Spine",
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--spine-deformities--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--spine-deformities--thumbnail.png",
-        body: "Spine deformities like scoliosis and kyphosis involve abnormal spinal curves that can cause pain, poor posture, and functional limitations.",
-        detail: "<strong>Spinal deformities</strong> are abnormal curvatures of the spine, such as <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">scoliosis</a> (sideways curve) or <a href=\"/conditions/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a> (forward rounding), that can develop during adolescence or in adulthood due to degenerative changes. These curvatures can disrupt <strong>spinal balance</strong>, strain muscles, and <strong>compress nerves</strong>, leading to chronic pain and fatigue. At Mountain Spine & Orthopedics, our specialists use advanced imaging and a thorough physical exam to confirm the type and severity of the deformity and create a personalized treatment plan.",
-        what_sym: "Common symptoms include <strong>visibly uneven shoulders or hips</strong>, a noticeable <strong>spinal curve</strong>, <strong>persistent back pain</strong>, and fatigue after standing. Severe deformities can lead to a loss of height or interfere with breathing.",
-        risk_fac: "Risk factors include genetics, adolescent growth spurts, degenerative disc disease, osteoporosis, spinal trauma, and a history of previous spinal surgery. Neuromuscular conditions can also lead to the development of spinal deformities.",
-        diagnose: "Our specialists use complimentary standing X-rays to measure the curvature angles (like the Cobb angle) and assess overall spinal balance. An MRI or CT scan may be used to detect any associated disc or nerve issues. Ongoing monitoring is often used to track curve progression, especially in younger patients.",
-        treatment: "Non-surgical options include physical therapy referrals to strengthen core muscles and, for growing adolescents, bracing to halt curve progression. For painful, progressive, or functionally limiting curves, our spine surgeons offer advanced surgical correction using spinal instrumentation and <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">fusion techniques</a>. These procedures are tailored to the curve type and are designed to improve alignment and reduce discomfort.",
-        pain_info: "Pain from spine deformities can be <strong>mechanical</strong>, stemming from muscle fatigue and postural strain, or <strong>neurologic</strong>, resulting from compressed nerves. Our comprehensive approach addresses both sources with a combination of targeted therapies and, when necessary, structural realignment.",
-        prevent: "Early detection in children and adolescents is key. For adults, maintaining strong core musculature, good bone health, and proper posture can help slow the progression or reduce the impact of degenerative spinal deformities.",
-        why_choose_us: "Correcting a spinal deformity is a complex procedure that requires a high degree of expertise. The fellowship-trained surgeons at Mountain Spine & Orthopedics are specialists in this field. Serving patients across FL, NJ, NY, & PA, we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI or X-ray review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> to create a plan that restores your natural alignment and balance.",
-        schedule: "If you or a loved one is living with a spinal curvature, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with Mountain Spine & Orthopedics today. Receive a complimentary imaging review and a thorough second opinion to move forward with a plan to manage the deformity.",
+        body: "Adult spinal deformity — including scoliosis, kyphosis, and sagittal imbalance — causes chronic pain, postural change, and nerve compression that may require surgical correction. Our fellowship-trained spine surgeons evaluate the full three-dimensional alignment of your spine and design treatment plans that address both the structural abnormality and your specific symptoms.",
+        detail: "<strong>Adult spinal deformity</strong> encompasses a spectrum of conditions — <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">scoliosis</a> (sideways curvature), <a href=\"/conditions/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a> (forward rounding), flatback deformity, and sagittal imbalance — in which the spine’s normal alignment is significantly disrupted. These are not simply cosmetic concerns. Advanced spinal deformity can cause severe back pain, neurological deficits from nerve compression, and functional limitations that restrict the ability to walk, stand, or carry out daily activities. At Mountain Spine & Orthopedics, our specialists evaluate the spine’s alignment in both the frontal plane (coronal balance) and the side profile (sagittal balance), using advanced full-length imaging and a thorough neurological examination to characterize the deformity and guide treatment.",
+        what_sym: "Symptoms vary by the type and severity of the deformity. Common presentations include: <strong>chronic back or neck pain</strong> that has failed to respond to conservative care; <strong>visible postural changes</strong> such as a sideways lean (scoliosis), forward stoop (kyphosis), or forward trunk shift (flatback deformity); <strong>leg pain, numbness, or weakness</strong> from nerve compression secondary to the deformity; difficulty standing upright or needing to lean on furniture for support; pain that worsens with walking and improves with sitting (neurogenic claudication from stenosis); and progressive <strong>loss of height</strong> or rounding of the upper back.",
+        risk_fac: "Risk factors for adult spinal deformity include: degenerative disc disease across multiple spinal levels; osteoporosis, which leads to compression fractures and progressive kyphosis; prior spinal surgery with risk of adjacent segment degeneration and flatback deformity; degenerative scoliosis from asymmetric disc collapse; systemic inflammatory conditions affecting spinal joints; and advanced age, female sex, and low bone density. Patients who have had previous spine surgery and are experiencing worsening symptoms or new-onset deformity may have adjacent segment disease — a condition in which degeneration has progressed to the levels above or below a prior fusion.",
+        diagnose: "Accurate diagnosis requires more than a standard MRI. Our specialists use <strong>full-length standing scoliosis X-rays</strong> (EOS or standard) to measure the Cobb angle and assess overall spinal alignment including sagittal and coronal balance; <strong>MRI</strong> to evaluate nerve compression and disc degeneration at each level; <strong>CT scan</strong> when bony anatomy detail is needed for surgical planning; and a comprehensive neurological examination to document functional deficits. We offer a complimentary MRI review for new patients with existing imaging.",
+        treatment: "Non-surgical management aims to relieve pain and maintain function when deformity is not severely progressive. Injections — epidural steroids, facet blocks, nerve blocks — can provide significant relief for deformity-related nerve compression. When conservative care fails or when deformity is progressive and compromising neurological function, surgical correction may be recommended. Options include <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">spinal fusion</a> to stabilize and partially correct the deformity, <a href=\"/treatments/multilevel-degenerative-disc-disease-surgery\" class=\"text-blue-600 hover:underline\">multilevel fusion</a> for complex multilevel involvement, deformity correction osteotomies for severe sagittal imbalance, and <a href=\"/treatments/revision-spinal-surgery\" class=\"text-blue-600 hover:underline\">revision surgery</a> for patients with prior failed spinal procedures. Minimally invasive approaches including <a href=\"/treatments/oblique-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">OLIF</a> and <a href=\"/treatments/extreme-lateral-interbody-fusion-surgery\" class=\"text-blue-600 hover:underline\">XLIF</a> are used where appropriate to reduce muscle disruption in multilevel scoliosis correction.",
+        pain_info: "Pain from adult spinal deformity has two primary sources: <strong>mechanical pain</strong> from the arthritic facet joints, discs, and fatigued paraspinal muscles; and <strong>neurological pain</strong> from nerve root or spinal cord compression as the curved, imbalanced spine narrows the spinal canal and foramina. Patients with significant neurogenic claudication — leg cramping or weakness that limits walking — typically have the most to gain from surgical decompression. Our pain management team and spine surgeons work collaboratively to ensure every appropriate option is available before any surgical decision is made.",
+        prevent: "For adults, maintaining strong core musculature, good bone health through adequate calcium and vitamin D intake, and healthy weight can slow the progression of degenerative spinal deformities. Patients with known deformity should undergo periodic monitoring with imaging to track progression, particularly if curves are above 30 degrees. Early intervention — both in terms of diagnosis and appropriate conservative care — can expand the range of treatment options and may enable less invasive surgical approaches if surgery becomes necessary.",
+        why_choose_us: "Complex adult spinal deformity requires surgeons who perform these procedures regularly — not as occasional cases. The fellowship-trained surgeons at Mountain Spine & Orthopedics have extensive experience managing severe scoliosis, kyphosis, sagittal imbalance, and revision deformity surgery. We offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI or X-ray review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinion</a> for patients with prior surgical recommendations. <strong>PPO Insurance Accepted at 10+ FL, NJ, NY, & PA locations.</strong>",
+        schedule: "If you are living with a known spinal deformity, progressive back pain, or worsening neurological symptoms, bring your imaging and <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a comprehensive evaluation</a> today. Our specialists will give you an honest assessment of your condition and every available option — from conservative management to complex deformity correction.",
         slug: "spine-deformities",
         keywords: [
-            "spine deformity",
+            "adult spinal deformity",
+            "spine deformity surgery",
+            "spinal deformity correction",
+            "spinal reconstruction surgery",
             "scoliosis treatment FL, NJ, NY, & PA",
             "kyphosis correction",
+            "sagittal imbalance",
             "adult scoliosis surgery",
             "spinal fusion for scoliosis",
-            "uneven shoulders",
-            "spinal alignment",
-            "complex spine surgeon",
         ],
-        metaTitle: "Spine Deformities | Mountain Spine & Orthopedics – FL, NJ, NY, & PA’s Trusted Spine and Joint Pain Specialists",
-        metaDesc: "Spine deformities like scoliosis and kyphosis cause pain and postural issues. Our FL, NJ, NY, & PA surgeons offer advanced correction surgery to improve alignment.",
+        metaTitle: "Adult Spinal Deformity: Scoliosis, Kyphosis & Correction Options | Mountain Spine",
+        metaDesc: "Adult spinal deformity includes scoliosis, kyphosis, and sagittal imbalance causing chronic pain and nerve compression. Our spine surgeons offer advanced deformity correction. PPO Insurance Accepted.",
     },
     {
         title: "Synovitis",

@@ -21,8 +21,8 @@ export interface SEOMetadata {
 // ============================================
 export const conditionMetadata: Record<string, SEOMetadata> = {
   "adult-degenerative-scoliosis": {
-    metaTitle: "Adult Degenerative Scoliosis – Symptoms & Treatment | Spine & Orthopedic Specialists",
-    metaDescription: "Learn about adult degenerative scoliosis, common symptoms like back pain and spinal curvature, and treatment options. Expert spine care with non-surgical and advanced solutions."
+    metaTitle: "Degenerative Scoliosis: Adult Treatment & Surgical Options | Mountain Spine",
+    metaDescription: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Board-certified surgeons at Mountain Spine evaluate surgical and non-surgical options. PPO Insurance Accepted."
   },
   "adjacent-segment-disease": {
     metaTitle: "Adjacent Segment Disease – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -185,8 +185,8 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Learn about spinal stenosis, symptoms like leg pain and numbness, and treatment options. Expert spine care with decompression and minimally invasive solutions."
   },
   "spine-deformities": {
-    metaTitle: "Spine Deformities – Symptoms & Treatment | Spine & Orthopedic Specialists",
-    metaDescription: "Learn about spine deformities like scoliosis and kyphosis, symptoms, and treatment options. Expert spine care with surgical correction and non-surgical solutions."
+    metaTitle: "Adult Spinal Deformity: Scoliosis, Kyphosis & Correction Options | Mountain Spine",
+    metaDescription: "Adult spinal deformity includes scoliosis, kyphosis, and sagittal imbalance causing chronic pain and nerve compression. Our spine surgeons offer advanced deformity correction. PPO Insurance Accepted."
   },
   "synovitis": {
     metaTitle: "Synovitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -251,36 +251,36 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
 // ============================================
 export const treatmentMetadata: Record<string, SEOMetadata> = {
   "revision-spinal-surgery": {
-    metaTitle: "Revision Spinal Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how revision spinal surgery works, who may be a candidate, and what to expect. Advanced spine treatment focused on correcting prior surgical issues."
+    metaTitle: "Revision Spine Surgery: Failed Back Surgery Solutions | Mountain Spine",
+    metaDescription: "Revision spine surgery addresses failed prior procedures, adjacent segment disease, and progressive deformity. Expert complex spine surgeons in Florida. PPO Insurance Accepted."
   },
   "multilevel-degenerative-disc-disease-surgery": {
-    metaTitle: "Multilevel DDD Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how multilevel degenerative disc disease surgery works, candidacy, and recovery. Advanced spine treatment for complex disc degeneration."
+    metaTitle: "Multilevel Spinal Fusion Surgery | Mountain Spine & Orthopedics",
+    metaDescription: "Multilevel spine surgery addresses degenerative disc disease and scoliosis spanning multiple vertebral levels. Complex spine specialists in Florida. PPO Insurance Accepted."
   },
   "anterior-lumbar-corpectomy-and-fusion": {
     metaTitle: "Anterior Lumbar Corpectomy & Fusion – Procedure & Recovery | Spine & Orthopedic Specialists",
     metaDescription: "Learn how anterior lumbar corpectomy and fusion works, who may be a candidate, and recovery expectations. Expert spine surgery for severe conditions."
   },
   "anterior-lumbar-interbody-fusion": {
-    metaTitle: "ALIF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how anterior lumbar interbody fusion (ALIF) works, who may be a candidate, and what to expect. Advanced spine treatment with excellent outcomes."
+    metaTitle: "ALIF Surgery: Anterior Lumbar Interbody Fusion | Mountain Spine",
+    metaDescription: "ALIF surgery approaches the lumbar spine from the front, restoring disc height and lordosis for superior scoliosis correction and fusion rates. PPO Insurance Accepted."
   },
   "hybrid-lumbar-spine-surgery": {
     metaTitle: "Hybrid Lumbar Spine Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
     metaDescription: "Learn how hybrid lumbar spine surgery combines fusion and disc replacement. Expert spine treatment preserving motion while stabilizing the spine."
   },
   "lumbar-fusion-surgery": {
-    metaTitle: "Lumbar Fusion Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how lumbar fusion surgery works, who may be a candidate, and recovery expectations. Advanced spine treatment for stability and pain relief."
+    metaTitle: "Lumbar Fusion Surgery: Costs, Recovery & What to Expect | Mountain Spine",
+    metaDescription: "Lumbar fusion surgery relieves chronic back and leg pain from disc disease, spondylolisthesis, and scoliosis. Expert spine surgeons in Florida. PPO Insurance Accepted."
   },
   "spinal-fusion": {
-    metaTitle: "Spinal Fusion – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how spinal fusion works, who may be a candidate, and what to expect. Advanced spine treatment focused on stability and lasting pain relief."
+    metaTitle: "Spinal Fusion Surgery for Scoliosis & Back Pain | Mountain Spine",
+    metaDescription: "Spinal fusion surgery stabilizes the spine, relieves nerve compression, and corrects deformity from scoliosis, disc disease, and spinal instability. Board-certified spine surgeons. PPO Insurance Accepted."
   },
   "understanding-tlif-surgery": {
-    metaTitle: "TLIF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how TLIF (transforaminal lumbar interbody fusion) works, candidacy, and recovery. Expert minimally invasive spine surgery for lasting relief."
+    metaTitle: "TLIF Surgery: Transforaminal Lumbar Interbody Fusion | Mountain Spine",
+    metaDescription: "TLIF surgery fuses damaged lumbar vertebrae through a posterior approach, relieving disc pain, nerve compression, and spinal instability. Board-certified spine surgeons. PPO Insurance Accepted."
   },
   "posterior-cervical-fusion-with-instrumentation-surgery": {
     metaTitle: "Posterior Cervical Fusion – Procedure & Recovery | Spine & Orthopedic Specialists",
@@ -447,8 +447,8 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Learn how epidural steroid injections help reduce spine inflammation and pain. Non-surgical treatment for herniated discs and spinal stenosis."
   },
   "extreme-lateral-interbody-fusion-surgery": {
-    metaTitle: "XLIF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how XLIF (extreme lateral interbody fusion) works, candidacy, and recovery. Minimally invasive spine fusion through a lateral approach."
+    metaTitle: "XLIF Surgery: Extreme Lateral Interbody Fusion | Mountain Spine",
+    metaDescription: "XLIF surgery approaches the thoracolumbar spine from the side, minimizing posterior muscle disruption. Ideal for adult scoliosis and multilevel lumbar fusion. PPO Insurance Accepted."
   },
   "facet-ablation-rhizotomy-treatment": {
     metaTitle: "Facet Ablation (Rhizotomy) | Non-Surgical Spine Pain Relief",
@@ -475,8 +475,8 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Explore non-surgical pain management options including medications, injections, and regenerative medicine. Expert orthopedic care for lasting relief."
   },
   "oblique-lumbar-interbody-fusion": {
-    metaTitle: "OLIF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
-    metaDescription: "Learn how OLIF (oblique lumbar interbody fusion) works, candidacy, and recovery. Minimally invasive spine fusion preserving muscle and nerve tissue."
+    metaTitle: "OLIF Surgery: Oblique Lumbar Interbody Fusion | Mountain Spine",
+    metaDescription: "OLIF approaches the lumbar spine obliquely from the side, preserving posterior structures. Ideal for multilevel scoliosis correction and degenerative disc disease. PPO Insurance Accepted."
   },
   "percutaneous-carpal-tunnel-release": {
     metaTitle: "Percutaneous Carpal Tunnel Release – Minimally Invasive Option | Orthopedic Specialists",
