@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import BookAnAppoitmentButton from "@/components/BookAnAppoitmentButton";
 import HeroContactFormIdle from "@/components/HeroContactFormIdle.client";
+import MobileHeroConversionPanel from "@/components/MobileHeroConversionPanel";
 import { Marquee } from "@/components/magicui/marquee";
 
 // Image Asset Imports
@@ -304,10 +305,12 @@ export default function HomeHeroSection() {
             </div>
           </div>
           <div className="z-[2] sm:hidden block px-4 mb-4">
-            <div className="rounded-2xl">
-              <HeroContactFormIdle backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" timePeriod={timePeriod}/>
-            </div>
-            <HeroPhoneCTA timePeriod={timePeriod} />
+            <MobileHeroConversionPanel
+              pageType="homepage"
+              phone="(561) 223-9959"
+              phoneTel="tel:+15612239959"
+              timePeriod={timePeriod}
+            />
           </div>
           <div className="z-[2] hero-slide-left">
             <div className="xl:px-[80px] px-8 mb-[24px] xl:w-full md:w-[80%] lg:w-full md:text-left sm:text-center">
