@@ -4,12 +4,13 @@ import React from 'react';
 import MobileHeroMiniForm from '@/components/MobileHeroMiniForm';
 
 interface MobileHeroConversionPanelProps {
-  pageType: 'homepage' | 'location';
+  pageType: 'homepage' | 'location' | 'state';
   phone: string;
   phoneTel: string;
   cityName?: string;
   locationName?: string;
   locationSlug?: string;
+  stateName?: string;
   timePeriod?: string;
   defaultState?: string;
 }
@@ -21,6 +22,7 @@ export default function MobileHeroConversionPanel({
   cityName,
   locationName,
   locationSlug,
+  stateName,
   timePeriod = 'day',
   defaultState = '',
 }: MobileHeroConversionPanelProps) {
@@ -36,6 +38,14 @@ export default function MobileHeroConversionPanel({
           event: 'location_call_click',
           location_name: locationName,
           location_slug: locationSlug,
+          phone_number: phone,
+          page_path: window.location.pathname,
+          cta_position: 'mobile_hero_top_fold',
+        });
+      } else if (pageType === 'state') {
+        window.dataLayer.push({
+          event: 'state_location_call_click',
+          state_name: stateName,
           phone_number: phone,
           page_path: window.location.pathname,
           cta_position: 'mobile_hero_top_fold',
@@ -57,6 +67,7 @@ export default function MobileHeroConversionPanel({
       <MobileHeroMiniForm
         pageType={pageType}
         cityName={cityName}
+        stateName={stateName}
         defaultState={defaultState}
       />
 

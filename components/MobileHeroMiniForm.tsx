@@ -12,12 +12,13 @@ import { STATE_OPTIONS } from '@/lib/stateUtils';
 import { appendPreparedUploads } from '@/lib/client-upload';
 
 interface MobileHeroMiniFormProps {
-  pageType: 'homepage' | 'location';
+  pageType: 'homepage' | 'location' | 'state';
   cityName?: string;
   defaultState?: string;
+  stateName?: string;
 }
 
-export default function MobileHeroMiniForm({ pageType, cityName, defaultState = '' }: MobileHeroMiniFormProps) {
+export default function MobileHeroMiniForm({ pageType, cityName, defaultState = '', stateName }: MobileHeroMiniFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
     phone: '',
@@ -69,6 +70,8 @@ export default function MobileHeroMiniForm({ pageType, cityName, defaultState = 
 
   const headingText = pageType === 'location' && cityName
     ? `Orthopedic Care in ${cityName}?`
+    : pageType === 'state' && stateName
+    ? `Need Care in ${stateName}?`
     : 'Experiencing Pain?';
 
   const handleInitialSubmit = (e: React.FormEvent) => {
@@ -81,6 +84,14 @@ export default function MobileHeroMiniForm({ pageType, cityName, defaultState = 
     if (formData.phone.replace(/\D/g, '').length < 10) {
       setError('Please enter a valid phone number');
       return;
+    }
+    if (typeof window !== 'undefined' && window.dataLayer && pageType === 'state') {
+      window.dataLayer.push({
+        event: 'state_location_form_open',
+        state_name: stateName,
+        page_path: window.location.pathname,
+        cta_position: 'mobile_hero_top_fold',
+      });
     }
     setShowDialog(true);
   };
@@ -105,7 +116,11 @@ export default function MobileHeroMiniForm({ pageType, cityName, defaultState = 
       payload.append('postalCode', formData.postalCode);
       payload.append('state', formData.state);
       payload.append('country', 'US');
-      payload.append('source', pageType === 'location' ? `Location Hero - ${cityName || ''}` : 'Homepage Hero');
+      payload.append('source',
+        pageType === 'location' ? `Location Hero - ${cityName || ''}` :
+        pageType === 'state' ? `State Hero - ${stateName || ''}` :
+        'Homepage Hero'
+      );
       payload.append('gclid', attribution.gclid);
       payload.append('utm_source', attribution.utm_source);
       payload.append('utm_medium', attribution.utm_medium);
