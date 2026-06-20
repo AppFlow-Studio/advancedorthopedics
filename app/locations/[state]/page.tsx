@@ -24,6 +24,7 @@ import { PhoneTextLink } from '@/components/PhoneTextLink'
 import SlidingDiv from '@/components/SlidingAnimation'
 import StateHeroForm from '@/components/StateHeroForm'
 import BarTrans from '@/components/BarTrans'
+import MobileHeroConversionPanel from '@/components/MobileHeroConversionPanel'
 
 export async function generateStaticParams() {
   return VALID_STATE_SLUGS.map((state) => ({ state }))
@@ -254,6 +255,17 @@ export default async function StateHubPage({
                 </h1>
               </SlidingDiv>
 
+              {/* Mobile CRO panel — visible only below sm (640px); desktop uses StateHeroForm on the right */}
+              <div className="w-full sm:hidden mt-4 mb-2">
+                <MobileHeroConversionPanel
+                  pageType="state"
+                  phone={statePhone.display}
+                  phoneTel={`tel:${statePhone.tel}`}
+                  stateName={stateInfo?.name || ''}
+                  defaultState={stateInfo?.abbr || state.toUpperCase()}
+                />
+              </div>
+
               <SlidingDiv position="left">
                 <p style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }} className="text-[#252932] text-base sm:text-lg lg:text-xl mb-5 break-words">
                   Board-certified specialists at {stateClinics.length} convenient {stateInfo?.name} location{stateClinics.length > 1 ? 's' : ''}. Same-day and next-day appointments.
@@ -283,8 +295,8 @@ export default async function StateHubPage({
                 </ul>
               </SlidingDiv>
 
-              {/* Phone CTA */}
-              <SlidingDiv position="left">
+              {/* Phone CTA — hidden on mobile where MobileHeroConversionPanel handles this */}
+              <SlidingDiv position="left" className="hidden sm:flex">
                 <PhoneTextLink
                   trackLocation={`StateHero-${stateInfo?.name}`}
                   phoneNumber={statePhone.display}
@@ -294,8 +306,8 @@ export default async function StateHubPage({
               </SlidingDiv>
             </div>
 
-            {/* RIGHT: Hero form card */}
-            <SlidingDiv position="right" className="w-full lg:w-[420px] xl:w-[460px] flex-shrink-0">
+            {/* RIGHT: Hero form card — desktop/tablet only; mobile uses MobileHeroConversionPanel above */}
+            <SlidingDiv position="right" className="w-full lg:w-[420px] xl:w-[460px] flex-shrink-0 hidden sm:block">
               <StateHeroForm defaultState={state} stateName={stateInfo?.name || ''} />
             </SlidingDiv>
 
