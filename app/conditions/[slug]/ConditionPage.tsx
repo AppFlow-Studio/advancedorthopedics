@@ -24,6 +24,7 @@ import { BODY_PARTS } from '@/components/data/bodyParts';
 import { RichTextContent } from '@/components/RichTextContent';
 import { tagMatches } from '@/lib/tag-utils';
 import { isNonEmptyString } from '@/lib/content-validation';
+import { resolveContentHref } from '@/lib/resolveContentHref';
 
 // Helper: Build a map of all condition/treatment titles to their slugs and type
 // Include both old and new format data
@@ -512,8 +513,12 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.surgeryOption.description, conditionContent!.slug) }}
                     />
+                    {/* Rendered only when the slug resolves. This button hardcoded
+                        /treatments/<slug>, so a surgeryOption naming a condition or a
+                        non-existent page produced a 404. See lib/resolveContentHref.ts. */}
+                    {resolveContentHref(conditionContent!.surgeryOption.slug) && (
                     <Link 
-                      href={`/treatments/${conditionContent!.surgeryOption.slug}`}
+                      href={resolveContentHref(conditionContent!.surgeryOption.slug)!}
                       className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] space-x-[10px] flex flex-row items-center justify-center rounded-[62px] w-fit"
                     >
                       <span
@@ -529,6 +534,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                         <path d="M12.3982 0.268483C12.0402 -0.0894963 11.4598 -0.089494 11.1018 0.268488C10.7438 0.62647 10.7438 1.20687 11.1018 1.56485L14.1203 4.58333H1.66667C1.16041 4.58333 0.75 4.99374 0.75 5.5C0.75 6.00626 1.16041 6.41667 1.66667 6.41667H14.1203L11.1018 9.43516C10.7439 9.79314 10.7439 10.3735 11.1019 10.7315C11.4598 11.0895 12.0402 11.0895 12.3982 10.7315L16.9766 6.15303C16.9935 6.13637 17.0098 6.11905 17.0254 6.10112C17.0873 6.02997 17.1365 5.95154 17.1728 5.86885C17.2221 5.75677 17.2496 5.63294 17.25 5.50273L17.25 5.5C17.25 5.49717 17.25 5.49434 17.25 5.49152C17.2489 5.37622 17.2266 5.26602 17.1867 5.16463C17.142 5.05068 17.0736 4.94387 16.9815 4.85178L12.3982 0.268483Z" fill="#252932" />
                       </svg>
                     </Link>
+                    )}
                   </div>
                 )}
 
@@ -645,22 +651,13 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                         </h2>
                         <div className="flex flex-wrap gap-3">
                           {allLinks.map((link, index) => {
-                            // Check if slug exists in conditions or treatments arrays
-                            const isCondition = conditions.some(c => c.slug === link.slug) || conditionContentPlaceholders.some(c => c.slug === link.slug);
-                            const isTreatment = AllTreatments.some(t => t.slug === link.slug) || allTreatmentContent.some(t => t.slug === link.slug);
-                            // Check if it's a body-part hub
-                            const isBodyPart = BODY_PARTS.some(bp => bp.slug === link.slug);
-                            
-                            // Determine href
-                            let href: string;
-                            if (isBodyPart) {
-                              href = `/conditions/${link.slug}`;
-                            } else if (isCondition) {
-                              href = `/conditions/${link.slug}`;
-                            } else {
-                              href = `/treatments/${link.slug}`;
-                            }
-                            
+                            // Unresolvable slugs are dropped, not guessed at. The old
+                            // else branch sent them to /treatments/<slug>, which is how
+                            // free-mri-review and second-opinion became 404s on 23
+                            // pages each. See lib/resolveContentHref.ts.
+                            const href = resolveContentHref(link.slug);
+                            if (!href) return null;
+
                             return (
                               <Link
                                 key={index}
