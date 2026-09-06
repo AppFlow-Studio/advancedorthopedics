@@ -580,7 +580,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         surgeryOption: {
             heading: "Precision Surgical Care",
             description: "Surgery is considered only when symptoms, exam findings, and imaging point to a correctable structural cause. Depending on the diagnosis, options may include decompression for pinched nerves, microdiscectomy for a herniated disc, kyphoplasty for select compression fractures, or fusion when instability is the driver.",
-            slug: "motion-preservation-spine-surgery"
+            // Left as-is deliberately. This surgeryOption names a broad surgical
+            // APPROACH, not a procedure the site has a page for, so there is nothing
+            // correct to point it at. A previous review rejected repointing
+            // "minimally invasive" to motion-preservation as a clinical claim we are
+            // not entitled to make: motion preservation is a specific procedure class
+            // (artificial disc replacement), not a synonym. resolveContentHref returns
+            // null here, so the "Learn More" button is simply not rendered.
+            slug: "minimally-invasive-spine-surgery"
         },
         internalLinks: [
             { slug: "lower-back-pain", text: "Lower Back Pain" },
