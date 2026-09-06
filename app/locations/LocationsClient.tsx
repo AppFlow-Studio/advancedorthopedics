@@ -522,7 +522,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
             <li className="flex items-start">
               <span className="text-[#0A50EC] mr-3">•</span>
               <span>
-                <Link href="/injuries" className="text-[#0A50EC] hover:underline font-medium">Sports injuries and overuse conditions</Link> (return-to-activity planning)
+                <Link href="/conditions/sports-medicine" className="text-[#0A50EC] hover:underline font-medium">Sports injuries and overuse conditions</Link> (return-to-activity planning)
               </span>
             </li>
           </ul>
