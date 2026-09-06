@@ -197,7 +197,7 @@ export default function LocationSeoSections({ cityName, stateAbbr, nearbyAreas =
             </Link>
           ))}
           <Link
-            href="/injuries/car-accident"
+            href="/injuries/personal-injury"
             className="text-[#0A50EC] hover:underline text-lg font-medium"
           >
             Injury Care & Treatment

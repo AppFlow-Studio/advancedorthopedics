@@ -262,7 +262,7 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Learn about diabetic foot ulcers, symptoms, prevention, and treatment options. Expert orthopedic care focused on wound healing and limb preservation."
   },
   "ankle-replacement": {
-    metaTitle: "Ankle Replacement: Symptoms & Treatment | Mountain Spine",
+    metaTitle: "Ankle Replacement: Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn about ankle replacement surgery, who may be a candidate, and recovery expectations. Expert orthopedic care with motion-preserving solutions."
   }
 };
@@ -548,7 +548,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Vertebroplasty stabilizes painful vertebral compression fractures using cement. Learn candidacy, benefits, risks, and recovery expectations."
   },
   "plif": {
-    metaTitle: "PLIF Surgery: Recovery & Candidacy | Mountain Spine",
+    metaTitle: "PLIF Surgery: Posterior Lumbar Interbody Fusion | Mountain Spine",
     metaDescription: "PLIF is a lumbar fusion option for instability or nerve compression. Learn when it's used, how it works, and recovery expectations."
   },
   "thoracic-spine-surgery": {
