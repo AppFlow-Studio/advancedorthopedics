@@ -347,7 +347,7 @@ export default function SlipAndFallClient({ faqs, doctors, reviews }: SlipAndFal
                     }}
                 />
                 <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-[60px] z-10 relative ">
-                    {/* <Breadcrumbs items={[{ label: "Injuries", href: "/injuries" }, { label: "Slip and Fall" }]} /> */}
+                    {/* <Breadcrumbs items={[{ label: "Injuries", href: "/injuries/car-accident" }, { label: "Slip and Fall" }]} /> */}
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
                             <div className="space-y-4 mt-10">

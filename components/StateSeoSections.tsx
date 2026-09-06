@@ -219,7 +219,7 @@ export default function StateSeoSections({ stateName, stateSlug, nearbyRegions =
     { slug: 'foot-ankle', label: 'Foot & Ankle Care', href: '/conditions/foot-ankle' },
     { slug: 'sports-medicine', label: 'Sports Medicine & Athletic Injuries', href: '/conditions/sports-medicine' },
     { slug: 'pain-management', label: 'Pain Management Procedures', href: '/conditions/pain-management' },
-    { slug: 'injuries', label: 'Injury Care & Treatment', href: '/injuries' },
+    { slug: 'injuries', label: 'Injury Care & Treatment', href: '/injuries/car-accident' },
   ];
 
   return (
