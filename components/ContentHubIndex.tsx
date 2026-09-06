@@ -12,30 +12,34 @@ export type HubItem = { title: string; slug: string; tag?: string };
  *
  * Why this exists. The conditions and treatments hubs render their card grids in
  * client components that call useSearchParams(), so Next bails out of prerendering
- * that Suspense subtree and only the fallback reaches the HTML. Measured against
- * the live site on 2026-09-06: /conditions served zero links to any of its 125
- * condition pages and /treatments served zero links to any of its 122. The only
- * internal link to any of them anywhere on the site was from /sitemap.
+ * that Suspense subtree and only the fallback reaches the HTML. Verified live and in
+ * the production build on 2026-09-06: /conditions served zero anchors to any of its
+ * 124 condition pages and /treatments zero to any of its 121, both carrying
+ * BAILOUT_TO_CLIENT_SIDE_RENDERING. The hubs are the highest-authority internal
+ * linkers on the site and they vouched for nothing.
  *
- * What that cost, from Search Console over 2026-08-06 to 2026-09-03:
- *   - 181 of 334 sitemap URLs earned no impression at all, 158 of them here.
- *   - Of 16 sampled silent pages, 1 was indexed. Of 9 sampled pages that do earn
- *     impressions, 7 were indexed. Three came back "URL is unknown to Google"
- *     despite sitting in a sitemap submitted in July and re-downloaded on Sep 1.
+ * What is NOT claimed here. These pages are not orphans. Scanning all 245 built
+ * detail pages, every single one already has inbound links from other detail pages
+ * (/conditions/arthritis has 97). An earlier version of this comment said the only
+ * internal link came from /sitemap; that was measured across hub pages only and was
+ * wrong. So this fixes a real gap in the hub pages, but it is not established as the
+ * cause of the indexing problem below, and should not be sold as one.
  *
- * A sitemap gets a URL crawled. Internal links are what pass authority and tell
- * Google the site itself considers a page worth reading. These pages had the first
- * and not the second, which is what "Crawled - currently not indexed" means at
- * this scale. Content was ruled out first: the pages are server-rendered, average
- * roughly 1,300 words, and share only 10 to 27 percent of their phrasing with each
- * other, so they are neither thin nor near-duplicates.
+ * The indexing problem itself, Search Console 2026-08-06 to 2026-09-03: 181 of 334
+ * sitemap URLs earned no impression at all. URL Inspection sampling found 1 of 16
+ * silent pages indexed against 7 of 9 pages that do earn impressions. Cause unproven.
  *
- * This must sit OUTSIDE the hub's Suspense boundary. Inside it, it inherits the
- * same prerender bail-out and renders to nothing, which is the bug being fixed.
+ * Content was ruled out: the detail pages are server-rendered and average roughly
+ * 1,300 words, so they are not thin and not JS shells.
+ *
+ * This must sit OUTSIDE the hub's Suspense boundary. Inside it, it inherits the same
+ * prerender bail-out and renders to nothing, which is the bug being fixed. It is an
+ * <aside> because the hub client owns the page's <main>, and a bare <section> after
+ * </main> sits in no landmark at all.
  *
  * Deliberately visible rather than hidden. A concealed block of links is a cloaking
- * risk, and a grouped A-Z index is genuinely useful to a reader who would otherwise
- * page through nine at a time.
+ * risk, and a grouped index is genuinely useful to a reader who would otherwise page
+ * through nine at a time.
  */
 
 type Props = {
@@ -44,7 +48,7 @@ type Props = {
   heading: string;
   blurb: string;
   headingId: string;
-  /** Slugs present in the data whose page does not render. See EXCLUDED_CONDITION_SLUGS. */
+  /** Slugs to skip, e.g. redirect sources. See REDIRECTED_CONDITION_SLUGS. */
   exclude?: readonly string[];
 };
 
@@ -81,7 +85,7 @@ export default function ContentHubIndex({
     .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
 
   return (
-    <section
+    <aside
       aria-labelledby={headingId}
       className="w-full flex justify-center bg-white"
     >
@@ -118,33 +122,36 @@ export default function ContentHubIndex({
           ))}
         </div>
       </div>
-    </section>
+    </aside>
   );
 }
 
 /**
- * conditionContentPlaceholders mixes genuine conditions with entries whose real
- * page lives under /treatments. Every slug below is in that array, so it reaches
- * generateStaticParams and would be linked by this component, but the page renders
- * 404: each was requested against the live site on 2026-09-06 and returned 404.
- * The live sitemap.xml already omits all twelve, so this list restores that same
- * boundary to internal links. Linking a 404 would make this change worse than the
- * bug it fixes, which is the failure mode a review caught on the previous PR.
+ * Condition slugs that are 308 permanent redirects to a /treatments page, verified
+ * live on 2026-09-06 with redirect following DISABLED:
  *
- * The underlying data problem is worth its own ticket: these entries should either
- * move to the treatments data or be dropped from the conditions placeholders.
+ *   /conditions/aging-management                  -> /treatments/aging-management
+ *   /conditions/ankle-arthroscopy                 -> /treatments/ankle-arthroscopy-minimally-invasive-surgery
+ *   /conditions/ankle-replacement                 -> /treatments/ankle-replacement-surgery
+ *   /conditions/degenerative-disc-disease-surgery -> /treatments/degenerative-disc-disease-surgery
+ *
+ * All four sources are in next.config.ts redirects(), and all four destinations are
+ * already linked directly from the treatments index in this same component. Linking
+ * the condition form would route a crawler through a redirect to a page it can
+ * already reach in one hop, so link the destination and skip the source.
+ *
+ * This list replaces an earlier one that named twelve slugs said to 404. Those were
+ * a false reading: a `^\s*slug:` regex matched slugs nested inside surgeryOptions
+ * and internalLinks objects, none of which are top-level entries in any array this
+ * component renders. The build proves it, 124 condition pages and not one of the
+ * twelve among them, so that list filtered nothing.
+ *
+ * Kept as a list rather than a redirect-map import because next.config.ts holds 200+
+ * rules and only these four collide with what this component links.
  */
-export const EXCLUDED_CONDITION_SLUGS = [
-  "acdf-surgery",
-  "artificial-disc-replacement-surgery",
-  "coccygectomy-tailbone-removal-surgery",
-  "endoscopic-foraminotomy-surgery",
-  "kyphoplasty",
-  "lumbar-fusion-surgery",
-  "lumbar-laminectomy-surgery",
-  "lumbar-microdiscectomy-surgery",
-  "minimally-invasive-spine-surgery",
-  "revision-spinal-surgery",
-  "si-joint-fusion",
-  "spinal-fusion",
+export const REDIRECTED_CONDITION_SLUGS = [
+  "aging-management",
+  "ankle-arthroscopy",
+  "ankle-replacement",
+  "degenerative-disc-disease-surgery",
 ] as const;

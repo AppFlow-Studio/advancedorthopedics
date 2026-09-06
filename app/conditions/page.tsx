@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { buildCanonical, canonicalForOg } from '@/lib/seo';
 import { getOgImageForPath } from '@/lib/og';
 import ConditionsHubClient from '@/components/ConditionsHubClient';
-import ContentHubIndex, { EXCLUDED_CONDITION_SLUGS } from '@/components/ContentHubIndex';
+import ContentHubIndex, { REDIRECTED_CONDITION_SLUGS } from '@/components/ContentHubIndex';
 import { conditions, conditionContentPlaceholders } from '@/components/data/conditions';
 import { BODY_PARTS } from '@/components/data/bodyParts';
 import { getVisibleReviews, isProviderVisible, providerIds } from '@/lib/providers/providerVisibility';
@@ -72,7 +72,7 @@ export default function ConditionsPage() {
           ...conditions,
           ...conditionContentPlaceholders,
         ]}
-        exclude={EXCLUDED_CONDITION_SLUGS}
+        exclude={REDIRECTED_CONDITION_SLUGS}
         basePath="/conditions"
         heading="All conditions we treat"
         blurb="Every condition covered on this site, grouped by body region."
