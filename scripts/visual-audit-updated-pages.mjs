@@ -93,7 +93,13 @@ for (const route of routes) {
         }
         if (supHits.length > 8) break;
       }
-      const ptFirst = /\b(we|our)\b[^.]{0,60}physical therapy/i.exec(doc.body.innerText);
+      // Match every inflection a service claim can hide behind: "physical
+      // therapists", "physiotherapy", "in house rehabilitation team",
+      // "onsite rehab" — not just the literal phrase "physical therapy".
+      const ptFirst =
+        /\b(we|our|us)\b[^.]{0,70}(physical therap|physiotherap|in[- ]?house (rehab|therap)|onsite rehab|rehabilitation team)/i.exec(
+          doc.body.innerText
+        );
       return {
         overflow, h1s, emptyHeadings, imgNoAlt, robots, canonical,
         words: doc.body.innerText.split(/\s+/).length,
