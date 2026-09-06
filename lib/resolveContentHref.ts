@@ -1,5 +1,5 @@
 import { conditions, conditionContentPlaceholders } from "@/components/data/conditions";
-import { AllTreatments, allTreatmentContent } from "@/components/data/treatments";
+import { AllTreatmentsCombined } from "@/components/data/treatments";
 import { BODY_PARTS } from "@/components/data/bodyParts";
 
 /**
@@ -26,12 +26,32 @@ import { BODY_PARTS } from "@/components/data/bodyParts";
  */
 
 const FIND_CARE_SLUGS = new Set(
-  // Directory-backed, so adding a page under app/find-care/ is all it takes.
+  // Mirrors app/find-care/. Verified exhaustive against that directory.
   ["book-an-appointment", "candidacy-check", "find-a-doctor", "free-mri-review", "second-opinion"]
 );
 
+/**
+ * Slugs that exist in BOTH the conditions and treatments data, where the treatments
+ * page is canonical and /conditions/<slug> is a permanent redirect to it.
+ *
+ * Exactly these two, derived by intersecting the built route sets rather than by
+ * reading the data files, and confirmed against next.config.ts lines 84 and 90.
+ * Live: /conditions/<slug> returns 308, /treatments/<slug> returns 200 for both.
+ *
+ * Without this, the conditions branch below wins on precedence and emits the
+ * redirect source, converting a direct link into an extra crawl hop.
+ */
+const CANONICAL_TREATMENT_SLUGS = new Set([
+  "degenerative-disc-disease-surgery",
+  "aging-management",
+]);
+
 export function resolveContentHref(slug: string | undefined | null): string | null {
   if (!slug) return null;
+
+  // Before the conditions branch: these two are in both datasets and the
+  // conditions form is a 308 to the treatments form.
+  if (CANONICAL_TREATMENT_SLUGS.has(slug)) return `/treatments/${slug}`;
 
   if (BODY_PARTS.some((bp) => bp.slug === slug)) return `/conditions/${slug}`;
 
@@ -42,10 +62,15 @@ export function resolveContentHref(slug: string | undefined | null): string | nu
     return `/conditions/${slug}`;
   }
 
-  if (
-    AllTreatments.some((t) => t.slug === slug) ||
-    allTreatmentContent.some((t) => t.slug === slug)
-  ) {
+  // AllTreatmentsCombined, not AllTreatments + allTreatmentContent. An earlier
+  // version checked only those two and missed orthopedic-injections, which lives
+  // solely in the combined list and is served by the static route
+  // app/treatments/orthopedic-injections/. That deleted the only internal link to a
+  // live 200 commercial page from eight condition pages: sacroiliac-joint-dysfunction,
+  // back-pain, facet-joint-disease, lower-back-pain, sciatica, neck-pain,
+  // spinal-stenosis and herniated-disc. The combined list is also what the hub and
+  // sitemap.xml use, so this now matches what the rest of the site considers real.
+  if (AllTreatmentsCombined.some((t) => t.slug === slug)) {
     return `/treatments/${slug}`;
   }
 
