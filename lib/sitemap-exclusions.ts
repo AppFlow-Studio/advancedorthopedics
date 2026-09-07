@@ -20,4 +20,7 @@ export const SITEMAP_EXCLUDED_PATHS: ReadonlySet<string> = new Set([
   '/conditions/ankle-arthroscopy',
   '/conditions/ankle-replacement',
   '/conditions/degenerative-disc-disease-surgery',
+  // Same-entity consolidation (no redirect): runner-knee cross-canonicals to
+  // patellofemoral-pain-syndrome, so only the canonical URL is advertised.
+  '/conditions/runner-knee',
 ]);

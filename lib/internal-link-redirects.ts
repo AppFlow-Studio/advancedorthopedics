@@ -27,6 +27,11 @@ const REDIRECTED_CONDITION_HREFS: Readonly<Record<string, string>> = {
   '/area-of-pain/back-pain/sciatica-nerve-pain': '/conditions/sciatica',
   '/area-of-pain/back-pain/lumbar-degenerative-disc-disease': '/conditions/degenerative-disc-disease',
   '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment': '/conditions/neck-pain',
+  // Same-entity consolidation: runner's knee IS patellofemoral pain syndrome.
+  // No next.config redirect - the page stays live with a cross-canonical to
+  // the clinical URL (the higher-volume, KD-0 term that also carries the
+  // sitewide internal links). Links route straight to the canonical target.
+  '/conditions/runner-knee': '/conditions/patellofemoral-pain-syndrome',
   // Condition records that are really treatments.
   '/conditions/aging-management': '/treatments/aging-management',
   '/conditions/ankle-arthroscopy': '/treatments/ankle-arthroscopy-minimally-invasive-surgery',

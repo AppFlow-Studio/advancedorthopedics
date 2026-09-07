@@ -3,6 +3,7 @@ import React from "react";
 import { BODY_PARTS } from '@/components/data/bodyParts';
 import { conditions, conditionContentPlaceholders, ConditionContent } from "@/components/data/conditions";
 import { buildCanonical, safeTitle, safeDescription, normalizeUTF8, canonicalForOg } from "@/lib/seo";
+import { resolveConditionSlugHref } from "@/lib/internal-link-redirects";
 import { getOgImageForPath } from "@/lib/og";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { conditionFAQs } from "@/components/data/conditionFAQs";
@@ -31,7 +32,7 @@ export async function generateMetadata(
     // Check if it's a body part first
     const bodyPart = BODY_PARTS.find(bp => bp.slug === slug);
     if (bodyPart) {
-        const url = buildCanonical(`/conditions/${slug}`);
+        const url = buildCanonical(resolveConditionSlugHref(slug));
         const hubImage = hubThumbnailBySlug[slug];
         const ogImage = hubImage?.url || getOgImageForPath(`/conditions/${slug}`);
         const ogAlt = hubImage?.alt || bodyPart.seoH1;
@@ -83,7 +84,7 @@ export async function generateMetadata(
             openGraph: {
                 title: bodyPart.metaTitle,
                 description: bodyPart.metaDescription,
-                url: canonicalForOg(`/conditions/${slug}`),
+                url: canonicalForOg(resolveConditionSlugHref(slug)),
                 siteName: "Mountain Spine & Orthopedics",
                 type: "website",
                 locale: "en_US",
@@ -125,7 +126,7 @@ export async function generateMetadata(
 
     if (!conditionContent && !condition) {
         const readableSlug = slug.replace(/-/g, " ");
-        const canonicalUrl = buildCanonical(`/conditions/${slug}`);
+        const canonicalUrl = buildCanonical(resolveConditionSlugHref(slug));
         return {
             title: `${readableSlug.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} | Mountain Spine & Orthopedics`,
             description: "Learn about orthopedic care and treatments with our specialists in Florida.",
@@ -136,7 +137,7 @@ export async function generateMetadata(
     }
 
     const isNewFormat = !!conditionContent;
-    const canonicalUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
+    const canonicalUrl = buildCanonical(resolveConditionSlugHref(isNewFormat ? conditionContent!.slug : condition!.slug));
     
     const slugForMetadata = isNewFormat ? conditionContent!.slug : condition!.slug;
     const title = isNewFormat ? conditionContent!.title : condition!.title;
@@ -204,7 +205,7 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
     const isNewFormat = !!conditionContent;
     const conditionTitle = isNewFormat ? conditionContent!.title : condition!.title;
     const conditionDescription = stripHtmlAndMarkdown(isNewFormat ? conditionContent!.overview.body : condition!.body);
-    const conditionUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
+    const conditionUrl = buildCanonical(resolveConditionSlugHref(isNewFormat ? conditionContent!.slug : condition!.slug));
     
     // Use new thumbnail mapping first, fallback to existing image logic
     const conditionSlug = isNewFormat ? conditionContent!.slug : condition!.slug;

@@ -3421,11 +3421,11 @@ export const conditions: ConditionInfoProp[] = [
             "Knee bursitis causes pain and swelling around the knee. Our FL, NJ, NY, PA & GA specialists offer comprehensive treatment from conservative care to minimally invasive procedures.",
     },
     {
-        title: "Patellofemoral Pain Syndrome",
+        title: "Patellofemoral Pain Syndrome (Runner's Knee)",
         tag: "Knee",
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--patellofemoral-pain-syndrome--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--patellofemoral-pain-syndrome--thumbnail.png",
-        body: "Patellofemoral pain syndrome is a common cause of front-of-knee pain, often related to improper tracking of the kneecap during movement.",
+        body: "Patellofemoral pain syndrome - known to most patients as runner's knee - is a common cause of front-of-knee pain, often related to improper tracking of the kneecap during movement.",
         detail: "<p><strong>Patellofemoral pain syndrome (PFPS)</strong>, also known as runner's knee, is a common cause of front-of-knee pain that occurs when the kneecap (patella) doesn't track properly in the groove of the thighbone (femur) during movement. This improper tracking causes friction and irritation, leading to pain around or behind the kneecap.</p><p>PFPS is particularly common in athletes and active individuals, especially those who participate in running, jumping, or activities that involve repetitive knee bending. The condition can result from muscle imbalances, structural issues, overuse, or improper biomechanics during movement.</p><p>At Mountain Spine & Orthopedics, our <strong>sports medicine specialists</strong> use comprehensive evaluation including physical examination and imaging to identify the cause of patellofemoral pain and create a personalized treatment plan focused on correcting biomechanics and restoring pain-free function.</p>",
         what_sym: "Patients with patellofemoral pain syndrome typically experience several characteristic symptoms, including: <ul><li><strong>Front-of-knee pain</strong> around or behind the kneecap</li><li>Pain that worsens with activities like running, jumping, climbing stairs, or squatting</li><li>Pain after prolonged sitting (theater sign)</li><li>A grinding or popping sensation when bending or straightening the knee</li><li>Swelling around the kneecap (in some cases)</li><li>Stiffness, especially after periods of inactivity</li><li>Pain that may be described as aching or sharp, depending on activity</li></ul>",
         risk_fac:
@@ -3455,8 +3455,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee specialist PFPS",
             "knee pain treatment FL, NJ, NY, PA & GA",
         ],
-        metaTitle:
-            "Patellofemoral Pain Syndrome | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Patellofemoral Pain Syndrome (Runner's Knee) | Mountain Spine & Orthopedics",
         metaDesc:
             "Patellofemoral pain syndrome causes front-of-knee pain. Our FL, NJ, NY, PA & GA sports medicine specialists offer comprehensive treatment to restore pain-free function.",
     },

@@ -160,9 +160,9 @@ export const conditionIndex: TaxonomyEntry[] = [
   },
   {
     "slug": "patellofemoral-pain-syndrome",
-    "title": "Patellofemoral Pain Syndrome",
+    "title": "Patellofemoral Pain Syndrome (Runner's Knee)",
     "tag": "Knee",
-    "body": "Patellofemoral pain syndrome is a common cause of front-of-knee pain, often related to improper tracking of the kneecap during movement.",
+    "body": "Patellofemoral pain syndrome - known to most patients as runner's knee - is a common cause of front-of-knee pain, often related to improper tracking of the kneecap during movement.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--patellofemoral-pain-syndrome--thumbnail.png"
   },
   {
