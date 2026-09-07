@@ -13,7 +13,15 @@ import { createClient } from '@/utils/supabase/server';
 import { normalizeStateCode } from '@/lib/stateUtils';
 import { resolveFormSource } from '@/lib/lead-contract';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY is required to send email');
+  }
+
+  return new Resend(apiKey);
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // logLeadToSupabase — authoritative persistence boundary for accepted leads
@@ -130,7 +138,7 @@ export async function sendUserEmail(formData: {
       utm_content:   formData.utm_content,
     });
 
-    await resend.emails.send({
+    await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: [formData.email],
       subject: 'Thank you for contacting Mountain Spine & Orthopedics',
@@ -188,7 +196,7 @@ export async function sendContactEmail(formData: {
         )
       : undefined;
 
-    const data = await resend.emails.send({
+    const data = await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
       to: [toEmail],
       subject: 'New Contact Form Submission',
@@ -265,7 +273,7 @@ export async function sendMRIContactEmail(formData: {
       utm_content:    formData.utm_content,
     });
 
-    await resend.emails.send({
+    await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
       subject: 'New MRI Review Form Submission',
@@ -339,7 +347,7 @@ export async function sendCandidacyEmail(formData: {
       utm_content:    formData.utm_content,
     });
 
-    await resend.emails.send({
+    await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
       subject: 'New Candidacy Form Submission',
@@ -419,7 +427,7 @@ export const sendConditionCheckEmail = async (formData: {
       utm_content:    formData.utm_content,
     });
 
-    await resend.emails.send({
+    await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
       subject: 'New Condition Check Form Submission',
@@ -498,7 +506,7 @@ export async function sendLawyerContactEmail(formData: {
       utm_content:   formData.utm_content,
     });
 
-    await resend.emails.send({
+    await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
       subject: `New Attorney Coordination Request - ${formData.clientName}`,
@@ -537,7 +545,7 @@ export async function sendLawyerConfirmationEmail(formData: {
   clientName: string;
 }) {
   try {
-    const data = await resend.emails.send({
+    const data = await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: [formData.email],
       subject: `Attorney Coordination Request Confirmed - ${formData.clientName}`,
