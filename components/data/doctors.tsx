@@ -185,7 +185,9 @@ export const Doctors: DoctorProp[] = [
         specialties: ["Minimally Invasive Spine Procedures", "Traditional 'Open' Decompression", "Reconstructive Spine Procedures", "Spinal Trauma Surgery"],
         conditionsTreated: ["Adult Degenerative Spine Issues", "Spinal Trauma", "Arthritis", "Hand Injuries", "Shoulder/Rotator Cuff Problems", "Sports-Related Injuries"],
         sameAs: [
-            "https://www.healthgrades.com/physician/dr-christopher-mccarthy-338d8"
+            "https://www.healthgrades.com/physician/dr-christopher-mccarthy-338d8",
+            "https://rwjms.rutgers.edu/department/orthopaedic-surgery/residency",
+            "https://orthopaedics.med.brown.edu/education/fellowship-programs/spine"
         ]
     },
     {
@@ -254,7 +256,9 @@ export const Doctors: DoctorProp[] = [
         specialties: ["Minimally Invasive Orthopedic Surgery", "Reconstructive Surgery for Spinal Injuries", "Spinal Reconstructive Surgery"],
         conditionsTreated: ["Sports Injuries", "High-Impact Activity Injuries", "Age-Related Spine Issues", "Musculoskeletal Conditions"],
         sameAs: [
-            "https://www.healthgrades.com/physician/dr-douglas-slaughter-xc2mw"
+            "https://www.healthgrades.com/physician/dr-douglas-slaughter-xc2mw",
+            "https://npiregistry.cms.hhs.gov/provider-view/1194773911",
+            "https://mqa-internet.doh.state.fl.us/MQASearchServices/HealthCareProviders/PractitionerProfilePrintFriendly?LicInd=129868&ProCde=1501"
         ]
     },
     {
@@ -318,7 +322,11 @@ export const Doctors: DoctorProp[] = [
         medicalSpecialty: ["Orthopedic Surgery", "Spine Surgery"],
         specialties: ["Transforaminal Lumbar Interbody Fusion (TLIF)", "Percutaneous Discectomy", "Spinal Fusion", "Microdiscectomy", "Laminectomy", "Spinal Decompression", "Conservative Pain Management"],
         conditionsTreated: ["Herniated Disc", "Spinal Stenosis", "Degenerative Disc Disease", "Sciatica", "Radiculopathy", "Chronic Back and Neck Pain"],
-        sameAs: [],
+        sameAs: [
+            "https://npiregistry.cms.hhs.gov/provider-view/1205042546",
+            "https://www.zocdoc.com/doctor/steven-schiebert-do-202440",
+            "https://orthopaedics.med.brown.edu/education/fellowship-programs/spine"
+        ],
         // Narrowed from state-level to specific clinics - CONFIRM WITH BILAL.
         // Source supports New Jersey and New York licensure only; it does not
         // name a clinic. NY has a single office so that one is unambiguous.
@@ -392,7 +400,10 @@ export const Doctors: DoctorProp[] = [
         medicalSpecialty: ["Orthopedic Surgery", "Spine Surgery"],
         specialties: ["Minimally Invasive Spine Surgery", "Cervical Spine Surgery", "Spinal Deformity Correction", "Non-Surgical Spine Care", "Traditional Open Spine Surgery"],
         conditionsTreated: ["Neck Pain", "Back Pain", "Herniated Disc", "Spinal Stenosis", "Spinal Deformity", "Degenerative Disc Disease", "Sciatica"],
-        sameAs: [],
+        sameAs: [
+            "https://npiregistry.cms.hhs.gov/provider-view/1467434167",
+            "https://find-doctor.ama-assn.org/doctor/howard-wayne-sharf-md/9407316"
+        ],
         // Narrowed from state-level to specific clinics - CONFIRM WITH BILAL.
         // His bio establishes Florida (St. Petersburg) but MSO has no Tampa Bay
         // office. These two are the closest Central Florida clinics by geography,

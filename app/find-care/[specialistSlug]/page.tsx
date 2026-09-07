@@ -73,8 +73,84 @@ export default async function SpecialistPage({
     answer: <p>{faq.answer}</p>,
   }));
 
+  const pageUrl = `${SITE_URL}/find-care/${page.slug}`;
+  const physicianSchemaIds = physicians.map(
+    (doctor) => `${pageUrl}#physician-${doctor.slug}`,
+  );
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${pageUrl}#webpage`,
+        name: page.h1,
+        description: page.metaDescription,
+        url: pageUrl,
+        about: {
+          "@type": "MedicalCondition",
+          name: page.conditionName,
+        },
+        audience: {
+          "@type": "Patient",
+        },
+        lastReviewed: page.updatedAt,
+        reviewedBy: physicianSchemaIds.map((id) => ({ "@id": id })),
+      },
+      ...physicians.map((doctor, index) => ({
+        "@type": "Physician",
+        "@id": physicianSchemaIds[index],
+        name: doctor.name,
+        medicalSpecialty: doctor.medicalSpecialty,
+        url: `${SITE_URL}/about/meetourdoctors/${doctor.slug}`,
+        sameAs: doctor.sameAs,
+      })),
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: page.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${SITE_URL}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Find Care",
+            item: `${SITE_URL}/find-care/find-a-doctor`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.h1,
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
         <div
           style={{ filter: "blur(30px)" }}
