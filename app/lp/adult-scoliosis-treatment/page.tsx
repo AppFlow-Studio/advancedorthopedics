@@ -73,17 +73,13 @@ const TRUST_POINTS: { label: string; detail: string }[] = [
     label: 'Most major PPO plans accepted',
     detail: 'Coverage is verified before your visit.',
   },
-  {
-    label: 'Non-surgical care first',
-    detail: 'Most adults with degenerative scoliosis are managed without surgery.',
-  },
 ];
 
 const FAQS: { question: string; answer: string }[] = [
   {
     question: 'Does seeing a spine surgeon mean I need surgery?',
     answer:
-      'No. A spine consultation is a diagnostic visit. The surgeon works out what is actually generating your symptoms — the curve, the nerve compression, the arthritic joints, or something else entirely — and which treatments apply. Most adults with degenerative scoliosis are managed without surgery.',
+      'No. A spine consultation is a diagnostic visit. The surgeon works out what is actually generating your symptoms — the curve, the nerve compression, the arthritic joints, or something else entirely — and which treatments apply.',
   },
   {
     question: 'What imaging do I need for an adult scoliosis evaluation?',
