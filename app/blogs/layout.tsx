@@ -60,6 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
   
   const tag = url.searchParams.get("tag");
+  const hasSearchQuery = url.searchParams.has("search");
   const page = parseInt(url.searchParams.get("page") || "1", 10);
   const perPage = 6; // Ensure this matches the page size
 
@@ -114,7 +115,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    robots: { index: true, follow: true },
+    robots: hasSearchQuery
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
     alternates,
     openGraph: {
       title,

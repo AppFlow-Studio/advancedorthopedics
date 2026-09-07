@@ -102,7 +102,9 @@ const nextConfig: NextConfig = {
     {"source":"/locations/palm-spring-orthopedics","destination":"/locations/florida/palm-springs-orthopedics","permanent":true},
     
     // --- DOCTOR SLUG REDIRECTS (from dot notation to kebab-case) ---
-    {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors/dr-scott-katzman","permanent":true},
+    // Katzman's public exclusion is intentional. Preserve inbound equity at the directory.
+    {"source":"/about/meetourdoctors/dr-scott-katzman","destination":"/about/meetourdoctors","permanent":true},
+    {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors","permanent":true},
     {"source":"/about/meetourdoctors/dr.davidcowin","destination":"/about/meetourdoctors/dr-david-cowin","permanent":true},
     {"source":"/about/meetourdoctors/dr.christophermccarthy","destination":"/about/meetourdoctors/dr-christopher-mccarthy","permanent":true},
     {"source":"/about/meetourdoctors/dr.monicamcphailpruitt","destination":"/about/meetourdoctors/dr-monica-mcphail-pruitt","permanent":true},
