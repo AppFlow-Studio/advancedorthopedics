@@ -947,6 +947,8 @@ not from source diffs. Final alignment pass: H1/title/slug targeting green (12 t
 flags are slug-filler false positives or belong to the deferred title pass), and no page
 sends fewer than 8 in-content internal links.
 
+**Post-wave addition (`4d33e16`):** runner-knee consolidated into patellofemoral-pain-syndrome - same clinical entity on two indexable URLs; PFPS (50,892/mo, KD 0 - Ahrefs US) keeps the equity via cross-canonical, sitemap exclusion, sitewide link routing, and a title/H1 that now carries both terms. Neither slug is pilot-locked.
+
 **Corrected en route:** the format-drift inventory (24 new-format conditions, not 181 —
 a regex had counted nested internalLinks slugs; 90 of ~114 slugs are legacy-only), and
 the discovery that treatment metas resolve from `lib/metadata-seo.ts`, which silently

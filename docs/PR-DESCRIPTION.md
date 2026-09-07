@@ -49,29 +49,46 @@ pre-deploy gate for THIS deploy, and it now has two coordinated items, not one.)
 **Order is non-negotiable: GTM leads, code follows.** Production currently fires
 `form_submit` with plaintext PII in `enhanced_conversion_data`; this branch fires
 `lead_form_submit_success` with **pre-hashed** PII under `sha256_`-prefixed field names.
-Both halves must land in the **same GTM publish** — the second one fails silently: a
-wrong trigger name shows up as conversions dropping to zero within a day, but a
-user-provided-data variable reading field names that no longer exist shows up as the
-Enhanced Conversions match rate quietly degrading, which nobody notices for a month.
 
-1. In GTM, add a trigger on `lead_form_submit_success` **alongside** the existing
-   `form_submit` trigger. Point the same tags at both. Nothing double-fires because
-   only one event name is ever actually pushed.
-2. Repeat for the state-filtered triggers `form_submit_FL` / `_NJ` / `_NY` (filtered on
-   `DLV - state`) and for `Lead Submit Form Enhanced`.
-3. **In the same workspace, before publishing:** update the user-provided-data variable to
-   read `sha256_email_address`, `sha256_phone_number`, `address.sha256_first_name`,
-   `address.sha256_last_name` (`postal_code` and `country` stay unhashed — per Google's
-   spec they are unhashed fields). Google distinguishes raw from pre-hashed input **by
-   field name**; leaving the variable on the raw names would hash a second time and zero
-   the match rate.
-4. Publish the GTM container. **Then** deploy the code.
-5. Confirm for 48 hours — both clauses, the second is the one people skip:
+> **This checklist was corrected on 2026-09-07 after a UI-level audit of container
+> GTM-T57SB8NQ (live version 29).** The original instructions said to copy the existing
+> state-filtered triggers - that would have failed silently, because the new event
+> carries **`market`** (lib/lead-contract.ts), not `state`. The existing
+> `DLV - state equals florida` conditions read undefined on the new event, and every
+> Ads conversion and Enhanced Conversions tag would simply never fire again.
+
+One GTM workspace, one publish, containing ALL of:
+
+1. New variable **`DLV - market`** (Data Layer Variable, name `market`, version 2).
+2. New triggers, all Custom Event `lead_form_submit_success`:
+   - base (no filter) - for the GA4 event tag;
+   - `_FL` / `_NJ` / `_NY` filtered on `DLV - market` equals `florida` /
+     `new-jersey` / `new-york` (the VALUES are unchanged slugs; only the key moved);
+   - **`_PA` / `_GA`** filtered on `pennsylvania` / `georgia` - these did not exist
+     for the old event either, so Pennsylvania and Georgia leads (which this PR
+     launches) would otherwise never register as Ads conversions at all.
+3. Point the tags at the new triggers ALONGSIDE the old ones (nothing double-fires;
+   only one event name is ever pushed): `GA4 - Form Submit Event` += base;
+   `Thank You Page` and `Lead Submit Form Enhanced` += `_FL` (+ `_PA`/`_GA` per the
+   account's conversion-action setup); `Thank You Page For NJ/NY GA` and
+   `Lead Submit Form Enhanced For NJ/NY` += `_NJ`, `_NY`.
+4. Convert the six `EC - ... (correct)` variables from plain Data Layer Variables to
+   **Custom JavaScript coalesce** - return the `sha256_` path when present, else the
+   legacy path (e.g. `enhanced_conversion_data.sha256_email_address` else
+   `enhanced_conversion_data.email`). This removes the dead window in BOTH directions:
+   a plain path-swap would zero Enhanced Conversions between GTM publish and code
+   deploy, and the old plain paths would zero them after deploy. `postal_code` and
+   `country` keep their existing unhashed paths - per Google's spec they stay unhashed.
+5. Publish the container. **Then** deploy the code.
+6. Confirm for 48 hours - both clauses, the second is the one people skip:
    conversions flowing on the new event, **and** the Enhanced Conversions match rate
-   holding at its pre-deploy level (Google Ads → conversion action → diagnostics).
-6. **Then** remove the `form_submit` triggers, the `/thank-you` pageview conversion trigger,
-   and the four orphaned zero-tag triggers (`Form Subm`, `Form Submission`, `History
-   Change`, `Thank You Page Trigger`).
+   holding at its pre-deploy level (Google Ads -> conversion action -> diagnostics).
+   Note: Ads was ALREADY flagging "Enhanced conversions has setup issues" on active
+   campaigns pre-cutover; expect that diagnostic to clear, and investigate if not.
+7. **Then** clean up: remove the `form_submit` / `form_submit_FL/_NJ/_NY` triggers
+   from the tags, and delete the four orphaned triggers (`Form Subm`,
+   `Form Submission`, `History Change`, `Thank You Page Trigger`) - the 2026-09-07
+   audit confirmed all four already carry zero tags.
 
 **Also before the LP campaigns go live — audience inventory.** The repo defines no
 remarketing tags or audience conditions (one container, `GTM-T57SB8NQ`; no `AW-` IDs in
