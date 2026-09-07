@@ -132,7 +132,10 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                   sublinks.map((link, linkIndex) => {
                     const IconComponent = link.icon;
                     return (
-                      <div key={`${link.title}-${linkIndex}`} className='h-fit gap-0'>
+                      <div
+                        key={`${link.title}-${linkIndex}`}
+                        className={link.subLinks.length > 0 ? 'col-span-2 h-fit rounded-lg border border-white/70 px-3 py-2' : 'h-fit gap-0'}
+                      >
                         {link.subLinks.length == 0 ? (
                           <NavigationMenuLink asChild className='flex flex-row items-center gap-x-4 '>
                             <Link href={link.href} className='w-full block px-4 py-2 flex-row items-center justify-between'>
@@ -156,26 +159,44 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                             </Link>
                           </NavigationMenuLink>
                         ) : (
-                          <Link
-                            href={link.href}
-                            className="w-full text-left px-4 py-2 hover:bg-white/50 transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-4"
-                            onMouseEnter={() => setSelectedSubLink(link)}
-                          >
-                            <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
-                              <IconComponent className='w-4 h-4 text-[#252932]' />
+                          <>
+                            <Link
+                              href={link.href}
+                              className="w-full text-left px-1 py-1 hover:text-[#0A50EC] transition-colors duration-200 rounded-lg flex flex-row items-center gap-x-3"
+                              onMouseEnter={() => setSelectedSubLink(link)}
+                            >
+                              <div className='p-2 rounded-2xl border aspect-square flex items-center justify-center'>
+                                <IconComponent className='w-4 h-4 text-[#252932]' />
+                              </div>
+                              <div className='flex flex-col gap-y-0'>
+                                <span
+                                  style={{
+                                    fontFamily: "var(--font-public-sans)",
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  {link.title}
+                                </span>
+                                <span className='text-xs text-gray-500'>{link.short_desc}</span>
+                              </div>
+                            </Link>
+                            <div className='grid grid-cols-2 gap-x-2 gap-y-1 pl-1 pt-1'>
+                              {link.subLinks.map((specialist) => {
+                                const SpecialistIcon = specialist.icon;
+                                return (
+                                  <NavigationMenuLink key={specialist.href} asChild>
+                                    <Link
+                                      href={specialist.href}
+                                      className='flex items-center gap-x-2 rounded-lg px-2 py-1.5 text-sm hover:bg-white/60 hover:text-[#0A50EC] transition-colors duration-200'
+                                    >
+                                      <SpecialistIcon className='h-4 w-4 shrink-0 text-[#252932]' />
+                                      <span className='truncate'>{specialist.title}</span>
+                                    </Link>
+                                  </NavigationMenuLink>
+                                );
+                              })}
                             </div>
-                            <div className='flex flex-col gap-y-2'>
-                              <span
-                                style={{
-                                  fontFamily: "var(--font-public-sans)",
-                                  fontWeight: 400,
-                                }}
-                              >
-                                {link.title}
-                              </span>
-                              <span className='text-sm text-gray-500'>{link.short_desc}</span>
-                            </div>
-                          </Link>
+                          </>
                         )}
                       </div>
                     )
@@ -655,6 +676,56 @@ const NavBarLinks = [
         short_desc: 'Download forms',
         icon: LucideFileText,
         subLinks: []
+      },
+      {
+        title: 'Specialist Guides',
+        href: '/find-care/spine-specialist',
+        short_desc: 'Start with the right specialist',
+        icon: Stethoscope,
+        subLinks: [
+          {
+            title: 'Spine Specialist',
+            href: '/find-care/spine-specialist',
+            short_desc: 'Expert spine care',
+            icon: Stethoscope,
+          },
+          {
+            title: 'Back Pain Doctor',
+            href: '/find-care/back-pain-doctor',
+            short_desc: 'Back pain evaluation',
+            icon: Activity,
+          },
+          {
+            title: 'Scoliosis Doctor',
+            href: '/find-care/scoliosis-doctor',
+            short_desc: 'Scoliosis specialists',
+            icon: Bone,
+          },
+          {
+            title: 'Sciatica Doctor',
+            href: '/find-care/sciatica-doctor',
+            short_desc: 'Leg and nerve pain',
+            icon: Zap,
+          },
+          {
+            title: 'Spinal Stenosis',
+            href: '/find-care/spinal-stenosis-specialist',
+            short_desc: 'Narrowing and pressure',
+            icon: Shield,
+          },
+          {
+            title: 'Herniated Disc',
+            href: '/find-care/herniated-disc-specialist',
+            short_desc: 'Disc-related symptoms',
+            icon: Circle,
+          },
+          {
+            title: 'Pinched Nerve',
+            href: '/find-care/pinched-nerve-doctor',
+            short_desc: 'Nerve compression care',
+            icon: AlertCircle,
+          },
+        ]
       }
     ]
   },
