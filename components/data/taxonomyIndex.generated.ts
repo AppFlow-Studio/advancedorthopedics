@@ -393,14 +393,14 @@ export const conditionIndex: TaxonomyEntry[] = [
     "slug": "shoulder-bursitis",
     "title": "Shoulder Bursitis",
     "tag": "Shoulder",
-    "body": "Shoulder bursitis is inflammation of the bursa, a fluid-filled sac that cushions the rotator cuff tendons, causing pain and limited motion.",
+    "body": "Shoulder bursitis is inflammation of the subacromial bursa - though the bursa is usually the messenger rather than the culprit, flaring when the rotator cuff underneath it is overloaded.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--shoulder-bursitis--thumbnail.png"
   },
   {
     "slug": "rotator-cuff-tendonitis",
     "title": "Rotator Cuff Tendonitis",
     "tag": "Shoulder",
-    "body": "Rotator cuff tendonitis is inflammation of the rotator cuff tendons, often caused by overuse or impingement, leading to shoulder pain and weakness.",
+    "body": "Rotator cuff tendonitis is overload of the shoulder's stabilizing tendons - a painful arc reaching overhead, an ache at night, and a shoulder that protests positions more than it loses strength.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--rotator-cuff-tendonitis--thumbnail.png"
   },
   {
@@ -442,7 +442,7 @@ export const conditionIndex: TaxonomyEntry[] = [
     "slug": "hip-bursitis",
     "title": "Hip Bursitis",
     "tag": "Hip",
-    "body": "Hip bursitis is inflammation of the fluid-filled sacs (bursae) that cushion the hip joint, causing pain on the outer hip that worsens with activity.",
+    "body": "Hip bursitis - more precisely, trochanteric pain - causes aching over the outer hip that is worst lying on that side at night and climbing stairs, and it often involves the gluteal tendons as much as the bursa itself.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--hip-bursitis--thumbnail.png"
   },
   {
