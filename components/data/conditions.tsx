@@ -397,7 +397,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Spondylolisthesis",
         slug: "spondylolisthesis",
-        tag: "Spine",
+        tag: "Lower Spine",
         subtitle: "Diagnosis and treatment for vertebral slippage in the lower back that can cause mechanical instability, back pain, and nerve compression.",
         overview: {
             heading: "What is Spondylolisthesis?",
@@ -580,7 +580,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Sacroiliac Joint Dysfunction",
         slug: "sacroiliac-joint-dysfunction",
-        tag: "Spine",
+        tag: "Lower Spine",
         subtitle: "Evaluation and treatment for inflammation or abnormal motion of the joint connecting the spine to the pelvis, a common source of lower back and buttock pain.",
         overview: {
             heading: "What is SI Joint Dysfunction?",
@@ -642,7 +642,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Back Pain",
         slug: "back-pain",
-        tag: "Spine",
+        tag: "Lower Spine",
         subtitle: "A diagnostic starting point for neck, mid-back, and lower-back pain that may come from muscles, joints, discs, or nerves.",
         overview: {
             heading: "Understanding Your Back Pain",
@@ -1109,7 +1109,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Failed Back Surgery Syndrome",
         slug: "failed-back-surgery-syndrome",
-        tag: "Spine",
+        tag: "Lower Spine",
         subtitle: "Evaluation for persistent or worsening pain after spine surgery, identifying why the first procedure fell short and which treatment options remain.",
         overview: {
             heading: "What is Failed Back Surgery Syndrome (FBSS)?",
@@ -1472,7 +1472,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
     {
         title: "Lumbar Spinal Stenosis",
         slug: "lumbar-stenosis",
-        tag: "Spine",
+        tag: "Lower Spine",
         additionalTags: ["Lower Spine"],
         categories: ["pain-management"],
         subtitle: "Care for narrowing of the lower spinal canal that presses on the nerves to the legs, causing pain or heaviness with standing and walking, most common after 50.",
@@ -1677,7 +1677,7 @@ export const conditions: ConditionInfoProp[] = [
     },
     {
         title: "Lumbar Herniated Disc",
-        tag: "Spine",
+        tag: "Lower Spine",
         card_img:
             "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--lumbar-herniated-disc--thumbnail.png",
         inTxt_img:
@@ -2491,7 +2491,7 @@ export const conditions: ConditionInfoProp[] = [
     },
     {
         title: "Spondylolisthesis",
-        tag: "Spine",
+        tag: "Lower Spine",
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--spondylolisthesis--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--spondylolisthesis--thumbnail.png",
         body: "Spondylolisthesis is a spinal condition where one vertebra slips forward over the one below it, often causing lower back pain and nerve compression.",
@@ -3622,7 +3622,7 @@ export const conditions: ConditionInfoProp[] = [
     },
     {
         title: "Sacroiliac Joint Dysfunction",
-        tag: "Spine",
+        tag: "Lower Spine",
         additionalTags: ["Hip"],
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--sacroiliac-joint-dysfunction--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--sacroiliac-joint-dysfunction--thumbnail.png",
@@ -3741,7 +3741,7 @@ export const conditions: ConditionInfoProp[] = [
     },
     {
         title: "Back Pain",
-        tag: "Spine",
+        tag: "Lower Spine",
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--back-pain--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--back-pain--thumbnail.png",
         body: "Back pain is a widespread condition that can severely limit daily activity, ranging from a dull ache to sharp, debilitating pain.",
@@ -5427,7 +5427,7 @@ export const conditions: ConditionInfoProp[] = [
     },
     {
         title: "Failed Back or Failed Neck Surgery Syndrome",
-        tag: "Spine",
+        tag: "Lower Spine",
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--failed-back-surgery-syndrome--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--failed-back-surgery-syndrome--thumbnail.png",
         body: "Failed Back (or Neck) Surgery Syndrome refers to persistent pain after a spinal procedure, requiring expert evaluation to find the underlying cause.",
@@ -6689,15 +6689,13 @@ export const conditions: ConditionInfoProp[] = [
         tag: "Hip",
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--hip-arthritis--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--hip-arthritis--thumbnail.png",
-        body: "Hip arthritis is a degenerative condition where the cartilage in the hip joint wears away, causing pain, stiffness, and reduced mobility.",
-        detail: "<p><strong>Hip arthritis</strong> is a degenerative condition where the protective cartilage that cushions the hip joint gradually wears away, leading to bone-on-bone contact, inflammation, and progressive joint damage. The most common form is <strong>osteoarthritis</strong>, which develops from wear and tear over time, though <strong>rheumatoid arthritis</strong> and other inflammatory types can also affect the hip.</p><p>As the cartilage deteriorates, the joint loses its smooth gliding surface, causing pain, stiffness, and reduced range of motion. Over time, the joint may develop bone spurs, further limiting movement and causing additional discomfort. Hip arthritis can significantly impact daily activities like walking, climbing stairs, and even sleeping.</p><p>At Mountain Spine & Orthopedics, our <strong>hip specialists</strong> use advanced imaging including <strong>X-rays</strong> and <strong>MRI</strong> to assess the extent of cartilage loss and joint damage, creating personalized treatment plans that range from conservative management to <strong>minimally invasive</strong> joint replacement when appropriate.</p>",
+        body: "Hip arthritis wears away the cartilage of the ball-and-socket joint, and it announces itself in a specific place: deep groin pain with walking, stiffness putting on socks and shoes, and a hip that loses rotation before it loses anything else.",
+        detail: "<p><strong>Hip arthritis</strong> is cartilage loss in the body's largest ball-and-socket joint, most often <strong>osteoarthritis</strong> from decades of load, though inflammatory types such as rheumatoid arthritis also reach the hip. What makes the hip distinctive is where it hurts: true hip-joint pain is usually felt in the <strong>groin</strong> - patients often cup a hand around the side of the hip in a C-shape to describe it - and may run down the front of the thigh toward the knee. Pain over the outer hip usually belongs to <a href=\"/conditions/hip-bursitis\" class=\"text-blue-600 hover:underline\">trochanteric bursitis</a>, and buttock pain often traces back to the spine - which is why the location question matters so much here.</p><p>The earliest functional change is typically lost <strong>internal rotation</strong>: crossing the legs, pivoting toward the affected side, and getting out of a low car seat become awkward before walking distance shortens. Startup stiffness after sitting, difficulty with socks and shoes, and - in later stages - night pain complete the pattern. Because the socket is deep, the hip tolerates early cartilage loss quietly, and many patients first present when the joint has already stiffened.</p><p>At Mountain Spine & Orthopedics, evaluation is aimed at proving the hip joint itself is the source before any treatment is chosen - examination, standing X-rays, and where the picture is mixed, a diagnostic image-guided injection whose numbing phase answers the question directly.</p>",
         what_sym: "Patients with hip arthritis typically experience several characteristic symptoms, including: <ul><li><strong>Deep groin pain</strong> that may radiate to the thigh, buttock, or knee</li><li><strong>Stiffness</strong>, especially in the morning or after prolonged sitting</li><li>Reduced range of motion and difficulty with activities like putting on shoes or socks</li><li>Pain that worsens with activity and weight-bearing</li><li>A grinding or crunching sensation (crepitus) during movement</li><li>Pain that disrupts sleep, especially when lying on the affected side</li><li>Difficulty walking or a limp due to pain and stiffness</li></ul>",
         risk_fac:
             "<p>Several factors increase the risk of developing hip arthritis:</p><ul><li>Advancing age, as cartilage naturally wears down over time</li><li>Previous hip injuries, fractures, or trauma</li><li>Structural abnormalities such as <a href=\"/conditions/hip-dysplasia\" class=\"text-blue-600 hover:underline\">hip dysplasia</a> or <a href=\"/conditions/hip-impingement\" class=\"text-blue-600 hover:underline\">hip impingement</a> that accelerate wear</li><li>Obesity, which places increased stress on the hip joint</li><li>Family history of arthritis or joint problems</li><li>Repetitive high-impact activities or occupations that stress the hip</li><li>Certain medical conditions like <a href=\"/conditions/avascular-necrosis\" class=\"text-blue-600 hover:underline\">avascular necrosis</a> that damage the joint</li></ul>",
-        diagnose:
-            "<p>Diagnosis begins with a comprehensive physical examination to assess range of motion, identify pain patterns, and evaluate gait. Our specialists look for signs of joint inflammation, muscle weakness, and functional limitations.</p><p><strong>X-rays</strong> are essential to visualize joint space narrowing, bone spurs, and other structural changes characteristic of arthritis. We offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\"><strong>MRI review</strong></a> to assess cartilage integrity, identify early arthritis before it's visible on X-rays, and evaluate surrounding soft tissues. Blood tests may be ordered if inflammatory arthritis is suspected.</p>",
-        treatment:
-            "<h3>Non-Surgical Treatment Options</h3><p>Initial treatment focuses on conservative measures, including <strong>outside rehabilitation guidance</strong> to strengthen hip muscles and improve flexibility, activity modification to reduce stress on the joint, and anti-inflammatory medications. Weight management and low-impact exercise can significantly slow progression and reduce symptoms.</p><h3>Injection or Interventional Care</h3><p>For patients with persistent pain, <strong>corticosteroid injections</strong> can provide temporary relief by reducing inflammation. <strong>Hyaluronic acid injections</strong> (viscosupplementation) may help lubricate the joint and provide longer-lasting relief for some patients. <strong>Biologic injections</strong> like PRP or stem cell therapy may also be considered to potentially slow disease progression.</p><h3>Surgical Treatment Options</h3><p>When conservative measures no longer provide adequate relief and arthritis significantly impacts daily life, surgical options may be considered. <a href=\"/treatments/hip-resurfacing\" class=\"text-blue-600 hover:underline\">Hip resurfacing</a> may be appropriate for younger, active patients, while <a href=\"/treatments/total-hip-replacement\" class=\"text-blue-600 hover:underline\">total hip replacement</a> offers excellent long-term outcomes for advanced arthritis, restoring function and eliminating pain.</p>",
+        diagnose: "<p>The hip examination is largely a sorting exercise, because three different problems present as \"hip pain\": the joint itself, the trochanteric bursa on the outer hip, and referred pain from the lumbar spine. Rotating the leg while it rests (a log-roll test) and combining flexion with internal rotation stress the joint specifically; tenderness directly over the outer bony prominence points to bursa; and pain reproduced by back movement or accompanied by below-knee symptoms redirects attention to the spine.</p><p><strong>Standing X-rays</strong> show the joint under load - space narrowing, bone spurs, and cysts that a lying-down image can understate. An MRI adds value when X-rays look mild but symptoms are severe, or when avascular necrosis or a labral tear is suspected; we offer a complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\"><strong>MRI review</strong></a> if you already have imaging. When examination and imaging disagree, an image-guided anesthetic injection into the joint settles it: pain that switches off is hip-joint pain.</p>",
+        treatment: "<h3>Non-Surgical Treatment Options</h3><p>Early hip arthritis responds to unglamorous measures done consistently: strengthening the gluteal muscles that shield the joint, trimming the specific aggravators (deep squats, low chairs, long stairs sessions), low-impact conditioning such as cycling or swimming, weight management - each pound lost is multiplied at the hip during walking - and anti-inflammatory medication used judiciously.</p><h3>Injection or Interventional Care</h3><p>The hip is a deep joint, so injections here are placed under <strong>image guidance</strong> - fluoroscopy or ultrasound - rather than by feel. <a href=\"/treatments/anti-inflammatory-injections-for-joint-and-spine-pain\" class=\"text-blue-600 hover:underline\">Corticosteroid injections</a> calm inflammatory flares and double as a diagnostic test of how much of the pain the joint explains. Hyaluronic acid and biologic injections are used more selectively in the hip than the knee, and we are candid about that distinction when discussing options.</p><h3>Surgical Treatment Options</h3><p>When groin pain limits walking, sleep, and daily function despite conservative care, the surgical conversation is straightforward for the hip: <a href=\"/treatments/total-hip-replacement\" class=\"text-blue-600 hover:underline\">total hip replacement</a> is the definitive treatment for advanced arthritis, and <a href=\"/treatments/hip-resurfacing\" class=\"text-blue-600 hover:underline\">hip resurfacing</a> is discussed with selected younger, larger-framed patients. Timing is a quality-of-life decision made with you - the X-ray alone does not book an operating room.</p>",
         pain_info:
             "<p>Hip arthritis pain typically begins as a <strong>dull ache</strong> that worsens with activity and improves with rest. As the condition progresses, the pain may become more constant and severe, often described as a <strong>deep, grinding sensation</strong> in the groin.</p><p>The pain frequently disrupts sleep, especially when lying on the affected side, and can make simple activities like getting out of a chair or climbing stairs extremely difficult. Our comprehensive treatment approach addresses both pain management and functional restoration, helping patients return to an active, pain-free lifestyle.</p>",
         prevent:

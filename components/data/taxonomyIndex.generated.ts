@@ -35,7 +35,7 @@ export const conditionIndex: TaxonomyEntry[] = [
   {
     "slug": "lumbar-herniated-disc",
     "title": "Lumbar Herniated Disc",
-    "tag": "Spine",
+    "tag": "Lower Spine",
     "body": "A lumbar herniated disc occurs when a disc in the lower back presses on a nerve, causing sciatica and radiating leg pain.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--lumbar-herniated-disc--thumbnail.png"
   },
@@ -56,7 +56,7 @@ export const conditionIndex: TaxonomyEntry[] = [
   {
     "slug": "spondylolisthesis",
     "title": "Spondylolisthesis",
-    "tag": "Spine",
+    "tag": "Lower Spine",
     "body": "Spondylolisthesis is a spinal condition where one vertebra slips forward over the one below it, often causing lower back pain and nerve compression.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--spondylolisthesis--thumbnail.png"
   },
@@ -196,7 +196,7 @@ export const conditionIndex: TaxonomyEntry[] = [
   {
     "slug": "sacroiliac-joint-dysfunction",
     "title": "Sacroiliac Joint Dysfunction",
-    "tag": "Spine",
+    "tag": "Lower Spine",
     "body": "Sacroiliac (SI) joint dysfunction is a common source of lower back, buttock, or groin pain caused by abnormal movement or inflammation of the SI joint.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--sacroiliac-joint-dysfunction--thumbnail.png"
   },
@@ -217,7 +217,7 @@ export const conditionIndex: TaxonomyEntry[] = [
   {
     "slug": "back-pain",
     "title": "Back Pain",
-    "tag": "Spine",
+    "tag": "Lower Spine",
     "body": "Back pain is a widespread condition that can severely limit daily activity, ranging from a dull ache to sharp, debilitating pain.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--back-pain--thumbnail.png"
   },
@@ -287,7 +287,7 @@ export const conditionIndex: TaxonomyEntry[] = [
   {
     "slug": "failed-back-surgery-syndrome",
     "title": "Failed Back or Failed Neck Surgery Syndrome",
-    "tag": "Spine",
+    "tag": "Lower Spine",
     "body": "Failed Back (or Neck) Surgery Syndrome refers to persistent pain after a spinal procedure, requiring expert evaluation to find the underlying cause.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--failed-back-surgery-syndrome--thumbnail.png"
   },
@@ -421,7 +421,7 @@ export const conditionIndex: TaxonomyEntry[] = [
     "slug": "hip-arthritis",
     "title": "Hip Arthritis",
     "tag": "Hip",
-    "body": "Hip arthritis is a degenerative condition where the cartilage in the hip joint wears away, causing pain, stiffness, and reduced mobility.",
+    "body": "Hip arthritis wears away the cartilage of the ball-and-socket joint, and it announces itself in a specific place: deep groin pain with walking, stiffness putting on socks and shoes, and a hip that loses rotation before it loses anything else.",
     "card_img": "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--hip-arthritis--thumbnail.png"
   },
   {
