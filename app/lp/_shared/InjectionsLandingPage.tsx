@@ -11,6 +11,7 @@ import {
 import { clinics } from '@/components/data/clinics';
 import { STATE_METADATA, VALID_STATE_SLUGS } from '@/lib/locationRedirects';
 import { MAIN_PHONE_DISPLAY, MAIN_PHONE_HREF } from '@/lib/locationConstants';
+import '../lp-animations.css';
 
 /**
  * Shared template for the injections paid-search landing pages.
@@ -139,7 +140,7 @@ export default function InjectionsLandingPage({
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
                   href="#request-evaluation"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
                   style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
                 >
                   Request an Evaluation
@@ -251,18 +252,50 @@ export default function InjectionsLandingPage({
           {config.symptomsIntro}
         </p>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="lp-stagger mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {config.symptoms.map((symptom) => (
             <div
               key={symptom.title}
-              className="h-full flex flex-col bg-[#FAFAFA] rounded-[24px] p-6 sm:p-7"
+              className="lp-reveal lp-card h-full flex flex-col bg-[#FAFAFA] rounded-[24px] p-6 sm:p-7"
             >
-              <h3
-                style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
-                className="text-[#111315] text-lg"
-              >
-                {symptom.title}
-              </h3>
+              <div className="flex items-start gap-3">
+                {/* The check strokes itself in as the card scrolls into view —
+                    checklist psychology: the visitor ticks boxes as they read. */}
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  aria-hidden="true"
+                  className="mt-[1px] flex-shrink-0"
+                >
+                  <circle cx="14" cy="14" r="12.5" fill="#EAF2FF" />
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="12.5"
+                    stroke="#0A50EC"
+                    strokeWidth="1.6"
+                    pathLength="1"
+                    className="lp-check-draw"
+                  />
+                  <path
+                    d="M8.6 14.4l3.7 3.6 7.2-7.5"
+                    stroke="#0A50EC"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    pathLength="1"
+                    className="lp-check-draw"
+                  />
+                </svg>
+                <h3
+                  style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
+                  className="text-[#111315] text-lg"
+                >
+                  {symptom.title}
+                </h3>
+              </div>
               <p
                 style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
                 className="text-[#424959] text-base mt-3"
@@ -271,6 +304,24 @@ export default function InjectionsLandingPage({
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Mid-scroll CTA: catches the visitor at the exact moment of
+            self-identification, before the denser clinical sections. */}
+        <div className="lp-reveal mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 rounded-[24px] bg-[#F0F7FF] border border-[#0A50EC]/15 px-6 py-6 sm:px-8">
+          <p
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+            className="text-[#111315] text-lg sm:text-xl text-center sm:text-left"
+          >
+            Recognize several of these? That is exactly what an evaluation is for.
+          </p>
+          <Link
+            href="#request-evaluation"
+            className="lp-btn-shine flex-shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
+          >
+            Request an Evaluation
+          </Link>
         </div>
       </section>
 
@@ -302,11 +353,11 @@ export default function InjectionsLandingPage({
             >
               {config.evaluationHeading}
             </h2>
-            <ol className="mt-5 flex flex-col gap-5">
+            <ol className="lp-steps mt-5 flex flex-col gap-5">
               {config.evaluationSteps.map((item, index) => (
-                <li key={item.step} className="flex items-start gap-4">
+                <li key={item.step} className="lp-reveal flex items-start gap-4">
                   <span
-                    className="flex-shrink-0 w-8 h-8 rounded-full bg-[#2358AC] text-white flex items-center justify-center text-sm"
+                    className="lp-step-badge relative z-[1] flex-shrink-0 w-8 h-8 rounded-full bg-[#2358AC] text-white flex items-center justify-center text-sm"
                     style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
                     aria-hidden="true"
                   >
@@ -348,11 +399,11 @@ export default function InjectionsLandingPage({
           {config.pathwaysIntro}
         </p>
 
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {config.pathways.map((pathway) => (
+        <div className="lp-stagger mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {config.pathways.map((pathway, index) => (
             <div
               key={pathway.heading}
-              className="h-full flex flex-col bg-white border border-gray-200 rounded-[24px] p-7 sm:p-8"
+              className={`lp-reveal lp-card ${index === 0 ? 'lp-beam ' : ''}h-full flex flex-col bg-white border border-gray-200 rounded-[24px] p-7 sm:p-8`}
             >
               <h3
                 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
@@ -392,9 +443,11 @@ export default function InjectionsLandingPage({
             >
               {config.physiciansIntro}
             </p>
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="lp-stagger mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {surgeons.map((doctor) => (
-                <DoctorCard doctor={doctor} key={doctor.slug} />
+                <div className="lp-reveal h-full" key={doctor.slug}>
+                  <DoctorCard doctor={doctor} />
+                </div>
               ))}
             </div>
           </div>
@@ -404,7 +457,7 @@ export default function InjectionsLandingPage({
       {/* -------------------------------------- MRI review / second opinion */}
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[60px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="h-full flex flex-col justify-between bg-[#F0F7FF] border-l-4 border-[#0A50EC] rounded-[24px] p-7 sm:p-8">
+          <div className="lp-reveal lp-card h-full flex flex-col justify-between bg-[#F0F7FF] border-l-4 border-[#0A50EC] rounded-[24px] p-7 sm:p-8">
             <div>
               <h2
                 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
@@ -429,7 +482,7 @@ export default function InjectionsLandingPage({
             </Link>
           </div>
 
-          <div className="h-full flex flex-col justify-between bg-[#F0F7FF] border-l-4 border-[#0A50EC] rounded-[24px] p-7 sm:p-8">
+          <div className="lp-reveal lp-card h-full flex flex-col justify-between bg-[#F0F7FF] border-l-4 border-[#0A50EC] rounded-[24px] p-7 sm:p-8">
             <div>
               <h2
                 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
@@ -520,7 +573,7 @@ export default function InjectionsLandingPage({
           {config.faqs.map((faq) => (
             <details
               key={faq.question}
-              className="group bg-[#FAFAFA] rounded-[24px] px-6 py-5 sm:px-7"
+              className="lp-reveal group bg-[#FAFAFA] rounded-[24px] px-6 py-5 sm:px-7"
             >
               <summary
                 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 600 }}
@@ -560,7 +613,7 @@ export default function InjectionsLandingPage({
         <div className="max-w-[1440px] w-full mx-auto px-6 xl:px-[80px] py-[60px] flex flex-col items-center text-center">
           <h2
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            className="text-[#111315] text-3xl sm:text-4xl max-w-[720px]"
+            className="lp-gradient-text text-3xl sm:text-4xl max-w-[720px]"
           >
             {config.finalHeading}
           </h2>
@@ -573,7 +626,7 @@ export default function InjectionsLandingPage({
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="#request-evaluation"
-              className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+              className="lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
               style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
             >
               Request an Evaluation
@@ -595,7 +648,7 @@ export default function InjectionsLandingPage({
         </a>
         <Link
           href="#request-evaluation"
-          className="flex-1 inline-flex items-center justify-center h-12 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold"
+          className="lp-btn-pulse flex-1 inline-flex items-center justify-center h-12 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold"
           style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
         >
           Request Evaluation

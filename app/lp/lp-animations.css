@@ -1,0 +1,228 @@
+/**
+ * Paid-landing-page animation layer — pure CSS, zero client JS.
+ *
+ * Every effect here is progressive enhancement over server-rendered content:
+ *  - Entrance animations use CSS scroll-driven animations
+ *    (animation-timeline: view()) and are wrapped in @supports, so browsers
+ *    without support (Firefox stable, older Safari) render the page fully
+ *    visible and static. Content is NEVER hidden outside an @supports block.
+ *  - Hover/loop effects (shine border, border beam, button sweep) are plain
+ *    keyframes + @property conic gradients — the CSS-only equivalents of
+ *    Magic UI's ShineBorder/BorderBeam, chosen over the React versions
+ *    precisely because these pages must stay server components.
+ *  - prefers-reduced-motion disables all of it.
+ *
+ * Scope: everything is namespaced lp-* and imported only by the /lp pages.
+ */
+
+@property --lp-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ------------------------------------------------------------------ */
+/* Entrance reveals — scroll-driven, guarded                           */
+/* ------------------------------------------------------------------ */
+
+@supports (animation-timeline: view()) {
+  .lp-reveal {
+    animation: lp-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+  /* Column stagger: same-row grid cards enter the viewport together, so a
+     per-column range shift is what actually reads as a stagger. */
+  .lp-stagger > :nth-child(3n + 2) { animation-range: entry 8% entry 63%; }
+  .lp-stagger > :nth-child(3n)     { animation-range: entry 16% entry 71%; }
+
+  .lp-reveal-left {
+    animation: lp-slide-left linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+  }
+
+  /* Check-circle draw: the checkmark strokes itself in as its card enters.
+     pathLength=1 on the SVG paths makes the dash math trivial. */
+  .lp-check-draw {
+    stroke-dasharray: 1;
+    animation: lp-draw linear both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 90%;
+  }
+
+  /* Numbered-step connector line grows downward as the list scrolls in. */
+  .lp-steps { position: relative; }
+  .lp-steps::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 18px;
+    bottom: 26px;
+    width: 2px;
+    border-radius: 1px;
+    background: linear-gradient(180deg, #2358ac, rgba(35, 88, 172, 0.15));
+    transform-origin: top;
+    animation: lp-grow-y linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 55%;
+  }
+  .lp-step-badge {
+    animation: lp-pop linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+}
+
+@keyframes lp-rise {
+  from { opacity: 0; transform: translateY(26px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes lp-slide-left {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes lp-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes lp-grow-y {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+@keyframes lp-pop {
+  0%   { opacity: 0; transform: scale(0.4); }
+  70%  { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Card hover: lift + rotating shine border (CSS ShineBorder)          */
+/* ------------------------------------------------------------------ */
+
+.lp-card {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.21, 0.9, 0.35, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+.lp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--lp-angle),
+    transparent 0deg,
+    transparent 200deg,
+    rgba(10, 80, 236, 0.55) 250deg,
+    #7cb7ff 290deg,
+    rgba(10, 80, 236, 0.55) 330deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.lp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -18px rgba(10, 80, 236, 0.35);
+}
+.lp-card:hover::before {
+  opacity: 1;
+  animation: lp-spin 2.6s linear infinite;
+}
+
+/* Persistent slow beam for the one card that should own the eye. */
+.lp-beam::before {
+  opacity: 1;
+  animation: lp-spin 6s linear infinite;
+}
+
+@keyframes lp-spin {
+  to { --lp-angle: 360deg; }
+}
+
+/* ------------------------------------------------------------------ */
+/* CTA buttons: periodic shine sweep + glow pulse                      */
+/* ------------------------------------------------------------------ */
+
+.lp-btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.lp-btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  width: 34%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-160%) skewX(-18deg);
+  animation: lp-sweep 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes lp-sweep {
+  0%   { transform: translateX(-160%) skewX(-18deg); }
+  52%  { transform: translateX(420%) skewX(-18deg); }
+  100% { transform: translateX(420%) skewX(-18deg); }
+}
+
+.lp-btn-pulse {
+  animation: lp-glow 2.6s ease-in-out infinite;
+}
+@keyframes lp-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(35, 88, 172, 0.45); }
+  55%      { box-shadow: 0 0 0 9px rgba(35, 88, 172, 0); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Animated gradient headline (CSS AnimatedShinyText)                  */
+/* ------------------------------------------------------------------ */
+
+.lp-gradient-text {
+  background: linear-gradient(90deg, #111315 0%, #111315 38%, #2358ac 50%, #0a50ec 56%, #111315 68%, #111315 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #111315; /* painted when background-clip:text is unsupported */
+  animation: lp-text-sheen 5.5s linear infinite;
+}
+@keyframes lp-text-sheen {
+  from { background-position: 220% 0; }
+  to   { background-position: -20% 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Accessibility: one switch turns the whole layer off                 */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-reveal,
+  .lp-reveal-left,
+  .lp-check-draw,
+  .lp-step-badge,
+  .lp-steps::before,
+  .lp-card,
+  .lp-card::before,
+  .lp-beam::before,
+  .lp-btn-shine::after,
+  .lp-btn-pulse,
+  .lp-gradient-text {
+    animation: none !important;
+    transition: none !important;
+  }
+  .lp-check-draw { stroke-dasharray: none; }
+}
