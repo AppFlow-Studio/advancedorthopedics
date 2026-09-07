@@ -586,7 +586,9 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
               }}
               className="text-[#424959] text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed space-y-4"
             >
-              <p>{bodyPart.sections.symptoms}</p>
+              {bodyPart.sections.symptoms.split('\n\n').map((para) => (
+                <p key={para.slice(0, 40)}>{para}</p>
+              ))}
             </div>
           </div>
         </section>
@@ -609,7 +611,9 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
             }}
             className="text-[#424959] text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed space-y-4"
           >
-            <p>{bodyPart.sections.whenToSee}</p>
+            {bodyPart.sections.whenToSee.split('\n\n').map((para) => (
+                <p key={para.slice(0, 40)}>{para}</p>
+              ))}
           </div>
         </section>
 
@@ -632,7 +636,9 @@ export default async function BodyPartPage({ bodyPartSlug }: { bodyPartSlug: str
               }}
               className="text-[#424959] text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed space-y-4"
             >
-              <p>{bodyPart.sections.howWeTreat}</p>
+              {bodyPart.sections.howWeTreat.split('\n\n').map((para) => (
+                <p key={para.slice(0, 40)}>{para}</p>
+              ))}
             </div>
           </div>
         </section>

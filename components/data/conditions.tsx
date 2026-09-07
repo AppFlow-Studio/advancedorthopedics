@@ -223,13 +223,13 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["degenerative scoliosis", "adult scoliosis treatment", "adult degenerative scoliosis", "scoliosis surgery", "adult scoliosis surgery", "scoliosis treatment", "scoliosis pain treatment"],
         metaTitle: "Degenerative Scoliosis: Adult Treatment & Surgical Options | Mountain Spine",
-        metaDesc: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Board-certified surgeons at Mountain Spine evaluate surgical and non-surgical options. PPO Insurance Accepted."
+        metaDesc: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Surgical and non-surgical evaluation. PPO accepted."
     },
     {
         title: "Adjacent Segment Disease",
         slug: "adjacent-segment-disease",
         tag: "Spine",
-        subtitle: "Managing Pain After Spinal Fusion",
+        subtitle: "Diagnosis and treatment for accelerated degeneration at the spinal levels above or below a previous fusion, a common cause of returning pain after surgery.",
         overview: {
             heading: "Understanding Adjacent Segment Disease (ASD)",
             body: "Adjacent Segment Disease (ASD) refers to the accelerated degeneration of spinal segments directly above or below a previous <strong>surgical fusion</strong>. The fusion alters spinal biomechanics, placing additional stress on these neighboring levels."
@@ -283,7 +283,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Degenerative Disc Disease",
         slug: "degenerative-disc-disease",
         tag: "Spine",
-        subtitle: "Relief for Age-Related Spinal Wear",
+        subtitle: "Care for age-related disc wear that causes chronic back or neck pain, stiffness, and reduced mobility as spinal discs lose hydration and cushioning.",
         overview: {
             heading: "What is Degenerative Disc Disease?",
             body: "Degenerative Disc Disease (DDD) is a condition where the intervertebral discs lose hydration and their ability to cushion the vertebrae. It is a natural part of aging that can lead to <strong>chronic pain</strong> and reduced mobility."
@@ -337,7 +337,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Cervical Spinal Stenosis",
         slug: "cervical-spinal-stenosis",
         tag: "Neck",
-        subtitle: "Protecting Spinal Cord Health in the Neck",
+        subtitle: "Evaluation and treatment for narrowing of the spinal canal in the neck that can compress the spinal cord and nerve roots, causing pain, numbness, and clumsiness.",
         overview: {
             heading: "What is Cervical Spinal Stenosis?",
             body: "Cervical spinal stenosis occurs when the spinal canal in the neck progressively narrows, often due to <strong>bone spurs</strong>, bulging discs, or thickened ligaments. This narrowing can compress the spinal cord and nerve roots."
@@ -391,7 +391,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Spondylolisthesis",
         slug: "spondylolisthesis",
         tag: "Spine",
-        subtitle: "Resolving Spinal Instability and Slippage",
+        subtitle: "Diagnosis and treatment for vertebral slippage in the lower back that can cause mechanical instability, back pain, and nerve compression.",
         overview: {
             heading: "What is Spondylolisthesis?",
             body: "Spondylolisthesis occurs when one <strong>vertebra slips forward</strong> over the one beneath it, typically in the lower back. This misalignment can lead to mechanical instability and significant nerve compression."
@@ -445,7 +445,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Cervical Herniated Disc",
         slug: "cervical-herniated-disc",
         tag: "Neck",
-        subtitle: "Restoring Comfort for Neck and Arm Pain",
+        subtitle: "Care for herniated discs in the neck that compress nearby nerve roots or the spinal cord, causing neck pain with radiating arm pain, numbness, or weakness.",
         overview: {
             heading: "What is a Cervical Herniated Disc?",
             body: "A cervical herniated disc occurs when the soft inner core of a disc in the neck pushes through its tough outer layer, compressing nearby <strong>nerve roots</strong> or the spinal cord."
@@ -499,7 +499,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Spinal Compression Fractures",
         slug: "spinal-compression-fractures",
         tag: "Spine",
-        subtitle: "Restoring Height and Stability After Fracture",
+        subtitle: "Diagnosis and treatment for vertebral compression fractures, often from osteoporosis, that cause sudden back pain, height loss, and a stooped posture.",
         overview: {
             heading: "What is a Spinal Compression Fracture?",
             body: "A spinal compression fracture occurs when a <strong>vertebra weakens and collapses</strong>, often due to osteoporosis. This can lead to sudden, severe back pain and a noticeable loss of height."
@@ -553,7 +553,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Sacroiliac Joint Dysfunction",
         slug: "sacroiliac-joint-dysfunction",
         tag: "Spine",
-        subtitle: "Resolving Lower Back and Pelvic Pain",
+        subtitle: "Evaluation and treatment for inflammation or abnormal motion of the joint connecting the spine to the pelvis, a common source of lower back and buttock pain.",
         overview: {
             heading: "What is SI Joint Dysfunction?",
             body: "Sacroiliac (SI) joint dysfunction occurs when the joint connecting the base of the spine (sacrum) to the pelvis becomes inflamed or moves abnormally, causing pain in the lower back or buttocks."
@@ -664,7 +664,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Bulging Disc",
         slug: "bulging-disc",
         tag: "Spine",
-        subtitle: "Managing Spinal Disc Protrusion",
+        subtitle: "Care for spinal discs that weaken and extend beyond their normal boundary, pressing on nearby nerve roots and causing back or neck pain with radiating symptoms.",
         overview: {
             heading: "What is a Bulging Disc?",
             body: "A bulging disc occurs when a spinal disc weakens and extends beyond its normal boundary, often due to age-related wear. This protrusion can press on nearby <strong>nerve roots</strong>, causing pain."
@@ -772,7 +772,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Disc Tear",
         slug: "disc-tear",
         tag: "Spine",
-        subtitle: "Managing Annular Tears and Chemical Inflammation",
+        subtitle: "Diagnosis and treatment for annular tears - rips in the tough outer ring of a spinal disc that can cause sharp, localized pain even without a full herniation.",
         overview: {
             heading: "What is a Disc Tear?",
             body: "A disc tear, also known as an <strong>annular tear</strong>, is a rip in the tough outer ring of a spinal disc. This can trigger sharp, localized pain even without a full herniation."
@@ -826,7 +826,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Facet Joint Disease",
         slug: "facet-joint-disease",
         tag: "Spine",
-        subtitle: "Relief for Spinal Arthritis and Joint Pain",
+        subtitle: "Care for facet arthropathy, a form of spinal arthritis in which the small joints linking the vertebrae become inflamed or worn, causing localized back or neck pain.",
         overview: {
             heading: "What is Facet Joint Disease?",
             body: "Facet joint disease, or <strong>facet arthropathy</strong>, occurs when the small stabilizing joints linking your vertebrae become inflamed or worn down. This is a common form of spinal arthritis."
@@ -881,7 +881,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Lower Back Pain",
         slug: "lower-back-pain",
         tag: "Lower Spine",
-        subtitle: "Lumbar-focused diagnosis for pain across the beltline, buttocks, hips, or legs.",
+        subtitle: "Lumbar-focused diagnosis for pain across the beltline, buttocks, hips, or legs - identifying whether muscles, discs, joints, or nerves are the true source.",
         overview: {
             heading: "Managing Your Lower Back Pain",
             body: "Lower back pain starts in the lumbar spine, but the cause may be muscular, joint-related, disc-related, nerve-related, or pelvic. The same area of pain can reflect a simple strain, <strong>degenerative disc disease</strong>, lumbar facet arthritis, sacroiliac joint dysfunction, <strong>herniated disc</strong>, spinal stenosis, or instability such as spondylolisthesis."
@@ -937,7 +937,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Sciatica",
         slug: "sciatica",
         tag: "Lower Spine",
-        subtitle: "Diagnosis and treatment for sciatic nerve pain caused by lumbar nerve irritation.",
+        subtitle: "Care for sciatic nerve pain that radiates from the lower back into the leg, most often from a herniated disc or spinal stenosis irritating a lumbar nerve root.",
         overview: {
             heading: "What is Sciatica?",
             body: "Sciatica describes pain that travels from the lower back or buttock into the leg along the sciatic nerve pathway. It is usually caused by irritation of one or more lumbar nerve roots, most often from a <strong>herniated disc</strong>, spinal stenosis, foraminal narrowing, or spondylolisthesis."
@@ -993,7 +993,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Coccydynia",
         slug: "coccydynia",
         tag: "Lower Spine",
-        subtitle: "Tailbone Pain Relief and Management",
+        subtitle: "Diagnosis and treatment for tailbone pain that makes sitting difficult, caused by inflammation or injury of the coccyx at the base of the spine.",
         overview: {
             heading: "What is Coccydynia?",
             body: "Coccydynia is pain and inflammation in the <strong>coccyx</strong>, or tailbone, located at the bottom of the spine. It can make sitting painful and difficult for many patients."
@@ -1047,7 +1047,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Failed Back Surgery Syndrome",
         slug: "failed-back-surgery-syndrome",
         tag: "Spine",
-        subtitle: "Expert Solutions for Persistent Post-Operative Pain",
+        subtitle: "Evaluation for persistent or worsening pain after spine surgery, identifying why the first procedure fell short and which treatment options remain.",
         overview: {
             heading: "What is Failed Back Surgery Syndrome (FBSS)?",
             body: "Failed Back Surgery Syndrome (FBSS) describes persistent or worsening pain and functional limitations after a spinal procedure intended to provide relief."
@@ -1101,7 +1101,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Foraminal Stenosis",
         slug: "foraminal-stenosis",
         tag: "Spine",
-        subtitle: "Relieving Pinched Nerves in the Spinal Openings",
+        subtitle: "Care for narrowing of the foramina - the openings where nerve roots exit the spine - which can pinch nerves and cause radiating pain, numbness, or weakness.",
         overview: {
             heading: "What is Foraminal Stenosis?",
             body: "Foraminal stenosis is the narrowing of the small openings (foramina) through which nerve roots exit the spinal canal. This narrowing can 'pinch' the nerves and cause radiating symptoms."
@@ -1155,7 +1155,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Neck Pain",
         slug: "neck-pain",
         tag: "Neck",
-        subtitle: "Solutions for Cervical Stiffness and Radiating Pain",
+        subtitle: "Evaluation and treatment for cervical pain, from simple muscle strain to disc and nerve problems that cause stiffness, headaches, or radiating arm symptoms.",
         overview: {
             heading: "Understanding Your Neck Pain",
             body: "Neck pain (cervical pain) is highly common due to the neck's extensive range of motion and constant support of the head's weight. It can range from simple strain to complex nerve issues."
@@ -1210,7 +1210,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Spinal Bone Spurs",
         slug: "spinal-bone-spurs",
         tag: "Spine",
-        subtitle: "Managing Osteophytes and Nerve Irritation",
+        subtitle: "Care for osteophytes - bony growths along the vertebrae from joint degeneration - that can narrow nerve passages and cause pain, stiffness, or numbness.",
         overview: {
             heading: "What are Spinal Bone Spurs?",
             body: "Spinal bone spurs (osteophytes) are bony growths that develop along the vertebrae, typically due to the joint degeneration seen in <strong>osteoarthritis</strong>."
@@ -1264,7 +1264,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Spinal Stenosis",
         slug: "spinal-stenosis",
         tag: "Spine",
-        subtitle: "Relief for Narrowing of the Spinal Canal",
+        subtitle: "Diagnosis and treatment for narrowing of the spinal canal that compresses the spinal cord or nerves, most often in the neck or lower back with age.",
         overview: {
             heading: "What is Spinal Stenosis?",
             body: "Spinal stenosis is a narrowing of the spinal canal that can compress the spinal cord and nerves, typically occurring in the neck or lower back due to age-related changes."
@@ -1319,7 +1319,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         title: "Herniated Disc",
         slug: "herniated-disc",
         tag: "Spine",
-        subtitle: "Disc-focused care for neck or back pain with radiating arm or leg symptoms.",
+        subtitle: "Disc-focused care for neck or back pain with radiating arm or leg symptoms, caused by inner disc material pressing on a cervical or lumbar nerve root.",
         overview: {
             heading: "What is a Herniated Disc?",
             body: "A herniated disc occurs when inner disc material pushes through a weakened outer ring and irritates nearby nerves. It is more specific than a bulging disc: a herniation can form a focal protrusion or fragment that compresses a cervical or lumbar <strong>nerve root</strong>, causing arm pain, sciatica, numbness, or weakness."
@@ -1377,7 +1377,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         tag: "Spine",
         additionalTags: ["Lower Spine"],
         categories: ["pain-management"],
-        subtitle: "Expert Care for Narrowing of the Lower Spinal Canal",
+        subtitle: "Care for narrowing of the lower spinal canal that presses on the nerves to the legs, causing pain or heaviness with standing and walking, most common after 50.",
         overview: {
             heading: "What is Lumbar Spinal Stenosis?",
             body: "Lumbar spinal stenosis is the narrowing of the spinal canal in the lower back, which puts pressure on the nerves that travel to your legs. This is most common in adults over age 50."
@@ -1434,7 +1434,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         tag: "Neck",
         additionalTags: ["Spine"],
         categories: ["pain-management"],
-        subtitle: "Whiplash Injury Evaluation and Treatment After Accidents",
+        subtitle: "Evaluation and treatment for neck sprain-strain injuries after auto collisions, falls, or sports impacts affecting muscles, ligaments, facet joints, and discs.",
         overview: {
             heading: "What Is a Whiplash Injury?",
             body: "A whiplash injury is a neck sprain-strain pattern caused by sudden acceleration and deceleration, most often after a rear-end auto collision, side-impact crash, fall, or sports impact. The force can irritate cervical muscles, ligaments, facet joints, discs, and nerve roots, which is why a careful orthopedic evaluation matters when pain persists or neurological symptoms appear."
@@ -6310,7 +6310,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--shoulder-instability--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--shoulder-instability--thumbnail.png",
         body: "Shoulder instability occurs when the shoulder joint is loose or slips out of place, causing pain, weakness, and a feeling that the shoulder may dislocate.",
-        detail: "<strong>Shoulder instability</strong> is a condition where the shoulder joint is loose or unstable, causing the humeral head (ball) to move excessively within the glenoid socket. This can result from a traumatic dislocation, repetitive overhead activities, or congenital laxity. Instability can be unidirectional (typically anterior, where the shoulder dislocates forward) or multidirectional (loose in multiple directions). At Mountain Spine & Orthopedics, our shoulder specialists understand that instability can significantly impact daily activities and sports performance. We use comprehensive evaluation including physical examination, advanced imaging, and diagnostic tests to determine the type and severity of instability and develop a personalized treatment plan.<br/><br/>Traumatic instability typically occurs after a shoulder dislocation, often damaging the <a href=\"/conditions/labral-tear-shoulder\" class=\"text-blue-600 hover:underline\">labrum</a> (Bankart lesion) or stretching the joint capsule. Atraumatic or multidirectional instability often results from loose ligaments or muscle imbalances. Early diagnosis and treatment are essential to prevent recurrent dislocations and progressive joint damage.",
+        detail: "<strong>Shoulder instability</strong> is a condition where the shoulder joint is loose or unstable, causing the humeral head (ball) to move excessively within the glenoid socket. This can result from a traumatic dislocation, repetitive overhead activities, or congenital laxity. Instability can be unidirectional (typically anterior, where the shoulder dislocates forward) or multidirectional (loose in multiple directions).</p><p>At Mountain Spine & Orthopedics, our shoulder specialists understand that instability can significantly impact daily activities and sports performance. We use comprehensive evaluation including physical examination, advanced imaging, and diagnostic tests to determine the type and severity of instability and develop a personalized treatment plan.<br/><br/>Traumatic instability typically occurs after a shoulder dislocation, often damaging the <a href=\"/conditions/labral-tear-shoulder\" class=\"text-blue-600 hover:underline\">labrum</a> (Bankart lesion) or stretching the joint capsule. Atraumatic or multidirectional instability often results from loose ligaments or muscle imbalances. Early diagnosis and treatment are essential to prevent recurrent dislocations and progressive joint damage.",
         what_sym: "Patients with shoulder instability typically experience <strong>a feeling that the shoulder may slip out of place</strong> or dislocate, especially with overhead activities or throwing. <strong>Pain</strong> is common, especially after a dislocation or with activities that stress the shoulder. Many patients notice <strong>weakness</strong> or apprehension when moving the arm into certain positions. Some individuals experience <strong>recurrent dislocations</strong> or subluxations (partial dislocations).",
         risk_fac:
             "Risk factors include previous shoulder dislocation, participation in overhead or contact sports, congenital ligament laxity, repetitive overhead activities, previous shoulder injury, and certain connective tissue disorders.",
@@ -6872,7 +6872,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal fusion for scoliosis",
         ],
         metaTitle: "Adult Spinal Deformity: Scoliosis, Kyphosis & Correction Options | Mountain Spine",
-        metaDesc: "Adult spinal deformity includes scoliosis, kyphosis, and sagittal imbalance causing chronic pain and nerve compression. Our spine surgeons offer advanced deformity correction. PPO Insurance Accepted.",
+        metaDesc: "Adult spinal deformity - scoliosis, kyphosis, and sagittal imbalance - causing chronic pain and nerve compression. Advanced deformity correction. PPO accepted.",
     },
     {
         title: "Synovitis",

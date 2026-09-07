@@ -13,7 +13,7 @@ const DATE_MODIFIED  = '2026-04-03';
 const META_TITLE =
   'Orthopedic Injections & Cortisone Shots Near Me | Mountain Spine & Orthopedics';
 const META_DESCRIPTION =
-  'Board-certified orthopedic specialists offering cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections for back, neck, knee and shoulder pain. 23 locations across FL, NJ, NY, PA & GA. PPO insurance accepted — same-week appointments, no referral needed.';
+  'Cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections for back, neck, knee and shoulder pain. 23 locations. PPO accepted.';
 
 export const metadata: Metadata = {
   title: META_TITLE,

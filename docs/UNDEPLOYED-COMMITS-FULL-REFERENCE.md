@@ -874,11 +874,19 @@ isolated case:
 
 | Condition data format | Records | Supports `additionalSections`/`h1`/`reviewedAt` |
 |---|---|---|
-| `ConditionContent` (new) | 181 | yes |
-| In both arrays | 27 | via their `ConditionContent` twin (the router prefers it) |
-| **`ConditionInfoProp` legacy-ONLY** | **85** | **no — migration required first** |
+| `ConditionContent` (new) | 24 | yes |
+| In both arrays | 22 | via their `ConditionContent` twin (the router prefers it) |
+| **`ConditionInfoProp` legacy-ONLY** | **90** | **no — migration required first** |
 
-**85 of 239 unique condition slugs (36%) cannot receive any differentiation machinery**
+> **Corrected 2026-09-06.** The first edition of this table said 181 new-format / 85
+> legacy-only. That count was produced by a regex that also matched the nested `slug:`
+> fields inside each record's `internalLinks` and `surgeryOption` objects. A
+> record-boundary parse gives the real split: **only 24 conditions are new-format**
+> (the spine cluster), 112 records are legacy, 22 exist in both (router prefers new),
+> 90 are legacy-only, and ~11 body-part hub pages render from `BODY_PARTS`. The
+> migration debt is therefore substantially LARGER than first documented.
+
+**90 of ~114 unique condition slugs (79%) cannot receive any differentiation machinery**
 until migrated. They are concentrated in exactly the joint and extremity conditions the
 arthroscopy cluster and the injections LPs build toward: `knee-arthritis`,
 `rotator-cuff-tear`, `hip-labral-tear`, `frozen-shoulder`, `carpal-tunnel-syndrome`,

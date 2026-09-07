@@ -272,7 +272,7 @@ function AdditionalSections({
               fontFamily: "var(--font-inter)",
               fontWeight: 400,
             }}
-            className="text-[#424959] sm:text-xl text-sm space-y-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+            className="rich-prose text-[#424959] sm:text-xl text-sm space-y-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
             dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(section.body, currentSlug) }}
           />
         </div>
@@ -381,7 +381,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                 {isNewFormat ? (
                   <div
                     style={{ fontWeight: 400 }}
-                    className="text-[#424959] sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    className="rich-prose text-[#424959] sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                     dangerouslySetInnerHTML={{
                       __html: processTextWithBoldAndLinks(
                         conditionContent!.subtitle ||
@@ -393,7 +393,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                 ) : (
                   <div
                     style={{ fontWeight: 400 }}
-                    className="text-[#424959] sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    className="rich-prose text-[#424959] sm:text-lg text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                     dangerouslySetInnerHTML={{
                       __html: processTextWithBoldAndLinks(condition_details!.body, condition_details!.slug)
                     }}
@@ -469,7 +469,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       fontFamily: "var(--font-inter)",
                       fontWeight: 400,
                     }}
-                    className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                     dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.detailedOverview || conditionContent!.overview.body, conditionContent!.slug) }}
                   />
                 </div>
@@ -494,7 +494,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       fontFamily: "var(--font-inter)",
                       fontWeight: 400,
                     }}
-                    className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                     dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.symptoms.intro, conditionContent!.slug) }}
                   />
                   <ul className="list-disc pl-5 space-y-2">
@@ -505,7 +505,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                           fontFamily: "var(--font-inter)",
                           fontWeight: 400,
                         }}
-                        className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                        className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                         dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(symptom, conditionContent!.slug) }}
                       />
                     ))}
@@ -548,7 +548,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       fontFamily: "var(--font-inter)",
                       fontWeight: 400,
                     }}
-                    className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                     dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.causes.body, conditionContent!.slug) }}
                   />
                 </div>
@@ -585,7 +585,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       fontFamily: "var(--font-inter)",
                       fontWeight: 400,
                     }}
-                    className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                    className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                     dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.conservativeCare.body, conditionContent!.slug) }}
                   />
                   <ul className="list-disc pl-5 space-y-2">
@@ -596,7 +596,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                           fontFamily: "var(--font-inter)",
                           fontWeight: 400,
                         }}
-                        className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                        className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                         dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(method, conditionContent!.slug) }}
                       />
                     ))}
@@ -624,7 +624,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                         fontFamily: "var(--font-inter)",
                         fontWeight: 400,
                       }}
-                      className="text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                      className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.surgeryOption.description, conditionContent!.slug) }}
                     />
                     <Link 

@@ -46,6 +46,17 @@ export function processTextWithBoldAndLinks(text: string, currentSlug: string): 
 
   let processed = stripPhysicalTherapy(text);
 
+  // Records that store paragraphs as raw newlines (rather than <p> markup)
+  // rendered as one blob, because innerHTML collapses whitespace. Convert
+  // explicit newlines to visual breaks - but only for plain-text records;
+  // texts that already carry block markup manage their own spacing.
+  if (!/<(p|br|ul|ol|div|h\d)\b/i.test(processed)) {
+    processed = processed
+      .replace(/\n{2,}/g, '<br /><br />')
+      .replace(/\n/g, '<br /><br />');
+  }
+
+
   // **bold** -> <strong>, applied before link detection so markdown nested
   // inside an existing anchor is still converted.
   processed = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');

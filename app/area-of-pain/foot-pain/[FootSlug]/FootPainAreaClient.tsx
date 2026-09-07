@@ -139,7 +139,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
       
       {/* FAQ JSON-LD Script */}
       {faqs.length > 0 && (
-        <Script 
+        <Script className="rich-prose" 
           id={`faq-${condition_details.slug}`} 
           type="application/ld+json" 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} 
@@ -307,7 +307,7 @@ export function FootPainAreaClient({ condition_details, randomDoctors, specialty
                     renders text, so those tags printed literally on every
                     area-of-pain page. No detail string contains a phone
                     number, so nothing tracked is lost by rendering it as HTML. */}
-                <span
+                <span className="rich-prose"
                   dangerouslySetInnerHTML={{
                     __html: processTextWithBoldAndLinks(
                       condition_details?.detail ?? '',

@@ -202,7 +202,7 @@ function renderField(field: any, currentSlug: string) {
   if (!field) return null;
   if (typeof field === 'string') {
     return (
-      <div
+      <div className="rich-prose"
         dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(field, currentSlug) }}
       />
     );
@@ -262,7 +262,7 @@ function AdditionalSections({
               fontFamily: "var(--font-inter)",
               fontWeight: 400,
             }}
-            className="text-[#424959] sm:text-xl text-sm space-y-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+            className="rich-prose text-[#424959] sm:text-xl text-sm space-y-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
             dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(section.body, currentSlug) }}
           />
         </div>
@@ -441,7 +441,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                         fontFamily: 'var(--font-inter)',
                         fontWeight: 400,
                       }}
-                      className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                      className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatmentContent.overview.body, treatmentContent.slug) }}
                     />
                   </div>
@@ -516,7 +516,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             fontFamily: 'var(--font-inter)',
                             fontWeight: 400,
                           }}
-                          className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                          className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                           dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(candidate, treatmentContent.slug) }}
                         />
                       ))}
@@ -636,7 +636,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             fontFamily: 'var(--font-inter)',
                             fontWeight: 400,
                           }}
-                          className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                          className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                           dangerouslySetInnerHTML={{ __html: processNumberedListStep(step, treatmentContent.slug) }}
                         />
                       ))}
@@ -664,7 +664,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             fontFamily: 'var(--font-inter)',
                             fontWeight: 400,
                           }}
-                          className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                          className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                           dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(benefit, treatmentContent.slug) }}
                         />
                       ))}
@@ -700,7 +700,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                         fontFamily: 'var(--font-inter)',
                         fontWeight: 400,
                       }}
-                      className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                      className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatmentContent.recovery.details, treatmentContent.slug) }}
                     />
                   </div>
@@ -793,7 +793,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                         fontFamily: 'var(--font-inter)',
                         fontWeight: 400,
                       }}
-                      className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                      className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatmentContent.schedule, treatmentContent.slug) }}
                     />
                   )}
@@ -1017,7 +1017,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                     >
                       {typeof treatment.benefits === 'string' ? (
                         treatment.benefits.trim().startsWith('<ul>') || treatment.benefits.includes('</li>') ? (
-                          <div className="[&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:list-item" dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatment.benefits, treatment.slug) }} />
+                          <div className="rich-prose [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:list-item" dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatment.benefits, treatment.slug) }} />
                         ) : (
                           <ul className="list-disc pl-5 space-y-2">
                             {treatment.benefits
@@ -1025,7 +1025,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                               .map((line: string) => line.trim())
                               .filter(Boolean)
                               .map((line: string, index: number) => (
-                                <li key={index} dangerouslySetInnerHTML={{ __html: linkifyText(line, treatment.slug) }} />
+                                <li className="rich-prose" key={index} dangerouslySetInnerHTML={{ __html: linkifyText(line, treatment.slug) }} />
                               ))}
                           </ul>
                         )

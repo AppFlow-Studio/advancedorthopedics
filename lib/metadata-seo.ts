@@ -22,7 +22,7 @@ export interface SEOMetadata {
 export const conditionMetadata: Record<string, SEOMetadata> = {
   "adult-degenerative-scoliosis": {
     metaTitle: "Degenerative Scoliosis: Adult Treatment & Surgical Options | Mountain Spine",
-    metaDescription: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Board-certified surgeons at Mountain Spine evaluate surgical and non-surgical options. PPO Insurance Accepted."
+    metaDescription: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Surgical and non-surgical evaluation. PPO accepted."
   },
   "adjacent-segment-disease": {
     metaTitle: "Adjacent Segment Disease – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -186,7 +186,7 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
   },
   "spine-deformities": {
     metaTitle: "Adult Spinal Deformity: Scoliosis, Kyphosis & Correction Options | Mountain Spine",
-    metaDescription: "Adult spinal deformity includes scoliosis, kyphosis, and sagittal imbalance causing chronic pain and nerve compression. Our spine surgeons offer advanced deformity correction. PPO Insurance Accepted."
+    metaDescription: "Adult spinal deformity - scoliosis, kyphosis, and sagittal imbalance - causing chronic pain and nerve compression. Advanced deformity correction. PPO accepted."
   },
   "synovitis": {
     metaTitle: "Synovitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
@@ -252,11 +252,11 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
 export const treatmentMetadata: Record<string, SEOMetadata> = {
   "revision-spinal-surgery": {
     metaTitle: "Revision Spine Surgery: Failed Back Surgery Solutions | Mountain Spine",
-    metaDescription: "Revision spine surgery addresses failed prior procedures, adjacent segment disease, and progressive deformity. Expert complex spine surgeons in Florida. PPO Insurance Accepted."
+    metaDescription: "Revision spine surgery for failed prior procedures, adjacent segment disease, and progressive deformity. Complex spine surgeons. PPO accepted."
   },
   "multilevel-degenerative-disc-disease-surgery": {
     metaTitle: "Multilevel Spinal Fusion Surgery | Mountain Spine & Orthopedics",
-    metaDescription: "Multilevel spine surgery addresses degenerative disc disease and scoliosis spanning multiple vertebral levels. Complex spine specialists in Florida. PPO Insurance Accepted."
+    metaDescription: "Multilevel spine surgery for degenerative disc disease and scoliosis spanning multiple vertebral levels. Complex spine specialists. PPO accepted."
   },
   "anterior-lumbar-corpectomy-and-fusion": {
     metaTitle: "Anterior Lumbar Corpectomy & Fusion – Procedure & Recovery | Spine & Orthopedic Specialists",
@@ -280,7 +280,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
   },
   "understanding-tlif-surgery": {
     metaTitle: "TLIF Surgery: Transforaminal Lumbar Interbody Fusion | Mountain Spine",
-    metaDescription: "TLIF surgery fuses damaged lumbar vertebrae through a posterior approach, relieving disc pain, nerve compression, and spinal instability. Board-certified spine surgeons. PPO Insurance Accepted."
+    metaDescription: "TLIF surgery fuses damaged lumbar vertebrae through a posterior approach, relieving disc pain, nerve compression, and instability. PPO accepted."
   },
   "posterior-cervical-fusion-with-instrumentation-surgery": {
     metaTitle: "Posterior Cervical Fusion – Procedure & Recovery | Spine & Orthopedic Specialists",
@@ -442,13 +442,17 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaTitle: "ACL Reconstruction Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
     metaDescription: "Learn how ACL reconstruction works, graft options, and recovery expectations. Expert orthopedic knee surgery for athletes and active patients."
   },
+  "core-decompression": {
+    metaTitle: "Core Decompression for Avascular Necrosis | Mountain Spine",
+    metaDescription: "How core decompression treats early avascular necrosis by relieving bone pressure, who may be a candidate, and what recovery involves. PPO accepted."
+  },
   "epidural-steroid-injection": {
     metaTitle: "Epidural Steroid Injection | Non-Surgical Spine Pain Relief",
     metaDescription: "Learn how epidural steroid injections help reduce spine inflammation and pain. Non-surgical treatment for herniated discs and spinal stenosis."
   },
   "extreme-lateral-interbody-fusion-surgery": {
     metaTitle: "XLIF Surgery: Extreme Lateral Interbody Fusion | Mountain Spine",
-    metaDescription: "XLIF surgery approaches the thoracolumbar spine from the side, minimizing posterior muscle disruption. Ideal for adult scoliosis and multilevel lumbar fusion. PPO Insurance Accepted."
+    metaDescription: "XLIF surgery approaches the thoracolumbar spine from the side, minimizing posterior muscle disruption. Used for scoliosis and multilevel fusion. PPO accepted."
   },
   "facet-ablation-rhizotomy-treatment": {
     metaTitle: "Facet Ablation (Rhizotomy) | Non-Surgical Spine Pain Relief",
@@ -476,7 +480,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
   },
   "oblique-lumbar-interbody-fusion": {
     metaTitle: "OLIF Surgery: Oblique Lumbar Interbody Fusion | Mountain Spine",
-    metaDescription: "OLIF approaches the lumbar spine obliquely from the side, preserving posterior structures. Ideal for multilevel scoliosis correction and degenerative disc disease. PPO Insurance Accepted."
+    metaDescription: "OLIF approaches the lumbar spine obliquely from the side, preserving posterior structures. Used for scoliosis and degenerative disc disease. PPO accepted."
   },
   "percutaneous-carpal-tunnel-release": {
     metaTitle: "Percutaneous Carpal Tunnel Release – Minimally Invasive Option | Orthopedic Specialists",
