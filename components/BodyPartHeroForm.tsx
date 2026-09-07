@@ -22,12 +22,19 @@ interface BodyPartHeroFormProps {
   formSource?: FormSource;
   /** Overrides the default `${bodyPartTitle} Body Part Page` source label. */
   sourceLabel?: string;
+  /**
+   * Namespaces the two file-input ids so a page can mount this form twice
+   * (e.g. the LP hero card plus its desktop popover) without duplicate ids
+   * breaking the label-for associations.
+   */
+  idSuffix?: string;
 }
 
 export default function BodyPartHeroForm({
   bodyPartTitle,
   formSource = 'body-part-consultation',
   sourceLabel,
+  idSuffix = '',
 }: BodyPartHeroFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -517,7 +524,7 @@ export default function BodyPartHeroForm({
                     <span className="text-xs text-gray-500 font-normal">(Optional)</span>
                   </label>
                   <label
-                    htmlFor="insurance-front-bodypart"
+                    htmlFor={`insurance-front-bodypart${idSuffix}`}
                     className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
                   >
                     <input
@@ -525,7 +532,7 @@ export default function BodyPartHeroForm({
                       accept="image/*,.pdf"
                       onChange={(e) => setFormData({ ...formData, insuranceCardFront: e.target.files?.[0] || null })}
                       className="hidden"
-                      id="insurance-front-bodypart"
+                      id={`insurance-front-bodypart${idSuffix}`}
                     />
                     <FileImage className="w-6 h-6 mb-1 text-[#838890]" />
                     <p className="text-xs text-[#111315]">
@@ -547,7 +554,7 @@ export default function BodyPartHeroForm({
                     <span className="text-xs text-gray-500 font-normal">(Optional)</span>
                   </label>
                   <label
-                    htmlFor="insurance-back-bodypart"
+                    htmlFor={`insurance-back-bodypart${idSuffix}`}
                     className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
                   >
                     <input
@@ -555,7 +562,7 @@ export default function BodyPartHeroForm({
                       accept="image/*,.pdf"
                       onChange={(e) => setFormData({ ...formData, insuranceCardBack: e.target.files?.[0] || null })}
                       className="hidden"
-                      id="insurance-back-bodypart"
+                      id={`insurance-back-bodypart${idSuffix}`}
                     />
                     <FileImage className="w-6 h-6 mb-1 text-[#838890]" />
                     <p className="text-xs text-[#111315]">

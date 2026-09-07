@@ -206,6 +206,58 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* Desktop evaluation popup — native Popover API, zero JS              */
+/* ------------------------------------------------------------------ */
+
+/* On desktop the hero form is already beside the CTA, so an anchor jump to
+   it looks like a dead click. Popover-capable browsers (Chrome 114+,
+   Safari 17+, Firefox 125+) swap the desktop CTAs for popup triggers; the
+   anchors stay for mobile (where the form genuinely is further down) and
+   for the small remainder of desktop browsers without the API. */
+.lp-cta-popover { display: none; }
+@supports selector(:popover-open) {
+  @media (min-width: 1024px) {
+    .lp-cta-anchor { display: none !important; }
+    .lp-cta-popover { display: inline-flex; cursor: pointer; }
+  }
+}
+
+/* display:none by default so browsers WITHOUT the Popover API (where the
+   popover attribute is inert and the element would otherwise sit visible in
+   normal flow) never show the panel. */
+.lp-eval-popover { display: none; }
+@supports selector(:popover-open) {
+  .lp-eval-popover:popover-open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(400px, calc(100vw - 32px));
+    height: fit-content;
+    max-height: min(92dvh, 740px);
+    overflow-y: auto;
+    border: 0;
+    padding: 6px; /* keeps the close button's overhang inside the popover box */
+    background: transparent;
+    overscroll-behavior: contain;
+    animation: lp-popover-in 0.28s cubic-bezier(0.21, 0.9, 0.35, 1);
+  }
+  .lp-eval-popover::backdrop {
+    background: rgba(17, 19, 21, 0.5);
+    backdrop-filter: blur(3px);
+    animation: lp-backdrop-in 0.28s ease;
+  }
+}
+@keyframes lp-popover-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes lp-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ------------------------------------------------------------------ */
 /* Accessibility: one switch turns the whole layer off                 */
 /* ------------------------------------------------------------------ */
 
@@ -220,7 +272,9 @@
   .lp-beam::before,
   .lp-btn-shine::after,
   .lp-btn-pulse,
-  .lp-gradient-text {
+  .lp-gradient-text,
+  .lp-eval-popover,
+  .lp-eval-popover::backdrop {
     animation: none !important;
     transition: none !important;
   }
