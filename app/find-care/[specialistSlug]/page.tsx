@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import DoctorCard from "@/components/DoctorCard";
@@ -156,6 +157,14 @@ export default async function SpecialistPage({
           style={{ filter: "blur(30px)" }}
           className="w-full h-[120px] absolute top-0 z-[1]"
         />
+        <Image
+          src="/herosectionimg.jpg"
+          priority
+          fetchPriority="high"
+          fill
+          className="h-full absolute top-0 object-cover object-center md:object-center w-full"
+          alt={`${page.conditionName} specialist consultation at Mountain Spine & Orthopedics`}
+        />
         <div
           className="w-full h-full absolute left-0 top-0"
           style={{
@@ -311,17 +320,13 @@ export default async function SpecialistPage({
         </div>
         {page.relatedTreatmentSlugs?.length ? (
           <div className="flex flex-wrap gap-4">
-            {page.relatedTreatmentSlugs.map((slug, index) => (
+            {page.relatedTreatmentSlugs.map((slug) => (
               <Link
                 key={slug}
                 href={`/treatments/${slug}`}
                 className="text-[#0A50EC] underline"
               >
-                {index === 0
-                  ? `Learn about an injection option for ${page.conditionName.toLowerCase()}`
-                  : index === 1
-                    ? `Review a decompression option for ${page.conditionName.toLowerCase()}`
-                    : `Understand when stabilization may be considered`}
+                Learn about {slug.replace(/-/g, " ")}
               </Link>
             ))}
           </div>
