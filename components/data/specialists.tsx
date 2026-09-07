@@ -72,7 +72,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "Persistent back, neck, or nerve symptoms can make it difficult to know which kind of doctor to see. A Mountain Spine & Orthopedics spine specialist evaluates your symptoms, examination findings, and available imaging together before recommending next steps. Our physicians provide both non-surgical and surgical perspectives across Florida, New Jersey, New York, Pennsylvania, and Georgia, with same-day callbacks and same-day to same-week appointments often available.",
     conditionName: "Spine Conditions",
-    relatedConditionSlug: "lower-back-pain",
+    relatedConditionSlug: "spine-deformities",
     relatedTreatmentSlugs: [
       "epidural-steroid-injection",
       "lumbar-decompression",
