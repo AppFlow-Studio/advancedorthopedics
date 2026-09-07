@@ -27,7 +27,8 @@ const config: InjectionsLpConfig = {
   h1: 'Cortisone Injection Treatment',
   heroIntro:
     'Cortisone calms inflammation — but only if it is placed where the inflammation actually is. Our physicians examine you and your imaging first, then place the injection at the spine level, joint, or bursa your evaluation implicates.',
-  formBodyPartTitle: 'Pain',
+  // 'Pain' would render as "Experiencing Pain Pain?" in the form header.
+  formBodyPartTitle: 'Joint or Back',
   sourceLabel: 'Cortisone Injections Paid Landing Page',
   domains: ['pain-management', 'spine', 'knee-hip'],
   trustPoints: [

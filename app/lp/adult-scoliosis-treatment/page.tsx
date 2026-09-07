@@ -8,6 +8,11 @@ import { selectRelevantProviders } from '@/lib/providers/providerRelevance';
 import { clinics } from '@/components/data/clinics';
 import { STATE_METADATA, VALID_STATE_SLUGS } from '@/lib/locationRedirects';
 import { MAIN_PHONE_DISPLAY, MAIN_PHONE_HREF } from '@/lib/locationConstants';
+import {
+  AVERAGE_RATING,
+  RATED_LOCATION_COUNT,
+  TOTAL_REVIEW_COUNT,
+} from '@/components/data/reviewAggregate.generated';
 import '../lp-animations.css';
 
 /**
@@ -135,7 +140,7 @@ export default function AdultScoliosisPaidLandingPage() {
           }}
         />
 
-        <div className="relative z-[2] max-w-[1440px] mx-auto w-full px-6 xl:px-[80px] pt-[112px] lg:pt-[220px] pb-12">
+        <div className="relative z-[2] max-w-[1440px] mx-auto w-full px-6 xl:px-[80px] pt-[112px] lg:pt-[140px] pb-12">
           <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-12">
             {/* Left: proposition */}
             <div className="flex-1 flex flex-col">
@@ -193,7 +198,26 @@ export default function AdultScoliosisPaidLandingPage() {
                   Call {MAIN_PHONE_DISPLAY}
                 </a>
               </div>
-              <ul className="mt-7 flex flex-col gap-3 max-w-[560px]">
+              {/* Social proof in the fold — figures sourced from
+                  reviewAggregate.generated (traceable to GBP listing data). */}
+              <div className="mt-5 flex items-center gap-2.5">
+                <span className="flex gap-[2px]" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <svg key={i} width="18" height="18" viewBox="0 0 20 20" fill="#F5A623">
+                      <path d="M10 1.5l2.47 5.29 5.78.62-4.3 3.9 1.17 5.69L10 14.1 4.88 17l1.17-5.69-4.3-3.9 5.78-.62L10 1.5z" />
+                    </svg>
+                  ))}
+                </span>
+                <span
+                  style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
+                  className="text-[#252932] text-sm sm:text-base"
+                >
+                  <strong className="font-semibold">{AVERAGE_RATING.toFixed(1)}</strong> across{' '}
+                  {TOTAL_REVIEW_COUNT}+ Google reviews at {RATED_LOCATION_COUNT} locations
+                </span>
+              </div>
+
+              <ul className="mt-5 flex flex-col gap-2.5 max-w-[560px]">
                 {TRUST_POINTS.map((point) => (
                   <li key={point.label} className="flex items-start gap-3">
                     <svg
