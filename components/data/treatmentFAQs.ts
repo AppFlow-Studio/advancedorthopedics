@@ -2378,7 +2378,237 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       question: "How much does adult scoliosis surgery cost?",
       answer: "Cost varies too widely for a single figure to be honest, because it tracks the size of the operation rather than the diagnosis. The main drivers are <strong>how many levels are treated</strong>, <strong>which approaches are used</strong> (a limited decompression and short fusion versus a multi-level reconstruction), the implants required, the length of the hospital stay, and whether the procedure is staged. Anyone quoting you a firm price before your imaging has been reviewed and a plan has been made is guessing. Our team can walk you through a personalised estimate once your surgical plan is defined - <a href=\"/find-care/book-an-appointment\">schedule a consultation</a> to start that conversation."
     }
-  ]
+  ],
+  // ankle-fracture-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "ankle-fracture-surgery": [
+    {
+      question: "Does every broken ankle need surgery?",
+      answer: "No. A stable fracture in a well-aligned ankle is often treated in a boot or cast with weight-bearing guided by follow-up X-rays. Surgery is recommended when the fracture is displaced, the ankle joint is unstable, or the <strong>syndesmosis</strong> - the ligament complex joining the tibia and fibula - has been disrupted, because a joint that heals out of position wears out early."
+    },
+    {
+      question: "What is actually done during ankle fracture surgery?",
+      answer: "The procedure is called <strong>open reduction and internal fixation (ORIF)</strong>: the broken pieces are realigned under direct vision and held with small plates and screws so the joint surface heals in the correct position. If the syndesmosis is unstable, it is fixed with a screw or a flexible suture-button device at the same time."
+    },
+    {
+      question: "When can I put weight on the ankle after surgery?",
+      answer: "Most patients are non-weight-bearing for roughly <strong>6 weeks</strong> while the bone unites, then progress into a walking boot as follow-up X-rays confirm healing. The exact timeline depends on the fracture pattern, the fixation, and bone quality, and is set at your follow-up visits rather than by the calendar."
+    },
+    {
+      question: "Will the plates and screws need to come out?",
+      answer: "Usually not - most hardware stays in permanently without causing problems. Removal is considered when a syndesmosis screw is due to come out, or when hardware over the bone irritates footwear or skin after everything has healed."
+    },
+    {
+      question: "How long does swelling last after ankle surgery?",
+      answer: "Longer than most patients expect: mild swelling at the end of a full day can persist for <strong>6 to 12 months</strong> after an ankle fracture. Elevation, compression, and a gradual return to activity manage it while the soft tissues remodel."
+    },
+  ],
+  // foot-fracture-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "foot-fracture-surgery": [
+    {
+      question: "Which foot fractures usually need surgery?",
+      answer: "Fractures that are displaced, involve a joint surface, or sit in zones with poor blood supply. Classic examples are a displaced <strong>Jones fracture</strong> of the fifth metatarsal, a <strong>Lisfranc injury</strong> of the midfoot, and displaced fractures of the great toe or heel bone - injuries where healing in the wrong position leads to arthritis or a foot that no longer bears weight evenly."
+    },
+    {
+      question: "What happens if a Lisfranc injury is missed or left alone?",
+      answer: "The midfoot joints it involves are the keystone of the arch. When a Lisfranc injury heals unstably, the arch can collapse and painful midfoot arthritis often follows - which is why even subtle cases are examined with weight-bearing X-rays and treated surgically when unstable."
+    },
+    {
+      question: "How is a foot fracture fixed?",
+      answer: "Depending on the bone and pattern: small screws or plates for metatarsal and midfoot fractures, screws or pins for toe fractures, and occasionally fusion of damaged joints in severe midfoot injuries. The goal is a foot that bears weight through its normal points of contact."
+    },
+    {
+      question: "How long until I can walk normally?",
+      answer: "A period of protected weight-bearing in a boot or cast - commonly <strong>6 to 10 weeks</strong> depending on the bone involved - followed by a staged return to regular shoes. High-impact activity waits until imaging confirms union and the foot tolerates single-leg load."
+    },
+    {
+      question: "What can slow a foot fracture's healing?",
+      answer: "Smoking, poorly controlled diabetes, and early unprotected weight-bearing are the main modifiable factors. Certain sites - the fifth metatarsal base and the navicular - also have naturally limited blood supply, which is exactly why fractures there are watched more closely and fixed more readily."
+    },
+  ],
+  // flat-foot-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "flat-foot-surgery": [
+    {
+      question: "When does a flat foot actually need surgery?",
+      answer: "When a symptomatic collapsed arch keeps hurting despite a genuine trial of conservative care - supportive shoes, custom orthotics, bracing, and activity changes. Surgery is a reconstruction, not a cosmetic correction: it is for pain and dysfunction, most often from a failing <strong>posterior tibial tendon</strong>, not for the shape of the foot alone."
+    },
+    {
+      question: "What does flat foot reconstruction involve?",
+      answer: "It is usually a combination procedure matched to the stage of the deformity: transferring a healthy tendon to replace the worn posterior tibial tendon, an <strong>osteotomy</strong> that shifts the heel bone back under the leg's axis, and sometimes a lateral column lengthening. Rigid, arthritic flatfeet are treated instead with selective fusion of the damaged joints."
+    },
+    {
+      question: "How long is recovery after flatfoot reconstruction?",
+      answer: "It is one of the longer foot recoveries: typically <strong>6 to 8 weeks</strong> without weight on the foot while the osteotomies and tendon transfer heal, then a boot and progressive loading. Most patients are in supportive shoes by around three months and continue gaining strength for a year."
+    },
+    {
+      question: "Will my arch look and work like a normal foot afterward?",
+      answer: "The goal is a foot that is plantigrade - flat on the ground, aligned under the leg, and comfortable to stand and walk on. The arch is improved as a consequence of realignment; chasing a cosmetic arch height at the cost of stiffness would be the wrong trade."
+    },
+    {
+      question: "What happens if a symptomatic flatfoot is left untreated?",
+      answer: "The deformity tends to progress: the tendon stretches further, the heel drifts outward, and what begins as a flexible, correctable foot can become a rigid one with arthritis - at which point joint-sparing reconstruction is no longer possible and fusion becomes the remaining option."
+    },
+  ],
+  // mortons-neuroma-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "mortons-neuroma-surgery": [
+    {
+      question: "What does Morton's neuroma surgery actually remove?",
+      answer: "The most common operation, a <strong>neurectomy</strong>, removes the thickened segment of the interdigital nerve between the metatarsal heads - usually between the third and fourth toes. An alternative for selected cases is decompression, which releases the ligament pressing on the nerve and leaves the nerve in place."
+    },
+    {
+      question: "Will part of my foot be numb afterward?",
+      answer: "After a neurectomy, yes - permanent numbness between the two affected toes is the expected trade for removing the painful nerve segment. Most patients consider that a good exchange for relief of the burning, walking-on-a-pebble pain, but it is a real trade-off worth understanding before choosing surgery."
+    },
+    {
+      question: "When is surgery considered instead of injections?",
+      answer: "After conservative care has had a fair trial: wider toe-box shoes, metatarsal padding or orthotics, and image-guided <strong>corticosteroid injections</strong>. Surgery is for neuromas that keep interfering with daily life despite those measures - not a first step."
+    },
+    {
+      question: "What is the recovery like?",
+      answer: "Most patients walk in a stiff-soled surgical shoe immediately or within days, transition to comfortable shoes over <strong>2 to 4 weeks</strong>, and return to impact activity around six weeks as swelling settles. It is one of the shorter foot-surgery recoveries."
+    },
+    {
+      question: "Can a neuroma come back after surgery?",
+      answer: "A cut nerve end can occasionally form a painful <strong>stump neuroma</strong>, which is the main reason recurrent symptoms appear after an initially successful operation. Careful surgical technique - cutting the nerve well back from the weight-bearing pad - is aimed specifically at reducing that risk."
+    },
+  ],
+  // plantar-fasciitis-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "plantar-fasciitis-surgery": [
+    {
+      question: "Why is surgery a last resort for plantar fasciitis?",
+      answer: "Because the large majority of cases settle without it, given time and consistent conservative care - calf and fascia stretching, heel padding or orthotics, activity modification, night splinting, and injections where appropriate. Surgery enters the conversation only after many months of genuinely persistent, function-limiting pain."
+    },
+    {
+      question: "What operations are used for stubborn plantar fasciitis?",
+      answer: "The two main options are a <strong>partial plantar fascia release</strong>, which divides a portion of the tight fascia at its heel attachment, and a <strong>gastrocnemius recession</strong>, which lengthens a tight calf muscle that overloads the fascia. Calf tightness is checked specifically, because when it is the driver, treating the calf addresses the cause rather than the symptom."
+    },
+    {
+      question: "Why is only part of the fascia released?",
+      answer: "The plantar fascia is a structural support of the arch. Releasing too much of it can let the arch sag and shift painful overload to the outer edge of the foot - so the release is deliberately partial, trading a small amount of tension for pain relief while preserving arch stability."
+    },
+    {
+      question: "What is recovery like after plantar fascia release?",
+      answer: "Early protected walking in a boot or surgical shoe, a return to regular shoes over a few weeks, and a gradual buildup of standing and walking tolerance over <strong>6 to 12 weeks</strong>. Soreness along the arch during that window is common while load redistributes."
+    },
+    {
+      question: "How do I know the pain is really plantar fasciitis before agreeing to surgery?",
+      answer: "The evaluation deliberately excludes the mimics: fat pad atrophy, a calcaneal <strong>stress fracture</strong>, nerve entrapment (Baxter's nerve), and inflammatory conditions can all present as heel pain. Imaging and examination confirm the diagnosis first, because surgery for the wrong heel-pain diagnosis helps no one."
+    },
+  ],
+  // diabetic-foot-care (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "diabetic-foot-care": [
+    {
+      question: "Why do diabetic feet need a specialist rather than routine care?",
+      answer: "Diabetes can quietly combine three problems: <strong>neuropathy</strong> that mutes the pain warning system, narrowed arteries that slow healing, and skin or nail changes that open the door to infection. Small problems that a healthy foot would announce loudly can progress silently, which is why scheduled specialist surveillance matters."
+    },
+    {
+      question: "What does a diabetic foot evaluation include?",
+      answer: "Testing protective sensation with monofilaments, checking circulation and pulses, inspecting pressure points, calluses, and nails, and reviewing footwear. The output is practical: identifying the specific spots on your feet at risk of breaking down and intervening - padding, offloading, footwear changes, or nail and callus care - before an ulcer forms."
+    },
+    {
+      question: "When should a person with diabetes seek foot care urgently?",
+      answer: "The same day for any new wound, blister, or drainage; for redness, warmth, or swelling - especially a hot, swollen foot without much pain, which can signal <strong>Charcot arthropathy</strong>; and for any dark or black area of skin. With diabetic feet, waiting is the most expensive decision."
+    },
+    {
+      question: "What is Charcot foot and why is it an emergency?",
+      answer: "Charcot arthropathy is progressive collapse of the foot's architecture in a neuropathic foot - the bones fracture and the joints dislocate while the muted nerves report little pain. Caught early, it is treated with strict offloading in a total-contact cast; missed, it can deform the foot into a shape that ulcerates over new pressure points."
+    },
+    {
+      question: "Can surgery help a diabetic foot?",
+      answer: "Selectively, yes: correcting deformities that create ulcer-prone pressure points, debriding infected tissue, stabilizing Charcot collapse, and addressing tendon imbalances. Surgery is one tool inside a prevention-first program - the measure of success is a foot that stays intact and walking."
+    },
+  ],
+  // achilles-tendon-repair (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "achilles-tendon-repair": [
+    {
+      question: "Does a ruptured Achilles always need surgery?",
+      answer: "No - this is a genuine decision point. Selected ruptures do well with functional non-operative care in a boot with heel wedges and an early, carefully staged loading protocol. Repair is generally favored for younger, more active patients, larger tendon gaps, and delayed presentations; the right choice depends on your tendon, timeline, and goals."
+    },
+    {
+      question: "What does the repair involve?",
+      answer: "The torn tendon ends are stitched back together at the correct length - through a traditional open incision or a <strong>minimally invasive percutaneous</strong> technique using small stab incisions and a suture-passing device. Restoring accurate tendon length matters because a tendon healed too long permanently weakens push-off strength."
+    },
+    {
+      question: "What is the recovery timeline after Achilles repair?",
+      answer: "Typically: a splint or boot with heel wedges early, protected weight-bearing beginning within the first couple of weeks, wedges removed in stages as the tendon lengthens toward neutral, and out of the boot around <strong>8 to 12 weeks</strong>. Strength work continues well beyond that - the calf takes months to rebuild."
+    },
+    {
+      question: "When can I run or play sports again?",
+      answer: "Return to running is commonly around <strong>4 to 6 months</strong> and return to cutting or jumping sports later than that, guided by calf strength benchmarks - such as single-leg heel raises - rather than dates alone. Rushing this stage is the classic error after an otherwise good repair."
+    },
+    {
+      question: "What raises the risk of re-rupture?",
+      answer: "The most dangerous window is the early months, when the healing tendon feels better than it is: a sudden push-off, a slip on stairs, or abandoning the boot early are the classic mechanisms. Following the staged protocol precisely is the single most controllable protective factor."
+    },
+  ],
+  // heel-pain-treatment (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "heel-pain-treatment": [
+    {
+      question: "Is heel pain always plantar fasciitis?",
+      answer: "No - and this is exactly what the evaluation sorts out. Pain under the heel may be plantar fasciitis, <strong>fat pad atrophy</strong>, a calcaneal stress fracture, or entrapment of <strong>Baxter's nerve</strong>; pain at the back of the heel points instead to insertional Achilles tendinopathy or Haglund's deformity. Each is treated differently, so the label matters."
+    },
+    {
+      question: "Why does my heel hurt most with the first steps in the morning?",
+      answer: "Overnight, the plantar fascia rests in a shortened position; the first steps re-stretch it abruptly, which is the signature start-up pain of plantar fasciitis. Pain that instead worsens steadily through the day, or aches at rest, shifts suspicion toward the other heel-pain diagnoses."
+    },
+    {
+      question: "What does non-surgical heel pain treatment involve?",
+      answer: "Matched to the diagnosis: calf and plantar fascia stretching, heel cushioning or custom orthotics, activity and footwear changes, night splinting, and <strong>image-guided injections</strong> where inflammation is the driver. Most heel pain responds to consistent conservative care over weeks to months."
+    },
+    {
+      question: "When should heel pain get imaging?",
+      answer: "When it is not behaving like simple plantar fasciitis: pain following a jump or fall, swelling with warmth, pain that wakes you at night, symptoms persisting despite weeks of proper care, or numbness and burning that suggest a nerve source. X-rays and MRI separate the fascia, bone, tendon, and nerve causes."
+    },
+    {
+      question: "Do heel spurs cause the pain?",
+      answer: "Usually not - a spur seen on X-ray is a bystander that grew from years of fascia traction, and many pain-free heels have one. Treatment targets the inflamed fascia and tight calf, not the spur, which is why spur removal alone is rarely the answer."
+    },
+  ],
+  // plantar-fasciitis-treatment (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "plantar-fasciitis-treatment": [
+    {
+      question: "How long does plantar fasciitis take to get better?",
+      answer: "Longer than most people hope but with good odds: the majority of cases improve substantially over <strong>3 to 9 months</strong> of consistent conservative care. The word that matters is consistent - stretching done daily beats any treatment done occasionally."
+    },
+    {
+      question: "Which stretches actually matter?",
+      answer: "Two targets: the calf - both with the knee straight and bent, because a tight <strong>gastrocnemius-soleus complex</strong> overloads the fascia with every step - and the plantar fascia itself, stretched by pulling the toes back before those first morning steps. Rolling the arch over a cold bottle helps symptoms; the stretching changes the mechanics."
+    },
+    {
+      question: "Do injections cure plantar fasciitis?",
+      answer: "A corticosteroid injection can calm a painful flare and is a reasonable tool, but it treats inflammation rather than the underlying overload, and repeated steroid injections into the heel carry a small risk of fascia rupture and fat pad thinning - so they are used sparingly, alongside the mechanical treatments rather than instead of them."
+    },
+    {
+      question: "Are orthotics and night splints worth it?",
+      answer: "Cushioned heel inserts or prefabricated orthotics help most people; custom orthotics earn their place for abnormal foot mechanics. A <strong>night splint</strong>, which holds the ankle from pointing down overnight, specifically targets severe morning pain - the patients with the worst first steps tend to benefit most."
+    },
+    {
+      question: "What if months of good conservative care have not worked?",
+      answer: "That is the point at which the diagnosis is re-examined - imaging to rule out a stress fracture or nerve entrapment - and the surgical conversation becomes reasonable: a partial fascia release, or a gastrocnemius recession when calf tightness is the driver. See our plantar fasciitis surgery page for what those involve."
+    },
+  ],
+  // hammertoe-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "hammertoe-surgery": [
+    {
+      question: "What decides how a hammertoe is corrected?",
+      answer: "Whether the toe is still flexible. A flexible deformity can often be corrected by rebalancing soft tissue - releasing a tight tendon or transferring a flexor tendon to straighten the toe. A rigid, fixed hammertoe needs the buckled joint itself addressed, usually by removing a small segment of bone and <strong>fusing the middle joint</strong> straight."
+    },
+    {
+      question: "Will I have a pin sticking out of my toe?",
+      answer: "Sometimes: a temporary wire holding the toe straight for about <strong>3 to 6 weeks</strong> is a traditional and reliable method, removed in the office. Many corrections now use small implants buried inside the toe instead, which avoids the external pin - the choice depends on the joint and the correction needed."
+    },
+    {
+      question: "Can I walk after hammertoe surgery?",
+      answer: "Yes - most patients walk immediately in a stiff-soled <strong>post-operative shoe</strong>, bearing weight through the heel. Regular roomy shoes typically return around 4 to 6 weeks, once swelling allows, with the toe protected from bending stress in between."
+    },
+    {
+      question: "Why did my toe buckle in the first place?",
+      answer: "Almost always a muscle imbalance: the long tendons that curl the toe overpower the small muscles that keep it straight - accelerated by narrow or short footwear, a long second toe, a bunion crowding its neighbor, or an unstable joint at the base of the toe. Surgery that ignores a neighboring bunion often leaves the cause in place, so the whole forefoot is assessed."
+    },
+    {
+      question: "Can hammertoes come back after surgery?",
+      answer: "A fused joint stays straight, but neighboring toes can drift over time, and returning to cramped footwear reapplies exactly the forces that created the deformity. Roomy toe-box shoes afterward are not a suggestion - they are part of keeping the correction."
+    },
+  ],
 };
 
 // Helper: Generates generic FAQs for treatments if specific data is missing

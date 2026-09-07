@@ -385,7 +385,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["cervical spinal stenosis", "spinal cord compression", "neck pain treatment", "laminoplasty"],
         metaTitle: "Cervical Spinal Stenosis Specialist | Mountain Spine & Orthopedics",
-        metaDesc: "Relieve neck pain and hand numbness caused by cervical spinal stenosis. Our FL, NJ, NY, PA & GA experts offer advanced diagnosis and motion-preserving surgery."
+        metaDesc: "Relieve neck pain and hand numbness caused by cervical spinal stenosis. Our FL, NJ, NY, PA & GA experts offer advanced diagnosis and motion-preserving surgery.",
+        additionalSections: [
+            {
+                placement: "before-treatment",
+                heading: "What is cervical myelopathy - and why does it change the urgency?",
+                body: "<p>Everything changes when narrowing stops pinching a single nerve root and starts compressing the <strong>spinal cord itself</strong>. That condition - cervical myelopathy - shows up in ways patients rarely connect to their neck: buttons and jar lids becoming difficult, handwriting deteriorating, a subtly unsteady walk, legs that feel wooden on stairs, occasionally electric sensations down the back with neck flexion. Pain may be minimal, which is exactly why it gets missed.</p><p>Myelopathy is treated with more urgency than nerve-root symptoms because cord compression tends to progress <strong>stepwise, and lost function is not reliably recovered</strong> - the aim of surgery is to stop the decline, with improvement a welcome bonus rather than a promise. When examination and MRI confirm cord compression with these signs, decompression - through procedures such as <a href=\"/treatments/acdf-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">ACDF</a> or posterior decompression, chosen by where the pressure sits - is discussed earlier than it ever would be for pain alone. Mild, stable narrowing without cord signs, by contrast, is watched, not operated on.</p>"
+            }
+        ]
     },
     {
         title: "Spondylolisthesis",
@@ -439,7 +446,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["spondylolisthesis", "slipped vertebra", "spinal instability", "back pain treatment FL, NJ, NY, PA & GA"],
         metaTitle: "Spondylolisthesis Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
-        metaDesc: "Treat spinal instability and vertebral slippage. Our FL, NJ, NY, PA & GA specialists offer expert diagnosis and advanced care for spondylolisthesis."
+        metaDesc: "Treat spinal instability and vertebral slippage. Our FL, NJ, NY, PA & GA specialists offer expert diagnosis and advanced care for spondylolisthesis.",
+        additionalSections: [
+            {
+                placement: "after-symptoms",
+                heading: "What does the grade of my spondylolisthesis actually mean?",
+                body: "<p>Grading measures how far one vertebra has slipped forward on the one below, in quarters of the vertebra's width: <strong>Grade I</strong> is up to 25%, <strong>Grade II</strong> up to 50%, and so on. Most adult degenerative slips are Grade I or II - and a low grade that has been stable for years is common, manageable, and often found incidentally.</p><p>Two things matter more than the grade alone. First, <strong>stability</strong>: standing and flexion-extension X-rays show whether the slip moves when you do, because a mobile slip explains mechanical pain that a static image cannot. Second, <strong>what the slip is doing to the nerves</strong>: as the vertebra shifts, it drags the exit doorways narrow and can produce <a href=\"/conditions/foraminal-stenosis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">foraminal stenosis</a> and leg symptoms. A stable, low-grade slip with back pain is treated very differently from a mobile slip with progressive nerve compression - which is why the imaging workup is designed around motion, not just a single picture.</p>"
+            }
+        ]
     },
     {
         title: "Cervical Herniated Disc",
@@ -493,7 +507,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["cervical herniated disc", "radiating arm pain", "neck pain FL, NJ, NY, PA & GA", "slipped disc in neck"],
         metaTitle: "Cervical Herniated Disc Treatment | Mountain Spine & Orthopedics",
-        metaDesc: "Suffering from radiating arm pain? Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis and advanced treatments for cervical herniated discs."
+        metaDesc: "Suffering from radiating arm pain? Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis and advanced treatments for cervical herniated discs.",
+        additionalSections: [
+            {
+                placement: "after-symptoms",
+                heading: "Why does a neck problem cause pain in my arm or hand?",
+                body: "<p>Each cervical nerve root supplies a mapped territory of the arm - a <strong>dermatome</strong> - so a herniated fragment pressing one root produces symptoms along that map, often more arm than neck. Compression of the root at C6 classically sends pain or tingling toward the <strong>thumb</strong> side; C7, the most commonly affected, runs to the <strong>middle finger</strong> and the triceps; C8 involves the ring and little fingers. Your symptom map is genuinely diagnostic - it tells the physician which level to scrutinize on the MRI.</p><p>Two bedside clues reinforce it: symptoms that ease when you rest the affected hand on top of your head (which slackens the compressed root), and symptoms that spike when tilting the head back toward the painful side (which narrows the root's exit). Weakness matters more than pain in decision-making - a root that is losing strength, not just aching, moves the conversation from patience to action.</p>"
+            }
+        ]
     },
     {
         title: "Spinal Compression Fractures",
@@ -547,7 +568,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["spinal compression fracture", "kyphoplasty", "osteoporosis back pain", "vertebroplasty"],
         metaTitle: "Spinal Compression Fracture Treatment | Mountain Spine & Orthopedics",
-        metaDesc: "Sudden back pain or height loss? Our FL, NJ, NY, PA & GA specialists offer kyphoplasty and advanced care for spinal compression fractures."
+        metaDesc: "Sudden back pain or height loss? Our FL, NJ, NY, PA & GA specialists offer kyphoplasty and advanced care for spinal compression fractures.",
+        additionalSections: [
+            {
+                placement: "after-causes",
+                heading: "I never fell - how did my vertebra break?",
+                body: "<p>Because with osteoporosis, a vertebra does not need a fall. Bone weakened enough can fail under <strong>everyday loads</strong> - a cough, a sneeze, lifting a grocery bag, missing the last step, even bending to make the bed. These are called insufficiency fractures: the load was normal, the bone was not. Some announce themselves with sudden midline back pain; others are silent and surface later as lost height or a forward-curving upper back.</p><p>That mechanism carries a warning: one osteoporotic fracture significantly raises the likelihood of another, because every vertebra shares the same weakened bone. Treating the fracture is therefore only half the job - the other half is treating the bone itself, with a bone-density evaluation and <a href=\"/treatments/osteoporosis-treatment\" class=\"underline text-[#252932] hover:text-[#2358AC]\">osteoporosis care</a> to interrupt the cycle. A new fracture also deserves imaging follow-up, since a minority continue to collapse and need escalated treatment rather than observation.</p>"
+            }
+        ]
     },
     {
         title: "Sacroiliac Joint Dysfunction",
@@ -602,7 +630,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["SI joint dysfunction", "pelvic pain", "sacroiliac joint fusion", "lower back pain FL, NJ, NY, PA & GA"],
         metaTitle: "SI Joint Dysfunction Specialist | Mountain Spine & Orthopedics",
-        metaDesc: "Relieve lower back and buttock pain from SI joint dysfunction. Our FL, NJ, NY, PA & GA experts offer diagnostic injections and minimally invasive fusion."
+        metaDesc: "Relieve lower back and buttock pain from SI joint dysfunction. Our FL, NJ, NY, PA & GA experts offer diagnostic injections and minimally invasive fusion.",
+        additionalSections: [
+            {
+                placement: "after-symptoms",
+                heading: "Why is SI joint pain so often mistaken for a spine problem?",
+                body: "<p>The sacroiliac joint sits exactly where lumbar and hip problems also project their pain, and it refers pain in overlapping patterns - one-sided low back, buttock, groin, even down the back of the thigh. A few features raise its likelihood: pain <strong>below the beltline and off to one side</strong>, pointing to the spot with one finger just inside the pelvic brim, pain rolling over in bed or standing up from a chair, and standing with weight shifted off the painful side.</p><p>Because no single test settles it, the diagnosis is confirmed the honest way: provocation maneuvers on examination, imaging to exclude the mimics, and - decisively - an image-guided <a href=\"/treatments/sacroiliac-joint-injection\" class=\"underline text-[#252932] hover:text-[#2358AC]\">diagnostic SI joint injection</a>. If numbing the joint reliably switches the pain off, the joint is the source; if it does not, the workup returns to the spine and hip. That sequencing prevents the most expensive error in this region: treating the wrong structure well.</p>"
+            }
+        ]
     },
     {
         title: "Back Pain",
@@ -712,7 +747,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["bulging disc", "bulging disc treatment", "spinal disc protrusion", "radiating leg pain"],
         metaTitle: "Bulging Disc Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
-        metaDesc: "Relieve pain from a bulging disc. Our FL, NJ, NY, PA & GA spine experts offer precise diagnosis and advanced non-surgical therapies for disc-related pain."
+        metaDesc: "Relieve pain from a bulging disc. Our FL, NJ, NY, PA & GA spine experts offer precise diagnosis and advanced non-surgical therapies for disc-related pain.",
+        additionalSections: [
+            {
+                placement: "after-causes",
+                heading: "Bulging disc versus herniated disc - what is the real difference?",
+                body: "<p>A <strong>bulge</strong> is broad: the disc's outer wall weakens and the whole perimeter sags outward slightly, like a tire losing pressure - the wall stretches but holds. A <a href=\"/conditions/herniated-disc\" class=\"underline text-[#252932] hover:text-[#2358AC]\">herniation</a> is focal: inner disc material pushes through a tear in that wall at one spot, where it can press directly on a nerve root and leak inflammatory proteins onto it.</p><p>The practical difference is that bulges are extremely common in adults with <strong>no pain at all</strong> - imaging studies of symptom-free people find them routinely, and their frequency rises with every decade of age. So a bulge on your MRI is only meaningful when its location matches your symptoms: a bulge touching the L5 nerve on the left means something in a patient with left-leg L5 pain, and very little in a patient with pure right-sided back ache. That correlation - image plus examination plus symptom pattern - is the entire art of not over-treating a common finding.</p>"
+            }
+        ]
     },
     {
         title: "Pinched Nerve",
@@ -820,7 +862,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["annular tear", "disc tear", "sharp back pain", "disc pain FL, NJ, NY, PA & GA"],
         metaTitle: "Disc Tear Specialist | Mountain Spine & Orthopedics",
-        metaDesc: "Sharp back pain when sitting or twisting? You may have an annular disc tear. Our FL, NJ, NY, PA & GA experts offer advanced MRI diagnosis and non-surgical care."
+        metaDesc: "Sharp back pain when sitting or twisting? You may have an annular disc tear. Our FL, NJ, NY, PA & GA experts offer advanced MRI diagnosis and non-surgical care.",
+        additionalSections: [
+            {
+                placement: "after-causes",
+                heading: "Why does an annular tear hurt when nothing is pressing on a nerve?",
+                body: "<p>The outer third of the disc's annulus is one of the few parts of the disc that has its own <strong>pain-sensing nerve supply</strong>. A tear there hurts directly - no herniation or nerve compression required. Worse, the gel of the inner disc contains inflammatory proteins that the body never normally sees; when a tear lets them leak into the sensitive outer fibers, they produce a chemical irritation that can keep a tear painful well beyond the original injury.</p><p>This explains the classic discogenic pattern: deep, central low back pain that is worst with <strong>sitting</strong> (which loads the disc hardest), bending forward, coughing, or the transition from sitting to standing - often without any leg symptoms. Most annular tears settle over weeks to months as inflammation subsides, which is why treatment leans conservative: activity modification that respects sitting intolerance, anti-inflammatory strategies, and targeted injections when a flare will not break. A tear that progresses to a full <a href=\"/conditions/herniated-disc\" class=\"underline text-[#252932] hover:text-[#2358AC]\">herniation</a> changes the picture, and the leg symptoms that come with it are the signal to reassess.</p>"
+            }
+        ]
     },
     {
         title: "Facet Joint Disease",
@@ -875,7 +924,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["facet joint disease", "spinal arthritis", "facet arthropathy", "radiofrequency ablation"],
         metaTitle: "Facet Joint Pain Specialist | Mountain Spine & Orthopedics",
-        metaDesc: "Struggling with chronic spinal arthritis? Our FL, NJ, NY, PA & GA specialists offer precise diagnostic injections and advanced relief for facet joint disease."
+        metaDesc: "Struggling with chronic spinal arthritis? Our FL, NJ, NY, PA & GA specialists offer precise diagnostic injections and advanced relief for facet joint disease.",
+        additionalSections: [
+            {
+                placement: "after-symptoms",
+                heading: "Why does my back hurt more leaning backward than bending forward?",
+                body: "<p>The facet joints ride at the back of each spinal segment, and <strong>extension loads them directly</strong> - arching backward, standing for long periods, walking downhill, or the swayback posture at a kitchen counter all press arthritic facet surfaces together. Bending slightly forward unloads them, which is why facet patients often feel better pushing a cart or sitting with the spine gently flexed - the mirror image of disc-driven pain, which sitting usually aggravates.</p><p>Facet pain also stays fairly local: low back and buttock, sometimes to the back of the thigh, but rarely below the knee, and morning stiffness that loosens with movement is typical. When the pattern fits, a <strong>diagnostic medial branch block</strong> - numbing the small nerves that carry the joint's pain signal - confirms it, and patients whose pain switches off are candidates for <a href=\"/treatments/facet-ablation-rhizotomy-treatment\" class=\"underline text-[#252932] hover:text-[#2358AC]\">radiofrequency ablation</a> of those same nerves for longer-lasting relief.</p>"
+            }
+        ]
     },
     {
         title: "Lower Back Pain",
@@ -1041,7 +1097,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["coccydynia", "tailbone pain", "coccyx relief", "pain when sitting FL, NJ, NY, PA & GA"],
         metaTitle: "Tailbone Pain (Coccydynia) Relief | Mountain Spine & Orthopedics",
-        metaDesc: "Struggling with painful sitting? Our FL, NJ, NY, PA & GA specialists offer advanced non-surgical and surgical treatments for coccydynia (tailbone pain)."
+        metaDesc: "Struggling with painful sitting? Our FL, NJ, NY, PA & GA specialists offer advanced non-surgical and surgical treatments for coccydynia (tailbone pain).",
+        additionalSections: [
+            {
+                placement: "after-causes",
+                heading: "Why does tailbone pain get worse with sitting - and what actually helps?",
+                body: "<p>Sitting concentrates body weight directly onto the coccyx, and reclining slightly backward - the way most people slouch on a sofa - presses on it hardest. That is why coccydynia patients instinctively perch forward on one buttock, and why the pain often spikes on rising after a long sit as the joint reloads.</p><p>Practical measures target that mechanism: a wedge or U-shaped cushion that suspends the tailbone, adjusting sitting posture so weight rides on the thighs and sit bones, and limiting long uninterrupted sitting. When pain persists, an examination distinguishes a hypermobile or angulated coccyx from local inflammation, and image-guided options - including a <a href=\"/treatments/impar-block-treatment\" class=\"underline text-[#252932] hover:text-[#2358AC]\">ganglion Impar block</a>, a targeted injection for sacrococcygeal pain - can both confirm the diagnosis and calm it. Surgery is a rare, last-line option reserved for selected cases after conservative care has genuinely been exhausted.</p>"
+            }
+        ]
     },
     {
         title: "Failed Back Surgery Syndrome",
@@ -1095,7 +1158,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["failed back surgery syndrome", "persistent pain after surgery", "revision spine surgery", "FBSS treatment"],
         metaTitle: "Failed Back Surgery Syndrome Specialist | Mountain Spine & Orthopedics",
-        metaDesc: "Persistent pain after spine surgery? Our FL, NJ, NY, PA & GA specialists diagnose and treat Failed Back Surgery Syndrome with advanced revision options."
+        metaDesc: "Persistent pain after spine surgery? Our FL, NJ, NY, PA & GA specialists diagnose and treat Failed Back Surgery Syndrome with advanced revision options.",
+        additionalSections: [
+            {
+                placement: "after-causes",
+                heading: "Did the surgery fail - or was the diagnosis incomplete?",
+                body: "<p>The name is misleading: in many cases the operation did exactly what it was designed to do, but the pain had more than one source and the surgery addressed only one of them. A decompressed nerve does not silence an arthritic facet joint; a solid fusion does not quiet the <a href=\"/conditions/sacroiliac-joint-dysfunction\" class=\"underline text-[#252932] hover:text-[#2358AC]\">sacroiliac joint</a> below it. The evaluation therefore starts over deliberately: what exactly hurts now, is it the same pain as before surgery or a new one, and what do fresh imaging and targeted diagnostic blocks implicate?</p><p>The answer sorts patients into fundamentally different paths: hardware or fusion problems (a screw irritating a nerve, a fusion that never became solid), a new problem at a neighboring level, a missed pain generator that was never surgical, or nerve hypersensitivity that needs medical rather than structural treatment. Only the structural failures point toward <a href=\"/treatments/revision-spinal-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">revision surgery</a> - which is precisely why the workup, not the operating room, is where this condition is solved.</p>"
+            }
+        ]
     },
     {
         title: "Foraminal Stenosis",
@@ -1149,7 +1219,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["foraminal stenosis", "pinched nerve", "radiating pain", "foraminotomy surgery"],
         metaTitle: "Foraminal Stenosis Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
-        metaDesc: "Don't live with radiating nerve pain. Our FL, NJ, NY, PA & GA spine specialists provide expert diagnosis and minimally invasive care for foraminal stenosis."
+        metaDesc: "Don't live with radiating nerve pain. Our FL, NJ, NY, PA & GA spine specialists provide expert diagnosis and minimally invasive care for foraminal stenosis.",
+        additionalSections: [
+            {
+                placement: "after-causes",
+                heading: "How is foraminal stenosis different from central spinal stenosis?",
+                body: "<p>The spinal canal is a hallway; the foramina are the doorways where individual nerve roots exit. <a href=\"/conditions/spinal-stenosis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">Central stenosis</a> narrows the hallway and tends to affect both legs with standing and walking. Foraminal stenosis narrows one doorway - so it typically produces <strong>one-sided</strong> symptoms in the territory of a single nerve root: pain, numbness, or weakness following a specific path down the arm or leg.</p><p>The distinction drives treatment. A single compressed doorway can often be enlarged through a focused procedure such as an <a href=\"/treatments/endoscopic-foraminotomy-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">endoscopic foraminotomy</a>, which removes the bone and ligament crowding that one exit without disturbing the rest of the spine - a smaller intervention than treating hallway-wide narrowing. Imaging localises which level and side are responsible, and a selective nerve block can confirm it before any surgical decision is made.</p>"
+            }
+        ]
     },
     {
         title: "Neck Pain",
@@ -1204,7 +1281,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["neck pain", "stiff neck relief", "cervical pain treatment FL, NJ, NY, PA & GA", "tech neck"],
         metaTitle: "Neck Pain Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
-        metaDesc: "Suffering from neck pain or stiffness? Our FL, NJ, NY, PA & GA spine specialists diagnose the cause and offer advanced non-surgical treatments for relief."
+        metaDesc: "Suffering from neck pain or stiffness? Our FL, NJ, NY, PA & GA spine specialists diagnose the cause and offer advanced non-surgical treatments for relief.",
+        additionalSections: [
+            {
+                placement: "after-symptoms",
+                heading: "When is neck pain a nerve problem rather than a muscle problem?",
+                body: "<p>Most neck pain is muscular or joint-related and stays in the neck, shoulder tops, and shoulder-blade region. The pattern changes when a nerve is involved: pain that <strong>travels below the shoulder into the arm or hand</strong>, numbness or tingling in particular fingers, weakness with grip or lifting the arm, or relief when resting the hand on top of the head - a classic sign of a compressed cervical root, covered on our <a href=\"/conditions/pinched-nerve\" class=\"underline text-[#252932] hover:text-[#2358AC]\">pinched nerve</a> page.</p><p>Two patterns warrant prompt evaluation rather than watchful waiting: arm symptoms with progressive weakness, and any combination of hand clumsiness, gait unsteadiness, or electric shocks down the spine with neck flexion - signs the spinal cord itself may be compressed. Neck pain after a car accident, a fall, or with fever, weight loss, or night pain that prevents sleep also earns an examination rather than another week of waiting.</p>"
+            }
+        ]
     },
     {
         title: "Spinal Bone Spurs",
@@ -1258,7 +1342,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["spinal bone spurs", "osteophytes", "back pain from arthritis", "nerve compression FL, NJ, NY, PA & GA"],
         metaTitle: "Spinal Bone Spurs Specialist | Mountain Spine & Orthopedics",
-        metaDesc: "Bone spurs can cause pain by pinching nerves. Our FL, NJ, NY, PA & GA spine specialists offer advanced diagnosis and treatments to relieve nerve irritation."
+        metaDesc: "Bone spurs can cause pain by pinching nerves. Our FL, NJ, NY, PA & GA spine specialists offer advanced diagnosis and treatments to relieve nerve irritation.",
+        additionalSections: [
+            {
+                placement: "before-treatment",
+                heading: "Do bone spurs need to be removed?",
+                body: "<p>Not usually - and this surprises many patients. A spur is the skeleton's response to years of load on an arthritic joint, and spurs seen on X-rays are common in adults with no symptoms at all. A spur earns treatment only when it is <strong>compressing something</strong>: narrowing a nerve's exit - producing <a href=\"/conditions/foraminal-stenosis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">foraminal stenosis</a> - crowding the spinal canal, or stiffening a joint enough to limit function.</p><p>That is why treatment targets consequences rather than the spur itself: calming the arthritic inflammation that built the spur, relieving the specific nerve it presses on with targeted injections, and reserving surgical removal for spurs with a proven, symptomatic point of compression. Removing an incidental spur from an image, without symptoms that match it, treats the X-ray rather than the patient.</p>"
+            }
+        ]
     },
     {
         title: "Spinal Stenosis",
@@ -1313,7 +1404,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["spinal_stenosis", "leg pain when walking", "laminectomy FL, NJ, NY, PA & GA", "spinal decompression"],
         metaTitle: "Spinal Stenosis Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
-        metaDesc: "Spinal stenosis causes pain and numbness from nerve compression. Our FL, NJ, NY, PA & GA specialists offer advanced treatments to restore your mobility."
+        metaDesc: "Spinal stenosis causes pain and numbness from nerve compression. Our FL, NJ, NY, PA & GA specialists offer advanced treatments to restore your mobility.",
+        additionalSections: [
+            {
+                placement: "before-treatment",
+                heading: "Is spinal stenosis dangerous, or just painful?",
+                body: "<p>For most people, stenosis is a <strong>slowly progressive, manageable</strong> condition rather than a dangerous one. Symptoms typically wax and wane over years, and plenty of patients hold a comfortable plateau with activity adjustments, targeted injections, and monitoring - narrowing on an MRI is not by itself a reason to operate.</p><p>Two exceptions change the urgency. In the neck, severe narrowing can compress the spinal cord and produce <strong>myelopathy</strong> - hand clumsiness, balance trouble, and gait change - which tends to worsen stepwise and is treated more proactively. And anywhere in the spine, the rare combination of new numbness in the saddle area, leg weakness, or loss of bowel or bladder control is an emergency, not an appointment. Outside those situations, the treatment decision is about quality of life: how far you can walk, what the symptoms are taking from you, and whether conservative measures are holding the line.</p>"
+            }
+        ]
     },
     {
         title: "Herniated Disc",
@@ -1426,7 +1524,14 @@ export const conditionContentPlaceholders: ConditionContent[] = [
         ],
         keywords: ["lumbar stenosis", "leg pain when walking", "spinal narrowing", "laminectomy FL, NJ, NY, PA & GA"],
         metaTitle: "Lumbar Spinal Stenosis Treatment | Mountain Spine & Orthopedics",
-        metaDesc: "Struggling with leg pain when walking? Our FL, NJ, NY, PA & GA specialists provide advanced non-surgical and surgical care for lumbar spinal stenosis."
+        metaDesc: "Struggling with leg pain when walking? Our FL, NJ, NY, PA & GA specialists provide advanced non-surgical and surgical care for lumbar spinal stenosis.",
+        additionalSections: [
+            {
+                placement: "after-symptoms",
+                heading: "Why does leaning on a shopping cart make the pain bearable?",
+                body: "<p>This is the single most recognisable feature of lumbar stenosis, and it has a mechanical explanation. Bending slightly forward <strong>opens the spinal canal</strong> - flexion stretches the buckled ligamentum flavum flat and enlarges the space around the nerves - while standing tall narrows it. That is why walking hurts but cycling does not, why the supermarket is easier with a cart than without, and why sitting down settles the legs within minutes.</p><p>Physicians use this posture story diagnostically: it distinguishes <strong>neurogenic claudication</strong> from vascular claudication (poor circulation), which does not care about posture and eases with standing still. When symptoms progress despite conservative care, procedures that create room - such as a <a href=\"/treatments/lumbar-laminectomy-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">lumbar laminectomy</a> - are considered, targeted at the levels imaging and examination agree are responsible.</p>"
+            }
+        ]
     },
     {
         title: "Whiplash Injury",
@@ -3481,7 +3586,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--bakers-cyst--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--bakers-cyst--thumbnail.png",
         body: "A Baker's cyst is a fluid-filled swelling behind the knee, usually caused by another knee problem that increases joint fluid.",
-        detail: "<p>A <strong>Baker's cyst</strong>, also called a popliteal cyst, forms when excess synovial fluid from the knee joint tracks into the back of the knee. The cyst is often a sign of a deeper knee issue rather than the root problem itself.</p><p>Common drivers include <a href=\"/conditions/knee-arthritis\" class=\"text-blue-600 hover:underline\">knee arthritis</a>, meniscus tears, cartilage injury, inflammatory arthritis, or prior knee trauma. Mountain Spine & Orthopedics evaluates both the lump behind the knee and the joint condition producing the fluid so treatment does not stop at simply draining the cyst.</p>",
+        detail: "<p>A <strong>Baker's cyst</strong>, also called a popliteal cyst, forms when excess synovial fluid from the knee joint tracks into the back of the knee. The cyst is often a sign of a deeper knee issue rather than the root problem itself.</p><p>Common drivers include <a href=\"/conditions/knee-arthritis\" class=\"text-blue-600 hover:underline\">knee arthritis</a>, meniscus tears, cartilage injury, inflammatory arthritis, or prior knee trauma. Mountain Spine & Orthopedics evaluates both the lump behind the knee and the joint condition producing the fluid so treatment does not stop at simply draining the cyst.</p><p>One presentation deserves specific mention: a Baker's cyst can rupture, releasing its fluid down into the calf. The result - sudden calf pain, swelling, tightness, sometimes bruising near the ankle - closely mimics a blood clot (deep vein thrombosis), and the two cannot be reliably told apart by feel. Because a clot is dangerous and a ruptured cyst is not, new calf pain and swelling warrants prompt evaluation, typically with ultrasound, rather than reassurance by guesswork. Once a rupture is confirmed, treatment is supportive and attention returns to the knee problem - commonly a meniscus tear or arthritis - that generated the cyst in the first place.</p>",
         what_sym: "<p>Symptoms depend on cyst size, pressure, and the underlying knee diagnosis.</p><ul><li>Fullness, tightness, or a lump behind the knee</li><li>Posterior knee pain with deep bending or full straightening</li><li>Swelling that may extend toward the calf</li><li>Stiffness or reduced range of motion</li><li>Mechanical symptoms such as catching or joint-line pain when a meniscus tear is involved</li><li>Calf pain and swelling after rupture, which can mimic a blood clot and needs prompt evaluation</li></ul>",
         risk_fac:
             "<p>Risk factors include knee osteoarthritis, rheumatoid arthritis, meniscal tears, cartilage damage, prior knee injury, prior knee surgery, recurrent swelling, and inflammatory conditions that increase synovial fluid production.</p>",
@@ -6002,7 +6107,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--aging-management--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--aging-management--thumbnail.png",
         body: "Our aging management programs focus on preserving bone density, joint health, and muscle strength to help you stay active, strong, and independent as you age.",
-        detail: "As we age, natural changes like declining <strong>bone density</strong> (osteoporosis), cartilage wear (<a href=\"/conditions/arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>), and muscle loss (<strong>sarcopenia</strong>) can increase the risk of falls, fractures, and chronic pain. Our <strong>aging management program</strong> shifts orthopedic care from reactive to proactive, identifying vulnerabilities early to delay musculoskeletal decline. Our evaluation includes a physical exam, complimentary bone density (DEXA) scanning, and imaging to create a comprehensive picture of your bone, joint, and muscle health.",
+        detail: "As we age, natural changes like declining <strong>bone density</strong> (osteoporosis), cartilage wear (<a href=\"/conditions/arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>), and muscle loss (<strong>sarcopenia</strong>) can increase the risk of falls, fractures, and chronic pain. Our <strong>aging management program</strong> shifts orthopedic care from reactive to proactive, identifying vulnerabilities early to delay musculoskeletal decline. Our evaluation includes a physical exam, complimentary bone density (DEXA) scanning, and imaging to create a comprehensive picture of your bone, joint, and muscle health.\n\nTwo threads run through nearly every orthopedic problem of aging: bone strength and muscle strength. Bone density predicts fracture risk and is measurable and treatable, which is why DEXA results feed directly into a plan rather than a filing cabinet. Muscle is the quieter half - the gradual loss of strength and power with age is a major driver of falls, and falls are how fragile bone becomes a fracture. Practical management therefore looks unglamorous and works: progressive strength and balance work appropriate to your level, protein and vitamin D adequacy, a review of medications that cause dizziness, and treating the specific joints whose pain is stopping you from staying active - because inactivity accelerates both threads at once.",
         what_sym: "Common indicators of musculoskeletal aging include a <strong>gradual loss of height</strong>, new or worsening <strong>joint stiffness</strong>, <strong>decreased grip strength</strong>, a slower walking speed, and difficulty rising from chairs. Episodic <a href=\"/conditions/lower-back-pain\" class=\"text-blue-600 hover:underline\">low back</a> or joint pain after routine tasks is also common.",
         risk_fac:
             "A genetic predisposition to osteoporosis, a sedentary lifestyle, smoking, inadequate protein or calcium intake, and hormonal changes like menopause can all accelerate age-related tissue degeneration.",
@@ -6881,7 +6986,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--synovitis--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--synovitis--thumbnail.png",
         body: "Synovitis is the inflammation of the synovial membrane that lines a joint, which causes pain, swelling, and stiffness.",
-        detail: "<strong>Synovitis</strong> is the inflammation of the <strong>synovial membrane</strong>, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like <a href=\"/conditions/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">rheumatoid arthritis</a>. The resulting <strong>pain, swelling, and excess fluid</strong> can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.",
+        detail: "<strong>Synovitis</strong> is the inflammation of the <strong>synovial membrane</strong>, the thin layer of tissue that lines joints and produces lubricating fluid. This inflammation can be caused by trauma, overuse, or an underlying autoimmune condition like <a href=\"/conditions/rheumatoid-arthritis\" class=\"text-blue-600 hover:underline\">rheumatoid arthritis</a>. The resulting <strong>pain, swelling, and excess fluid</strong> can damage joint cartilage over time if left untreated. At Mountain Spine & Orthopedics, our diagnosis begins with a physical exam, often supplemented by complimentary imaging to detect inflammation and guide treatment.\n\nRecurring synovitis is a message, not just a nuisance: the lining does not stay inflamed without a reason. Sometimes the driver is mechanical - a loose body, a cartilage flap, or repetitive overload irritating the joint from inside. Sometimes it is systemic, and a joint that swells repeatedly, involves both sides, or comes with morning stiffness lasting an hour raises the question of an inflammatory arthritis that deserves blood work alongside imaging. Aspirating the fluid can answer questions directly - crystal analysis for gout, cell counts for inflammation or infection - which is why treatment that stops at draining and calming the swelling, without asking why it happened, tends to be repeated rather than finished.",
         what_sym: "Key symptoms include <strong>joint pain</strong>, visible <strong>swelling</strong>, <strong>warmth</strong> over the affected joint, <strong>tenderness</strong>, and a reduced range of motion. When caused by an inflammatory condition, synovitis may affect multiple joints and worsen with inactivity.",
         risk_fac: "Autoimmune diseases such as rheumatoid arthritis or lupus are major risk factors. Other causes include overuse injuries, joint trauma, infections, and metabolic conditions like gout.",
         diagnose: "Our specialists use complimentary MRI and diagnostic ultrasound to assess synovial thickening and fluid buildup. If an underlying condition is suspected, blood tests may be ordered. For definitive diagnosis, a joint aspiration may be performed to analyze the synovial fluid for signs of crystals, infection, or inflammation.",
@@ -7261,7 +7366,7 @@ export const conditions: ConditionInfoProp[] = [
         card_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--bursitis--thumbnail.png",
         inTxt_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--bursitis--thumbnail.png",
         body: "Bursitis is the inflammation of a bursa, a small, fluid-filled sac near a joint, which causes localized pain, swelling, and tenderness.",
-        detail: "<strong>Bursitis</strong> is the inflammation of a <strong>bursa</strong>, one of the small, fluid-filled sacs that cushion the bones, tendons, and muscles near your joints. Repetitive motions, prolonged pressure, or direct trauma can trigger this inflammation, most commonly in the shoulder, elbow, hip, or knee. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and, when needed, complimentary imaging to confirm the diagnosis and guide treatment to relieve pain and restore function.",
+        detail: "<strong>Bursitis</strong> is the inflammation of a <strong>bursa</strong>, one of the small, fluid-filled sacs that cushion the bones, tendons, and muscles near your joints. Repetitive motions, prolonged pressure, or direct trauma can trigger this inflammation, most commonly in the shoulder, elbow, hip, or knee. At Mountain Spine & Orthopedics, our specialists use a focused physical exam and, when needed, complimentary imaging to confirm the diagnosis and guide treatment to relieve pain and restore function.\n\nBursitis that keeps coming back usually has a mechanical reason: the same pressure or friction that inflamed the bursa the first time is still there. Kneeling trades directly on the kneecap bursa, a tight iliotibial band works on the hip's trochanteric bursa, and a prominent elbow tip takes every desk lean. Lasting relief pairs calming the inflammation - relative rest, anti-inflammatories, and a targeted injection when needed - with removing the provocation through padding, technique, or footwear changes. One warning sign changes the plan entirely: a bursa that is hot, red, and increasingly painful may be infected, and septic bursitis needs prompt medical evaluation rather than home care.",
         what_sym: "Symptoms of bursitis include <strong>localized sharp or aching pain</strong>, visible <strong>swelling</strong>, warmth, and <strong>tenderness</strong> over the affected joint. The pain often intensifies with specific activities, such as leaning on an elbow or kneeling.",
         risk_fac: "Risk factors include occupations or hobbies involving repetitive or prolonged pressure on a joint, such as gardening, tiling, or leaning on a desk. Overuse from sports, direct trauma, and underlying inflammatory conditions like gout or rheumatoid arthritis also increase the risk.",
         diagnose: "Diagnosis is primarily clinical, based on your history and a physical exam demonstrating point tenderness. We may use a complimentary ultrasound review to visualize the fluid collection and guide an aspiration or injection. An MRI can provide a more detailed assessment of adjacent structures and rule out other causes of pain.",
@@ -8017,7 +8122,7 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(11).png",
         body: "Ankle arthroscopy is a minimally invasive surgical procedure that allows surgeons to diagnose and treat a wide range of ankle joint problems.",
-        detail: "<strong>Ankle arthroscopy</strong> is a <strong>minimally invasive technique</strong> where an orthopedic surgeon uses a small camera (arthroscope) to look inside the ankle joint. This allows for the diagnosis and treatment of various problems, such as cartilage lesions, <a href=\"/conditions/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a>, and <strong>chronic instability</strong>, without the need for large incisions. At Mountain Spine & Orthopedics, our surgeons use ankle arthroscopy to provide less pain, reduced scarring, and a faster recovery compared to traditional open surgery.",
+        detail: "<strong>Ankle arthroscopy</strong> is a <strong>minimally invasive technique</strong> where an orthopedic surgeon uses a small camera (arthroscope) to look inside the ankle joint. This allows for the diagnosis and treatment of various problems, such as cartilage lesions, <a href=\"/conditions/spinal-bone-spurs\" class=\"text-blue-600 hover:underline\">bone spurs</a>, and <strong>chronic instability</strong>, without the need for large incisions. At Mountain Spine & Orthopedics, our surgeons use ankle arthroscopy to provide less pain, reduced scarring, and a faster recovery compared to traditional open surgery.\n\nArthroscopy is also honest about its limits, and candidacy is a real decision rather than a default. It excels for focal problems - anterior impingement spurs, loose bodies, inflamed synovium, and small cartilage lesions - where removing or repairing one culprit changes how the ankle feels. It is the wrong tool for an ankle whose cartilage is diffusely worn: advanced arthritis needs a different conversation entirely, and scoping an arthritic ankle tends to disappoint. That is why the evaluation leans on the pattern of your symptoms, the examination, and MRI findings together before recommending the procedure - the goal is matching the operation to a problem arthroscopy genuinely solves.",
         what_sym: "Ankle arthroscopy is a procedure, not a condition. It is recommended for symptoms like <strong>persistent ankle pain</strong> not relieved by conservative care, <strong>chronic instability</strong> or recurrent sprains, sensations of catching or locking in the joint, and stiffness or swelling that does not resolve.",
         risk_fac: "This is a treatment. Risks, while lower than open surgery, include infection, bleeding, blood clots, and nerve irritation around the ankle. Your surgeon will discuss these potential risks in detail before the procedure.",
         diagnose: "The decision to proceed with ankle arthroscopy is based on a thorough diagnostic process. This includes a physical exam and imaging studies. We offer a complimentary MRI review, as MRI provides detailed images of the soft tissues like ligaments and cartilage, helping to identify tears or damage that are amenable to arthroscopic treatment.",
@@ -8686,7 +8791,7 @@ export const conditions: ConditionInfoProp[] = [
         inTxt_img:
             "https://mountainspineortho.b-cdn.net/Orthopedic%20Website%20(16).jpg",
         body: "Ankle replacement is an advanced surgical procedure to treat severe ankle arthritis by replacing damaged bone and cartilage with a prosthesis.",
-        detail: "<strong>Total ankle replacement</strong>, or <strong>total ankle arthroplasty</strong>, is a surgical procedure for treating severe <a href=\"/conditions/arthritis\" class=\"text-blue-600 hover:underline\">ankle arthritis</a>. It involves removing damaged bone and cartilage and replacing them with a <strong>precision-engineered prosthesis</strong> to relieve pain and restore motion. Unlike ankle fusion, which eliminates movement, an ankle replacement helps maintain a more natural gait. At Mountain Spine & Orthopedics, our fellowship-trained surgeons use cutting-edge imaging and alignment tools to personalize each ankle replacement for lasting mobility.",
+        detail: "<strong>Total ankle replacement</strong>, or <strong>total ankle arthroplasty</strong>, is a surgical procedure for treating severe <a href=\"/conditions/arthritis\" class=\"text-blue-600 hover:underline\">ankle arthritis</a>. It involves removing damaged bone and cartilage and replacing them with a <strong>precision-engineered prosthesis</strong> to relieve pain and restore motion. Unlike ankle fusion, which eliminates movement, an ankle replacement helps maintain a more natural gait. At Mountain Spine & Orthopedics, our fellowship-trained surgeons use cutting-edge imaging and alignment tools to personalize each ankle replacement for lasting mobility.\n\nThe central decision for end-stage ankle arthritis is replacement versus fusion, and it is a genuine trade rather than a ranking. Replacement preserves motion - which protects the neighboring joints of the foot from the extra work they inherit after a fusion - but depends on adequate bone quality, reasonable alignment, and realistic activity expectations. Fusion trades motion for a durable, pain-free platform and remains the better answer for severely deformed ankles, compromised bone, or the heaviest demands. Age, deformity, bone density, and what you actually need your ankle to do all weigh in - which is why the same X-ray can lead two different patients to two different, equally correct operations.",
         what_sym: "This is a treatment. It is recommended for patients with <strong>severe and persistent ankle pain</strong> during weight-bearing activities, significant <strong>ankle stiffness</strong>, <strong>chronic swelling</strong>, and a grinding or catching sensation in the joint. These symptoms typically persist despite conservative treatments and limit daily activities.",
         risk_fac: "Factors that can lead to severe ankle arthritis necessitating a replacement include a history of significant ankle trauma (like fractures), osteoarthritis, and inflammatory arthritis like rheumatoid arthritis. Avascular necrosis of the talus, where a loss of blood supply leads to bone collapse, is another cause.",
         diagnose: "The decision to proceed with an ankle replacement is based on a comprehensive evaluation. This includes a physical exam and weight-bearing X-rays to visualize the extent of the joint damage. We use complimentary, high-resolution CT scans to create a three-dimensional plan that guides implant positioning with pinpoint accuracy.",
