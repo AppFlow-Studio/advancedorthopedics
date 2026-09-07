@@ -171,7 +171,8 @@ export default function AdultScoliosisPaidLandingPage() {
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
                   href="#request-evaluation"
-                  className="lp-cta-anchor lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+                  data-open-evaluation
+                  className="lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
                   style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
                 >
                   Request an Evaluation
@@ -185,23 +186,6 @@ export default function AdultScoliosisPaidLandingPage() {
                     />
                   </svg>
                 </Link>
-                <button
-                  type="button"
-                  {...({ popovertarget: 'lp-eval-popover' } as object)}
-                  className="lp-cta-popover lp-btn-shine items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
-                  style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-                >
-                  Request an Evaluation
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path
-                      d="M6 12L10 8L6 4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
 
                 <a
                   href={MAIN_PHONE_HREF}
@@ -272,6 +256,7 @@ export default function AdultScoliosisPaidLandingPage() {
                 bodyPartTitle="Adult Scoliosis"
                 formSource="paid-landing"
                 sourceLabel="Adult Scoliosis Paid Landing Page"
+                openDialogOnCtaClick
               />
 
               {/* Sits under the form for two reasons: it answers the "what am I
@@ -388,19 +373,12 @@ export default function AdultScoliosisPaidLandingPage() {
           </p>
           <Link
             href="#request-evaluation"
-            className="lp-cta-anchor lp-btn-shine flex-shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+            data-open-evaluation
+            className="lp-btn-shine flex-shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
           >
             Request an Evaluation
           </Link>
-          <button
-            type="button"
-            {...({ popovertarget: 'lp-eval-popover' } as object)}
-            className="lp-cta-popover lp-btn-shine flex-shrink-0 items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-          >
-            Request an Evaluation
-          </button>
         </div>
       </section>
 
@@ -807,49 +785,16 @@ export default function AdultScoliosisPaidLandingPage() {
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="#request-evaluation"
-              className="lp-cta-anchor lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+              data-open-evaluation
+              className="lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
               style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
             >
               Request an Evaluation
             </Link>
-            <button
-              type="button"
-              {...({ popovertarget: 'lp-eval-popover' } as object)}
-              className="lp-cta-popover lp-btn-shine items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
-              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            >
-              Request an Evaluation
-            </button>
             <PhoneTextLink trackLocation="Paid Scoliosis LP - Final CTA" />
           </div>
         </div>
       </section>
-
-      {/* Desktop evaluation popup — native Popover API (popovertarget on the
-          desktop CTAs). Light-dismiss + Esc come free with popover="auto";
-          hidden entirely in browsers without the API via lp-animations.css. */}
-      <div
-        id="lp-eval-popover"
-        {...({ popover: 'auto' } as object)}
-        className="lp-eval-popover"
-      >
-        <div className="relative">
-          <button
-            type="button"
-            {...({ popovertarget: 'lp-eval-popover', popovertargetaction: 'hide' } as object)}
-            aria-label="Close form"
-            className="absolute top-2 right-2 z-10 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 text-[#252932] text-xl leading-none flex items-center justify-center hover:bg-[#FAFAFA] cursor-pointer"
-          >
-            &times;
-          </button>
-          <BodyPartHeroForm
-            bodyPartTitle="Adult Scoliosis"
-            formSource="paid-landing"
-            sourceLabel="Adult Scoliosis Paid Landing Page"
-            idSuffix="-popover"
-          />
-        </div>
-      </div>
 
       {/* Sticky mobile action bar. pb offset on the page body keeps it from
           covering the final CTA on short viewports. */}

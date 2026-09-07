@@ -146,9 +146,14 @@ export default function InjectionsLandingPage({
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+                {/* data-open-evaluation: on desktop the hero form's click
+                    listener intercepts this and opens the FULL consultation
+                    dialog (the compact form is already visible beside the
+                    button); on mobile, and without JS, the anchor scrolls. */}
                 <Link
                   href="#request-evaluation"
-                  className="lp-cta-anchor lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+                  data-open-evaluation
+                  className="lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
                   style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
                 >
                   Request an Evaluation
@@ -162,25 +167,6 @@ export default function InjectionsLandingPage({
                     />
                   </svg>
                 </Link>
-                {/* Desktop twin of the anchor CTA: opens the popup form via the
-                    native Popover API (no JS). CSS decides which twin shows. */}
-                <button
-                  type="button"
-                  {...({ popovertarget: 'lp-eval-popover' } as object)}
-                  className="lp-cta-popover lp-btn-shine items-center justify-center gap-2 h-12 px-6 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
-                  style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-                >
-                  Request an Evaluation
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path
-                      d="M6 12L10 8L6 4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
 
                 <a
                   href={MAIN_PHONE_HREF}
@@ -251,6 +237,7 @@ export default function InjectionsLandingPage({
                 bodyPartTitle={config.formBodyPartTitle}
                 formSource="paid-landing"
                 sourceLabel={config.sourceLabel}
+                openDialogOnCtaClick
               />
 
               {/* Answers the "what am I actually signing up for?" hesitation and
@@ -363,19 +350,12 @@ export default function InjectionsLandingPage({
           </p>
           <Link
             href="#request-evaluation"
-            className="lp-cta-anchor lp-btn-shine flex-shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+            data-open-evaluation
+            className="lp-btn-shine flex-shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
           >
             Request an Evaluation
           </Link>
-          <button
-            type="button"
-            {...({ popovertarget: 'lp-eval-popover' } as object)}
-            className="lp-cta-popover lp-btn-shine flex-shrink-0 items-center justify-center gap-2 h-12 px-7 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
-            style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-          >
-            Request an Evaluation
-          </button>
         </div>
       </section>
 
@@ -680,49 +660,16 @@ export default function InjectionsLandingPage({
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="#request-evaluation"
-              className="lp-cta-anchor lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
+              data-open-evaluation
+              className="lp-btn-shine inline-flex items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
               style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
             >
               Request an Evaluation
             </Link>
-            <button
-              type="button"
-              {...({ popovertarget: 'lp-eval-popover' } as object)}
-              className="lp-cta-popover lp-btn-shine items-center justify-center gap-2 h-12 px-8 rounded-[62px] bg-[#2358AC] text-white text-base font-semibold hover:bg-[#1a4a8a] transition-all duration-200 shadow-sm hover:shadow-md"
-              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
-            >
-              Request an Evaluation
-            </button>
             <PhoneTextLink trackLocation={config.trackLocation} />
           </div>
         </div>
       </section>
-
-      {/* Desktop evaluation popup — native Popover API (popovertarget on the
-          desktop CTAs). Light-dismiss + Esc come free with popover="auto";
-          hidden entirely in browsers without the API via lp-animations.css. */}
-      <div
-        id="lp-eval-popover"
-        {...({ popover: 'auto' } as object)}
-        className="lp-eval-popover"
-      >
-        <div className="relative">
-          <button
-            type="button"
-            {...({ popovertarget: 'lp-eval-popover', popovertargetaction: 'hide' } as object)}
-            aria-label="Close form"
-            className="absolute top-2 right-2 z-10 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 text-[#252932] text-xl leading-none flex items-center justify-center hover:bg-[#FAFAFA] cursor-pointer"
-          >
-            &times;
-          </button>
-          <BodyPartHeroForm
-            bodyPartTitle={config.formBodyPartTitle}
-            formSource="paid-landing"
-            sourceLabel={config.sourceLabel}
-            idSuffix="-popover"
-          />
-        </div>
-      </div>
 
       {/* Sticky mobile action bar. pb offset keeps it from covering the final CTA. */}
       <div className="h-[76px] lg:hidden" aria-hidden="true" />

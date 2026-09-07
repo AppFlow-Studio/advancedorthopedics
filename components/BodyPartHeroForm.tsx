@@ -28,6 +28,15 @@ interface BodyPartHeroFormProps {
    * breaking the label-for associations.
    */
   idSuffix?: string;
+  /**
+   * When true, a click anywhere on the page on an element carrying
+   * data-open-evaluation opens the FULL consultation dialog directly —
+   * desktop (≥1024px) only. Below that the element's default behavior
+   * (anchor scroll to this compact form) is kept, because the two-field
+   * form is the lower-friction mobile path. Give this to exactly one
+   * instance per page.
+   */
+  openDialogOnCtaClick?: boolean;
 }
 
 export default function BodyPartHeroForm({
@@ -35,6 +44,7 @@ export default function BodyPartHeroForm({
   formSource = 'body-part-consultation',
   sourceLabel,
   idSuffix = '',
+  openDialogOnCtaClick = false,
 }: BodyPartHeroFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -61,6 +71,21 @@ export default function BodyPartHeroForm({
   useEffect(() => {
     setAttribution(getAttributionData());
   }, []);
+
+  // Desktop LP CTAs open the full dialog directly: beside the hero the compact
+  // form is already visible, so an anchor jump there reads as a dead click.
+  useEffect(() => {
+    if (!openDialogOnCtaClick) return;
+    const onCtaClick = (e: MouseEvent) => {
+      const trigger = (e.target as Element | null)?.closest('[data-open-evaluation]');
+      if (!trigger) return;
+      if (!window.matchMedia('(min-width: 1024px)').matches) return;
+      e.preventDefault();
+      setShowDialog(true);
+    };
+    document.addEventListener('click', onCtaClick);
+    return () => document.removeEventListener('click', onCtaClick);
+  }, [openDialogOnCtaClick]);
 
   // Handle scroll indicator visibility
   useEffect(() => {
