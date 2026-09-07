@@ -46,6 +46,20 @@ pre-deploy gate for THIS deploy, and it now has two coordinated items, not one.)
 
 ### GTM cutover — required pre-deploy, not included in this PR
 
+> **✅ EXECUTED AND PUBLISHED 2026-09-07 1:40 PM as container version 31**
+> ("Cutover: lead_form_submit_success + market + EC coalesce"). Items 1–4 below were
+> built in the GTM UI and verified in the published version: `DLV - market`; six
+> `lead_form_submit_success` triggers (base + `_FL/_NJ/_NY/_PA/_GA` on `DLV - market`);
+> all five lead tags firing on the new triggers alongside the old ones; the four EC
+> variables converted to Custom JS coalesce (sha256_ else legacy, via
+> `google_tag_manager["GTM-T57SB8NQ"].dataLayer.get("enhanced_conversion_data")`);
+> postal/country untouched. Implementation note: instead of separate coalesce variables
+> wired into the User-Provided Data variable, the existing `EC – … (correct)` variables
+> were converted in place, so `Lead Submit Form Enhanced` needed no repointing. Three
+> unreferenced spare `EC - … (coalesce)` variables remain in the container — delete them
+> in step 7's cleanup. **State: READY TO DEPLOY. Steps 5–7 (deploy, 48h dual check,
+> cleanup) remain.**
+
 **Order is non-negotiable: GTM leads, code follows.** Production currently fires
 `form_submit` with plaintext PII in `enhanced_conversion_data`; this branch fires
 `lead_form_submit_success` with **pre-hashed** PII under `sha256_`-prefixed field names.
