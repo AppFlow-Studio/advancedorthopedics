@@ -10,9 +10,9 @@ pushed or deployed.
 
 | | |
 |---|---|
-| Commits ahead of production | **72** (71 code @ `e90fcb6` + this documentation wave) |
-| Files changed | **209** |
-| Lines | **+24,276 / −11,037** |
+| Commits ahead of production | **86** (85 @ `1ec6235` + this documentation refresh) |
+| Files changed | **219** |
+| Lines | **+25,710 / −11,358** |
 | Static pages built | **754** (production builds 741) |
 | Sitemap URLs | **339** |
 | Working tree | clean |
@@ -903,6 +903,60 @@ to 50). The migration of this one record — legacy → `ConditionContent`, pres
 currently rendered field byte-for-byte, then moving the condition-side content back — is a
 self-contained task with the highest volume-to-effort ratio in the backlog. It must not run
 during the pilot observation window.
+
+---
+
+# WAVE 14 — Full-page audit, LP conversion work, and the content audit campaign
+
+Thirteen commits after the documentation wave, in three arcs.
+
+**Arc 1 — rendered-output enforcement (`1381dff`, `9171616`, `b08c79c`).** A 706-document
+static sweep plus a 59-route browser audit found what every data-file sweep had missed,
+because the violations lived in components and route files: eight superlative/outcome
+instances (including the homepage's `World - Class Expertise` — spaced hyphen, invisible
+to every regex) and, after the business restated the PT hard line, nine phrasings of the
+physical-therapy service claim ("our physical therapists", "in house rehabilitation team",
+"onsite rehabilitation team", "offer expert rehabilitation"...). All removed; the widened
+inflection patterns now live in `scripts/visual-audit-updated-pages.mjs`. Final state:
+zero PT/rehab service claims across all rendered documents.
+
+**Arc 2 — LP conversion work (`118e293`, `c7fd7b1`, `58f415e`, `3538c5f`, `ed7ec71`).**
+All four paid landing pages gained a pure-CSS animation layer (scroll-driven check-draw
+symptom cards, shine borders, border beam, button sweeps — zero client JS, page bundles
+unchanged at 167 B), a fold optimization measured at 1907×937 (five-star Google-review
+row sourced from reviewAggregate.generated, all four trust points above the fold, the
+"Experiencing Pain Pain?" header bug fixed), removal of the non-surgical-first positioning
+per business direction, and desktop CTAs that open the form component's own full
+consultation dialog (`data-open-evaluation` + a listener in the already-hydrating form —
+the interim mini-form popover was built, shipped, judged wrong, and fully reverted).
+
+**Arc 3 — the content audit campaign (`8c7c3e0`..`1ec6235`), all 246 condition and
+treatment pages in five batches.**
+
+| Batch | What it fixed | Measured result |
+|---|---|---|
+| 1 | Paragraph rendering (Tailwind preflight zeroed `<p>` margins; `.rich-prose` + newline conversion), 21 subtitles, 18 metas at their true source (`lib/metadata-seo.ts` overrides records), hub section splits | blob pages 15→8, desc>170: 20→1 (survivor: locked spinal-fusion) |
+| 2 | The 31 light pages: 50 real FAQ Q&As replace generic templated schema on 10 foot/ankle pages; 15 differentiated spine-condition sections; 6 legacy extensions | all 31 pages 918–1,184 words, zero under 900 |
+| 3 | back↔spine near-duplication: lumbar prose rewrite + tagMatchers grid scoping (7 conditions retagged Lower Spine); hip-arthritis rewritten hip-specific | back↔spine 0.76→0.61; arthritis pair eliminated |
+| 4 | The five-hub template skeleton and noun-swapped hub FAQ set replaced (15 sections + 35 bespoke Q&As) | back↔spine→0.57; hip↔knee 0.41→0.24; all hub pairs 0.21–0.24 |
+| 5 | Bursitis twins + shoulder tendonitis trio rewritten one-sided with twin-proof content | both clusters gone from the top-30 rankings |
+
+The measuring tool is an 8-word-shingle containment scan over rendered main content
+(`dup_scan.py` in session artifacts); every number above was taken from rebuilt output,
+not from source diffs. Final alignment pass: H1/title/slug targeting green (12 title
+flags are slug-filler false positives or belong to the deferred title pass), and no page
+sends fewer than 8 in-content internal links.
+
+**Corrected en route:** the format-drift inventory (24 new-format conditions, not 181 —
+a regex had counted nested internalLinks slugs; 90 of ~114 slugs are legacy-only), and
+the discovery that treatment metas resolve from `lib/metadata-seo.ts`, which silently
+no-ops record-level meta edits.
+
+**Deliberately held:** the 215 meta titles over 65 chars (display truncation only; a
+sitewide title churn mid-pilot would contaminate the collapse-recovery baseline), the
+locked pilot ten (zero edits, verified each batch), and one open business decision —
+`patellofemoral-pain-syndrome` ↔ `runner-knee` are the same clinical entity on two
+indexable URLs, and which URL keeps the equity is not an engineering call.
 
 ---
 

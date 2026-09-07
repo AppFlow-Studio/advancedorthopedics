@@ -1,7 +1,7 @@
 # SEO, schema and content-integrity sprint
 
 **Base:** `upstream/main` @ `5c99f1b` · **Head:** `pa-ga-phone-and-atlanta-wiring`
-**72 commits · 209 files · working tree clean**
+**86 commits · 219 files · working tree clean**
 
 ## Summary
 
@@ -20,6 +20,13 @@ never edited).
 
 Four planned commits were **retired after measurement refuted their premise**, and that is
 recorded rather than quietly dropped.
+
+After the sprint proper, a five-batch content audit covered all 246 condition and
+treatment pages: paragraph rendering repaired sitewide, every page brought over 900
+rendered words, templated FAQ schema replaced with real Q&As, and the cross-page
+duplication that the December core update punished measured and broken (back↔spine
+0.76→0.57, every noun-swap twin pair eliminated). Wave 14 of the reference doc has the
+full table; all figures were measured on rebuilt output.
 
 ---
 
