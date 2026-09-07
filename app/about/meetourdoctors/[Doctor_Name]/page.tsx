@@ -10,6 +10,7 @@ import { DoctorContactForm } from '@/components/DoctorContactForm';
 import Link from 'next/link';
 import type { DoctorProp } from '@/components/data/doctors';
 import { findTreatmentLinkForSpecialty, findConditionLinkForCondition } from '@/lib/doctor-linking-utils';
+import { SpecialistPages } from '@/components/data/specialists';
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -24,6 +25,10 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
   if (!doctor_details) {
     return notFound();
   }
+
+  const matchingSpecialistPages = SpecialistPages.filter((page) =>
+    page.physicianSlugs.includes(doctor_details.slug),
+  );
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -195,6 +200,22 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
               </ul>
             </div>
           </section>
+          {matchingSpecialistPages.length > 0 ? (
+            <section className='flex flex-col space-y-[24px]'>
+              <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] text-4xl">
+                Condition specialist appointments
+              </h2>
+              <ul className='flex flex-col space-y-4'>
+                {matchingSpecialistPages.map((specialistPage) => (
+                  <li key={specialistPage.slug}>
+                    <Link href={`/find-care/${specialistPage.slug}`} className='text-[#0A50EC] hover:underline'>
+                      See {doctor_details.name} for {specialistPage.conditionName.toLowerCase()}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       </section>
     </main>

@@ -44,6 +44,7 @@ import { STATE_PHONE_NUMBERS, MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, MAIN_PHONE_E16
 import SecondOpinionCallout from '@/components/SecondOpinionCallout'
 import { getVisibleReviews } from '@/lib/providers/providerVisibility'
 import MobileHeroConversionPanel from '@/components/MobileHeroConversionPanel'
+import { SpecialistPages } from '@/components/data/specialists'
 
 export const dynamicParams = false;
 
@@ -576,6 +577,25 @@ export default async function LocationDetails(
                 {locationData.nearby}
                 {locationData.advancedTreatments}
             </section>
+
+            {state !== 'georgia' && locationData.locationType === 'office' ? (
+                <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
+                    <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] sm:text-4xl text-2xl">
+                        Specialists at this location
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {SpecialistPages.map((specialistPage) => (
+                            <Link
+                                key={specialistPage.slug}
+                                href={`/find-care/${specialistPage.slug}`}
+                                className="border border-[#DCDEE1] rounded-[20px] overflow-hidden bg-[#FAFAFA] px-6 py-4 text-[#0A50EC] hover:underline"
+                            >
+                                {specialistPage.conditionName} specialist appointments
+                            </Link>
+                        ))}
+                    </div>
+                </section>
+            ) : null}
 
             {/* FAQ Section */}
             {locationData.faqs && locationData.faqs.length > 0 && (

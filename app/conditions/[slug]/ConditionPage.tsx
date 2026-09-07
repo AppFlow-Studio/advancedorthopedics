@@ -18,6 +18,7 @@ import Logo from '@/public/newlogo4.png'
 import { notFound } from 'next/navigation';
 import { srOnly } from '@/lib/seo';
 import InternalLinkingSection from '@/components/InternalLinkingSection';
+import { SpecialistPages } from '@/components/data/specialists';
 import ConditionFAQ from '@/components/ConditionFAQ';
 import { getBodyPartSlugFromTag, getBodyPartFromTag } from '@/lib/bodyPartMapping';
 import { BODY_PARTS } from '@/components/data/bodyParts';
@@ -333,6 +334,9 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
   });
   const pageTitle = isNewFormat ? conditionContent!.title : condition_details!.title;
   const doctorsHeading = `Doctors Who Treat ${pageTitle}`;
+  const specialistPage = SpecialistPages.find(
+    (page) => page.relatedConditionSlug === conditionSlug,
+  );
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Landing */}
@@ -1081,6 +1085,19 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
           <div className='lg:flex hidden flex-col'>
             <InternalLinkingSection currentSlug={isNewFormat ? conditionContent!.slug : condition_details!.slug} pageType="condition" />
           </div>
+          {specialistPage ? (
+            <section className='flex flex-col space-y-[24px]'>
+              <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] text-4xl">
+                Ready for a specialist evaluation?
+              </h2>
+              <p style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }} className="text-[#424959] sm:text-xl text-sm">
+                If symptoms are persistent, recurring, or affecting strength and daily function, learn what to expect when you see a specialist.
+              </p>
+              <Link href={`/find-care/${specialistPage.slug}`} className='text-[#0A50EC] hover:underline'>
+                Find a doctor who evaluates {specialistPage.conditionName.toLowerCase()}
+              </Link>
+            </section>
+          ) : null}
           <div>
 
           </div>
