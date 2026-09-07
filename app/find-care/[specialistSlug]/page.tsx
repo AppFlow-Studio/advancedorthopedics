@@ -5,10 +5,12 @@ import { notFound } from "next/navigation";
 import DoctorCard from "@/components/DoctorCard";
 import FAQsSection from "@/components/FaqsSection";
 import StateLocationCard from "@/components/StateLocationCard";
+import RevealOnView from "@/components/RevealOnView";
 import { clinicsForMap } from "@/components/data/clinicsForMap.generated";
 import { Doctors } from "@/components/data/doctors";
 import { SpecialistPages } from "@/components/data/specialists";
 import { STATE_METADATA } from "@/lib/locationRedirects";
+import { ArrowRight, CalendarCheck2, Clock3, PhoneCall, ShieldCheck } from "lucide-react";
 
 const SITE_URL = "https://mountainspineorthopedics.com";
 
@@ -145,14 +147,14 @@ export default async function SpecialistPage({
   };
 
   return (
-    <main className="w-full flex flex-col items-center justify-center bg-white h-full">
+    <main className="w-full flex flex-col items-center justify-center bg-white h-full overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="w-full h-full flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
+      <section className="w-full min-h-[560px] md:min-h-[620px] flex flex-col relative overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]">
         <div
           style={{ filter: "blur(30px)" }}
           className="w-full h-[120px] absolute top-0 z-[1]"
@@ -172,14 +174,14 @@ export default async function SpecialistPage({
               "linear-gradient(180deg, rgba(10, 80, 236, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%)",
           }}
         />
-        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
+        <div className="z-[2] flex flex-col w-full h-full text-left relative pt-28 sm:pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
           <div className="max-w-[1440px] w-full flex flex-col items-start justify-start">
             <h1
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500,
               }}
-              className="text-[#252932] text-3xl md:text-6xl"
+              className="hero-fade-up text-[#252932] text-3xl leading-tight md:text-6xl md:leading-tight"
             >
               {page.h1}
             </h1>
@@ -188,20 +190,36 @@ export default async function SpecialistPage({
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 500,
               }}
-              className="text-[#252932] text-lg md:text-xl mt-2 max-w-4xl"
+              className="hero-slide-left text-[#252932] text-base sm:text-lg md:text-xl mt-3 max-w-3xl leading-relaxed"
             >
               {page.intro}
             </p>
             <Link
               href="/find-care/book-an-appointment"
-              className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer mt-8"
+              className="hero-fade-up group max-h-[56px] h-full px-[26px] sm:px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer mt-7 shadow-[0_12px_30px_rgba(10,80,236,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0847d1]"
             >
               Book an appointment
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
+            <div className="hero-fade-up mt-7 grid w-full max-w-2xl grid-cols-1 gap-2 text-sm text-[#252932] sm:grid-cols-3 sm:gap-3">
+              <div className="flex items-center gap-2 rounded-full border border-white/80 bg-white/55 px-3 py-2 backdrop-blur-sm">
+                <Clock3 className="h-4 w-4 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+                <span>8AM–8PM, 7 days</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-white/80 bg-white/55 px-3 py-2 backdrop-blur-sm">
+                <CalendarCheck2 className="h-4 w-4 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+                <span>Same-day callbacks</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-white/80 bg-white/55 px-3 py-2 backdrop-blur-sm">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+                <span>No referral needed</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      <RevealOnView>
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
@@ -210,14 +228,31 @@ export default async function SpecialistPage({
           Care that fits your schedule
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 text-[#424959] sm:text-xl text-sm">
-          <li>Available 8AM–8PM, seven days a week</li>
-          <li>Same-day to same-week appointments often available</li>
-          <li>Same-day callbacks from our scheduling team</li>
-          <li>No referral needed to request an appointment</li>
-          <li>{"{{INSURANCE_LINE}}"}</li>
+          <li className="flex items-start gap-3 rounded-2xl border border-[#E7ECF7] bg-[#F8FAFF] px-4 py-4 transition-transform duration-300 hover:-translate-y-1">
+            <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+            <span>Available 8AM–8PM, seven days a week</span>
+          </li>
+          <li className="flex items-start gap-3 rounded-2xl border border-[#E7ECF7] bg-[#F8FAFF] px-4 py-4 transition-transform duration-300 hover:-translate-y-1">
+            <CalendarCheck2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+            <span>Same-day to same-week appointments often available</span>
+          </li>
+          <li className="flex items-start gap-3 rounded-2xl border border-[#E7ECF7] bg-[#F8FAFF] px-4 py-4 transition-transform duration-300 hover:-translate-y-1">
+            <PhoneCall className="mt-0.5 h-5 w-5 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+            <span>Same-day callbacks from our scheduling team</span>
+          </li>
+          <li className="flex items-start gap-3 rounded-2xl border border-[#E7ECF7] bg-[#F8FAFF] px-4 py-4 transition-transform duration-300 hover:-translate-y-1">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+            <span>No referral needed to request an appointment</span>
+          </li>
+          <li className="flex items-start gap-3 rounded-2xl border border-[#E7ECF7] bg-[#F8FAFF] px-4 py-4 transition-transform duration-300 hover:-translate-y-1 md:col-span-2">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+            <span>{"{{INSURANCE_LINE}}"}</span>
+          </li>
         </ul>
       </section>
+      </RevealOnView>
 
+      <RevealOnView direction="left">
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
@@ -247,7 +282,9 @@ export default async function SpecialistPage({
           </ul>
         </aside>
       </section>
+      </RevealOnView>
 
+      <RevealOnView direction="right">
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
@@ -262,14 +299,14 @@ export default async function SpecialistPage({
           {page.firstAppointment.steps.map((step, index) => (
             <article
               key={step.title}
-              className="border border-[#DCDEE1] rounded-[20px] overflow-hidden bg-[#FAFAFA] px-6 py-4"
+              className="group border border-[#DCDEE1] rounded-[20px] overflow-hidden bg-[#FAFAFA] px-6 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#B8CBF8] hover:bg-white hover:shadow-[0_16px_40px_rgba(37,41,50,0.08)]"
             >
               <h3
                 style={{
                   fontFamily: "var(--font-public-sans)",
                   fontWeight: 500,
                 }}
-                className="text-[#111315] text-2xl"
+                className="text-[#111315] text-2xl transition-colors duration-300 group-hover:text-[#0A50EC]"
               >
                 {index + 1}. {step.title}
               </h3>
@@ -278,6 +315,7 @@ export default async function SpecialistPage({
           ))}
         </div>
       </section>
+      </RevealOnView>
 
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[40px]">
         <h2
