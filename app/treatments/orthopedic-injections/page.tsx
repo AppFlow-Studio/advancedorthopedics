@@ -663,7 +663,7 @@ export default function OrthopedicInjectionsPage() {
                   <li>Plantar Fascia Injection</li>
                 </ul>
                 <Link
-                  href="/conditions/foot-pain"
+                  href="/conditions/foot-ankle"
                   style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
                   className="text-[#2358AC] text-xs hover:underline"
                 >

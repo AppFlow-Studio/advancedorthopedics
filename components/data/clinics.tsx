@@ -191,7 +191,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible medical facility</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Hollywood, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Hollywood, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
         </ul>
       </div>
@@ -735,7 +735,7 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs – Casselberry & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic doctors in Altamonte Springs, FL</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional expertise with genuine patient care. We successfully treat <Link href='/treatments/back-pain-treatment' className='text-[#0A50EC] underline'><strong>lumbar and cervical back pain</strong></Link>, <Link href='/conditions/neck-pain' className='text-[#0A50EC] underline'>cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href='/treatments/degenerative-disc-disease-surgery' className='text-[#0A50EC] underline'>degenerative disc disease</Link>, <Link href='/conditions/acl-injury' className='text-[#0A50EC] underline'>ACL injuries</Link>, <strong>rotator cuff tears</strong>, and work injuries — all with <strong>same-day consultation results</strong> and individualized recovery plans.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Casselberry and Altamonte Springs patients benefit from our advanced treatment options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our team prioritizes the fastest possible recovery with the smallest possible incision.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Casselberry and Altamonte Springs patients benefit from our advanced treatment options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our team prioritizes the fastest possible recovery with the smallest possible incision.</p>
       </div>
     ),
     whyChoose: (
@@ -747,7 +747,7 @@ export const clinics: ClinicsProps[] = [
           <li>Spanish-speaking staff serving Altamonte Springs – Casselberry's diverse community</li>
           <li>Free parking and wheelchair-accessible facility on Palm Springs Dr</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li>Sports orthopedic specialists serving <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link> throughout Seminole County</li>
+          <li>Sports orthopedic specialists serving <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link> throughout Seminole County</li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -1784,7 +1784,7 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Fort Pierce & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic doctors in Fort Pierce, FL</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional surgical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, <strong>rotator cuff tears</strong>, and workplace injuries — all with <strong>same-day consultation results</strong>.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Fort Pierce patients benefit from our advanced options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our <strong>Treasure Coast orthopedic team</strong> prioritizes the fastest possible recovery with the smallest possible incision.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Fort Pierce patients benefit from our advanced options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our <strong>Treasure Coast orthopedic team</strong> prioritizes the fastest possible recovery with the smallest possible incision.</p>
       </div>
     ),
     whyChoose: (
@@ -1796,7 +1796,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff serving Fort Pierce's diverse St. Lucie County community</li>
           <li>Free parking and wheelchair-accessible facility on Nebraska Ave</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li>Sports orthopedic specialists in Fort Pierce specializing in <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
+          <li>Sports orthopedic specialists in Fort Pierce specializing in <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -2300,8 +2300,8 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Palm Beach Gardens & Nearby Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic surgeons in Palm Beach Gardens, FL</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/treatments/neck-pain-treatment" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, <strong>rotator cuff tears</strong>, and occupational injuries — all with <strong>same-day consultation results</strong> and individualized recovery plans.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Palm Beach Gardens patients benefit from our advanced options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>, and advanced foot and ankle orthopedic services. Our <strong>Palm Beach Gardens orthopedic team</strong> prioritizes the fastest possible recovery.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic surgeons in Palm Beach Gardens, FL</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional clinical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, <strong>rotator cuff tears</strong>, and occupational injuries — all with <strong>same-day consultation results</strong> and individualized recovery plans.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Palm Beach Gardens patients benefit from our advanced options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>, and advanced foot and ankle orthopedic services. Our <strong>Palm Beach Gardens orthopedic team</strong> prioritizes the fastest possible recovery.</p>
       </div>
     ),
     whyChoose: (
@@ -2313,7 +2313,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking clinical staff for our diverse community</li>
           <li>Free parking and wheelchair-accessible medical facility at Burns Rd</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li>Sports medicine orthopedic specialists in Palm Beach Gardens specializing in <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
+          <li>Sports medicine orthopedic specialists in Palm Beach Gardens specializing in <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -2823,7 +2823,7 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in South Miami & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic specialists in South Miami</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional surgical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline"><strong>herniated discs</strong></Link>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, <strong>rotator cuff tears</strong>, and workplace injuries — all with <strong>same-day consultation results</strong> and individualized recovery plans.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Miami patients benefit from our advanced treatment options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our <strong>South Miami orthopedic team</strong> is committed to the fastest possible recovery with the smallest possible incision.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Miami patients benefit from our advanced treatment options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our <strong>South Miami orthopedic team</strong> is committed to the fastest possible recovery with the smallest possible incision.</p>
       </div>
     ),
     whyChoose: (
@@ -2835,7 +2835,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff serving South Miami's diverse community</li>
           <li>Free parking and wheelchair-accessible facility at SW 62nd Ave</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li><strong>Sports medicine specialists</strong> in South Miami specializing in <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
+          <li><strong>Sports medicine specialists</strong> in South Miami specializing in <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -3353,7 +3353,7 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Boca Raton & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic specialists in Boca Raton</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional surgical expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL tears and injuries</Link>, <strong>rotator cuff tears</strong>, and workplace injuries — all with <strong>same-day consultation results</strong>.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Boca Raton patients benefit from our advanced treatment options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>, and expert foot and ankle <Link href="/conditions/foot-ankle" className="text-[#0A50EC] underline">orthopedic care</Link>. Our team prioritizes the fastest possible recovery with the smallest possible incision.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Boca Raton patients benefit from our advanced treatment options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>, and expert foot and ankle <Link href="/conditions/foot-ankle" className="text-[#0A50EC] underline">orthopedic care</Link>. Our team prioritizes the fastest possible recovery with the smallest possible incision.</p>
       </div>
     ),
     whyChoose: (
@@ -3365,7 +3365,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff serving Boca Raton's diverse community</li>
           <li>Free parking and wheelchair-accessible facility at Clint Moore Rd</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li>Leading <strong>Boca Raton sports medicine</strong> specialists focusing on <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
+          <li>Leading <strong>Boca Raton sports medicine</strong> specialists focusing on <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -3879,7 +3879,7 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Altamonte Springs & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline"><strong>orthopedic doctors in Altamonte Springs, FL</strong></Link> are specially trained and continuously educated in the latest medical advances, combining exceptional expertise with genuine patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, <strong>rotator cuff tears</strong>, and workplace injuries — all with <strong>same-day consultation results</strong>.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our team offers advanced treatment including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link> — prioritizing the fastest possible recovery for Altamonte Springs and Lake Mary patients.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our team offers advanced treatment including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link> — prioritizing the fastest possible recovery for Altamonte Springs and Lake Mary patients.</p>
       </div>
     ),
     whyChoose: (
@@ -3891,7 +3891,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff serving Central Florida's diverse community</li>
           <li>Free parking and wheelchair-accessible facility</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li><Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
+          <li><Link href="/locations/florida/altamonte-springs-orthopedics" className="text-[#0A50EC] underline">Sports orthopedic specialists</Link> in Altamonte Springs specializing in <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -4401,7 +4401,7 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Davenport & Nearby Areas</h2>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our board-certified <strong>orthopedic doctors in Davenport, FL</strong> are specially trained and continuously educated in the latest medical advances, combining exceptional clinical expertise with comprehensive patient care. We successfully treat <Link href="/treatments/back-pain-treatment" className="text-[#0A50EC] underline"><strong>lumbar and cervical back pain</strong></Link>, <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">cervical radiculopathy</Link>, <strong>herniated discs</strong>, <Link href="/treatments/degenerative-disc-disease-surgery" className="text-[#0A50EC] underline">degenerative disc disease</Link>, <Link href="/conditions/acl-injury" className="text-[#0A50EC] underline">ACL injuries</Link>, <strong>rotator cuff tears</strong>, and occupational musculoskeletal disorders — all with <strong>same-day consultation results</strong>.</p>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Davenport patients benefit from our advanced options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] underline"><strong>minimally invasive spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our <strong>Davenport orthopedic team</strong> prioritizes the fastest possible recovery with the smallest possible incision.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Davenport patients benefit from our advanced options including <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">epidural steroid injections</Link>, <strong>minimally invasive spine surgery</strong>, <Link href="/treatments/lumbar-fusion-surgery" className="text-[#0A50EC] underline">lumbar fusion</Link>, and <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] underline">artificial disc replacement</Link>. Our <strong>Davenport orthopedic team</strong> prioritizes the fastest possible recovery with the smallest possible incision.</p>
       </div>
     ),
     whyChoose: (
@@ -4413,7 +4413,7 @@ export const clinics: ClinicsProps[] = [
           <li>Bilingual Spanish-speaking staff serving Central Florida's diverse community</li>
           <li>Free parking and wheelchair-accessible facility on North Blvd W</li>
           <li>PPO insurance and <strong>Workers' Compensation</strong> accepted</li>
-          <li>Sports orthopedic specialists serving Kissimmee & Polk County <Link href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
+          <li>Sports orthopedic specialists serving Kissimmee & Polk County <Link href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</Link></li>
           <li><strong>Minimally invasive spine surgery</strong> — smaller incisions, faster recovery</li>
         </ul>
       </div>
@@ -5480,7 +5480,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Free parking and wheelchair-accessible medical facility</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Bridgewater, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Bridgewater, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located at the intersection of I-287 and US-22</li>
         </ul>
@@ -5846,7 +5846,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Free parking and wheelchair-accessible medical facility</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Cherry Hill, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Cherry Hill, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located in Springdale Commons medical complex</li>
         </ul>
@@ -6217,7 +6217,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>On-site dedicated surface parking available for patients</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Edison, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Edison, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located near the Edison Train Station and Route 27</li>
         </ul>
@@ -6578,7 +6578,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Ample free on-site surface parking available for patients</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Freehold, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Freehold, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located near the Route 9 and Route 33 interchange</li>
         </ul>
@@ -6938,7 +6938,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Large open surface lot parking shared with other medical tenants</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Paramus, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Paramus, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located on Route 17 commercial corridor</li>
         </ul>
@@ -7681,7 +7681,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Conveniently located near Grand Central Terminal and major subway lines</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in NYC, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in NYC, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Paid parking garages available nearby</li>
         </ul>
@@ -8055,7 +8055,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>On-site parking and nearby municipal decks like the Spiral Deck are available</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Allentown, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Allentown, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located in Center City Allentown</li>
         </ul>
@@ -8402,7 +8402,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Paid parking garages available nearby (e.g., 1625 Locust St garage)</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Philadelphia, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Philadelphia, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located near SEPTA Suburban Station and Walnut-Locust subway</li>
         </ul>
@@ -8735,7 +8735,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Street parking available on Tioga St and nearby side streets</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in North Philadelphia, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in North Philadelphia, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located near SEPTA Market-Frankford Line (Tioga Station)</li>
         </ul>
@@ -9065,7 +9065,7 @@ export const clinics: ClinicsProps[] = [
           <li>Same-day appointments available for acute orthopedic problems - no long waits</li>
           <li>Street parking available on Germantown Ave and nearby side streets</li>
           <li>PPO insurance accepted, including Workers' Compensation claims</li>
-          <li>Sports medicine orthopedic specialists in Germantown, specializing in <a href='/conditions/sports-injuries' className='underline text-[#0A50EC]'>athletic injuries</a></li>
+          <li>Sports medicine orthopedic specialists in Germantown, specializing in <a href='/conditions/sports-medicine' className='underline text-[#0A50EC]'>athletic injuries</a></li>
           <li>Specialized foot and ankle orthopedic services</li>
           <li>Conveniently located on historic Germantown Avenue</li>
         </ul>
@@ -9405,7 +9405,7 @@ export const clinics: ClinicsProps[] = [
           <li><strong>Expert Surgeons:</strong> Fellowship-trained specialists serving the Voorhees and Cherry Hill communities.</li>
           <li><strong>Same-Day Access:</strong> We offer <strong>same-day appointments</strong> for acute back or neck pain.</li>
           <li><strong>Modern Facility:</strong> State-of-the-art equipment for accurate diagnostics and treatment.</li>
-          <li><strong>Comprehensive Care:</strong> Specialized in <Link href="/treatments/minimally-invasive-spine-surgery" className="text-[#0A50EC] font-bold underline">minimally invasive spine surgery</Link> and joint preservation.</li>
+          <li><strong>Comprehensive Care:</strong> Specialized in <strong>minimally invasive spine surgery</strong> and joint preservation.</li>
           <li><strong>Convenience:</strong> Located on <strong>White Horse Road</strong> near <strong>Virtua Voorhees Hospital</strong>.</li>
         </ul>
       </div>
