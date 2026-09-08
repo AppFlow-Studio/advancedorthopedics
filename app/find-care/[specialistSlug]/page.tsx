@@ -7,12 +7,15 @@ import FAQsSection from "@/components/FaqsSection";
 import StateLocationCard from "@/components/StateLocationCard";
 import SpecialistExplorer from "@/components/SpecialistExplorer";
 import VertebraViewer from "@/components/VertebraViewer";
+import HeroPhoneCTA from "@/components/HeroPhoneCTA";
 import styles from './specialist.module.css';
 import { clinicsForMap } from "@/components/data/clinicsForMap.generated";
+import { AVERAGE_RATING, TOTAL_REVIEW_COUNT } from "@/components/data/reviewAggregate.generated";
 import { Doctors } from "@/components/data/doctors";
 import { SpecialistPages } from "@/components/data/specialists";
 import { STATE_METADATA } from "@/lib/locationRedirects";
-import { ArrowRight, CalendarCheck2, Clock3, PhoneCall, ShieldCheck } from "lucide-react";
+import { MAIN_PHONE_DISPLAY, MAIN_PHONE_HREF } from "@/lib/locationConstants";
+import { ArrowRight, CalendarCheck2, Clock3, MapPin, PhoneCall, ShieldCheck } from "lucide-react";
 
 const SITE_URL = "https://mountainspineorthopedics.com";
 
@@ -199,14 +202,35 @@ export default async function SpecialistPage({
             >
               {page.intro}
             </p>
-            <Link
-              href="/find-care/book-an-appointment"
-              className="hero-fade-up group max-h-[56px] h-full px-[26px] sm:px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer mt-7 shadow-[0_12px_30px_rgba(10,80,236,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0847d1]"
-            >
-              Book an appointment
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-            <div className="hero-fade-up mt-7 grid w-full max-w-2xl grid-cols-1 gap-2 text-sm text-[#252932] sm:grid-cols-3 sm:gap-3">
+            <div className="hero-fade-up mt-7 flex flex-wrap items-center gap-3">
+              <Link
+                href="/find-care/book-an-appointment"
+                className="group max-h-[56px] h-full px-[22px] sm:px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer shadow-[0_12px_30px_rgba(10,80,236,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0847d1]"
+              >
+                Book an appointment
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+              <HeroPhoneCTA phoneDisplay={MAIN_PHONE_DISPLAY} phoneHref={MAIN_PHONE_HREF} trackLocation={`SpecialistHero-${page.slug}`} />
+            </div>
+            <div className="hero-fade-up mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+              <span className="flex items-center gap-1.5">
+                <span className="flex gap-0.5" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#F5A623">
+                      <path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8L10 1.6z" />
+                    </svg>
+                  ))}
+                </span>
+                <span className="text-sm font-semibold text-[#252932]">{AVERAGE_RATING.toFixed(1)}</span>
+                <span className="text-sm text-[#424959]">· {TOTAL_REVIEW_COUNT}+ Google reviews</span>
+              </span>
+              <span className="hidden sm:inline text-[#9DB0C9]" aria-hidden="true">|</span>
+              <span className="flex items-center gap-1.5 text-sm text-[#424959]">
+                <MapPin className="h-4 w-4 shrink-0 text-[#0A50EC]" aria-hidden="true" />
+                <span>Serving <strong className="font-semibold text-[#252932]">FL · NJ · NY · PA · GA</strong></span>
+              </span>
+            </div>
+            <div className="hero-fade-up mt-5 grid w-full max-w-2xl grid-cols-1 gap-2 text-sm text-[#252932] sm:grid-cols-3 sm:gap-3">
               <div className="flex items-center gap-2 rounded-full border border-white/80 bg-white/55 px-3 py-2 backdrop-blur-sm">
                 <Clock3 className="h-4 w-4 shrink-0 text-[#0A50EC]" aria-hidden="true" />
                 <span>8AM–8PM, 7 days</span>
