@@ -50,7 +50,7 @@ const sharedAccessFaqs = [
   {
     question: "What insurance do you accept?",
     answer:
-      "Mountain Spine & Orthopedics works with {{INSURANCE_LINE}} Please contact the office before your visit so the team can verify your plan details and expected benefits.",
+      "Mountain Spine & Orthopedics accepts PPO insurance plans only. Please contact the office before your visit so the team can verify your plan details and expected benefits.",
   },
 ];
 

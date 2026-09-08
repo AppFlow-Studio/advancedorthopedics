@@ -281,7 +281,12 @@ export default async function SpecialistPage({
           </li>
           <li className="flex items-start gap-3 rounded-2xl border border-[#E7ECF7] bg-[#F8FAFF] px-4 py-4 transition-transform duration-300 hover:-translate-y-1 md:col-span-2">
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#0A50EC]" aria-hidden="true" />
-            <span>{"{{INSURANCE_LINE}}"}</span>
+            <span>
+              PPO insurance plans accepted (PPO only) —{' '}
+              <Link href="/insurance-policy" className="text-[#0A50EC] underline underline-offset-2 hover:text-[#0942c4]">
+                check your coverage
+              </Link>
+            </span>
           </li>
         </ul>
       </section>

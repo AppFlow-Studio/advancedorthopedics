@@ -243,7 +243,7 @@ const consolidatedSchema = {
       },
       offers: {
         '@type': 'Offer',
-        description: 'PPO and commercial insurance plans accepted. Free MRI review for qualifying PPO-insured patients.',
+        description: 'PPO insurance plans accepted. Free MRI review for qualifying PPO-insured patients.',
         acceptedPaymentMethod: [
           { '@type': 'PaymentMethod', name: 'Insurance' },
           { '@type': 'PaymentMethod', name: 'PPO' },

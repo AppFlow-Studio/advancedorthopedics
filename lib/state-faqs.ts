@@ -46,7 +46,7 @@ export const STATE_FAQS: Record<string, StateFAQ[]> = {
     },
     {
       question: "Do you accept insurance at your New Jersey orthopedic locations?",
-      answer: "Yes. We accept most major PPO insurance plans and Personal Injury Protection (PIP) coverage at our New Jersey locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred New Jersey office directly or call (973) 259-6756 before your visit. Our team can help you understand your benefits and any out-of-pocket costs."
+      answer: "Yes. We accept PPO insurance plans and Personal Injury Protection (PIP) coverage at our New Jersey locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred New Jersey office directly or call (973) 259-6756 before your visit. Our team can help you understand your benefits and any out-of-pocket costs."
     },
     {
       question: "How quickly can I be seen at a New Jersey location?",
@@ -90,7 +90,7 @@ export const STATE_FAQS: Record<string, StateFAQ[]> = {
     },
     {
       question: "Do you accept insurance at your Pennsylvania locations?",
-      answer: "Yes. We accept most major PPO insurance plans and Personal Injury Protection (PIP) coverage at our Pennsylvania locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred Pennsylvania office directly or call (215) 436-9496 before your visit."
+      answer: "Yes. We accept PPO insurance plans and Personal Injury Protection (PIP) coverage at our Pennsylvania locations. To verify that your specific plan is accepted and understand your coverage details, copay requirements, and any authorization requirements, contact your preferred Pennsylvania office directly or call (215) 436-9496 before your visit."
     },
     {
       question: "Do you treat auto accident and work injuries in Pennsylvania?",

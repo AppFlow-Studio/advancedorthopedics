@@ -291,7 +291,7 @@ export default async function StateHubPage({
                     'Board-certified spine & orthopedic surgeons',
                     'Same-day & next-day appointments available',
                     `${stateClinics.length} convenient ${stateInfo?.name} location${stateClinics.length > 1 ? 's' : ''}`,
-                    'Most major insurance plans accepted',
+                    'PPO insurance plans accepted',
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2.5">
                       <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#0A50EC] flex items-center justify-center">

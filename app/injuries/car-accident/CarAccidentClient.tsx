@@ -379,7 +379,7 @@ export default function CarAccidentClient({ faqs, doctors }: CarAccidentClientPr
                                 transition={{ delay: 0.3, duration: 0.4 }}
                                 className="text-xl text-gray-600 leading-relaxed"
                             >
-                                Same-week appointments for neck, back, shoulder, knee, and wrist injuries. Most insurances accepted.
+                                Same-week appointments for neck, back, shoulder, knee, and wrist injuries. PPO and auto injury coverage accepted.
                             </motion.p>
 
                             <motion.div
@@ -1348,7 +1348,7 @@ export default function CarAccidentClient({ faqs, doctors }: CarAccidentClientPr
                             }}
                             className="text-xl mb-8 text-blue-100"
                         >
-                            Most insurances accepted. Same-week access. HIPAA-safe texting.
+                            PPO and auto injury coverage accepted. Same-week access. HIPAA-safe texting.
                         </motion.p>
 
                         <motion.div

@@ -15,7 +15,7 @@ interface StateCTAProps {
 const trustItems = [
   { icon: Zap, label: 'Same-day appointments' },
   { icon: Shield, label: 'Board-certified surgeons' },
-  { icon: Calendar, label: 'Most insurance accepted' },
+  { icon: Calendar, label: 'PPO insurance accepted' },
 ];
 
 export default function StateCTA({ stateName, phoneNumber, phoneNumberRaw }: StateCTAProps) {

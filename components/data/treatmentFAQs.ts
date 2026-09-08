@@ -292,7 +292,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   "artificial-disc-replacement-surgery": [
     {
       question: "Does insurance cover artificial disc replacement?",
-      answer: "Yes, most major insurance plans and Medicare cover <strong>artificial disc replacement</strong> for the cervical spine (neck). Coverage for lumbar (back) replacement is becoming more common but varies by policy."
+      answer: "Yes, most major insurance plans cover <strong>artificial disc replacement</strong> for the cervical spine (neck). Coverage for lumbar (back) replacement is becoming more common but varies by policy. Mountain Spine & Orthopedics accepts PPO insurance plans only."
     },
     {
       question: "Can an artificial disc slip out?",
@@ -2624,7 +2624,7 @@ export const getTreatmentFaqs = (slug: string, title: string): FAQItem[] => {
     },
     {
       question: `Is ${title} covered by insurance?`,
-      answer: `Most medically necessary procedures for <strong>${title}</strong> are covered by major insurance plans, including Medicare. We recommend contacting our office to verify your specific benefits.`
+      answer: `Most medically necessary procedures for <strong>${title}</strong> are covered by major insurance plans. Mountain Spine & Orthopedics accepts PPO insurance plans only — we recommend contacting our office to verify your specific benefits.`
     },
     {
       question: `Am I a candidate for ${title}?`,

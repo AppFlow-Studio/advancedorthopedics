@@ -113,14 +113,19 @@ for (const page of SpecialistPages) {
       failures.push(`faqs ${page.slug}: missing "${question}"`);
     }
   }
+  // Approved 2026-09-08: the practice accepts PPO plans only. The FAQ must say
+  // so, and no unreplaced template token may survive anywhere in page content.
   const insuranceFaq = page.faqs.find(
     (faq) => faq.question === "What insurance do you accept?",
   );
-  if (!insuranceFaq?.answer.includes("{{INSURANCE_LINE}}")) {
-    failures.push(`insurance ${page.slug}: answer must use {{INSURANCE_LINE}}`);
+  if (!/PPO insurance plans only/.test(insuranceFaq?.answer ?? "")) {
+    failures.push(`insurance ${page.slug}: FAQ answer must state PPO insurance plans only`);
   }
 
   const serialized = JSON.stringify(page);
+  if (/\{\{[^}]*\}\}/.test(serialized)) {
+    failures.push(`content ${page.slug}: contains an unreplaced {{...}} template token`);
+  }
   if (/physical therapy/i.test(serialized)) {
     failures.push(`content ${page.slug}: contains prohibited service language`);
   }
