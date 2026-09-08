@@ -71,9 +71,8 @@ export default async function SpecialistPage({
     .map((slug) => Doctors.find((doctor) => doctor.slug === slug))
     .filter((doctor): doctor is (typeof Doctors)[number] => Boolean(doctor));
 
-  // Georgia is intentionally excluded from linked locations in this branch.
   const treatingClinics = clinicsForMap.filter(
-    (clinic) => clinic.locationType === "office" && clinic.stateSlug !== "georgia",
+    (clinic) => clinic.locationType === "office",
   );
 
   const faqItems = page.faqs.map((faq) => ({
@@ -425,7 +424,7 @@ export default async function SpecialistPage({
           Spine &amp; Orthopedics is available 8AM–8PM, seven days a week.
         </p>
         <div>
-        {['florida','new-jersey','new-york','pennsylvania'].map((state) => (
+        {['florida','new-jersey','new-york','pennsylvania','georgia'].map((state) => (
         <details key={state} className={styles.locations}>
           <summary>{state.replace(/\b\w/g, c => c.toUpperCase()).replace(/-/g,' ')} · {treatingClinics.filter(c=>c.stateSlug===state).length} {treatingClinics.filter(c=>c.stateSlug===state).length === 1 ? 'office' : 'offices'}</summary>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

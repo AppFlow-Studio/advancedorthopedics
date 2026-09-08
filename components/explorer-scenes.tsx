@@ -90,20 +90,37 @@ function Callout({ x1, y1, x2, y2, label, color, anchor = 'start', show }: {
 }) {
   // Hockey-stick leader: the diagonal stops clear of the label's width, then a
   // horizontal shelf runs above the text, so the line can never strike through it.
+  // The label sits on a dark pill so it stays readable over any artwork.
   const w = label.length * 7.4;
   const bend = anchor === 'end' ? x2 - w - 6 : x2 + w + 6;
+  const pillX = anchor === 'end' ? x2 - w - 8 : x2 - 4;
   return (
     <AnimatePresence>
       {show && (
         <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
           <motion.path d={`M${x1} ${y1} L${bend} ${y2} L${x2} ${y2}`} stroke={color} strokeWidth="1.2" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.5 }} />
           <circle cx={x1} cy={y1} r="2.4" fill={color} />
-          <text x={x2 + (anchor === 'start' ? 2 : -2)} y={y2 + 14} fill="#dce8f4" fontSize="10.5" letterSpacing="1.4" textAnchor={anchor} style={{ textTransform: 'uppercase' }}>
+          <rect x={pillX} y={y2 + 3} width={w + 12} height={18} rx={9} fill="#0b1e33" opacity="0.9" />
+          <text x={x2 + (anchor === 'start' ? 2 : -2)} y={y2 + 16} fill="#dce8f4" fontSize="10.5" letterSpacing="1.4" textAnchor={anchor} style={{ textTransform: 'uppercase' }}>
             {label}
           </text>
         </motion.g>
       )}
     </AnimatePresence>
+  );
+}
+
+/** Standalone label on a dark pill — readable over bone-light artwork. */
+function TagText({ x, y, label, anchor = 'start' }: { x: number; y: number; label: string; anchor?: 'start' | 'end' | 'middle' }) {
+  const w = label.length * 7.4;
+  const pillX = anchor === 'middle' ? x - w / 2 - 6 : anchor === 'end' ? x - w - 8 : x - 4;
+  return (
+    <g>
+      <rect x={pillX} y={y - 13} width={w + 12} height={18} rx={9} fill="#0b1e33" opacity="0.9" />
+      <text x={x} y={y} fill="#dce8f4" fontSize="10.5" letterSpacing="1.4" textAnchor={anchor}>
+        {label}
+      </text>
+    </g>
   );
 }
 
@@ -266,29 +283,53 @@ export function SpineScene({ active, color, reduced, uid }: SceneProps) {
 /* 2 · Back pain — posture silhouettes with load cues                  */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Segment-built figures: head + torso capsule + round-capped limb strokes,
+ * the same construction as activity pictograms, so every pose reads as a
+ * correctly proportioned human at a glance. Far-side limbs render dimmer
+ * behind the torso for depth.
+ */
 const FIG = {
   sitting: {
-    head: [222, 96, 15] as const,
-    body: 'M232 112 C238 124 240 140 238 158 C237 172 234 184 230 194 L164 196 C150 197 142 200 142 208 L142 288 C142 296 148 300 154 300 L154 316 L138 316 L138 300 C130 298 126 294 126 286 L126 206 C126 190 138 180 156 178 L212 176 C214 156 214 134 210 118 C214 112 224 108 232 112 Z',
-    spine: 'M228 116 C233 132 234 150 231 168 C229 180 226 188 222 193',
-    hot: [227, 176] as const,
+    head: [223, 106, 14] as const,
+    torso: 'M224 124 C227 144 228 164 226 186',
+    limbsBack: ['M228 192 L170 198 L168 256 L150 260'],
+    limbsFront: ['M226 190 L164 194 L162 254 L144 258', 'M224 136 L206 166 L188 188'],
+    spine: 'M222 126 C226 146 227 166 225 186',
+    hot: [225, 182] as const,
+    shadow: [192, 266, 84] as const,
     extra: 'chair',
   },
   standing: {
-    head: [196, 74, 15] as const,
-    body: 'M206 90 C214 104 216 124 214 142 C212 158 206 166 207 178 C216 188 222 198 220 212 L216 260 L218 306 L221 322 L196 324 L198 306 L196 262 C194 240 192 220 192 206 C186 194 185 180 187 166 C184 148 185 124 189 106 C191 98 196 92 206 90 Z',
-    spine: 'M203 96 C209 116 210 138 207 158 C205 170 203 176 204 184',
-    hot: [204, 172] as const,
+    head: [197, 72, 14] as const,
+    torso: 'M199 90 C201 112 202 138 200 164',
+    limbsBack: ['M203 172 L206 240 L207 302 L191 306', 'M201 102 L207 140 L210 168'],
+    limbsFront: ['M198 172 L196 240 L195 302 L177 306', 'M199 104 L195 140 L193 168'],
+    spine: 'M197 92 C200 114 201 140 199 162',
+    hot: [201, 158] as const,
+    shadow: [197, 312, 66] as const,
     extra: 'plumb',
   },
   walking: {
-    head: [204, 76, 15] as const,
-    body: 'M214 92 C222 106 224 126 222 144 C220 158 216 166 216 176 C226 184 232 194 228 208 C224 224 210 240 200 254 L192 296 L196 318 L172 320 L180 294 L188 252 C186 246 186 240 188 234 C180 244 172 258 168 274 L162 306 L142 302 L152 270 C158 250 168 232 180 218 C176 206 176 192 180 178 C176 160 178 130 186 108 C190 98 202 90 214 92 Z',
-    spine: 'M210 98 C216 118 217 140 214 158 C212 168 210 174 211 182',
-    hot: [212, 170] as const,
+    head: [196, 70, 14] as const,
+    torso: 'M199 88 C204 112 206 136 203 160',
+    limbsBack: ['M205 168 L234 214 L250 268 L264 274', 'M198 100 L176 132 L162 152'],
+    limbsFront: ['M201 168 L174 216 L170 276 L152 280', 'M200 100 L222 134 L238 160'],
+    spine: 'M197 90 C202 112 204 136 201 158',
+    hot: [204, 152] as const,
+    shadow: [205, 286, 92] as const,
     extra: 'motion',
   },
 };
+
+function Limb({ d, uid, dim }: { d: string; uid: string; dim?: boolean }) {
+  return (
+    <g opacity={dim ? 0.5 : 1}>
+      <path d={d} fill="none" stroke="#54779c" strokeWidth="19" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" />
+      <path d={d} fill="none" stroke={`url(#${uid}-flesh)`} strokeWidth="15" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+  );
+}
 
 export function BackPainScene({ active, color, reduced, uid }: SceneProps) {
   const keys = ['sitting', 'standing', 'walking'] as const;
@@ -296,7 +337,6 @@ export function BackPainScene({ active, color, reduced, uid }: SceneProps) {
   const f = FIG[k];
   return (
     <g>
-      <ellipse cx="195" cy="326" rx="92" ry="8" fill="#0b1c30" opacity="0.8" />
       <AnimatePresence mode="wait">
         <motion.g
           key={k}
@@ -305,30 +345,40 @@ export function BackPainScene({ active, color, reduced, uid }: SceneProps) {
           exit={reduced ? undefined : { opacity: 0, x: -16 }}
           transition={{ duration: reduced ? 0 : 0.35, ease: 'easeOut' }}
         >
+          <ellipse cx={f.shadow[0]} cy={f.shadow[1]} rx={f.shadow[2]} ry="7" fill="#0b1c30" opacity="0.85" />
           {f.extra === 'chair' && (
-            <g stroke="#4a6a8c" strokeWidth="3.5" strokeLinecap="round" fill="none">
-              <path d="M244 176 L244 300 M244 210 L236 210" />
-              <path d="M120 316 h150" strokeOpacity="0.35" strokeWidth="2" />
+            <g stroke="#4a6a8c" strokeWidth="4" strokeLinecap="round" fill="none">
+              <path d="M246 118 L248 196" />
+              <path d="M250 200 L152 200" strokeWidth="5" />
+              <path d="M158 200 L158 262 M242 200 L242 262" />
+              <path d="M112 268 H312" strokeOpacity="0.3" strokeWidth="2" />
             </g>
           )}
-          {f.extra === 'plumb' && <path d="M204 52 V336" stroke="#ffffff2e" strokeDasharray="3 8" strokeWidth="1.5" />}
+          {f.extra === 'plumb' && <path d="M197 46 V330" stroke="#ffffff2e" strokeDasharray="3 8" strokeWidth="1.5" />}
           {f.extra === 'motion' && !reduced && (
             <g>
               {[0, 1, 2].map((i) => (
                 <motion.path
                   key={i}
-                  d={`M${118 - i * 6} ${140 + i * 44} h30`}
+                  d={`M${282 + i * 8} ${110 + i * 52} h30`}
                   stroke={color}
                   strokeWidth="2.4"
                   strokeLinecap="round"
-                  animate={{ x: [0, -16, 0], opacity: [0.15, 0.6, 0.15] }}
+                  animate={{ x: [0, 18, 0], opacity: [0.15, 0.6, 0.15] }}
                   transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.25 }}
                 />
               ))}
             </g>
           )}
-          <circle cx={f.head[0]} cy={f.head[1]} r={f.head[2]} fill={`url(#${uid}-flesh)`} stroke="#54779c" strokeWidth="1.2" />
-          <path d={f.body} fill={`url(#${uid}-flesh)`} stroke="#54779c" strokeWidth="1.2" strokeLinejoin="round" />
+          {f.limbsBack.map((d, i) => (
+            <Limb key={`b${i}`} d={d} uid={uid} dim />
+          ))}
+          <path d={f.torso} fill="none" stroke="#54779c" strokeWidth="34" strokeLinecap="round" opacity="0.55" />
+          <path d={f.torso} fill="none" stroke={`url(#${uid}-flesh)`} strokeWidth="30" strokeLinecap="round" />
+          {f.limbsFront.map((d, i) => (
+            <Limb key={`f${i}`} d={d} uid={uid} />
+          ))}
+          <circle cx={f.head[0]} cy={f.head[1]} r={f.head[2]} fill={`url(#${uid}-flesh)`} stroke="#54779c" strokeWidth="1.4" />
           <path d={f.spine} fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" filter={`url(#${uid}-glow)`} strokeDasharray="5 4" />
           <PainRings cx={f.hot[0]} cy={f.hot[1]} color={color} reduced={reduced} />
           {f.extra === 'chair' && (
@@ -336,7 +386,7 @@ export function BackPainScene({ active, color, reduced, uid }: SceneProps) {
               {[0, 1].map((i) => (
                 <motion.path
                   key={i}
-                  d={`M${252 + i * 16} ${140 + i * 6} v16 m-4 -6 l4 6 l4 -6`}
+                  d={`M${260 + i * 16} ${146 + i * 6} v16 m-4 -6 l4 6 l4 -6`}
                   animate={reduced ? undefined : { y: [0, 7, 0], opacity: [0.9, 0.3, 0.9] }}
                   transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
                 />
@@ -345,7 +395,7 @@ export function BackPainScene({ active, color, reduced, uid }: SceneProps) {
           )}
         </motion.g>
       </AnimatePresence>
-      <Callout show x1={f.hot[0] + 8} y1={f.hot[1]} x2={352} y2={64} label={['disc load rises', 'upright load', 'load in motion'][active]} color={color} anchor="end" />
+      <Callout show x1={f.hot[0] + 8} y1={f.hot[1]} x2={366} y2={54} label={['disc load rises', 'upright load', 'load in motion'][active]} color={color} anchor="end" />
     </g>
   );
 }
@@ -410,7 +460,7 @@ export function ScoliosisScene({ active, color, reduced, uid }: SceneProps) {
               />
             ))}
             <motion.path d={`M${apex.x + 52} ${a.y + 24} A 74 74 0 0 1 ${apex.x + 50} ${b.y - 18}`} fill="none" stroke={color} strokeWidth="1.3" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 0.5 }} />
-            <text x={apex.x + 62} y={(a.y + b.y) / 2 + 4} fill="#dce8f4" fontSize="10.5" letterSpacing="1.4">COBB ANGLE</text>
+            <TagText x={apex.x + 62} y={(a.y + b.y) / 2 + 4} label="COBB ANGLE" />
           </motion.g>
         )}
       </AnimatePresence>
@@ -421,13 +471,13 @@ export function ScoliosisScene({ active, color, reduced, uid }: SceneProps) {
             <path d="M200 56 V340" stroke="#ffffff45" strokeDasharray="3 8" strokeWidth="1.4" />
             <motion.path d={`M200 ${apex.y + 6} H${apex.x - 4}`} stroke={color} strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.5 }} markerEnd="none" />
             <path d={`M${apex.x - 10} ${apex.y + 2} l8 4 l-8 4 Z`} fill={color} />
-            <text x="112" y={apex.y - 12} fill="#dce8f4" fontSize="10.5" letterSpacing="1.4">LATERAL SHIFT</text>
+            <TagText x={62} y={apex.y - 12} label="LATERAL SHIFT" />
             <circle cx="200" cy="56" r="3" fill={color} />
           </motion.g>
         )}
       </AnimatePresence>
       {active === 2 && (
-        <Callout show x1={apex.x + 24} y1={apex.y + 4} x2={320} y2={apex.y - 22} label="motion, not just angles" color={color} anchor="end" />
+        <Callout show x1={apex.x + 24} y1={apex.y + 4} x2={382} y2={92} label="motion, not just angles" color={color} anchor="end" />
       )}
     </g>
   );
@@ -573,7 +623,7 @@ export function StenosisScene({ active, color, reduced, uid }: SceneProps) {
           <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <path d="M138 320 A 66 66 0 0 1 262 320" fill="none" stroke="#3a5a7c" strokeWidth="5" strokeLinecap="round" />
             <motion.path d="M138 320 A 66 66 0 0 1 262 320" fill="none" stroke={color} strokeWidth="5" strokeLinecap="round" initial={{ pathLength: 0 }} animate={reduced ? { pathLength: 0.42 } : { pathLength: [0.1, 0.46, 0.1] }} transition={reduced ? { duration: 0 } : { duration: 5, repeat: Infinity, ease: 'easeInOut' }} />
-            <text x="200" y="318" fill="#dce8f4" fontSize="10.5" letterSpacing="1.4" textAnchor="middle">WALKING TOLERANCE</text>
+            <TagText x={200} y={318} label="WALKING TOLERANCE" anchor="middle" />
           </motion.g>
         )}
       </AnimatePresence>
@@ -739,7 +789,7 @@ export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
             {[0, 1, 2].map((i) => (
               <motion.rect key={i} x={296 + i * 13} y={308 - i * 14} width={8} rx={3} fill={color} initial={{ height: 0 }} animate={{ height: 14 + i * 14 }} transition={{ delay: 0.15 * i, ...spring }} style={{ originY: 1 }} />
             ))}
-            <text x="296" y="338" fill="#dce8f4" fontSize="10.5" letterSpacing="1.4">GRIP</text>
+            <TagText x={296} y={338} label="GRIP" />
           </motion.g>
         )}
       </AnimatePresence>

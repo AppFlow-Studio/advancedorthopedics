@@ -25,7 +25,7 @@ try {
    assert.equal(checks.overflow,false,`${slug} overflow at ${width}`);
    assert.equal(checks.h1,1);assert.ok(checks.title<=60);assert.ok(checks.description<=155);
    assert.equal(checks.canonical,`https://mountainspineorthopedics.com/find-care/${slug}`);
-   assert.equal(checks.badHeadings,false);assert.equal(checks.choices,3);assert.equal(checks.locations,4);
+   assert.equal(checks.badHeadings,false);assert.equal(checks.choices,3);assert.equal(checks.locations,5);
    for(const type of ['MedicalWebPage','Physician','FAQPage','BreadcrumbList'])assert.ok(checks.schemas.includes(type));
    await page.evaluate(()=>[...document.querySelectorAll('button')].find(b=>b.textContent.trim()==='Reject All')?.click());
    let keyboardOk=false;

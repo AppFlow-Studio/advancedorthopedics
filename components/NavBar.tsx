@@ -33,6 +33,7 @@ import { clinicsForMap as clinics } from './data/clinicsForMap.generated';
 import { GetLatestBlog } from "@/app/blogs/api/get-blogs";
 import { SidebarNavItem } from './SidebarNavItem';
 import { House, Heart, Calendar, User, Eye, Scan, Stethoscope, CheckCircle, Shield, LucideFileText, Target, Activity, Zap, Circle, AlertCircle, Minus, Triangle, Settings, Headphones, Building, Users, HelpCircle, FileText, MapPin, Bone, Footprints, Scissors, Droplet, Syringe, Info, List, ChevronRight, Car, CarFront, Briefcase } from 'lucide-react';
+import { SpineIcon, BackPainIcon, ScoliosisIcon, SciaticaIcon, StenosisIcon, HerniatedDiscIcon, PinchedNerveIcon } from './SpecialistIcons';
 import { motion, AnimatePresence } from 'framer-motion'
 import PromoOverlayCard from './PromoOverlayCard';
 import { useQuery } from '@tanstack/react-query';
@@ -182,7 +183,7 @@ function NavLink({ href, title, screen, pathname, sublinks, short_desc, latestBl
                                       href={specialist.href}
                                       className='flex flex-row items-center gap-x-2 rounded-md px-2 py-1 text-[13px] hover:bg-white/60 hover:text-[#0A50EC] transition-colors duration-200'
                                     >
-                                      <SpecialistIcon className='h-3.5 w-3.5 shrink-0 text-[#252932]' />
+                                      <SpecialistIcon className='h-4 w-4 shrink-0 text-[#252932]' />
                                       <span className='truncate'>{specialist.title}</span>
                                     </Link>
                                   </NavigationMenuLink>
@@ -686,43 +687,43 @@ const NavBarLinks = [
             title: 'Spine Specialist',
             href: '/find-care/spine-specialist',
             short_desc: 'Expert spine care',
-            icon: Stethoscope,
+            icon: SpineIcon,
           },
           {
             title: 'Back Pain Doctor',
             href: '/find-care/back-pain-doctor',
             short_desc: 'Back pain evaluation',
-            icon: Activity,
+            icon: BackPainIcon,
           },
           {
             title: 'Scoliosis Doctor',
             href: '/find-care/scoliosis-doctor',
             short_desc: 'Scoliosis specialists',
-            icon: Bone,
+            icon: ScoliosisIcon,
           },
           {
             title: 'Sciatica Doctor',
             href: '/find-care/sciatica-doctor',
             short_desc: 'Leg and nerve pain',
-            icon: Zap,
+            icon: SciaticaIcon,
           },
           {
             title: 'Spinal Stenosis',
             href: '/find-care/spinal-stenosis-specialist',
             short_desc: 'Narrowing and pressure',
-            icon: Shield,
+            icon: StenosisIcon,
           },
           {
             title: 'Herniated Disc',
             href: '/find-care/herniated-disc-specialist',
             short_desc: 'Disc-related symptoms',
-            icon: Circle,
+            icon: HerniatedDiscIcon,
           },
           {
             title: 'Pinched Nerve',
             href: '/find-care/pinched-nerve-doctor',
             short_desc: 'Nerve compression care',
-            icon: AlertCircle,
+            icon: PinchedNerveIcon,
           },
         ]
       }
