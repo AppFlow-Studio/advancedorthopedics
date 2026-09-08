@@ -500,15 +500,18 @@ function Body({ uid }: { uid: string }) {
   );
 }
 
-const SCIATIC_MAIN = 'M200 162 C206 176 212 186 216 196 C220 210 217 228 214 242 C213 250 212 254 212 258';
-const SCIATIC_TIBIAL = 'M212 258 C212 272 212 286 211 300';
-const SCIATIC_PERONEAL = 'M212 258 C206 270 202 282 200 294';
+/* Nerve routing follows the silhouette's measured limb centerlines
+   (fill-scanned in scene coordinates): right buttock c~217 at y185,
+   posterior thigh c~219-220, knee split ~y252, calf c~219-221. */
+const SCIATIC_MAIN = 'M200 158 C206 168 213 176 217 186 C220 198 219 216 220 234 C220 242 220 247 220 252';
+const SCIATIC_TIBIAL = 'M220 252 C221 268 220 284 219 300';
+const SCIATIC_PERONEAL = 'M220 252 C224 264 226 276 227 288';
 
 export function SciaticaScene({ active, color, reduced, uid }: SceneProps) {
   const stops = [
-    { cx: 200, cy: 164 },
-    { cx: 216, cy: 198 },
-    { cx: 212, cy: 270 },
+    { cx: 200, cy: 160 },
+    { cx: 217, cy: 188 },
+    { cx: 220, cy: 270 },
   ][active];
   return (
     <g>
@@ -523,10 +526,10 @@ export function SciaticaScene({ active, color, reduced, uid }: SceneProps) {
       {[SCIATIC_TIBIAL, SCIATIC_PERONEAL].map((d, i) => (
         <motion.path key={i} d={d} fill="none" stroke={NERVE} strokeWidth="2.6" strokeLinecap="round" animate={{ opacity: active === 2 ? 1 : 0.45, pathLength: 1 }} initial={{ pathLength: 0 }} transition={{ duration: reduced ? 0 : 0.8, delay: 0.5 }} filter={active === 2 ? `url(#${uid}-glow)` : undefined} />
       ))}
-      <NervePulse d={SCIATIC_MAIN + ' ' + (active === 2 ? SCIATIC_TIBIAL.replace('M212 258 ', '') : '')} color={color} reduced={reduced} duration={2.4} />
+      <NervePulse d={SCIATIC_MAIN + ' ' + (active === 2 ? SCIATIC_TIBIAL.replace('M220 252 ', '') : '')} color={color} reduced={reduced} duration={2.4} />
       {/* nerve root dots at the spine */}
       {[0, 1, 2].map((i) => (
-        <circle key={i} cx={197 + i * 3} cy={154 + i * 8} r={2.4} fill={NERVE} opacity={active === 0 ? 1 : 0.5} />
+        <circle key={i} cx={197 + i * 3} cy={150 + i * 8} r={2.4} fill={NERVE} opacity={active === 0 ? 1 : 0.5} />
       ))}
       <motion.g animate={{ x: stops.cx, y: stops.cy }} transition={spring} style={{ x: stops.cx, y: stops.cy }}>
         <PainRings cx={0} cy={0} color={color} reduced={reduced} />
@@ -536,8 +539,8 @@ export function SciaticaScene({ active, color, reduced, uid }: SceneProps) {
         [0, 1, 2, 3].map((i) => (
           <motion.circle
             key={i}
-            cx={[218, 206, 214, 203][i]}
-            cy={[278, 286, 298, 304][i]}
+            cx={[222, 216, 221, 217][i]}
+            cy={[272, 281, 292, 301][i]}
             r="2"
             fill={color}
             initial={{ opacity: 0 }}
@@ -740,8 +743,11 @@ export function HerniatedScene({ active, color, reduced, uid }: SceneProps) {
 /* 7 · Pinched nerve — neck-to-hand signal map                         */
 /* ------------------------------------------------------------------ */
 
-const ARM_NERVE = 'M204 68 C214 74 226 79 237 86 C249 94 254 106 258 122 C262 142 262 162 259 180 C257 192 256 200 255 208';
-const FINGERS = ['M255 208 C252 214 250 218 249 223', 'M255 208 C255 215 255 220 255 225', 'M255 208 C258 214 260 218 261 221'];
+/* Measured right-arm centerline: shoulder mass ~x233 at y86, upper arm
+   c237-240 (y110-121), elbow c244 (y136), forearm c248 (y151), wrist
+   c251 (y166), hand center (253,176), fingers end ~y192. */
+const ARM_NERVE = 'M203 64 C214 72 226 77 233 86 C239 95 238 106 240 118 C242 130 245 142 248 154 C250 162 252 168 253 176';
+const FINGERS = ['M253 176 C251 182 250 187 249 192', 'M253 176 C254 183 254 188 254 193', 'M253 176 C257 182 259 186 260 190'];
 
 export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
   return (
@@ -753,7 +759,7 @@ export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
       ))}
       {/* plexus rootlets converge from the neck into the trunk */}
       {[62, 70, 78].map((y, i) => (
-        <motion.path key={i} d={`M192 ${y + 3} C199 ${y + 4} 201 ${68 + i * 2} 204 68`} fill="none" stroke={NERVE} strokeWidth="1.8" strokeLinecap="round" opacity={0.85} initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: reduced ? 0 : 0.6, delay: i * 0.12 }} />
+        <motion.path key={i} d={`M192 ${y + 3} C198 ${y + 4} 200 ${64 + i * 1.5} 203 65`} fill="none" stroke={NERVE} strokeWidth="1.8" strokeLinecap="round" opacity={0.85} initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: reduced ? 0 : 0.6, delay: i * 0.12 }} />
       ))}
       {/* main nerve + finger branches */}
       <path d={ARM_NERVE} fill="none" stroke="#4d6f93" strokeWidth="7" strokeLinecap="round" opacity="0.45" />
@@ -767,8 +773,8 @@ export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
         [0, 1, 2, 3, 4, 5].map((i) => (
           <motion.circle
             key={i}
-            cx={[252, 257, 250, 254, 248, 253][i]}
-            cy={[150, 166, 182, 196, 210, 220][i]}
+            cx={[245, 250, 253, 250, 256, 252][i]}
+            cy={[144, 156, 168, 180, 182, 190][i]}
             r="2.2"
             fill={color}
             initial={{ opacity: 0 }}
@@ -780,7 +786,7 @@ export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
       <AnimatePresence>
         {active === 1 && (
           <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <ellipse cx="258" cy="168" rx="10" ry="26" fill={color} opacity="0.18" transform="rotate(6 258 168)" />
+            <ellipse cx="247" cy="150" rx="8" ry="20" fill={color} opacity="0.18" transform="rotate(14 247 150)" />
             {[0, 1, 2].map((i) => (
               <motion.rect key={i} x={300 + i * 13} y={296 - i * 14} width={8} rx={3} fill={color} initial={{ height: 0 }} animate={{ height: 14 + i * 14 }} transition={{ delay: 0.15 * i, ...spring }} style={{ originY: 1 }} />
             ))}
@@ -791,9 +797,9 @@ export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
       {/* view 2 — location pins along the course */}
       {active === 2 &&
         [
-          { cx: 200, cy: 70, l: '1' },
-          { cx: 240, cy: 92, l: '2' },
-          { cx: 256, cy: 202, l: '3' },
+          { cx: 200, cy: 68, l: '1' },
+          { cx: 234, cy: 90, l: '2' },
+          { cx: 251, cy: 170, l: '3' },
         ].map((p, i) => (
           <motion.g key={i} initial={{ opacity: 0, scale: 0.4 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.18, ...spring }} style={{ transformOrigin: `${p.cx}px ${p.cy}px` }}>
             <circle cx={p.cx} cy={p.cy - 4} r="12" fill="#0d2036" stroke={color} strokeWidth="2" />
@@ -802,10 +808,10 @@ export function PinchedNerveScene({ active, color, reduced, uid }: SceneProps) {
         ))}
       <Callout
         show
-        x1={[257, 262, 262][active]}
-        y1={[184, 168, 202][active]}
+        x1={[256, 252, 258][active]}
+        y1={[172, 152, 168][active]}
         x2={[384, 384, 384][active]}
-        y2={[140, 110, 246][active]}
+        y2={[132, 104, 232][active]}
         label={['tingling map', 'strength check', 'where it starts'][active]}
         color={color}
         anchor="end"
