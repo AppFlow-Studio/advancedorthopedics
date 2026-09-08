@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { conditions } from '@/components/data/conditions';
 import { AllTreatmentsCombined } from '@/components/data/treatments';
+import { resolveConditionSlugHref } from '@/lib/internal-link-redirects';
 
 interface StateSeoSectionsProps {
   stateName: string;
@@ -32,11 +33,12 @@ const BODY_PART_GROUPS = [
       'pinched-nerve',
     ],
     priorityTreatments: [
-      'microdiscectomy',
-      'laminectomy',
+      'lumbar-microdiscectomy-surgery',
+      'lumbar-laminectomy-surgery',
       'spinal-fusion',
-      'acdf',
-      'artificial-disc-replacement',
+      'acdf-surgery',
+      'artificial-disc-replacement-surgery',
+      'adult-scoliosis-surgery',
     ],
   },
   {
@@ -45,17 +47,15 @@ const BODY_PART_GROUPS = [
     conditionSlug: 'knee',
     priorityConditions: [
       'knee-arthritis',
-      'meniscus-tear',
-      'acl-tear',
-      'mcl-injury',
-      'lcl-injury',
-      'patellofemoral-pain',
+      'torn-meniscus',
+      'acl-injury',
+      'patellofemoral-pain-syndrome',
     ],
     priorityTreatments: [
       'total-knee-replacement',
-      'knee-arthroscopy',
-      'meniscus-repair',
-      'acl-reconstruction',
+      'arthroscopic-knee-surgery',
+      'meniscus-repair-surgery',
+      'acl-reconstruction-surgery',
     ],
   },
   {
@@ -64,13 +64,13 @@ const BODY_PART_GROUPS = [
     conditionSlug: 'hip',
     priorityConditions: [
       'hip-arthritis',
-      'labral-tear',
+      'hip-labral-tear',
       'hip-bursitis',
       'hip-impingement',
     ],
     priorityTreatments: [
       'total-hip-replacement',
-      'hip-arthroscopy',
+      'hip-arthroscopy-treatment',
     ],
   },
   {
@@ -81,10 +81,10 @@ const BODY_PART_GROUPS = [
       'rotator-cuff-tear',
       'shoulder-impingement',
       'frozen-shoulder',
-      'labral-tear',
+      'slap-tear',
     ],
     priorityTreatments: [
-      'rotator-cuff-repair',
+      'rotator-cuff-repair-surgery',
       'shoulder-arthroscopy',
     ],
   },
@@ -93,10 +93,10 @@ const BODY_PART_GROUPS = [
     tagMatchers: ['Hand', 'Wrist', 'Carpal Tunnel', 'Hand/Wrist', 'Elbow', 'Tennis Elbow'],
     conditionSlug: 'hand-wrist-elbow',
     priorityConditions: [
-      'carpal-tunnel',
+      'carpal-tunnel-syndrome',
       'trigger-finger',
       'tennis-elbow',
-      'cubital-tunnel',
+      'cubital-tunnel-syndrome',
     ],
     priorityTreatments: [
       'carpal-tunnel-release',
@@ -109,14 +109,13 @@ const BODY_PART_GROUPS = [
     conditionSlug: 'foot-ankle',
     priorityConditions: [
       'plantar-fasciitis',
-      'achilles-tendinitis',
-      'ankle-sprain',
-      'bunions',
+      'achilles-tendonitis',
+      'bunions-hallux-valgus',
     ],
     priorityTreatments: [
-      'achilles-repair',
-      'bunion-surgery',
-      'ankle-arthroscopy',
+      'achilles-tendon-repair',
+      'bunion-correction-surgery',
+      'ankle-arthroscopy-minimally-invasive-surgery',
     ],
   },
   {
@@ -124,14 +123,14 @@ const BODY_PART_GROUPS = [
     tagMatchers: ['Sports Medicine', 'Sports Injury'],
     conditionSlug: 'sports-medicine',
     priorityConditions: [
-      'sports-injury',
-      'acl-tear',
-      'meniscus-tear',
+      'sports-medicine',
+      'acl-injury',
+      'torn-meniscus',
     ],
     priorityTreatments: [
-      'acl-reconstruction',
-      'meniscus-repair',
-      'knee-arthroscopy',
+      'acl-reconstruction-surgery',
+      'meniscus-repair-surgery',
+      'arthroscopic-knee-surgery',
     ],
   },
   {
@@ -141,7 +140,7 @@ const BODY_PART_GROUPS = [
     priorityConditions: [],
     priorityTreatments: [
       'epidural-steroid-injection',
-      'facet-injection',
+      'facet-ablation-rhizotomy-treatment',
       'cortisone-injections-for-back-pain',
     ],
   },
@@ -219,7 +218,9 @@ export default function StateSeoSections({ stateName, stateSlug, nearbyRegions =
     { slug: 'foot-ankle', label: 'Foot & Ankle Care', href: '/conditions/foot-ankle' },
     { slug: 'sports-medicine', label: 'Sports Medicine & Athletic Injuries', href: '/conditions/sports-medicine' },
     { slug: 'pain-management', label: 'Pain Management Procedures', href: '/conditions/pain-management' },
-    { slug: 'injuries', label: 'Injury Care & Treatment', href: '/injuries/personal-injury' },
+    // There is no /injuries hub route; that href 404s. Point at the same entry
+    // point the primary navigation uses for this section.
+    { slug: 'injuries', label: 'Injury Care & Treatment', href: '/injuries/car-accident' },
   ];
 
   return (
@@ -306,7 +307,7 @@ export default function StateSeoSections({ stateName, stateSlug, nearbyRegions =
                 {displayedConditions.map((condition) => (
                   <Link
                     key={condition.slug}
-                    href={`/conditions/${condition.slug}`}
+                    href={resolveConditionSlugHref(condition.slug)}
                     className="text-[#0A50EC] hover:underline"
                   >
                     {condition.title}

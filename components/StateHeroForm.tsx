@@ -24,8 +24,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { User, Mail, Phone, Lock } from 'lucide-react'
 import { formatPhoneInput } from '@/lib/phone-formatter'
-import { pushFormSubmit } from '@/utils/enhancedConversions'
-import { getAttributionData } from '@/lib/gclid'
+import { pushAcceptedLead } from '@/utils/enhancedConversions'
+import { EMPTY_ATTRIBUTION, getAttributionData } from '@/lib/gclid'
 import { useRouter } from 'next/navigation'
 import { STATE_OPTIONS, normalizeState } from '@/lib/stateUtils'
 
@@ -51,7 +51,7 @@ interface Props {
 export default function StateHeroForm({ defaultState, stateName }: Props) {
   const [expanded, setExpanded] = useState(false)
   const [disabled, setDisabled] = useState(false)
-  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+  const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
   const router = useRouter()
 
   useEffect(() => {
@@ -95,7 +95,10 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
           postalCode: values.postalCode,
           country: values.country,
           state: values.state,
+          form_source: 'state-consultation',
           gclid: attribution.gclid,
+          gbraid: attribution.gbraid,
+          wbraid: attribution.wbraid,
           utm_source: attribution.utm_source,
           utm_medium: attribution.utm_medium,
           utm_campaign: attribution.utm_campaign,
@@ -114,7 +117,8 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
         return
       }
 
-      pushFormSubmit({ form_name: 'StateHeroForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode })
+      const accepted = await pushAcceptedLead({ acceptance: res, form_name: 'StateHeroForm', form_source: 'state-consultation', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode })
+      if (!accepted) return
 
       router.push('/thank-you')
     } catch (error) {
@@ -174,6 +178,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                       <FormControl>
                         <Input
                           id="hero_first_name"
+                          aria-label="First name"
                           name="firstName"
                           placeholder="First Name"
                           autoComplete="given-name"
@@ -197,6 +202,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                       <FormControl>
                         <Input
                           id="hero_last_name"
+                          aria-label="Last name"
                           name="lastName"
                           placeholder="Last Name"
                           autoComplete="family-name"
@@ -221,6 +227,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                     <FormControl>
                       <Input
                         id="hero_phone"
+                        aria-label="Phone number"
                         name="phone"
                         type="tel"
                         placeholder="(123) 456-7890"
@@ -249,6 +256,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                     <FormControl>
                       <Input
                         id="hero_email"
+                        aria-label="Email address"
                         name="email"
                         type="email"
                         placeholder="Email Address"
@@ -287,6 +295,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                               <FormControl>
                                 <Input
                                   id="hero_postal"
+                                  aria-label="ZIP or postal code"
                                   name="postalCode"
                                   inputMode="numeric"
                                   autoComplete="postal-code"
@@ -307,7 +316,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                           <FormItem className="w-full">
                             <FormControl>
                               <Select onValueChange={field.onChange} value={field.value}>
-                                <SelectTrigger className="w-full h-11 text-sm bg-white/70 border border-[#DCDEE1] rounded-md px-3 focus:bg-white transition-colors">
+                                <SelectTrigger aria-label="State" className="w-full h-11 text-sm bg-white/70 border border-[#DCDEE1] rounded-md px-3 focus:bg-white transition-colors">
                                   <SelectValue placeholder="State" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -333,7 +342,7 @@ export default function StateHeroForm({ defaultState, stateName }: Props) {
                               onValueChange={field.onChange}
                               value={field.value}
                             >
-                              <SelectTrigger className="h-11 text-sm bg-white/70 border-[#DCDEE1] rounded-sm">
+                              <SelectTrigger aria-label="Best time to contact" className="h-11 text-sm bg-white/70 border-[#DCDEE1] rounded-sm">
                                 <SelectValue placeholder="Best time to contact" />
                               </SelectTrigger>
                               <SelectContent>

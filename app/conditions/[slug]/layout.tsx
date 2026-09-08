@@ -3,11 +3,13 @@ import React from "react";
 import { BODY_PARTS } from '@/components/data/bodyParts';
 import { conditions, conditionContentPlaceholders, ConditionContent } from "@/components/data/conditions";
 import { buildCanonical, safeTitle, safeDescription, normalizeUTF8, canonicalForOg } from "@/lib/seo";
+import { resolveConditionSlugHref } from "@/lib/internal-link-redirects";
 import { getOgImageForPath } from "@/lib/og";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { conditionFAQs } from "@/components/data/conditionFAQs";
 import { getConditionMetadata, generateConditionMetadataFallback } from "@/lib/metadata-seo";
 import { conditionThumbnailBySlug, hubThumbnailBySlug } from "@/lib/seo/condition-images";
+import { getVisibleProviderBySlug } from "@/lib/providers/providerVisibility";
 
 // Helper to strip HTML and markdown from text for schema
 function stripHtmlAndMarkdown(text: string): string {
@@ -30,7 +32,7 @@ export async function generateMetadata(
     // Check if it's a body part first
     const bodyPart = BODY_PARTS.find(bp => bp.slug === slug);
     if (bodyPart) {
-        const url = buildCanonical(`/conditions/${slug}`);
+        const url = buildCanonical(resolveConditionSlugHref(slug));
         const hubImage = hubThumbnailBySlug[slug];
         const ogImage = hubImage?.url || getOgImageForPath(`/conditions/${slug}`);
         const ogAlt = hubImage?.alt || bodyPart.seoH1;
@@ -53,7 +55,7 @@ export async function generateMetadata(
         ];
         
         // Multi-state location keywords
-        const locationKeywords = ['Florida', 'New Jersey', 'New York', 'Pennsylvania'];
+        const locationKeywords = ['Florida', 'New Jersey', 'New York', 'Pennsylvania', 'Georgia'];
         const combinedKeywords = [
             ...bodyPartKeywords,
             ...locationKeywords.map(loc => `${bodyPart.title.toLowerCase()} doctor ${loc}`),
@@ -82,7 +84,7 @@ export async function generateMetadata(
             openGraph: {
                 title: bodyPart.metaTitle,
                 description: bodyPart.metaDescription,
-                url: canonicalForOg(`/conditions/${slug}`),
+                url: canonicalForOg(resolveConditionSlugHref(slug)),
                 siteName: "Mountain Spine & Orthopedics",
                 type: "website",
                 locale: "en_US",
@@ -124,7 +126,7 @@ export async function generateMetadata(
 
     if (!conditionContent && !condition) {
         const readableSlug = slug.replace(/-/g, " ");
-        const canonicalUrl = buildCanonical(`/conditions/${slug}`);
+        const canonicalUrl = buildCanonical(resolveConditionSlugHref(slug));
         return {
             title: `${readableSlug.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} | Mountain Spine & Orthopedics`,
             description: "Learn about orthopedic care and treatments with our specialists in Florida.",
@@ -135,7 +137,7 @@ export async function generateMetadata(
     }
 
     const isNewFormat = !!conditionContent;
-    const canonicalUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
+    const canonicalUrl = buildCanonical(resolveConditionSlugHref(isNewFormat ? conditionContent!.slug : condition!.slug));
     
     const slugForMetadata = isNewFormat ? conditionContent!.slug : condition!.slug;
     const title = isNewFormat ? conditionContent!.title : condition!.title;
@@ -203,7 +205,7 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
     const isNewFormat = !!conditionContent;
     const conditionTitle = isNewFormat ? conditionContent!.title : condition!.title;
     const conditionDescription = stripHtmlAndMarkdown(isNewFormat ? conditionContent!.overview.body : condition!.body);
-    const conditionUrl = buildCanonical(`/conditions/${isNewFormat ? conditionContent!.slug : condition!.slug}`);
+    const conditionUrl = buildCanonical(resolveConditionSlugHref(isNewFormat ? conditionContent!.slug : condition!.slug));
     
     // Use new thumbnail mapping first, fallback to existing image logic
     const conditionSlug = isNewFormat ? conditionContent!.slug : condition!.slug;
@@ -300,6 +302,11 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
                 '@type': 'State',
                 'name': 'Pennsylvania',
                 'sameAs': 'https://en.wikipedia.org/wiki/Pennsylvania'
+            },
+            {
+                '@type': 'State',
+                'name': 'Georgia',
+                'sameAs': 'https://en.wikipedia.org/wiki/Georgia_(U.S._state)'
             }
         ]
     };
@@ -402,6 +409,34 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
         webpageSchema.image = imageUrl;
     }
 
+    // Review provenance, structured data only — there is deliberately no visible
+    // byline for this.
+    //
+    // The scoliosis content was reviewed by a physician at the practice, but no
+    // individual was named to attribute it to, so `reviewedBy` resolves to the
+    // MedicalOrganization: a real entity, and an accurate statement that a
+    // medical organisation reviewed the page. Naming a specific doctor requires
+    // setting `reviewedBy` on the condition record to that doctor's slug, at
+    // which point this emits a Physician object pointing at their profile.
+    // It never invents a name.
+    const reviewedAt = isNewFormat ? conditionContent!.reviewedAt : undefined;
+    const reviewer = isNewFormat && conditionContent!.reviewedBy
+        ? getVisibleProviderBySlug(conditionContent!.reviewedBy)
+        : undefined;
+
+    if (reviewedAt) {
+        webpageSchema.lastReviewed = reviewedAt;
+        webpageSchema.dateModified = reviewedAt;
+    }
+    webpageSchema.reviewedBy = reviewer
+        ? {
+            '@type': 'Physician',
+            'name': reviewer.name,
+            'url': `${baseUrl}/about/meetourdoctors/${reviewer.slug}`,
+            'medicalSpecialty': reviewer.medicalSpecialty,
+        }
+        : { '@id': organizationId };
+
     // 4. Service Schema
     const serviceSchema = {
         '@type': 'Service',
@@ -438,6 +473,11 @@ const ConditionSchemas = async ({ slug }: { slug: string }) => {
                 '@type': 'State',
                 'name': 'Pennsylvania',
                 'sameAs': 'https://en.wikipedia.org/wiki/Pennsylvania'
+            },
+            {
+                '@type': 'State',
+                'name': 'Georgia',
+                'sameAs': 'https://en.wikipedia.org/wiki/Georgia_(U.S._state)'
             }
         ],
         'hasOfferCatalog': {

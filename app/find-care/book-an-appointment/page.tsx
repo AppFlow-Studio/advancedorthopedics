@@ -61,18 +61,11 @@ const BookAppointmentJsonLdSchema = () => {
     "@context": "https://schema.org",
     "@type": "MedicalOrganization",
     "name": "Mountain Spine & Orthopedics",
-    "description": "Leading spine and orthopedic specialists serving FL, NJ, NY, and PA providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
+    "description": "Leading spine and orthopedic specialists serving FL, NJ, NY, PA, and GA providing advanced minimally invasive treatments, including Band-Aid Back Surgery, laser spine procedures, and comprehensive pain management.",
     "url": "https://mountainspineorthopedics.com",
     "logo": "https://mountainspineorthopedics.com/newlogo4.png",
     "image": "https://mountainspineorthopedics.com/herosectionimg.jpg",
     "telephone": "(561) 223-9959",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "1247",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "medicalSpecialty": [
       "Orthopedic Surgery",
       "Spine Surgery", 
@@ -412,12 +405,14 @@ export default function BookAnAppointment() {
             aria-hidden="true"
           />
           <div className="relative z-10">
-            <h1
+            {/* The lg+ hero below carries this page's single <h1>; this
+                mobile-only duplicate is presentational. */}
+            <p
               style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
               className="text-[#252932] text-3xl"
             >
               Book an Appointment
-            </h1>
+            </p>
             <p
               style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 500 }}
               className="text-[#252932] text-base mt-1"
@@ -455,7 +450,7 @@ export default function BookAnAppointment() {
         />
         <div className="z-[2] flex flex-col w-full h-full text-left relative pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
           <div className='max-w-[1440px] w-full flex flex-col items-start justify-start'>
-            <TextAnimate animation="blurInUp" by="word" once
+            <TextAnimate as="h1" animation="blurInUp" by="word" once
               style={{
                 fontFamily: 'var(--font-public-sans)',
                 fontWeight: 500,

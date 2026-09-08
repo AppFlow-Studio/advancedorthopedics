@@ -3558,8 +3558,7 @@ export const conditions: ConditionInfoProp[] = [
                             realign the metatarsal, restore joint congruency, and stabilize
                             the foot with low-profile titanium hardware. Patients often bear
                             weight in a protective postoperative shoe within days and resume
-                            athletic activities within weeks, guided by our in-house physical
-                            therapy team.
+                            athletic activities within weeks.
                         </p>
                     </div>
                 ),
@@ -4023,8 +4022,8 @@ export const conditions: ConditionInfoProp[] = [
                                 </li>
                                 <li>
                                     Phase 2: Correct Mechanics – Customized orthotics or heel lifts
-                                    reduce tensile load; our physical therapists mobilize tight
-                                    ankle joints and teach calf-lengthening stretches.
+                                    reduce tensile load; ankle-joint mobilization and
+                                    calf-lengthening stretches restore flexibility.
                                 </li>
                                 <li>
                                     Phase 3: Regenerate Tissue – For persistent cases, we offer
@@ -4272,7 +4271,7 @@ export const conditions: ConditionInfoProp[] = [
                             tibial tendon, and midfoot or subtalar fusion when severe
                             arthritis is present. Most patients are allowed to bear weight in
                             a protective boot within a few weeks and transition to supportive
-                            footwear under the guidance of our in house rehabilitation team.
+                            footwear as healing allows.
                         </p>
                     </div>
                 ),
@@ -4706,8 +4705,7 @@ export const conditions: ConditionInfoProp[] = [
                             secure the toe with low profile implants that allow early
                             protected weight bearing. Postoperative care includes protective
                             footwear for two to four weeks followed by progressive range of
-                            motion and strengthening supervised by our onsite rehabilitation
-                            team. Most patients resume regular shoes and low impact activities
+                            motion and strengthening as healing allows. Most patients resume regular shoes and low impact activities
                             within six to eight weeks.
                         </p>
                     </div>

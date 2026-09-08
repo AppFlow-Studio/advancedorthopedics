@@ -332,3 +332,9 @@ ol li p {
     font-size: 1.25rem; /* sm:text-xl */
   }
 }
+/* Data-driven article content (dangerouslySetInnerHTML). Tailwind's
+   preflight zeroes <p> margins, which collapsed every multi-paragraph
+   medical description into a single visual blob. Restore paragraph
+   rhythm inside these containers only. */
+.rich-prose p + p { margin-top: 1em; }
+.rich-prose p + ul, .rich-prose ul + p, .rich-prose p + h3, .rich-prose h3 + p { margin-top: 0.75em; }

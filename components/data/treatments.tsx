@@ -129,6 +129,30 @@ import artreplaceback from '@/public/artreplaceback.png'
 // Interfaces now imported from centralized @/types/content
 
 // New TreatmentContent interface for structured treatment data
+/**
+ * A question-led section slotted into a treatment page's clinical order.
+ *
+ * Deliberately identical in shape and placement vocabulary to `ConditionSection`
+ * in components/data/conditions.tsx — same field names, same placement union — so
+ * the two templates stay one model rather than drifting into two. The placement
+ * names read as condition-oriented because that is where they were defined; on a
+ * treatment page they map onto the equivalent structural points:
+ *
+ *   after-symptoms    -> after the overview block
+ *   after-causes      -> after the candidacy block
+ *   before-treatment  -> immediately before the procedure block
+ *   after-treatment   -> after the recovery block
+ *
+ * Optional and unset on every existing treatment record, so the other 122 pages
+ * render exactly as before.
+ */
+export interface TreatmentSection {
+  heading: string;
+  /** HTML. Rendered server-side through the same bold/auto-link pipeline. */
+  body: string;
+  placement?: 'after-symptoms' | 'after-causes' | 'before-treatment' | 'after-treatment';
+}
+
 export interface TreatmentContent {
   id?: string;
   slug: string;
@@ -192,6 +216,41 @@ export interface TreatmentContent {
   // Schedule CTA text
   schedule?: string;
   updatedAt?: string;
+
+  /**
+   * Overrides the physician module's default "Meet our Doctors" heading with a
+   * page-specific one (e.g. "Doctors Who Treat Adult Scoliosis"), matching the
+   * condition pages' convention. Unset on every existing treatment, which keeps
+   * their heading exactly as it was.
+   */
+  /**
+   * Optional H1 override. `title` stays the canonical entity name used by schema,
+   * the internal-link map, related-treatment lists and condition lists, so it must
+   * not be repurposed for phrasing. Mirrors `h1` on ConditionContent
+   * (components/data/conditions.tsx). Unset on every existing treatment, which
+   * keeps their H1 exactly as it was.
+   */
+  h1?: string;
+
+  doctorsHeading?: string;
+
+  /**
+   * Question-led sections rendered server-side in clinical order. See
+   * `TreatmentSection` above for the placement vocabulary. Unset on every
+   * existing record.
+   */
+  additionalSections?: TreatmentSection[];
+
+  /**
+   * Clinical review provenance, ISO date. Only set this when a real review
+   * actually happened — app/treatments/[TreatmentDetails]/layout.tsx emits
+   * schema.org lastReviewed/reviewedBy solely when reviewedAt is present, so an
+   * unreviewed page asserts nothing. `reviewedBy` is a doctor slug from
+   * components/data/doctors.tsx; leave it unset to credit the
+   * MedicalOrganization rather than name an individual who did not review it.
+   */
+  reviewedAt?: string;
+  reviewedBy?: string;
 }
 
 export const AllTreatments : TreatmentsCardProp[] = [
@@ -204,21 +263,21 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "detail": "<p><strong>Ankle ligament reconstruction surgery</strong> repairs or reconstructs damaged lateral ankle ligaments in patients with <a href=\"/conditions/ankle-instability\" class=\"text-blue-600 hover:underline\">chronic ankle instability</a>. Repeated ankle sprains stretch or tear the ligaments (primarily the ATFL and CFL), leading to a loose, unstable ankle prone to giving way.</p><p>According to the <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/chronic-lateral-ankle-pain/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">American Academy of Orthopaedic Surgeons</a>, up to 20% of ankle sprains can lead to chronic instability. The <strong>Broström-Gould procedure</strong> is the gold standard for anatomic repair, while severe cases may require tendon graft reconstruction.</p>",
   "conditions_treated": "<ul><li><a href=\"/conditions/ankle-instability\" class=\"text-blue-600 hover:underline\">Chronic lateral ankle instability</a></li><li>Torn ankle ligaments unresponsive to bracing and rehabilitation</li><li>Recurrent ankle sprains (ankle giving way)</li><li>Significant ligament laxity after ankle fractures</li><li>Failed previous ankle stabilization procedures</li><li>Ankle instability affecting sports participation</li></ul>",
   "procedure_info": "<ol><li>Pre-operative MRI and stress X-rays confirm ligament damage and rule out other pathology</li><li>Surgery is performed as an outpatient procedure under regional or general anesthesia</li><li>A small incision is made on the outside of the ankle</li><li><strong>Broström repair:</strong> Damaged ligaments are tightened and reattached to bone with suture anchors</li><li><strong>Gould modification:</strong> The extensor retinaculum is reinforced for additional strength</li><li>For severe cases, tendon graft reconstruction using peroneus brevis or allograft</li><li><a href=\"/treatments/ankle-arthroscopy-minimally-invasive-surgery\" class=\"text-blue-600 hover:underline\">Ankle arthroscopy</a> may be performed simultaneously to address cartilage damage</li></ol>",
-  "recovery_info": "<p>Recovery involves immobilization in a cast or boot for 4-6 weeks. Weight-bearing progresses gradually. Rehabilitation begins around 6 weeks, focusing on range of motion, strength, balance, and proprioception training. Return to sports typically takes 4-6 months. Success rates exceed 85-95% for restoring stability.</p>",
+  "recovery_info": "<p>Recovery involves immobilization in a cast or boot for 4-6 weeks. Weight-bearing progresses gradually. Rehabilitation begins around 6 weeks, focusing on range of motion, strength, balance, and proprioception training. Return to sports typically takes 4-6 months. How well stability is restored depends on the quality of the remaining ligament tissue and on completing the proprioception work.</p>",
   "benefits": (
     <ul>
       <li>Eliminates chronic ankle instability and the sensation of the ankle 'giving way'</li>
       <li>Prevents recurrent ankle sprains and further ligament damage</li>
       <li>Restores confident participation in sports and recreational activities</li>
       <li>Protects against long-term <a href="/conditions/ankle-arthritis" className="text-blue-600 hover:underline">ankle arthritis</a> from cartilage damage</li>
-      <li>85-95% success rate with anatomic repair techniques</li>
+      <li>Anatomic repair techniques aim to reproduce the original ligament footprint</li>
       <li>Minimally invasive options available for faster recovery</li>
     </ul>
   ),
   "why_choose_us": "<p>Our fellowship-trained foot and ankle surgeons specialize in <strong>ankle ligament reconstruction</strong>. We use advanced imaging to fully characterize your instability and tailor the surgical approach—Broström repair for most patients, graft reconstruction for severe cases. We offer complimentary <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">MRI reviews</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinions</a>.</p>",
   "schedule": "<p>If your ankle repeatedly gives way or you've had multiple sprains, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> at Mountain Spine & Orthopedics. Don't let ankle instability progress to arthritis.</p>",
   "slug": "ankle-ligament-reconstruction-surgery",
-  "keywords": ["Ankle ligament reconstruction", "chronic ankle instability surgery", "FL, NJ, NY, & PA orthopedic foot ankle", "torn ankle ligament operation", "foot and ankle care", "Brostrom procedure for ankle", "ankle stabilization techniques", "recurrent ankle sprain treatment", "lateral ankle repair", "ankle ligament repair FL, NJ, NY, & PA"]
+  "keywords": ["Ankle ligament reconstruction", "chronic ankle instability surgery", "FL, NJ, NY, PA & GA orthopedic foot ankle", "torn ankle ligament operation", "foot and ankle care", "Brostrom procedure for ankle", "ankle stabilization techniques", "recurrent ankle sprain treatment", "lateral ankle repair", "ankle ligament repair FL, NJ, NY, PA & GA"]
 },
 {
   "title": "Hybrid Cervical Spine Surgery",
@@ -233,10 +292,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Offers effective relief of nerve compression and neck pain from multilevel disease.</li><li>Provides stability where fusion is needed, while preserving motion with disc replacement at other levels.</li><li>May reduce the risk of adjacent segment degeneration compared to fusing multiple levels alone.</li><li>Improves overall neck function, flexibility, and quality of life.</li><li>Balances the benefits of both fusion and motion-preserving techniques.</li><li>Customizes treatment for complex cervical spine conditions.</li></ul>
 ),
-  "why_choose_us": "Our fellowship-trained spine surgeons are highly experienced in advanced cervical spine techniques, including hybrid procedures. Our center uses MRI and dynamic X-rays for meticulous planning, balancing stability and motion preservation for your specific multilevel neck condition in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our fellowship-trained spine surgeons are highly experienced in advanced cervical spine techniques, including hybrid procedures. Our center uses MRI and dynamic X-rays for meticulous planning, balancing stability and motion preservation for your specific multilevel neck condition in FL, NJ, NY, PA & GA.",
   "schedule": "Experiencing complex neck pain from multilevel cervical disc disease? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "hybrid-cervical-spine-surgery",
-  "keywords": ["Hybrid cervical spine surgery", "FL, NJ, NY, & PA neck surgery center", "cervical fusion with ADR", "multilevel neck pain management", "motion-sparing neck operation", "spine care specialist FL, NJ, NY, & PA", "cervical DDD complex treatment", "advanced neck surgery options"]
+  "keywords": ["Hybrid cervical spine surgery", "FL, NJ, NY, PA & GA neck surgery center", "cervical fusion with ADR", "multilevel neck pain management", "motion-sparing neck operation", "spine care specialist FL, NJ, NY, PA & GA", "cervical DDD complex treatment", "advanced neck surgery options"]
 },
 {
   "title": "Back Pain Treatment",
@@ -244,17 +303,17 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--back-pain-treatment--thumbnail.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--back-pain-treatment--thumbnail.png',
   "body": "Comprehensive back pain treatment addresses various causes, from muscle strains to disc issues, with personalized plans. Explore options for lasting relief today.",
-  "detail": "Back pain can stem from muscle strains, degenerative disc disease, herniated discs, spinal stenosis, or facet joint arthritis. Effective management requires accurate diagnosis of the underlying spinal condition. Our approach starts with a clinical evaluation and advanced imaging (MRI, X-rays) to visualize spinal structures. Treatment plans are individualized, ranging from conservative care including rehabilitation planning to advanced interventions for lasting back pain relief and improved spinal function.",
+  "detail": "Back pain can stem from muscle strains, degenerative disc disease, herniated discs, spinal stenosis, or facet joint arthritis. Effective management requires accurate diagnosis of the underlying spinal condition. Our approach starts with a clinical evaluation and advanced imaging (MRI, X-rays) to visualize spinal structures. Treatment plans are individualized, ranging from conservative care including recovery planning to advanced interventions for lasting back pain relief and improved spinal function.",
   "conditions_treated": "We address pain from Muscle strains, Degenerative disc disease, Disc herniations, Spinal stenosis, Facet joint arthritis, Spondylolisthesis, Radiculopathy (nerve root compression) causing sciatica, Piriformis syndrome, and Poor posture. We focus on identifying the specific pain generator for effective lower back pain management and treatment of acute or chronic back conditions.",
-  "procedure_info": "Treatment encompasses non-surgical options including rehabilitation planning for stretching and core strengthening, medications, and image-guided injections (epidural steroid injections, facet blocks). For severe cases unresponsive to conservative care, surgical options like microdiscectomy, laminectomy, or spinal fusion may be considered for spinal health restoration and chronic back pain solutions, including minimally invasive back surgery.",
-  "recovery_info": "Recovery is variable. Non-surgical treatments involve consistent adherence for gradual pain reduction. Surgical recovery includes post-operative protocols, pain management, and structured rehabilitation planning. The goal is to alleviate pain and restore optimal spinal function and mobility, preventing future episodes of acute or chronic back issues and promoting long-term spinal wellness.",
+  "procedure_info": "Treatment encompasses non-surgical options including recovery planning for stretching and core strengthening, medications, and image-guided injections (epidural steroid injections, facet blocks). For severe cases unresponsive to conservative care, surgical options like microdiscectomy, laminectomy, or spinal fusion may be considered for spinal health restoration and chronic back pain solutions, including minimally invasive back surgery.",
+  "recovery_info": "Recovery is variable. Non-surgical treatments involve consistent adherence for gradual pain reduction. Surgical recovery includes post-operative protocols, pain management, and structured recovery planning. The goal is to alleviate pain and restore optimal spinal function and mobility, preventing future episodes of acute or chronic back issues and promoting long-term spinal wellness.",
   "benefits": (
   <ul><li>Provides substantial reduction of chronic or acute back pain.</li><li>Restores spinal mobility and flexibility, allowing for greater ease of movement.</li><li>Relieves nerve compression symptoms such as radiating pain, numbness, or weakness.</li><li>Improves the ability to perform daily activities and participate in work or hobbies.</li><li>Prevents long-term complications associated with chronic pain and spinal instability.</li><li>Enhances overall physical function and quality of life.</li></ul>
 ),
-  "why_choose_us": "We are dedicated to accurately diagnosing and effectively treating back pain. Our practice's approach includes thorough clinical evaluations, MRI and X-rays to identify structural causes, and EMG testing if needed. Our team in FL, NJ, NY, & PA develops individualized treatment plans for long-term spinal health.",
+  "why_choose_us": "We are dedicated to accurately diagnosing and effectively treating back pain. Our practice's approach includes thorough clinical evaluations, MRI and X-rays to identify structural causes, and EMG testing if needed. Our team in FL, NJ, NY, PA & GA develops individualized treatment plans for long-term spinal health.",
   "schedule": "Back pain limiting your comfort or mobility? Schedule a consultation with Mountain Spine & Orthopedics. Receive a complimentary MRI review and take the first step toward effective back pain treatment.",
   "slug": "back-pain-treatment",
-  "keywords": ["Back pain treatment", "orthopedic care FL, NJ, NY, & PA", "back pain specialist", "non-surgical back pain relief", "herniated disc care", "spinal stenosis management", "spine health FL, NJ, NY, & PA", "sciatica pain solutions"]
+  "keywords": ["Back pain treatment", "orthopedic care FL, NJ, NY, PA & GA", "back pain specialist", "non-surgical back pain relief", "herniated disc care", "spinal stenosis management", "spine health FL, NJ, NY, PA & GA", "sciatica pain solutions"]
 },
 {
   "title": "Bunion Correction Surgery",
@@ -272,7 +331,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "<p>Our foot and ankle surgeons are <strong>experts in bunion correction</strong>, offering the full spectrum of techniques from minimally invasive procedures to complex reconstructions. We use weight-bearing X-rays and 3D imaging when needed to select the optimal approach for your specific deformity. We offer <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">free second opinions</a> to ensure you're confident in your treatment plan.</p>",
   "schedule": "<p>If <a href=\"/conditions/bunions-hallux-valgus\" class=\"text-blue-600 hover:underline\">bunion pain</a> is affecting your daily life, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> at Mountain Spine & Orthopedics to discuss your surgical options.</p>",
   "slug": "bunion-correction-surgery",
-  "keywords": ["Bunion correction surgery", "hallux valgus surgery", "FL, NJ, NY, & PA foot and ankle specialist", "foot deformity correction", "minimally invasive bunionectomy options", "podiatric surgery care", "painful bunion relief treatment", "big toe joint surgery", "bunionectomy FL, NJ, NY, & PA", "Lapidus bunion surgery"]
+  "keywords": ["Bunion correction surgery", "hallux valgus surgery", "FL, NJ, NY, PA & GA foot and ankle specialist", "foot deformity correction", "minimally invasive bunionectomy options", "podiatric surgery care", "painful bunion relief treatment", "big toe joint surgery", "bunionectomy FL, NJ, NY, PA & GA", "Lapidus bunion surgery"]
 },
 {
   "title": "Carpal Tunnel Release Surgery",
@@ -287,10 +346,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Offers effective and often long-lasting relief from numbness, tingling, and pain.</li><li>Restores sensation in the fingers and improves hand strength.</li><li>Resolves nocturnal symptoms that disrupt sleep.</li><li>Prevents further damage to the median nerve from chronic compression.</li><li>Minimally invasive options can result in smaller scars and quicker return to light activities.</li><li>Improves overall hand function and dexterity.</li></ul>
 ),
-  "why_choose_us": "Our hand and wrist surgeons are experts in diagnosing and treating carpal tunnel syndrome. Our practice uses advanced diagnostic tools to confirm diagnosis and recommend the most appropriate surgical technique (open or minimally invasive) for lasting hand function restoration in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our hand and wrist surgeons are experts in diagnosing and treating carpal tunnel syndrome. Our practice uses advanced diagnostic tools to confirm diagnosis and recommend the most appropriate surgical technique (open or minimally invasive) for lasting hand function restoration in FL, NJ, NY, PA & GA.",
   "schedule": "Experiencing symptoms of carpal tunnel syndrome unresponsive to conservative care? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "carpal-tunnel-release",
-  "keywords": ["Carpal tunnel release surgery", "CTS surgery", "FL, NJ, NY, & PA hand surgeon", "hand numbness treatment", "median nerve release surgery", "minimally invasive hand operation", "wrist pain surgical relief", "endoscopic carpal tunnel options"]
+  "keywords": ["Carpal tunnel release surgery", "CTS surgery", "FL, NJ, NY, PA & GA hand surgeon", "hand numbness treatment", "median nerve release surgery", "minimally invasive hand operation", "wrist pain surgical relief", "endoscopic carpal tunnel options"]
 },
 {
   "title": "Cervical Disc Replacement",
@@ -305,10 +364,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Preserves motion at the treated cervical level, maintaining natural neck flexibility.</li><li>Effectively relieves nerve compression, reducing neck and arm pain (radiculopathy).</li><li>Restores disc height and can improve spinal alignment.</li><li>Often leads to a faster recovery and less post-operative stiffness compared to fusion.</li><li>May reduce the risk of problems at adjacent spinal levels.</li><li>Improves overall quality of life by restoring neck function.</li></ul>
 ),
-  "why_choose_us": "Our spine surgeons are experts in cervical disc replacement. Our center offers advanced imaging techniques and second opinions to determine if this motion-preserving neck surgery is the optimal choice for your specific condition and long-term neck health in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our spine surgeons are experts in cervical disc replacement. Our center offers advanced imaging techniques and second opinions to determine if this motion-preserving neck surgery is the optimal choice for your specific condition and long-term neck health in FL, NJ, NY, PA & GA.",
   "schedule": "Neck pain or nerve symptoms? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "cervical-disc-replacement",
-  "keywords": ["Cervical disc replacement", "neck ADR", "FL, NJ, NY, & PA orthopedic neck specialist", "motion preservation cervical surgery", "cervical artificial disc benefits", "spine care FL, NJ, NY, & PA", "neck pain after disc herniation", "non-fusion neck operation"]
+  "keywords": ["Cervical disc replacement", "neck ADR", "FL, NJ, NY, PA & GA orthopedic neck specialist", "motion preservation cervical surgery", "cervical artificial disc benefits", "spine care FL, NJ, NY, PA & GA", "neck pain after disc herniation", "non-fusion neck operation"]
 },
 {
   "title": "Coccygectomy (Tailbone Removal Surgery)",
@@ -323,10 +382,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provides significant reduction or elimination of severe, chronic tailbone pain.</li><li>Restores the ability to sit comfortably for extended periods.</li><li>Improves overall quality of life by relieving debilitating coccyx-specific pain.</li><li>Can alleviate pain experienced during bowel movements or intercourse if related to coccyx pathology.</li><li>Offers a permanent solution when other coccydynia treatments fail.</li><li>Addresses intractable pain at the base of the spine.</li></ul>
 ),
-  "why_choose_us": "Our spine surgeons possess specialized expertise in evaluating and surgically treating chronic coccydynia. Our practice uses dynamic X-rays, MRI, and diagnostic injections to confirm the coccyx as the pain source before considering coccygectomy, ensuring appropriate patient selection in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our spine surgeons possess specialized expertise in evaluating and surgically treating chronic coccydynia. Our practice uses dynamic X-rays, MRI, and diagnostic injections to confirm the coccyx as the pain source before considering coccygectomy, ensuring appropriate patient selection in FL, NJ, NY, PA & GA.",
   "schedule": "Chronic tailbone pain interfering with your daily life? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "coccygectomy-tailbone-removal-surgery",
-  "keywords": ["Coccygectomy", "tailbone removal", "FL, NJ, NY, & PA spine surgery", "coccydynia surgical relief", "chronic coccyx pain treatment", "spine care specialist", "sacrococcygeal pain management", "refractory tailbone pain solution"]
+  "keywords": ["Coccygectomy", "tailbone removal", "FL, NJ, NY, PA & GA spine surgery", "coccydynia surgical relief", "chronic coccyx pain treatment", "spine care specialist", "sacrococcygeal pain management", "refractory tailbone pain solution"]
 },
 {
   "title": "Anti-Inflammatory Injections for Joint and Spine Pain",
@@ -341,10 +400,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provide rapid and targeted relief from pain and inflammation at the source.</li><li>Significantly reduce joint or spine inflammation, improving comfort.</li><li>Enhance mobility and function in the affected area.</li><li>Can delay or avoid the need for more invasive surgical intervention.</li><li>Facilitate participation in rehabilitation by reducing acute pain.</li><li>Offer minimal downtime with a quick return to daily activities.</li></ul>
 ),
-  "why_choose_us": "We specialize in precise, image-guided injection therapies. Our center's diagnostic evaluation includes advanced imaging techniques to accurately visualize the pain source. Our physicians in FL, NJ, NY, & PA use advanced image guidance for accurate injections, maximizing effectiveness as part of a comprehensive, evidence-based care strategy.",
+  "why_choose_us": "We specialize in precise, image-guided injection therapies. Our center's diagnostic evaluation includes advanced imaging techniques to accurately visualize the pain source. Our physicians in FL, NJ, NY, PA & GA use advanced image guidance for accurate injections, maximizing effectiveness as part of a comprehensive, evidence-based care strategy.",
   "schedule": "Struggling with joint or spine pain due to inflammation? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "anti-inflammatory-injections-for-joint-and-spine-pain",
-  "keywords": ["Anti-inflammatory injections", "cortisone shots", "FL, NJ, NY, & PA orthopedic pain management", "joint inflammation relief", "spine pain injection therapy", "arthritis non-surgical options", "bursitis treatment injection", "image-guided pain relief"]
+  "keywords": ["Anti-inflammatory injections", "cortisone shots", "FL, NJ, NY, PA & GA orthopedic pain management", "joint inflammation relief", "spine pain injection therapy", "arthritis non-surgical options", "bursitis treatment injection", "image-guided pain relief"]
 },
 {
   "title": "Aging Management",
@@ -359,10 +418,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Preserves or improves bone density, significantly reducing osteoporosis and fracture risk.</li><li>Maintains or increases muscle mass and strength, enhancing physical function.</li><li>Improves balance and coordination, lowering the risk of falls.</li><li>Reduces age-related joint pain through targeted interventions.</li><li>Can delay the onset or progression of osteoarthritis.</li><li>Enhances overall mobility, independence, and quality of life.</li></ul>
 ),
-  "why_choose_us": "Our approach to aging management is comprehensive and personalized. Our practice uses advanced diagnostics like MRI, DEXA, and lab tests to create customized, evidence-based care plans. Our integrated team in FL, NJ, NY, & PA provides medical and nutritional expertise, along with seamless care coordination for comprehensive musculoskeletal health.",
+  "why_choose_us": "Our approach to aging management is comprehensive and personalized. Our practice uses advanced diagnostics like MRI, DEXA, and lab tests to create customized, evidence-based care plans. Our integrated team in FL, NJ, NY, PA & GA provides medical and nutritional expertise, along with seamless care coordination for comprehensive musculoskeletal health.",
   "schedule": "Take charge of healthy aging. Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss a personalized aging management plan.",
   "slug": "aging-management",
-  "keywords": ["Aging management orthopedics", "FL, NJ, NY, & PA bone health program", "senior joint health", "orthopedic wellness specialist", "preventive care for aging", "osteoporosis treatment FL, NJ, NY, & PA", "healthy aging programs", "maintaining mobility in seniors"]
+  "keywords": ["Aging management orthopedics", "FL, NJ, NY, PA & GA bone health program", "senior joint health", "orthopedic wellness specialist", "preventive care for aging", "osteoporosis treatment FL, NJ, NY, PA & GA", "healthy aging programs", "maintaining mobility in seniors"]
 },
 {
   "title": "Coccyx Nerve Ablation",
@@ -377,10 +436,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provides significant and often long-lasting reduction of chronic tailbone and related pelvic/perineal pain.</li><li>Is a minimally invasive outpatient procedure with a low risk profile.</li><li>Offers targeted pain relief by specifically interrupting signals from the Impar ganglion.</li><li>Can lead to a substantial reduction in the need for oral pain medications.</li><li>Improves the ability to sit comfortably and perform daily activities.</li><li>Offers a durable non-surgical pain solution for coccydynia.</li></ul>
 ),
-  "why_choose_us": "Our pain management specialists are highly experienced in precise, image-guided Impar ganglion ablation. Our center uses diagnostic blocks and advanced imaging techniques to confirm the Impar ganglion as the pain source, ensuring targeted and effective chronic pain treatment in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our pain management specialists are highly experienced in precise, image-guided Impar ganglion ablation. Our center uses diagnostic blocks and advanced imaging techniques to confirm the Impar ganglion as the pain source, ensuring targeted and effective chronic pain treatment in FL, NJ, NY, PA & GA.",
   "schedule": "Chronic tailbone pain limiting your quality of life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "coccyx-nerve-ablation",
-  "keywords": ["Coccyx nerve ablation", "Impar ganglion RFA", "FL, NJ, NY, & PA pain management", "coccydynia relief options", "minimally invasive tailbone treatment", "radiofrequency for coccyx pain", "pelvic pain interventional therapy", "non-operative coccyx solutions"]
+  "keywords": ["Coccyx nerve ablation", "Impar ganglion RFA", "FL, NJ, NY, PA & GA pain management", "coccydynia relief options", "minimally invasive tailbone treatment", "radiofrequency for coccyx pain", "pelvic pain interventional therapy", "non-operative coccyx solutions"]
 },
 {
   "title": "Cortisone Injections for Back Pain",
@@ -395,10 +454,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provide effective and targeted reduction of spinal inflammation.</li><li>Offer significant relief from localized back pain and radiating pain like sciatica.</li><li>Can help break the cycle of pain and inflammation, facilitating rehabilitation.</li><li>Is a minimally invasive outpatient procedure with relatively low risk.</li><li>May reduce reliance on oral pain medications and potentially avoid surgery.</li><li>Improves spinal comfort and overall function.</li></ul>
 ),
-  "why_choose_us": "Our pain management specialists are highly skilled in precise, image-guided spinal injections. Our practice uses advanced imaging techniques to identify the pain source and fluoroscopy for accurate medication delivery, ensuring effective and safe back pain treatment in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our pain management specialists are highly skilled in precise, image-guided spinal injections. Our practice uses advanced imaging techniques to identify the pain source and fluoroscopy for accurate medication delivery, ensuring effective and safe back pain treatment in FL, NJ, NY, PA & GA.",
   "schedule": "Back pain limiting your activity? Schedule your complimentary consultation today at Mountain Spine & Orthopedics to discuss cortisone injections.",
   "slug": "cortisone-injections-for-back-pain",
-  "keywords": ["Cortisone injections back pain", "spinal steroid injections", "FL, NJ, NY, & PA pain management clinic", "sciatica relief injections", "herniated disc non-surgical options", "facet joint pain injections", "epidural for lumbar pain", "anti-inflammatory back treatment"]
+  "keywords": ["Cortisone injections back pain", "spinal steroid injections", "FL, NJ, NY, PA & GA pain management clinic", "sciatica relief injections", "herniated disc non-surgical options", "facet joint pain injections", "epidural for lumbar pain", "anti-inflammatory back treatment"]
 },
 {
   "title": "Degenerative Disc Disease Surgery Details",
@@ -406,17 +465,17 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "card_img": 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--degenerative-disc-disease-surgery-details--thumbnail.png',
   "inTxt_img": 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--degenerative-disc-disease-surgery-details--thumbnail.png',
   "body": "Detailed surgical options for Degenerative Disc Disease (DDD) include spinal fusion or artificial disc replacement to relieve pain. Explore treatment options.",
-  "detail": "For severe Degenerative Disc Disease (DDD) unresponsive to non-surgical care, surgery may be an option. Spinal fusion provides stability by joining vertebrae, while artificial disc replacement aims to preserve motion. Evaluation includes MRI and dynamic X-rays to plan the most effective surgical treatment for discogenic pain and nerve compression, potentially using minimally invasive spine surgery in FL, NJ, NY, & PA for improved spinal health and addressing issues of chronic discogenic back pain.",
+  "detail": "For severe Degenerative Disc Disease (DDD) unresponsive to non-surgical care, surgery may be an option. Spinal fusion provides stability by joining vertebrae, while artificial disc replacement aims to preserve motion. Evaluation includes MRI and dynamic X-rays to plan the most effective surgical treatment for discogenic pain and nerve compression, potentially using minimally invasive spine surgery in FL, NJ, NY, PA & GA for improved spinal health and addressing issues of chronic discogenic back pain.",
   "conditions_treated": "Considered for persistent axial or radicular pain, neurological deficits from DDD, severe disc collapse, or spinal instability confirmed by imaging. Surgery aims to address the symptomatic disc level and improve overall spinal health when conservative treatments for disc degeneration and associated spinal pain fail, including cases of advanced intervertebral disc wear.",
   "procedure_info": "Spinal Fusion involves removing the damaged disc, inserting a graft/cage, and using hardware for vertebral stabilization. Artificial Disc Replacement replaces the disc with a mobile prosthesis. Minimally invasive approaches are often used for these advanced spine surgery techniques to reduce recovery time and enhance spinal segment restoration, offering solutions for severe disc pathology.",
   "recovery_info": "Fusion recovery is longer (6-12 months for solid bone healing) with activity restrictions. Disc replacement often allows faster recovery and earlier motion. Rehabilitation is often recommended for both to optimize functional outcome and restore spinal strength after surgery for advanced disc disease, focusing on long-term spinal function.",
   "benefits": (
   <ul><li>Provides durable pain relief from discogenic sources and nerve compression.</li><li>Restores spinal stability through fusion or preserves natural spinal motion with disc replacement.</li><li>Leads to improved quality of life and functional capacity.</li><li>Addresses the underlying disc pathology and can improve overall spinal alignment.</li><li>Reduces reliance on chronic pain medication for symptomatic DDD.</li><li>Offers definitive treatment for advanced symptomatic degenerative disc disease.</li></ul>
 ),
-  "why_choose_us": "Our fellowship-trained spine specialists provide expert surgical evaluation for DDD. Our center uses advanced diagnostics like provocative discography and CT scans for precise planning, offering tailored minimally invasive fusion or motion-preserving disc replacement solutions in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our fellowship-trained spine specialists provide expert surgical evaluation for DDD. Our center uses advanced diagnostics like provocative discography and CT scans for precise planning, offering tailored minimally invasive fusion or motion-preserving disc replacement solutions in FL, NJ, NY, PA & GA.",
   "schedule": "Unrelenting disc-related pain from DDD limiting your life? Schedule a surgical evaluation at Mountain Spine & Orthopedics for a comprehensive assessment and treatment plan.",
   "slug": "degenerative-disc-disease-surgery-details",
-  "keywords": ["Degenerative disc disease surgery details", "DDD advanced surgical care", "FL, NJ, NY, & PA orthopedic spine", "spinal fusion versus ADR for DDD", "minimally invasive disc operations", "spine care institute FL, NJ, NY, & PA", "chronic discogenic pain surgery", "treatment for severe disc collapse"]
+  "keywords": ["Degenerative disc disease surgery details", "DDD advanced surgical care", "FL, NJ, NY, PA & GA orthopedic spine", "spinal fusion versus ADR for DDD", "minimally invasive disc operations", "spine care institute FL, NJ, NY, PA & GA", "chronic discogenic pain surgery", "treatment for severe disc collapse"]
 },
 {
   "title": "Endoscopic Discectomy Surgery",
@@ -438,10 +497,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
       <li>Offers improved visualization for the surgeon, enhancing precision.</li>
     </ul>
   ),
-  "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in advanced endoscopic spine surgery. Our practice uses high-resolution MRI and other advanced imaging techniques for diagnosis, ensuring precise removal of the offending disc fragment with minimal disruption for optimal outcomes in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in advanced endoscopic spine surgery. Our practice uses high-resolution MRI and other advanced imaging techniques for diagnosis, ensuring precise removal of the offending disc fragment with minimal disruption for optimal outcomes in FL, NJ, NY, PA & GA.",
   "schedule": "Suffering from a herniated disc or sciatica? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "endoscopic-discectomy-surgery",
-  "keywords": ["Endoscopic discectomy", "minimally invasive herniated disc surgery", "FL, NJ, NY, & PA orthopedic spine solutions", "endoscopic spine operation", "sciatica endoscopic pain relief", "spine health center FL, NJ, NY, & PA", "nerve decompression via endoscopy", "outpatient discectomy procedure"]
+  "keywords": ["Endoscopic discectomy", "minimally invasive herniated disc surgery", "FL, NJ, NY, PA & GA orthopedic spine solutions", "endoscopic spine operation", "sciatica endoscopic pain relief", "spine health center FL, NJ, NY, PA & GA", "nerve decompression via endoscopy", "outpatient discectomy procedure"]
 },
 {
   "title": "Endoscopic Foraminotomy Surgery",
@@ -463,10 +522,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
       <li>Reduces symptoms of foraminal stenosis such as numbness and weakness.</li>
     </ul>
   ),
-  "why_choose_us": "Our spine surgeons are highly proficient in advanced minimally invasive techniques like endoscopic foraminotomy. Our center uses advanced imaging techniques for precise diagnosis of foraminal stenosis, ensuring targeted decompression with optimal outcomes and a smoother recovery in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our spine surgeons are highly proficient in advanced minimally invasive techniques like endoscopic foraminotomy. Our center uses advanced imaging techniques for precise diagnosis of foraminal stenosis, ensuring targeted decompression with optimal outcomes and a smoother recovery in FL, NJ, NY, PA & GA.",
   "schedule": "Experiencing nerve related pain due to spinal stenosis or foraminal narrowing? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "endoscopic-foraminotomy-surgery",
-  "keywords": ["Endoscopic foraminotomy", "minimally invasive foraminotomy", "FL, NJ, NY, & PA orthopedic center", "foraminal stenosis surgery relief", "pinched nerve endoscopic release", "spine care FL, NJ, NY, & PA", "nerve root decompression solutions", "outpatient foraminotomy options"]
+  "keywords": ["Endoscopic foraminotomy", "minimally invasive foraminotomy", "FL, NJ, NY, PA & GA orthopedic center", "foraminal stenosis surgery relief", "pinched nerve endoscopic release", "spine care FL, NJ, NY, PA & GA", "nerve root decompression solutions", "outpatient foraminotomy options"]
 },
 {
   "title": "ACL Reconstruction Surgery",
@@ -481,10 +540,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Restores knee stability, greatly reducing episodes of the knee 'giving way'.</li><li>Enables a safe return to pivoting sports and high-impact activities.</li><li>Helps prevent long-term joint damage, such as secondary meniscus tears or early osteoarthritis.</li><li>Improves overall knee function and confidence after an ACL injury.</li><li>Promotes an active lifestyle and protects knee joint health.</li><li>Reduces pain associated with knee instability.</li></ul>
 ),
-  "why_choose_us": "Our board-certified surgeons have extensive experience in state-of-the-art ACL reconstruction. Our orthopedic practice offers thorough diagnostic evaluations, including advanced imaging techniques, ensuring a personalized approach to your knee ligament repair and recovery in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our board-certified surgeons have extensive experience in state-of-the-art ACL reconstruction. Our orthopedic practice offers thorough diagnostic evaluations, including advanced imaging techniques, ensuring a personalized approach to your knee ligament repair and recovery in FL, NJ, NY, PA & GA.",
   "schedule": "Suffered an ACL injury and want to return to an active lifestyle? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "acl-reconstruction-surgery",
-  "keywords": ["ACL reconstruction surgery", "knee ligament repair", "FL, NJ, NY, & PA orthopedic sports medicine", "sports injury ACL tear", "arthroscopic knee ligament surgery", "joint pain FL, NJ, NY, & PA (knee)", "knee instability correction", "torn ACL treatment options"]
+  "keywords": ["ACL reconstruction surgery", "knee ligament repair", "FL, NJ, NY, PA & GA orthopedic sports medicine", "sports injury ACL tear", "arthroscopic knee ligament surgery", "joint pain FL, NJ, NY, PA & GA (knee)", "knee instability correction", "torn ACL treatment options"]
 },
 {
   "title": "Epidural Steroid Injection",
@@ -499,10 +558,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provides effective and targeted reduction of inflammation in the epidural space.</li><li>Offers significant relief from radiating pain such as sciatica or radiculopathy.</li><li>Can help break the cycle of pain and inflammation, facilitating rehabilitation.</li><li>Is a minimally invasive outpatient procedure with relatively low risk.</li><li>May reduce reliance on oral pain medications and potentially avoid surgery.</li><li>Improves functional mobility and overall comfort.</li></ul>
 ),
-  "why_choose_us": "Our pain management specialists are highly skilled in precise, image-guided ESIs. Our center uses advanced imaging techniques for diagnosis and fluoroscopy for accurate needle placement, maximizing effective pain relief and safety for your spinal condition in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our pain management specialists are highly skilled in precise, image-guided ESIs. Our center uses advanced imaging techniques for diagnosis and fluoroscopy for accurate needle placement, maximizing effective pain relief and safety for your spinal condition in FL, NJ, NY, PA & GA.",
   "schedule": "Back or neck pain radiating into your limbs? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "epidural-steroid-injection",
-  "keywords": ["Epidural steroid injection", "ESI for back pain", "FL, NJ, NY, & PA pain management solutions", "sciatica injection therapy", "herniated disc non-operative care", "spinal stenosis pain management", "radiculopathy treatment injection", "interventional spine pain relief"]
+  "keywords": ["Epidural steroid injection", "ESI for back pain", "FL, NJ, NY, PA & GA pain management solutions", "sciatica injection therapy", "herniated disc non-operative care", "spinal stenosis pain management", "radiculopathy treatment injection", "interventional spine pain relief"]
 },
 {
   "title": "Extreme Lateral Interbody Fusion Surgery",
@@ -520,14 +579,14 @@ export const AllTreatments : TreatmentsCardProp[] = [
       <li>Is a minimally invasive approach, leading to less muscle disruption and potentially faster initial recovery.</li>
       <li>Allows for powerful restoration of disc height and correction of spinal alignment, especially for scoliosis.</li>
       <li>Enables treatment of multiple levels through the same incision.</li>
-      <li>Achieves high success rates for solid spinal fusion when combined with posterior fixation.</li>
+      <li>Posterior fixation holds the graft under steady compression while bone bridges the segment.</li>
       <li>Offers shorter hospital stays compared to traditional open procedures.</li>
     </ul>
   ),
-  "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in XLIF. Our practice uses comprehensive diagnostics and advanced imaging techniques to determine if XLIF is the most beneficial option for your complex spinal condition, enhancing safety with nerve monitoring in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our fellowship-trained spine surgeons are highly skilled in XLIF. Our practice uses comprehensive diagnostics and advanced imaging techniques to determine if XLIF is the most beneficial option for your complex spinal condition, enhancing safety with nerve monitoring in FL, NJ, NY, PA & GA.",
   "schedule": "Dealing with persistent back pain or degenerative scoliosis? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "extreme-lateral-interbody-fusion-surgery",
-  "keywords": ["Extreme Lateral Interbody Fusion", "XLIF surgery", "FL, NJ, NY, & PA orthopedic spine solutions", "minimally invasive lumbar fusion techniques", "scoliosis correction surgery options", "spine care specialist FL, NJ, NY, & PA", "lateral interbody fusion benefits", "degenerative disc disease XLIF treatment"]
+  "keywords": ["Extreme Lateral Interbody Fusion", "XLIF surgery", "FL, NJ, NY, PA & GA orthopedic spine solutions", "minimally invasive lumbar fusion techniques", "scoliosis correction surgery options", "spine care specialist FL, NJ, NY, PA & GA", "lateral interbody fusion benefits", "degenerative disc disease XLIF treatment"]
 },
 {
   "title": "Facet Ablation (Rhizotomy) Treatment",
@@ -542,10 +601,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Offers significant and often long-lasting relief from chronic facet joint pain.</li><li>Is a minimally invasive outpatient procedure with low risk and minimal downtime.</li><li>Provides targeted pain relief by deactivating specific pain-transmitting nerves.</li><li>Can lead to a substantial reduction in the need for oral pain medications.</li><li>Improves spinal mobility and function by alleviating restrictive pain.</li><li>Can be safely repeated if facet joint pain recurs.</li></ul>
 ),
-  "why_choose_us": "Our pain management specialists are highly skilled in facet ablation. Our center uses diagnostic medial branch blocks and advanced imaging techniques for precision, ensuring effective and long-lasting relief from facet joint pain in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our pain management specialists are highly skilled in facet ablation. Our center uses diagnostic medial branch blocks and advanced imaging techniques for precision, ensuring effective and long-lasting relief from facet joint pain in FL, NJ, NY, PA & GA.",
   "schedule": "Chronic back or neck pain from facet joint arthritis? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "facet-ablation-rhizotomy-treatment",
-  "keywords": ["Facet ablation", "rhizotomy", "FL, NJ, NY, & PA pain management services", "radiofrequency ablation for back arthritis", "facet joint pain non-surgical", "medial branch nerve block", "non-operative neck pain relief", "chronic back pain RFA therapy"]
+  "keywords": ["Facet ablation", "rhizotomy", "FL, NJ, NY, PA & GA pain management services", "radiofrequency ablation for back arthritis", "facet joint pain non-surgical", "medial branch nerve block", "non-operative neck pain relief", "chronic back pain RFA therapy"]
 },
 {
   "title": "Facet Block, Ablation, Rhizotomy, and Facet Fusion",
@@ -560,10 +619,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Facet Blocks provide diagnostic clarity and temporary pain relief from inflammation.</li><li>Facet Ablation (Rhizotomy) offers potentially long-lasting pain relief by deactivating specific nerves.</li><li>Facet Fusion provides lasting pain elimination and spinal stabilization for advanced degeneration.</li><li>Improves spinal mobility and function by addressing the source of facet pain.</li><li>Reduces reliance on chronic pain medication.</li><li>Offers a tailored approach from non-surgical to surgical facet joint care.</li></ul>
 ),
-  "why_choose_us": "We offer specialized expertise in diagnosing and treating facet joint pain. Our practice uses diagnostic blocks and advanced imaging techniques to guide treatment, from injections to ablation or, in select cases, facet fusion for comprehensive spinal care in FL, NJ, NY, & PA.",
+  "why_choose_us": "We offer specialized expertise in diagnosing and treating facet joint pain. Our practice uses diagnostic blocks and advanced imaging techniques to guide treatment, from injections to ablation or, in select cases, facet fusion for comprehensive spinal care in FL, NJ, NY, PA & GA.",
   "schedule": "Chronic spinal pain from facet joint arthritis? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "facet-block-ablation-rhizotomy-and-facet-fusion",
-  "keywords": ["Facet joint treatment", "FL, NJ, NY, & PA facet pain clinic", "facet block vs ablation", "facet fusion for back pain", "orthopedic spine interventions", "spine health management FL, NJ, NY, & PA", "chronic spondylosis care", "facet arthritis solutions"]
+  "keywords": ["Facet joint treatment", "FL, NJ, NY, PA & GA facet pain clinic", "facet block vs ablation", "facet fusion for back pain", "orthopedic spine interventions", "spine health management FL, NJ, NY, PA & GA", "chronic spondylosis care", "facet arthritis solutions"]
 },
 {
   "title": "Fracture Fixation Surgery",
@@ -578,10 +637,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Restores proper bone alignment, length, and rotation, essential for normal function.</li><li>Provides immediate stability to the fracture site, significantly reducing pain.</li><li>Promotes more predictable and often faster bone healing.</li><li>Facilitates earlier initiation of rehabilitation and mobility of surrounding joints.</li><li>Reduces the risk of delayed or improper bone healing (non-union or malunion).</li><li>Enables earlier return to weight-bearing and functional activities.</li></ul>
 ),
-  "why_choose_us": "Our orthopedic trauma surgeons are highly specialized in managing a wide range of fractures with advanced fixation techniques. Our center uses advanced imaging techniques for precise evaluation, tailoring surgical approaches for optimal bone healing and functional restoration in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our orthopedic trauma surgeons are highly specialized in managing a wide range of fractures with advanced fixation techniques. Our center uses advanced imaging techniques for precise evaluation, tailoring surgical approaches for optimal bone healing and functional restoration in FL, NJ, NY, PA & GA.",
   "schedule": "Sustained a fracture needing surgical stabilization or experiencing complications? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "fracture-fixation",
-  "keywords": ["Fracture fixation surgery", "broken bone surgery", "FL, NJ, NY, & PA orthopedic trauma care", "internal fixation of fractures", "orthopedic surgery for bone repair", "bone healing solutions", "joint fracture surgery", "complex fracture management"]
+  "keywords": ["Fracture fixation surgery", "broken bone surgery", "FL, NJ, NY, PA & GA orthopedic trauma care", "internal fixation of fractures", "orthopedic surgery for bone repair", "bone healing solutions", "joint fracture surgery", "complex fracture management"]
 },
 {
   "title": "Impar Block Treatment",
@@ -596,10 +655,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Offers effective, targeted pain relief for chronic tailbone and related pelvic/perineal pain.</li><li>Serves as a valuable diagnostic tool to confirm the Impar ganglion as the pain source.</li><li>Is a minimally invasive outpatient procedure with low risk and minimal downtime.</li><li>Can lead to a substantial reduction in the need for oral pain medications.</li><li>Improves sitting comfort and the ability to perform daily activities.</li><li>Provides a non-surgical option for managing persistent coccydynia.</li></ul>
 ),
-  "why_choose_us": "Our pain management specialists are skilled in precise, image-guided Impar ganglion blocks. Our practice uses advanced imaging techniques and diagnostic injections to confirm the pain source, ensuring targeted and effective chronic pain relief for coccydynia in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our pain management specialists are skilled in precise, image-guided Impar ganglion blocks. Our practice uses advanced imaging techniques and diagnostic injections to confirm the pain source, ensuring targeted and effective chronic pain relief for coccydynia in FL, NJ, NY, PA & GA.",
   "schedule": "Chronic tailbone pain limiting your life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "impar-block-treatment",
-  "keywords": ["Impar block treatment", "ganglion Impar injection FL, NJ, NY, & PA", "pain management for tailbone pain", "coccydynia nerve block", "non-surgical coccyx pain relief", "pelvic pain interventional procedure", "interventional pain clinic FL, NJ, NY, & PA", "sacrococcygeal neuralgia treatment"]
+  "keywords": ["Impar block treatment", "ganglion Impar injection FL, NJ, NY, PA & GA", "pain management for tailbone pain", "coccydynia nerve block", "non-surgical coccyx pain relief", "pelvic pain interventional procedure", "interventional pain clinic FL, NJ, NY, PA & GA", "sacrococcygeal neuralgia treatment"]
 },
 {
   "title": "Neck Pain Treatment & Shoulder Pain Relief",
@@ -614,10 +673,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provides significant reduction of chronic neck and shoulder pain.</li><li>Relieves radiating arm pain and neurological symptoms caused by nerve compression.</li><li>Improves range of motion, flexibility, and strength in the neck and shoulder.</li><li>Corrects underlying structural issues such as disc herniations or rotator cuff tears.</li><li>Enhances posture and overall musculoskeletal function.</li><li>Allows for a return to daily activities with greater comfort.</li></ul>
 ),
-  "why_choose_us": "We offer specialized expertise in diagnosing and treating complex neck and shoulder pain. Our center uses advanced imaging and diagnostic injections to identify pain sources, providing coordinated care from spine and orthopedic specialists for comprehensive musculoskeletal treatment in FL, NJ, NY, & PA.",
+  "why_choose_us": "We offer specialized expertise in diagnosing and treating complex neck and shoulder pain. Our center uses advanced imaging and diagnostic injections to identify pain sources, providing coordinated care from spine and orthopedic specialists for comprehensive musculoskeletal treatment in FL, NJ, NY, PA & GA.",
   "schedule": "Dealing with chronic neck or shoulder pain? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "neck-pain-treatment-and-shoulder-pain-relief",
-  "keywords": ["Neck pain treatment", "shoulder pain relief", "FL, NJ, NY, & PA orthopedic clinic", "cervical radiculopathy management", "rotator cuff solutions", "minimally invasive neck options", "arthroscopic shoulder care", "upper body musculoskeletal specialist"]
+  "keywords": ["Neck pain treatment", "shoulder pain relief", "FL, NJ, NY, PA & GA orthopedic clinic", "cervical radiculopathy management", "rotator cuff solutions", "minimally invasive neck options", "arthroscopic shoulder care", "upper body musculoskeletal specialist"]
 },
 {
   "title": "Non Surgical Treatments for Pain Management",
@@ -632,10 +691,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Offers effective pain and inflammation reduction without the risks of surgery.</li><li>Improves mobility, flexibility, and overall physical function.</li><li>Reduces reliance on oral pain medications, including opioids.</li><li>Provides targeted relief for specific pain generators through procedures like image-guided injections.</li><li>Can delay or potentially prevent the need for more invasive surgical interventions.</li><li>Empowers patients with strategies for self-management and long-term wellness.</li></ul>
 ),
-  "why_choose_us": "We are dedicated to comprehensive, effective non-surgical pain management. Our practice uses detailed assessments and advanced imaging techniques to identify pain contributors, offering precise image-guided injections and personalized, evidence-based care plans for lasting relief in FL, NJ, NY, & PA.",
+  "why_choose_us": "We are dedicated to comprehensive, effective non-surgical pain management. Our practice uses detailed assessments and advanced imaging techniques to identify pain contributors, offering precise image-guided injections and personalized, evidence-based care plans for lasting relief in FL, NJ, NY, PA & GA.",
   "schedule": "Looking for effective, non-surgical pain relief? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "non-surgical-treatments-for-pain-management",
-  "keywords": ["Non-surgical pain management", "FL, NJ, NY, & PA pain relief clinic", "orthopedic non-operative care", "joint pain injections", "spine rehabilitation", "PRP for pain", "arthritis conservative treatment", "interventional pain medicine"]
+  "keywords": ["Non-surgical pain management", "FL, NJ, NY, PA & GA pain relief clinic", "orthopedic non-operative care", "joint pain injections", "spine rehabilitation", "PRP for pain", "arthritis conservative treatment", "interventional pain medicine"]
 },
 {
   "title": "Oblique Lumbar Interbody Fusion",
@@ -648,12 +707,12 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "procedure_info": "Following consultation and diagnostic imaging (MRI, CT, X-rays), OLIF is performed under general anesthesia, with the patient on their side. A small oblique flank incision allows access to the disc. The disc is removed, endplates prepared, and a large FDA-approved interbody cage with bone graft inserted to restore alignment and facilitate lumbar spine fusion. Supplemental posterior fixation is usually added for stability, completing this advanced interbody fusion technique, a key procedure for lumbar spine reconstruction.",
   "recovery_info": "Generally faster recovery than open fusion. Hospital stay 2-4 days. A lumbar brace may be used. Rehabilitation begins early. Full bone fusion takes 6-12+ months. This minimally invasive spine surgery aims for quicker leg strength recovery and restoration of spinal function, promoting better spinal biomechanics.",
   "benefits": (
-  <ul><li>Provides effective relief from chronic low back and leg pain by decompressing nerves and stabilizing the spine.</li><li>Is a minimally invasive approach, potentially leading to less post-operative pain and faster initial recovery.</li><li>Allows insertion of a large interbody cage for excellent disc height restoration and spinal alignment correction.</li><li>May offer reduced risk of injury to lumbar plexus nerves compared to direct lateral approaches at certain levels.</li><li>Achieves high success rates for solid spinal fusion when combined with posterior fixation.</li><li>Supports improved functional mobility and reduces disability.</li></ul>
+  <ul><li>Provides effective relief from chronic low back and leg pain by decompressing nerves and stabilizing the spine.</li><li>Is a minimally invasive approach, potentially leading to less post-operative pain and faster initial recovery.</li><li>Allows insertion of a large interbody cage for excellent disc height restoration and spinal alignment correction.</li><li>May offer reduced risk of injury to lumbar plexus nerves compared to direct lateral approaches at certain levels.</li><li>Posterior fixation holds the graft under steady compression while bone bridges the segment.</li><li>Supports improved functional mobility and reduces disability.</li></ul>
 ),
-  "why_choose_us": "Our fellowship-trained spine surgeons are skilled in OLIF. Our center uses comprehensive diagnostics and advanced imaging techniques to determine if OLIF is the most beneficial option for your specific lumbar spine condition, ensuring precise treatment and optimal outcomes in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our fellowship-trained spine surgeons are skilled in OLIF. Our center uses comprehensive diagnostics and advanced imaging techniques to determine if OLIF is the most beneficial option for your specific lumbar spine condition, ensuring precise treatment and optimal outcomes in FL, NJ, NY, PA & GA.",
   "schedule": "Suffer from chronic back pain or lumbar instability? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "oblique-lumbar-interbody-fusion",
-  "keywords": ["Oblique Lumbar Interbody Fusion", "OLIF surgery", "FL, NJ, NY, & PA orthopedic spine", "minimally invasive lumbar fusion L2-L5", "lateral oblique spine surgery", "spine care solutions", "degenerative scoliosis OLIF treatment", "spondylolisthesis OLIF procedure"]
+  "keywords": ["Oblique Lumbar Interbody Fusion", "OLIF surgery", "FL, NJ, NY, PA & GA orthopedic spine", "minimally invasive lumbar fusion L2-L5", "lateral oblique spine surgery", "spine care solutions", "degenerative scoliosis OLIF treatment", "spondylolisthesis OLIF procedure"]
 },
 {
   "title": "Percutaneous Carpal Tunnel Release",
@@ -668,10 +727,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provides effective relief from carpal tunnel symptoms like numbness, tingling, and pain.</li><li>Is a highly minimally invasive technique with a very small incision, leading to less scarring.</li><li>Often results in less post-operative pain and a faster recovery time.</li><li>Performed as an outpatient procedure under local anesthesia.</li><li>May allow for a quicker recovery of grip strength compared to open surgery.</li><li>Restores hand function and sensation with minimal disruption.</li></ul>
 ),
-  "why_choose_us": "Our hand surgeons are skilled in advanced minimally invasive PCTR using image guidance. Our practice uses NCV/EMG and advanced imaging techniques for diagnosis, ensuring precise and safe ligament release for optimal hand function restoration in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our hand surgeons are skilled in advanced minimally invasive PCTR using image guidance. Our practice uses NCV/EMG and advanced imaging techniques for diagnosis, ensuring precise and safe ligament release for optimal hand function restoration in FL, NJ, NY, PA & GA.",
   "schedule": "Carpal tunnel symptoms affecting daily life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "percutaneous-carpal-tunnel-release",
-  "keywords": ["Percutaneous Carpal Tunnel Release", "PCTR", "FL, NJ, NY, & PA hand surgery specialist", "minimally invasive CTS treatment", "ultrasound guided carpal tunnel", "hand surgery options", "median nerve release PCTR", "fast carpal tunnel relief"]
+  "keywords": ["Percutaneous Carpal Tunnel Release", "PCTR", "FL, NJ, NY, PA & GA hand surgery specialist", "minimally invasive CTS treatment", "ultrasound guided carpal tunnel", "hand surgery options", "median nerve release PCTR", "fast carpal tunnel relief"]
 },
 {
   "title": "Shoulder Arthroscopy",
@@ -697,9 +756,9 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "prevent": "To maintain results and prevent future issues after shoulder arthroscopy, diligently follow the prescribed rehabilitation program. Continue shoulder and scapular strengthening exercises. Avoid repetitive overhead lifting or activities that strain the shoulder. Practice proper body mechanics and good posture. Address any new symptoms of pain or inflammation promptly to support long-term shoulder joint health.",
   "schedule": "Dealing with shoulder pain or stiffness? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "shoulder-arthroscopy",
-  "keywords": ["Shoulder arthroscopy", "minimally invasive shoulder surgery", "FL, NJ, NY, & PA orthopedic shoulder", "rotator cuff arthroscopic repair", "labral tear surgery shoulder", "joint pain relief FL, NJ, NY, & PA (shoulder)", "shoulder impingement arthroscopy", "arthroscopic biceps tenodesis"],
+  "keywords": ["Shoulder arthroscopy", "minimally invasive shoulder surgery", "FL, NJ, NY, PA & GA orthopedic shoulder", "rotator cuff arthroscopic repair", "labral tear surgery shoulder", "joint pain relief FL, NJ, NY, PA & GA (shoulder)", "shoulder impingement arthroscopy", "arthroscopic biceps tenodesis"],
   "metaTitle": "Shoulder Arthroscopy for Pain Relief - Mountain Spine & Orthopedics",
-  "metaDesc": "Explore minimally invasive shoulder arthroscopy for rotator cuff tears, labral tears, and impingement. Our FL, NJ, NY, & PA specialists offer expert care for faster recovery."
+  "metaDesc": "Explore minimally invasive shoulder arthroscopy for rotator cuff tears, labral tears, and impingement. Our FL, NJ, NY, PA & GA specialists offer expert care for faster recovery."
 },
 {
   "title": "Stem Cell Treatment",
@@ -714,10 +773,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Stimulates the body's natural healing and regenerative processes in damaged tissues.</li><li>Reduces pain and inflammation associated with arthritis, tendon injuries, and degeneration.</li><li>Improves joint function, mobility, and stability.</li><li>May help repair damaged cartilage, tendons, or ligaments.</li><li>Offers a non-surgical or minimally invasive alternative for certain orthopedic conditions.</li><li>Can potentially delay or avoid the need for more invasive surgical interventions.</li></ul>
 ),
-  "why_choose_us": "We offer advanced stem cell treatment as part of our regenerative medicine program. Our specialists use advanced imaging techniques for diagnosis and image guidance for precise injections, ensuring optimal delivery of concentrated stem cells for your orthopedic condition in FL, NJ, NY, & PA.",
+  "why_choose_us": "We offer advanced stem cell treatment as part of our regenerative medicine program. Our specialists use advanced imaging techniques for diagnosis and image guidance for precise injections, ensuring optimal delivery of concentrated stem cells for your orthopedic condition in FL, NJ, NY, PA & GA.",
   "schedule": "Exploring natural, non-surgical options for pain relief from joint or tendon conditions? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "stem-cell-treatment",
-  "keywords": ["Stem cell treatment", "regenerative medicine", "FL, NJ, NY, & PA orthopedic stem cells", "non-surgical arthritis care", "tendon regeneration therapy", "orthobiologic joint injections", "joint healing solutions", "natural orthopedic repair"]
+  "keywords": ["Stem cell treatment", "regenerative medicine", "FL, NJ, NY, PA & GA orthopedic stem cells", "non-surgical arthritis care", "tendon regeneration therapy", "orthobiologic joint injections", "joint healing solutions", "natural orthopedic repair"]
 },
 {
   "title": "Surgical Treatments",
@@ -732,10 +791,10 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "benefits": (
   <ul><li>Provide significant and often long-lasting relief from debilitating pain.</li><li>Correct structural issues such as spinal instability or severe joint damage.</li><li>Offer effective nerve decompression for radiating pain and neurological deficits.</li><li>Restore function, mobility, and stability to affected joints or spinal segments.</li><li>Improve overall quality of life by addressing the root cause of musculoskeletal conditions.</li><li>Utilize advanced surgical solutions for complex orthopedic problems.</li></ul>
 ),
-  "why_choose_us": "Our board-certified spine and orthopedic surgeons are highly specialized in complex and minimally invasive surgical procedures. Our practice uses advanced imaging techniques for precise diagnosis and personalized, evidence-based care plans, committed to optimizing outcomes for patients in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our board-certified spine and orthopedic surgeons are highly specialized in complex and minimally invasive surgical procedures. Our practice uses advanced imaging techniques for precise diagnosis and personalized, evidence-based care plans, committed to optimizing outcomes for patients in FL, NJ, NY, PA & GA.",
   "schedule": "Conservative treatments failed for your spine or joint condition? Schedule your complimentary consultation today at Mountain Spine & Orthopedics.",
   "slug": "surgical-treatments",
-  "keywords": ["Orthopedic surgery", "FL, NJ, NY, & PA spine and joint surgery", "joint replacement options", "minimally invasive orthopedic procedures", "orthopedic surgeon specialist", "arthroscopic surgery benefits", "fracture repair surgery", "reconstructive joint surgery"]
+  "keywords": ["Orthopedic surgery", "FL, NJ, NY, PA & GA spine and joint surgery", "joint replacement options", "minimally invasive orthopedic procedures", "orthopedic surgeon specialist", "arthroscopic surgery benefits", "fracture repair surgery", "reconstructive joint surgery"]
 },
 {
   "title": "Trigger Finger Release",
@@ -748,15 +807,15 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "procedure_info": "Following consultation and diagnosis, this is typically an outpatient procedure under local anesthesia. Open release uses a small palm incision to cut the A1 pulley. Percutaneous release uses a needle or small instrument through a skin puncture, often with ultrasound guidance, for this type of hand tendon surgery, ensuring precise A1 pulley release and quick resolution of tendon entrapment.",
   "recovery_info": "Recovery is generally rapid. Finger movement is encouraged immediately. Mild pain is managed with OTC relievers. Full activities, including gripping, usually resume within 2–4 weeks. This hand condition treatment has minimal downtime and promotes quick return to daily tasks, restoring normal hand mechanics.",
   "benefits": (
-  <ul><li>Provides immediate relief from painful catching or locking of affected fingers or thumb.</li><li>Restores smooth, unrestricted tendon glide for improved hand function.</li><li>Minimally invasive approach with quick recovery and minimal scarring.</li><li>Improves grip strength and finger mobility, enhancing daily activity performance.</li><li>Definitive treatment for stenosing tenosynovitis with a high success rate.</li><li>Alleviates pain at the base of the finger.</li></ul>
+  <ul><li>Provides immediate relief from painful catching or locking of affected fingers or thumb.</li><li>Restores smooth, unrestricted tendon glide for improved hand function.</li><li>Minimally invasive approach with quick recovery and minimal scarring.</li><li>Improves grip strength and finger mobility, enhancing daily activity performance.</li><li>Definitive treatment for stenosing tenosynovitis: the constricting pulley is released so the tendon glides freely.</li><li>Alleviates pain at the base of the finger.</li></ul>
 ),
-  "why_choose_us": "Our orthopedic hand surgeons are skilled in diagnosing and treating trigger finger with open or minimally invasive percutaneous techniques. Our practice ensures precise treatment to restore smooth finger movement and eliminate pain from this common hand condition in FL, NJ, NY, & PA.",
+  "why_choose_us": "Our orthopedic hand surgeons are skilled in diagnosing and treating trigger finger with open or minimally invasive percutaneous techniques. Our practice ensures precise treatment to restore smooth finger movement and eliminate pain from this common hand condition in FL, NJ, NY, PA & GA.",
   "schedule": "Finger pain, stiffness, or locking affecting daily life? Start your recovery with expert orthopedic care. Schedule a consultation with Mountain Spine & Orthopedics.",
   "slug": "trigger-finger-release",
   "keywords": [
     "Trigger finger release",
     "stenosing tenosynovitis surgery",
-    "FL, NJ, NY, & PA hand specialist",
+    "FL, NJ, NY, PA & GA hand specialist",
     "hand surgery for locked finger",
     "minimally invasive trigger finger care",
     "tendon release operation hand"
@@ -787,7 +846,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
 "conditions_treated": "<ul><li>Persistent <a href=\"/conditions/ankle-pain\" class=\"text-blue-600 hover:underline\">ankle pain</a> unresponsive to conservative care</li><li><a href=\"/conditions/ankle-instability\" class=\"text-blue-600 hover:underline\">Chronic ankle instability</a> and recurrent sprains</li><li><strong>Ankle impingement syndrome</strong> (anterior or posterior)</li><li><strong>Osteochondral defects (OCD)</strong> of the talus</li><li>Loose bodies (bone or cartilage fragments) in the joint</li><li>Synovitis (joint lining inflammation)</li><li>Early <a href=\"/conditions/ankle-arthritis\" class=\"text-blue-600 hover:underline\">ankle arthritis</a> (for debridement)</li><li>Bone spur removal</li><li>Ligament tears requiring assessment</li><li>Arthrofibrosis (scar tissue) limiting motion</li><li>Unexplained ankle pain for diagnostic evaluation</li></ul>",
 "procedure_info": "Ankle arthroscopy is typically performed as an outpatient procedure, meaning you can usually go home the same day. It is conducted under anesthesia, which may be general anesthesia (you are asleep) or a regional nerve block (your leg is numbed). Once you are comfortable, the surgeon will make 2 to 3 small incisions (portals), each about the size of a buttonhole, around your ankle joint. A sterile saline solution is introduced into the joint to expand it and improve visualization. A small, fiber-optic camera called an arthroscope (about the diameter of a pencil) is inserted through one portal. This camera projects high-definition images of the inside of your ankle onto a video monitor. Guided by these images, the surgeon inserts specialized, slender surgical instruments through the other portals to perform the necessary repairs or treatments. This could involve shaving damaged tissue, removing inflamed synovium, trimming bone spurs, repairing cartilage, or addressing ligament issues. The specific steps depend on your underlying ankle problem. After the surgical tasks are completed, the instruments and arthroscope are removed, the fluid is drained, and the small incisions are closed with sutures or surgical tape and covered with a sterile dressing. A protective splint, boot, or cast may be applied to immobilize the ankle.",
 "recovery_info": "Recovery after ankle arthroscopy is generally faster and involves less pain than traditional open ankle surgery, but it still requires a dedicated rehabilitation period. Immediately after the procedure, you will follow the RICE protocol: Rest, Ice, Compression (with an elastic bandage), and Elevation of the ankle to minimize swelling and pain. Pain medication will be prescribed to manage discomfort. Your surgeon will provide specific instructions regarding weight-bearing. For some minor procedures, you might be allowed partial weight-bearing in a protective boot fairly soon. For more complex repairs (like cartilage or ligament reconstruction), you may need to avoid putting weight on your ankle for several weeks, using crutches or a walker. Structured rehabilitation is a critical component of a successful recovery. Many patients benefit from guided exercise programs that typically begin within a few days to a couple of weeks post-surgery, depending on your surgeon's protocol. These programs help restore range of motion, reduce swelling, improve strength and stability, and eventually help you return to normal activities. Full recovery can take several weeks to several months, depending on the specific condition treated and the complexity of the surgery. Most patients can return to desk work within a week or two, but activities involving significant ankle stress will take longer.",
-"benefits": "Ankle arthroscopy offers numerous benefits compared to traditional open surgery, including: Minimally invasive approach with smaller incisions, leading to less scarring and reduced soft tissue trauma. Generally less post-operative pain and discomfort. Faster recovery times and quicker return to daily activities and sports for many patients. Reduced risk of certain complications like infection and stiffness compared to open procedures. Improved diagnostic accuracy, as the arthroscope allows direct visualization of the entire joint. Ability to treat a wide range of ankle conditions effectively. Outpatient procedure for most cases, allowing patients to recover in the comfort of their home. High success rates for many common ankle problems, leading to significant pain relief and functional improvement.",
+"benefits": "Ankle arthroscopy offers numerous benefits compared to traditional open surgery, including: Minimally invasive approach with smaller incisions, leading to less scarring and reduced soft tissue trauma. Generally less post-operative pain and discomfort. Faster recovery times and quicker return to daily activities and sports for many patients. Reduced risk of certain complications like infection and stiffness compared to open procedures. Improved diagnostic accuracy, as the arthroscope allows direct visualization of the entire joint. Ability to treat a wide range of ankle conditions effectively. Outpatient procedure for most cases, allowing patients to recover in the comfort of their home. Addresses many common ankle problems through small portals, aiming for pain relief and functional improvement.",
 "why_choose_us": "At Mountain Spine & Orthopedics, our orthopedic surgeons are highly skilled and experienced in performing state-of-the-art ankle arthroscopy. We utilize advanced diagnostic techniques, including high-resolution MRI and CT scans when indicated, to accurately identify the source of your ankle problem. This allows for precise pre-operative planning to ensure the most effective and least invasive treatment. Our team is dedicated to providing personalized care, discussing all your treatment options, and explaining the arthroscopic procedure in detail. We prioritize preserving healthy tissue and achieving optimal outcomes to help you regain mobility and alleviate pain. Our comprehensive approach includes thorough post-operative care and guided rehabilitation to support your full recovery. We also offer patient conveniences such as complimentary MRI reviews to assess suitability for arthroscopy, expert second opinions, and supportive transportation services.",
 "schedule": "If you are experiencing persistent ankle pain, instability, or other symptoms that are impacting your quality of life and haven't resolved with conservative care, ankle arthroscopy may be an effective solution. Contact Mountain Spine & Orthopedics today to schedule a consultation with our expert foot and ankle specialists. We offer complimentary MRI reviews (if applicable to your case), free second opinions, telehealth consultations for your convenience, and door-to-door transportation services to ensure you can easily access the care you need. Let us help you explore if minimally invasive ankle arthroscopy can get you back on your feet, pain-free.",
 "slug": "ankle-arthroscopy-minimally-invasive-surgery"
@@ -807,7 +866,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our foot and ankle specialists at Mountain Spine & Orthopedics have extensive experience in both open and minimally invasive Achilles tendon repair. We use advanced surgical techniques to optimize healing and reduce complications while creating personalized rehabilitation protocols for your goals.",
   "schedule": "<p>If you've experienced a sudden pop or snap in your Achilles tendon, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule an urgent evaluation</a> with our specialists. Early treatment within 2-3 weeks of injury typically produces the best outcomes.</p>",
   "slug": "achilles-tendon-repair",
-  "keywords": ["Achilles tendon repair", "Achilles rupture surgery", "torn Achilles treatment", "Achilles surgery FL, NJ, NY, & PA", "minimally invasive Achilles repair", "Achilles tendon surgery", "foot and ankle specialist", "calf tendon repair"]
+  "keywords": ["Achilles tendon repair", "Achilles rupture surgery", "torn Achilles treatment", "Achilles surgery FL, NJ, NY, PA & GA", "minimally invasive Achilles repair", "Achilles tendon surgery", "foot and ankle specialist", "calf tendon repair"]
 },
 {
   "title": "Plantar Fasciitis Treatment",
@@ -823,7 +882,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Mountain Spine & Orthopedics provides focused <a href=\"/conditions/plantar-fasciitis\" class=\"text-blue-600 hover:underline\">plantar fasciitis</a> evaluation rather than treating every heel complaint the same way. Our foot specialists can review imaging, confirm whether the plantar fascia is the true pain generator, and discuss conservative care, image-guided injections, or surgical options when needed. PPO Insurance is Accepted.",
   "schedule": "<p>If first-step heel pain is limiting walking, standing, work, or exercise, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule an appointment</a> for plantar fasciitis evaluation and a treatment plan matched to the cause of your symptoms.</p>",
   "slug": "plantar-fasciitis-treatment",
-  "keywords": ["plantar fasciitis treatment", "heel pain treatment", "plantar fascia therapy", "orthotics for heel pain", "corticosteroid injection heel", "ESWT plantar fasciitis", "foot specialist FL, NJ, NY, & PA", "morning heel pain treatment"]
+  "keywords": ["plantar fasciitis treatment", "heel pain treatment", "plantar fascia therapy", "orthotics for heel pain", "corticosteroid injection heel", "ESWT plantar fasciitis", "foot specialist FL, NJ, NY, PA & GA", "morning heel pain treatment"]
 },
 {
   "title": "Plantar Fascia Release Surgery",
@@ -834,12 +893,12 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "detail": "<p><strong>Plantar fascia release surgery</strong> is reserved for patients with chronic <a href=\"/conditions/plantar-fasciitis\" class=\"text-blue-600 hover:underline\">plantar fasciitis</a> that fails to improve after 6-12 months of comprehensive conservative treatment. The procedure involves partially releasing the tight plantar fascia to reduce tension and relieve pain.</p><p>Surgery can be performed through a <strong>traditional open incision</strong> or using <strong>endoscopic (minimally invasive)</strong> techniques. At Mountain Spine & Orthopedics, our surgeons typically prefer minimally invasive approaches when appropriate, as they allow for faster recovery and less post-operative pain.</p>",
   "conditions_treated": "Surgery is indicated for chronic plantar fasciitis unresponsive to 6-12 months of conservative care, severe heel pain limiting daily activities despite treatment, confirmed plantar fascia thickening on MRI or ultrasound, and patients who have failed injections, rehabilitation, orthotics, and shockwave therapy.",
   "procedure_info": "<ol><li>Surgery is performed as an outpatient procedure under regional or local anesthesia</li><li>For endoscopic release, two small incisions allow insertion of a camera and cutting instrument</li><li>For open release, a small incision is made on the side or bottom of the heel</li><li>The medial portion of the plantar fascia is partially released (typically 30-50%)</li><li>Any heel spurs may be removed if contributing to symptoms</li><li>Careful partial release preserves foot arch stability while relieving tension</li></ol>",
-  "recovery_info": "Recovery from plantar fascia release typically involves weight-bearing in a protective boot for 2-4 weeks, with return to regular shoes in 3-6 weeks. Full recovery takes 2-3 months. Rehabilitation helps restore flexibility and strength. Success rates are approximately 70-90% for pain relief.",
-  "benefits": "<ul><li>Definitive treatment for refractory plantar fasciitis</li><li>Minimally invasive options for faster recovery</li><li>Can address heel spurs simultaneously</li><li>70-90% success rate for pain relief</li><li>Outpatient procedure with same-day discharge</li></ul>",
+  "recovery_info": "Recovery from plantar fascia release typically involves weight-bearing in a protective boot for 2-4 weeks, with return to regular shoes in 3-6 weeks. Full recovery takes 2-3 months. Rehabilitation helps restore flexibility and strength. Pain relief depends on whether the plantar fascia is genuinely the pain source and on correcting the loading that caused it.",
+  "benefits": "<ul><li>Definitive treatment for refractory plantar fasciitis</li><li>Minimally invasive options for faster recovery</li><li>Can address heel spurs simultaneously</li><li>Addresses the mechanical source of heel pain directly</li><li>Outpatient procedure with same-day discharge</li></ul>",
   "why_choose_us": "Our foot and ankle surgeons at Mountain Spine & Orthopedics are experts in both endoscopic and open plantar fascia release. We carefully evaluate each patient to confirm that surgery is appropriate and use the technique best suited to your anatomy and condition.",
   "schedule": "<p>If conservative treatments have failed to relieve your plantar fasciitis after 6-12 months, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a surgical consultation</a> to discuss whether plantar fascia release is right for you.</p>",
   "slug": "plantar-fasciitis-surgery",
-  "keywords": ["plantar fascia release surgery", "plantar fasciitis surgery", "endoscopic plantar fascia release", "heel spur surgery", "chronic heel pain surgery", "foot surgery FL, NJ, NY, & PA", "plantar fasciotomy", "heel pain surgery"]
+  "keywords": ["plantar fascia release surgery", "plantar fasciitis surgery", "endoscopic plantar fascia release", "heel spur surgery", "chronic heel pain surgery", "foot surgery FL, NJ, NY, PA & GA", "plantar fasciotomy", "heel pain surgery"]
 },
 {
   "title": "Hammertoe Surgery",
@@ -855,7 +914,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Mountain Spine & Orthopedics evaluates hammertoes as part of the whole forefoot, not as an isolated bent toe. Our specialists consider toe flexibility, skin condition, nerve and circulation status, shoe limitations, activity demands, and related bunion or metatarsal problems before recommending tendon balancing, joint resection, fusion, or continued non-surgical care.",
   "schedule": "<p>If a bent toe is causing pain, skin irritation, or persistent shoe problems, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> to review whether hammertoe surgery or continued conservative care is the better next step. <strong>PPO Insurance Accepted.</strong></p>",
   "slug": "hammertoe-surgery",
-  "keywords": ["hammertoe surgery", "hammertoe correction", "toe straightening surgery", "arthroplasty toe", "rigid hammertoe treatment", "corn removal surgery", "foot deformity correction", "foot specialist FL, NJ, NY, & PA"]
+  "keywords": ["hammertoe surgery", "hammertoe correction", "toe straightening surgery", "arthroplasty toe", "rigid hammertoe treatment", "corn removal surgery", "foot deformity correction", "foot specialist FL, NJ, NY, PA & GA"]
 },
 {
   "title": "Foot Fracture Surgery",
@@ -871,7 +930,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our orthopedic surgeons at Mountain Spine & Orthopedics have extensive experience treating all types of foot fractures. We use advanced imaging and surgical techniques to restore your foot's anatomy and function, with comprehensive rehabilitation support for optimal recovery.",
   "schedule": "<p>If you've suffered a foot fracture, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule an urgent evaluation</a> with our specialists to determine if surgery is needed and begin appropriate treatment.</p>",
   "slug": "foot-fracture-surgery",
-  "keywords": ["foot fracture surgery", "metatarsal fracture surgery", "Lisfranc surgery", "calcaneus fracture surgery", "broken foot surgery", "Jones fracture surgery", "foot ORIF", "foot specialist FL, NJ, NY, & PA"]
+  "keywords": ["foot fracture surgery", "metatarsal fracture surgery", "Lisfranc surgery", "calcaneus fracture surgery", "broken foot surgery", "Jones fracture surgery", "foot ORIF", "foot specialist FL, NJ, NY, PA & GA"]
 },
 {
   "title": "Ankle Fracture Surgery",
@@ -883,11 +942,11 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "conditions_treated": "Ankle fracture surgery is indicated for <strong>displaced ankle fractures</strong> (bimalleolar, trimalleolar), <strong>unstable fractures</strong> that shift in a cast, fractures involving the <a href=\"/conditions/ankle-arthritis\" class=\"text-blue-600 hover:underline\">ankle joint</a> surface, <strong>open (compound) fractures</strong>, fractures with <strong>syndesmosis injury</strong>, and fractures associated with <a href=\"/conditions/ankle-dislocation\" class=\"text-blue-600 hover:underline\">ankle dislocation</a>. At Mountain Spine & Orthopedics, our foot and ankle specialists determine candidacy using imaging and exam.",
   "procedure_info": "<ol><li><strong>Surgery</strong> is performed under regional or general <strong>anesthesia</strong>, usually as an outpatient procedure</li><li>Incisions are made over the fractured bones (inner and/or outer ankle)</li><li>Fracture fragments are <strong>reduced (realigned)</strong> under direct visualization</li><li><strong>Metal plates and screws</strong> secure the bones in proper position</li><li>The <strong>syndesmosis</strong> (joint between tibia and fibula) is evaluated and repaired if injured</li><li>X-rays confirm proper alignment before closing</li><li>A splint is applied initially, transitioning to a cast or <strong>boot</strong></li></ol>",
   "recovery_info": "Recovery typically involves <strong>6 weeks of non-weight-bearing</strong> followed by gradual weight-bearing in a boot. <a href=\"/conditions\" class=\"text-blue-600 hover:underline\">Rehabilitation</a> begins once the bone is healing. Most patients return to regular shoes in <strong>10-12 weeks</strong>. Full recovery and return to sports takes <strong>3-6 months</strong>. Hardware may remain permanently or be removed later if symptomatic. Our team provides structured rehab guidance for optimal outcomes.",
-  "benefits": "<ul><li><strong>Restores proper ankle alignment</strong> critical for long-term function</li><li>Prevents <strong>post-traumatic arthritis</strong> from malunion</li><li>Allows <strong>earlier mobilization</strong> than casting alone</li><li>Addresses associated <strong>syndesmosis</strong> injuries</li><li>High success rates with modern <strong>fixation techniques</strong></li></ul>",
+  "benefits": "<ul><li><strong>Restores proper ankle alignment</strong> critical for long-term function</li><li>Prevents <strong>post-traumatic arthritis</strong> from malunion</li><li>Allows <strong>earlier mobilization</strong> than casting alone</li><li>Addresses associated <strong>syndesmosis</strong> injuries</li><li>Modern <strong>fixation techniques</strong> hold the reduction while bone heals</li></ul>",
   "why_choose_us": "Our foot and ankle specialists at Mountain Spine & Orthopedics are experts in ankle fracture surgery. We use advanced imaging and anatomic plating systems to achieve precise reduction and stable fixation, optimizing your chances for complete recovery.",
   "schedule": "<p>Ankle fractures require prompt evaluation. <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Schedule an urgent appointment</a> if you've suffered an ankle injury with significant pain, swelling, or inability to bear weight.</p>",
   "slug": "ankle-fracture-surgery",
-  "keywords": ["ankle fracture surgery", "broken ankle surgery", "ankle ORIF", "bimalleolar fracture surgery", "trimalleolar fracture surgery", "ankle plate and screws", "syndesmosis repair", "ankle specialist FL, NJ, NY, & PA"]
+  "keywords": ["ankle fracture surgery", "broken ankle surgery", "ankle ORIF", "bimalleolar fracture surgery", "trimalleolar fracture surgery", "ankle plate and screws", "syndesmosis repair", "ankle specialist FL, NJ, NY, PA & GA"]
 },
 {
   "title": "Morton's Neuroma Surgery",
@@ -898,12 +957,12 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "detail": "<p><strong>Morton's neuroma surgery</strong> is performed when conservative treatments fail to relieve the burning pain, numbness, and discomfort caused by a <a href=\"/conditions/mortons-neuroma\" class=\"text-blue-600 hover:underline\">Morton's neuroma</a>. The procedure removes the thickened nerve tissue that has developed between the metatarsal heads.</p><p>At Mountain Spine & Orthopedics, our <strong>foot specialists</strong> carefully evaluate each neuroma to determine if surgery is appropriate. When indicated, we use techniques that effectively remove the neuroma while minimizing complications.</p>",
   "conditions_treated": "Morton's neuroma surgery is indicated for persistent burning pain in the ball of the foot, neuroma symptoms unresponsive to orthotics and injections, large neuromas confirmed on ultrasound or MRI, numbness and tingling affecting quality of life, and failed multiple corticosteroid injections.",
   "procedure_info": "<ol><li>Surgery is typically performed as an outpatient procedure under local or regional anesthesia</li><li>A dorsal (top of foot) or plantar (bottom of foot) approach may be used</li><li>The affected interdigital nerve is identified and carefully dissected</li><li>The neuroma and a portion of the nerve are excised (neurectomy)</li><li>Some surgeons perform nerve decompression as an alternative, releasing the ligament compressing the nerve</li><li>The incision is closed and a supportive dressing applied</li></ol>",
-  "recovery_info": "Recovery involves weight-bearing as tolerated in a post-operative shoe for 2-3 weeks. Transition to regular shoes occurs at 3-4 weeks. Numbness between the affected toes is expected after neurectomy. Most patients experience significant pain relief. Full recovery takes 6-8 weeks. Success rates exceed 80% for pain relief.",
-  "benefits": "<ul><li>Effective relief of burning forefoot pain</li><li>High success rate (80-85%) for symptom resolution</li><li>Outpatient procedure with rapid recovery</li><li>Can address multiple neuromas if present</li><li>Allows return to normal footwear and activities</li></ul>",
+  "recovery_info": "Recovery involves weight-bearing as tolerated in a post-operative shoe for 2-3 weeks. Transition to regular shoes occurs at 3-4 weeks. Numbness between the affected toes is expected after neurectomy. Most patients experience significant pain relief. Full recovery takes 6-8 weeks. Pain relief is most reliable when the symptoms are reproducibly localised to the affected nerve before surgery.",
+  "benefits": "<ul><li>Effective relief of burning forefoot pain</li><li>Removes the thickened nerve tissue causing the burning forefoot pain</li><li>Outpatient procedure with rapid recovery</li><li>Can address multiple neuromas if present</li><li>Allows return to normal footwear and activities</li></ul>",
   "why_choose_us": "Our foot specialists at Mountain Spine & Orthopedics use advanced ultrasound to confirm neuroma diagnosis and guide treatment. When surgery is needed, we employ techniques that maximize pain relief while preserving as much nerve function as possible.",
   "schedule": "<p>If conservative treatments haven't relieved your Morton's neuroma symptoms, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a surgical consultation</a> to discuss your options.</p>",
   "slug": "mortons-neuroma-surgery",
-  "keywords": ["Morton's neuroma surgery", "neuroma excision", "neurectomy foot", "ball of foot surgery", "interdigital neuroma surgery", "forefoot pain surgery", "foot specialist FL, NJ, NY, & PA", "nerve surgery foot"]
+  "keywords": ["Morton's neuroma surgery", "neuroma excision", "neurectomy foot", "ball of foot surgery", "interdigital neuroma surgery", "forefoot pain surgery", "foot specialist FL, NJ, NY, PA & GA", "nerve surgery foot"]
 },
 {
   "title": "Flat Foot Surgery",
@@ -919,7 +978,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Our fellowship-trained foot and ankle surgeons at Mountain Spine & Orthopedics specialize in complex flatfoot reconstruction. We carefully stage each deformity and select the procedures that will best correct your specific condition while preserving as much motion as possible.",
   "schedule": "<p>If orthotics and bracing haven't controlled your flatfoot symptoms, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule a consultation</a> with our flatfoot specialists to discuss surgical options.</p>",
   "slug": "flat-foot-surgery",
-  "keywords": ["flat foot surgery", "flatfoot reconstruction", "posterior tibial tendon surgery", "calcaneal osteotomy", "adult-acquired flatfoot surgery", "arch reconstruction", "PTTD surgery", "foot specialist FL, NJ, NY, & PA"]
+  "keywords": ["flat foot surgery", "flatfoot reconstruction", "posterior tibial tendon surgery", "calcaneal osteotomy", "adult-acquired flatfoot surgery", "arch reconstruction", "PTTD surgery", "foot specialist FL, NJ, NY, PA & GA"]
 },
 {
   "title": "Heel Pain Treatment",
@@ -935,7 +994,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Mountain Spine & Orthopedics provides diagnosis-specific heel pain care from foot specialists who evaluate plantar fascia, Achilles, bone, bursa, and nerve sources separately. Patients can bring existing imaging for review, and treatment may include conservative care, image-guided injections, or surgical consultation when indicated. PPO Insurance is Accepted.",
   "schedule": "<p>If heel pain is limiting walking, work, exercise, or sleep, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule an appointment</a> for a focused heel pain evaluation.</p>",
   "slug": "heel-pain-treatment",
-  "keywords": ["heel pain treatment", "plantar fasciitis treatment", "heel spur treatment", "Achilles pain treatment", "foot specialist FL, NJ, NY, & PA", "heel injection", "shockwave therapy heel", "chronic heel pain"]
+  "keywords": ["heel pain treatment", "plantar fasciitis treatment", "heel spur treatment", "Achilles pain treatment", "foot specialist FL, NJ, NY, PA & GA", "heel injection", "shockwave therapy heel", "chronic heel pain"]
 },
 {
   "title": "Diabetic Foot Care",
@@ -951,7 +1010,7 @@ export const AllTreatments : TreatmentsCardProp[] = [
   "why_choose_us": "Mountain Spine & Orthopedics provides comprehensive diabetic foot care with a multidisciplinary team approach. Our specialists use advanced wound healing techniques and work closely with endocrinologists and vascular specialists to optimize outcomes and preserve limb health.",
   "schedule": "<p>If you have diabetes and are experiencing foot problems, or want to establish preventive care, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">schedule an appointment</a> with our diabetic foot specialists. Early intervention can save your foot.</p>",
   "slug": "diabetic-foot-care",
-  "keywords": ["diabetic foot care", "diabetic foot ulcer treatment", "diabetic wound care", "neuropathy foot care", "limb salvage", "diabetic foot specialist FL, NJ, NY, & PA", "Charcot foot treatment", "diabetes foot care"]
+  "keywords": ["diabetic foot care", "diabetic foot ulcer treatment", "diabetic wound care", "neuropathy foot care", "limb salvage", "diabetic foot specialist FL, NJ, NY, PA & GA", "Charcot foot treatment", "diabetes foot care"]
 }
 
 ];
@@ -961,8 +1020,8 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "revision-spinal-surgery",
     slug: "revision-spinal-surgery",
-    metaTitle: "Revision Spinal Surgery in FL, NJ, NY, & PA | Correct Failed Back Surgery",
-    metaDescription: "Suffering from failed back surgery syndrome? Our FL, NJ, NY, & PA revision spine specialists correct pseudarthrosis, loose hardware, and ongoing pain. Schedule a review.",
+    metaTitle: "Revision Spinal Surgery in FL, NJ, NY, PA & GA | Correct Failed Back Surgery",
+    metaDescription: "Failed back surgery? Our FL, NJ, NY, PA & GA revision spine specialists correct pseudarthrosis, loose hardware, and ongoing pain. Schedule a review.",
     keywords: [
       "revision spinal surgery",
       "failed back surgery syndrome",
@@ -1031,8 +1090,8 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "multilevel-degenerative-disc-disease-surgery",
     slug: "multilevel-degenerative-disc-disease-surgery",
-    metaTitle: "Multilevel Degenerative Disc Disease Surgery | FL, NJ, NY, & PA Spine Care",
-    metaDescription: "Treat chronic pain from multilevel DDD with advanced hybrid surgery or fusion options. Our FL, NJ, NY, & PA specialists restore spinal height and alignment.",
+    metaTitle: "Multilevel Degenerative Disc Disease Surgery | FL, NJ, NY, PA & GA Spine Care",
+    metaDescription: "Treat chronic pain from multilevel DDD with advanced hybrid surgery or fusion options. Our FL, NJ, NY, PA & GA specialists restore spinal height and alignment.",
     keywords: [
       "multilevel degenerative disc disease surgery",
       "multilevel spinal fusion",
@@ -1053,7 +1112,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "When degenerative disc disease affects two or more spinal levels — often driving the development of adult degenerative scoliosis — a carefully planned multilevel surgical approach is the only durable solution. Mountain Spine & Orthopedics' spine team matches each level to the right technique: fusion, lateral interbody, or minimally invasive access.",
     overview: {
       heading: "When Disc Disease Spreads Across Multiple Levels",
-      body: "**Multilevel Degenerative Disc Disease** occurs when two or more intervertebral discs lose their height, hydration, and structural integrity simultaneously — creating widespread instability, nerve compression, and often a progressive coronal or sagittal deformity. In many patients, multilevel DDD is the direct mechanical cause of <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">**adult degenerative scoliosis**</a>: as discs collapse asymmetrically, the spine curves sideways and forward. Surgical treatment must address both the disc disease and any resulting deformity at the same time. At Mountain Spine & Orthopedics, our approach to multilevel DDD surgery is highly individualized. Depending on how many levels are involved and whether significant deformity is present, we select the optimal access strategy — <a href=\"/treatments/understanding-tlif-surgery\" class=\"text-blue-600 hover:underline\">**TLIF**</a>, <a href=\"/treatments/anterior-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**ALIF**</a>, <a href=\"/treatments/oblique-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**OLIF**</a>, or <a href=\"/treatments/extreme-lateral-interbody-fusion-surgery\" class=\"text-blue-600 hover:underline\">**XLIF**</a> — to restore disc height, decompress nerves, and achieve solid <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**spinal fusion**</a> across all affected segments.",
+      body: "**Multilevel Degenerative Disc Disease** occurs when two or more intervertebral discs lose their height, hydration, and structural integrity simultaneously — creating widespread instability, nerve compression, and often a progressive coronal or sagittal deformity. In many patients, multilevel DDD is the direct mechanical cause of <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">**adult degenerative scoliosis**</a>: as discs collapse asymmetrically, the spine curves sideways and forward. Surgical treatment must address both the disc disease and any resulting deformity at the same time. At Mountain Spine & Orthopedics, our approach to multilevel DDD surgery is highly individualized. Depending on how many levels are involved and whether significant deformity is present, we select the optimal access strategy — <a href=\"/treatments/understanding-tlif-surgery\" class=\"text-blue-600 hover:underline\">**TLIF**</a>, <a href=\"/treatments/anterior-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**ALIF**</a>, <a href=\"/treatments/oblique-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**OLIF**</a>, or <a href=\"/treatments/extreme-lateral-interbody-fusion-surgery\" class=\"text-blue-600 hover:underline\">**XLIF**</a> — to restore disc height, decompress nerves, and achieve solid <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**spinal fusion**</a> across all affected segments. When the resulting curve is the dominant problem rather than the disc disease itself, the plan is built as <a href=\"/treatments/adult-scoliosis-surgery\" class=\"text-blue-600 hover:underline\">**adult scoliosis surgery**</a>.",
     },
     candidates: {
       heading: "Who Needs Multilevel Degenerative Disc Disease Surgery?",
@@ -1099,11 +1158,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "anterior-lumbar-corpectomy-and-fusion",
     slug: "anterior-lumbar-corpectomy-and-fusion",
-    metaTitle: "Anterior Lumbar Corpectomy (ALCF) in FL, NJ, NY, & PA | Spinal Tumor & Trauma",
-    metaDescription: "Specialized ALCF surgery for severe spinal trauma, tumors, and infection. Our FL, NJ, NY, & PA surgeons replace damaged vertebrae to restore spinal stability.",
+    metaTitle: "Anterior Lumbar Corpectomy (ALCF) in FL, NJ, NY, PA & GA | Spinal Tumor & Trauma",
+    metaDescription: "Specialized ALCF surgery for severe spinal trauma, tumors, and infection. Our FL, NJ, NY, PA & GA surgeons replace damaged vertebrae to restore spinal stability.",
     keywords: [
       "Anterior Lumbar Corpectomy",
-      "ALCF surgery FL, NJ, NY, & PA",
+      "ALCF surgery FL, NJ, NY, PA & GA",
       "vertebral body replacement",
       "spinal tumor surgery",
       "lumbar burst fracture treatment",
@@ -1164,10 +1223,10 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "anterior-lumbar-interbody-fusion",
     slug: "anterior-lumbar-interbody-fusion",
-    metaTitle: "ALIF Surgery FL, NJ, NY, & PA | Anterior Lumbar Interbody Fusion",
-    metaDescription: "Minimally invasive ALIF surgery for L5-S1 disc disease. Our FL, NJ, NY, & PA surgeons restore disc height and relieve back pain with anterior fusion techniques.",
+    metaTitle: "ALIF Surgery FL, NJ, NY, PA & GA | Anterior Lumbar Interbody Fusion",
+    metaDescription: "Minimally invasive ALIF surgery for L5-S1 disc disease. Our FL, NJ, NY, PA & GA surgeons restore disc height and relieve back pain with anterior fusion techniques.",
     keywords: [
-      "ALIF surgery FL, NJ, NY, & PA",
+      "ALIF surgery FL, NJ, NY, PA & GA",
       "Anterior Lumbar Interbody Fusion",
       "L5-S1 fusion surgery",
       "minimally invasive spine surgery",
@@ -1232,11 +1291,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "hybrid-lumbar-spine-surgery",
     slug: "hybrid-lumbar-spine-surgery",
     metaTitle: "Hybrid Lumbar Spine Surgery | Fusion & Disc Replacement Combined",
-    metaDescription: "Combine stability and motion with Hybrid Lumbar Surgery. We treat multilevel DDD in FL, NJ, NY, & PA by fusing one level and replacing the other.",
+    metaDescription: "Combine stability and motion with Hybrid Lumbar Surgery. We treat multilevel DDD in FL, NJ, NY, PA & GA by fusing one level and replacing the other.",
     keywords: [
       "Hybrid lumbar spine surgery",
       "fusion and disc replacement combo",
-      "multilevel back surgery FL, NJ, NY, & PA",
+      "multilevel back surgery FL, NJ, NY, PA & GA",
       "L4-L5 fusion L5-S1 replacement",
       "motion preservation lumbar",
       "advanced spine surgery",
@@ -1294,14 +1353,21 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   },
   {
     id: "lumbar-fusion-surgery",
-    slug: "lumbar-fusion-surgery",
-    metaTitle: "Lumbar Fusion Surgery in FL, NJ, NY, & PA | Minimally Invasive Spine Care",
-    metaDescription: "Relieve chronic back pain with minimally invasive lumbar fusion surgery. Our FL, NJ, NY, & PA board-certified surgeons stabilize the spine to treat spondylolisthesis and DDD.",
+    slug: "lumbar-fusion-surgery",
+    additionalSections: [
+      {
+        heading: "What a lumbar fusion involves, from the inside",
+        placement: "before-treatment",
+        body: "<p>The word \u201cfusion\u201d describes the goal rather than the operation. What actually happens at the level being treated is a sequence of separate steps, and knowing them makes the recovery instructions make sense.</p><p><strong>The disc is removed.</strong> The degenerated disc between the two vertebrae is cleared out. This alone relieves some compression and creates the space everything else depends on.</p><p><strong>The endplates are prepared.</strong> The bone surfaces above and below are taken back to a bleeding surface. Bone will only bridge onto living bone, so this step largely determines whether the fusion takes.</p><p><strong>A spacer goes in.</strong> An implant is placed in the cleared disc space to restore height and hold the segment at the right angle. Restoring height reopens the channels the nerve roots exit through, which is often where leg symptom relief comes from.</p><p><strong>Graft material is packed around it.</strong> This is what actually becomes the fusion. The implant holds position; the graft becomes bone.</p><p><strong>Screws and rods are added.</strong> These hold everything still while bone grows. They are an internal brace, not the fusion itself \u2014 a distinction that explains why an operation can look perfect on an X-ray the next day and still fail months later if bone never bridges.</p><p>For how fusion is used across the whole spine and how surgeons decide whether it is the right operation at all, see <a href=\"/treatments/spinal-fusion\" class=\"underline text-[#252932] hover:text-[#2358AC]\">spinal fusion surgery</a>.</p>"
+      }
+    ],
+    metaTitle: "Lumbar Fusion Recovery & What the Procedure Involves | FL, NJ, NY, PA & GA",
+    metaDescription: "What a lumbar fusion involves step by step, how TLIF and other approaches differ, and what the recovery stages look like. For an overview of fusion across the whole spine, see our spinal fusion surgery page.",
     keywords: [
-      "Lumbar fusion surgery",
-      "Minimally invasive spinal fusion",
+      "Lumbar fusion recovery",
+      "what happens during lumbar fusion",
       "L5-S1 fusion recovery",
-      "Spine stabilization FL, NJ, NY, & PA",
+      "Spine stabilization FL, NJ, NY, PA & GA",
       "Spondylolisthesis surgery",
       "TLIF procedure",
       "Back surgery for instability"
@@ -1316,7 +1382,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Lumbar fusion surgery permanently joins lumbar vertebrae to eliminate painful instability from degenerative disc disease, spondylolisthesis, and adult scoliosis. PPO Insurance Accepted.",
     overview: {
       heading: "Lumbar Fusion Surgery: Indications, Techniques & Recovery",
-      body: "**Lumbar Fusion Surgery** is a reconstructive procedure that permanently joins two or more vertebrae in the lower back, eliminating painful motion at damaged or unstable spinal segments. By fusing these vertebrae into a single solid unit, we address the mechanical cause of chronic lower back and leg pain from <a href=\"/conditions/degenerative-disc-disease\" class=\"underline text-[#252932] hover:text-[#2358AC]\">**degenerative disc disease**</a>, <a href=\"/conditions/spondylolisthesis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">**spondylolisthesis**</a>, and <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">**adult degenerative scoliosis**</a>. At Mountain Spine & Orthopedics, we use minimally invasive techniques whenever appropriate — reducing muscle disruption, blood loss, and recovery time compared to traditional open lumbar fusion.",
+      body: "**Lumbar Fusion Surgery** is a reconstructive procedure that permanently joins two or more vertebrae in the lower back, eliminating painful motion at damaged or unstable spinal segments. By fusing these vertebrae into a single solid unit, we address the mechanical cause of chronic lower back and leg pain from <a href=\"/conditions/degenerative-disc-disease\" class=\"underline text-[#252932] hover:text-[#2358AC]\">**degenerative disc disease**</a>, <a href=\"/conditions/spondylolisthesis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">**spondylolisthesis**</a>, and <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"underline text-[#252932] hover:text-[#2358AC]\">**adult degenerative scoliosis**</a>. At Mountain Spine & Orthopedics, we use minimally invasive techniques whenever appropriate — reducing muscle disruption, blood loss, and recovery time compared to traditional open lumbar fusion. For how fusion is used across the cervical, thoracic and lumbar spine, and how surgeons decide whether fusion is the right operation at all, see <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">Spinal Fusion Surgery</a>.",
     },
     candidates: {
       heading: "Who is a Candidate for Lumbar Fusion Surgery?",
@@ -1362,13 +1428,41 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "spinal-fusion-surgery",
     slug: "spinal-fusion",
-    metaTitle: "Spinal Fusion Surgery | Comprehensive Spine Stabilization FL, NJ, NY, & PA",
+    h1: "Spinal Fusion Surgery",
+    additionalSections: [
+      {
+        heading: "Fusion or a disc replacement — which one applies to you?",
+        placement: "after-symptoms",
+        body: "<p>Most patients told they need fusion want to know whether a motion-preserving disc replacement would do instead. The honest answer is that the choice is usually made <strong>for</strong> you by findings on your imaging, not chosen from a menu.</p><p>Disc replacement depends on the rest of the spinal segment being healthy enough to keep moving. So the things that rule it out are, broadly, the things that make fusion the right answer: <strong>worn or arthritic facet joints</strong> behind the disc, because a replacement restores motion through joints that are themselves the pain source; <strong>a segment that already moves too much</strong> — spondylolisthesis, or a slip that shifts on flexion-extension films — since the goal there is to stop motion rather than preserve it; <strong>deformity</strong>, where the operation has to change alignment rather than maintain it; and <strong>poor bone quality</strong>, which affects how a device seats and holds.</p><p>Where those findings are absent and the problem is confined to the disc itself, motion preservation becomes a genuine option — see <a href=\"/treatments/motion-preservation-spine-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">motion preservation spine surgery</a> for what that involves and what it asks of the patient. Where they are present, fusion is not the fallback; it is the operation that addresses what is actually wrong.</p>"
+      },
+      {
+        heading: "When fusion is the wrong operation",
+        placement: "after-causes",
+        body: "<p>The indications above are the ones that make fusion reasonable. It is just as important to know what makes it unreasonable, because fusion performed for the wrong reason does not fail quietly — it produces a stiff segment and the original pain.</p><p><strong>Back pain without demonstrable instability.</strong> This is the single most common reason a fusion disappoints. If the only finding is pain, and flexion-extension films show a segment that does not move abnormally, fusion is being asked to fix something it does not address. Degenerative changes on MRI are near-universal after middle age and are not, by themselves, a surgical indication.</p><p><strong>Pain that has not been localised.</strong> Multi-level degeneration where no single level has been confirmed as the pain generator means the operation is targeting an imaging finding rather than a diagnosis.</p><p><strong>Untreated bone loss.</strong> Osteoporosis affects whether screws hold and whether bone bridges at all. It is a reason to treat the bone first, not a reason never to operate.</p><p><strong>Active nicotine use.</strong> Nicotine impairs the bone healing the entire operation depends on. Most surgeons will ask for cessation before an elective fusion rather than accept the added risk of a fusion that does not take.</p><p><strong>Conservative care that was never genuinely tried.</strong> A documented course of appropriate non-operative treatment is not a formality — for a great many patients it is the endpoint.</p>"
+      },
+      {
+        heading: "How lumbar fusion differs from cervical fusion",
+        placement: "before-treatment",
+        body: "<p>They share a name and very little else. The two regions carry different loads, are reached from different directions, and cost the patient different things when a level is fused.</p><p><strong>Load and consequence.</strong> The lumbar spine carries body weight and generates most of the motion involved in bending and lifting, so fusing a lumbar level is felt during ordinary daily movement. The cervical spine carries the head and supplies rotation for looking around; a single fused cervical level is often barely noticed, because the remaining levels absorb the range.</p><p><strong>Approach.</strong> Cervical fusion is most often performed from the front, where the disc can be reached through a natural tissue plane without disturbing the spinal cord. Lumbar fusion is reached from behind, from the front through the abdomen, or from the side, and each route trades access against what it disturbs on the way in.</p><p><strong>What is being corrected.</strong> Cervical work is frequently about relieving pressure on the cord or a nerve root, with fusion following the decompression. Lumbar work more often has to restore alignment as well — the lordosis that keeps the trunk balanced over the pelvis — which is why the choice of implant and approach matters more there.</p><p>See <a href=\"/treatments/lumbar-fusion-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">lumbar fusion surgery</a> for the lumbar procedure in detail, and <a href=\"/treatments/cervical-laminectomy\" class=\"underline text-[#252932] hover:text-[#2358AC]\">cervical laminectomy</a> for posterior cervical decompression.</p>"
+      },
+      {
+        heading: "What the surgeon weighs when choosing an approach",
+        placement: "before-treatment",
+        body: "<p>The approaches described below are not interchangeable. Which one is chosen follows from the anatomy of the problem.</p><p><strong>Where the compression sits.</strong> Nerve compression behind the disc is reached from behind. A collapsed disc space that needs height and lordosis restored is better addressed from the front or the side, where a larger implant can be placed.</p><p><strong>How much alignment has to change.</strong> Holding a segment where it already sits is a different operation from rebuilding standing balance. The more correction required, the more the choice is driven by what each approach can achieve mechanically.</p><p><strong>How many levels.</strong> A single level offers real choice. Multi-level work narrows it, because the approach has to be one that can be extended without unacceptable soft-tissue cost.</p><p><strong>What is already there.</strong> Previous surgery leaves scar tissue and altered anatomy, and approaching through it is harder and riskier than approaching through a plane nobody has been through. This often drives the decision more than any other factor in revision cases.</p><p><strong>Bone quality and body habitus.</strong> These determine how fixation holds and whether a given corridor is realistically accessible.</p>"
+      },
+      {
+        heading: "What actually happens during recovery, stage by stage",
+        placement: "after-treatment",
+        body: "<p>Recovery from a fusion is governed by one thing above all others: <strong>bone has to grow across the segment</strong>. The hardware holds the position while that happens — it is a scaffold, not the fix. Everything in the protocol makes sense once that is clear.</p><p><strong>The hospital stay.</strong> Walking starts early and deliberately. Getting upright is not a milestone for its own sake — it protects the lungs, reduces clot risk, and settles the nervous system after surgery.</p><p><strong>The protective phase.</strong> Bending, lifting and twisting are restricted, and the restriction is not about pain. Those movements load the graft precisely where bone is trying to bridge. Patients often feel well enough to break the restrictions before it is safe to, which is why the protocol is given in terms of movements rather than how you feel.</p><p><strong>The building phase.</strong> As imaging shows bone forming, activity is progressed. Deconditioning from the protective phase is real, and this stage is largely about rebuilding the trunk and hip strength that got you moving normally before.</p><p><strong>Maturation.</strong> A fusion is considered solid when imaging shows continuous bone across the segment. Until then the construct is held by metal, and that distinction is the reason follow-up imaging matters.</p><p><strong>What slows all of this down:</strong> nicotine, uncontrolled diabetes, poor bone quality, and the number of levels fused. Nicotine is the one most within a patient's control and has the most direct effect on whether bone bridges at all.</p>"
+      }
+    ],
+    metaTitle: "Spinal Fusion Surgery | Comprehensive Spine Stabilization FL, NJ, NY, PA & GA",
     metaDescription: "Spinal fusion permanently joins vertebrae to relieve pain from instability. Learn about our advanced fusion techniques for cervical, thoracic, and lumbar spine.",
     keywords: [
       "Spinal fusion surgery",
       "back fusion operation",
       "spine stabilization surgery",
-      "scoliosis fusion FL, NJ, NY, & PA",
+      "scoliosis fusion FL, NJ, NY, PA & GA",
       "cervical fusion",
       "lumbar fusion",
       "minimally invasive fusion"
@@ -1431,8 +1525,8 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "transforaminal-lumbar-interbody-fusion",
     slug: "understanding-tlif-surgery",
-    metaTitle: "TLIF Surgery FL, NJ, NY, & PA | Transforaminal Lumbar Interbody Fusion",
-    metaDescription: "TLIF is a minimally invasive posterior fusion for L4-L5 and L5-S1. Relieve sciatica and back pain with our expert FL, NJ, NY, & PA spine surgeons.",
+    metaTitle: "TLIF Surgery FL, NJ, NY, PA & GA | Transforaminal Lumbar Interbody Fusion",
+    metaDescription: "TLIF is a minimally invasive posterior fusion for L4-L5 and L5-S1. Relieve sciatica and back pain with our expert FL, NJ, NY, PA & GA spine surgeons.",
     keywords: [
       "TLIF surgery",
       "Transforaminal Lumbar Interbody Fusion",
@@ -1440,7 +1534,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "minimally invasive TLIF",
       "spondylolisthesis fusion",
       "nerve root decompression surgery",
-      "back pain relief FL, NJ, NY, & PA"
+      "back pain relief FL, NJ, NY, PA & GA"
     ],
     title: "Transforaminal Lumbar Interbody Fusion (TLIF)",
     tag: "Lower Spine",
@@ -1499,11 +1593,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "posterior-cervical-fusion-with-instrumentation-surgery",
     slug: "posterior-cervical-fusion-with-instrumentation-surgery",
     metaTitle: "Posterior Cervical Fusion with Instrumentation | Neck Stabilization FL",
-    metaDescription: "Stabilize the cervical spine with posterior fusion and instrumentation. Our FL, NJ, NY, & PA surgeons treat fractures and severe instability to relieve neck pain.",
+    metaDescription: "Stabilize the cervical spine with posterior fusion and instrumentation. Our FL, NJ, NY, PA & GA surgeons treat fractures and severe instability to relieve neck pain.",
     keywords: [
       "Posterior cervical fusion instrumentation",
       "cervical spine fixation",
-      "neck stabilization surgery FL, NJ, NY, & PA",
+      "neck stabilization surgery FL, NJ, NY, PA & GA",
       "spinal cord relief neck",
       "cervical myelopathy surgery",
       "neck fracture care"
@@ -1562,12 +1656,12 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "posterior-cervical-fusion-surgery",
     slug: "posterior-cervical-fusion-surgery",
-    metaTitle: "Posterior Cervical Fusion Surgery | FL, NJ, NY, & PA Neck Pain Relief",
-    metaDescription: "Relieve chronic neck pain and instability with posterior cervical fusion. Our FL, NJ, NY, & PA specialists fuse cervical vertebrae to treat stenosis and deformity.",
+    metaTitle: "Posterior Cervical Fusion Surgery | FL, NJ, NY, PA & GA Neck Pain Relief",
+    metaDescription: "Relieve chronic neck pain and instability with posterior cervical fusion. Our FL, NJ, NY, PA & GA specialists fuse cervical vertebrae to treat stenosis and deformity.",
     keywords: [
       "Posterior cervical fusion",
       "neck surgery for instability",
-      "orthopedic care FL, NJ, NY, & PA",
+      "orthopedic care FL, NJ, NY, PA & GA",
       "cervical spine stabilization",
       "CSM surgical management",
       "neck pain from fracture treatment",
@@ -1627,15 +1721,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "anterior-cervical-corpectomy-and-fusion",
     slug: "anterior-cervical-corpectomy-and-fusion",
-    metaTitle: "Anterior Cervical Corpectomy (ACCF) | FL, NJ, NY, & PA Spine Surgery",
-    metaDescription: "ACCF removes damaged vertebrae to relieve spinal cord compression. Expert FL, NJ, NY, & PA surgeons for cervical stenosis and trauma treatment.",
+    metaTitle: "Anterior Cervical Corpectomy (ACCF) | FL, NJ, NY, PA & GA Spine Surgery",
+    metaDescription: "ACCF removes damaged vertebrae to relieve spinal cord compression. Expert FL, NJ, NY, PA & GA surgeons for cervical stenosis and trauma treatment.",
     keywords: [
       "Anterior Cervical Corpectomy and Fusion",
       "ACCF surgery",
-      "FL, NJ, NY, & PA spine institute",
+      "FL, NJ, NY, PA & GA spine institute",
       "cervical spinal cord surgery",
       "neck fusion for severe stenosis",
-      "spine care options FL, NJ, NY, & PA",
+      "spine care options FL, NJ, NY, PA & GA",
       "OPLL surgical treatment",
       "cervical vertebral body fusion"
     ],
@@ -1694,15 +1788,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "acdf-surgery",
     slug: "acdf-surgery",
-    metaTitle: "ACDF Surgery FL, NJ, NY, & PA | Anterior Cervical Discectomy & Fusion",
-    metaDescription: "Relieve neck and arm pain with ACDF surgery. Our FL, NJ, NY, & PA spine surgeons remove herniated discs and stabilize the neck for lasting relief.",
+    metaTitle: "ACDF Surgery FL, NJ, NY, PA & GA | Anterior Cervical Discectomy & Fusion",
+    metaDescription: "Relieve neck and arm pain with ACDF surgery. Our FL, NJ, NY, PA & GA spine surgeons remove herniated discs and stabilize the neck for lasting relief.",
     keywords: [
       "ACDF surgery",
       "Anterior Cervical Discectomy and Fusion",
-      "FL, NJ, NY, & PA neck surgery center",
+      "FL, NJ, NY, PA & GA neck surgery center",
       "neck fusion for arm pain",
       "cervical DDD surgical relief",
-      "spine care specialist FL, NJ, NY, & PA",
+      "spine care specialist FL, NJ, NY, PA & GA",
       "cervical radiculopathy ACDF"
     ],
     title: "ACDF Surgery",
@@ -1744,7 +1838,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       details: "Most **ACDF Surgery** patients go home the same day or the next morning. Soreness in the throat is common for a few days. Arm pain relief is often immediate. Patients typically return to light daily activities within a week and driving in 2-4 weeks. <a href=\"https://mountainspineorthopedics.com/conditions\" class=\"text-blue-600 hover:underline\">**Rehabilitation**</a> helps restore neck range of motion once fusion begins, typically at the 6-week mark.",
     },
     benefits: [
-      "High success rate (90%+) for relief of arm pain and weakness",
+      "Directly decompresses the nerve root causing arm pain and weakness",
       "Prevents further collapse of the disc space and <a href=\"https://mountainspineorthopedics.com/conditions/kyphosis\" class=\"text-blue-600 hover:underline\">kyphosis</a>",
       "Protects the spinal cord from damage",
       "Minimally invasive approach spares neck muscles from cutting",
@@ -1759,15 +1853,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "lumbar-disc-replacement-surgery",
     slug: "lumbar-disc-replacement-surgery",
-    metaTitle: "Lumbar Disc Replacement FL, NJ, NY, & PA | Artificial Disc Surgery L4-L5",
-    metaDescription: "Preserve back motion with Lumbar Disc Replacement. Our FL, NJ, NY, & PA surgeons replace damaged discs to treat chronic back pain without fusion.",
+    metaTitle: "Lumbar Disc Replacement FL, NJ, NY, PA & GA | Artificial Disc Surgery L4-L5",
+    metaDescription: "Preserve back motion with Lumbar Disc Replacement. Our FL, NJ, NY, PA & GA surgeons replace damaged discs to treat chronic back pain without fusion.",
     keywords: [
       "Lumbar disc replacement",
-      "artificial disc surgery FL, NJ, NY, & PA L5-S1",
+      "artificial disc surgery FL, NJ, NY, PA & GA L5-S1",
       "orthopedic care",
       "motion preservation back surgery",
       "degenerative disc disease L4-L5",
-      "spine health options FL, NJ, NY, & PA",
+      "spine health options FL, NJ, NY, PA & GA",
       "chronic low back pain ADR",
       "minimally invasive lumbar arthroplasty"
     ],
@@ -1825,12 +1919,12 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "artificial-disc-replacement-surgery",
     slug: "artificial-disc-replacement-surgery",
-    metaTitle: "Artificial Disc Replacement Surgery | Motion Preservation FL, NJ, NY, & PA",
+    metaTitle: "Artificial Disc Replacement Surgery | Motion Preservation FL, NJ, NY, PA & GA",
     metaDescription: "Explore Artificial Disc Replacement (ADR) as an alternative to fusion. Treat DDD and herniated discs while keeping your spine flexible.",
     keywords: [
       "Artificial disc replacement",
       "ADR surgery",
-      "FL, NJ, NY, & PA orthopedic center",
+      "FL, NJ, NY, PA & GA orthopedic center",
       "motion preservation spine technology",
       "DDD relief options",
       "spine care specialist",
@@ -1890,15 +1984,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "cervical-disc-arthroplasty",
     slug: "cervical-disc-arthroplasty",
-    metaTitle: "Cervical Disc Arthroplasty | Neck Disc Replacement FL, NJ, NY, & PA",
+    metaTitle: "Cervical Disc Arthroplasty | Neck Disc Replacement FL, NJ, NY, PA & GA",
     metaDescription: "Cervical disc arthroplasty replaces a damaged neck disc to relieve arm pain while preserving motion. Learn candidacy, recovery, and PPO coverage options.",
     keywords: [
       "Cervical disc arthroplasty",
       "CDA surgery",
-      "FL, NJ, NY, & PA neck pain specialist",
+      "FL, NJ, NY, PA & GA neck pain specialist",
       "neck artificial disc replacement",
       "motion-sparing neck surgery",
-      "spine care center FL, NJ, NY, & PA",
+      "spine care center FL, NJ, NY, PA & GA",
       "cervical radiculopathy ADR",
       "non-fusion neck surgery"
     ],
@@ -1955,12 +2049,34 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   },
   {
     id: "motion-preservation-spine-surgery",
-    slug: "motion-preservation-spine-surgery",
-    metaTitle: "Motion Preservation Spine Surgery | FL, NJ, NY, & PA Non-Fusion Options",
-    metaDescription: "Explore non-fusion spine surgery options in FL, NJ, NY, & PA. We offer artificial disc replacement and laminoplasty to treat pain while keeping you moving.",
+    slug: "motion-preservation-spine-surgery",
+    additionalSections: [
+      {
+        heading: "What has to be true of the segment for motion preservation to work",
+        placement: "after-symptoms",
+        body: "<p>Motion preservation only makes sense if the level is worth keeping mobile. That is a statement about the whole segment, not just the disc.</p><p><strong>The joints behind the disc have to be healthy.</strong> Each spinal level moves through the disc at the front and a pair of facet joints at the back. A device restores motion through the disc — if the facets are themselves arthritic and painful, preserving motion preserves the movement that hurts. This is the most common reason a candidate is turned down.</p><p><strong>The segment must not already be moving too much.</strong> Where there is a slip or demonstrable instability, the aim is to stop abnormal motion. A device that maintains motion is working against the goal.</p><p><strong>Alignment has to be near normal.</strong> These operations maintain the shape a spine is already in. They do not correct deformity, and a segment that needs its alignment changed needs a construct that can change it.</p><p><strong>Bone has to hold.</strong> A device seats against the vertebral endplates and relies on that bone for fixation and long-term position.</p><p>Where those conditions hold and the problem is genuinely confined to the disc, this is a real alternative. Where they do not, see <a href=\"/treatments/spinal-fusion\" class=\"underline text-[#252932] hover:text-[#2358AC]\">spinal fusion surgery</a> \u2014 not as a fallback, but as the operation that addresses what is actually wrong.</p>"
+      },
+      {
+        heading: "What you take on by preserving motion",
+        placement: "after-causes",
+        body: "<p>The case for motion preservation is usually made in terms of what it avoids. It is worth being equally clear about what it introduces, because these trade-offs are real and are not always volunteered.</p><p><strong>A moving part stays in the body.</strong> A fusion, once healed, is bone — biologically finished. A motion-preserving device is a bearing surface that continues to articulate for as long as it is in place. Wear over decades is a genuine consideration, and it weighs more heavily the younger the patient is.</p><p><strong>Bone can form where motion was intended.</strong> The body sometimes lays down bone around an implant placed to move, gradually stiffening the segment. Where that happens the patient has taken on the device without keeping the motion it was chosen for.</p><p><strong>Revision is harder, not easier.</strong> If a preserved level later needs converting to a fusion, the second operation has to remove a device seated against the endplates and then achieve fusion on bone that has already been prepared once. This is more demanding than a first-time fusion, and it is the consideration most often left out of the comparison.</p><p><strong>The main argument for it is a probabilistic one.</strong> Preserving motion is expected to reduce load transferred to neighbouring levels, and so reduce the chance of trouble developing next to the operated segment. That is the central rationale and it is biomechanically reasonable \u2014 but it is a claim about likelihood over years, it is better supported in the neck than the low back, and it should be presented as a reason to prefer the approach rather than as a promise about your spine.</p>"
+      },
+      {
+        heading: "When fusion and motion preservation are combined",
+        placement: "before-treatment",
+        body: "<p>The two are not mutually exclusive across a spine. Where several levels need treating and they do not all have the same problem, a hybrid construct treats each level on its own merits.</p><p>A typical pattern: one level has a collapsed disc with worn facets and a slip \u2014 that level is fused. The level next to it has an isolated disc problem with healthy joints behind it \u2014 that level gets a device. The alternative would be fusing both and accepting stiffness at a level that did not need it.</p><p><strong>What makes this harder than either operation alone:</strong> two different constructs have to sit next to each other and share load sensibly, and the junction between a stiff segment and a mobile one is a demanding place mechanically. It also means recovery follows the fused level's timetable, because bone healing is the slower constraint.</p><p>Hybrid constructs are a reason to be assessed level by level rather than offered a single operation for the whole region.</p>"
+      },
+      {
+        heading: "Recovery: here, stiffness is the thing to avoid",
+        placement: "after-treatment",
+        body: "<p>Recovery after motion preservation is close to the <strong>inverse</strong> of recovery after fusion, and patients who have read about fusion recovery are often surprised by it.</p><p><strong>Nothing has to fuse, so nothing is waiting on bone.</strong> There is no months-long period during which the construct is held by metal while bone bridges. That is the single biggest difference, and it is why activity generally progresses sooner.</p><p><strong>Movement is part of the treatment, not a risk to it.</strong> After a fusion, early motion threatens the graft. Here, motion is the point \u2014 the segment is meant to move, and a segment that is protected too carefully can stiffen into exactly the state the operation was chosen to avoid. Restrictions tend to be shorter and looser, and bracing is used less.</p><p><strong>The specific thing being guarded against is unwanted bone formation.</strong> Where bone grows around a device intended to articulate, the level stiffens. This is the reason some surgeons use particular anti-inflammatory protocols in the early weeks, and it is worth asking whether yours does and why.</p><p><strong>Rehabilitation is about control, not protection.</strong> The muscles around a mobile segment have to learn to control a level that now moves in a way it has not for years. That is a retraining task rather than a healing one, and it is the part of recovery that most determines how the segment feels a year later.</p>"
+      }
+    ],
+    metaTitle: "Motion Preservation Spine Surgery | FL, NJ, NY, PA & GA Non-Fusion Options",
+    metaDescription: "Explore non-fusion spine surgery options in FL, NJ, NY, PA & GA. We offer artificial disc replacement and laminoplasty to treat pain while keeping you moving.",
     keywords: [
       "Motion preservation spine surgery",
-      "FL, NJ, NY, & PA spine specialist",
+      "FL, NJ, NY, PA & GA spine specialist",
       "non-fusion spine options",
       "ADR and dynamic stabilization",
       "orthopedic spine care",
@@ -2020,15 +2136,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "total-hip-replacement",
     slug: "total-hip-replacement",
-    metaTitle: "Total Hip Replacement Surgery FL, NJ, NY, & PA | Hip Arthritis Relief",
-    metaDescription: "Relieve chronic hip pain with Total Hip Replacement (THA). Our FL, NJ, NY, & PA orthopedic surgeons restore mobility and function for severe hip arthritis.",
+    metaTitle: "Total Hip Replacement Surgery FL, NJ, NY, PA & GA | Hip Arthritis Relief",
+    metaDescription: "Relieve chronic hip pain with Total Hip Replacement (THA). Our FL, NJ, NY, PA & GA orthopedic surgeons restore mobility and function for severe hip arthritis.",
     keywords: [
       "Total hip replacement",
       "THA surgery",
-      "FL, NJ, NY, & PA hip surgeon",
+      "FL, NJ, NY, PA & GA hip surgeon",
       "hip arthritis surgery",
       "minimally invasive hip replacement",
-      "joint replacement options FL, NJ, NY, & PA",
+      "joint replacement options FL, NJ, NY, PA & GA",
       "hip pain after injury",
       "robotic-assisted hip surgery"
     ],
@@ -2073,7 +2189,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "Significant reduction or total elimination of hip pain",
       "Restored range of motion and ability to walk without a limp",
       "Correction of leg length discrepancy caused by arthritis",
-      "High success rate with implants lasting 15-20 years or more",
+      "Modern bearing surfaces are designed for long-term durability, with implant life depending on activity level, weight, and bone quality",
       "Improved quality of life and independence"
     ],
     insurance: {
@@ -2085,15 +2201,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "total-knee-replacement",
     slug: "total-knee-replacement",
-    metaTitle: "Total Knee Replacement Surgery | FL, NJ, NY, & PA Knee Specialists",
-    metaDescription: "Stop knee pain with Total Knee Replacement (TKA). Our FL, NJ, NY, & PA surgeons use advanced techniques to treat severe knee arthritis and restore your active lifestyle.",
+    metaTitle: "Total Knee Replacement Surgery | FL, NJ, NY, PA & GA Knee Specialists",
+    metaDescription: "Stop knee pain with Total Knee Replacement (TKA). Our FL, NJ, NY, PA & GA surgeons use advanced techniques to treat severe knee arthritis and restore your active lifestyle.",
     keywords: [
       "Total knee replacement",
       "TKA surgery",
-      "FL, NJ, NY, & PA knee surgeon",
+      "FL, NJ, NY, PA & GA knee surgeon",
       "knee arthritis surgery",
       "minimally invasive knee replacement",
-      "joint replacement options FL, NJ, NY, & PA",
+      "joint replacement options FL, NJ, NY, PA & GA",
       "knee pain after injury",
       "robotic-assisted knee surgery"
     ],
@@ -2158,7 +2274,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     keywords: [
       "Posterior cervical laminoplasty",
       "motion-sparing neck surgery",
-      "FL, NJ, NY, & PA orthopedic spine care",
+      "FL, NJ, NY, PA & GA orthopedic spine care",
       "cervical myelopathy treatment options",
       "spinal cord decompression without fusion",
       "spine health solutions",
@@ -2224,10 +2340,10 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     keywords: [
       "Posterior cervical foraminotomy",
       "minimally invasive neck surgery",
-      "FL, NJ, NY, & PA orthopedic solutions",
+      "FL, NJ, NY, PA & GA orthopedic solutions",
       "cervical radiculopathy surgical relief",
       "nerve decompression for neck pain",
-      "spine health FL, NJ, NY, & PA",
+      "spine health FL, NJ, NY, PA & GA",
       "pinched nerve neck operation",
       "foraminal stenosis cervical treatment"
     ],
@@ -2285,15 +2401,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "lumbar-laminectomy-surgery",
     slug: "lumbar-laminectomy-surgery",
-    metaTitle: "Lumbar Laminectomy Surgery | FL, NJ, NY, & PA Spinal Stenosis Treatment",
-    metaDescription: "Treat spinal stenosis and leg pain with Lumbar Laminectomy. Our FL, NJ, NY, & PA surgeons remove bone spurs to decompress nerves and improve walking.",
+    metaTitle: "Lumbar Laminectomy Surgery | FL, NJ, NY, PA & GA Spinal Stenosis Treatment",
+    metaDescription: "Treat spinal stenosis and leg pain with Lumbar Laminectomy. Our FL, NJ, NY, PA & GA surgeons remove bone spurs to decompress nerves and improve walking.",
     keywords: [
       "Lumbar laminectomy",
       "spinal stenosis surgery",
-      "FL, NJ, NY, & PA orthopedic spine care",
+      "FL, NJ, NY, PA & GA orthopedic spine care",
       "minimally invasive back operation",
       "nerve decompression for leg pain",
-      "spine health solutions FL, NJ, NY, & PA",
+      "spine health solutions FL, NJ, NY, PA & GA",
       "neurogenic claudication surgery",
       "lumbar spinal canal decompression"
     ],
@@ -2352,14 +2468,14 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "lumbar-decompression",
     slug: "lumbar-decompression",
     metaTitle: "Lumbar Decompression Surgery | Relief for Sciatica & Stenosis",
-    metaDescription: "Relieve pressure on spinal nerves with Lumbar Decompression. Treat sciatica and stenosis effectively with expert care from our FL, NJ, NY, & PA spine surgeons.",
+    metaDescription: "Relieve pressure on spinal nerves with Lumbar Decompression. Treat sciatica and stenosis effectively with expert care from our FL, NJ, NY, PA & GA spine surgeons.",
     keywords: [
       "Lumbar decompression surgery",
       "spinal stenosis treatment",
-      "FL, NJ, NY, & PA orthopedic solutions",
+      "FL, NJ, NY, PA & GA orthopedic solutions",
       "minimally invasive lumbar options",
       "sciatica surgical management",
-      "spine health FL, NJ, NY, & PA",
+      "spine health FL, NJ, NY, PA & GA",
       "pinched nerve relief surgery lower back",
       "leg pain from spinal compression"
     ],
@@ -2402,7 +2518,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     },
     benefits: [
       "Directly addresses the mechanical cause of nerve pain",
-      "High success rate for relieving radiating leg symptoms",
+      "Targets the compression causing radiating leg symptoms",
       "Can prevent permanent nerve injury and muscle weakness",
       "Minimally invasive options allow for outpatient surgery",
       "Improves quality of life by restoring mobility"
@@ -2417,11 +2533,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "lumbar-microendoscopic-discectomy-surgery",
     slug: "lumbar-microendoscopic-discectomy-surgery",
     metaTitle: "Microendoscopic Discectomy (MED) | Minimally Invasive Spine FL",
-    metaDescription: "Treat herniated discs with Microendoscopic Discectomy (MED). Our FL, NJ, NY, & PA surgeons use advanced endoscopic techniques for ultra-minimally invasive relief.",
+    metaDescription: "Treat herniated discs with Microendoscopic Discectomy (MED). Our FL, NJ, NY, PA & GA surgeons use advanced endoscopic techniques for ultra-minimally invasive relief.",
     keywords: [
       "Lumbar microendoscopic discectomy",
       "MED surgery",
-      "FL, NJ, NY, & PA orthopedic specialist",
+      "FL, NJ, NY, PA & GA orthopedic specialist",
       "endoscopic discectomy for herniated disc",
       "minimally invasive sciatica surgery",
       "spine care center",
@@ -2471,7 +2587,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "Reduced postoperative pain and reliance on medication",
       "Outpatient procedure with same-day discharge",
       "Faster return to work and daily activities",
-      "High success rate for sciatica relief comparable to open surgery"
+      "Relieves sciatica through a smaller working channel than open surgery"
     ],
     insurance: {
       heading: "Insurance for MED",
@@ -2482,12 +2598,12 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "lumbar-microdiscectomy-surgery",
     slug: "lumbar-microdiscectomy-surgery",
-    metaTitle: "Lumbar Microdiscectomy Surgery | Herniated Disc Relief FL, NJ, NY, & PA",
-    metaDescription: "The gold standard for treating herniated discs. Lumbar Microdiscectomy relieves sciatica and nerve pain with precision. Schedule a consult in FL, NJ, NY, & PA.",
+    metaTitle: "Lumbar Microdiscectomy Surgery | Herniated Disc Relief FL, NJ, NY, PA & GA",
+    metaDescription: "The gold standard for treating herniated discs. Lumbar Microdiscectomy relieves sciatica and nerve pain with precision. Schedule a consult in FL, NJ, NY, PA & GA.",
     keywords: [
       "Lumbar microdiscectomy",
       "minimally invasive spine surgery",
-      "FL, NJ, NY, & PA orthopedic care",
+      "FL, NJ, NY, PA & GA orthopedic care",
       "herniated disc surgery relief",
       "sciatica treatment options",
       "spine health management",
@@ -2553,7 +2669,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     keywords: [
       "Degenerative disc disease surgery",
       "DDD surgery",
-      "FL, NJ, NY, & PA spine center",
+      "FL, NJ, NY, PA & GA spine center",
       "spinal fusion for disc pain",
       "artificial disc for DDD",
       "spine care solutions",
@@ -2614,11 +2730,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "percutaneous-discectomy",
     slug: "percutaneous-discectomy",
     metaTitle: "Percutaneous Discectomy | Minimally Invasive Disc Relief FL",
-    metaDescription: "Treat herniated discs with Percutaneous Discectomy. A needle-based, outpatient procedure in FL, NJ, NY, & PA to relieve sciatica without major surgery.",
+    metaDescription: "Treat herniated discs with Percutaneous Discectomy. A needle-based, outpatient procedure in FL, NJ, NY, PA & GA to relieve sciatica without major surgery.",
     keywords: [
       "Percutaneous discectomy",
       "minimally invasive discectomy",
-      "FL, NJ, NY, & PA orthopedic solutions",
+      "FL, NJ, NY, PA & GA orthopedic solutions",
       "herniated disc needle treatment",
       "non-surgical spine intervention",
       "spine health options",
@@ -2666,7 +2782,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "No large incision, no stitches, and minimal scarring",
       "performed under local anesthesia/sedation (no general anesthesia risks)",
       "Preserves disc structure and spinal stability",
-      "High success rate for properly selected small herniations",
+      "Suited specifically to small contained herniations; selection is what makes it appropriate",
       "Rapid relief of radiating nerve pain"
     ],
     insurance: {
@@ -2679,11 +2795,11 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "resurfacing-shoulder-replacement",
     slug: "resurfacing-shoulder-replacement",
     metaTitle: "Resurfacing Shoulder Replacement | Bone-Sparing Surgery FL",
-    metaDescription: "Preserve your shoulder bone with Resurfacing Shoulder Replacement. Our FL, NJ, NY, & PA experts treat arthritis in active patients with this conservative implant option.",
+    metaDescription: "Preserve your shoulder bone with Resurfacing Shoulder Replacement. Our FL, NJ, NY, PA & GA experts treat arthritis in active patients with this conservative implant option.",
     keywords: [
       "Resurfacing shoulder replacement",
       "shoulder hemiarthroplasty",
-      "FL, NJ, NY, & PA orthopedic surgeon",
+      "FL, NJ, NY, PA & GA orthopedic surgeon",
       "bone-sparing shoulder surgery",
       "shoulder arthritis non-total replacement",
       "joint preservation shoulder",
@@ -2699,7 +2815,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Resurfacing shoulder replacement caps the humeral head with a metal prosthesis, preserving bone stock while treating arthritis.",
     overview: {
       heading: "Bone-Preserving Arthritis Treatment",
-      body: "**Resurfacing Shoulder Replacement** is a conservative surgical alternative to standard total shoulder replacement. Instead of cutting off the entire humeral head (ball of the shoulder), the surgeon simply smoothes the damaged surface and caps it with a metal prosthesis, similar to capping a tooth. This preserves the patient's natural bone stock, making it an excellent option for younger, active patients with <a href=\"https://mountainspineorthopedics.com/conditions/shoulder-arthritis\" class=\"text-blue-600 hover:underline\">**Shoulder Arthritis**</a> or avascular necrosis who wish to maintain high activity levels.",
+      body: "**Resurfacing Shoulder Replacement** is a conservative surgical alternative to standard total shoulder replacement. Instead of cutting off the entire humeral head (ball of the shoulder), the surgeon simply smoothes the damaged surface and caps it with a metal prosthesis, similar to capping a tooth. This preserves the patient's natural bone stock, making it an excellent option for younger, active patients with <a href=\"https://mountainspineorthopedics.com/conditions/shoulder-arthritis\" class=\"text-blue-600 hover:underline\">**Shoulder Arthritis**</a> or avascular necrosis who wish to maintain high activity levels. For how resurfacing compares with the other shoulder replacement options and when each is chosen, see <a href=\"/treatments/shoulder-replacement\" class=\"text-blue-600 hover:underline\">Total Shoulder Replacement</a>.",
     },
     candidates: {
       heading: "Who Is a Candidate?",
@@ -2742,17 +2858,29 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   },
   {
     id: "hip-arthroscopy-treatment",
-    slug: "hip-arthroscopy-treatment",
-    metaTitle: "Hip Arthroscopy FL, NJ, NY, & PA | Minimally Invasive Labral Repair",
-    metaDescription: "Treat hip impingement and labral tears with minimally invasive Hip Arthroscopy. Our FL, NJ, NY, & PA surgeons preserve your hip joint and relieve pain.",
+    slug: "hip-arthroscopy-treatment",
+    additionalSections: [
+      {
+        heading: "Who hip arthroscopy helps — and who is past the point where it can",
+        placement: "after-symptoms",
+        body: "<p>Hip arthroscopy is a joint-preservation operation. That framing explains both what it is for and where its limit is: <strong>it works on a joint that is still worth preserving.</strong></p><p><strong>The pattern it addresses.</strong> Impingement, where the shapes of the ball and socket do not clear each other properly through range, typically producing groin pain with deep flexion, rotation, or prolonged sitting. Over time that abnormal contact damages the labrum and the cartilage next to it. Arthroscopy reshapes the bone causing the impingement and repairs the labral damage.</p><p><strong>The limit is cartilage.</strong> Once the joint surface has worn substantially, the mechanical problem is no longer the shape of the bone but the loss of the bearing surface. Reshaping bone and repairing a labrum does not restore cartilage, and in a hip with established arthritis the operation addresses a finding rather than the source of pain. This is the single most important thing to establish before proceeding, and it is assessed on imaging rather than symptoms.</p><p><strong>Age is a proxy, not a criterion.</strong> The relevant question is the state of the cartilage, not the year of birth \u2014 which is why two patients of the same age can get different recommendations.</p><p>Where arthritis is established, the conversation is usually about hip replacement instead, and being told arthroscopy is not appropriate is a statement about the joint rather than about how advanced the surgery on offer is.</p>"
+      },
+      {
+        heading: "Why hip arthroscopy is technically demanding",
+        placement: "after-causes",
+        body: "<p>The hip is a deep ball-and-socket joint held together by strong ligaments and covered by thick muscle. Getting instruments into it safely is materially harder than in a knee or a shoulder, and that shapes the operation.</p><p><strong>The joint has to be opened up to get into it.</strong> The hip is a tight fit by design. Traction is applied to create working space, and the duration of that traction is something surgeons actively minimise because the surrounding soft tissues do not tolerate it indefinitely.</p><p><strong>The working angles are constrained.</strong> Instruments reach the joint through thick tissue with limited room to change direction, so much of the technical skill is in placing the access accurately at the start.</p><p><strong>The bone reshaping has to be judged carefully.</strong> Too little leaves the impingement that caused the problem; too much affects the structural integrity of the femoral neck. There is a correct amount and it is judged during the operation.</p><p>These are the reasons hip arthroscopy is concentrated among surgeons who do it regularly, and a reasonable question to ask is how often the procedure is part of your surgeon's practice.</p>"
+      }
+    ],
+    metaTitle: "Hip Arthroscopy FL, NJ, NY, PA & GA | Minimally Invasive Labral Repair",
+    metaDescription: "Treat hip impingement and labral tears with minimally invasive Hip Arthroscopy. Our FL, NJ, NY, PA & GA surgeons preserve your hip joint and relieve pain.",
     keywords: [
       "Hip arthroscopy",
-      "minimally invasive hip procedure FL, NJ, NY, & PA",
+      "minimally invasive hip procedure FL, NJ, NY, PA & GA",
       "orthopedic care",
       "hip labral tear surgery",
       "FAI treatment options",
       "joint preservation for hip",
-      "hip pain management FL, NJ, NY, & PA",
+      "hip pain management FL, NJ, NY, PA & GA",
       "sports medicine hip specialist"
     ],
     title: "Hip Arthroscopy Treatment",
@@ -2765,7 +2893,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Hip arthroscopy uses small incisions and an arthroscope to diagnose and treat hip pathology, including labral tears and impingement.",
     overview: {
       heading: "Minimally Invasive Hip Preservation",
-      body: "**Hip Arthroscopy Treatment** is a specialized, <strong>minimally invasive procedure</strong> used to diagnose and treat problems inside the hip joint. Unlike traditional open surgery, it uses small incisions and a camera (arthroscope) to access the joint with minimal tissue disruption. This approach is highly effective for treating <strong>Femoroacetabular Impingement (FAI)</strong> and <strong>labral tears</strong>—conditions that cause deep groin pain, mechanical catching, and restricted hip motion in active individuals.<br/><br/>Athletes and active patients often present with <strong>hip pain during pivoting, cutting, or deep squatting</strong>—movements that stress the labrum and impinging bone. Hip arthroscopy allows surgeons to reshape abnormal bone (CAM or Pincer lesions), repair or reconstruct the labrum, and remove inflamed tissue or loose bodies. Loose bodies are small cartilage or bone fragments that float within the joint after trauma, arthritis, avascular necrosis, osteochondritis dissecans, synovial chondromatosis, or prior injury. They can wedge between joint surfaces and cause sudden sharp pain, popping, catching, locking, swelling, and episodic loss of motion. The goal is to preserve the natural hip joint, relieve pain, and delay or prevent the onset of hip osteoarthritis. For those experiencing persistent <a href=\"/conditions/hip\" class=\"text-blue-600 hover:underline\">hip conditions</a>, early evaluation can determine if arthroscopy is appropriate.<br/><br/>According to <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/overuse-injuries-in-children/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">AAOS guidance on overuse injuries</a>, repetitive hip stress in athletes can lead to labral damage that may benefit from surgical intervention when conservative measures fail. Hip arthroscopy has become a valuable tool in sports medicine for returning athletes to their activities with restored hip function and pain relief.",
+      body: "**Hip Arthroscopy Treatment** is a specialized, <strong>minimally invasive procedure</strong> used to diagnose and treat problems inside the hip joint. Unlike traditional open surgery, it uses small incisions and a camera (arthroscope) to access the joint with minimal tissue disruption. This approach is highly effective for treating <strong>Femoroacetabular Impingement (FAI)</strong> and <strong>labral tears</strong>—conditions that cause deep groin pain, mechanical catching, and restricted hip motion in active individuals.<br/><br/>Athletes and active patients often present with <strong>hip pain during pivoting, cutting, or deep squatting</strong>—movements that stress the labrum and impinging bone. Hip arthroscopy allows surgeons to reshape abnormal bone (CAM or Pincer lesions), repair or reconstruct the labrum, and remove inflamed tissue or loose bodies.</p><p>Loose bodies are small cartilage or bone fragments that float within the joint after trauma, arthritis, avascular necrosis, osteochondritis dissecans, synovial chondromatosis, or prior injury. They can wedge between joint surfaces and cause sudden sharp pain, popping, catching, locking, swelling, and episodic loss of motion.</p><p>The goal is to preserve the natural hip joint, relieve pain, and delay or prevent the onset of hip osteoarthritis. For those experiencing persistent <a href=\"/conditions/hip\" class=\"text-blue-600 hover:underline\">hip conditions</a>, early evaluation can determine if arthroscopy is appropriate.<br/><br/>According to <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/overuse-injuries-in-children/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">AAOS guidance on overuse injuries</a>, repetitive hip stress in athletes can lead to labral damage that may benefit from surgical intervention when conservative measures fail. Hip arthroscopy has become a valuable tool in sports medicine for returning athletes to their activities with restored hip function and pain relief.",
     },
     candidates: {
       heading: "Who Hip Arthroscopy Helps Most",
@@ -2813,7 +2941,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "hip-labral-repair",
     slug: "hip-labral-repair",
     metaTitle: "Hip Labral Repair Surgery | Arthroscopic Labrum Reconstruction FL",
-    metaDescription: "Repair or reconstruct torn hip labrum with minimally invasive arthroscopic surgery. Our FL, NJ, NY, & PA hip specialists restore hip stability and function.",
+    metaDescription: "Repair or reconstruct torn hip labrum with minimally invasive arthroscopic surgery. Our FL, NJ, NY, PA & GA hip specialists restore hip stability and function.",
     keywords: [
       "hip labral repair",
       "labral reconstruction hip",
@@ -2822,7 +2950,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "hip labral tear surgery",
       "hip stability restoration",
       "hip preservation surgery",
-      "labral repair FL, NJ, NY, & PA",
+      "labral repair FL, NJ, NY, PA & GA",
       "hip joint preservation",
       "FAI labral repair",
     ],
@@ -2884,7 +3012,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "hip-resurfacing",
     slug: "hip-resurfacing",
     metaTitle: "Hip Resurfacing Surgery | Metal-on-Metal Hip Preservation FL",
-    metaDescription: "Hip resurfacing preserves more bone than total replacement. Our FL, NJ, NY, & PA hip specialists offer this joint-preserving option for active patients.",
+    metaDescription: "Hip resurfacing preserves more bone than total replacement. Our FL, NJ, NY, PA & GA hip specialists offer this joint-preserving option for active patients.",
     keywords: [
       "hip resurfacing",
       "hip resurfacing surgery",
@@ -2892,7 +3020,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "metal-on-metal hip",
       "hip preservation surgery",
       "hip resurfacing vs replacement",
-      "hip resurfacing FL, NJ, NY, & PA",
+      "hip resurfacing FL, NJ, NY, PA & GA",
       "young patient hip surgery",
       "active patient hip surgery",
       "hip bone preservation",
@@ -2954,7 +3082,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "hip-fracture-surgery",
     slug: "hip-fracture-surgery",
     metaTitle: "Hip Fracture Surgery | Urgent Hip Repair & Replacement FL",
-    metaDescription: "Urgent surgical treatment for hip fractures. Our FL, NJ, NY, & PA hip specialists offer advanced fixation and replacement options to restore function quickly.",
+    metaDescription: "Urgent surgical treatment for hip fractures. Our FL, NJ, NY, PA & GA hip specialists offer advanced fixation and replacement options to restore function quickly.",
     keywords: [
       "hip fracture surgery",
       "hip fracture treatment",
@@ -2962,7 +3090,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "femoral neck fracture surgery",
       "hip fracture repair",
       "hip replacement for fracture",
-      "hip fracture FL, NJ, NY, & PA",
+      "hip fracture FL, NJ, NY, PA & GA",
       "urgent hip surgery",
       "hip fracture recovery",
       "hip fracture specialist",
@@ -3024,14 +3152,14 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "revision-hip-replacement",
     slug: "revision-hip-replacement",
     metaTitle: "Revision Hip Replacement | Failed Hip Replacement Surgery FL",
-    metaDescription: "Revision hip replacement addresses failed or worn hip implants. Our FL, NJ, NY, & PA specialists offer advanced revision techniques to restore function.",
+    metaDescription: "Revision hip replacement addresses failed or worn hip implants. Our FL, NJ, NY, PA & GA specialists offer advanced revision techniques to restore function.",
     keywords: [
       "revision hip replacement",
       "failed hip replacement",
       "hip replacement revision",
       "hip implant failure",
       "hip replacement complications",
-      "revision hip surgery FL, NJ, NY, & PA",
+      "revision hip surgery FL, NJ, NY, PA & GA",
       "hip replacement wear",
       "hip implant loosening",
       "hip replacement second surgery",
@@ -3095,7 +3223,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "hip-impingement-surgery",
     slug: "hip-impingement-surgery",
     metaTitle: "Hip Impingement Surgery | FAI Correction & Bone Reshaping FL",
-    metaDescription: "Surgical correction of hip impingement (FAI) through bone reshaping. Our FL, NJ, NY, & PA hip specialists preserve your joint and relieve pain.",
+    metaDescription: "Surgical correction of hip impingement (FAI) through bone reshaping. Our FL, NJ, NY, PA & GA hip specialists preserve your joint and relieve pain.",
     keywords: [
       "hip impingement surgery",
       "FAI surgery",
@@ -3104,7 +3232,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "pincer lesion removal",
       "hip bone reshaping",
       "hip preservation surgery",
-      "FAI treatment FL, NJ, NY, & PA",
+      "FAI treatment FL, NJ, NY, PA & GA",
       "hip impingement repair",
       "hip joint preservation",
     ],
@@ -3167,7 +3295,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "core-decompression",
     slug: "core-decompression",
     metaTitle: "Core Decompression | Avascular Necrosis Treatment FL",
-    metaDescription: "Core decompression treats early avascular necrosis by relieving pressure and stimulating healing. Our FL, NJ, NY, & PA hip specialists preserve your joint.",
+    metaDescription: "Core decompression treats early avascular necrosis by relieving pressure and stimulating healing. Our FL, NJ, NY, PA & GA hip specialists preserve your joint.",
     keywords: [
       "core decompression",
       "avascular necrosis treatment",
@@ -3237,7 +3365,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "hip-bursectomy",
     slug: "hip-bursectomy",
     metaTitle: "Hip Bursectomy | Chronic Bursitis Surgery FL",
-    metaDescription: "Hip bursectomy removes inflamed bursa for chronic bursitis. Our FL, NJ, NY, & PA specialists offer minimally invasive surgery when conservative care fails.",
+    metaDescription: "Hip bursectomy removes inflamed bursa for chronic bursitis. Our FL, NJ, NY, PA & GA specialists offer minimally invasive surgery when conservative care fails.",
     keywords: [
       "hip bursectomy",
       "bursa removal hip",
@@ -3246,7 +3374,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
       "hip bursitis surgery",
       "hip bursa removal",
       "hip bursitis treatment",
-      "hip bursectomy FL, NJ, NY, & PA",
+      "hip bursectomy FL, NJ, NY, PA & GA",
       "hip inflammation surgery",
       "hip pain surgery",
     ],
@@ -3305,16 +3433,28 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   },
   {
     id: "arthroscopic-knee-surgery",
-    slug: "arthroscopic-knee-surgery",
+    slug: "arthroscopic-knee-surgery",
+    additionalSections: [
+      {
+        heading: "What knee arthroscopy fixes well — and where the evidence is weak",
+        placement: "after-symptoms",
+        body: "<p>This is worth being direct about, because knee arthroscopy is one of the more over-offered operations in orthopaedics and the distinction between its good and poor indications is well established.</p><p><strong>Where it clearly helps:</strong> a knee that mechanically locks or catches because a displaced fragment is physically caught in the joint; loose bodies; certain ligament reconstructions performed arthroscopically; and traumatic meniscal tears in an otherwise healthy knee.</p><p><strong>Where the evidence is genuinely mixed:</strong> <strong>degenerative meniscal tears in a knee that already has arthritis.</strong> Multiple trials have compared arthroscopy against structured non-operative care in this specific group and have not shown it to be reliably superior. The reason is mechanical rather than surgical — in an arthritic knee the meniscal tear is often incidental to the arthritis, so removing it treats a finding rather than the source of pain.</p><p>That does not make arthroscopy the wrong operation for everyone with both findings. It means the question to ask is <strong>which of the two is generating your symptoms</strong>. True locking points toward the meniscus. Diffuse ache, stiffness after sitting and pain on stairs point toward the joint surface, and that is not something arthroscopy addresses.</p><p>If arthroscopy is being offered for an arthritic knee without mechanical symptoms, it is reasonable to ask what specifically is expected to improve.</p>"
+      },
+      {
+        heading: "What is actually done inside the knee",
+        placement: "after-causes",
+        body: "<p>\u201cArthroscopy\u201d names the access, not the operation. Several quite different procedures are performed through the same two small portals, and knowing which one you are having matters more than the word itself.</p><p><strong>Meniscal trimming.</strong> The torn portion is removed back to a stable rim, leaving as much meniscus as possible. See <a href=\"/treatments/meniscus-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">meniscus surgery</a> for how this compares with repairing the tear instead.</p><p><strong>Meniscal repair.</strong> The tear is stitched. A different recovery entirely, because tissue now has to heal.</p><p><strong>Removing loose bodies.</strong> Fragments of cartilage or bone floating in the joint, which is among the most clearly beneficial things arthroscopy does.</p><p><strong>Cartilage work.</strong> Ranging from smoothing a frayed surface to procedures intended to restore it. These are not the same operation and the recovery differs substantially.</p><p><strong>Ligament reconstruction.</strong> Performed arthroscopically but a much larger undertaking than any of the above.</p><p>The recovery instructions you are given follow from which of these was done, not from the fact that it was arthroscopic \u2014 which is why two people with the same-sized scars can be given very different restrictions.</p>"
+      }
+    ],
     metaTitle: "Arthroscopic Knee Surgery | Meniscus & Cartilage Repair FL",
-    metaDescription: "Diagnose and treat knee pain with Arthroscopic Knee Surgery. Minimally invasive care for meniscus tears, ACL, and cartilage damage in FL, NJ, NY, & PA.",
+    metaDescription: "Diagnose and treat knee pain with Arthroscopic Knee Surgery. Minimally invasive care for meniscus tears, ACL, and cartilage damage in FL, NJ, NY, PA & GA.",
     keywords: [
       "Arthroscopic knee surgery",
       "minimally invasive knee surgery",
-      "FL, NJ, NY, & PA orthopedic solutions",
+      "FL, NJ, NY, PA & GA orthopedic solutions",
       "meniscus tear arthroscopy",
       "knee cartilage damage repair",
-      "joint pain relief FL, NJ, NY, & PA (knee)",
+      "joint pain relief FL, NJ, NY, PA & GA (knee)",
       "ACL tear arthroscopic options",
       "sports injury knee specialist"
     ],
@@ -3373,16 +3513,23 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   },
   {
     id: "rotator-cuff-repair-surgery",
-    slug: "rotator-cuff-repair-surgery",
+    slug: "rotator-cuff-repair-surgery",
+    additionalSections: [
+      {
+        heading: "Tear size, retraction, and whether a cuff can be repaired at all",
+        placement: "after-symptoms",
+        body: "<p>Not every rotator cuff tear can be repaired, and the factors that decide it are visible on imaging before surgery is planned.</p><p><strong>How far the tendon has pulled back.</strong> A torn tendon retracts toward the muscle over time. A recently torn tendon usually still sits near its attachment and can be brought back without undue tension. One that has been torn for years may have retracted well away from the bone, and pulling it back under tension produces a repair that is fighting to stay attached.</p><p><strong>What has happened to the muscle.</strong> This is the finding that most often decides the plan. A muscle whose tendon has been detached for a long time gradually changes character, and a muscle in that state does not regain function even when the tendon is reattached. Where imaging shows advanced change, repair may not be the operation that helps.</p><p><strong>How many tendons are involved.</strong> The cuff is four tendons. A single-tendon tear is a different proposition from one involving several.</p><p><strong>Tissue quality.</strong> Independent of size \u2014 tendon can be robust or thin and friable, and that is partly what the surgeon is assessing during the procedure.</p><p>Where a cuff is not repairable, alternatives exist \u2014 debridement to address pain rather than restore function, tendon transfer, or for the right patient a reverse shoulder replacement, which works by changing the mechanics of the joint so the deltoid does the work the cuff no longer can.</p>"
+      }
+    ],
     metaTitle: "Rotator Cuff Repair Surgery | Arthroscopic Shoulder Relief FL",
-    metaDescription: "Restore shoulder strength with Rotator Cuff Repair. Our FL, NJ, NY, & PA surgeons use arthroscopic techniques to fix torn tendons and relieve shoulder pain.",
+    metaDescription: "Restore shoulder strength with Rotator Cuff Repair. Our FL, NJ, NY, PA & GA surgeons use arthroscopic techniques to fix torn tendons and relieve shoulder pain.",
     keywords: [
       "Rotator cuff repair surgery",
       "arthroscopic shoulder surgery",
-      "FL, NJ, NY, & PA orthopedic center",
+      "FL, NJ, NY, PA & GA orthopedic center",
       "shoulder tendon tear operation",
       "shoulder pain treatment",
-      "joint pain relief FL, NJ, NY, & PA (shoulder)",
+      "joint pain relief FL, NJ, NY, PA & GA (shoulder)",
       "shoulder impingement solutions",
       "subacromial decompression benefits"
     ],
@@ -3439,15 +3586,15 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "meniscus-repair-surgery",
     slug: "meniscus-repair-surgery",
-    metaTitle: "Meniscus Repair Surgery | Knee Cartilage Restoration FL, NJ, NY, & PA",
-    metaDescription: "Save your knee meniscus with repair surgery. Our FL, NJ, NY, & PA specialists stitch torn cartilage to preserve joint health and prevent arthritis.",
+    metaTitle: "Meniscus Repair Surgery | Knee Cartilage Restoration FL, NJ, NY, PA & GA",
+    metaDescription: "Save your knee meniscus with repair surgery. Our FL, NJ, NY, PA & GA specialists stitch torn cartilage to preserve joint health and prevent arthritis.",
     keywords: [
       "Meniscus repair surgery",
       "arthroscopic knee surgery",
-      "FL, NJ, NY, & PA orthopedic specialist",
+      "FL, NJ, NY, PA & GA orthopedic specialist",
       "knee cartilage tear operation",
       "knee stability restoration",
-      "joint pain solutions FL, NJ, NY, & PA (knee)",
+      "joint pain solutions FL, NJ, NY, PA & GA (knee)",
       "sports injury meniscus care",
       "meniscal healing techniques"
     ],
@@ -3461,7 +3608,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     heroDescription: "Meniscus repair surgery sutures torn meniscal cartilage back together to preserve the knee's natural shock absorber.",
     overview: {
       heading: "Preserving the Knee's Shock Absorber",
-      body: "<p><strong>Meniscus Repair Surgery</strong> is an arthroscopic procedure designed to stitch a torn <a href=\"/conditions/torn-meniscus\" class=\"text-blue-600 hover:underline\">meniscus</a> back together rather than removing it. The meniscus serves as the knee's critical <strong>shock absorber and stabilizer</strong>, and preserving this tissue is essential for long-term knee health. Whenever possible, our surgeons opt for repair over removal (meniscectomy) to reduce the significant long-term risk of <a href=\"/conditions/knee-arthritis\" class=\"text-blue-600 hover:underline\">knee arthritis</a>.</p><p>The decision between repair and removal depends on several factors: <strong>tear location</strong> (outer vascular zone tears heal better than inner white zone tears), <strong>tear pattern</strong> (longitudinal and bucket-handle tears are more repairable), and <strong>tissue quality</strong>. For athletes and young, active patients with repairable tears, preservation is especially important. Studies show that patients who undergo meniscus removal develop arthritis at significantly higher rates than those who have successful repairs.</p><p>For those experiencing persistent <a href=\"/conditions/knee-pain\" class=\"text-blue-600 hover:underline\">knee conditions</a> including meniscus tears, early evaluation can determine if repair is possible. According to <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/overuse-injuries-in-children/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">AAOS guidance on overuse injuries</a>, preserving meniscal tissue is particularly important in younger athletes who need long-term knee function.</p>",
+      body: "<p><strong>Meniscus Repair Surgery</strong> is an arthroscopic procedure designed to stitch a torn <a href=\"/conditions/torn-meniscus\" class=\"text-blue-600 hover:underline\">meniscus</a> back together rather than removing it. The meniscus serves as the knee's critical <strong>shock absorber and stabilizer</strong>, and preserving this tissue is essential for long-term knee health. Whenever possible, our surgeons opt for repair over removal (meniscectomy) to reduce the significant long-term risk of <a href=\"/conditions/knee-arthritis\" class=\"text-blue-600 hover:underline\">knee arthritis</a>.</p><p>The decision between repair and removal depends on several factors: <strong>tear location</strong> (outer vascular zone tears heal better than inner white zone tears), <strong>tear pattern</strong> (longitudinal and bucket-handle tears are more repairable), and <strong>tissue quality</strong>. For athletes and young, active patients with repairable tears, preservation is especially important. Studies show that patients who undergo meniscus removal develop arthritis at significantly higher rates than those who have successful repairs.</p><p>For those experiencing persistent <a href=\"/conditions/knee-pain\" class=\"text-blue-600 hover:underline\">knee conditions</a> including meniscus tears, early evaluation can determine if repair is possible. According to <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/overuse-injuries-in-children/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">AAOS guidance on overuse injuries</a>, preserving meniscal tissue is particularly important in younger athletes who need long-term knee function.</p> Repair is one of two operations for a torn meniscus; for how repair compares with meniscectomy and how the choice is made, see <a href=\"/treatments/meniscus-surgery\" class=\"text-blue-600 hover:underline\">Meniscus Surgery</a>.",
     },
     candidates: {
       heading: "Who Meniscus Repair Helps Most",
@@ -3507,12 +3654,12 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     id: "disc-replacement-vs-fusion-what-you-need-to-know",
     slug: "disc-replacement-vs-fusion-what-you-need-to-know",
     metaTitle: "Disc Replacement vs Fusion | Spine Surgery Comparison FL",
-    metaDescription: "Deciding between spinal fusion and artificial disc replacement? Learn the differences, benefits, and which option fits your needs from FL, NJ, NY, & PA experts.",
+    metaDescription: "Deciding between spinal fusion and artificial disc replacement? Learn the differences, benefits, and which option fits your needs from FL, NJ, NY, PA & GA experts.",
     keywords: [
       "Disc replacement vs fusion",
       "spinal fusion information",
       "artificial disc replacement comparison",
-      "orthopedic surgeon FL, NJ, NY, & PA",
+      "orthopedic surgeon FL, NJ, NY, PA & GA",
       "DDD surgery choices",
       "spine health decisions",
       "motion preservation or stability",
@@ -3554,7 +3701,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
     benefits: [
       "**Fusion**: Gold standard for instability, permanent elimination of motion at painful segment.",
       "**Replacement**: Preserves natural mechanics, reduces stress on adjacent discs (protection against future surgery).",
-      "**Both**: High success rates for relieving arm/leg pain caused by nerve compression.",
+      "**Both**: directly address arm or leg pain caused by nerve compression; they differ in what happens to motion at the treated level.",
       "**Both**: Improve quality of life when chosen for the right patient."
     ],
     insurance: {
@@ -3854,7 +4001,7 @@ export const treatmentContentBatch1: TreatmentContent[] = [
     heroDescription: "Relieve numbness, tingling, and hand weakness with Carpal Tunnel Release Surgery, decompressing the median nerve.",
     overview: {
       heading: "Relieving Median Nerve Compression",
-      body: "**Carpal Tunnel Release Surgery** treats <a href=\"https://mountainspineorthopedics.com/conditions/carpal-tunnel-syndrome\" class=\"text-blue-600 hover:underline\">**Carpal Tunnel Syndrome**</a>, a condition resulting from median nerve compression in the wrist's carpal tunnel. This compression causes numbness, tingling, and pain in the hand and fingers. When non-surgical treatments fail, this procedure cuts the transverse carpal ligament to increase tunnel size, relieving nerve pressure. Options include open or minimally invasive hand surgery for lasting carpal tunnel relief and restoration of hand sensation. This is a common peripheral nerve surgery with high success rates.",
+      body: "**Carpal Tunnel Release Surgery** treats <a href=\"https://mountainspineorthopedics.com/conditions/carpal-tunnel-syndrome\" class=\"text-blue-600 hover:underline\">**Carpal Tunnel Syndrome**</a>, a condition resulting from median nerve compression in the wrist's carpal tunnel. This compression causes numbness, tingling, and pain in the hand and fingers. When non-surgical treatments fail, this procedure cuts the transverse carpal ligament to increase tunnel size, relieving nerve pressure. Options include open or minimally invasive hand surgery for lasting carpal tunnel relief and restoration of hand sensation. This is a common peripheral nerve surgery; recovery of sensation depends on how long the nerve was compressed beforehand.",
     },
     candidates: {
       heading: "Who Needs Carpal Tunnel Release?",
@@ -4033,7 +4180,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     id: "anti-inflammatory-injections-for-joint-and-spine-pain",
     slug: "anti-inflammatory-injections-for-joint-and-spine-pain",
     metaTitle: "Corticosteroid Injections for Joint & Spine Pain | Image-Guided Inflammation Relief",
-    metaDescription: "Anti-inflammatory corticosteroid injections reduce joint and spine pain from arthritis, bursitis, tendonitis, or nerve compression. Image-guided precision injections at Mountain Spine & Orthopedics FL, NJ, NY, & PA.",
+    metaDescription: "Anti-inflammatory corticosteroid injections reduce joint and spine pain from arthritis, bursitis, tendonitis, or nerve compression. Image-guided precision injections at Mountain Spine & Orthopedics FL, NJ, NY, PA & GA.",
     keywords: [
       "Anti-inflammatory injections",
       "cortisone shots",
@@ -4045,7 +4192,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "image-guided pain relief",
       "how long does cortisone injection last",
       "steroid injection side effects",
-      "joint injection therapy FL, NJ, NY, & PA"
+      "joint injection therapy FL, NJ, NY, PA & GA"
     ],
     title: "Anti-Inflammatory Injections for Joint and Spine Pain",
     tag: "Pain Management",
@@ -4235,7 +4382,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Coccyx Nerve Ablation",
       timeline: "6-12+ Months of Pain Relief",
-      details: "<p><strong>Same-Day and Days 1-3:</strong> Recovery from **Coccyx Nerve Ablation** is generally quick. Resume most light activities within 24-48 hours. Temporary soreness, bruising, or slight increase in tailbone pain at the treatment site is common but typically resolves within 3-7 days. Ice application and over-the-counter pain relievers (acetaminophen, ibuprofen) help manage post-procedure discomfort. Avoid prolonged sitting for 2-3 days.</p><p><strong>Days 3-14:</strong> As the ablated nerve fibers degenerate, pain relief gradually develops. Some patients experience relatively quick improvement, while others take 2-4 weeks to notice maximum benefit. This variability is normal and depends on individual healing and the extent of nerve involvement.</p><p><strong>Weeks 2-8:</strong> Most patients reach maximum pain relief during this window, with significant reduction in tailbone pain when sitting, transitioning from sitting to standing, and during bowel movements. Improved sitting tolerance becomes apparent, allowing return to work, driving, and normal daily activities without cushion dependency.</p><p><strong>Months 2-12+:</strong> Pain relief typically lasts 6-12+ months, with many patients experiencing relief for 12-18 months or longer. The duration depends on how quickly nerve fibers regenerate. This treatment facilitates functional improvement and reduces reliance on medication for tailbone discomfort, allowing improved sitting tolerance and daily activities without pain.</p><p><strong>Long-Term Management:</strong> Rehabilitation focusing on pelvic floor relaxation and core strengthening may be recommended to optimize outcomes and prevent pain recurrence. Ergonomic modifications (standing desks, proper chair support) can extend relief duration.</p><p><strong>If Ablation Doesn't Provide Relief:</strong> If pain relief is minimal after 6-8 weeks, the Impar ganglion may not be the primary pain source despite a positive diagnostic block. Alternative causes should be explored, including coccyx fracture, hypermobility, or referred pain from lumbar or pelvic sources. <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">Complimentary MRI reviews</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinions</a> are available.</p><p><strong>When Pain Returns:</strong> If tailbone pain recurs after successful ablation (typically 12-18 months later as nerves regenerate), the procedure can be safely repeated with similarly high success rates. Some patients undergo ablation every 12-18 months as needed to maintain pain-free sitting.</p>",
+      details: "<p><strong>Same-Day and Days 1-3:</strong> Recovery from **Coccyx Nerve Ablation** is generally quick. Resume most light activities within 24-48 hours. Temporary soreness, bruising, or slight increase in tailbone pain at the treatment site is common but typically resolves within 3-7 days. Ice application and over-the-counter pain relievers (acetaminophen, ibuprofen) help manage post-procedure discomfort. Avoid prolonged sitting for 2-3 days.</p><p><strong>Days 3-14:</strong> As the ablated nerve fibers degenerate, pain relief gradually develops. Some patients experience relatively quick improvement, while others take 2-4 weeks to notice maximum benefit. This variability is normal and depends on individual healing and the extent of nerve involvement.</p><p><strong>Weeks 2-8:</strong> Most patients reach maximum pain relief during this window, with significant reduction in tailbone pain when sitting, transitioning from sitting to standing, and during bowel movements. Improved sitting tolerance becomes apparent, allowing return to work, driving, and normal daily activities without cushion dependency.</p><p><strong>Months 2-12+:</strong> Pain relief typically lasts 6-12+ months, with many patients experiencing relief for 12-18 months or longer. The duration depends on how quickly nerve fibers regenerate. This treatment facilitates functional improvement and reduces reliance on medication for tailbone discomfort, allowing improved sitting tolerance and daily activities without pain.</p><p><strong>Long-Term Management:</strong> Rehabilitation focusing on pelvic floor relaxation and core strengthening may be recommended to optimize outcomes and prevent pain recurrence. Ergonomic modifications (standing desks, proper chair support) can extend relief duration.</p><p><strong>If Ablation Doesn't Provide Relief:</strong> If pain relief is minimal after 6-8 weeks, the Impar ganglion may not be the primary pain source despite a positive diagnostic block. Alternative causes should be explored, including coccyx fracture, hypermobility, or referred pain from lumbar or pelvic sources. <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">Complimentary MRI reviews</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinions</a> are available.</p><p><strong>When Pain Returns:</strong> If tailbone pain recurs after successful ablation (typically 12-18 months later as nerves regenerate), the procedure can be safely repeated. Some patients undergo ablation every 12-18 months as needed to maintain pain-free sitting.</p>",
     },
     benefits: [
       "Provides significant and often long-lasting relief (6-12+ months) from chronic tailbone and related pelvic/perineal pain",
@@ -4249,7 +4396,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     faqs: [
       {
         question: "How long does coccyx nerve ablation last?",
-        answer: "Most patients experience pain relief for 6-12 months, with many enjoying relief for 12-18 months or longer. The duration varies because the ablated nerve fibers eventually regenerate. When pain returns, the procedure can be safely repeated with similar success rates."
+        answer: "Most patients experience pain relief for 6-12 months, with many enjoying relief for 12-18 months or longer. The duration varies because the ablated nerve fibers eventually regenerate. When pain returns, the procedure can be safely repeated."
       },
       {
         question: "When is ablation recommended instead of injections?",
@@ -4337,11 +4484,11 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "degenerative-disc-disease-surgery-details",
     slug: "degenerative-disc-disease-surgery-details",
-    metaTitle: "Degenerative Disc Disease Surgery | Fusion & Disc Replacement Options",
-    metaDescription: "Detailed surgical options for Degenerative Disc Disease include spinal fusion or artificial disc replacement to relieve chronic pain and restore spinal stability.",
+    metaTitle: "Fusion vs Disc Replacement for DDD | How the Choice Is Made",
+    metaDescription: "How surgeons weigh spinal fusion against artificial disc replacement for degenerative disc disease, and which findings point toward each. For whether DDD surgery is indicated at all, see our degenerative disc disease surgery page.",
     keywords: [
-      "Degenerative disc disease surgery details",
-      "DDD advanced surgical care",
+      "fusion versus disc replacement for DDD",
+      "choosing between fusion and ADR",
       "spinal fusion versus ADR for DDD",
       "minimally invasive disc operations",
       "chronic discogenic pain surgery",
@@ -4359,7 +4506,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     heroDescription: "Explore comprehensive surgical solutions for severe Degenerative Disc Disease. When conservative treatments fail, surgical options including spinal fusion or artificial disc replacement can relieve chronic discogenic pain and restore spinal function.",
     overview: {
       heading: "Surgical Solutions for Advanced DDD",
-      body: "For severe **Degenerative Disc Disease (DDD)** unresponsive to non-surgical care, surgery may be an option. **Spinal Fusion Surgery** provides stability by joining vertebrae with **bone graft** and instrumentation, eliminating painful motion. **Artificial Disc Replacement Surgery** aims to preserve motion by replacing the damaged disc with a mobile implant. Evaluation includes MRI and dynamic X-rays to plan the most effective surgical treatment for discogenic pain and nerve compression, potentially using minimally invasive spine surgery for improved spinal health and addressing issues of chronic discogenic back pain.",
+      body: "For severe **Degenerative Disc Disease (DDD)** unresponsive to non-surgical care, surgery may be an option. **Spinal Fusion Surgery** provides stability by joining vertebrae with **bone graft** and instrumentation, eliminating painful motion. **Artificial Disc Replacement Surgery** aims to preserve motion by replacing the damaged disc with a mobile implant. Evaluation includes MRI and dynamic X-rays to plan the most effective surgical treatment for discogenic pain and nerve compression, potentially using minimally invasive spine surgery for improved spinal health and addressing issues of chronic discogenic back pain. For whether surgery is indicated for degenerative disc disease in the first place, and the full range of options, see Degenerative Disc Disease Surgery.",
     },
     candidates: {
       heading: "Who Needs DDD Surgery?",
@@ -4402,7 +4549,29 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   },
   {
     id: "endoscopic-discectomy-surgery",
-    slug: "endoscopic-discectomy-surgery",
+    slug: "endoscopic-discectomy-surgery",
+    additionalSections: [
+      {
+        heading: "Which disc herniations can be reached endoscopically — and which cannot",
+        placement: "after-symptoms",
+        body: "<p>The endoscope reaches the disc through a working channel roughly the width of a pen. That constraint is what makes the operation gentle on tissue, and it is also what decides whether your particular herniation is a candidate.</p><p><strong>Suited to the approach:</strong> a herniation that is still connected to the disc of origin, sitting where the channel can be aimed — out to the side or in the foramen, which are awkward to reach from a traditional posterior approach and are often where the endoscope has a genuine advantage. Soft disc material rather than bone.</p><p><strong>Not suited, or much harder:</strong> a fragment that has broken free and <strong>migrated well away</strong> from the disc space, sometimes up or down behind the vertebral body, where a narrow fixed channel cannot follow it. Herniations that have <strong>calcified</strong> into something closer to bone. Compression coming from bony overgrowth and thickened ligament rather than disc material — a stenosis problem, not a herniation problem. And segments that are also <strong>unstable</strong>, where removing more disc addresses the wrong thing.</p><p>This is worth asking about directly, because the answer depends on your imaging rather than on preference. Being told an endoscopic approach is not appropriate is a statement about the anatomy, not about how advanced the surgery on offer is.</p>"
+      },
+      {
+        heading: "Endoscopic, microdiscectomy, or open — what each one trades",
+        placement: "after-causes",
+        body: "<p>All three remove the fragment pressing on the nerve. They differ in how much they disturb on the way in, and in how much room the surgeon has once there.</p><p><strong>Endoscopic.</strong> Smallest access, muscle dilated rather than stripped, usually under sedation. The trade is the narrowest field of view and the least room to manoeuvre, so it depends most on the fragment being where it is expected.</p><p><strong>Microdiscectomy.</strong> A small incision with an operating microscope. Slightly more tissue disturbed, considerably more direct access and control — which is why it remains the reference operation for most single-level herniations, and why it handles migrated fragments the endoscope cannot follow.</p><p><strong>Open.</strong> Reserved for situations needing wide exposure — multiple levels, revision through scar tissue, or where decompression has to extend well beyond the disc.</p><p>The general principle: <strong>the least invasive approach that can reliably reach the problem</strong>. Choosing a narrower approach than the anatomy allows risks leaving fragment behind, which is a worse outcome than a slightly larger incision.</p>"
+      },
+      {
+        heading: "What \u201cminimally invasive\u201d changes here \u2014 and what it does not",
+        placement: "before-treatment",
+        body: "<p>The phrase gets used loosely. Here it means something specific and limited.</p><p><strong>What it genuinely changes:</strong> the muscles are dilated apart rather than stripped off the bone, so the posterior muscle that holds the spine is largely left intact. Blood loss is minimal. Most patients go home the same day. Because the access is small, there is less scar tissue for anyone operating in the area later.</p><p><strong>What it does not change:</strong> the operation removes the fragment pressing on the nerve, and that is all it does. <strong>The tear in the outer ring of the disc that let the fragment out is still there afterwards</strong> — it is not repaired, and it does not close on demand. The disc is not restored to health, the height it has lost is not given back, and any arthritis in the joints behind it is untouched.</p><p>That is why this is an operation for <strong>leg pain from nerve compression</strong>, and why it is a poor operation for back pain. Patients whose dominant complaint is back pain rather than leg pain are the ones most often disappointed, and the reason is visible in what the procedure does and does not do.</p>"
+      },
+      {
+        heading: "Recovery, and the one thing that raises the risk of it happening again",
+        placement: "after-treatment",
+        body: "<p>Recovery here is unusual among spine operations: <strong>nothing has to heal for the operation to have worked.</strong> No bone is fused, no implant has to integrate. Relief of leg pain is often quick because the compression is simply gone.</p><p>That makes the restrictions counterintuitive, so it is worth being clear about what they are protecting.</p><p><strong>They are protecting the hole in the disc, not a healing wound.</strong> The annular defect stays open for a period after surgery, and it is the route any remaining disc material would take to press on the nerve again. Bending, lifting and twisting load the disc precisely where that defect is. The restriction exists because the disc is briefly more vulnerable than it was before surgery, not because the patient is fragile.</p><p><strong>What raises recurrence risk:</strong> a large defect in the outer ring, returning to heavy loading early, and smoking, which affects disc nutrition. Recurrence is the main reason a second operation becomes necessary, and the window that matters most is the early one — when patients feel best and are most tempted to test it.</p><p><strong>What recovery looks like:</strong> walking from the first day and increasing steadily; a period of restriction on bending, lifting and twisting; then progressive core and hip strengthening, which is the part that protects the segment long term. Nerve symptoms that had been present a long time settle more gradually than the compression is relieved, and numbness typically lags behind pain.</p>"
+      }
+    ],
     metaTitle: "Endoscopic Discectomy | Minimally Invasive Herniated Disc Surgery",
     metaDescription: "Endoscopic discectomy removes herniated disc material through a tiny incision using a camera. Ultra-minimally invasive spine surgery for rapid sciatica and nerve pain relief.",
     keywords: [
@@ -4534,9 +4703,21 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   },
   {
     id: "acl-reconstruction-surgery",
-    slug: "acl-reconstruction-surgery",
+    slug: "acl-reconstruction-surgery",
+    additionalSections: [
+      {
+        heading: "Not every ACL tear needs reconstructing",
+        placement: "after-symptoms",
+        body: "<p>A complete tear does not automatically mean surgery. The decision turns on what the knee is being asked to do, not on the scan alone \u2014 and it is worth understanding before assuming an operation is inevitable.</p><p><strong>Some knees cope well without it.</strong> The ACL resists the shin bone sliding forward and the knee pivoting. People whose activities are mostly straight-line \u2014 walking, cycling, running in a line \u2014 often function without a reconstructed ligament, particularly where the surrounding muscles are strong and the knee feels stable in daily use. A genuine trial of strengthening is how that is established rather than assumed.</p><p><strong>Some knees do not.</strong> Sports involving cutting, pivoting and landing load the ACL directly. A knee that gives way during those movements is not merely unstable \u2014 each episode risks further damage to the meniscus and cartilage, and that cumulative damage is the real argument for reconstructing rather than managing.</p><p><strong>What points toward surgery:</strong> episodes of giving way in ordinary daily activity, a meniscal tear that needs repairing at the same time, involvement in pivoting sport, and a knee that stays unstable after a proper period of strengthening.</p><p><strong>What points away from it:</strong> a knee that feels stable in the activities you actually do, and significant established arthritis \u2014 where reconstruction restores stability but does nothing for the joint surface that is generating the pain.</p>"
+      },
+      {
+        heading: "Graft choice, and why surgeons genuinely disagree about it",
+        placement: "before-treatment",
+        body: "<p>A reconstruction replaces the torn ligament with tissue taken from elsewhere. Which tissue is a real decision with trade-offs rather than a settled matter, and it is reasonable to ask why yours was chosen.</p><p><strong>Hamstring tendon.</strong> Taken from the back of the same leg. Leaves the front of the knee undisturbed, so kneeling tends to be more comfortable afterwards. The trade is some hamstring strength, which matters more in some sports than others.</p><p><strong>Patellar tendon, with a block of bone at each end.</strong> Bone healing into bone within the tunnels is its advantage. The cost is pain at the front of the knee and kneeling discomfort that can persist \u2014 a real consideration for anyone whose work involves kneeling.</p><p><strong>Quadriceps tendon.</strong> Increasingly used, giving substantial graft tissue with less front-of-knee morbidity than the patellar option.</p><p><strong>Donor tissue.</strong> Nothing is taken from the patient, so early recovery is easier. It incorporates more slowly, which is why it is generally the least favoured choice in young pivoting athletes and a more reasonable one in lower-demand knees or revision situations.</p><p><strong>Timing is part of the same decision.</strong> Operating on a knee that is still swollen and stiff straight after injury is associated with more stiffness afterwards. Many surgeons deliberately restore motion first and reconstruct after \u2014 so a delay before surgery is often the plan rather than a queue.</p>"
+      }
+    ],
     metaTitle: "ACL Reconstruction Surgery | Knee Ligament Repair & Sports Medicine",
-    metaDescription: "ACL reconstruction repairs a torn anterior cruciate ligament, restoring knee stability for return to sports. Arthroscopic knee surgery with high success rates.",
+    metaDescription: "ACL reconstruction repairs a torn anterior cruciate ligament, restoring knee stability for return to sports. Arthroscopic reconstruction of the torn ligament.",
     keywords: [
       "ACL reconstruction surgery",
       "knee ligament repair",
@@ -4557,7 +4738,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     heroDescription: "Restore knee stability and return to sports with ACL Reconstruction Surgery. This procedure replaces a torn anterior cruciate ligament with a graft, restoring stability and preventing further joint damage for active individuals.",
     overview: {
       heading: "Restoring Knee Stability and Function",
-      body: "<p>The anterior cruciate ligament (ACL) is essential for <strong>knee stability during pivoting, cutting, and jumping activities</strong>. <a href=\"/conditions/acl-injury\" class=\"text-blue-600 hover:underline\">ACL tears</a>, often occurring during sports from non-contact pivoting or direct contact, cause the knee to give way and limit athletic function. <strong>ACL Reconstruction Surgery</strong> replaces the damaged ligament with a graft (from your own tissue or donor tissue), anchored in tunnels drilled through the femur and tibia to replicate the native ACL's position and function.</p><p>For athletes participating in <strong>pivot-shift sports</strong> (soccer, basketball, football, skiing), ACL reconstruction is typically recommended to restore the stability needed for safe return to play. Without a functioning ACL, repeated instability episodes can damage the <a href=\"/conditions/torn-meniscus\" class=\"text-blue-600 hover:underline\">meniscus</a> and cartilage, leading to early <a href=\"/conditions/knee-arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>. Understanding graft options, rehabilitation requirements, and realistic return-to-sport timelines is essential for informed decision-making.</p><p>According to <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/overuse-injuries-in-children/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">AAOS guidance on overuse injuries</a>, proper rehabilitation after ACL reconstruction is critical for successful return to athletics and prevention of re-injury. This common sports medicine procedure has high success rates when performed with appropriate surgical technique and followed by dedicated rehabilitation.</p>",
+      body: "<p>The anterior cruciate ligament (ACL) is essential for <strong>knee stability during pivoting, cutting, and jumping activities</strong>. <a href=\"/conditions/acl-injury\" class=\"text-blue-600 hover:underline\">ACL tears</a>, often occurring during sports from non-contact pivoting or direct contact, cause the knee to give way and limit athletic function. <strong>ACL Reconstruction Surgery</strong> replaces the damaged ligament with a graft (from your own tissue or donor tissue), anchored in tunnels drilled through the femur and tibia to replicate the native ACL's position and function.</p><p>For athletes participating in <strong>pivot-shift sports</strong> (soccer, basketball, football, skiing), ACL reconstruction is typically recommended to restore the stability needed for safe return to play. Without a functioning ACL, repeated instability episodes can damage the <a href=\"/conditions/torn-meniscus\" class=\"text-blue-600 hover:underline\">meniscus</a> and cartilage, leading to early <a href=\"/conditions/knee-arthritis\" class=\"text-blue-600 hover:underline\">arthritis</a>. Understanding graft options, rehabilitation requirements, and realistic return-to-sport timelines is essential for informed decision-making.</p><p>According to <a href=\"https://orthoinfo.aaos.org/en/diseases--conditions/overuse-injuries-in-children/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:underline\">AAOS guidance on overuse injuries</a>, proper rehabilitation after ACL reconstruction is critical for successful return to athletics and prevention of re-injury. Graft choice, tunnel placement, and rehabilitation compliance are what govern the result, alongside surgical technique and followed by dedicated rehabilitation.</p>",
     },
     candidates: {
       heading: "Who ACL Reconstruction Helps Most",
@@ -4604,7 +4785,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     id: "partial-knee-replacement",
     slug: "partial-knee-replacement",
     metaTitle: "Partial Knee Replacement | Unicompartmental Knee Arthroplasty FL",
-    metaDescription: "Partial knee replacement preserves healthy bone and ligaments. Our FL, NJ, NY, & PA knee specialists offer this less invasive option for localized arthritis.",
+    metaDescription: "Partial knee replacement preserves healthy bone and ligaments. Our FL, NJ, NY, PA & GA knee specialists offer this less invasive option for localized arthritis.",
     keywords: [
       "partial knee replacement",
       "unicompartmental knee replacement",
@@ -4613,7 +4794,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "knee replacement options",
       "minimally invasive knee replacement",
       "knee arthritis surgery",
-      "partial knee replacement FL, NJ, NY, & PA",
+      "partial knee replacement FL, NJ, NY, PA & GA",
       "knee preservation surgery",
       "unicompartmental arthritis",
     ],
@@ -4673,9 +4854,21 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   },
   {
     id: "meniscus-surgery",
-    slug: "meniscus-surgery",
+    slug: "meniscus-surgery",
+    additionalSections: [
+      {
+        heading: "Repair or remove — what decides it",
+        placement: "after-symptoms",
+        body: "<p>There are two meniscus operations and they are almost opposites. One stitches the tear so the meniscus heals; the other trims away the torn part. The choice is not a preference — it is dictated by whether the tear is in tissue that can heal at all.</p><p><strong>Blood supply decides it.</strong> The meniscus is only vascular at its outer rim. Tears there have a blood supply and can knit. Tears toward the inner edge do not, and stitching tissue that cannot heal simply produces a repair that fails later.</p><p><strong>Tear pattern matters.</strong> Clean vertical tears in the outer zone are the classic repairable pattern. Complex, degenerative or flap tears in older tissue generally are not.</p><p><strong>Age and tissue quality.</strong> Not a rule about the patient's age so much as the tissue's. A traumatic tear in a young athlete's healthy meniscus is a different proposition from a degenerative tear in a meniscus that has been wearing for decades.</p><p><strong>What else is going on in the knee.</strong> A tear alongside an ACL reconstruction has a better healing environment. A tear in a knee with established arthritis is often not the main problem at all.</p><p>Repair asks more of the patient — a longer protected recovery, because tissue has to heal. Removal is faster to recover from but takes away meniscus permanently. See <a href=\"/treatments/meniscus-repair-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">meniscus repair surgery</a> for the repair procedure in detail.</p>"
+      },
+      {
+        heading: "What happens if a meniscus tear is left alone",
+        placement: "after-causes",
+        body: "<p>A fair question, and the honest answer is that it depends entirely on which tear you have.</p><p><strong>Many degenerative tears settle.</strong> Tears that appear gradually without a clear injury are common findings in knees that have no symptoms at all. Where symptoms exist, they often improve with time and activity modification, and a torn meniscus on a scan is not by itself a reason to operate.</p><p><strong>Some tears do not settle, and a few should not be left.</strong> A fragment that displaces into the joint can physically block the knee from straightening. That is a mechanical problem that does not resolve on its own and is one of the clearer indications for surgery.</p><p><strong>The long-term consideration.</strong> The meniscus distributes load across the joint surface. A knee that has lost meniscal tissue — whether to a tear or to surgery removing it — carries load over a smaller area. This is why preserving meniscus is preferred where the tear allows it, and why removal is not treated as a free option.</p><p><strong>What tips the decision toward surgery:</strong> true mechanical symptoms such as locking or catching, a knee that will not fully straighten, and symptoms that have not improved with a genuine period of non-operative management.</p>"
+      }
+    ],
     metaTitle: "Meniscus Surgery | Partial Meniscectomy & Meniscal Treatment FL",
-    metaDescription: "Meniscus surgery removes damaged cartilage when repair isn't possible. Our FL, NJ, NY, & PA knee specialists offer minimally invasive arthroscopic meniscectomy.",
+    metaDescription: "Meniscus surgery removes damaged cartilage when repair isn't possible. Our FL, NJ, NY, PA & GA knee specialists offer minimally invasive arthroscopic meniscectomy.",
     keywords: [
       "meniscus surgery",
       "meniscectomy",
@@ -4685,7 +4878,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "knee cartilage surgery",
       "meniscus tear surgery",
       "knee meniscus treatment",
-      "meniscus surgery FL, NJ, NY, & PA",
+      "meniscus surgery FL, NJ, NY, PA & GA",
       "knee specialist meniscus",
     ],
     title: "Meniscus Surgery (Meniscectomy)",
@@ -4746,7 +4939,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     id: "knee-ligament-repair",
     slug: "knee-ligament-repair",
     metaTitle: "Knee Ligament Repair | MCL & LCL Reconstruction FL",
-    metaDescription: "Knee ligament repair restores stability after MCL, LCL, or other ligament injuries. Our FL, NJ, NY, & PA knee specialists offer advanced reconstruction techniques.",
+    metaDescription: "Knee ligament repair restores stability after MCL, LCL, or other ligament injuries. Our FL, NJ, NY, PA & GA knee specialists offer advanced reconstruction techniques.",
     keywords: [
       "knee ligament repair",
       "MCL repair",
@@ -4817,7 +5010,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     id: "pcl-reconstruction",
     slug: "pcl-reconstruction",
     metaTitle: "PCL Reconstruction | Posterior Cruciate Ligament Surgery FL",
-    metaDescription: "PCL reconstruction restores knee stability after posterior cruciate ligament tears. Our FL, NJ, NY, & PA sports medicine specialists offer advanced PCL surgery.",
+    metaDescription: "PCL reconstruction restores knee stability after posterior cruciate ligament tears. Our FL, NJ, NY, PA & GA sports medicine specialists offer advanced PCL surgery.",
     keywords: [
       "PCL reconstruction",
       "posterior cruciate ligament surgery",
@@ -4825,7 +5018,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "knee ligament reconstruction",
       "PCL injury treatment",
       "knee instability surgery",
-      "PCL reconstruction FL, NJ, NY, & PA",
+      "PCL reconstruction FL, NJ, NY, PA & GA",
       "knee specialist PCL",
       "sports medicine PCL",
       "knee stability restoration",
@@ -4889,7 +5082,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     id: "knee-cartilage-restoration",
     slug: "knee-cartilage-restoration",
     metaTitle: "Knee Cartilage Restoration | Cartilage Repair & Regeneration FL",
-    metaDescription: "Knee cartilage restoration repairs damaged knee cartilage using advanced techniques. Our FL, NJ, NY, & PA knee specialists preserve your joint and prevent arthritis.",
+    metaDescription: "Knee cartilage restoration repairs damaged knee cartilage using advanced techniques. Our FL, NJ, NY, PA & GA knee specialists preserve your joint and prevent arthritis.",
     keywords: [
       "knee cartilage restoration",
       "cartilage repair knee",
@@ -4898,7 +5091,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "knee cartilage regeneration",
       "chondral defect repair",
       "knee cartilage treatment",
-      "cartilage restoration FL, NJ, NY, & PA",
+      "cartilage restoration FL, NJ, NY, PA & GA",
       "knee specialist cartilage",
       "knee arthritis prevention",
     ],
@@ -4961,7 +5154,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
     id: "knee-osteotomy",
     slug: "knee-osteotomy",
     metaTitle: "Knee Osteotomy | Realignment Surgery for Arthritis FL",
-    metaDescription: "Knee osteotomy realigns the knee to shift weight away from damaged cartilage. Our FL, NJ, NY, & PA knee specialists offer this joint-preserving option for younger patients.",
+    metaDescription: "Knee osteotomy realigns the knee to shift weight away from damaged cartilage. Our FL, NJ, NY, PA & GA knee specialists offer this joint-preserving option for younger patients.",
     keywords: [
       "knee osteotomy",
       "high tibial osteotomy",
@@ -4970,7 +5163,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "knee arthritis treatment",
       "knee alignment correction",
       "HTO surgery",
-      "knee osteotomy FL, NJ, NY, & PA",
+      "knee osteotomy FL, NJ, NY, PA & GA",
       "knee specialist osteotomy",
       "joint preserving knee surgery",
     ],
@@ -5038,7 +5231,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
       "knee replacement revision",
       "knee implant failure",
       "knee replacement complications",
-      "revision knee surgery FL, NJ, NY, & PA",
+      "revision knee surgery FL, NJ, NY, PA & GA",
       "knee replacement wear",
       "knee implant loosening",
       "knee replacement second surgery",
@@ -5105,7 +5298,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
   {
     id: "epidural-steroid-injection",
     slug: "epidural-steroid-injection",
-    metaTitle: "Epidural Steroid Injection for Pain Management | FL, NJ, NY, & PA Spine Specialists",
+    metaTitle: "Epidural Steroid Injection for Pain Management | FL, NJ, NY, PA & GA Spine Specialists",
     metaDescription: "Epidural steroid injections treat back and leg pain from nerve inflammation. Image-guided spinal injections for sciatica, herniated discs, and radiculopathy relief at Mountain Spine & Orthopedics.",
     keywords: [
       "Epidural steroid injection",
@@ -5194,7 +5387,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
     id: "extreme-lateral-interbody-fusion-surgery",
     slug: "extreme-lateral-interbody-fusion-surgery",
     metaTitle: "Extreme Lateral Interbody Fusion (XLIF) | Minimally Invasive Lumbar Fusion",
-    metaDescription: "XLIF is a minimally invasive lateral approach for lumbar fusion. Treat degenerative disc disease, spondylolisthesis, and scoliosis with less muscle disruption and faster recovery.",
+    metaDescription: "XLIF is a minimally invasive lateral approach to lumbar fusion for degenerative disc disease, spondylolisthesis, and scoliosis, with less muscle disruption.",
     keywords: [
       "Extreme Lateral Interbody Fusion",
       "XLIF surgery",
@@ -5259,7 +5452,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
   {
     id: "facet-ablation-rhizotomy-treatment",
     slug: "facet-ablation-rhizotomy-treatment",
-    metaTitle: "Radiofrequency Ablation (RFA) for Facet Joint Pain | Medial Branch Block FL, NJ, NY, & PA",
+    metaTitle: "Radiofrequency Ablation (RFA) for Facet Joint Pain | Medial Branch Block FL, NJ, NY, PA & GA",
     metaDescription: "Radiofrequency ablation (facet ablation/rhizotomy) treats chronic neck or back pain from facet joint arthritis. Minimally invasive nerve ablation for 6-12+ months relief following medial branch blocks.",
     keywords: [
       "Facet ablation",
@@ -5313,7 +5506,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Radiofrequency Ablation",
       timeline: "6-12+ Months of Pain Relief",
-      details: "<p><strong>Same-Day and Days 1-3:</strong> Recovery from **Radiofrequency Ablation (Rhizotomy)** is generally quick. Resume light activities within 24-48 hours. Temporary soreness, muscle spasm, or slight increase in pain at the treatment site is common but typically resolves within 3-7 days. Ice and over-the-counter pain relievers help manage post-procedure discomfort.</p><p><strong>Days 3-14:</strong> As the ablated nerves degenerate, pain relief gradually develops. Some patients experience immediate improvement, while others take 2-4 weeks to notice maximum benefit. This variability is normal and depends on individual healing responses.</p><p><strong>Weeks 2-8:</strong> Most patients reach maximum pain relief during this window, with significant reduction in facet-mediated pain. Improved mobility and function become apparent, allowing return to normal daily activities and exercise.</p><p><strong>Months 2-12+:</strong> Pain relief typically lasts 6-12+ months, with many patients experiencing relief for 12-24 months or longer. The duration depends on how quickly the nerves regenerate. <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Rehabilitation</a> is often recommended after this minimally invasive pain procedure to improve core strength, posture, and maintain spinal mobility, aiding in long-term pain control and functional restoration.</p><p><strong>If RFA Doesn't Work:</strong> If pain relief is minimal after 6-8 weeks, the facet joints may not be the primary pain source. Alternative diagnoses should be explored, including <a href=\"/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">discogenic pain</a>, <a href=\"/conditions/sacroiliac-joint-dysfunction\" class=\"text-blue-600 hover:underline\">SI joint dysfunction</a>, or muscular causes. <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">Second opinions</a> and <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">complimentary MRI reviews</a> are available.</p><p><strong>When Pain Returns:</strong> If facet pain recurs after successful RFA (typically 6-18 months later as nerves regenerate), the procedure can be safely repeated with similarly high success rates. Many patients undergo RFA every 12-18 months as needed.</p>",
+      details: "<p><strong>Same-Day and Days 1-3:</strong> Recovery from **Radiofrequency Ablation (Rhizotomy)** is generally quick. Resume light activities within 24-48 hours. Temporary soreness, muscle spasm, or slight increase in pain at the treatment site is common but typically resolves within 3-7 days. Ice and over-the-counter pain relievers help manage post-procedure discomfort.</p><p><strong>Days 3-14:</strong> As the ablated nerves degenerate, pain relief gradually develops. Some patients experience immediate improvement, while others take 2-4 weeks to notice maximum benefit. This variability is normal and depends on individual healing responses.</p><p><strong>Weeks 2-8:</strong> Most patients reach maximum pain relief during this window, with significant reduction in facet-mediated pain. Improved mobility and function become apparent, allowing return to normal daily activities and exercise.</p><p><strong>Months 2-12+:</strong> Pain relief typically lasts 6-12+ months, with many patients experiencing relief for 12-24 months or longer. The duration depends on how quickly the nerves regenerate. <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Rehabilitation</a> is often recommended after this minimally invasive pain procedure to improve core strength, posture, and maintain spinal mobility, aiding in long-term pain control and functional restoration.</p><p><strong>If RFA Doesn't Work:</strong> If pain relief is minimal after 6-8 weeks, the facet joints may not be the primary pain source. Alternative diagnoses should be explored, including <a href=\"/conditions/degenerative-disc-disease\" class=\"text-blue-600 hover:underline\">discogenic pain</a>, <a href=\"/conditions/sacroiliac-joint-dysfunction\" class=\"text-blue-600 hover:underline\">SI joint dysfunction</a>, or muscular causes. <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">Second opinions</a> and <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">complimentary MRI reviews</a> are available.</p><p><strong>When Pain Returns:</strong> If facet pain recurs after successful RFA (typically 6-18 months later as nerves regenerate), the procedure can be safely repeated. Many patients undergo RFA every 12-18 months as needed.</p>",
     },
     benefits: [
       "Offers significant and often long-lasting relief (6-12+ months) from chronic facet joint pain",
@@ -5327,7 +5520,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
     faqs: [
       {
         question: "How long does radiofrequency ablation last?",
-        answer: "Most patients experience pain relief for 6-12 months, with many enjoying relief for 12-24 months or longer. The duration varies because the ablated nerves eventually regenerate. When pain returns, RFA can be safely repeated with similar success rates."
+        answer: "Most patients experience pain relief for 6-12 months, with many enjoying relief for 12-24 months or longer. The duration varies because the ablated nerves eventually regenerate. When pain returns, RFA can be safely repeated."
       },
       {
         question: "What is a medial branch block?",
@@ -5481,7 +5674,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
   {
     id: "impar-block-treatment",
     slug: "impar-block-treatment",
-    metaTitle: "Impar Ganglion Block for Coccyx & Tailbone Pain | Coccydynia Treatment FL, NJ, NY, & PA",
+    metaTitle: "Impar Ganglion Block for Coccyx & Tailbone Pain | Coccydynia Treatment FL, NJ, NY, PA & GA",
     metaDescription: "Impar ganglion block is a targeted injection that relieves chronic tailbone, coccyx, and pelvic pain. Diagnostic and therapeutic nerve block for coccydynia at Mountain Spine & Orthopedics.",
     keywords: [
       "Impar block treatment",
@@ -5493,7 +5686,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
       "interventional pain clinic",
       "sacrococcygeal neuralgia treatment",
       "tailbone injection therapy",
-      "coccyx pain relief FL, NJ, NY, & PA",
+      "coccyx pain relief FL, NJ, NY, PA & GA",
       "chronic pelvic pain nerve block"
     ],
     title: "Impar Block Treatment",
@@ -5504,7 +5697,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
     heroDescription: "Relieve chronic tailbone pain with Impar Ganglion Block Treatment, a targeted injection that numbs the Impar nerve ganglion. This diagnostic and therapeutic procedure offers relief from coccydynia and related pelvic pain.",
     overview: {
       heading: "Targeted Nerve Block for Coccyx Pain",
-      body: "An **Impar Ganglion Block** is a diagnostic and therapeutic injection for chronic pain in the tailbone (<a href=\"/conditions/coccydynia\" class=\"text-blue-600 hover:underline\">**Coccydynia**</a>) and surrounding pelvic/perineal region, where pain signals are relayed via the Impar ganglion (ganglion of Walther). This unpaired sympathetic ganglion sits anterior to the sacrococcygeal junction and transmits pain from the coccyx, perineum, rectum, and distal pelvic organs. Local anesthetic (+/- corticosteroid) is injected near this ganglion under fluoroscopic image guidance to block pain transmission. This minimally invasive pain procedure can break the pain cycle for coccyx-related discomfort and improve quality of life for those with persistent sacrococcygeal pain, a specialized nerve block for pelvic pain and tailbone conditions. Learn more about <a href=\"https://medlineplus.gov/tailbonedisorders.html\" class=\"text-blue-600 hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">tailbone disorders from MedlinePlus</a>.",
+      body: "An **Impar Ganglion Block** is a diagnostic and therapeutic injection for chronic pain in the tailbone (<a href=\"/conditions/coccydynia\" class=\"text-blue-600 hover:underline\">**Coccydynia**</a>) and surrounding pelvic/perineal region, where pain signals are relayed via the Impar ganglion (ganglion of Walther). This unpaired sympathetic ganglion sits anterior to the sacrococcygeal junction and transmits pain from the coccyx, perineum, rectum, and distal pelvic organs.</p><p>Local anesthetic (+/- corticosteroid) is injected near this ganglion under fluoroscopic image guidance to block pain transmission.</p><p>This minimally invasive pain procedure can break the pain cycle for coccyx-related discomfort and improve quality of life for those with persistent sacrococcygeal pain, a specialized nerve block for pelvic pain and tailbone conditions. Learn more about <a href=\"https://medlineplus.gov/tailbonedisorders.html\" class=\"text-blue-600 hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">tailbone disorders from MedlinePlus</a>.",
     },
     candidates: {
       heading: "Who Benefits from Impar Ganglion Block?",
@@ -5584,7 +5777,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
     card_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--neck-pain-treatment-and-shoulder-pain-relief--thumbnail.png',
     inTxt_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--neck-pain-treatment-and-shoulder-pain-relief--thumbnail.png',
     heroImageAlt: "Patient receiving comprehensive neck and shoulder pain treatment consultation",
-    heroDescription: "Comprehensive neck and shoulder pain treatment addresses interconnected conditions affecting the upper body. Our multidisciplinary approach ranges from rehabilitation and injections to minimally invasive surgical options for lasting relief.",
+    heroDescription: "Comprehensive neck and shoulder pain treatment addresses interconnected conditions affecting the upper body. Our multidisciplinary approach ranges from conservative care and injections to minimally invasive surgical options for lasting relief.",
     overview: {
       heading: "Comprehensive Upper Body Pain Management",
       body: "Neck and shoulder pain often co-exist due to anatomical links. Causes include muscle strains, cervical spine issues (**Cervical Herniated Disc**, **Radiculopathy**), or shoulder pathologies (**Rotator Cuff Tears**, impingement). Accurate diagnosis via exams and imaging (MRI, X-rays) is key. Our multidisciplinary care plan addresses the specific source of cervicobrachial pain for effective relief and improved musculoskeletal function, often involving **non-surgical shoulder pain solutions** or advanced neck care including **ACDF Surgery** or **Shoulder Arthroscopy**.",
@@ -5631,7 +5824,7 @@ export const treatmentContentBatch3: TreatmentContent[] = [
   {
     id: "non-surgical-treatments-for-pain-management",
     slug: "non-surgical-treatments-for-pain-management",
-    metaTitle: "Non-Surgical Pain Management FL, NJ, NY, & PA | Conservative Orthopedic & Spine Treatment",
+    metaTitle: "Non-Surgical Pain Management FL, NJ, NY, PA & GA | Conservative Orthopedic & Spine Treatment",
     metaDescription: "Comprehensive non-surgical pain management offers effective relief for joint, spine, and nerve pain without surgery. Rehabilitation, injections, and regenerative medicine at Mountain Spine & Orthopedics.",
     keywords: [
       "Non-surgical pain management",
@@ -5723,7 +5916,7 @@ export const treatmentContentBatch4: TreatmentContent[] = [
     id: "oblique-lumbar-interbody-fusion",
     slug: "oblique-lumbar-interbody-fusion",
     metaTitle: "Oblique Lumbar Interbody Fusion (OLIF) | Minimally Invasive L2-L5 Fusion",
-    metaDescription: "OLIF is a minimally invasive lateral oblique approach for lumbar fusion. Treat degenerative disc disease, spondylolisthesis, and scoliosis with reduced muscle disruption.",
+    metaDescription: "OLIF is a minimally invasive oblique approach to lumbar fusion for degenerative disc disease, spondylolisthesis, and scoliosis with less muscle disruption.",
     keywords: [
       "Oblique Lumbar Interbody Fusion",
       "OLIF surgery",
@@ -5744,7 +5937,7 @@ export const treatmentContentBatch4: TreatmentContent[] = [
     heroDescription: "OLIF (Oblique Lumbar Interbody Fusion) reaches the lumbar disc space through an oblique corridor between the abdominal vessels and psoas muscle — avoiding psoas retraction entirely at most levels. It's especially effective for adult degenerative scoliosis correction and multilevel lumbar fusion, offering large cage placement and lordosis restoration with minimal soft-tissue disruption.",
     overview: {
       heading: "OLIF: The Psoas-Sparing Path to Lumbar Fusion and Deformity Correction",
-      body: "**Oblique Lumbar Interbody Fusion (OLIF)** is a minimally invasive technique that approaches the lumbar spine (L2–L5) through a natural corridor between the anterior abdominal vessels and the psoas muscle — without splitting or retracting the psoas itself. This psoas-sparing access reduces the risk of lumbar plexus injury and thigh pain compared to direct lateral approaches, while still allowing placement of a large, lordotic interbody cage for disc height restoration and alignment correction. OLIF is a cornerstone technique in the surgical management of <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">**adult degenerative scoliosis**</a>: by restoring disc height and lumbar lordosis at the apex of the curve, surgeons can achieve significant deformity correction before adding posterior pedicle screw fixation. Multiple lumbar levels can be addressed through the same oblique corridor in a single session. OLIF is used alongside or instead of <a href=\"/treatments/extreme-lateral-interbody-fusion-surgery\" class=\"text-blue-600 hover:underline\">**XLIF**</a>, <a href=\"/treatments/anterior-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**ALIF**</a>, and <a href=\"/treatments/understanding-tlif-surgery\" class=\"text-blue-600 hover:underline\">**TLIF**</a> depending on the levels involved and the patient's anatomy. The end result is a solid <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**spinal fusion**</a> with restored alignment and reduced recovery burden.",
+      body: "**Oblique Lumbar Interbody Fusion (OLIF)** is a minimally invasive technique that approaches the lumbar spine (L2–L5) through a natural corridor between the anterior abdominal vessels and the psoas muscle — without splitting or retracting the psoas itself. This psoas-sparing access reduces the risk of lumbar plexus injury and thigh pain compared to direct lateral approaches, while still allowing placement of a large, lordotic interbody cage for disc height restoration and alignment correction. OLIF is a cornerstone technique in the surgical management of <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">**adult degenerative scoliosis**</a>: by restoring disc height and lumbar lordosis at the apex of the curve, surgeons can achieve significant deformity correction before adding posterior pedicle screw fixation. Multiple lumbar levels can be addressed through the same oblique corridor in a single session. OLIF is used alongside or instead of <a href=\"/treatments/extreme-lateral-interbody-fusion-surgery\" class=\"text-blue-600 hover:underline\">**XLIF**</a>, <a href=\"/treatments/anterior-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**ALIF**</a>, and <a href=\"/treatments/understanding-tlif-surgery\" class=\"text-blue-600 hover:underline\">**TLIF**</a> depending on the levels involved and the patient's anatomy. The end result is a solid <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">**spinal fusion**</a> with restored alignment and reduced recovery burden. OLIF is one approach within a larger correction plan — for how candidacy is assessed and how the approach is chosen, see <a href=\"/treatments/adult-scoliosis-surgery\" class=\"text-blue-600 hover:underline\">**adult scoliosis surgery**</a>.",
     },
     candidates: {
       heading: "Who Is a Good Candidate for OLIF?",
@@ -5854,7 +6047,29 @@ export const treatmentContentBatch4: TreatmentContent[] = [
   },
   {
     id: "shoulder-arthroscopy",
-    slug: "shoulder-arthroscopy",
+    slug: "shoulder-arthroscopy",
+    additionalSections: [
+      {
+        heading: "What arthroscopy can reach in a shoulder — and what still needs an open approach",
+        placement: "after-symptoms",
+        body: "<p>The shoulder is well suited to arthroscopy because it is a large joint with room to work in, but the approach has real limits and they are worth knowing before the conversation about options.</p><p><strong>Handled arthroscopically as a matter of routine:</strong> labral tears including instability repairs, most rotator cuff tears, biceps tendon problems, removal of inflamed bursa and impinging bone, loose bodies, and releasing the stiff capsule in a frozen shoulder.</p><p><strong>Still generally open, or open-assisted:</strong> shoulder replacement of any kind, tendon transfers where a cuff tear is too large and retracted to be brought back, fractures that need plating, bone-block procedures for instability with significant bone loss, and tumour work.</p><p>The distinction is mostly about <strong>what has to be moved rather than what has to be seen</strong>. Arthroscopy is excellent at visualising and repairing tissue in place. Where the operation requires repositioning bone, seating an implant, or moving a tendon a significant distance, direct access is needed.</p><p>A cuff tear that has been present for years is the common in-between case: whether it can be repaired arthroscopically depends on how far the tendon has retracted and what condition the muscle is in, which is why the plan is sometimes only finalised once the surgeon is looking at it.</p>"
+      },
+      {
+        heading: "What the surgeon is actually looking for once inside the joint",
+        placement: "after-causes",
+        body: "<p>An MRI shows anatomy. Arthroscopy shows behaviour, and the two do not always agree — which is why part of the operation is diagnostic even when the plan is already made.</p><p><strong>Whether the tissue is repairable.</strong> A tear on a scan is a shape. Under the camera the surgeon can see whether the tendon edge is healthy enough to hold a stitch, how far it has pulled back, and whether it will reach its footprint on the bone without excessive tension. A repair pulled tight against resistance is a repair under strain from day one.</p><p><strong>Whether something else is contributing.</strong> Shoulders frequently have more than one thing wrong. Biceps tendon pathology alongside a cuff tear is common, and if it is left unaddressed it can remain a pain source after an otherwise sound repair.</p><p><strong>Where the joint is being pinched.</strong> Impingement is dynamic — it happens through movement. Taking the arm through range while watching from inside shows what is actually catching, which a static scan cannot.</p><p><strong>The state of the cartilage.</strong> This is often the finding that changes expectations. Established cartilage wear alongside the problem being repaired means the repair addresses one source of symptoms while another remains.</p>"
+      },
+      {
+        heading: "Recovery, stage by stage — and what each stage is protecting",
+        placement: "after-treatment",
+        body: "<p>Shoulder recovery is slower than patients expect and the reason is specific: <strong>a repair holds tissue against bone and biology has to knit them together</strong>. Until that happens the stitches are all that is holding it, and stitches fail under load. Every restriction below follows from that.</p><p><strong>Stage one — protection.</strong> The arm is supported in a sling and the shoulder is moved only by someone else, or by the patient's other arm. The repair is intact but not yet biologically attached, and active use pulls exactly where healing is trying to happen. Most patients feel able to do more than they are allowed to, which is the hardest part of this stage.</p><p><strong>Stage two — regaining motion, passively.</strong> Range is restored before strength, and deliberately so. A shoulder left completely still stiffens, and stiffness is far harder to fix afterwards than weakness. Motion in this stage is guided rather than driven by the shoulder's own muscles.</p><p><strong>Stage three — active motion.</strong> The shoulder starts moving under its own power against gravity. This is usually when patients notice how much strength was lost, which is normal and expected rather than a sign of failure.</p><p><strong>Stage four — strengthening.</strong> Loading begins once the repair is considered biologically secure. This stage rebuilds the rotator cuff and the muscles that control the shoulder blade, which is what determines how the shoulder feels a year later rather than a month later.</p><p><strong>Stage five — return to demand.</strong> Overhead work, lifting and sport are added last, in that order of difficulty.</p><p>Where no repair was performed — a debridement or a decompression alone — the sequence compresses considerably, because nothing has to heal to bone.</p>"
+      },
+      {
+        heading: "What slows a shoulder down, and what speeds it up",
+        placement: "after-treatment",
+        body: "<p>Two shoulders having the same operation can recover very differently, and the reasons are mostly identifiable in advance.</p><p><strong>Tear size and tendon quality.</strong> The single biggest factor. A small tear in healthy tendon behaves differently from a large one in tissue that has been degenerating for years, and where the muscle has already changed character the repair is working against biology rather than with it.</p><p><strong>How long the shoulder was stiff beforehand.</strong> A shoulder that had lost range before surgery is more likely to stiffen after it, which is why some surgeons treat the stiffness first and operate later.</p><p><strong>Smoking and diabetes.</strong> Both measurably affect tendon-to-bone healing. Smoking is the one most within a patient's control.</p><p><strong>Doing too much, too early.</strong> The commonest self-inflicted setback. The shoulder feels usable well before the repair is secure, and quietly resuming normal one-handed tasks loads the repair repeatedly without it ever feeling like an injury.</p><p><strong>Doing too little.</strong> The opposite failure, and less discussed. Protecting a shoulder past the point where motion should be reintroduced produces stiffness that then takes months to unwind.</p><p>The pattern that recovers best is a patient who respects the early restrictions precisely and then engages seriously with the progression once cleared — which is why the rehabilitation plan matters as much as the operation.</p>"
+      }
+    ],
     metaTitle: "Shoulder Arthroscopy | Minimally Invasive Shoulder Surgery",
     metaDescription: "Shoulder arthroscopy diagnoses and treats shoulder conditions like rotator cuff tears, labral tears, and impingement. Minimally invasive procedure with faster recovery than open surgery.",
     keywords: [
@@ -5921,7 +6136,7 @@ export const treatmentContentBatch4: TreatmentContent[] = [
   {
     id: "stem-cell-treatment",
     slug: "stem-cell-treatment",
-    metaTitle: "Stem Cell Therapy for Orthopedic Conditions | Regenerative Medicine FL, NJ, NY, & PA",
+    metaTitle: "Stem Cell Therapy for Orthopedic Conditions | Regenerative Medicine FL, NJ, NY, PA & GA",
     metaDescription: "Stem cell therapy may help reduce pain and inflammation for select orthopedic conditions. Autologous regenerative therapy using concentrated stem cells at Mountain Spine & Orthopedics.",
     keywords: [
       "Stem cell treatment",
@@ -6115,7 +6330,7 @@ export const treatmentContentBatch4: TreatmentContent[] = [
         "Percutaneous release uses a needle or small instrument through a skin puncture, often with ultrasound guidance",
         "This ensures precise A1 pulley release and quick resolution of tendon entrapment",
         "The procedure typically takes 10-15 minutes with minimal discomfort",
-        "This is a specialized form of hand tendon surgery with high success rates",
+        "This is a specialized form of hand tendon surgery that releases the constricting pulley",
       ],
     },
     recovery: {
@@ -6128,7 +6343,7 @@ export const treatmentContentBatch4: TreatmentContent[] = [
       "Restores smooth, unrestricted tendon glide for improved hand function",
       "Minimally invasive approach with quick recovery and minimal scarring",
       "Improves grip strength and finger mobility, enhancing daily activity performance",
-      "Definitive treatment for stenosing tenosynovitis with a high success rate"
+      "Definitive treatment for stenosing tenosynovitis: the constricting pulley is released so the tendon glides freely"
     ],
     insurance: {
       heading: "Insurance for Trigger Finger Release",
@@ -6226,7 +6441,7 @@ export const treatmentContentBatch4: TreatmentContent[] = [
     heroDescription: "Diagnose and treat ankle problems with Ankle Arthroscopy, a minimally invasive procedure using a tiny camera and specialized micro-instruments. This 'keyhole surgery' addresses joint issues with significantly less pain, reduced scarring, and faster recovery than traditional open surgery.",
     overview: {
       heading: "Minimally Invasive Ankle Joint Treatment",
-      body: "**Ankle Arthroscopy** (often referred to as 'keyhole surgery') allows surgeons to visualize, diagnose, and repair problems within the ankle joint without the need for large incisions. During the procedure, the orthopedic surgeon makes one or more small portals (incisions) around the ankle. The joint is then gently filled with a sterile fluid, which expands the joint, providing a clear and magnified view for the arthroscope's high-definition camera. This camera transmits live images to a monitor, allowing the surgeon to meticulously inspect the articular cartilage, ligaments, tendons, and the synovial lining. Through other small portals, specialized micro-instruments are introduced to perform the necessary treatment, including shaving damaged cartilage, removing inflamed synovial tissue, trimming bone spurs, or repairing torn ligaments.",
+      body: "**Ankle Arthroscopy** (often referred to as 'keyhole surgery') allows surgeons to visualize, diagnose, and repair problems within the ankle joint without the need for large incisions.</p><p>During the procedure, the orthopedic surgeon makes one or more small portals (incisions) around the ankle. The joint is then gently filled with a sterile fluid, which expands the joint, providing a clear and magnified view for the arthroscope's high-definition camera. This camera transmits live images to a monitor, allowing the surgeon to meticulously inspect the articular cartilage, ligaments, tendons, and the synovial lining.</p><p>Through other small portals, specialized micro-instruments are introduced to perform the necessary treatment, including shaving damaged cartilage, removing inflamed synovial tissue, trimming bone spurs, or repairing torn ligaments.",
     },
     candidates: {
       heading: "Who Benefits from Ankle Arthroscopy?",
@@ -6275,7 +6490,7 @@ export const treatmentContentBatch5: TreatmentContent[] = [
   {
     id: "sacroiliac-joint-injection",
     slug: "sacroiliac-joint-injection",
-    metaTitle: "SI Joint Injection for Sacroiliac Pain | Diagnostic & Therapeutic FL, NJ, NY, & PA",
+    metaTitle: "SI Joint Injection for Sacroiliac Pain | Diagnostic & Therapeutic FL, NJ, NY, PA & GA",
     metaDescription: "Sacroiliac joint injections diagnose and treat SI joint dysfunction causing lower back and buttock pain. Image-guided SI joint blocks at Mountain Spine & Orthopedics.",
     keywords: [
       "SI joint injection",
@@ -6286,7 +6501,7 @@ export const treatmentContentBatch5: TreatmentContent[] = [
       "therapeutic SI joint injection",
       "lower back pain injection",
       "buttock pain relief",
-      "SI joint pain management FL, NJ, NY, & PA",
+      "SI joint pain management FL, NJ, NY, PA & GA",
       "sacroiliac injection therapy"
     ],
     title: "Sacroiliac Joint Injection",
@@ -6361,7 +6576,7 @@ export const treatmentContentBatch5: TreatmentContent[] = [
   {
     id: "nerve-block-injection",
     slug: "nerve-block-injection",
-    metaTitle: "Nerve Block Injections for Pain Management | Targeted Nerve Pain Relief FL, NJ, NY, & PA",
+    metaTitle: "Nerve Block Injections for Pain Management | Targeted Nerve Pain Relief FL, NJ, NY, PA & GA",
     metaDescription: "Nerve block injections provide targeted pain relief by interrupting pain signals from specific nerves. Diagnostic and therapeutic nerve blocks for chronic pain at Mountain Spine & Orthopedics.",
     keywords: [
       "Nerve block injection",
@@ -6372,7 +6587,7 @@ export const treatmentContentBatch5: TreatmentContent[] = [
       "pain management nerve block",
       "nerve pain relief injection",
       "interventional pain nerve block",
-      "chronic pain nerve block FL, NJ, NY, & PA",
+      "chronic pain nerve block FL, NJ, NY, PA & GA",
       "nerve injection therapy"
     ],
     title: "Nerve Block Injection",
@@ -6455,7 +6670,7 @@ export const treatmentContentBatch5: TreatmentContent[] = [
       "multidisciplinary pain care",
       "interventional pain management",
       "chronic pain relief",
-      "pain management FL, NJ, NY, & PA",
+      "pain management FL, NJ, NY, PA & GA",
     ],
     title: "Chronic Pain Treatment",
     tag: "Pain Management",
@@ -6510,6 +6725,74 @@ export const treatmentContentBatch5: TreatmentContent[] = [
     },
     schedule: "<a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Schedule a consultation</a> for comprehensive chronic pain evaluation and personalized treatment planning. <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">Free MRI review</a> and <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinion</a> available.",
   },
+  {
+    id: "adult-scoliosis-surgery",
+    slug: "adult-scoliosis-surgery",
+    metaTitle: "Adult Scoliosis Surgery | Mountain Spine & Orthopedics - FL, NJ, NY, PA & GA Spinal Deformity Correction",
+    metaDescription: "Adult scoliosis surgery for curves that have progressed past conservative care. Candidacy, approaches, and recovery explained by spine surgeons across FL, NJ, NY, PA & GA.",
+    keywords: [
+      "adult scoliosis surgery",
+      "scoliosis surgery",
+      "adult scoliosis treatment",
+      "degenerative scoliosis surgery",
+      "adult spinal deformity correction",
+      "what degree of scoliosis requires surgery",
+      "scoliosis surgery recovery",
+      "scoliosis surgeon FL, NJ, NY, PA & GA"
+    ],
+    title: "Adult Scoliosis Surgery",
+    tag: "Spine",
+    additionalTags: ["Lower Spine"],
+    heroImage: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--spinal-fusion--thumbnail.png',
+    card_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--spinal-fusion--thumbnail.png',
+    inTxt_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/mountain-spine-orthopedics--treatment--spinal-fusion--thumbnail.png',
+    heroImageAlt: "Instrumented spinal fusion construct of the type used to correct adult scoliosis and restore standing alignment",
+    heroDescription: "Adult scoliosis surgery corrects a spinal curve that has progressed beyond what injections, activity modification, and monitoring can control. It is reserved for adults whose deformity is genuinely driving their pain, nerve symptoms, or inability to stand upright \u2014 most adults living with a curve never need it. This page covers how that decision is made, which approaches are used, and what recovery involves.",
+    doctorsHeading: "Doctors Who Treat Adult Scoliosis",
+    overview: {
+      heading: "When Adult Scoliosis Surgery Becomes the Right Option",
+      body: "This page begins where the diagnosis ends. If you are still working out what your curve is, how it was measured, or which specialist to see, read <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">**adult degenerative scoliosis**</a> first \u2014 it covers the condition, the workup, and the non-surgical options. What follows is the surgical decision itself.\n\nAdult scoliosis surgery is not a single operation, and the size of a curve is not what puts someone in the operating room. Two adults with visually similar curves can need completely different plans, because the surgical question is not *how big is the curve* but *what is the curve doing to you*. A curve that hurts because one nerve root is pinched where it exits the spine is a **decompression problem** with a limited fusion. A curve that has tipped your trunk forward or sideways so that you cannot stand or walk without leaning is a **balance problem**, and no amount of bone removal fixes it \u2014 alignment has to be rebuilt over the pelvis. Telling those two apart is most of the planning. A sideways curve is also only one form of adult spinal deformity — where the dominant problem is forward collapse or a loss of sagittal alignment, see <a href=\"/conditions/kyphosis\" class=\"text-blue-600 hover:underline\">**kyphosis**</a> and <a href=\"/conditions/spine-deformities\" class=\"text-blue-600 hover:underline\">**spine deformities**</a>, which the same reconstructive planning covers.\n\nAdult correction also differs from surgery in a growing spine. Adults bring degenerative discs, arthritic facets, stiffer curves, variable bone quality, and often previous spine surgery. Mountain Spine & Orthopedics treats **adults only** \u2014 our surgeons do not perform pediatric or adolescent idiopathic scoliosis procedures. Planning is done against standing full-length imaging rather than an MRI alone, because a curve only shows its true behaviour under load. A <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">complimentary MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinion</a> are both available before you commit to anything.",
+    },
+    candidates: {
+      heading: "Who Is a Candidate for Adult Scoliosis Surgery?",
+      list: [
+        "Adults whose curve has **measurably progressed** across repeat standing X-rays taken over time \u2014 movement of the curve matters more than any single measurement",
+        "Patients with **leg pain, numbness, or weakness from nerve compression** that has persisted despite injections and activity modification; the nerve symptom, not the curve, is usually what drives the timing",
+        "Adults who **cannot stand or walk upright** without leaning forward or to one side, or who need to sit down repeatedly because staying upright is exhausting \u2014 a sign the trunk is no longer balanced over the pelvis",
+        "Patients whose problem is a **correction problem, not a decompression problem**: relieving pressure on the nerve alone would leave the underlying deformity to keep progressing",
+        "Adults whose earlier decompression or short fusion treated the symptomatic level but not the deformity behind it, and whose symptoms have returned \u2014 see <a href=\"/treatments/revision-spinal-surgery\" class=\"text-blue-600 hover:underline\">**revision spinal surgery**</a>",
+        "Adults whose disc collapse spans several levels and is actively driving the curve \u2014 see <a href=\"/treatments/multilevel-degenerative-disc-disease-surgery\" class=\"text-blue-600 hover:underline\">**multilevel degenerative disc disease surgery**</a>",
+        "**Usually not surgical candidates:** adults with a mild or non-progressive curve whose symptoms are controlled, and anyone who has not yet completed a genuine course of non-surgical care",
+        "**Factors that can delay or rule out surgery:** untreated osteoporosis or poor bone quality, active infection, uncontrolled medical conditions, ongoing nicotine use (which measurably impairs fusion), and an expectation of a cosmetically straight spine rather than a balanced, functional one",
+      ],
+    },
+    procedure: {
+      heading: "How Adult Scoliosis Correction Is Planned and Performed",
+      steps: [
+        "**Planning comes before approach.** Standing full-length imaging, a symptom-mapped physical exam, and a review of any previous surgery establish which levels are generating symptoms and where the spine has lost its balance. The operation is designed backwards from that, not chosen from a menu.",
+        "**Decompression where nerves are actually compressed** \u2014 bone and soft tissue are removed at the specific levels causing leg symptoms, rather than along the whole curve.",
+        "**Interbody correction at the apex of the curve.** Restoring collapsed disc height straightens the segment and indirectly opens the nerve exits. The approach depends on the levels and your anatomy: <a href=\"/treatments/oblique-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**OLIF**</a> and <a href=\"/treatments/extreme-lateral-interbody-fusion-surgery\" class=\"text-blue-600 hover:underline\">**XLIF**</a> from the side, <a href=\"/treatments/anterior-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**ALIF**</a> from the front, or <a href=\"/treatments/understanding-tlif-surgery\" class=\"text-blue-600 hover:underline\">**TLIF**</a> from behind.",
+        "**Posterior instrumentation and <a href=\"/treatments/spinal-fusion\" class=\"text-blue-600 hover:underline\">spinal fusion</a>** hold the corrected position while bone heals across the treated segments. Screws and rods are the scaffold; the fusion is what makes the correction permanent.",
+        "**The length of the construct is decided by where balance is restored**, not by how far the curve extends on a film. Fusing more levels than the correction requires trades one problem for stiffness and stress on the segments above and below.",
+        "**Neuromonitoring runs continuously** throughout, giving live feedback on spinal cord and nerve root function while the correction is being made.",
+        "Larger reconstructions are sometimes **staged across two sittings** rather than done in one, when that is safer for the patient than a single long anaesthetic.",
+      ],
+    },
+    benefits: [
+      "Treats the **deformity driving the symptoms**, not only the one level that hurts most today",
+      "**Restores standing balance**, which is what typically improves walking tolerance and the ability to stay upright",
+      "**Decompresses compressed nerve roots**, addressing leg pain, numbness, and weakness",
+      "Uses **minimally invasive interbody approaches** such as <a href=\"/treatments/oblique-lumbar-interbody-fusion\" class=\"text-blue-600 hover:underline\">**OLIF**</a> where anatomy allows, reducing muscle disruption compared with a fully open posterior correction",
+      "**Planned for adult anatomy** \u2014 degenerative discs, stiffer curves, bone quality, and prior spine surgery are all accounted for in the plan",
+      "**One coordinated reconstruction** instead of a sequence of single-level procedures that leave the underlying curve untreated",
+    ],
+    recovery: {
+      heading: "Recovery After Adult Scoliosis Surgery",
+      timeline: "6\u201312 Months for Full Fusion",
+      details: "Recovery from a deformity correction is **longer than recovery from a single-level fusion**, and how much longer depends on how many levels were treated and which approaches were used. Expect a **hospital stay of several days**, with walking started under supervision early rather than after a long period of bed rest. A **brace** is used in some plans and not others \u2014 that decision follows the construct, not a fixed protocol.\n\nThe first several weeks are about protecting the construct: no bending, lifting, or twisting while the correction settles. Structured activity progresses gradually from there, and most patients are managing normal daily activities well before the bone has finished healing. **Bony fusion is confirmed on imaging over roughly 6\u201312 months**, which is when the correction is considered durable rather than merely held by hardware. Improvement in leg symptoms is often noticed earliest, since nerve decompression takes effect long before fusion completes. Your surgeon will give you timelines specific to your reconstruction \u2014 the ranges here are general.",
+    },
+    schedule: "Has your curve progressed despite injections and activity changes, or are you leaning forward to stay comfortable? <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">Schedule a consultation</a> at Mountain Spine & Orthopedics for an adult scoliosis evaluation with standing full-length imaging. A <a href=\"/find-care/free-mri-review\" class=\"text-blue-600 hover:underline\">complimentary MRI review</a> and a <a href=\"/find-care/second-opinion\" class=\"text-blue-600 hover:underline\">second opinion</a> are available if a multi-level fusion has already been recommended elsewhere. To find an adult scoliosis surgeon near you, browse our <a href=\"/locations\" class=\"text-blue-600 hover:underline\">locations across Florida, New Jersey, New York, Pennsylvania, and Georgia</a>. For the condition itself \u2014 how the curve is measured and what non-surgical care involves \u2014 see <a href=\"/conditions/adult-degenerative-scoliosis\" class=\"text-blue-600 hover:underline\">adult degenerative scoliosis</a>.",
+  },
 ];
 
 export const allTreatmentContent: TreatmentContent[] = [
@@ -6522,12 +6805,12 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "sports-injury-treatment",
     slug: "sports-injury-treatment",
-    metaTitle: "Sports Injury Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, & PA's Trusted Spine and Joint Pain Specialists",
-    metaDescription: "Expert sports injury evaluation and treatment for athletes. Our FL, NJ, NY, & PA orthopedic specialists provide advanced care for acute and overuse injuries with personalized return-to-sport plans.",
+    metaTitle: "Sports Injury Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+    metaDescription: "Expert sports injury evaluation and treatment for athletes. Our FL, NJ, NY, PA & GA orthopedic specialists provide advanced care for acute and overuse injuries with personalized return-to-sport plans.",
     keywords: [
       "sports injury treatment",
       "athletic injury evaluation",
-      "sports medicine FL, NJ, NY, & PA",
+      "sports medicine FL, NJ, NY, PA & GA",
       "orthopedic sports specialist",
       "athlete injury care",
       "sports injury diagnosis",
@@ -6627,16 +6910,16 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "athletic-evaluation",
     slug: "athletic-evaluation",
-    metaTitle: "Athletic Injury Evaluation | Sports Medicine FL, NJ, NY, & PA | Mountain Spine & Orthopedics",
-    metaDescription: "Comprehensive athletic injury evaluation for athletes of all levels. Our FL, NJ, NY, & PA sports medicine specialists provide advanced diagnostic imaging and personalized treatment plans for return to sport.",
+    metaTitle: "Athletic Injury Evaluation | Sports Medicine FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+    metaDescription: "Comprehensive athletic injury evaluation for athletes of all levels. Our FL, NJ, NY, PA & GA sports medicine specialists provide advanced diagnostic imaging and personalized treatment plans for return to sport.",
     keywords: [
       "athletic injury evaluation",
       "sports medicine evaluation",
       "athlete injury assessment",
-      "sports injury diagnosis FL, NJ, NY, & PA",
+      "sports injury diagnosis FL, NJ, NY, PA & GA",
       "athletic injury specialist",
       "return to sport evaluation",
-      "sports medicine FL, NJ, NY, & PA",
+      "sports medicine FL, NJ, NY, PA & GA",
     ],
     title: "Athletic Injury Evaluation",
     tag: "Sports Medicine",
@@ -6677,7 +6960,7 @@ export const allTreatmentContent: TreatmentContent[] = [
     recovery: {
       heading: "What to Expect: From Evaluation to Return-to-Sport",
       timeline: "Immediate Results and Individualized Planning",
-      details: "<p>Following your <strong>Athletic Injury Evaluation</strong>, you'll receive a clear diagnosis and comprehensive treatment plan tailored to your specific injury and athletic goals. Our specialists explain findings in detail, discuss all treatment options from conservative care to surgical intervention when needed, and outline realistic return-to-sport expectations.</p><p><strong>Immediate outcomes:</strong> Clear diagnosis, understanding of injury severity, and initial treatment plan. For many injuries, treatment can begin the same day.</p><p><strong>Treatment planning:</strong> Your provider develops a step-by-step recovery plan with specific milestones. This may include activity modification, guided rehabilitation exercises, bracing, imaging review, or referral for procedures when indicated.</p><p><strong>Return-to-sport guidance:</strong> We establish function-based criteria for return rather than arbitrary timelines. This includes strength benchmarks, range of motion goals, sport-specific testing, and clearance protocols to ensure safe return to your activity.</p><p>Our team coordinates all aspects of care, including ongoing evaluation, rehabilitation planning, and follow-up assessments to optimize your recovery and support your athletic goals.</p>",
+      details: "<p>Following your <strong>Athletic Injury Evaluation</strong>, you'll receive a clear diagnosis and comprehensive treatment plan tailored to your specific injury and athletic goals. Our specialists explain findings in detail, discuss all treatment options from conservative care to surgical intervention when needed, and outline realistic return-to-sport expectations.</p><p><strong>Immediate outcomes:</strong> Clear diagnosis, understanding of injury severity, and initial treatment plan. For many injuries, treatment can begin the same day.</p><p><strong>Treatment planning:</strong> Your provider develops a step-by-step recovery plan with specific milestones. This may include activity modification, guided rehabilitation exercises, bracing, imaging review, or referral for procedures when indicated.</p><p><strong>Return-to-sport guidance:</strong> We establish function-based criteria for return rather than arbitrary timelines. This includes strength benchmarks, range of motion goals, sport-specific testing, and clearance protocols to ensure safe return to your activity.</p><p>Our team coordinates all aspects of care, including ongoing evaluation, recovery planning, and follow-up assessments to optimize your recovery and support your athletic goals.</p>",
     },
     benefits: [
       "**Accurate diagnosis** using advanced examination and imaging techniques",
@@ -6735,7 +7018,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "cubital tunnel release",
       "hand numbness surgery",
       "ulnar nerve entrapment treatment",
-      "elbow surgery FL, NJ, NY, & PA"
+      "elbow surgery FL, NJ, NY, PA & GA"
     ],
     title: "Cubital Tunnel Surgery",
     tag: "Hand",
@@ -6780,7 +7063,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "Prevents **progressive nerve damage** and muscle wasting in the hand",
       "Restores **sensation and strength** to the ring and small fingers",
       "**Minimally invasive options** available for faster recovery",
-      "High success rate with **low complication rates** when performed by experienced surgeons",
+      "Decompresses the ulnar nerve at the elbow; surgeon experience matters for protecting the nerve during release",
     ],
     insurance: {
       heading: "Insurance for Cubital Tunnel Surgery",
@@ -6801,7 +7084,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "tennis elbow treatment",
       "elbow pain surgery",
       "ECRB release",
-      "elbow surgery FL, NJ, NY, & PA"
+      "elbow surgery FL, NJ, NY, PA & GA"
     ],
     title: "Tennis Elbow Surgery",
     tag: "Hand",
@@ -6840,12 +7123,12 @@ export const allTreatmentContent: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from Tennis Elbow Surgery",
       timeline: "3-6 Months for Full Recovery",
-      details: "<p>Recovery from tennis elbow surgery is gradual:</p><p><strong>Weeks 1-2:</strong> Rest and wound healing. Ice and elevation to reduce swelling. Gentle finger and wrist motion begins.</p><p><strong>Weeks 2-6:</strong> Progressive range of motion exercises. Light activities permitted. Sling use decreases.</p><p><strong>Weeks 6-12:</strong> Gradual strengthening begins. Return to desk work and light duties typically possible.</p><p><strong>Months 3-6:</strong> Progressive return to sports and heavy activities. Full recovery and strength restoration. Success rates exceed <strong>80-90%</strong> for pain relief.</p>",
+      details: "<p>Recovery from tennis elbow surgery is gradual:</p><p><strong>Weeks 1-2:</strong> Rest and wound healing. Ice and elevation to reduce swelling. Gentle finger and wrist motion begins.</p><p><strong>Weeks 2-6:</strong> Progressive range of motion exercises. Light activities permitted. Sling use decreases.</p><p><strong>Weeks 6-12:</strong> Gradual strengthening begins. Return to desk work and light duties typically possible.</p><p><strong>Months 3-6:</strong> Progressive return to sports and heavy activities. Full recovery and strength restoration. Pain typically settles before grip strength returns, and full strength restoration takes longest.</p>",
     },
     benefits: [
       "**Definitive treatment** for chronic tennis elbow unresponsive to conservative care",
       "Removes **damaged, degenerative tendon tissue** causing pain",
-      "High success rate with **80-90%** of patients achieving significant pain relief",
+      "Removes the degenerated tendon tissue at the origin so healthier tissue can take the load",
       "**Multiple surgical options** allow tailored approach to your condition",
       "Restores ability to perform **work, sports, and daily activities** without elbow pain",
     ],
@@ -6868,7 +7151,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "golfer's elbow treatment",
       "inner elbow pain surgery",
       "flexor tendon release",
-      "elbow surgery FL, NJ, NY, & PA"
+      "elbow surgery FL, NJ, NY, PA & GA"
     ],
     title: "Golfer's Elbow Surgery",
     tag: "Hand",
@@ -6913,7 +7196,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "**Definitive treatment** for chronic golfer's elbow unresponsive to conservative care",
       "Removes **damaged, degenerative tendon tissue** causing inner elbow pain",
       "Allows simultaneous treatment of **ulnar nerve compression** if present",
-      "High success rate with significant pain relief in **80-90%** of patients",
+      "Removes the degenerated tendon tissue on the inner elbow, with the ulnar nerve addressed where needed",
       "Restores ability to perform **sports and daily activities** without pain",
     ],
     insurance: {
@@ -6935,7 +7218,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "elbow arthritis surgery",
       "elbow stiffness surgery",
       "elbow debridement",
-      "elbow surgery FL, NJ, NY, & PA"
+      "elbow surgery FL, NJ, NY, PA & GA"
     ],
     title: "Elbow Arthroscopy",
     tag: "Hand",
@@ -7003,7 +7286,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "wrist scope surgery",
       "ganglion cyst removal",
       "wrist cartilage surgery",
-      "wrist surgery FL, NJ, NY, & PA"
+      "wrist surgery FL, NJ, NY, PA & GA"
     ],
     title: "Wrist Arthroscopy",
     tag: "Hand",
@@ -7071,7 +7354,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "wrist plate and screws",
       "Colles fracture surgery",
       "wrist fracture fixation",
-      "wrist surgery FL, NJ, NY, & PA"
+      "wrist surgery FL, NJ, NY, PA & GA"
     ],
     title: "Wrist Fracture Surgery",
     tag: "Hand",
@@ -7138,7 +7421,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "wrist tendon surgery",
       "mommy thumb surgery",
       "thumb tenosynovitis surgery",
-      "hand surgery FL, NJ, NY, & PA"
+      "hand surgery FL, NJ, NY, PA & GA"
     ],
     title: "De Quervain's Release",
     tag: "Hand",
@@ -7177,13 +7460,13 @@ export const allTreatmentContent: TreatmentContent[] = [
     recovery: {
       heading: "Recovery from De Quervain's Release",
       timeline: "2-4 Weeks for Full Activities",
-      details: "<p>Recovery from De Quervain's release is typically rapid:</p><p><strong>Days 1-7:</strong> Keep the hand elevated. Light finger and wrist motion encouraged. Mild pain is managed with over-the-counter medications.</p><p><strong>Weeks 1-2:</strong> Dressing changes. Progressive use of the hand for light activities. Most pain resolves quickly.</p><p><strong>Weeks 2-4:</strong> Return to most normal activities. Grip strengthening begins. Scar massage to prevent adhesions.</p><p><strong>Success rate exceeds 90%</strong> for pain relief. Some patients may have temporary numbness near the incision that typically resolves.</p>",
+      details: "<p>Recovery from De Quervain's release is typically rapid:</p><p><strong>Days 1-7:</strong> Keep the hand elevated. Light finger and wrist motion encouraged. Mild pain is managed with over-the-counter medications.</p><p><strong>Weeks 1-2:</strong> Dressing changes. Progressive use of the hand for light activities. Most pain resolves quickly.</p><p><strong>Weeks 2-4:</strong> Return to most normal activities. Grip strengthening begins. Scar massage to prevent adhesions.</p><p>Improvement is usually rapid because the mechanical irritation is relieved directly. Some patients may have temporary numbness near the incision that typically resolves.</p>",
     },
     benefits: [
       "**Definitive treatment** for De Quervain's tenosynovitis unresponsive to conservative care",
       "**Quick procedure** performed under local anesthesia as an outpatient",
       "**Rapid recovery** with return to most activities within 2-4 weeks",
-      "**High success rate** exceeding 90% for complete pain relief",
+      "Releases the first dorsal compartment directly; a separate EPB sub-sheath must also be released where present",
       "Allows **immediate active motion** of thumb and wrist after surgery",
     ],
     insurance: {
@@ -7205,7 +7488,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "hand surgery for bent finger",
       "palmar fasciectomy",
       "Dupuytren's treatment",
-      "hand surgery FL, NJ, NY, & PA"
+      "hand surgery FL, NJ, NY, PA & GA"
     ],
     title: "Dupuytren's Surgery",
     tag: "Hand",
@@ -7272,7 +7555,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "broken finger surgery",
       "boxer's fracture surgery",
       "hand ORIF",
-      "hand surgery FL, NJ, NY, & PA"
+      "hand surgery FL, NJ, NY, PA & GA"
     ],
     title: "Hand Fracture Surgery",
     tag: "Hand",
@@ -7339,7 +7622,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "distal humerus fracture surgery",
       "broken elbow surgery",
       "elbow fracture fixation",
-      "elbow surgery FL, NJ, NY, & PA"
+      "elbow surgery FL, NJ, NY, PA & GA"
     ],
     title: "Elbow Fracture Surgery",
     tag: "Elbow",
@@ -7399,12 +7682,12 @@ export const allTreatmentContent: TreatmentContent[] = [
     id: "shoulder-replacement",
     slug: "shoulder-replacement",
     metaTitle: "Total Shoulder Replacement | Shoulder Arthritis Surgery FL",
-    metaDescription: "Expert total shoulder replacement surgery for advanced shoulder arthritis. Our FL, NJ, NY, & PA specialists restore shoulder function and relieve chronic pain with modern implants.",
+    metaDescription: "Expert total shoulder replacement surgery for advanced shoulder arthritis. Our FL, NJ, NY, PA & GA specialists restore shoulder function and relieve chronic pain with modern implants.",
     keywords: [
       "total shoulder replacement",
       "shoulder replacement surgery",
       "shoulder arthritis surgery",
-      "FL, NJ, NY, & PA shoulder replacement",
+      "FL, NJ, NY, PA & GA shoulder replacement",
       "shoulder joint replacement",
       "shoulder arthroplasty",
       "shoulder replacement specialist",
@@ -7465,12 +7748,12 @@ export const allTreatmentContent: TreatmentContent[] = [
     id: "reverse-shoulder-replacement",
     slug: "reverse-shoulder-replacement",
     metaTitle: "Reverse Shoulder Replacement | Rotator Cuff Tear Arthritis FL",
-    metaDescription: "Expert reverse shoulder replacement for patients with rotator cuff tears and arthritis. Our FL, NJ, NY, & PA specialists restore shoulder function when traditional replacement isn't suitable.",
+    metaDescription: "Expert reverse shoulder replacement for patients with rotator cuff tears and arthritis. Our FL, NJ, NY, PA & GA specialists restore shoulder function when traditional replacement isn't suitable.",
     keywords: [
       "reverse shoulder replacement",
       "reverse total shoulder arthroplasty",
       "shoulder replacement rotator cuff tear",
-      "FL, NJ, NY, & PA shoulder replacement",
+      "FL, NJ, NY, PA & GA shoulder replacement",
       "shoulder arthritis with cuff tear",
       "reverse shoulder surgery",
       "shoulder replacement specialist",
@@ -7540,7 +7823,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "shoulder labral tear surgery",
       "shoulder instability surgery",
       "arthroscopic labral repair",
-      "shoulder labrum repair FL, NJ, NY, & PA",
+      "shoulder labrum repair FL, NJ, NY, PA & GA",
       "shoulder specialist",
     ],
     title: "Labral Repair (Shoulder)",
@@ -7607,7 +7890,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "long head biceps repair",
       "biceps tendonitis surgery",
       "arthroscopic biceps tenodesis",
-      "shoulder biceps repair FL, NJ, NY, & PA",
+      "shoulder biceps repair FL, NJ, NY, PA & GA",
       "shoulder specialist",
     ],
     title: "Biceps Tenodesis",
@@ -7666,7 +7949,7 @@ export const allTreatmentContent: TreatmentContent[] = [
     id: "shoulder-instability-surgery",
     slug: "shoulder-instability-surgery",
     metaTitle: "Shoulder Instability Surgery | Bankart Repair & Stabilization FL",
-    metaDescription: "Expert arthroscopic shoulder stabilization for recurrent dislocations. Our FL, NJ, NY, & PA specialists restore shoulder stability with minimally invasive Bankart repair.",
+    metaDescription: "Expert arthroscopic shoulder stabilization for recurrent dislocations. Our FL, NJ, NY, PA & GA specialists restore shoulder stability with minimally invasive Bankart repair.",
     keywords: [
       "shoulder instability surgery",
       "shoulder stabilization surgery",
@@ -7675,7 +7958,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "arthroscopic shoulder stabilization",
       "shoulder instability treatment",
       "recurrent shoulder dislocation surgery",
-      "shoulder specialist FL, NJ, NY, & PA",
+      "shoulder specialist FL, NJ, NY, PA & GA",
     ],
     title: "Shoulder Instability Surgery",
     tag: "Shoulder",
@@ -7721,7 +8004,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "Restores shoulder stability and prevents recurrent dislocations",
       "Minimally invasive arthroscopic technique with faster recovery",
       "Allows return to sports and overhead activities",
-      "High success rate for preventing recurrent instability",
+      "Aims to prevent recurrent instability",
       "Preserves shoulder anatomy and function",
     ],
     insurance: {
@@ -7734,7 +8017,7 @@ export const allTreatmentContent: TreatmentContent[] = [
     id: "acromioplasty",
     slug: "acromioplasty",
     metaTitle: "Acromioplasty | Shoulder Impingement Surgery FL",
-    metaDescription: "Expert arthroscopic acromioplasty to relieve shoulder impingement. Our FL, NJ, NY, & PA specialists remove bone spurs and create space for the rotator cuff tendons.",
+    metaDescription: "Expert arthroscopic acromioplasty to relieve shoulder impingement. Our FL, NJ, NY, PA & GA specialists remove bone spurs and create space for the rotator cuff tendons.",
     keywords: [
       "acromioplasty",
       "shoulder decompression",
@@ -7743,7 +8026,7 @@ export const allTreatmentContent: TreatmentContent[] = [
       "arthroscopic acromioplasty",
       "rotator cuff impingement surgery",
       "shoulder bone spur removal",
-      "shoulder specialist FL, NJ, NY, & PA",
+      "shoulder specialist FL, NJ, NY, PA & GA",
     ],
     title: "Acromioplasty",
     tag: "Shoulder",
@@ -7803,7 +8086,7 @@ export const allTreatmentContent: TreatmentContent[] = [
     id: "shoulder-fracture-surgery",
     slug: "shoulder-fracture-surgery",
     metaTitle: "Shoulder Fracture Surgery | Proximal Humerus Fracture Repair FL",
-    metaDescription: "Expert surgical treatment for shoulder fractures. Our FL, NJ, NY, & PA specialists use advanced techniques to repair broken shoulder bones and restore function.",
+    metaDescription: "Expert surgical treatment for shoulder fractures. Our FL, NJ, NY, PA & GA specialists use advanced techniques to repair broken shoulder bones and restore function.",
     keywords: [
       "shoulder fracture surgery",
       "proximal humerus fracture",
@@ -8184,7 +8467,29 @@ export const allTreatmentContent: TreatmentContent[] = [
   },
   {
     title: "Cervical Laminectomy",
-    slug: "cervical-laminectomy",
+    slug: "cervical-laminectomy",
+    additionalSections: [
+      {
+        heading: "Which cervical stenosis findings actually point to surgery?",
+        placement: "after-symptoms",
+        body: "<p>Narrowing on a cervical MRI is common and is not by itself a reason to operate. What changes the conversation is evidence that the <strong>spinal cord</strong>, rather than just a nerve root, is being affected.</p><p>The findings surgeons look for are functional rather than radiological. <strong>Loss of hand dexterity</strong> — buttons, coins, handwriting deteriorating without weakness that the patient can name. <strong>A change in walking</strong> — a sense of unsteadiness, or needing to watch the ground. <strong>Signs on examination</strong> that indicate the cord is irritated rather than a single root. Sometimes an electric sensation down the spine on bending the neck forward.</p><p>This matters because cervical myelopathy behaves differently from a pinched nerve. Radiculopathy is a pain problem that often settles on its own, and waiting costs little. Myelopathy is a function problem, and the reason for operating is usually <strong>to stop further decline</strong> rather than to reverse what has already happened. That distinction changes the urgency and it changes what a realistic result looks like — which is why it is worth being clear about which one you have.</p>"
+      },
+      {
+        heading: "Laminectomy, laminoplasty, or a front-of-neck approach — how the choice is made",
+        placement: "after-causes",
+        body: "<p>Three operations address cervical cord compression and they are not interchangeable. The decision turns on two things: <strong>where the compression is</strong> and <strong>what shape your neck is in from the side</strong>.</p><p><strong>Where the compression sits.</strong> Pressure coming from the front — bone spurs and disc material — is most directly removed from the front. Pressure from behind, or narrowing spread across several levels, is better addressed posteriorly.</p><p><strong>Cervical alignment is the deciding factor for posterior surgery.</strong> Decompressing from behind relies on the cord drifting backwards into the space created. That only happens if the neck holds a normal forward curve. In a neck that has drifted into a reversed curve, the cord stays draped over the bone at the front and a posterior decompression alone may not relieve it. This single finding rules posterior approaches in or out more often than any other.</p><p><strong>Number of levels.</strong> One or two levels of front-based compression is straightforward from the front. Three or more begins to favour a posterior approach, which addresses several levels through one exposure.</p><p><strong>Laminectomy versus laminoplasty.</strong> Both open the space from behind. Laminectomy removes the lamina; laminoplasty hinges it open and leaves it in place, keeping more of the posterior structures. The trade-off is between how much room is created and how much stability is preserved.</p>"
+      },
+      {
+        heading: "When fusion is added to a laminectomy, and why",
+        placement: "before-treatment",
+        body: "<p>A laminectomy on its own removes part of what holds the neck upright from behind. In most patients that is tolerated. In some it is not, and the fusion is added at the same operation rather than left as a problem for later.</p><p><strong>The concern is gradual forward drift.</strong> Once the posterior elements are removed, the neck can slowly lose its curve. Because the posterior decompression only works while that curve is maintained, a drift into kyphosis can undo the benefit of the operation years afterwards.</p><p>Fusion tends to be added when several levels are decompressed, when alignment is already borderline, when there is existing instability or a slip, and where facet joints have to be taken down far enough to compromise stability.</p><p>The trade-off is honest: fusion removes the drift risk and costs neck motion, and it introduces bone healing as something recovery now depends on. See <a href=\"/treatments/spinal-fusion\" class=\"underline text-[#252932] hover:text-[#2358AC]\">spinal fusion surgery</a> for what that adds.</p>"
+      },
+      {
+        heading: "Recovery: why nerve recovery lags behind the decompression",
+        placement: "after-treatment",
+        body: "<p>The pressure comes off the cord during the operation. <strong>Recovery of what the cord does takes far longer, and is the part patients are least prepared for.</strong></p><p><strong>The decompression is immediate; the neurology is not.</strong> Nerve tissue that has been compressed for a long time recovers slowly, and how completely it recovers depends largely on how long it was compressed and how much damage was already established. Hand function and balance often improve over many months. Some patients regain most of what they lost; others stabilise where they are, which — for a condition whose natural course is decline — is itself the goal.</p><p><strong>Neck pain after posterior surgery is a separate issue from the original problem.</strong> Reaching the spine from behind means working through the muscles that hold the head up. Aching and stiffness across the back of the neck in the months afterwards is common, is mechanical rather than neurological, and responds to progressive strengthening rather than to more rest.</p><p><strong>What the collar is for.</strong> If one is used, it protects alignment while the posterior tissues heal. Longer use is generally about protecting a fusion rather than the decompression itself.</p><p><strong>If fusion was added</strong>, bone healing becomes the limiting factor on top of everything above, and activity progresses on that timetable instead.</p>"
+      }
+    ],
     tag: "Neck",
     additionalTags: ["Spine"],
     categories: [],
@@ -8628,7 +8933,7 @@ const orthopedicInjectionsCard: TreatmentsCardProp = {
   inTxt_img: 'https://mountainspineortho.b-cdn.net/treatments-thumbnails/orthopedic-injections-mountain-spine-orthopedics.png',
   conditions_treated: 'Back pain, neck pain, knee osteoarthritis, shoulder bursitis, hip arthritis, sciatica, herniated disc, spinal stenosis, facet joint pain, SI joint pain',
   metaTitle: 'Orthopedic Injections & Cortisone Shots Near Me | Mountain Spine & Orthopedics',
-  metaDesc: 'Board-certified orthopedic specialists offering cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections. 23 locations across FL, NJ, NY & PA.',
+  metaDesc: 'Board-certified orthopedic specialists offering cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections. 23 locations across FL, NJ, NY, PA & GA.',
   keywords: ['orthopedic injections', 'cortisone shot', 'epidural steroid injection', 'facet joint injection', 'SI joint injection', 'nerve block injection'],
 };
 

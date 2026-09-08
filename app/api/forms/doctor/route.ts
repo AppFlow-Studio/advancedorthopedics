@@ -90,6 +90,8 @@ export async function POST(request: Request) {
       insuranceCardFront,
       insuranceCardBack,
       gclid: getString(formData, "gclid"),
+      gbraid: getString(formData, "gbraid"),
+      wbraid: getString(formData, "wbraid"),
       utm_source: getString(formData, "utm_source"),
       utm_medium: getString(formData, "utm_medium"),
       utm_campaign: getString(formData, "utm_campaign"),
@@ -97,15 +99,18 @@ export async function POST(request: Request) {
       utm_content: getString(formData, "utm_content"),
     });
 
-    await sendUserEmail({
+    const acceptance = await sendUserEmail({
       name: fullName,
       email,
       phone,
       state,
       reason,
       bestTime,
-      form_source: "doctor-contact",
+      form_source: getString(formData, "form_source") || "general-contact",
+      landing_path: getString(formData, "landing_path"),
       gclid: getString(formData, "gclid"),
+      gbraid: getString(formData, "gbraid"),
+      wbraid: getString(formData, "wbraid"),
       utm_source: getString(formData, "utm_source"),
       utm_medium: getString(formData, "utm_medium"),
       utm_campaign: getString(formData, "utm_campaign"),
@@ -113,7 +118,7 @@ export async function POST(request: Request) {
       utm_content: getString(formData, "utm_content"),
     });
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json(acceptance);
   } catch (error) {
     console.error("[DoctorContact] Submission failed", error);
     return NextResponse.json({ ok: false }, { status: 500 });

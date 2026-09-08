@@ -7,8 +7,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   // 1. Revision Spinal Surgery
   "revision-spinal-surgery": [
     {
-      question: "What is the success rate of revision spinal surgery?",
-      answer: "The <strong>success rate of revision spinal surgery</strong> varies by condition but generally ranges between <strong>60% and 80%</strong> for pain relief. While lower than primary surgery due to scar tissue and anatomical changes, modern techniques like computer-navigated placement of <strong>pedicle screws</strong> have significantly improved outcomes for correcting <strong>pseudoarthrosis</strong> (failed fusion) and adjacent segment disease."
+      question: "What determines whether revision spinal surgery works?",
+      answer: "The single biggest factor is whether the original diagnosis was right and the failure mode is clearly identified — a revision for a confirmed pseudoarthrosis behaves very differently from one for unexplained persistent pain. Results are generally less predictable than primary surgery because scar tissue and altered anatomy make the dissection harder, and modern techniques like computer-navigated placement of <strong>pedicle screws</strong> have significantly improved outcomes for correcting <strong>pseudoarthrosis</strong> (failed fusion) and adjacent segment disease."
     },
     {
       question: "Is revision spine surgery more painful than the first?",
@@ -115,8 +115,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   // 6. Lumbar Fusion Surgery
   "lumbar-fusion-surgery": [
     {
-      question: "What is the success rate of lumbar fusion surgery?",
-      answer: "The <strong>success rate for lumbar fusion</strong> in treating spondylolisthesis and instability is high, typically <strong>85-95%</strong>. Success for treating solely 'back pain' without instability is variable, emphasizing the need for proper patient selection and diagnosis."
+      question: "What makes a lumbar fusion more or less likely to work?",
+      answer: "Fusion is most predictable when there is <strong>demonstrable instability</strong> — a slip that moves on flexion-extension films, or a clear structural deformity. It is least predictable when the only finding is back pain without instability, because then the pain generator has not actually been identified. Bone quality and nicotine use also matter: both affect whether the fusion heals at all."
     },
     {
       question: "How long does back pain last after fusion surgery?",
@@ -134,6 +134,18 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
 
   // 7. Spinal Fusion
   "spinal-fusion": [
+    {
+      question: "How do I know whether I actually need a fusion?",
+      answer: "The question to put to your surgeon is <strong>what specifically is unstable, and what shows it</strong>. A fusion is most defensible when something structural has been demonstrated \u2014 a slip that moves between flexion and extension films, a deformity, a segment that has failed to heal from previous surgery. It is least defensible when the only finding is pain plus degenerative changes on MRI, because those changes are near-universal after middle age and are not by themselves a surgical problem. If the answer is that the imaging looks bad and other things have not worked, that is a reason to keep looking for the pain source, not a reason to fuse. Ask which single level is believed to be responsible and how that was established."
+    },
+    {
+      question: "What happens if I do not have the surgery?",
+      answer: "That depends entirely on what is driving it, and it is worth asking directly rather than assuming. For <strong>pain from a stable degenerative segment</strong>, waiting costs little \u2014 many people manage for years, and the decision can be revisited whenever it stops being tolerable. For a <strong>progressing deformity</strong> or a slip that is measurably moving, the situation tends to change over time, and delaying can mean a larger operation later than the one on offer now. Where there is <strong>nerve compression producing weakness rather than pain</strong>, the calculation is different again, because prolonged compression affects how completely the nerve recovers. \u201cWhat is the cost of waiting six months\u201d is a fair question and a good surgeon will answer it specifically for your situation."
+    },
+    {
+      question: "How will I know whether my fusion has healed?",
+      answer: "By imaging, not by how you feel. The two come apart more often than patients expect \u2014 it is possible to feel well while bone has not bridged, because the screws and rods are holding the segment still, and it is equally possible to feel sore for a while after a fusion that has healed perfectly well. Your surgeon looks for <strong>continuous bone across the segment</strong> on follow-up imaging, and sometimes for absence of movement between flexion and extension views. Until that is established, the construct is being held by metal, which is why activity is progressed on the imaging rather than on symptoms. A fusion that does not take is called a pseudarthrosis, and it is the reason follow-up imaging continues after you feel recovered."
+    },
     {
       question: "What are the permanent restrictions after spinal fusion?",
       answer: "For a single-level fusion, there are few <strong>permanent restrictions</strong>. For multi-level fusions, doctors typically advise avoiding <strong>heavy deadlifts</strong>, high-impact contact sports, and extreme spinal twisting to prevent adjacent segment disease."
@@ -180,7 +192,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   "posterior-cervical-fusion-with-instrumentation-surgery": [
     {
       question: "Why is instrumentation used in cervical fusion?",
-      answer: "<strong>Instrumentation</strong> (screws and rods) acts as an internal brace, holding the cervical spine rigidly in place immediately after surgery. This drastically increases the <strong>fusion success rate</strong> compared to using bone graft alone."
+      answer: "<strong>Instrumentation</strong> (screws and rods) acts as an internal brace, holding the cervical spine rigidly in place immediately after surgery. This holds the graft under steady compression while it heals, which is what allows bone to bridge across the segment rather than moving under load."
     },
     {
       question: "How long do I wear a collar after posterior cervical fusion?",
@@ -311,8 +323,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Most patients can drive within <strong>1 to 2 weeks</strong>, once they can turn their head comfortably and are off narcotic pain medication."
     },
     {
-      question: "What is the success rate?",
-      answer: "Success rates are very high (<strong>over 90%</strong>) for relief of arm pain. Studies show it provides equivalent or better outcomes than fusion with fewer long-term complications."
+      question: "What should I expect from cervical disc replacement?",
+      answer: "Relief of arm pain is generally more predictable than relief of neck pain, because compression of a specific nerve root is something imaging can confirm and surgery can directly decompress. The trade-off against fusion is motion preservation at the treated level."
     }
   ],
 
@@ -371,8 +383,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "You *can* kneel, but it may feel uncomfortable or strange due to the lack of sensation in the scar or pressure on the implant. Using a cushioned kneeling pad usually solves this issue."
     },
     {
-      question: "What is the success rate?",
-      answer: "The procedure is one of the most successful in medicine, with <strong>over 90%</strong> of patients experiencing dramatic pain relief and improved function for daily activities."
+      question: "What should I expect from the procedure?",
+      answer: "Pain relief and improved function for daily activities are the goals of the procedure. How far any individual gets depends on the state of the knee before surgery and on rehabilitation."
     }
   ],
 
@@ -411,8 +423,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "It is very minimally invasive. It can often be done through a small tube (16-18mm) as an outpatient surgery, with patients returning to desk work in just <strong>1 to 2 weeks</strong>."
     },
     {
-      question: "What is the success rate?",
-      answer: "Success rates for arm pain relief are <strong>85-95%</strong>. It is an excellent alternative to ACDF for patients with lateral disc herniations."
+      question: "How well does foraminotomy relieve arm pain?",
+      answer: "Arm pain from a confirmed lateral disc herniation responds more predictably than axial neck pain. It is an alternative to ACDF for patients whose compression sits out to the side, where the nerve can be decompressed without entering the disc space from the front."
     }
   ],
 
@@ -512,7 +524,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "How successful is surgery for DDD?",
-      answer: "Success relies on accurate diagnosis. If the disc is confirmed as the sole pain generator (often via discogram), success rates for pain reduction are typically <strong>70-80%</strong>."
+      answer: "Everything depends on whether the disc is genuinely the pain generator. When one level is confirmed as the sole source and the surrounding levels are healthy, the operation is addressing the actual problem. When several levels are degenerate or the source is unclear, surgery is treating an imaging finding rather than a diagnosis."
     }
   ],
 
@@ -631,8 +643,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Because the repair needs protection, patients are often on crutches with limited weight-bearing for <strong>4 to 6 weeks</strong>, unlike the rapid return seen with removal."
     },
     {
-      question: "What is the success rate?",
-      answer: "Success rates are <strong>80-90%</strong> for acute tears in younger patients. Success is lower for degenerative tears in older patients, where removal is often the preferred option."
+      question: "Which meniscus tears can actually heal?",
+      answer: "Two things decide it: the <strong>blood supply where the tear sits</strong> and the age of the tear. Acute tears in the vascular outer zone of a younger patient can heal. Degenerative tears in the inner avascular zone generally cannot, which is why removal is often preferred there."
     },
     {
       question: "Can the meniscus tear again?",
@@ -756,7 +768,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "Open vs. Endoscopic: Which is better?",
-      answer: "<strong>Endoscopic release</strong> has a smaller incision and typically allows for a faster return to work (less palm tenderness), though both methods have equally high long-term success rates."
+      answer: "<strong>Endoscopic release</strong> has a smaller incision and typically allows for a faster return to work (less palm tenderness), though the long-term result is comparable between the two."
     }
   ],
 
@@ -783,8 +795,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   // 40. Coccygectomy (Tailbone Removal Surgery)
   "coccygectomy-tailbone-removal-surgery": [
     {
-      question: "What is the success rate of coccygectomy?",
-      answer: "<strong>Coccygectomy</strong> has a high success rate (<strong>80-90%</strong>) for relieving chronic coccydynia when performed on carefully selected patients who failed conservative care."
+      question: "What makes someone a good candidate for coccygectomy?",
+      answer: "<strong>Coccygectomy</strong> is reserved for chronic coccydynia that has failed conservative care, where the pain is reproducibly localised to the coccyx and typically confirmed by a diagnostic injection. Selection is what matters — pain that is diffuse or not reproduced on examination responds poorly."
     },
     {
       question: "How long does it take to sit comfortably?",
@@ -1311,8 +1323,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Surgery is considered after <strong>6-12 months of failed conservative treatment</strong> including rest, therapy, bracing, and injections. If your outer elbow pain significantly limits work or activities despite these treatments, surgery may be appropriate."
     },
     {
-      question: "What is the success rate of tennis elbow surgery?",
-      answer: "<strong>Tennis elbow surgery has an 80-90% success rate</strong> for pain relief. Most patients return to their previous activities without significant limitations. Complete relief may take several months after surgery."
+      question: "What should I expect from tennis elbow surgery?",
+      answer: "Surgery removes the degenerated tendon tissue at the origin so healthier tissue can take the load. It is considered only after a genuine trial of conservative care, because most cases settle without it. Complete relief typically takes several months, and grip strength returns more slowly than pain settles."
     },
     {
       question: "Is tennis elbow surgery done arthroscopically?",
@@ -1347,8 +1359,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Return to golf typically takes <strong>4-6 months</strong>. Chipping and putting may begin around 3 months; full swing practice at 4 months; competitive play by 5-6 months. Your surgeon and therapist will guide progression."
     },
     {
-      question: "What is the success rate of golfer's elbow surgery?",
-      answer: "Success rates are similar to tennis elbow surgery, with <strong>80-90% of patients</strong> achieving significant pain relief. Complete recovery of strength may take up to a year in some cases."
+      question: "How does golfer's elbow surgery compare with tennis elbow surgery?",
+      answer: "The operation is the mirror image on the inner side of the elbow, and behaves similarly. The main added consideration is the <strong>ulnar nerve</strong>, which runs immediately behind the medial epicondyle and sometimes needs addressing at the same time. Complete recovery of strength may take up to a year."
     }
   ],
 
@@ -1428,7 +1440,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
   "de-quervains-release": [
     {
       question: "How effective is De Quervain's release surgery?",
-      answer: "<strong>De Quervain's release has a success rate exceeding 90%</strong> for complete pain relief. Most patients experience rapid improvement after surgery and are very satisfied with the results."
+      answer: "Release of the first dorsal compartment relieves the mechanical irritation directly, so improvement is usually rapid. The main technical consideration is identifying a <strong>separate sub-sheath</strong> around the EPB tendon, which is present in a substantial minority and must be released too or symptoms persist."
     },
     {
       question: "How long does De Quervain's release surgery take?",
@@ -1798,7 +1810,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "What are the risks of hip labral repair surgery?",
-      answer: "Risks include incomplete pain relief (especially with advanced arthritis), stiffness, nerve injury (lateral femoral cutaneous nerve numbness), infection, blood clots, and potential for re-tear. Success rates are <strong>80-90% when properly selected</strong> patients without arthritis."
+      answer: "Risks include incomplete pain relief (especially with advanced arthritis), stiffness, nerve injury (lateral femoral cutaneous nerve numbness), infection, blood clots, and potential for re-tear. Selection is decisive: results are far better in hips without established arthritis, because a labral repair does not address cartilage that has already worn."
     },
     {
       question: "What is the difference between labral repair and debridement?",
@@ -1864,7 +1876,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "What are the risks of revision hip surgery?",
-      answer: "Revision surgery carries <strong>higher risks than primary surgery</strong> including infection (2-5%), dislocation, nerve injury, blood loss requiring transfusion, bone fracture during component removal, and re-revision. Success rates are 80-90%, lower than primary surgery."
+      answer: "Revision surgery carries <strong>higher risks than primary surgery</strong> including infection (2-5%), dislocation, nerve injury, blood loss requiring transfusion, bone fracture during component removal, and re-revision. Results are generally less predictable than primary surgery, because bone stock is reduced and the soft-tissue envelope has already been operated on."
     },
     {
       question: "Can you have multiple hip revision surgeries?",
@@ -1900,11 +1912,11 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "Who is a candidate for core decompression?",
-      answer: "Ideal candidates have <strong>early-stage AVN</strong> (pre-collapse stages) detected on MRI with minimal symptoms. Success rates are highest when performed before femoral head collapse. Late-stage AVN with collapse requires hip replacement rather than decompression."
+      answer: "Ideal candidates have <strong>early-stage AVN</strong> (pre-collapse stages) detected on MRI with minimal symptoms. The procedure is aimed at pre-collapse disease; once the femoral head has collapsed the mechanical problem is structural and decompression no longer addresses it. Late-stage AVN with collapse requires hip replacement rather than decompression."
     },
     {
-      question: "What is the success rate of core decompression?",
-      answer: "Success varies by AVN stage. <strong>Early-stage (Ficat I-II) success rates are 60-85%</strong> in slowing progression. Late-stage or post-collapse cases have poor outcomes. Younger patients and those addressing underlying causes (stopping steroids/alcohol) have better results."
+      question: "What determines whether core decompression helps?",
+      answer: "Stage is the dominant factor. In <strong>pre-collapse disease (Ficat I-II)</strong> the goal is to decompress the marrow and slow progression. Once collapse has occurred the femoral head has lost its shape, and decompression cannot restore it. Younger patients and those addressing underlying causes (stopping steroids/alcohol) have better results."
     },
     {
       question: "What is the recovery time for core decompression?",
@@ -1930,7 +1942,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "What is the recovery time for hip bursectomy?",
-      answer: "Most patients resume <strong>light activities within 2-4 weeks</strong> and return to full activities by 6-12 weeks. Rehabilitation focuses on IT band stretching, hip strengthening, and correcting biomechanical issues. Success rates exceed 85% when underlying causes are addressed."
+      answer: "Most patients resume <strong>light activities within 2-4 weeks</strong> and return to full activities by 6-12 weeks. Rehabilitation focuses on IT band stretching, hip strengthening, and correcting biomechanical issues. Results hold up when the underlying driver is addressed — IT band tightness, gluteal tendon pathology, or a biomechanical issue — and tend not to when the bursa alone is treated."
     },
     {
       question: "Can hip bursitis come back after surgery?",
@@ -1966,7 +1978,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "When is meniscus repair recommended over removal?",
-      answer: "<strong>Meniscus repair</strong> is preferred in younger patients (<40), acute tears, peripheral tears in the vascular zone, and vertical longitudinal tears. Repair preserves the meniscus, protecting against future arthritis. Success rates are 70-90% for appropriate repairs."
+      answer: "<strong>Meniscus repair</strong> is preferred in younger patients (<40), acute tears, peripheral tears in the vascular zone, and vertical longitudinal tears. Repair preserves the meniscus, protecting against future arthritis. Whether a repair holds depends on where the tear sits: the outer third has a blood supply and can heal, the inner third largely cannot."
     },
     {
       question: "What is the recovery time for meniscus surgery?",
@@ -1995,8 +2007,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Recovery varies by ligament. <strong>ACL reconstruction: 6-9 months</strong> for return to sports. Multi-ligament reconstruction: 9-12 months. MCL repair: 3-4 months. Early rehabilitation focuses on motion and preventing arthrofibrosis, followed by progressive strengthening."
     },
     {
-      question: "What are the success rates of knee ligament surgery?",
-      answer: "Success rates are generally high. <strong>ACL reconstruction: 85-95% return to sports</strong>. MCL healing with bracing: 90%+. Multi-ligament reconstruction: 70-85% good outcomes but higher complication rates. Graft choice, technique, and rehabilitation compliance affect outcomes."
+      question: "What affects the outcome of knee ligament surgery?",
+      answer: "Graft choice, technique, and rehabilitation compliance affect outcomes, and multi-ligament injuries are less predictable than isolated ones."
     },
     {
       question: "Can you play sports after knee ligament surgery?",
@@ -2022,7 +2034,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "Is PCL reconstruction as successful as ACL reconstruction?",
-      answer: "PCL reconstruction is <strong>technically more challenging</strong> with slightly lower success rates (75-85% vs 90-95% for ACL). The PCL's different anatomy, biomechanics, and healing environment make reconstruction more complex. However, modern techniques have improved outcomes significantly."
+      answer: "PCL reconstruction is <strong>technically more challenging</strong> and less predictable than ACL reconstruction. The PCL's different anatomy, biomechanics, and healing environment make reconstruction more complex. However, modern techniques have improved outcomes significantly."
     }
   ],
   "knee-cartilage-restoration": [
@@ -2043,8 +2055,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Recovery varies by procedure. <strong>Microfracture: 4-6 months</strong>. OATS: 6-9 months. ACI/MACI: 9-12 months. All require initial protected weight-bearing (6-8 weeks) and CPM machine use. Full maturation of repair tissue takes 12-18 months."
     },
     {
-      question: "What are the success rates of cartilage restoration?",
-      answer: "Success rates vary. <strong>Microfracture: 60-80% at 2 years</strong>, declining after 5 years. OATS: 75-90% good results. ACI/MACI: 70-85% at 5-10 years. Outcomes depend on defect characteristics, patient age, BMI, and activity modification compliance."
+      question: "What determines whether cartilage restoration works?",
+      answer: "Four things drive it, and they matter more than which technique is chosen. <strong>Defect size and depth</strong> — small contained lesions do better than large or uncontained ones. <strong>Whether the joint is otherwise healthy</strong> — restoration does not work in a knee with established arthritis. <strong>Limb alignment</strong> — if the knee is malaligned the repaired surface is loaded abnormally and will fail, which is why an osteotomy is sometimes done at the same time. And <strong>whether the patient can protect the repair</strong> during the months it takes to mature. Microfracture relies on marrow cells forming fibrocartilage, which is mechanically weaker than the original surface; OATS and ACI/MACI aim to restore true hyaline-like cartilage and are generally reserved for larger defects."
     }
   ],
   "knee-osteotomy": [
@@ -2084,7 +2096,7 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
     },
     {
       question: "What are the risks of revision knee replacement?",
-      answer: "Revision surgery has <strong>higher complication rates</strong> than primary surgery including infection (3-5%), stiffness, instability, nerve injury, blood loss, prolonged recovery, and re-revision risk. Success rates are 80-90%, lower than primary replacement's 95%."
+      answer: "Revision surgery has <strong>higher complication rates</strong> than primary surgery including infection (3-5%), stiffness, instability, nerve injury, blood loss, prolonged recovery, and re-revision risk. Results are generally less predictable than a primary replacement, because bone stock is reduced, the soft-tissue envelope has already been operated on, and the implant often has to be larger or more constrained."
     },
     {
       question: "Can you have multiple knee revision surgeries?",
@@ -2149,8 +2161,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Recovery varies by tear location. <strong>Bankart repair: 4-6 months</strong> for return to sports. SLAP repair: 6-9 months due to biceps tendon involvement. Patients wear a sling for 4-6 weeks. Rehabilitation progresses from motion to strengthening."
     },
     {
-      question: "What is the success rate of shoulder labral repair?",
-      answer: "Success rates are high for appropriate indications. <strong>Bankart repair: 85-95% stability restoration</strong>. SLAP repair outcomes are more variable (70-80% good results) depending on patient age, sport, and tear pattern. Young contact athletes have higher re-injury risk."
+      question: "What affects the outcome of shoulder labral repair?",
+      answer: "Outcomes depend on patient age, sport, and tear pattern, and SLAP repairs are more variable than Bankart repairs. Young contact athletes have higher re-injury risk."
     },
     {
       question: "What are the complications of labral repair surgery?",
@@ -2197,8 +2209,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Recovery takes <strong>6 to 9 months</strong> for return to contact sports. Patients wear a sling for 4-6 weeks. Rehabilitation progresses cautiously to avoid re-injury. Strengthening begins at 3 months. Full contact sports clearance requires 6-9 months with functional testing."
     },
     {
-      question: "What is the success rate of shoulder stabilization surgery?",
-      answer: "<strong>Arthroscopic Bankart repair: 85-95% stability</strong> in first-time surgery. Latarjet procedure: 90-95% even with bone loss. Revision surgery has lower success (70-80%). Young contact athletes (<20 years) have higher re-dislocation risk (10-15%)."
+      question: "What affects the outcome of shoulder stabilization surgery?",
+      answer: "Bone loss on the glenoid is the main technical factor, and is why the Latarjet procedure is chosen over an arthroscopic Bankart repair in some patients. Revision surgery is less predictable than first-time surgery, and young contact athletes have higher re-dislocation risk."
     }
   ],
   "acromioplasty": [
@@ -2215,8 +2227,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Recovery takes <strong>3 to 6 months</strong> for full return to activities. Patients typically avoid overhead activities for 6 weeks. Rehabilitation begins immediately with motion, progressing to rotator cuff strengthening. Most patients return to work in 2-4 weeks."
     },
     {
-      question: "What is the success rate of acromioplasty?",
-      answer: "Success rates vary widely. <strong>Properly selected patients: 70-85% satisfaction</strong>. Outcomes are best when combined with rotator cuff repair if tears exist. Isolated acromioplasty for impingement without tears has more variable results, with some studies questioning its efficacy."
+      question: "When does acromioplasty actually help?",
+      answer: "This is one of the more debated procedures in shoulder surgery, and it is worth being straight about that. It is most defensible when performed <strong>alongside a rotator cuff repair</strong>, where removing the impinging bone protects the repair. Performed in isolation for impingement with no cuff tear, the evidence is genuinely mixed, and several trials have questioned whether it outperforms structured non-operative care. If it is being offered on its own, ask what specifically is expected to change."
     },
     {
       question: "Is acromioplasty still recommended?",
@@ -2281,8 +2293,8 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       answer: "Duration varies by type and medication used. <strong>Diagnostic blocks (local anesthetic only): hours</strong>. Therapeutic blocks (with steroid): weeks to months. Radiofrequency ablation following successful blocks provides 6-12+ months relief. Some patients need repeat procedures."
     },
     {
-      question: "What is the success rate of nerve blocks?",
-      answer: "<strong>Success rates vary by condition: 60-90%</strong> depending on accurate diagnosis and block type. Medial branch blocks for facet pain: 70-80% response. Selective nerve root blocks: 50-75%. Blocks work best when pain has a clear nerve distribution."
+      question: "What determines whether a nerve block works?",
+      answer: "Accuracy of the diagnosis matters more than the injection itself. A block works when the structure being anaesthetised is genuinely the pain generator, which is why blocks are often used <strong>diagnostically</strong> before anything more definitive is planned. Pain that follows a clear nerve distribution responds more predictably than diffuse pain, and a block that gives no relief is itself useful information — it tells the surgeon the target was wrong."
     },
     {
       question: "Are nerve blocks safe?",
@@ -2332,7 +2344,271 @@ export const treatmentFAQs: Record<string, FAQItem[]> = {
       question: "How long does an athletic evaluation take?",
       answer: "Comprehensive evaluations typically take <strong>45-90 minutes</strong> depending on sport and complexity. Functional testing, movement screening, and discussion of findings are included. Follow-up may include detailed training recommendations and communication with coaches or trainers."
     }
-  ]
+  ],
+
+  // Adult Scoliosis Surgery
+  // NOTE: an insurance-coverage FAQ for this page is drafted but withheld pending
+  // internal approval - see docs/seo/PENDING-temur-insurance-faq-adult-scoliosis-surgery.md
+  "adult-scoliosis-surgery": [
+    {
+      question: "What degree of scoliosis requires surgery in adults?",
+      answer: "There is no single number that decides this. In adults, surgeons weigh <strong>whether the curve is progressing</strong> across imaging taken over time, <strong>whether nerves are being compressed</strong>, and <strong>whether you can still stand and walk in balance</strong> - alongside how much the condition limits your daily life. Large curves are regularly managed without surgery when they are stable and symptoms are controlled, and smaller curves sometimes do need surgery when they are causing significant nerve compression or have thrown the trunk out of balance. The measurement describes the curve; your symptoms and function decide the treatment."
+    },
+    {
+      question: "Is adult scoliosis surgery dangerous? What are the risks?",
+      answer: "Adult deformity correction is <strong>major spine surgery and carries real risks</strong>, and any surgeon who tells you otherwise is not being straight with you. Recognised risks include infection, bleeding, dural tear, nerve injury, blood clots, hardware loosening or breakage, and <strong>pseudarthrosis</strong> - a fusion that does not fully heal and may need <a href=\"/treatments/revision-spinal-surgery\">revision surgery</a>. Risk is higher with more levels fused, in patients with poor bone quality, and in those who use nicotine. It is reduced by careful patient selection, continuous neuromonitoring during the operation, and treating bone health and other medical conditions before surgery rather than after. These risks are weighed against what happens if a progressing deformity is left alone - your surgeon should walk you through both sides for your specific case."
+    },
+    {
+      question: "How long does adult scoliosis surgery take?",
+      answer: "It depends entirely on how much is being corrected. A limited decompression with a short fusion is a considerably shorter operation than a multi-level reconstruction that rebuilds standing alignment. <strong>Longer reconstructions are sometimes staged across two separate sittings</strong> rather than performed in one, when that is the safer choice. Your surgeon can give you an expected operative time once the plan and the number of levels are settled."
+    },
+    {
+      question: "How long is recovery from adult scoliosis surgery?",
+      answer: "Expect a <strong>hospital stay of several days</strong>, with supervised walking starting early rather than after prolonged bed rest. The first several weeks are about protecting the correction - no bending, lifting, or twisting - after which activity is progressed gradually. <strong>Bony fusion is confirmed on imaging over roughly 6-12 months</strong>, and that is when the correction is considered durable rather than simply held by the hardware. Relief in leg symptoms is often noticed well before then, because nerve decompression takes effect long before the fusion finishes healing. Recovery from a deformity correction is longer than from a single-level fusion; specific timelines depend on your reconstruction."
+    },
+    {
+      question: "Can adult scoliosis be fixed without surgery?",
+      answer: "For many adults, yes - in the sense that symptoms can be controlled without an operation, which is the realistic goal. Most adults with a degenerative curve are managed with <a href=\"/treatments/epidural-steroid-injection\">injections</a>, activity modification, and monitoring, and never need surgery. What non-surgical care cannot do is <strong>straighten an established adult curve</strong>: it manages symptoms and can slow the functional decline, but it does not reverse the deformity. Surgery becomes the subject when the curve is measurably progressing, when nerve compression has stopped responding to conservative care, or when balance has been lost. See <a href=\"/conditions/adult-degenerative-scoliosis\">adult degenerative scoliosis</a> for the non-surgical options in detail."
+    },
+    {
+      question: "Should I try physical therapy or a chiropractor first?",
+      answer: "Many adults have already tried physical therapy, chiropractic care, or bracing before they reach a surgical consultation, and those approaches can help some people manage pain and stay active - though none of them straightens an established adult curve. <strong>Mountain Spine &amp; Orthopedics does not provide physical therapy or chiropractic care</strong>, so we have no stake in steering you toward or away from either. What matters for this page is the pivot point: when a curve is measurably progressing on repeat imaging, when leg symptoms from nerve compression are not settling, or when you can no longer stand or walk in balance, a <a href=\"/find-care/book-an-appointment\">surgical evaluation</a> is reasonable regardless of what conservative care you have already had."
+    },
+    {
+      question: "How much does adult scoliosis surgery cost?",
+      answer: "Cost varies too widely for a single figure to be honest, because it tracks the size of the operation rather than the diagnosis. The main drivers are <strong>how many levels are treated</strong>, <strong>which approaches are used</strong> (a limited decompression and short fusion versus a multi-level reconstruction), the implants required, the length of the hospital stay, and whether the procedure is staged. Anyone quoting you a firm price before your imaging has been reviewed and a plan has been made is guessing. Our team can walk you through a personalised estimate once your surgical plan is defined - <a href=\"/find-care/book-an-appointment\">schedule a consultation</a> to start that conversation."
+    }
+  ],
+  // ankle-fracture-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "ankle-fracture-surgery": [
+    {
+      question: "Does every broken ankle need surgery?",
+      answer: "No. A stable fracture in a well-aligned ankle is often treated in a boot or cast with weight-bearing guided by follow-up X-rays. Surgery is recommended when the fracture is displaced, the ankle joint is unstable, or the <strong>syndesmosis</strong> - the ligament complex joining the tibia and fibula - has been disrupted, because a joint that heals out of position wears out early."
+    },
+    {
+      question: "What is actually done during ankle fracture surgery?",
+      answer: "The procedure is called <strong>open reduction and internal fixation (ORIF)</strong>: the broken pieces are realigned under direct vision and held with small plates and screws so the joint surface heals in the correct position. If the syndesmosis is unstable, it is fixed with a screw or a flexible suture-button device at the same time."
+    },
+    {
+      question: "When can I put weight on the ankle after surgery?",
+      answer: "Most patients are non-weight-bearing for roughly <strong>6 weeks</strong> while the bone unites, then progress into a walking boot as follow-up X-rays confirm healing. The exact timeline depends on the fracture pattern, the fixation, and bone quality, and is set at your follow-up visits rather than by the calendar."
+    },
+    {
+      question: "Will the plates and screws need to come out?",
+      answer: "Usually not - most hardware stays in permanently without causing problems. Removal is considered when a syndesmosis screw is due to come out, or when hardware over the bone irritates footwear or skin after everything has healed."
+    },
+    {
+      question: "How long does swelling last after ankle surgery?",
+      answer: "Longer than most patients expect: mild swelling at the end of a full day can persist for <strong>6 to 12 months</strong> after an ankle fracture. Elevation, compression, and a gradual return to activity manage it while the soft tissues remodel."
+    },
+  ],
+  // foot-fracture-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "foot-fracture-surgery": [
+    {
+      question: "Which foot fractures usually need surgery?",
+      answer: "Fractures that are displaced, involve a joint surface, or sit in zones with poor blood supply. Classic examples are a displaced <strong>Jones fracture</strong> of the fifth metatarsal, a <strong>Lisfranc injury</strong> of the midfoot, and displaced fractures of the great toe or heel bone - injuries where healing in the wrong position leads to arthritis or a foot that no longer bears weight evenly."
+    },
+    {
+      question: "What happens if a Lisfranc injury is missed or left alone?",
+      answer: "The midfoot joints it involves are the keystone of the arch. When a Lisfranc injury heals unstably, the arch can collapse and painful midfoot arthritis often follows - which is why even subtle cases are examined with weight-bearing X-rays and treated surgically when unstable."
+    },
+    {
+      question: "How is a foot fracture fixed?",
+      answer: "Depending on the bone and pattern: small screws or plates for metatarsal and midfoot fractures, screws or pins for toe fractures, and occasionally fusion of damaged joints in severe midfoot injuries. The goal is a foot that bears weight through its normal points of contact."
+    },
+    {
+      question: "How long until I can walk normally?",
+      answer: "A period of protected weight-bearing in a boot or cast - commonly <strong>6 to 10 weeks</strong> depending on the bone involved - followed by a staged return to regular shoes. High-impact activity waits until imaging confirms union and the foot tolerates single-leg load."
+    },
+    {
+      question: "What can slow a foot fracture's healing?",
+      answer: "Smoking, poorly controlled diabetes, and early unprotected weight-bearing are the main modifiable factors. Certain sites - the fifth metatarsal base and the navicular - also have naturally limited blood supply, which is exactly why fractures there are watched more closely and fixed more readily."
+    },
+  ],
+  // flat-foot-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "flat-foot-surgery": [
+    {
+      question: "When does a flat foot actually need surgery?",
+      answer: "When a symptomatic collapsed arch keeps hurting despite a genuine trial of conservative care - supportive shoes, custom orthotics, bracing, and activity changes. Surgery is a reconstruction, not a cosmetic correction: it is for pain and dysfunction, most often from a failing <strong>posterior tibial tendon</strong>, not for the shape of the foot alone."
+    },
+    {
+      question: "What does flat foot reconstruction involve?",
+      answer: "It is usually a combination procedure matched to the stage of the deformity: transferring a healthy tendon to replace the worn posterior tibial tendon, an <strong>osteotomy</strong> that shifts the heel bone back under the leg's axis, and sometimes a lateral column lengthening. Rigid, arthritic flatfeet are treated instead with selective fusion of the damaged joints."
+    },
+    {
+      question: "How long is recovery after flatfoot reconstruction?",
+      answer: "It is one of the longer foot recoveries: typically <strong>6 to 8 weeks</strong> without weight on the foot while the osteotomies and tendon transfer heal, then a boot and progressive loading. Most patients are in supportive shoes by around three months and continue gaining strength for a year."
+    },
+    {
+      question: "Will my arch look and work like a normal foot afterward?",
+      answer: "The goal is a foot that is plantigrade - flat on the ground, aligned under the leg, and comfortable to stand and walk on. The arch is improved as a consequence of realignment; chasing a cosmetic arch height at the cost of stiffness would be the wrong trade."
+    },
+    {
+      question: "What happens if a symptomatic flatfoot is left untreated?",
+      answer: "The deformity tends to progress: the tendon stretches further, the heel drifts outward, and what begins as a flexible, correctable foot can become a rigid one with arthritis - at which point joint-sparing reconstruction is no longer possible and fusion becomes the remaining option."
+    },
+  ],
+  // mortons-neuroma-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "mortons-neuroma-surgery": [
+    {
+      question: "What does Morton's neuroma surgery actually remove?",
+      answer: "The most common operation, a <strong>neurectomy</strong>, removes the thickened segment of the interdigital nerve between the metatarsal heads - usually between the third and fourth toes. An alternative for selected cases is decompression, which releases the ligament pressing on the nerve and leaves the nerve in place."
+    },
+    {
+      question: "Will part of my foot be numb afterward?",
+      answer: "After a neurectomy, yes - permanent numbness between the two affected toes is the expected trade for removing the painful nerve segment. Most patients consider that a good exchange for relief of the burning, walking-on-a-pebble pain, but it is a real trade-off worth understanding before choosing surgery."
+    },
+    {
+      question: "When is surgery considered instead of injections?",
+      answer: "After conservative care has had a fair trial: wider toe-box shoes, metatarsal padding or orthotics, and image-guided <strong>corticosteroid injections</strong>. Surgery is for neuromas that keep interfering with daily life despite those measures - not a first step."
+    },
+    {
+      question: "What is the recovery like?",
+      answer: "Most patients walk in a stiff-soled surgical shoe immediately or within days, transition to comfortable shoes over <strong>2 to 4 weeks</strong>, and return to impact activity around six weeks as swelling settles. It is one of the shorter foot-surgery recoveries."
+    },
+    {
+      question: "Can a neuroma come back after surgery?",
+      answer: "A cut nerve end can occasionally form a painful <strong>stump neuroma</strong>, which is the main reason recurrent symptoms appear after an initially successful operation. Careful surgical technique - cutting the nerve well back from the weight-bearing pad - is aimed specifically at reducing that risk."
+    },
+  ],
+  // plantar-fasciitis-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "plantar-fasciitis-surgery": [
+    {
+      question: "Why is surgery a last resort for plantar fasciitis?",
+      answer: "Because the large majority of cases settle without it, given time and consistent conservative care - calf and fascia stretching, heel padding or orthotics, activity modification, night splinting, and injections where appropriate. Surgery enters the conversation only after many months of genuinely persistent, function-limiting pain."
+    },
+    {
+      question: "What operations are used for stubborn plantar fasciitis?",
+      answer: "The two main options are a <strong>partial plantar fascia release</strong>, which divides a portion of the tight fascia at its heel attachment, and a <strong>gastrocnemius recession</strong>, which lengthens a tight calf muscle that overloads the fascia. Calf tightness is checked specifically, because when it is the driver, treating the calf addresses the cause rather than the symptom."
+    },
+    {
+      question: "Why is only part of the fascia released?",
+      answer: "The plantar fascia is a structural support of the arch. Releasing too much of it can let the arch sag and shift painful overload to the outer edge of the foot - so the release is deliberately partial, trading a small amount of tension for pain relief while preserving arch stability."
+    },
+    {
+      question: "What is recovery like after plantar fascia release?",
+      answer: "Early protected walking in a boot or surgical shoe, a return to regular shoes over a few weeks, and a gradual buildup of standing and walking tolerance over <strong>6 to 12 weeks</strong>. Soreness along the arch during that window is common while load redistributes."
+    },
+    {
+      question: "How do I know the pain is really plantar fasciitis before agreeing to surgery?",
+      answer: "The evaluation deliberately excludes the mimics: fat pad atrophy, a calcaneal <strong>stress fracture</strong>, nerve entrapment (Baxter's nerve), and inflammatory conditions can all present as heel pain. Imaging and examination confirm the diagnosis first, because surgery for the wrong heel-pain diagnosis helps no one."
+    },
+  ],
+  // diabetic-foot-care (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "diabetic-foot-care": [
+    {
+      question: "Why do diabetic feet need a specialist rather than routine care?",
+      answer: "Diabetes can quietly combine three problems: <strong>neuropathy</strong> that mutes the pain warning system, narrowed arteries that slow healing, and skin or nail changes that open the door to infection. Small problems that a healthy foot would announce loudly can progress silently, which is why scheduled specialist surveillance matters."
+    },
+    {
+      question: "What does a diabetic foot evaluation include?",
+      answer: "Testing protective sensation with monofilaments, checking circulation and pulses, inspecting pressure points, calluses, and nails, and reviewing footwear. The output is practical: identifying the specific spots on your feet at risk of breaking down and intervening - padding, offloading, footwear changes, or nail and callus care - before an ulcer forms."
+    },
+    {
+      question: "When should a person with diabetes seek foot care urgently?",
+      answer: "The same day for any new wound, blister, or drainage; for redness, warmth, or swelling - especially a hot, swollen foot without much pain, which can signal <strong>Charcot arthropathy</strong>; and for any dark or black area of skin. With diabetic feet, waiting is the most expensive decision."
+    },
+    {
+      question: "What is Charcot foot and why is it an emergency?",
+      answer: "Charcot arthropathy is progressive collapse of the foot's architecture in a neuropathic foot - the bones fracture and the joints dislocate while the muted nerves report little pain. Caught early, it is treated with strict offloading in a total-contact cast; missed, it can deform the foot into a shape that ulcerates over new pressure points."
+    },
+    {
+      question: "Can surgery help a diabetic foot?",
+      answer: "Selectively, yes: correcting deformities that create ulcer-prone pressure points, debriding infected tissue, stabilizing Charcot collapse, and addressing tendon imbalances. Surgery is one tool inside a prevention-first program - the measure of success is a foot that stays intact and walking."
+    },
+  ],
+  // achilles-tendon-repair (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "achilles-tendon-repair": [
+    {
+      question: "Does a ruptured Achilles always need surgery?",
+      answer: "No - this is a genuine decision point. Selected ruptures do well with functional non-operative care in a boot with heel wedges and an early, carefully staged loading protocol. Repair is generally favored for younger, more active patients, larger tendon gaps, and delayed presentations; the right choice depends on your tendon, timeline, and goals."
+    },
+    {
+      question: "What does the repair involve?",
+      answer: "The torn tendon ends are stitched back together at the correct length - through a traditional open incision or a <strong>minimally invasive percutaneous</strong> technique using small stab incisions and a suture-passing device. Restoring accurate tendon length matters because a tendon healed too long permanently weakens push-off strength."
+    },
+    {
+      question: "What is the recovery timeline after Achilles repair?",
+      answer: "Typically: a splint or boot with heel wedges early, protected weight-bearing beginning within the first couple of weeks, wedges removed in stages as the tendon lengthens toward neutral, and out of the boot around <strong>8 to 12 weeks</strong>. Strength work continues well beyond that - the calf takes months to rebuild."
+    },
+    {
+      question: "When can I run or play sports again?",
+      answer: "Return to running is commonly around <strong>4 to 6 months</strong> and return to cutting or jumping sports later than that, guided by calf strength benchmarks - such as single-leg heel raises - rather than dates alone. Rushing this stage is the classic error after an otherwise good repair."
+    },
+    {
+      question: "What raises the risk of re-rupture?",
+      answer: "The most dangerous window is the early months, when the healing tendon feels better than it is: a sudden push-off, a slip on stairs, or abandoning the boot early are the classic mechanisms. Following the staged protocol precisely is the single most controllable protective factor."
+    },
+  ],
+  // heel-pain-treatment (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "heel-pain-treatment": [
+    {
+      question: "Is heel pain always plantar fasciitis?",
+      answer: "No - and this is exactly what the evaluation sorts out. Pain under the heel may be plantar fasciitis, <strong>fat pad atrophy</strong>, a calcaneal stress fracture, or entrapment of <strong>Baxter's nerve</strong>; pain at the back of the heel points instead to insertional Achilles tendinopathy or Haglund's deformity. Each is treated differently, so the label matters."
+    },
+    {
+      question: "Why does my heel hurt most with the first steps in the morning?",
+      answer: "Overnight, the plantar fascia rests in a shortened position; the first steps re-stretch it abruptly, which is the signature start-up pain of plantar fasciitis. Pain that instead worsens steadily through the day, or aches at rest, shifts suspicion toward the other heel-pain diagnoses."
+    },
+    {
+      question: "What does non-surgical heel pain treatment involve?",
+      answer: "Matched to the diagnosis: calf and plantar fascia stretching, heel cushioning or custom orthotics, activity and footwear changes, night splinting, and <strong>image-guided injections</strong> where inflammation is the driver. Most heel pain responds to consistent conservative care over weeks to months."
+    },
+    {
+      question: "When should heel pain get imaging?",
+      answer: "When it is not behaving like simple plantar fasciitis: pain following a jump or fall, swelling with warmth, pain that wakes you at night, symptoms persisting despite weeks of proper care, or numbness and burning that suggest a nerve source. X-rays and MRI separate the fascia, bone, tendon, and nerve causes."
+    },
+    {
+      question: "Do heel spurs cause the pain?",
+      answer: "Usually not - a spur seen on X-ray is a bystander that grew from years of fascia traction, and many pain-free heels have one. Treatment targets the inflamed fascia and tight calf, not the spur, which is why spur removal alone is rarely the answer."
+    },
+  ],
+  // plantar-fasciitis-treatment (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "plantar-fasciitis-treatment": [
+    {
+      question: "How long does plantar fasciitis take to get better?",
+      answer: "Longer than most people hope but with good odds: the majority of cases improve substantially over <strong>3 to 9 months</strong> of consistent conservative care. The word that matters is consistent - stretching done daily beats any treatment done occasionally."
+    },
+    {
+      question: "Which stretches actually matter?",
+      answer: "Two targets: the calf - both with the knee straight and bent, because a tight <strong>gastrocnemius-soleus complex</strong> overloads the fascia with every step - and the plantar fascia itself, stretched by pulling the toes back before those first morning steps. Rolling the arch over a cold bottle helps symptoms; the stretching changes the mechanics."
+    },
+    {
+      question: "Do injections cure plantar fasciitis?",
+      answer: "A corticosteroid injection can calm a painful flare and is a reasonable tool, but it treats inflammation rather than the underlying overload, and repeated steroid injections into the heel carry a small risk of fascia rupture and fat pad thinning - so they are used sparingly, alongside the mechanical treatments rather than instead of them."
+    },
+    {
+      question: "Are orthotics and night splints worth it?",
+      answer: "Cushioned heel inserts or prefabricated orthotics help most people; custom orthotics earn their place for abnormal foot mechanics. A <strong>night splint</strong>, which holds the ankle from pointing down overnight, specifically targets severe morning pain - the patients with the worst first steps tend to benefit most."
+    },
+    {
+      question: "What if months of good conservative care have not worked?",
+      answer: "That is the point at which the diagnosis is re-examined - imaging to rule out a stress fracture or nerve entrapment - and the surgical conversation becomes reasonable: a partial fascia release, or a gastrocnemius recession when calf tightness is the driver. See our plantar fasciitis surgery page for what those involve."
+    },
+  ],
+  // hammertoe-surgery (Batch 2 content audit: replaces the generic templated FAQ schema)
+  "hammertoe-surgery": [
+    {
+      question: "What decides how a hammertoe is corrected?",
+      answer: "Whether the toe is still flexible. A flexible deformity can often be corrected by rebalancing soft tissue - releasing a tight tendon or transferring a flexor tendon to straighten the toe. A rigid, fixed hammertoe needs the buckled joint itself addressed, usually by removing a small segment of bone and <strong>fusing the middle joint</strong> straight."
+    },
+    {
+      question: "Will I have a pin sticking out of my toe?",
+      answer: "Sometimes: a temporary wire holding the toe straight for about <strong>3 to 6 weeks</strong> is a traditional and reliable method, removed in the office. Many corrections now use small implants buried inside the toe instead, which avoids the external pin - the choice depends on the joint and the correction needed."
+    },
+    {
+      question: "Can I walk after hammertoe surgery?",
+      answer: "Yes - most patients walk immediately in a stiff-soled <strong>post-operative shoe</strong>, bearing weight through the heel. Regular roomy shoes typically return around 4 to 6 weeks, once swelling allows, with the toe protected from bending stress in between."
+    },
+    {
+      question: "Why did my toe buckle in the first place?",
+      answer: "Almost always a muscle imbalance: the long tendons that curl the toe overpower the small muscles that keep it straight - accelerated by narrow or short footwear, a long second toe, a bunion crowding its neighbor, or an unstable joint at the base of the toe. Surgery that ignores a neighboring bunion often leaves the cause in place, so the whole forefoot is assessed."
+    },
+    {
+      question: "Can hammertoes come back after surgery?",
+      answer: "A fused joint stays straight, but neighboring toes can drift over time, and returning to cramped footwear reapplies exactly the forces that created the deformity. Roomy toe-box shoes afterward are not a suggestion - they are part of keeping the correction."
+    },
+  ],
 };
 
 // Helper: Generates generic FAQs for treatments if specific data is missing

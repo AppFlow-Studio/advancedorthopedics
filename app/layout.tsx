@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Reem_Kufi, Inter, Public_Sans } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import SkipLinks from "@/components/SkipLinks";
+import MotionPreferences from "@/components/MotionPreferences";
 import Footer from "@/components/Footer";
 import { MapProvider } from "@/providers/map-provider";
 import { GeolocationProvider } from "@/providers/geolocationcontext";
@@ -59,10 +61,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_URL),
     title: "Mountain Spine & Orthopedics",
-    description: "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Book today.",
+    description: "Multistate experts in spine and joint care across FL, NJ, NY, PA, and GA. Book today.",
     openGraph: {
       title: "Mountain Spine & Orthopedics",
-      description: "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Book today.",
+      description: "Multistate experts in spine and joint care across FL, NJ, NY, PA, and GA. Book today.",
       url: canonicalForOg('/'),
       siteName: "Mountain Spine & Orthopedics",
       type: "website",
@@ -79,7 +81,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "Mountain Spine & Orthopedics",
-      description: "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Book today.",
+      description: "Multistate experts in spine and joint care across FL, NJ, NY, PA, and GA. Book today.",
       images: [ogImage],
     },
     alternates: {
@@ -113,7 +115,7 @@ export default function RootLayout({
     "@id": "https://mountainspineorthopedics.com#website",
     "url": "https://mountainspineorthopedics.com/",
     "name": "Mountain Spine & Orthopedics",
-    "description": "Multistate experts in spine and joint care across FL, NJ, NY, and PA. Board-certified orthopedic surgeons specializing in minimally invasive spine surgery, joint replacement, and sports medicine.",
+    "description": "Multistate experts in spine and joint care across FL, NJ, NY, PA, and GA. Board-certified orthopedic surgeons specializing in minimally invasive spine surgery, joint replacement, and sports medicine.",
     "publisher": {
       "@id": "https://mountainspineorthopedics.com#medicalorganization"
     },
@@ -142,7 +144,7 @@ export default function RootLayout({
       "caption": "Mountain Spine & Orthopedics Logo"
     },
     "image": "https://mountainspineorthopedics.com/newlogo4.png",
-    "description": "Mountain Spine & Orthopedics provides expert orthopedic care across FL, NJ, NY, and PA, specializing in spine surgery, joint replacement, and minimally invasive procedures.",
+    "description": "Mountain Spine & Orthopedics provides expert orthopedic care across FL, NJ, NY, PA, and GA, specializing in spine surgery, joint replacement, and minimally invasive procedures.",
     "medicalSpecialty": [
       "Orthopedic Surgery",
       "Spine Surgery",
@@ -239,19 +241,6 @@ export default function RootLayout({
             });
           `}
         </Script>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXHSYV3NMD"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = window.gtag || function gtag(){dataLayer.push(arguments);}
-            window.gtag('js', new Date());
-            window.gtag('config', 'G-XXHSYV3NMD');
-          `}
-        </Script>
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
           {`
@@ -267,6 +256,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${ReemKufi.variable} ${inter.variable} ${publicSans.variable} antialiased  overscroll-none `}
         suppressHydrationWarning
       >
+        <SkipLinks />
         {/* WebSite Schema for Search Functionality */}
         <script
           type="application/ld+json"
@@ -279,16 +269,20 @@ export default function RootLayout({
         />
         <GclidCapture />
         <CookieConsentManager />
-        <TanstackProvider>
-          <NavBar />
-          <MapProvider>
-            <GeolocationProvider>
-              {children}
-              <Footer />
-              <DelayedLocationPopup delayInSeconds={8} />
-            </GeolocationProvider>
-          </MapProvider>
-        </TanstackProvider>
+        <MotionPreferences>
+          <TanstackProvider>
+            <NavBar />
+            <MapProvider>
+              <GeolocationProvider>
+                <div id="main-content" tabIndex={-1}>
+                  {children}
+                </div>
+                <Footer />
+                <DelayedLocationPopup delayInSeconds={8} />
+              </GeolocationProvider>
+            </MapProvider>
+          </TanstackProvider>
+        </MotionPreferences>
       </body>
     </html>
   );

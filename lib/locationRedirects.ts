@@ -27,7 +27,7 @@ export const LEGACY_LOCATION_REDIRECTS: Record<string, LocationRedirectMapping> 
   'orlando-orthopedics': { state: 'florida', location: 'orlando-orthopedics' },
   'fort-pierce-orthopedics': { state: 'florida', location: 'fort-pierce-orthopedics' },
   'palm-beach-gardens-orthopedics': { state: 'florida', location: 'palm-beach-gardens-orthopedics' },
-  'miami-beach-orthopedics': { state: 'florida', location: 'miami-beach-orthopedics' },
+  'miami-beach-orthopedics': { state: 'florida', location: 'south-miami-orthopedics' },
   'boca-raton-orthopedics': { state: 'florida', location: 'boca-raton-orthopedics' },
   'altamonte-springs-orthopedics': { state: 'florida', location: 'altamonte-springs-orthopedics' },
   'davenport-orthopedics': { state: 'florida', location: 'davenport-orthopedics' },
@@ -139,12 +139,17 @@ export const STATE_METADATA: Record<string, { name: string; abbr: string; descri
     abbr: 'PA',
     description: 'Expert orthopedic and spine care across Pennsylvania. Find a Mountain Spine & Orthopedics clinic near you.',
   },
+  georgia: {
+    name: 'Georgia',
+    abbr: 'GA',
+    description: 'Expert orthopedic and spine care in Georgia. Find a Mountain Spine & Orthopedics clinic near you.',
+  },
 };
 
 /**
  * Valid state slugs for validation
  */
-export const VALID_STATE_SLUGS = ['florida', 'new-jersey', 'new-york', 'pennsylvania'] as const;
+export const VALID_STATE_SLUGS = ['florida', 'new-jersey', 'new-york', 'pennsylvania', 'georgia'] as const;
 
 /**
  * Check if a state slug is valid

@@ -1,6 +1,6 @@
+import { selectRelevantProviders, AREA_DOMAINS } from "@/lib/providers/providerRelevance";
 import { conditions } from '@/components/data/conditions'
 import { conditions as painconditions } from '@/components/data/painconditions'
-import { getVisibleProviders } from '@/lib/providers/providerVisibility'
 import { PainAreaTreatments } from '@/components/data/painareatreatments'
 import { notFound } from 'next/navigation'
 import { PainAreaClient } from './PainAreaClient'
@@ -12,14 +12,6 @@ export async function generateStaticParams() {
   return allSlugs.map((PainArea) => ({ PainArea }))
 }
 
-function shuffleArray(array: any[]) {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
 
 export default async function PainArea({ params }: { params: Promise<{ PainArea: string }> }) {
   const { PainArea } = await params;
@@ -45,7 +37,7 @@ export default async function PainArea({ params }: { params: Promise<{ PainArea:
   // Get specialty slugs for cross-linking
   specialtySlugs = conditions.map(x => x.slug);
 
-  const randomDoctors = shuffleArray(getVisibleProviders()).slice(0, 2);
+  const randomDoctors = selectRelevantProviders({ slug: PainArea, domains: AREA_DOMAINS.neckAndShoulderPain });
 
   return <PainAreaClient condition_details={condition_details} randomDoctors={randomDoctors} specialtySlugs={specialtySlugs} />;
 }

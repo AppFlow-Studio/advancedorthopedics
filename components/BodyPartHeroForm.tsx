@@ -5,17 +5,47 @@ import { Phone, User, ArrowRight, CheckCircle, Loader2, Mail, ChevronDown, Shiel
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { pushFormSubmit } from '@/utils/enhancedConversions';
-import { getAttributionData } from '@/lib/gclid';
+import { pushAcceptedLead } from '@/utils/enhancedConversions';
+import { EMPTY_ATTRIBUTION, getAttributionData } from '@/lib/gclid';
 import { formatPhoneInput } from '@/lib/phone-formatter';
 import { STATE_OPTIONS } from '@/lib/stateUtils';
 import { appendPreparedUploads } from '@/lib/client-upload';
+import type { FormSource } from '@/lib/lead-contract';
 
 interface BodyPartHeroFormProps {
   bodyPartTitle: string;
+  /**
+   * Attribution bucket for this placement. Defaults to the organic body-part
+   * pages this form was built for; paid landing pages pass "paid-landing" so
+   * their leads are separable without any condition detail leaving first party.
+   */
+  formSource?: FormSource;
+  /** Overrides the default `${bodyPartTitle} Body Part Page` source label. */
+  sourceLabel?: string;
+  /**
+   * Namespaces the two file-input ids so a page can mount this form twice
+   * (e.g. the LP hero card plus its desktop popover) without duplicate ids
+   * breaking the label-for associations.
+   */
+  idSuffix?: string;
+  /**
+   * When true, a click anywhere on the page on an element carrying
+   * data-open-evaluation opens the FULL consultation dialog directly —
+   * desktop (≥1024px) only. Below that the element's default behavior
+   * (anchor scroll to this compact form) is kept, because the two-field
+   * form is the lower-friction mobile path. Give this to exactly one
+   * instance per page.
+   */
+  openDialogOnCtaClick?: boolean;
 }
 
-export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProps) {
+export default function BodyPartHeroForm({
+  bodyPartTitle,
+  formSource = 'body-part-consultation',
+  sourceLabel,
+  idSuffix = '',
+  openDialogOnCtaClick = false,
+}: BodyPartHeroFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -34,13 +64,28 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
   const [error, setError] = useState('');
   const [showDialog, setShowDialog] = useState(false);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' });
+  const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION);
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
 
   useEffect(() => {
     setAttribution(getAttributionData());
   }, []);
+
+  // Desktop LP CTAs open the full dialog directly: beside the hero the compact
+  // form is already visible, so an anchor jump there reads as a dead click.
+  useEffect(() => {
+    if (!openDialogOnCtaClick) return;
+    const onCtaClick = (e: MouseEvent) => {
+      const trigger = (e.target as Element | null)?.closest('[data-open-evaluation]');
+      if (!trigger) return;
+      if (!window.matchMedia('(min-width: 1024px)').matches) return;
+      e.preventDefault();
+      setShowDialog(true);
+    };
+    document.addEventListener('click', onCtaClick);
+    return () => document.removeEventListener('click', onCtaClick);
+  }, [openDialogOnCtaClick]);
 
   // Handle scroll indicator visibility
   useEffect(() => {
@@ -121,8 +166,17 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
       payload.append('state', formData.state);
       payload.append('country', 'US');
       payload.append('painArea', bodyPartTitle);
-      payload.append('source', `${bodyPartTitle} Body Part Page`);
+      payload.append('source', sourceLabel ?? `${bodyPartTitle} Body Part Page`);
       payload.append('gclid', attribution.gclid);
+      payload.append('gbraid', attribution.gbraid);
+      payload.append('wbraid', attribution.wbraid);
+      payload.append('form_source', formSource);
+      // Paid-LP submissions carry their pathname so per-LP conversion rate can
+      // be computed in Supabase. Deliberately NOT sent for organic form sources,
+      // and never added to the GA4 payload (see tests/measurement-contract.test.ts).
+      if (formSource === 'paid-landing') {
+        payload.append('landing_path', window.location.pathname);
+      }
       payload.append('utm_source', attribution.utm_source);
       payload.append('utm_medium', attribution.utm_medium);
       payload.append('utm_campaign', attribution.utm_campaign);
@@ -161,7 +215,8 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
         throw new Error('Submission failed');
       }
 
-      pushFormSubmit({ form_name: 'BodyPartHeroForm', state: formData.state, email: formData.email, phone: formData.phone, firstName: formData.firstName, lastName: formData.lastName, postalCode: formData.postalCode });
+      const accepted = await pushAcceptedLead({ acceptance: res, form_name: 'BodyPartHeroForm', form_source: formSource, state: formData.state, email: formData.email, phone: formData.phone, firstName: formData.firstName, lastName: formData.lastName, postalCode: formData.postalCode });
+      if (!accepted) throw new Error('Submission was not persisted');
 
       setShowDialog(false);
       setIsSubmitted(true);
@@ -230,6 +285,9 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
             </div>
             <input
               type="text"
+              name="firstName"
+              autoComplete="given-name"
+              aria-label="Your name"
               placeholder="Your Name"
               value={formData.firstName}
               onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
@@ -245,6 +303,10 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
             </div>
             <input
               type="tel"
+              name="phone"
+              autoComplete="tel"
+              inputMode="tel"
+              aria-label="Phone number"
               placeholder="Phone Number"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })}
@@ -487,7 +549,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
                     <span className="text-xs text-gray-500 font-normal">(Optional)</span>
                   </label>
                   <label
-                    htmlFor="insurance-front-bodypart"
+                    htmlFor={`insurance-front-bodypart${idSuffix}`}
                     className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
                   >
                     <input
@@ -495,7 +557,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
                       accept="image/*,.pdf"
                       onChange={(e) => setFormData({ ...formData, insuranceCardFront: e.target.files?.[0] || null })}
                       className="hidden"
-                      id="insurance-front-bodypart"
+                      id={`insurance-front-bodypart${idSuffix}`}
                     />
                     <FileImage className="w-6 h-6 mb-1 text-[#838890]" />
                     <p className="text-xs text-[#111315]">
@@ -517,7 +579,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
                     <span className="text-xs text-gray-500 font-normal">(Optional)</span>
                   </label>
                   <label
-                    htmlFor="insurance-back-bodypart"
+                    htmlFor={`insurance-back-bodypart${idSuffix}`}
                     className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-[#DCDEE1] rounded-lg cursor-pointer bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors"
                   >
                     <input
@@ -525,7 +587,7 @@ export default function BodyPartHeroForm({ bodyPartTitle }: BodyPartHeroFormProp
                       accept="image/*,.pdf"
                       onChange={(e) => setFormData({ ...formData, insuranceCardBack: e.target.files?.[0] || null })}
                       className="hidden"
-                      id="insurance-back-bodypart"
+                      id={`insurance-back-bodypart${idSuffix}`}
                     />
                     <FileImage className="w-6 h-6 mb-1 text-[#838890]" />
                     <p className="text-xs text-[#111315]">

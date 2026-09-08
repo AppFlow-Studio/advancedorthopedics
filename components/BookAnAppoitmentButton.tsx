@@ -23,12 +23,13 @@ import BookAnAppointmentClient from "./BookAnAppointmentClient"
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-import { pushAppointmentCtaClick, pushFormSubmit } from "@/utils/enhancedConversions"
+import { pushAppointmentCtaClick, pushAcceptedLead } from "@/utils/enhancedConversions"
 import { STATE_OPTIONS, slugFromPathname, normalizeState } from "@/lib/stateUtils"
-import { getAttributionData } from "@/lib/gclid"
+import { EMPTY_ATTRIBUTION, getAttributionData } from "@/lib/gclid"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { FileUpload } from './ui/file-upload'
 import { appendPreparedUploads } from "@/lib/client-upload"
+import { resolveFormSource } from "@/lib/lead-contract"
 const formSchema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters"),
     lastName: z.string().min(1, "Last name is required"),
@@ -80,7 +81,7 @@ export default function BookAnAppoitmentButton({
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
-    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+    const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
     const router = useRouter()
     const pathname = usePathname()
     const resolvedState = slugFromPathname(pathname)
@@ -183,6 +184,7 @@ export default function BookAnAppoitmentButton({
         setDisabled(true)
 
         try {
+            const formSource = resolveFormSource({ pathname, formId: 'BookAnAppoitmentButton' })
             const payload = new FormData()
             payload.append("firstName", values.firstName)
             payload.append("lastName", values.lastName)
@@ -194,6 +196,9 @@ export default function BookAnAppoitmentButton({
             payload.append("country", values.country)
             payload.append("state", values.state)
             payload.append("gclid", attribution.gclid)
+            payload.append("gbraid", attribution.gbraid)
+            payload.append("wbraid", attribution.wbraid)
+            payload.append("form_source", formSource)
             payload.append("utm_source", attribution.utm_source)
             payload.append("utm_medium", attribution.utm_medium)
             payload.append("utm_campaign", attribution.utm_campaign)
@@ -226,7 +231,8 @@ export default function BookAnAppoitmentButton({
                 return
             }
 
-            pushFormSubmit({ form_name: 'BookAnAppoitmentButton', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode });
+            const accepted = await pushAcceptedLead({ acceptance: res, form_name: 'BookAnAppoitmentButton', form_source: formSource, state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName, postalCode: values.postalCode });
+            if (!accepted) return
 
             setOpen(false)
             form.reset()
@@ -295,6 +301,7 @@ export default function BookAnAppoitmentButton({
                                                     <FormControl>
                                                         <Input 
                                                             id="first_name"
+                                                            aria-label="First name"
                                                             name="firstName"
                                                             placeholder="First Name" 
                                                             autoComplete="given-name"
@@ -319,6 +326,7 @@ export default function BookAnAppoitmentButton({
                                                     <FormControl>
                                                         <Input 
                                                             id="last_name"
+                                                            aria-label="Last name"
                                                             name="lastName"
                                                             placeholder="Last Name" 
                                                             autoComplete="family-name"
@@ -405,6 +413,7 @@ export default function BookAnAppoitmentButton({
                                                     <FormControl>
                                                         <Input 
                                                             id="postal_code"
+                                                            aria-label="ZIP or postal code"
                                                             name="postalCode"
                                                             inputMode="numeric"
                                                             autoComplete="postal-code"
@@ -426,7 +435,7 @@ export default function BookAnAppoitmentButton({
                                                 <FormLabel className="text-sm text-[#111315] font-semibold">State<span className="text-red-500">*</span></FormLabel>
                                                 <FormControl>
                                                     <Select onValueChange={field.onChange} value={field.value}>
-                                                        <SelectTrigger className="w-full h-10 px-4 bg-[#f0f5ff] border rounded-sm">
+                                                        <SelectTrigger aria-label="Select your state" className="w-full h-10 px-4 bg-[#f0f5ff] border rounded-sm">
                                                             <SelectValue placeholder="Select your state" />
                                                         </SelectTrigger>
                                                         <SelectContent>
@@ -462,7 +471,7 @@ export default function BookAnAppoitmentButton({
                                             </FormLabel>
                                             <FormControl>
                                                 <Select onValueChange={field.onChange} value={field.value} >
-                                                    <SelectTrigger
+                                                    <SelectTrigger aria-label="Select Best Time To Contact"
                                                         className="w-full h-10 px-6 bg-[#f0f5ff]  border rounded-sm"
                                                     >
                                                         <SelectValue placeholder="Select Best Time To Contact" className=" font-[var(--font-inter)] h-10 text-lg data-[placeholder]:text-red-500" />

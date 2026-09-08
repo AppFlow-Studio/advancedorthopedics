@@ -16,7 +16,7 @@ import { StaticImageData } from 'next/image';
 import { Testimonial } from '../ui/testimonial-card';
 import { Marquee } from '../magicui/marquee';
 import Link from 'next/link';
-import { MAIN_PHONE_DISPLAY, NJ_PHONE_DISPLAY, NY_PHONE_DISPLAY } from '@/lib/locationConstants';
+import { MAIN_PHONE_DISPLAY, NJ_PHONE_DISPLAY, NY_PHONE_DISPLAY, PA_PHONE_DISPLAY, GA_PHONE_DISPLAY } from '@/lib/locationConstants';
 
 // clinics.tsx is imported by shared/client modules so server-only featureFlags cannot
 // be used here. Read the env var directly; featureFlags.ts still validates it strictly
@@ -31,8 +31,8 @@ export interface Review {
 }
 
 // State type definitions for multi-state support
-export type StateAbbr = 'FL' | 'NJ' | 'NY' | 'PA';
-export type StateSlug = 'florida' | 'new-jersey' | 'new-york' | 'pennsylvania';
+export type StateAbbr = 'FL' | 'NJ' | 'NY' | 'PA' | 'GA';
+export type StateSlug = 'florida' | 'new-jersey' | 'new-york' | 'pennsylvania' | 'georgia';
 export type LocationType = 'office' | 'surgery-center';
 
 export type LocationGalleryCategory = 'Facility' | 'Parking' | 'Interior' | 'Team' | 'Treatments' | 'Other';
@@ -102,6 +102,13 @@ export interface ClinicsProps {
   // Google Maps URL fields
   googleMapsUrl?: string; // Google Maps search URL (non-GBP)
   hasMap?: string;        // Same as googleMapsUrl (for schema)
+  /**
+   * Per-location hours override for the visible NAP block.
+   * `null` suppresses the hours row entirely - use it for an office whose
+   * hours are not yet confirmed, rather than inheriting the sitewide default
+   * and publishing an operating claim we cannot stand behind.
+   */
+  hoursDisplay?: string | null;
   updatedAt?: string;
   // Location photo gallery (SEO/CRO)
   gallery?: LocationGalleryImage[];
@@ -128,7 +135,7 @@ export const clinics: ClinicsProps[] = [
     oldSlugs: ['hollywood-fl-orthopedics'],
     paragraph: `
     South Florida's most trusted spine and musculoskeletal care center.
-    [PARAGRAPH BREAK]Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible, top-tier medical care that gets you back to work and play. We are the trusted orthopedic center in Hollywood, FL, offering same-day appointments for all your musculoskeletal needs.
+    [PARAGRAPH BREAK]Residents no longer need to search far and wide for orthopedic care; Mountain Spine & Orthopedics brings its services to the heart of this vibrant South Florida community. We understand the biomechanical demands of life in South Florida, and our mission is to provide accessible medical care that gets you back to work and play. We are the trusted orthopedic center in Hollywood, FL, offering same-day appointments for all your musculoskeletal needs.
     [PARAGRAPH BREAK]Our team includes fellowship-trained, board-certified specialists recognized as the premier orthopedic surgeons in Hollywood, Florida, for their technical surgical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated nucleus pulposus, and complex sports-related injuries. Every treatment plan is highly individualized, ensuring we address the specific etiology of pain to achieve lasting clinical results.
     [PARAGRAPH BREAK]Inside our state-of-the-art orthopedic treatment center in Hollywood, FL, we utilize the latest diagnostic imaging technology and minimally invasive surgical techniques and orthopedic laser spine surgery in Hollywood, FL. These advanced methodologies allow for smaller incisions, reduced post-operative pain, and significantly faster recovery times. Trust our commitment to innovative, evidence-based care to restore your mobility and quality of life. Mountain Spine & Orthopedics is proud to be South Florida's expert team for spine and orthopedic health.
     `,
@@ -165,7 +172,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Hollywood Spine and Orthopedic Specialists of South Florida</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Florida residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Hollywood, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Broward County — serving patients from <strong>Emerald Hills</strong>, <strong>Hollywood Hills</strong>, <strong>Hillcrest</strong>, <strong>Dania Beach</strong>, <strong>Pembroke Pines</strong>, and <strong>Aventura</strong>. Whether you need a <strong>spine surgeon in Hollywood</strong>, <strong>herniated disc treatment</strong>, or <strong>same-day orthopedic appointments</strong>, our team delivers expert, evidence-based care close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Florida residents can access <strong>orthopedic and spine care</strong> right here in <strong>Hollywood, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Broward County — serving patients from <strong>Emerald Hills</strong>, <strong>Hollywood Hills</strong>, <strong>Hillcrest</strong>, <strong>Dania Beach</strong>, <strong>Pembroke Pines</strong>, and <strong>Aventura</strong>. Whether you need a <strong>spine surgeon in Hollywood</strong>, <strong>herniated disc treatment</strong>, or <strong>same-day orthopedic appointments</strong>, our team delivers expert, evidence-based care close to home.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Hollywood orthopedic center</strong> at <strong>3500 Tyler St</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, <strong>sciatica treatment</strong>, and comprehensive musculoskeletal care — including <strong>workers' compensation</strong> injury evaluations. We accept most PPO plans and offer bilingual Spanish-speaking staff for Hollywood's diverse community.</p>
       </div>
     ),
@@ -253,7 +260,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -682,7 +689,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'palm-springs-orthopedics',
     locationType: 'office',
     paragraph: `
-    For the residents of Altamonte Springs, Casselberry, and the surrounding Central Florida communities, Mountain Spine & Orthopedics offers a dedicated, local center for world-class spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    For the residents of Altamonte Springs, Casselberry, and the surrounding Central Florida communities, Mountain Spine & Orthopedics offers a dedicated, local center for spine and orthopedic care. We understand that life here is active and family-focused, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
     [PARAGRAPH BREAK]
     Our Altamonte Springs - Casselberry clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. They are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, and degenerative disc disease. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
     [PARAGRAPH BREAK]
@@ -720,7 +727,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Altamonte Springs – Casselberry Orthopedic & Spine Specialists</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Altamonte Springs and Casselberry residents can access <strong>world-class orthopedic and spine care</strong> right in their community at 652 Palm Springs Dr. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Seminole County — serving patients from <strong>Winter Park</strong>, <strong>Maitland</strong>, <strong>Longwood</strong>, and <strong>Sanford</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Altamonte Springs orthopedic team provides expert diagnosis and personalized treatment for the active Central Florida lifestyle.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Altamonte Springs and Casselberry residents can access <strong>orthopedic and spine care</strong> right in their community at 652 Palm Springs Dr. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Seminole County — serving patients from <strong>Winter Park</strong>, <strong>Maitland</strong>, <strong>Longwood</strong>, and <strong>Sanford</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Altamonte Springs orthopedic team provides expert diagnosis and personalized treatment for the active Central Florida lifestyle.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Altamonte Springs spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> so you get expert answers and a clear treatment plan without delays.</p>
       </div>
     ),
@@ -806,7 +813,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -1207,7 +1214,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'orlando-orthopedics',
     locationType: 'office',
     paragraph: `
-    Orlando residents no longer need to search far and wide for a world-class Orlando orthopedic center; Mountain Spine & Orthopedics brings its renowned services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible, top-tier care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center offering same-day appointments for all your needs.
+    Orlando residents no longer need to search far and wide for an Orlando orthopedic center; Mountain Spine & Orthopedics brings its services to the heart of The City Beautiful. We understand the physical demands of life in Central Florida and our mission is to provide accessible care that gets Orlando back to work and play. We are the trusted Orlando orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
     Our Orlando team includes fellowship-trained, board-certified Orlando orthopedic surgeons celebrated for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for a host of conditions, including degenerative disc disease, painful sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of pain to achieve lasting results.
     [PARAGRAPH BREAK]
@@ -1245,7 +1252,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Orlando Spine and Orthopedic Specialists of Central Florida</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central Florida residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Orlando, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the Orlando metro area — serving patients from <strong>Metrowest</strong>, <strong>Dr. Phillips</strong>, <strong>Windermere</strong>, <strong>Ocoee</strong>, <strong>Kissimmee</strong>, and <strong>Lake Buena Vista</strong>. Whether you need a <strong>spine surgeon in Orlando</strong> or same-day evaluation for an acute orthopedic injury, our team delivers expert, evidence-based care so you can return to the active Central Florida lifestyle you love.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central Florida residents can access <strong>orthopedic and spine care</strong> right here in <strong>Orlando, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the Orlando metro area — serving patients from <strong>Metrowest</strong>, <strong>Dr. Phillips</strong>, <strong>Windermere</strong>, <strong>Ocoee</strong>, <strong>Kissimmee</strong>, and <strong>Lake Buena Vista</strong>. Whether you need a <strong>spine surgeon in Orlando</strong> or same-day evaluation for an acute orthopedic injury, our team delivers expert, evidence-based care so you can return to the active Central Florida lifestyle you love.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Orlando orthopedic center</strong> at <strong>6150 Metrowest Blvd STE 102</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>herniated disc treatment</strong>, <strong>joint replacement</strong>, and comprehensive musculoskeletal care — including <strong>workers' compensation</strong> injury evaluations and <strong>same-day orthopedic appointments</strong>. We accept most PPO insurance plans and provide Spanish-speaking staff for Orlando's diverse community.</p>
       </div>
     ),
@@ -1319,7 +1326,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -1732,7 +1739,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'fort-pierce-orthopedics',
     locationType: 'office',
     paragraph: `
-  Mountain Spine & Orthopedics in Fort Pierce offers top-tier orthopedic care to the Treasure Coast. Our local center provides same-day appointments for fast access to spine specialists who diagnose and treat a wide range of orthopedic conditions with compassion, technology, and experience.
+  Mountain Spine & Orthopedics in Fort Pierce offers orthopedic care to the Treasure Coast. Our local center provides same-day appointments for fast access to spine specialists who diagnose and treat a wide range of orthopedic conditions with compassion, technology, and experience.
   [PARAGRAPH BREAK]
   Our Fort Pierce orthopedic clinic provides advanced treatment options including Band-Aid back surgery, laser spine procedures, endoscopic discectomies, and minimally invasive techniques. Patients benefit from comprehensive orthopedic care—consultation, imaging, and surgery—with expert referrals to trusted rehabilitation partners when needed. Our Fort Pierce location supports faster recovery and better outcomes.
   [PARAGRAPH BREAK]
@@ -1769,7 +1776,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Fort Pierce Orthopedic & Spine Specialists of the Treasure Coast</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Treasure Coast residents finally have access to <strong>world-class orthopedic and spine care</strong> right here in <strong>Fort Pierce, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to St. Lucie County — serving patients from <strong>Port St. Lucie</strong>, <strong>Vero Beach</strong>, <strong>Stuart</strong>, and Jensen Beach. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Fort Pierce orthopedic team provides expert diagnosis and personalized treatment plans designed for the active Treasure Coast lifestyle.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Treasure Coast residents finally have access to <strong>orthopedic and spine care</strong> right here in <strong>Fort Pierce, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to St. Lucie County — serving patients from <strong>Port St. Lucie</strong>, <strong>Vero Beach</strong>, <strong>Stuart</strong>, and Jensen Beach. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Fort Pierce orthopedic team provides expert diagnosis and personalized treatment plans designed for the active Treasure Coast lifestyle.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Fort Pierce spine center</strong> at 2215 Nebraska Ave specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> injury evaluations. We offer <strong>same-day orthopedic appointments</strong> with rapid on-site diagnostics so you get a clear treatment plan without the delays typical of hospital-based orthopedic programs.</p>
       </div>
     ),
@@ -1855,7 +1862,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -2286,7 +2293,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Palm Beach Gardens Orthopedic & Spine Specialists of South Florida</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Palm Beach Gardens residents can access <strong>world-class orthopedic and spine care</strong> right here in their community at 3355 Burns Rd, Suite 304. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Palm Beach County — serving patients from <strong>Jupiter</strong>, <strong>North Palm Beach</strong>, <strong>Wellington</strong>, and <strong>West Palm Beach</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Palm Beach Gardens orthopedic team provides expert diagnosis and personalized treatment designed for South Florida's active lifestyle.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Palm Beach Gardens residents can access <strong>orthopedic and spine care</strong> right here in their community at 3355 Burns Rd, Suite 304. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Palm Beach County — serving patients from <strong>Jupiter</strong>, <strong>North Palm Beach</strong>, <strong>Wellington</strong>, and <strong>West Palm Beach</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Palm Beach Gardens orthopedic team provides expert diagnosis and personalized treatment designed for South Florida's active lifestyle.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Palm Beach Gardens spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> with rapid on-site diagnostics so you get expert answers and a clear treatment plan without delays.</p>
       </div>
     ),
@@ -2372,7 +2379,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -2760,16 +2767,17 @@ export const clinics: ClinicsProps[] = [
     id: 7,
     name: 'Mountain Spine & Orthopedics South Miami',
     region: 'South Miami, FL',
-    lat: 25.69602070,
-    lng: -80.30127530,
+    lat: 25.70539110,
+    lng: -80.29366990,
     address: '7000 SW 62nd Ave, Suite 330, Miami, FL 33143',
     phone: MAIN_PHONE_DISPLAY,
     link: 'https://www.google.com/maps/place/7000+SW+62+AVE+Suite+330,+South+Miami,+FL+33143-4716',
     slug: 'miami-beach-orthopedics',
     stateAbbr: 'FL',
     stateSlug: 'florida',
-    locationSlug: 'miami-beach-orthopedics',
+    locationSlug: 'south-miami-orthopedics',
     locationType: 'office',
+    oldSlugs: ['miami-beach-orthopedics'],
     paragraph: `
     South Florida's most trusted spine and joint care center.
     [PARAGRAPH BREAK]Trust Mountain Spine & Orthopedics for expert care, compassionate service, and results that make a difference. Your mobility and well-being are our top priorities. Experience the excellence that sets our South Miami orthopedic practice apart.
@@ -2802,12 +2810,12 @@ export const clinics: ClinicsProps[] = [
       'best orthopedic near me south miami'
     ],
     // SEO-FIX: Updated metaTitle (<65 chars) and metaDescription (<158 chars) per keyword optimization — Phase 2
-    metaTitle: 'Miami Beach Orthopedic Surgeon & Spine Specialist | Mountain Spine',
-    metaDescription: 'Top orthopedic surgeons in Miami Beach, FL. Back pain, herniated disc, minimally invasive spine surgery, joint replacement. PPO accepted. Book today.',
+    metaTitle: 'South Miami Orthopedic & Spine Surgeon | Mountain Spine',
+    metaDescription: 'Board-certified orthopedic surgeons in South Miami, FL. Back pain, herniated disc, sciatica, joint replacement. Serving Coral Gables & Pinecrest. PPO accepted.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>South Miami Orthopedic & Spine Specialists of Miami-Dade County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Miami and <strong>Coral Gables</strong> residents can access <strong>world-class orthopedic and spine care</strong> right in their community at 7000 SW 62nd Ave, Suite 330. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to South Miami — serving patients from <strong>Pinecrest</strong>, <strong>Westchester</strong>, <strong>Kendall</strong>, and the greater Miami metro. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, joint pain, or a sports injury, our South Miami orthopedic team delivers expert diagnosis and personalized care designed for South Florida's active lifestyle.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Miami and <strong>Coral Gables</strong> residents can access <strong>orthopedic and spine care</strong> right in their community at 7000 SW 62nd Ave, Suite 330. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to South Miami — serving patients from <strong>Pinecrest</strong>, <strong>Westchester</strong>, <strong>Kendall</strong>, and the greater Miami metro. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, joint pain, or a sports injury, our South Miami orthopedic team delivers expert diagnosis and personalized care designed for South Florida's active lifestyle.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>South Miami spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> so you get expert answers and a clear treatment plan without delays.</p>
       </div>
     ),
@@ -2893,7 +2901,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -3069,7 +3077,7 @@ export const clinics: ClinicsProps[] = [
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 lg:mt-10 mt-4'>
           {showScottKatzman && <Testimonial name="Maria R." role="Teacher, Miami-Dade County Schools" testimonial="After years of back pain, Dr. Katzman's minimally invasive approach had me back to teaching in just three weeks. This South Miami clinic truly understands working families." />}
           {showScottKatzman && <Testimonial name="Dr. Carlos Mendez" role="Emergency Physician, Baptist Hospital Miami" testimonial="Dr. Katzman's expertise exceeded my expectations for my herniated disc. I now confidently refer my patients to these South Miami orthopedic specialists because I've experienced their excellent care firsthand." />}
-          <Testimonial name="James T." role="Construction Supervisor, South Miami" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month." />
+          <Testimonial name="James T." role="Construction Supervisor, South Miami" testimonial="Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The South Miami team got me back to work in one month." />
         </div>
       </div>
     ),
@@ -3088,7 +3096,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         author: "James T.",
-        reviewBody: "Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The north Miami Beach team got me back to work in one month.",
+        reviewBody: "Three different centers couldn't address my persistent back pain until I found Mountain Spine & Orthopedics. The South Miami team got me back to work in one month.",
         reviewRating: 5
       },
       {
@@ -3303,7 +3311,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Mountain Spine & Orthopedics is Palm Beach County's trusted choice for expert orthopedic and spine care — and the leading Boca Raton orthopedic group for patients who want results without unnecessary surgery. Located at 1905 Clint Moore Rd #300, our clinic is easily accessible from I-95 (Exit 52) and the Florida Turnpike (Exit 77), serving patients from Boca Raton, Delray Beach, Boynton Beach, Deerfield Beach, and throughout Palm Beach County.
     [PARAGRAPH BREAK]Our fellowship-trained, board-certified orthopedic doctors in Boca Raton are celebrated for their combination of surgical precision and genuine patient-first care. We diagnose and treat the full spectrum of orthopedic and spine conditions: herniated discs, sciatica, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL injuries, knee and hip pain, and Workers' Compensation injuries. Same-day appointments are available, and we offer walk-in orthopedic urgent care in Boca Raton for injuries that can't wait.
-    [PARAGRAPH BREAK]Using the most advanced diagnostic imaging and minimally invasive surgical techniques — including endoscopic spine surgery and arthroscopic joint procedures — our Boca Raton orthopedic surgeons deliver targeted treatment with dramatically faster recovery times than traditional open surgery. Most major PPO insurance plans are accepted. Call today to schedule with the best orthopedic doctors in Boca Raton.
+    [PARAGRAPH BREAK]Using the most advanced diagnostic imaging and minimally invasive surgical techniques — including endoscopic spine surgery and arthroscopic joint procedures — our Boca Raton orthopedic surgeons deliver targeted treatment with dramatically faster recovery times than traditional open surgery. Most major PPO insurance plans are accepted. Call today to schedule with our board-certified orthopedic doctors in Boca Raton.
     `,
     keywords: [
       'boca raton orthopedic surgeon',
@@ -3333,11 +3341,11 @@ export const clinics: ClinicsProps[] = [
     ],
     // SEO-FIX: Updated metaTitle (<65 chars) and metaDescription (<158 chars) per keyword optimization — Phase 2
     metaTitle: 'Boca Raton Orthopedic Surgeon & Spine Doctor | Mountain Spine',
-    metaDescription: 'Top orthopedic surgeons in Boca Raton, FL. Back pain, herniated disc, sciatica, walk-in urgent care. Serving Delray Beach & Boynton Beach. PPO accepted. Book today.',
+    metaDescription: 'Orthopedic surgeons in Boca Raton, FL. Back pain, herniated disc, sciatica, walk-in urgent care. Serving Delray Beach & Boynton Beach. PPO accepted. Book today.',
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Boca Raton Orthopedic & Spine Specialists of Palm Beach County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Boca Raton residents now have access to <strong>world-class orthopedic and spine care</strong> right here in Palm Beach County. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Boca Raton — serving patients from <strong>Delray Beach</strong>, <strong>Boynton Beach</strong>, <strong>Deerfield Beach</strong>, and <strong>Coconut Creek</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, <strong>spinal stenosis</strong>, or a joint injury, our Boca Raton orthopedic team delivers expert diagnosis and personalized treatment designed for the active South Florida lifestyle.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Boca Raton residents now have access to <strong>orthopedic and spine care</strong> right here in Palm Beach County. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Boca Raton — serving patients from <strong>Delray Beach</strong>, <strong>Boynton Beach</strong>, <strong>Deerfield Beach</strong>, and <strong>Coconut Creek</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, <strong>spinal stenosis</strong>, or a joint injury, our Boca Raton orthopedic team delivers expert diagnosis and personalized treatment designed for the active South Florida lifestyle.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Boca Raton spine center</strong> at 1905 Clint Moore Rd specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> so you receive expert answers and a clear treatment plan without unnecessary delays.</p>
       </div>
     ),
@@ -3423,7 +3431,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -3825,7 +3833,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'altamonte-springs-orthopedics',
     locationType: 'office',
     paragraph: `
-    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible, top-tier care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center offering same-day appointments for all your needs.
+    Residents no longer need to search far and wide for orthopedic care; Mountain Spine & Orthopedics brings its services to the heart of this vibrant community. We understand the physical demands of life in Central Florida, and our mission is to provide accessible care that gets you back to work and play. We are the trusted Altamonte Springs orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
     Our team includes fellowship-trained, board-certified orthopedic surgery specialists in Altamonte Springs, Florida recognized for their technical skill and patient-first philosophy. We provide comprehensive, compassionate treatment for various conditions, including degenerative disc disease, sciatica, herniated discs, and complex sports injuries. Every treatment plan is highly individualized, ensuring we address the specific cause of pain to achieve lasting results.
     [PARAGRAPH BREAK]
@@ -3863,7 +3871,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Altamonte Springs Orthopedic & Spine Specialists of Seminole County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central Florida residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Altamonte Springs, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Seminole County — serving patients from <strong>Lake Mary</strong>, <strong>Longwood</strong>, <strong>Winter Springs</strong>, and <strong>Oviedo</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Altamonte Springs orthopedic team provides expert diagnosis and personalized treatment for active Central Florida lifestyles.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central Florida residents can access <strong>orthopedic and spine care</strong> right here in <strong>Altamonte Springs, FL</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Seminole County — serving patients from <strong>Lake Mary</strong>, <strong>Longwood</strong>, <strong>Winter Springs</strong>, and <strong>Oviedo</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Altamonte Springs orthopedic team provides expert diagnosis and personalized treatment for active Central Florida lifestyles.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Altamonte Springs spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> so you get a clear treatment plan without the delays of hospital-based orthopedic programs.</p>
       </div>
     ),
@@ -3936,7 +3944,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -4347,7 +4355,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'davenport-orthopedics',
     locationType: 'office',
     paragraph: `
-    Residents no longer need to search far and wide for world-class orthopedic care; Mountain Spine & Orthopedics brings renowned services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible, top-tier care that gets you back to work and play. We are the trusted orthopedic center offering same-day appointments for all your needs.
+    Residents no longer need to search far and wide for orthopedic care; Mountain Spine & Orthopedics brings its services to the heart of this vibrant community. We understand the physical demands of life, and our mission is to deliver accessible care that gets you back to work and play. We are the trusted orthopedic center offering same-day appointments for all your needs.
     [PARAGRAPH BREAK]
     Our team includes fellowship-trained, board-certified orthopedic specialists recognized for their advanced surgical proficiency and evidence-based patient care protocols. We provide comprehensive, multidisciplinary treatment for various spinal pathologies, including lumbar degenerative disc disease, cervical radiculopathy, herniated nucleus pulposus, and complex musculoskeletal sports injuries. Every treatment protocol is meticulously individualized, ensuring we address the underlying pathophysiology of each condition to achieve optimal therapeutic results.
     [PARAGRAPH BREAK]
@@ -4385,7 +4393,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Davenport Orthopedic & Spine Specialists of Polk County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Davenport and Polk County residents can access <strong>world-class orthopedic and spine care</strong> right in their community at 2400 North Blvd W. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Central Florida — serving patients from <strong>Kissimmee</strong>, <strong>Haines City</strong>, <strong>Winter Haven</strong>, and <strong>Celebration</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Davenport orthopedic team delivers expert diagnosis and personalized treatment designed for active Central Florida lifestyles.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Davenport and Polk County residents can access <strong>orthopedic and spine care</strong> right in their community at 2400 North Blvd W. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Central Florida — serving patients from <strong>Kissimmee</strong>, <strong>Haines City</strong>, <strong>Winter Haven</strong>, and <strong>Celebration</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Davenport orthopedic team delivers expert diagnosis and personalized treatment designed for active Central Florida lifestyles.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Davenport spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> so you get expert answers and a clear treatment plan without delays.</p>
       </div>
     ),
@@ -4458,7 +4466,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -4867,7 +4875,7 @@ export const clinics: ClinicsProps[] = [
     [PARAGRAPH BREAK]
     Patients in Jacksonville can expect board-certified spine and orthopedic surgeons experienced in treating back pain, herniated discs, spinal stenosis, and degenerative disc disease. Our goal is to reduce pain, restore motion, and improve quality of life through advanced diagnostics, evidence-based medicine, and compassionate care.
     [PARAGRAPH BREAK]
-    Located at 1205 Monument Rd, Suite 202, our Jacksonville office features state-of-the-art facilities, on-site evaluations, and surgical consultation services. Whether you need a spine specialist, a second surgical opinion, or targeted pain management, Mountain Spine & Orthopedics Jacksonville is your destination for world-class orthopedic care close to home.
+    Located at 1205 Monument Rd, Suite 202, our Jacksonville office features state-of-the-art facilities, on-site evaluations, and surgical consultation services. Whether you need a spine specialist, a second surgical opinion, or targeted pain management, Mountain Spine & Orthopedics Jacksonville is your destination for orthopedic care close to home.
     `,
     keywords: [
       'orthopedic surgeon jacksonville fl',
@@ -4907,7 +4915,7 @@ export const clinics: ClinicsProps[] = [
     skilled: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Highly Skilled Orthopedic Surgeons in Jacksonville & Surrounding Areas</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>spine specialists in Jacksonville</strong> are leaders in <Link href="/treatments/endoscopic-foraminotomy-surgery" className='text-[#0A50EC] underline'><strong>endoscopic spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className='text-[#0A50EC] underline'>lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className='text-[#0A50EC] underline'>artificial disc replacement</Link>, and <Link href="/treatments/epidural-steroid-injection" className='text-[#0A50EC] underline'>epidural steroid injections</Link>. We treat <strong>herniated discs</strong>, <strong>spinal stenosis</strong>, pinched nerves, arthritis, and <strong>sciatica</strong> with personalized, evidence-based care designed for quicker recovery and long-term success for Jacksonville and Duval County patients.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>spine specialists in Jacksonville</strong> perform <Link href="/treatments/endoscopic-foraminotomy-surgery" className='text-[#0A50EC] underline'><strong>endoscopic spine surgery</strong></Link>, <Link href="/treatments/lumbar-fusion-surgery" className='text-[#0A50EC] underline'>lumbar fusion</Link>, <Link href="/treatments/artificial-disc-replacement-surgery" className='text-[#0A50EC] underline'>artificial disc replacement</Link>, and <Link href="/treatments/epidural-steroid-injection" className='text-[#0A50EC] underline'>epidural steroid injections</Link>. We treat <strong>herniated discs</strong>, <strong>spinal stenosis</strong>, pinched nerves, arthritis, and <strong>sciatica</strong> with personalized, evidence-based care designed for quicker recovery and long-term success for Jacksonville and Duval County patients.</p>
       </div>
     ),
     whyChoose: (
@@ -4916,7 +4924,7 @@ export const clinics: ClinicsProps[] = [
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
           <li>Board-certified spine and orthopedic surgeons</li>
           <li>Specialized in minimally invasive procedures</li>
-          <li>High success rates and faster recovery times</li>
+          <li>Minimally invasive techniques with smaller incisions</li>
           <li>On-site evaluations and advanced imaging available</li>
           <li>Same-day appointments available for orthopedic consultations</li>
           <li>Comprehensive spine, joint, and pain management solutions</li>
@@ -4941,7 +4949,7 @@ export const clinics: ClinicsProps[] = [
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Arlington, Regency & Southside Residents</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our Jacksonville orthopedic clinic is strategically located on Monument Rd, making it easy for patients from Arlington, Regency, and the Southside area to access world-class orthopedic and spine care without traveling far. We also welcome patients from Jacksonville Beach, Ponte Vedra, and St. Johns seeking advanced spine surgery options.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our Jacksonville orthopedic clinic is strategically located on Monument Rd, making it easy for patients from Arlington, Regency, and the Southside area to access orthopedic and spine care without traveling far. We also welcome patients from Jacksonville Beach, Ponte Vedra, and St. Johns seeking advanced spine surgery options.</p>
       </div>
     ),
     advancedTreatments: (
@@ -4972,7 +4980,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -5393,7 +5401,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'bridgewater-orthopedics',
     locationType: 'office',
     paragraph: `
-    When Somerset County residents search for orthopedic in Bridgewater, NJ, Mountain Spine & Orthopedics is the trusted name they find. Our fellowship-trained, board-certified orthopedic surgeons bring top-tier spine and musculoskeletal care directly to the I-287/US-22 corridor — with same-day appointments and a conservative-first approach that saves patients from unnecessary surgeries.
+    When Somerset County residents search for orthopedic in Bridgewater, NJ, Mountain Spine & Orthopedics is the trusted name they find. Our fellowship-trained, board-certified orthopedic surgeons bring spine and musculoskeletal care directly to the I-287/US-22 corridor — with same-day appointments and a conservative-first approach that saves patients from unnecessary surgeries.
     [PARAGRAPH BREAK]Our Bridgewater orthopedic clinic at 1200 US-22 #14 is perfectly positioned for patients coming from Somerville, Raritan, Bound Brook, Warren, Hillsborough, and across Somerset and Middlesex Counties. We treat the full range of conditions: herniated discs, sciatica, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL injuries, knee and hip pain, and work-related injuries. Every consultation includes on-site evaluation and an individualized care plan — no generic cookie-cutter approaches.
     [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical techniques and diagnostic imaging in Bridgewater, NJ, our orthopedic specialists achieve exceptional outcomes with shorter recovery times. Most major insurance, Workers' Compensation, and no-fault are accepted. Whether it's your first orthopedic visit or you're seeking a second opinion in Bridgewater, our team delivers the honest, expert guidance Central New Jersey patients deserve.
     `,
@@ -5454,7 +5462,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Bridgewater Spine and Orthopedic Specialists of Central New Jersey</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Bridgewater, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Somerset County — serving patients from <strong>Somerville</strong>, <strong>Raritan</strong>, <strong>Warren</strong>, and <strong>Hillsborough</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Bridgewater orthopedic team provides expert diagnosis and personalized treatment designed for New Jersey's active communities.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access <strong>orthopedic and spine care</strong> right here in <strong>Bridgewater, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Somerset County — serving patients from <strong>Somerville</strong>, <strong>Raritan</strong>, <strong>Warren</strong>, and <strong>Hillsborough</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Bridgewater orthopedic team provides expert diagnosis and personalized treatment designed for New Jersey's active communities.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Bridgewater spine center</strong> at 1200 US-22 specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> with rapid diagnostics so you get a clear treatment plan without unnecessary delays.</p>
       </div>
     ),
@@ -5542,7 +5550,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -5820,7 +5828,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Cherry Hill Spine and Orthopedic Specialists of South Jersey</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Jersey residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Cherry Hill, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Camden County — serving patients from <strong>Marlton</strong>, <strong>Voorhees</strong>, <strong>Mount Laurel</strong>, and <strong>Haddonfield</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Cherry Hill orthopedic team provides expert diagnosis and personalized treatment designed for South Jersey's active communities.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Jersey residents can access <strong>orthopedic and spine care</strong> right here in <strong>Cherry Hill, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Camden County — serving patients from <strong>Marlton</strong>, <strong>Voorhees</strong>, <strong>Mount Laurel</strong>, and <strong>Haddonfield</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Cherry Hill orthopedic team provides expert diagnosis and personalized treatment designed for South Jersey's active communities.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Cherry Hill spine center</strong> in Springdale Commons specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -5908,7 +5916,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -6123,7 +6131,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'edison-orthopedics',
     locationType: 'office',
     paragraph: `
-    If you're searching for the best orthopedic doctor in Edison, NJ, or a trusted spine surgeon in Edison, NJ, Mountain Spine & Orthopedics is your answer. We serve the Edison, Metuchen, and Middlesex County communities with board-certified, fellowship-trained orthopedic and spine care designed to get you back to living — without long waits or unnecessary procedures.
+    If you're searching for an orthopedic doctor in Edison, NJ, or a trusted spine surgeon in Edison, NJ, Mountain Spine & Orthopedics is your answer. We serve the Edison, Metuchen, and Middlesex County communities with board-certified, fellowship-trained orthopedic and spine care designed to get you back to living — without long waits or unnecessary procedures.
     [PARAGRAPH BREAK]Our Edison clinic is staffed by highly respected orthopedic surgeons who are among the most experienced in Central New Jersey. Located near the Edison/Metuchen border on Main St, just minutes from the Garden State Parkway (Exit 131) and NJ Turnpike (Exit 10), we are genuinely convenient for patients coming from Woodbridge, Piscataway, Perth Amboy, South Amboy, Highland Park, and across Middlesex County. We treat the full spectrum of musculoskeletal conditions: sciatica, herniated discs, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL injuries, and complex work-related injuries. Same-day appointments are available for urgent orthopedic needs.
     [PARAGRAPH BREAK]We use the latest diagnostic imaging and minimally invasive surgical techniques — including endoscopic spine surgery and arthroscopic joint procedures — that mean smaller incisions, less post-operative pain, and significantly faster recovery. Most major insurance plans and Workers' Compensation are accepted. Whether you need a spine surgeon in Edison NJ or a general orthopedic doctor, our team delivers the expert, individualized care Middlesex County deserves. Call today to book your same-day consultation.
     `,
@@ -6157,7 +6165,7 @@ export const clinics: ClinicsProps[] = [
       'highland park orthopedic'
     ],
     metaTitle: 'Edison NJ Spine Surgeon & Orthopedic Doctor | Mountain Spine',
-    metaDescription: 'Rated 4.9★ by 24+ patients. Spine surgeon & orthopedic doctor in Edison, NJ. Best orthopedic care — back pain, herniated disc & sciatica. PPO accepted. Book today.',
+    metaDescription: 'Rated 4.9★ by 24+ patients. Spine surgeon & orthopedic doctor in Edison, NJ. Back pain, herniated disc & sciatica. PPO accepted. Book today.',
     // SEO-FIX: Added patient testimonials with location-specific keyword signals for AggregateRating schema
     rating: 4.9,
     reviewCount: 24,
@@ -6191,7 +6199,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Edison Spine and Orthopedic Specialists of Central New Jersey</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Edison, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Middlesex County — serving patients from <strong>Metuchen</strong>, <strong>Highland Park</strong>, <strong>Woodbridge</strong>, and <strong>New Brunswick</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Edison orthopedic team provides expert diagnosis and personalized treatment for New Jersey's active communities.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access <strong>orthopedic and spine care</strong> right here in <strong>Edison, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Middlesex County — serving patients from <strong>Metuchen</strong>, <strong>Highland Park</strong>, <strong>Woodbridge</strong>, and <strong>New Brunswick</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Edison orthopedic team provides expert diagnosis and personalized treatment for New Jersey's active communities.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Edison spine center</strong> near the Edison Train Station on Route 27 specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -6277,7 +6285,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -6491,7 +6499,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Searching for an orthopedic surgeon in Freehold, NJ? Mountain Spine & Orthopedics serves Monmouth County with fellowship-trained, board-certified orthopedic and spine specialists who offer same-day appointments — including orthopedic urgent care in Freehold, NJ for acute injuries that can't wait. We're the destination when pain is holding you back from work, sports, and daily life.
     [PARAGRAPH BREAK]Our Freehold orthopedic clinic at 77 Schanck Rd, Suite B17 is easily reached from Route 9, Route 33, and the Freehold Raceway area, serving patients from Howell, Manalapan, Marlboro, Colts Neck, Englishtown, and throughout Monmouth County. Our board-certified specialists treat the full spectrum of conditions: herniated discs, sciatica, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL tears, knee and hip pain, and Workers' Compensation injuries. Every patient leaves with a clear diagnosis and a personalized treatment plan — conservative management first, surgery only when genuinely needed.
-    [PARAGRAPH BREAK]Our Freehold orthopedic team uses cutting-edge minimally invasive surgical techniques and on-site diagnostic imaging to pinpoint your pain and deliver targeted treatment with faster recovery times. Most major insurance plans are accepted, including PPO, Workers' Compensation, and no-fault coverage. Don't let pain sideline you — call Mountain Spine & Orthopedics Freehold today for the best orthopedic care in Monmouth County.
+    [PARAGRAPH BREAK]Our Freehold orthopedic team uses cutting-edge minimally invasive surgical techniques and on-site diagnostic imaging to pinpoint your pain and deliver targeted treatment with faster recovery times. Most major insurance plans are accepted, including PPO, Workers' Compensation, and no-fault coverage. Don't let pain sideline you — call Mountain Spine & Orthopedics Freehold today for orthopedic care in Monmouth County.
     `,
     keywords: [
       'orthopedic surgeon freehold nj',
@@ -6552,7 +6560,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Freehold Spine and Orthopedic Specialists of Central New Jersey</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Freehold, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Monmouth County — serving patients from <strong>Freehold Township</strong>, <strong>Manalapan</strong>, <strong>Howell</strong>, and <strong>Marlboro</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Freehold orthopedic team provides expert diagnosis and personalized treatment for New Jersey's active communities.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Central New Jersey residents can access <strong>orthopedic and spine care</strong> right here in <strong>Freehold, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Monmouth County — serving patients from <strong>Freehold Township</strong>, <strong>Manalapan</strong>, <strong>Howell</strong>, and <strong>Marlboro</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Freehold orthopedic team provides expert diagnosis and personalized treatment for New Jersey's active communities.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Freehold spine center</strong> at 77 Schanck Rd specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -6637,7 +6645,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -6850,7 +6858,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'paramus-orthopedics',
     locationType: 'office',
     paragraph: `
-    Looking for a spine surgeon in Paramus, NJ, or a top-rated orthopedic surgeon in Paramus? Mountain Spine & Orthopedics is Bergen County's trusted choice for orthopedic and spine care — with same-day appointments, board-certified fellowship-trained surgeons, and a patient-first approach that gets results without unnecessary procedures.
+    Looking for a spine surgeon in Paramus, NJ, or an orthopedic surgeon in Paramus? Mountain Spine & Orthopedics is Bergen County's trusted choice for orthopedic and spine care — with same-day appointments, board-certified fellowship-trained surgeons, and a patient-first approach that gets results without unnecessary procedures.
     [PARAGRAPH BREAK]Our Paramus clinic sits at 140 NJ-17, Suite 101B, on the Route 17 corridor — one of Bergen County's most accessible locations. We serve patients from Paramus, Ridgewood, Fair Lawn, Hackensack, Englewood, Teaneck, and across Northern New Jersey. Our specialists diagnose and treat the full spectrum of orthopedic and spine conditions: sciatica, herniated discs, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL injuries, and work-related injuries. Every patient receives a comprehensive individualized treatment plan — conservative options first, minimally invasive surgery when needed.
     [PARAGRAPH BREAK]We use the latest diagnostic imaging and minimally invasive surgical techniques at our Paramus orthopedic office, including endoscopic spine surgery and arthroscopic joint procedures. Shorter incisions, less pain, faster recovery. Most major insurance plans, Workers' Compensation, and no-fault coverage are accepted. If you're looking for an orthopedic doctor in Paramus, NJ who puts your recovery above all else, call Mountain Spine & Orthopedics today.
     `,
@@ -6912,7 +6920,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Paramus Spine and Orthopedic Specialists of Northern New Jersey</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northern New Jersey residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Paramus, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Bergen County — serving patients from <strong>Ridgewood</strong>, <strong>Hackensack</strong>, <strong>Fair Lawn</strong>, and <strong>Oradell</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Paramus orthopedic team provides expert diagnosis and personalized treatment for North Jersey's active communities.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northern New Jersey residents can access <strong>orthopedic and spine care</strong> right here in <strong>Paramus, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Bergen County — serving patients from <strong>Ridgewood</strong>, <strong>Hackensack</strong>, <strong>Fair Lawn</strong>, and <strong>Oradell</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Paramus orthopedic team provides expert diagnosis and personalized treatment for North Jersey's active communities.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Paramus spine center</strong> on Route 17 specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available for acute conditions.</p>
       </div>
     ),
@@ -7000,7 +7008,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -7278,7 +7286,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>West Orange Surgery Center — Specialized Outpatient Spine & Orthopedic Surgery</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northern New Jersey patients have access to <strong>world-class outpatient orthopedic and spine surgery</strong> right here in <strong>West Orange, NJ</strong>. As your trusted ambulatory surgery center, Mountain Spine & Orthopedics brings expert surgical care to <strong>Essex County</strong> — serving patients from <strong>Livingston</strong>, <strong>Montclair</strong>, <strong>South Orange</strong>, and <strong>Verona</strong>. When surgery is necessary, patients deserve a focused, efficient experience with exceptional outcomes and a faster path back to work and play.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northern New Jersey patients have access to <strong>outpatient orthopedic and spine surgery</strong> right here in <strong>West Orange, NJ</strong>. As your trusted ambulatory surgery center, Mountain Spine & Orthopedics brings expert surgical care to <strong>Essex County</strong> — serving patients from <strong>Livingston</strong>, <strong>Montclair</strong>, <strong>South Orange</strong>, and <strong>Verona</strong>. When surgery is necessary, patients deserve a focused, efficient experience with exceptional outcomes and a faster path back to work and play.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>West Orange Surgery Center</strong> at 375 Mount Pleasant Ave specializes in <strong>minimally invasive spine surgery</strong>, arthroscopic joint procedures, and outpatient surgical care — with <strong>same-day discharge</strong>, lower infection rates, and shorter recovery times than traditional hospital-based surgical programs.</p>
       </div>
     ),
@@ -7366,7 +7374,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained surgeons perform the full spectrum of outpatient minimally invasive and reconstructive procedures, including microdiscectomy, lumbar laminectomy, cervical disc replacement, arthroscopic procedures, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. Patients choose the West Orange Surgery Center for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient in a focused outpatient environment.
+          Our fellowship-trained surgeons perform the full spectrum of outpatient minimally invasive and reconstructive procedures, including microdiscectomy, lumbar laminectomy, cervical disc replacement, arthroscopic procedures, carpal tunnel release, and selected joint surgeries appropriate for ambulatory settings. Patients choose the West Orange Surgery Center for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals in a focused outpatient environment.
         </p>
 
         <h3
@@ -7576,8 +7584,8 @@ export const clinics: ClinicsProps[] = [
     id: 17,
     name: 'Mountain Spine & Orthopedics New York City',
     region: 'New York, NY',
-    lat: 40.754155,
-    lng: -73.980395,
+    lat: 40.75483640,
+    lng: -73.97941220,
     address: '535 5th Ave, Suite 1012, New York, NY 10017',
     phone: NY_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/oX5N9x7P7Z7G9N7P9',
@@ -7589,7 +7597,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'new-york-city-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics is proud to bring world-class orthopedic and spine care to Midtown Manhattan, serving New York City and the tri-state area. We understand that life in New York City is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
+    Mountain Spine & Orthopedics is proud to bring orthopedic and spine care to Midtown Manhattan, serving New York City and the tri-state area. We understand that life in New York City is active and demanding, and persistent pain shouldn't keep you on the sidelines. Our mission is to provide our neighbors with the advanced, compassionate treatment they need to live full, healthy lives, right here in their own community.
     [PARAGRAPH BREAK]Our NYC clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located at 535 5th Ave, Suite 1012, in the heart of Midtown Manhattan near Grand Central Terminal, they are experts in diagnosing and treating the full spectrum of musculoskeletal issues, including debilitating sciatica, herniated discs, spinal stenosis, degenerative disc disease, sports injuries, and work-related conditions. Each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their condition and personal goals.
     [PARAGRAPH BREAK]Utilizing the industry's most advanced diagnostic tools and state-of-the-art, minimally invasive techniques, we tackle pain at its source. Our expertise in endoscopic and minimally invasive procedures means smaller incisions, less postoperative discomfort, and a significantly faster return to your daily routine. Located in Midtown Manhattan at 535 5th Ave, Suite 1012, we're easily accessible from Grand Central Terminal (0.1 miles), major subway lines (4, 5, 6, 7, S at Grand Central), and bus routes (M1, M2, M3, M4, M5, Q32), serving patients throughout New York City, Long Island, Westchester, New Jersey, Connecticut, and the greater metropolitan area. Trust Mountain Spine & Orthopedics in NYC to be your partner in restoring function, eliminating pain, and reclaiming your active lifestyle.
     `,
@@ -7655,7 +7663,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>NYC Orthopedic & Spine Specialists in Midtown Manhattan</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Manhattan patients can access <strong>world-class orthopedic and spine care</strong> steps from Grand Central Terminal at <strong>535 5th Ave, Suite 1012</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the heart of Midtown — with convenient subway access on the 4, 5, 6, and 7 lines. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>chronic back pain</strong>, a sports injury from Central Park, or a work-related condition, our <strong>NYC orthopedic team</strong> delivers expert, patient-first care designed for New Yorkers who can't afford extended downtime.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Manhattan patients can access <strong>orthopedic and spine care</strong> steps from Grand Central Terminal at <strong>535 5th Ave, Suite 1012</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the heart of Midtown — with convenient subway access on the 4, 5, 6, and 7 lines. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>chronic back pain</strong>, a sports injury from Central Park, or a work-related condition, our <strong>NYC orthopedic team</strong> delivers expert, patient-first care designed for New Yorkers who can't afford extended downtime.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Midtown Manhattan spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations. We offer <strong>same-day orthopedic appointments</strong> with New York City's most accessible spine specialists, steps from Bryant Park and the Empire State Building.</p>
       </div>
     ),
@@ -7748,7 +7756,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -7964,7 +7972,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.6033,
     lng: -75.4775,
     address: '451 W. Linden St., Allentown, PA 18102',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: PA_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/nX5N9x7P7Z7G9N7P9',
     slug: 'allentown-orthopedics',
     stateAbbr: 'PA',
@@ -8029,7 +8037,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Allentown Spine and Orthopedic Specialists of the Lehigh Valley</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Lehigh Valley residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Allentown, PA</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the Lehigh Valley — serving patients from <strong>Bethlehem</strong>, <strong>Easton</strong>, <strong>Whitehall</strong>, and <strong>Fullerton</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Allentown orthopedic team provides expert diagnosis and personalized treatment designed for active Pennsylvania lifestyles.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Lehigh Valley residents can access <strong>orthopedic and spine care</strong> right here in <strong>Allentown, PA</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the Lehigh Valley — serving patients from <strong>Bethlehem</strong>, <strong>Easton</strong>, <strong>Whitehall</strong>, and <strong>Fullerton</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Allentown orthopedic team provides expert diagnosis and personalized treatment designed for active Pennsylvania lifestyles.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Allentown spine center</strong> at 451 W. Linden St specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -8104,7 +8112,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -8263,35 +8271,35 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in Allentown, PA?",
-        answer: "Yes. Our Allentown location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our Allentown location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (215) 436-9496 to book the earliest appointment."
       },
       {
         question: "Where is your Allentown, PA orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Allentown at 451 W. Linden St., Allentown, PA 18102. We're located near the PPL Center for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Allentown at 451 W. Linden St., Allentown, PA 18102. We're located near the PPL Center for convenient access. Call (215) 436-9496 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Allentown location?",
-        answer: "Patients visit our Allentown clinic from surrounding Lehigh Valley communities and nearby areas throughout eastern Pennsylvania. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Allentown clinic from surrounding Lehigh Valley communities and nearby areas throughout eastern Pennsylvania. If you're not sure which location is closest, call (215) 436-9496 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Allentown, PA location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (215) 436-9496 to schedule."
       },
       {
         question: "What insurance does Mountain Spine & Orthopedics Allentown accept?",
-        answer: "PPO insurance accepted. Call (561) 223-9959 before your visit and our team will verify your coverage and benefits quickly."
+        answer: "PPO insurance accepted. Call (215) 436-9496 before your visit and our team will verify your coverage and benefits quickly."
       },
       {
         question: "What spine and back surgery options are available at your Allentown location?",
-        answer: "Our Allentown orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (561) 223-9959 or visit our Treatments page for details."
+        answer: "Our Allentown orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (215) 436-9496 or visit our Treatments page for details."
       },
       {
         question: "Do you treat workers' compensation and work-related injuries in the Lehigh Valley?",
-        answer: "Yes. Our Allentown clinic accepts workers' compensation cases with same-day evaluations for work-related orthopedic injuries. We serve the Lehigh Valley including Bethlehem, Easton, and Whitehall Township. Call (561) 223-9959 to schedule a workers' comp evaluation."
+        answer: "Yes. Our Allentown clinic accepts workers' compensation cases with same-day evaluations for work-related orthopedic injuries. We serve the Lehigh Valley including Bethlehem, Easton, and Whitehall Township. Call (215) 436-9496 to schedule a workers' comp evaluation."
       },
       {
         question: "How do I book my first appointment at your Allentown orthopedic clinic?",
-        answer: "Call (561) 223-9959 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
+        answer: "Call (215) 436-9496 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
       }
     ],
     ogImage: '/locations-pennsylvania-og.png',
@@ -8309,7 +8317,7 @@ export const clinics: ClinicsProps[] = [
     lat: 39.9496,
     lng: -75.1685,
     address: '1601 Walnut St. Suite 514, Philadelphia, PA 19102',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: PA_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/rX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-walnut-orthopedics',
     stateAbbr: 'PA',
@@ -8319,7 +8327,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Mountain Spine & Orthopedics serves Center City Philadelphia from our premier Walnut Street location in Suite 514, just steps from Rittenhouse Square and the SEPTA Market-Frankford and Broad Street lines. Our fellowship-trained, board-certified orthopedic surgeons deliver expert care for herniated discs, sciatica, spinal stenosis, degenerative disc disease, ACL tears, rotator cuff injuries, and joint replacement — with a conservative-first philosophy that prioritizes your recovery over unnecessary procedures.
     [PARAGRAPH BREAK]Located at 1601 Walnut St. at the intersection of 16th and Walnut, we are perfectly positioned for Center City professionals and residents from Rittenhouse Square, Society Hill, Old City, Washington Square West, and the Philadelphia Medical District. Same-day and next-day appointments are available. We serve patients from throughout greater Philadelphia, the Main Line, and surrounding Pennsylvania communities.
-    [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical techniques and on-site diagnostic imaging, our Philadelphia orthopedic surgeons achieve outstanding outcomes with shorter recovery times. Most major insurance plans and PPO coverage accepted. If you're looking for the best orthopedic surgeon in Philadelphia, call Mountain Spine & Orthopedics Walnut Street today.
+    [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical techniques and on-site diagnostic imaging, our Philadelphia orthopedic surgeons work through smaller incisions than traditional open surgery. Most major insurance plans and PPO coverage accepted. If you're looking for an orthopedic surgeon in Philadelphia, call Mountain Spine & Orthopedics Walnut Street today.
     `,
     keywords: [
       'philadelphia orthopedic surgeon',
@@ -8376,7 +8384,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Center City Philadelphia Spine and Orthopedic Specialists</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Philadelphia residents can access <strong>world-class orthopedic and spine care</strong> right in the heart of <strong>Center City Philadelphia</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to 1601 Walnut St — serving patients from <strong>Rittenhouse Square</strong>, <strong>Society Hill</strong>, <strong>Old City</strong>, and <strong>Graduate Hospital</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Philadelphia orthopedic team provides expert diagnosis and personalized treatment for the city's busy professionals and active residents.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Philadelphia residents can access <strong>orthopedic and spine care</strong> right in the heart of <strong>Center City Philadelphia</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to 1601 Walnut St — serving patients from <strong>Rittenhouse Square</strong>, <strong>Society Hill</strong>, <strong>Old City</strong>, and <strong>Graduate Hospital</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Philadelphia orthopedic team provides expert diagnosis and personalized treatment for the city's busy professionals and active residents.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Center City spine center</strong> at 1601 Walnut St specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -8445,7 +8453,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -8604,35 +8612,35 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in Philadelphia, PA?",
-        answer: "Yes. Our Philadelphia location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our Philadelphia location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (215) 436-9496 to book the earliest appointment."
       },
       {
         question: "Where is your Philadelphia, PA orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 1601 Walnut St. Suite 514, Philadelphia, PA 19102. We're located in the historic medical district near Rittenhouse Square. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 1601 Walnut St. Suite 514, Philadelphia, PA 19102. We're located in the historic medical district near Rittenhouse Square. Call (215) 436-9496 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Philadelphia location?",
-        answer: "Patients visit our Philadelphia clinic from throughout Center City, surrounding Philadelphia neighborhoods, and nearby suburban communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Philadelphia clinic from throughout Center City, surrounding Philadelphia neighborhoods, and nearby suburban communities. If you're not sure which location is closest, call (215) 436-9496 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Philadelphia, PA location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (215) 436-9496 to schedule."
       },
       {
         question: "What insurance does Mountain Spine & Orthopedics Philadelphia Walnut accept?",
-        answer: "PPO insurance accepted. Call (561) 223-9959 before your visit and our team will verify your coverage and benefits quickly."
+        answer: "PPO insurance accepted. Call (215) 436-9496 before your visit and our team will verify your coverage and benefits quickly."
       },
       {
         question: "What spine and back surgery options are available at your Center City Philadelphia location?",
-        answer: "Our Philadelphia orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (561) 223-9959 or visit our Treatments page for details."
+        answer: "Our Philadelphia orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (215) 436-9496 or visit our Treatments page for details."
       },
       {
         question: "Do you treat workers' compensation and work-related injuries in Center City Philadelphia?",
-        answer: "Yes. Our Walnut Street clinic accepts workers' compensation cases with same-day evaluations for work-related orthopedic injuries. We serve Center City, Rittenhouse Square, University City, and surrounding neighborhoods. Call (561) 223-9959 to schedule a workers' comp evaluation."
+        answer: "Yes. Our Walnut Street clinic accepts workers' compensation cases with same-day evaluations for work-related orthopedic injuries. We serve Center City, Rittenhouse Square, University City, and surrounding neighborhoods. Call (215) 436-9496 to schedule a workers' comp evaluation."
       },
       {
         question: "How do I book my first appointment at your Philadelphia Walnut Street clinic?",
-        answer: "Call (561) 223-9959 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
+        answer: "Call (215) 436-9496 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
       }
     ],
     ogImage: '/Philadelphia-og.png',
@@ -8650,7 +8658,7 @@ export const clinics: ClinicsProps[] = [
     lat: 39.9912,
     lng: -75.0934,
     address: '2401 E. Tioga St., Philadelphia, PA 19134',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: PA_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/sX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-tioga-orthopedics',
     stateAbbr: 'PA',
@@ -8660,7 +8668,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Mountain Spine & Orthopedics serves Port Richmond, Kensington, Fishtown, Frankford, and North Philadelphia from our Tioga Street location at 2401 E. Tioga St. Our fellowship-trained, board-certified orthopedic surgeons provide expert spine and joint care focused on getting you back to work and life — with same-day appointments available and a Workers' Compensation team experienced in handling work-related injury cases.
     [PARAGRAPH BREAK]Conveniently located near Aramingo Avenue and the I-95 corridor, our North Philadelphia orthopedic clinic is the closest high-quality spine and orthopedic option for neighborhoods that have historically lacked access to fellowship-level orthopedic care. We treat sciatica, herniated discs, spinal stenosis, degenerative disc disease, ACL tears, rotator cuff injuries, knee pain, hip pain, and occupational injuries — all with personalized care plans and a conservative-first approach.
-    [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical techniques available in the Philadelphia area, our North Philly orthopedic team delivers outstanding outcomes with dramatically faster recovery times. Most major PPO insurance plans and Workers' Compensation are accepted. Call Mountain Spine & Orthopedics Tioga today for an appointment.
+    [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical techniques available in the Philadelphia area, our North Philly orthopedic team uses techniques chosen to limit incision size and post-operative pain. Most major PPO insurance plans and Workers' Compensation are accepted. Call Mountain Spine & Orthopedics Tioga today for an appointment.
     `,
     keywords: [
       'north philadelphia orthopedic surgeon',
@@ -8709,7 +8717,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>North Philadelphia (Tioga) Spine and Orthopedic Specialists</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>North Philadelphia residents can access <strong>world-class orthopedic and spine care</strong> right in their community at <strong>2401 E. Tioga St.</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to North Philadelphia — serving patients from <strong>Port Richmond</strong>, <strong>Kensington</strong>, <strong>Fishtown</strong>, and <strong>Frankford</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our North Philadelphia orthopedic team provides expert diagnosis and personalized treatment designed for working-class Philadelphia neighborhoods.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>North Philadelphia residents can access <strong>orthopedic and spine care</strong> right in their community at <strong>2401 E. Tioga St.</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to North Philadelphia — serving patients from <strong>Port Richmond</strong>, <strong>Kensington</strong>, <strong>Fishtown</strong>, and <strong>Frankford</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our North Philadelphia orthopedic team provides expert diagnosis and personalized treatment designed for working-class Philadelphia neighborhoods.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Tioga spine center</strong> specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available for acute conditions.</p>
       </div>
     ),
@@ -8778,7 +8786,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -8949,15 +8957,15 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "What insurance does Mountain Spine & Orthopedics North Philadelphia accept?",
-        answer: "PPO insurance accepted. Call (561) 223-9959 before your visit and our team will verify your coverage and benefits quickly."
+        answer: "PPO insurance accepted. Call (215) 436-9496 before your visit and our team will verify your coverage and benefits quickly."
       },
       {
         question: "What spine and back surgery options are available at your North Philadelphia location?",
-        answer: "Our North Philadelphia orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (561) 223-9959 or visit our Treatments page for details."
+        answer: "Our North Philadelphia orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (215) 436-9496 or visit our Treatments page for details."
       },
       {
         question: "How do I book my first appointment at your North Philadelphia orthopedic clinic?",
-        answer: "Call (561) 223-9959 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
+        answer: "Call (215) 436-9496 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
       },
       {
         question: "Where can I park when I visit the Port Richmond / Tioga orthopedic office?",
@@ -8979,7 +8987,7 @@ export const clinics: ClinicsProps[] = [
     lat: 40.0275,
     lng: -75.1668,
     address: '5245 Germantown Ave. Suite A, Philadelphia, PA 19144',
-    phone: MAIN_PHONE_DISPLAY,
+    phone: PA_PHONE_DISPLAY,
     link: 'https://maps.app.goo.gl/tX5N9x7P7Z7G9N7P9',
     slug: 'philadelphia-germantown-orthopedics',
     stateAbbr: 'PA',
@@ -8989,7 +8997,7 @@ export const clinics: ClinicsProps[] = [
     paragraph: `
     Mountain Spine & Orthopedics serves Germantown, Mount Airy, East Falls, Chestnut Hill, and Northwest Philadelphia from our Germantown Avenue office at 5245 Germantown Ave. Suite A. Our fellowship-trained, board-certified orthopedic surgeons bring elite spine and joint care to one of Philadelphia's most storied neighborhoods — providing the same level of expertise found in Center City, right in your own community.
     [PARAGRAPH BREAK]Our Germantown orthopedic clinic is conveniently located on Germantown Avenue near Lincoln Drive and accessible from Route 1, I-76 (Schuylkill Expressway), and SEPTA's Chestnut Hill East line. We treat the full spectrum of orthopedic and spine conditions: herniated discs, sciatica, spinal stenosis, degenerative disc disease, ACL tears, rotator cuff injuries, knee and hip pain, and work-related injuries. Same-day appointments are available and Workers' Compensation cases are handled by experienced staff.
-    [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical and diagnostic tools, our Germantown orthopedic team delivers outstanding outcomes with faster recovery times than traditional open surgery. Most major PPO insurance accepted. Call Mountain Spine & Orthopedics Germantown today.
+    [PARAGRAPH BREAK]Using the most advanced minimally invasive surgical and diagnostic tools, our Germantown orthopedic team uses endoscopic and arthroscopic techniques that require smaller incisions than traditional open surgery. Most major PPO insurance accepted. Call Mountain Spine & Orthopedics Germantown today.
     `,
     keywords: [
       'germantown orthopedic surgeon',
@@ -9039,7 +9047,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Germantown Spine and Orthopedic Specialists of Northwest Philadelphia</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northwest Philadelphia residents can access <strong>world-class orthopedic and spine care</strong> right in their community at <strong>5245 Germantown Ave</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Northwest Philadelphia — serving patients from <strong>Mount Airy</strong>, <strong>East Falls</strong>, <strong>Nicetown</strong>, and <strong>Wissahickon</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Germantown orthopedic team provides expert diagnosis and personalized treatment for the historic Northwest Philadelphia corridor.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Northwest Philadelphia residents can access <strong>orthopedic and spine care</strong> right in their community at <strong>5245 Germantown Ave</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to Northwest Philadelphia — serving patients from <strong>Mount Airy</strong>, <strong>East Falls</strong>, <strong>Nicetown</strong>, and <strong>Wissahickon</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Germantown orthopedic team provides expert diagnosis and personalized treatment for the historic Northwest Philadelphia corridor.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Germantown spine center</strong> on Germantown Ave specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -9114,7 +9122,7 @@ export const clinics: ClinicsProps[] = [
         </h3>
 
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
-          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our high surgical success rates, cutting-edge technology, and fast recovery protocols tailored to each patient.
+          Our fellowship-trained spine surgeons perform the full spectrum of minimally invasive and reconstructive spine surgeries, including microdiscectomy, lumbar laminectomy, cervical disc replacement, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and a treatment plan built around each patient's diagnosis and goals.
         </p>
 
         <h3
@@ -9273,35 +9281,35 @@ export const clinics: ClinicsProps[] = [
     faqs: [
       {
         question: "Do you offer same-day orthopedic appointments in Philadelphia, PA?",
-        answer: "Yes. Our Philadelphia location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (561) 223-9959 to book the earliest appointment."
+        answer: "Yes. Our Philadelphia location is open 8AM–8PM, 7 days a week, and we prioritize same-day and next-day visits when available. Call (215) 436-9496 to book the earliest appointment."
       },
       {
         question: "Where is your Philadelphia, PA orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 5245 Germantown Ave. Suite A, Philadelphia, PA 19144. We're located near Vernon Park for convenient access. Call (561) 223-9959 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Philadelphia at 5245 Germantown Ave. Suite A, Philadelphia, PA 19144. We're located near Vernon Park for convenient access. Call (215) 436-9496 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Philadelphia location?",
-        answer: "Patients visit our Philadelphia clinic from throughout Germantown and surrounding Philadelphia neighborhoods and communities. If you're not sure which location is closest, call (561) 223-9959 and we'll guide you."
+        answer: "Patients visit our Philadelphia clinic from throughout Germantown and surrounding Philadelphia neighborhoods and communities. If you're not sure which location is closest, call (215) 436-9496 and we'll guide you."
       },
       {
         question: "What conditions do you treat at your Philadelphia, PA location?",
-        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (561) 223-9959 to schedule."
+        answer: "We evaluate and treat common orthopedic and spine conditions including herniated discs, sciatica, spinal stenosis, arthritis-related joint pain, sports injuries, and more. Browse our Conditions section on this page to see options by body area, then call (215) 436-9496 to schedule."
       },
       {
         question: "What insurance does Mountain Spine & Orthopedics Germantown accept?",
-        answer: "PPO insurance accepted. Call (561) 223-9959 before your visit and our team will verify your coverage and benefits quickly."
+        answer: "PPO insurance accepted. Call (215) 436-9496 before your visit and our team will verify your coverage and benefits quickly."
       },
       {
         question: "What spine and back surgery options are available at your Germantown location?",
-        answer: "Our Germantown orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (561) 223-9959 or visit our Treatments page for details."
+        answer: "Our Germantown orthopedic surgeons perform minimally invasive procedures including microdiscectomy, laminectomy, spinal fusion, ACDF, and artificial disc replacement. Most procedures are outpatient with faster recovery than traditional open surgery. Call (215) 436-9496 or visit our Treatments page for details."
       },
       {
         question: "Do you treat workers' compensation and work-related injuries in Northwest Philadelphia?",
-        answer: "Yes. Our Germantown clinic accepts workers' compensation cases with same-day evaluations for work-related orthopedic injuries. We serve Germantown, Mount Airy, East Falls, Nicetown, and Wissahickon. Call (561) 223-9959 to schedule a workers' comp evaluation."
+        answer: "Yes. Our Germantown clinic accepts workers' compensation cases with same-day evaluations for work-related orthopedic injuries. We serve Germantown, Mount Airy, East Falls, Nicetown, and Wissahickon. Call (215) 436-9496 to schedule a workers' comp evaluation."
       },
       {
         question: "How do I book my first appointment at your Germantown orthopedic clinic?",
-        answer: "Call (561) 223-9959 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
+        answer: "Call (215) 436-9496 or use the Book an Appointment form at the top of this page. Same-day and next-day availability is typically offered for new patients. Our team will handle scheduling and insurance verification before your visit."
       }
     ],
     ogImage: '/Philadelphia-og.png',
@@ -9328,7 +9336,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'voorhees-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics is proud to expand our world-class orthopedic and spine care to Voorhees Township, serving Camden County and the greater South Jersey region. We recognize that South Jersey families lead active, fast-paced lives, and persistent musculoskeletal pain shouldn't keep you from enjoying your community. Our mission is to provide our neighbors with the advanced, compassionate orthopedic treatment they need to restore function and live pain-free.
+    Mountain Spine & Orthopedics is proud to expand our orthopedic and spine care to Voorhees Township, serving Camden County and the greater South Jersey region. We recognize that South Jersey families lead active, fast-paced lives, and persistent musculoskeletal pain shouldn't keep you from enjoying your community. Our mission is to provide our neighbors with the advanced, compassionate orthopedic treatment they need to restore function and live pain-free.
     [PARAGRAPH BREAK]
     Our Voorhees clinic is staffed by highly respected, fellowship-trained, and board-certified orthopedic surgeons who combine years of specialized experience with a genuine commitment to patient well-being. Located conveniently on White Horse Road, our specialists are experts in diagnosing and treating the full spectrum of conditions, including sciatica, herniated discs, spinal stenosis, and degenerative disc disease. Whether you are dealing with a sports injury or a complex work-related injury, each patient receives a comprehensive evaluation and a recovery plan tailored specifically to their goals.
     [PARAGRAPH BREAK]
@@ -9380,7 +9388,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Voorhees Spine and Orthopedic Specialists of Camden County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Jersey residents can access <strong>world-class orthopedic and spine care</strong> right here in <strong>Voorhees Township, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to <strong>Camden County</strong> — serving patients from <strong>Cherry Hill</strong>, <strong>Marlton</strong>, <strong>Gibbsboro</strong>, and <strong>Stratford</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Voorhees orthopedic team provides expert diagnosis and personalized treatment for South Jersey's active communities.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>South Jersey residents can access <strong>orthopedic and spine care</strong> right here in <strong>Voorhees Township, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to <strong>Camden County</strong> — serving patients from <strong>Cherry Hill</strong>, <strong>Marlton</strong>, <strong>Gibbsboro</strong>, and <strong>Stratford</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or a sports injury, our Voorhees orthopedic team provides expert diagnosis and personalized treatment for South Jersey's active communities.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Voorhees spine center</strong> at 701 White Horse Rd specializes in <strong>minimally invasive spine surgery</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -9432,7 +9440,7 @@ export const clinics: ClinicsProps[] = [
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className="text-xl font-semibold text-[#062044] mt-2">Leading Spine Doctors in Voorhees &amp; South Jersey</h3>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our board-certified spine specialists in <strong>Voorhees, NJ</strong> provide advanced evaluation and treatment for <strong>chronic neck pain</strong>, <strong>lower back pain</strong>, <strong>sciatica</strong>, <strong>spinal stenosis</strong>, <strong>herniated discs</strong>, nerve compression, and trauma-related injuries. Serving <strong>Camden County</strong> and surrounding South Jersey communities, our team uses the latest diagnostic imaging, minimally invasive procedures, and non-surgical solutions to restore mobility and reduce pain.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className="text-xl font-semibold text-[#062044] mt-6">Expert Spine Surgeons in Voorhees</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our fellowship-trained spine surgeons perform the full spectrum of <strong>minimally invasive</strong> and reconstructive spine surgeries, including <strong>microdiscectomy</strong>, lumbar laminectomy, <strong>cervical disc replacement</strong>, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients from Cherry Hill, Marlton, and throughout South Jersey choose Mountain Spine & Orthopedics for our high surgical success rates and fast recovery protocols.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our fellowship-trained spine surgeons perform the full spectrum of <strong>minimally invasive</strong> and reconstructive spine surgeries, including <strong>microdiscectomy</strong>, lumbar laminectomy, <strong>cervical disc replacement</strong>, anterior cervical discectomy and fusion (ACDF), lumbar fusion, motion-preserving surgery, and advanced endoscopic techniques. Patients from Cherry Hill, Marlton, and throughout South Jersey choose Mountain Spine & Orthopedics for our fellowship-trained, board-certified surgeons and minimally invasive techniques.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className="text-xl font-semibold text-[#062044] mt-6">Spine Conditions We Treat</h3>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Below are the most common spine and nerve conditions we treat at our Voorhees orthopedic center.</p>
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
@@ -9515,7 +9523,7 @@ export const clinics: ClinicsProps[] = [
     locationSlug: 'princeton-orthopedics',
     locationType: 'office',
     paragraph: `
-    Mountain Spine & Orthopedics is proud to bring elite orthopedic and spine care to historic Princeton, NJ, serving Mercer County and the greater Central Jersey region. We understand that the Princeton community values excellence and precision in healthcare. Our mission is to provide world-class, fellowship-trained orthopedic care that matches the standards of this world-renowned academic hub, right here in the heart of town.
+    Mountain Spine & Orthopedics is proud to bring elite orthopedic and spine care to historic Princeton, NJ, serving Mercer County and the greater Central Jersey region. We understand that the Princeton community values excellence and precision in healthcare. Our mission is to provide fellowship-trained orthopedic care to this academic community, right here in the heart of town.
     [PARAGRAPH BREAK]
     Our Princeton clinic, located on Ewing Street, is staffed by board-certified orthopedic surgeons who specialize in complex musculoskeletal conditions. Whether you are a student-athlete, a busy professional, or an active retiree, we provide expert diagnosis and treatment for sciatica, herniated discs, spinal stenosis, and advanced joint pain. We combine academic-level clinical expertise with a boutique, patient-first experience.
     [PARAGRAPH BREAK]
@@ -9567,7 +9575,7 @@ export const clinics: ClinicsProps[] = [
     specialists: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Princeton Spine and Orthopedic Specialists of Mercer County</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'><strong>Mercer County</strong> residents can access <strong>world-class orthopedic and spine care</strong> right in the heart of <strong>Princeton, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the Princeton area — serving patients from <strong>Plainsboro</strong>, <strong>West Windsor</strong>, <strong>Montgomery</strong>, and <strong>Lawrenceville</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or joint injuries, our Princeton orthopedic team delivers expert, data-driven diagnosis and personalized treatment.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'><strong>Mercer County</strong> residents can access <strong>orthopedic and spine care</strong> right in the heart of <strong>Princeton, NJ</strong>. Mountain Spine & Orthopedics brings fellowship-trained, board-certified <strong>orthopedic surgeons</strong> to the Princeton area — serving patients from <strong>Plainsboro</strong>, <strong>West Windsor</strong>, <strong>Montgomery</strong>, and <strong>Lawrenceville</strong>. Whether you're dealing with <strong>herniated disc pain</strong>, <strong>sciatica</strong>, spinal stenosis, or joint injuries, our Princeton orthopedic team delivers expert, data-driven diagnosis and personalized treatment.</p>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our <strong>Princeton spine center</strong> at 601 Ewing St specializes in <strong>minimally invasive spine surgery</strong>, <strong>artificial disc replacement</strong>, <strong>joint replacement</strong>, and comprehensive orthopedic care — including <strong>workers' compensation</strong> evaluations with <strong>same-day orthopedic appointments</strong> available.</p>
       </div>
     ),
@@ -9581,8 +9589,8 @@ export const clinics: ClinicsProps[] = [
       <div className='flex flex-col space-y-4'>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Our Princeton, NJ Orthopedic Clinic:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
-          <li><strong>Elite Surgeons:</strong> Fellowship-trained specialists serving the Princeton and West Windsor area.</li>
-          <li><strong>Advanced Spine Care:</strong> Leaders in <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] font-bold underline">artificial disc replacement</Link> and motion preservation.</li>
+          <li><strong>Fellowship-Trained Surgeons:</strong> Specialists serving the Princeton and West Windsor area.</li>
+          <li><strong>Advanced Spine Care:</strong> Offering <Link href="/treatments/artificial-disc-replacement-surgery" className="text-[#0A50EC] font-bold underline">artificial disc replacement</Link> and motion preservation.</li>
           <li><strong>Hyper-Local Access:</strong> Conveniently located near the <strong>Princeton Shopping Center</strong>.</li>
           <li><strong>Comprehensive Diagnostics:</strong> On-site evaluation and rapid <Link href="/find-care/free-mri-review" className="text-[#0A50EC] font-bold underline">MRI reviews</Link>.</li>
           <li><strong>Insurance Friendly:</strong> PPO insurance accepted; we also handle <strong>Workers' Compensation</strong>.</li>
@@ -9619,7 +9627,7 @@ export const clinics: ClinicsProps[] = [
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className="text-xl font-semibold text-[#062044] mt-2">Leading Spine Doctors in Princeton &amp; Mercer County</h3>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our board-certified spine specialists in <strong>Princeton, NJ</strong> provide advanced evaluation and treatment for <strong>chronic neck pain</strong>, <strong>lower back pain</strong>, <strong>sciatica</strong>, <strong>spinal stenosis</strong>, <strong>herniated discs</strong>, nerve compression, and trauma-related injuries. Serving <strong>Mercer County</strong>, Plainsboro, West Windsor, and Montgomery, our team delivers academic-level orthopedic precision with minimally invasive outcomes.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className="text-xl font-semibold text-[#062044] mt-6">Expert Spine Surgeons in Princeton</h3>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our fellowship-trained spine surgeons perform the full spectrum of <strong>minimally invasive</strong> and reconstructive spine surgeries, including <strong>microdiscectomy</strong>, lumbar laminectomy, <strong>cervical disc replacement</strong>, anterior cervical discectomy and fusion (ACDF), <strong>artificial disc replacement</strong>, lumbar fusion, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics Princeton for our high surgical success rates, motion-preserving technology, and fast recovery protocols tailored to each patient.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Our fellowship-trained spine surgeons perform the full spectrum of <strong>minimally invasive</strong> and reconstructive spine surgeries, including <strong>microdiscectomy</strong>, lumbar laminectomy, <strong>cervical disc replacement</strong>, anterior cervical discectomy and fusion (ACDF), <strong>artificial disc replacement</strong>, lumbar fusion, and advanced endoscopic techniques. Patients choose Mountain Spine & Orthopedics Princeton for our fellowship-trained, board-certified surgeons, motion-preserving techniques, and a treatment plan built around each patient's diagnosis and goals.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className="text-xl font-semibold text-[#062044] mt-6">Spine Conditions We Treat</h3>
         <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">Below are the most common spine and nerve conditions we treat at our Princeton orthopedic center.</p>
         <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
@@ -9685,6 +9693,165 @@ export const clinics: ClinicsProps[] = [
     gallery: [
       { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Princeton-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Princeton, NJ', caption: 'Building exterior (Princeton, NJ)', category: 'Facility' },
     ],
+  },
+
+  {
+    id: 24,
+    name: 'Mountain Spine & Orthopedics Atlanta, GA',
+    region: 'Atlanta, GA',
+    // Verified against the US Census Bureau geocoder (Public_AR_Current
+    // benchmark), which matched "2250 DRUID HILLS RD NE, ATLANTA, GA, 30329".
+    // Not an estimate: OpenStreetMap has no house number on this block, so an
+    // interpolated guess was ~220m out before this was corrected.
+    lat: 33.829783,
+    lng: -84.332626,
+    address: '2250 North Druid Hills Rd NE, Suite 124, Atlanta, GA 30329',
+    // Atlanta direct line.
+    phone: GA_PHONE_DISPLAY,
+    // Address search rather than a Place link - this office has no published
+    // Google Business Profile yet, so there is no CID/Place URL to point at.
+    link: 'https://www.google.com/maps/search/?api=1&query=2250%20North%20Druid%20Hills%20Rd%20NE%20Suite%20124%2C%20Atlanta%2C%20GA%2030329',
+    slug: 'atlanta-orthopedics',
+    stateAbbr: 'GA',
+    stateSlug: 'georgia',
+    locationSlug: 'atlanta-orthopedics',
+    locationType: 'office',
+    paragraph: `
+    Mountain Spine & Orthopedics brings its spine and orthopedic care to Atlanta at 2250 North Druid Hills Rd NE, Suite 124, in the North Druid Hills area of DeKalb County.
+    [PARAGRAPH BREAK]Our practice specializes in the evaluation and treatment of spine and musculoskeletal conditions - back and neck pain, herniated and bulging discs, sciatica and nerve compression, spinal stenosis, degenerative disc disease, adult spinal deformity, and joint pain. Our board-certified orthopedic and spine surgeons emphasize accurate diagnosis first: understanding what is actually generating your symptoms before recommending any treatment.
+    [PARAGRAPH BREAK]Where surgery is appropriate, our surgeons favor minimally invasive and motion-preserving techniques, which generally mean smaller incisions and a faster return to activity than traditional open procedures. Where it is not, we treat with targeted, image-guided injections and non-surgical care. Most major PPO plans are accepted, and a complimentary MRI review is available if you already have imaging from another provider.
+    `,
+    keywords: [
+      'orthopedic surgeon atlanta ga',
+      'spine surgeon atlanta',
+      'orthopedic doctor atlanta',
+      'back pain doctor atlanta',
+      'spine specialist atlanta ga',
+      'herniated disc atlanta',
+      'sciatica treatment atlanta',
+      'spinal stenosis atlanta',
+      'minimally invasive spine surgery atlanta',
+      'scoliosis doctor atlanta',
+      'adult scoliosis specialist atlanta',
+      'orthopedic doctor 30329',
+      'north druid hills orthopedic',
+      'second opinion spine surgeon atlanta',
+      'neck pain doctor atlanta ga',
+    ],
+    metaTitle: 'Atlanta GA Spine Surgeon & Orthopedic Doctor | Mountain Spine',
+    metaDescription: 'Orthopedic and spine specialists in Atlanta, GA at 2250 North Druid Hills Rd NE, Suite 124. Back pain, herniated disc, sciatica, adult scoliosis. PPO accepted.',
+    // No published reviews for this office yet. Left at zero deliberately: the
+    // schema builder and the on-page reviews block both skip empty values, so
+    // nothing fabricated is rendered or marked up.
+    rating: 0,
+    reviewCount: 0,
+    reviews: [],
+    specialists: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>Orthopedic &amp; Spine Care in Atlanta, GA</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Mountain Spine &amp; Orthopedics is seeing patients in Atlanta at <strong>2250 North Druid Hills Rd NE, Suite 124</strong>. Our <strong>board-certified orthopedic and spine surgeons</strong> evaluate and treat the full range of spine and musculoskeletal problems, from <Link href="/conditions/lower-back-pain" className="text-[#0A50EC] underline">lower back pain</Link> and <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">neck pain</Link> to <Link href="/conditions/herniated-disc" className="text-[#0A50EC] underline">herniated discs</Link>, <Link href="/conditions/sciatica" className="text-[#0A50EC] underline">sciatica</Link>, and <Link href="/conditions/spinal-stenosis" className="text-[#0A50EC] underline">spinal stenosis</Link>.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>We also evaluate <Link href="/conditions/adult-degenerative-scoliosis" className="text-[#0A50EC] underline">adult degenerative scoliosis</Link> and other forms of <Link href="/conditions/spine-deformities" className="text-[#0A50EC] underline">adult spinal deformity</Link> - conditions that need standing full-length imaging and an alignment-focused assessment, not just a lumbar MRI.</p>
+      </div>
+    ),
+    skilled: (
+      <div className='flex flex-col space-y-4'>
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-3xl'>How We Approach Diagnosis and Treatment</h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our surgeons start by identifying the source of your symptoms rather than treating an image. That means correlating your examination with your imaging, and being explicit about what is and is not likely to be causing your pain. Many patients are managed without surgery, using <Link href="/treatments/epidural-steroid-injection" className="text-[#0A50EC] underline">image-guided injections</Link> and other non-surgical care.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>When surgery is the right answer, our team performs minimally invasive spine procedures including microdiscectomy, <Link href="/treatments/lumbar-decompression" className="text-[#0A50EC] underline">decompression</Link>, and fusion techniques such as <Link href="/treatments/understanding-tlif-surgery" className="text-[#0A50EC] underline">TLIF</Link> and <Link href="/treatments/anterior-lumbar-interbody-fusion" className="text-[#0A50EC] underline">ALIF</Link>.</p>
+      </div>
+    ),
+    whyChoose: (
+      <div className='flex flex-col space-y-4'>
+        <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Why Patients Choose Mountain Spine &amp; Orthopedics</h3>
+        <ul style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg list-disc pl-5 space-y-2'>
+          <li>Board-certified orthopedic and spine surgeons</li>
+          <li>Minimally invasive and motion-preserving techniques where appropriate</li>
+          <li><Link href="/find-care/free-mri-review" className="text-[#0A50EC] underline">Complimentary MRI review</Link> if you already have imaging</li>
+          <li><Link href="/find-care/second-opinion" className="text-[#0A50EC] underline">Second opinions</Link> on surgery that has already been recommended elsewhere</li>
+          <li>Most major PPO insurance accepted - see our <Link href="/insurance-policy" className="text-[#0A50EC] underline">insurance information</Link></li>
+          <li>Non-surgical pain management, including image-guided injections</li>
+        </ul>
+      </div>
+    ),
+    advancedTreatments: (
+      <div className="flex flex-col space-y-4">
+        <h2 style={{ fontFamily: "var(--font-public-sans)" }} className="text-2xl md:text-3xl font-bold text-[#062044]">
+          Spine &amp; Orthopedic Conditions We Treat
+        </h2>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className="text-lg">
+          Mountain Spine &amp; Orthopedics evaluates and treats the conditions below across our offices. Select a condition to understand its symptoms, how it is diagnosed, and which treatments apply.
+        </p>
+        <div style={{ fontFamily: "var(--font-public-sans)" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+          <Link href="/conditions/herniated-disc" className="text-[#0A50EC] underline">Herniated Disc</Link>
+          <Link href="/conditions/lumbar-herniated-disc" className="text-[#0A50EC] underline">Lumbar Herniated Disc</Link>
+          <Link href="/conditions/cervical-herniated-disc" className="text-[#0A50EC] underline">Cervical Herniated Disc</Link>
+          <Link href="/conditions/sciatica" className="text-[#0A50EC] underline">Sciatica / Nerve Pain</Link>
+          <Link href="/conditions/spinal-stenosis" className="text-[#0A50EC] underline">Spinal Stenosis</Link>
+          <Link href="/conditions/foraminal-stenosis" className="text-[#0A50EC] underline">Foraminal Stenosis</Link>
+          <Link href="/conditions/degenerative-disc-disease" className="text-[#0A50EC] underline">Degenerative Disc Disease</Link>
+          <Link href="/conditions/adult-degenerative-scoliosis" className="text-[#0A50EC] underline">Adult Degenerative Scoliosis</Link>
+          <Link href="/conditions/spine-deformities" className="text-[#0A50EC] underline">Spine Deformities</Link>
+          <Link href="/conditions/spondylolisthesis" className="text-[#0A50EC] underline">Spondylolisthesis</Link>
+          <Link href="/conditions/pinched-nerve" className="text-[#0A50EC] underline">Pinched Nerve</Link>
+          <Link href="/conditions/lower-back-pain" className="text-[#0A50EC] underline">Lower Back Pain</Link>
+          <Link href="/conditions/neck-pain" className="text-[#0A50EC] underline">Neck Pain</Link>
+          <Link href="/conditions/spinal-compression-fractures" className="text-[#0A50EC] underline">Spinal Compression Fractures</Link>
+          <Link href="/conditions/adjacent-segment-disease" className="text-[#0A50EC] underline">Adjacent Segment Disease</Link>
+        </div>
+      </div>
+    ),
+    faqs: [
+      {
+        question: "Where is your Atlanta, GA orthopedic office located?",
+        answer: "Mountain Spine & Orthopedics is located at 2250 North Druid Hills Rd NE, Suite 124, Atlanta, GA 30329, in the North Druid Hills area of DeKalb County. Call (404) 913-6886 if you would like help with directions."
+      },
+      {
+        question: "What conditions do you treat at your Atlanta location?",
+        answer: "We evaluate and treat spine and orthopedic conditions including herniated and bulging discs, sciatica and nerve compression, spinal stenosis, degenerative disc disease, adult degenerative scoliosis and other spinal deformities, and joint pain. Browse the conditions listed on this page, then call (404) 913-6886 to schedule an evaluation."
+      },
+      {
+        question: "Do I need surgery to be seen by a spine surgeon in Atlanta?",
+        answer: "No. Most patients we evaluate are managed without surgery. A spine consultation is a diagnostic visit: the surgeon works out what is generating your symptoms and which treatments apply to your case, including non-surgical options such as image-guided injections."
+      },
+      {
+        question: "Do you see adult scoliosis patients in Atlanta?",
+        answer: "Yes. Adult degenerative scoliosis is evaluated with standing full-length spine X-rays and, when there are leg symptoms, an MRI. Read more on our Adult Degenerative Scoliosis page, or call (404) 913-6886 to arrange an evaluation."
+      },
+      {
+        question: "Can I get a second opinion on spine surgery in Atlanta?",
+        answer: "Yes. If fusion or another spine procedure has been recommended to you elsewhere, you can request a second opinion. If you already have imaging, you can also request a complimentary MRI review before booking a full consultation."
+      },
+      {
+        question: "What insurance do you accept in Atlanta?",
+        answer: "Most major PPO insurance plans are accepted. Call (404) 913-6886 before your visit and our team will verify your coverage and benefits."
+      },
+      {
+        question: "How do I book an appointment at your Atlanta orthopedic clinic?",
+        answer: "Call (404) 913-6886 or use the appointment form on this page. Our team handles scheduling and insurance verification before your visit."
+      }
+    ],
+    ogImage: '/locations-og.png',
+    formattedAddress: '2250 North Druid Hills Rd NE, Suite 124, Atlanta, GA 30329',
+    addressLine1: '2250 North Druid Hills Rd NE',
+    suite: 'Suite 124',
+    city: 'Atlanta',
+    state: 'Georgia',
+    postalCode: '30329',
+    county: 'DeKalb',
+    country: 'United States',
+    countryCode: 'us',
+    stateCode: 'GA',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=2250%20North%20Druid%20Hills%20Rd%20NE%20Suite%20124%2C%20Atlanta%2C%20GA%2030329',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=2250%20North%20Druid%20Hills%20Rd%20NE%20Suite%20124%2C%20Atlanta%2C%20GA%2030329',
+    // Google Business Profile fields (placeId, cid, businessProfileId, kgId,
+    // placeUrl, embedSrc) are intentionally absent: the GBP for this office is
+    // still being created. Every consumer of those fields is already guarded on
+    // their presence, so they can be filled in here alone once the profile is
+    // live - no template changes required.
+    // PENDING: real photographs of the Atlanta office have not been shot yet.
+    // Left empty rather than reusing another location's images, which would
+    // misrepresent this office. LocationGallerySection skips an empty gallery.
+    gallery: [],
   },
 
 ];

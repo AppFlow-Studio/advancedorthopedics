@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { getAttributionData } from "@/lib/gclid"
+import { EMPTY_ATTRIBUTION, getAttributionData } from "@/lib/gclid"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -15,7 +15,7 @@ import { BorderBeam } from "@/components/magicui/border-beam"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { sendContactEmail, sendUserEmail } from "@/components/email/sendcontactemail"
 import { redirect } from "next/navigation"
-import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { pushAcceptedLead } from "@/utils/enhancedConversions"
 import { STATE_OPTIONS } from "@/lib/stateUtils"
 import { clinicsForMap as clinics } from "@/components/data/clinicsForMap.generated"
 
@@ -55,7 +55,7 @@ export function WorkInjuryLeadCaptureForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+    const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
 
     useEffect(() => {
         setAttribution(getAttributionData())
@@ -92,7 +92,7 @@ export function WorkInjuryLeadCaptureForm() {
             utm_term: attribution.utm_term,
             utm_content: attribution.utm_content,
         })
-        await sendUserEmail({
+        const acceptance = await sendUserEmail({
             name: values.firstName,
             email: values.email,
             phone: values.phone,
@@ -100,6 +100,8 @@ export function WorkInjuryLeadCaptureForm() {
             reason: values.injury,
             form_source: 'work-injury',
             gclid: attribution.gclid,
+            gbraid: attribution.gbraid,
+            wbraid: attribution.wbraid,
             utm_source: attribution.utm_source,
             utm_medium: attribution.utm_medium,
             utm_campaign: attribution.utm_campaign,
@@ -107,7 +109,7 @@ export function WorkInjuryLeadCaptureForm() {
             utm_content: attribution.utm_content,
         })
 
-        pushFormSubmit({ form_name: 'WorkInjuryLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName })
+        await pushAcceptedLead({ acceptance, form_name: 'WorkInjuryLeadForm', form_source: 'work-injury', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName })
 
         setIsSubmitting(false)
         if (data) {
@@ -216,7 +218,7 @@ export function WorkInjuryLeadCaptureForm() {
                                         </FormLabel>
                                         <FormControl>
                                             <div className="flex">
-                                                <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                                <Input aria-label="Name" placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -238,7 +240,7 @@ export function WorkInjuryLeadCaptureForm() {
                                         </FormLabel>
                                         <FormControl>
                                             <div className="flex">
-                                                <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                                <Input aria-label="Name" placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -262,7 +264,7 @@ export function WorkInjuryLeadCaptureForm() {
                                     </FormLabel>
                                     <FormControl>
                                         <div className="flex">
-                                            <Input placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                            <Input aria-label="Phone Number" placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                         </div>
                                     </FormControl>
                                     <FormMessage />
@@ -285,7 +287,7 @@ export function WorkInjuryLeadCaptureForm() {
                                     </FormLabel>
                                     <FormControl>
                                         <div className="flex">
-                                            <Input placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                            <Input aria-label="Email" placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                         </div>
                                     </FormControl>
                                     <FormMessage />
@@ -335,7 +337,7 @@ export function WorkInjuryLeadCaptureForm() {
                                                 </FormLabel>
                                                 <FormControl>
                                                     <div className="flex">
-                                                        <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                                        <Input aria-label="Name" placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                                     </div>
                                                 </FormControl>
                                                 <FormMessage />
@@ -354,7 +356,7 @@ export function WorkInjuryLeadCaptureForm() {
                                                 </FormLabel>
                                                 <FormControl>
                                                     <div className="flex">
-                                                        <Input placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                                        <Input aria-label="Name" placeholder="Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                                     </div>
                                                 </FormControl>
                                                 <FormMessage />
@@ -375,7 +377,7 @@ export function WorkInjuryLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <div className="flex">
-                                                    <Input placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                                    <Input aria-label="Phone Number" placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                                 </div>
                                             </FormControl>
                                             <FormMessage />
@@ -395,7 +397,7 @@ export function WorkInjuryLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <div className="flex">
-                                                    <Input placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]" {...field} />
+                                                    <Input aria-label="Email" placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1]" {...field} />
                                                 </div>
                                             </FormControl>
                                             <FormMessage />
@@ -410,7 +412,7 @@ export function WorkInjuryLeadCaptureForm() {
                                         </span>
                                     </Label>
                                     <Select onValueChange={(value) => form.setValue("injury", value)}>
-                                        <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.injury ? "border-red-500" : ""}`}>
+                                        <SelectTrigger aria-label="Select your injury" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.injury ? "border-red-500" : ""}`}>
                                             <SelectValue placeholder="Select your injury" className="font-[var(--font-inter)] h-12 text-lg" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -431,7 +433,7 @@ export function WorkInjuryLeadCaptureForm() {
                                         </span>
                                     </Label>
                                     <Select onValueChange={(value) => form.setValue("urgency", value)}>
-                                        <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.urgency ? "border-red-500" : ""}`}>
+                                        <SelectTrigger aria-label="Select urgency" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.urgency ? "border-red-500" : ""}`}>
                                             <SelectValue placeholder="Select urgency" className="font-[var(--font-inter)] h-12 text-lg" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -452,7 +454,7 @@ export function WorkInjuryLeadCaptureForm() {
                                         </span>
                                     </Label>
                                     <Select onValueChange={(value) => form.setValue("location", value)}>
-                                        <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.location ? "border-red-500" : ""}`}>
+                                        <SelectTrigger aria-label="Select location" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.location ? "border-red-500" : ""}`}>
                                             <SelectValue placeholder="Select location" className="font-[var(--font-inter)] h-12 text-lg" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -473,7 +475,7 @@ export function WorkInjuryLeadCaptureForm() {
                                         </span>
                                     </Label>
                                     <Select onValueChange={(value) => form.setValue("state", value)}>
-                                        <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.state ? "border-red-500" : ""}`}>
+                                        <SelectTrigger aria-label="Select your state" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm ${form.formState.errors.state ? "border-red-500" : ""}`}>
                                             <SelectValue placeholder="Select your state" />
                                         </SelectTrigger>
                                         <SelectContent>
