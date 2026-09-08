@@ -44,3 +44,6 @@ next-env.d.ts
 .claude/
 
 hydration-scan.json
+
+# 3D model source archives (rar) - only optimized glb ships in public/
+/3d-source/

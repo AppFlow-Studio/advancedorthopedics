@@ -6,6 +6,7 @@ import DoctorCard from "@/components/DoctorCard";
 import FAQsSection from "@/components/FaqsSection";
 import StateLocationCard from "@/components/StateLocationCard";
 import SpecialistExplorer from "@/components/SpecialistExplorer";
+import VertebraViewer from "@/components/VertebraViewer";
 import styles from './specialist.module.css';
 import { clinicsForMap } from "@/components/data/clinicsForMap.generated";
 import { Doctors } from "@/components/data/doctors";
@@ -261,34 +262,41 @@ export default async function SpecialistPage({
         </ul>
       </section>
 
-      <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]">
-        <h2
-          style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
-          className="text-[#111315] sm:text-4xl text-2xl"
-        >
-          When to see a specialist
-        </h2>
-        <p className="text-[#424959] sm:text-xl text-sm">
-          {page.whenToSeeSpecialist.intro}
-        </p>
-        <ul className="flex flex-col space-y-4 text-[#424959] sm:text-xl text-sm list-disc pl-5">
-          {page.whenToSeeSpecialist.triggers.map((trigger) => (
-            <li key={trigger}>{trigger}</li>
-          ))}
-        </ul>
-        <aside className="rounded-2xl border border-[#0A50EC]/20 bg-[#0A50EC]/[0.04] px-5 py-4 sm:px-6 sm:py-5">
-          <h3
-            style={{ fontFamily: "var(--font-public-sans)", fontWeight: 600 }}
-            className="text-[#252932] text-base sm:text-lg"
-          >
-            Symptoms that need urgent attention
-          </h3>
-          <ul className="mt-3 flex flex-col space-y-2 text-[#424959] text-sm sm:text-base list-disc pl-5">
-            {page.whenToSeeSpecialist.redFlags.map((flag) => (
-              <li key={flag}>{flag}</li>
-            ))}
-          </ul>
-        </aside>
+      <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px]">
+        <div className="flex flex-col lg:flex-row gap-10 lg:items-start">
+          <div className="flex-1 min-w-0 space-y-[24px]">
+            <h2
+              style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
+              className="text-[#111315] sm:text-4xl text-2xl"
+            >
+              When to see a specialist
+            </h2>
+            <p className="text-[#424959] sm:text-xl text-sm">
+              {page.whenToSeeSpecialist.intro}
+            </p>
+            <ul className="flex flex-col space-y-4 text-[#424959] sm:text-xl text-sm list-disc pl-5">
+              {page.whenToSeeSpecialist.triggers.map((trigger) => (
+                <li key={trigger}>{trigger}</li>
+              ))}
+            </ul>
+            <aside className="rounded-2xl border border-[#0A50EC]/20 bg-[#0A50EC]/[0.04] px-5 py-4 sm:px-6 sm:py-5">
+              <h3
+                style={{ fontFamily: "var(--font-public-sans)", fontWeight: 600 }}
+                className="text-[#252932] text-base sm:text-lg"
+              >
+                Symptoms that need urgent attention
+              </h3>
+              <ul className="mt-3 flex flex-col space-y-2 text-[#424959] text-sm sm:text-base list-disc pl-5">
+                {page.whenToSeeSpecialist.redFlags.map((flag) => (
+                  <li key={flag}>{flag}</li>
+                ))}
+              </ul>
+            </aside>
+          </div>
+          <div className="w-full lg:w-[400px] xl:w-[430px] shrink-0 lg:sticky lg:top-24">
+            <VertebraViewer slug={page.slug} />
+          </div>
+        </div>
       </section>
 
       <section id="first-appointment" className={`${styles.appointment} max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]`}>
