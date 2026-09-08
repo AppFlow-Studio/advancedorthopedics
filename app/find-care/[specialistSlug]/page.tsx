@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import DoctorCard from "@/components/DoctorCard";
 import FAQsSection from "@/components/FaqsSection";
 import StateLocationCard from "@/components/StateLocationCard";
-import RevealOnView from "@/components/RevealOnView";
+import SpecialistExplorer from "@/components/SpecialistExplorer";
+import styles from './specialist.module.css';
 import { clinicsForMap } from "@/components/data/clinicsForMap.generated";
 import { Doctors } from "@/components/data/doctors";
 import { SpecialistPages } from "@/components/data/specialists";
@@ -147,7 +148,7 @@ export default async function SpecialistPage({
   };
 
   return (
-    <main className="w-full flex flex-col items-center justify-center bg-white h-full overflow-x-hidden">
+    <main className={`${styles.page} w-full flex flex-col items-center justify-center bg-white h-full overflow-x-hidden`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -165,7 +166,8 @@ export default async function SpecialistPage({
           fetchPriority="high"
           fill
           className="h-full absolute top-0 object-cover object-center md:object-center w-full"
-          alt={`${page.conditionName} specialist consultation at Mountain Spine & Orthopedics`}
+          alt=""
+          sizes="100vw"
         />
         <div
           className="w-full h-full absolute left-0 top-0"
@@ -175,7 +177,9 @@ export default async function SpecialistPage({
           }}
         />
         <div className="z-[2] flex flex-col w-full h-full text-left relative pt-28 sm:pt-32 lg:pt-26 pb-20 px-6 lg:px-[80px]">
-          <div className="max-w-[1440px] w-full flex flex-col items-start justify-start">
+          <div className={styles.hero}>
+          <div className={styles.intro}>
+            <span className={styles.eyebrow}>Mountain Spine &amp; Orthopedics · Find care</span>
             <h1
               style={{
                 fontFamily: "var(--font-public-sans)",
@@ -215,11 +219,17 @@ export default async function SpecialistPage({
                 <span>No referral needed</span>
               </div>
             </div>
+            <nav className={styles.jump} aria-label="On this page">
+              <a href="#first-appointment">Your first visit</a>
+              <a href="#specialists">Meet your specialists</a>
+              <a href="#locations">Find an office</a>
+            </nav>
+          </div>
+          <SpecialistExplorer slug={page.slug}/>
           </div>
         </div>
       </section>
 
-      <RevealOnView>
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
@@ -250,9 +260,7 @@ export default async function SpecialistPage({
           </li>
         </ul>
       </section>
-      </RevealOnView>
 
-      <RevealOnView direction="left">
       <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
@@ -282,10 +290,8 @@ export default async function SpecialistPage({
           </ul>
         </aside>
       </section>
-      </RevealOnView>
 
-      <RevealOnView direction="right">
-      <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]">
+      <section id="first-appointment" className={`${styles.appointment} max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[24px]`}>
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
           className="text-[#111315] sm:text-4xl text-2xl"
@@ -308,16 +314,15 @@ export default async function SpecialistPage({
                 }}
                 className="text-[#111315] text-2xl transition-colors duration-300 group-hover:text-[#0A50EC]"
               >
-                {index + 1}. {step.title}
+                <span className={styles.stepNumber}>{String(index + 1).padStart(2, '0')}</span> {step.title}
               </h3>
               <p className="text-[#54535C] mt-3">{step.body}</p>
             </article>
           ))}
         </div>
       </section>
-      </RevealOnView>
 
-      <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[40px]">
+      <section id="specialists" className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[40px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
           className="text-[#111315] sm:text-4xl text-2xl"
@@ -371,7 +376,7 @@ export default async function SpecialistPage({
         ) : null}
       </section>
 
-      <section className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[40px]">
+      <section id="locations" className="max-w-[1440px] w-full px-6 xl:px-[80px] py-[50px] space-y-[40px]">
         <h2
           style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }}
           className="text-[#111315] sm:text-4xl text-2xl"
@@ -382,8 +387,12 @@ export default async function SpecialistPage({
           Our clinic pages list local contact details and office hours. Mountain
           Spine &amp; Orthopedics is available 8AM–8PM, seven days a week.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {treatingClinics.map((clinic, index) => (
+        <div>
+        {['florida','new-jersey','new-york','pennsylvania'].map((state) => (
+        <details key={state} className={styles.locations}>
+          <summary>{state.replace(/\b\w/g, c => c.toUpperCase()).replace(/-/g,' ')} · {treatingClinics.filter(c=>c.stateSlug===state).length} {treatingClinics.filter(c=>c.stateSlug===state).length === 1 ? 'office' : 'offices'}</summary>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {treatingClinics.filter(c=>c.stateSlug===state).map((clinic, index) => (
             <StateLocationCard
               key={`${clinic.stateSlug}-${clinic.locationSlug}`}
               clinic={clinic}
@@ -392,6 +401,9 @@ export default async function SpecialistPage({
               stateInfo={STATE_METADATA[clinic.stateSlug]}
             />
           ))}
+          </div>
+        </details>
+        ))}
         </div>
       </section>
 
@@ -418,6 +430,7 @@ export default async function SpecialistPage({
       ) : null}
 
       <section className="max-w-[1440px] w-full py-[30px] px-6 xl:px-[80px] flex flex-wrap gap-4 items-center justify-center">
+        <h2 className={styles.closingTitle}>Take the next step toward answers</h2>
         <Link
           href="/find-care/book-an-appointment"
           className="max-h-[56px] h-full px-[32px] py-[16px] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-fit justify-center items-center hover:cursor-pointer"
