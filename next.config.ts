@@ -200,11 +200,11 @@ const nextConfig: NextConfig = {
     {"source":"/area-of-specialty/acl-tear","destination":"/conditions/acl-tear","permanent":true},
     {"source":"/area-of-specialty/radiculopathy","destination":"/conditions/radiculopathy","permanent":true},
     {"source":"/area-of-specialty/work-injury","destination":"/conditions/work-injury","permanent":true},
-    {"source":"/area-of-specialty/sports-injuries","destination":"/conditions/sports-injuries","permanent":true},
+    {"source":"/area-of-specialty/sports-injuries","destination":"/conditions/sports-medicine","permanent":true},
     
     // --- EXISTING TREATMENT ALIAS REDIRECTS ---
     {"source":"/treatments/laser-spine-surgery","destination":"/treatments/endoscopic-laser-spine-surgery","permanent":true},
-    {"source":"/treatments/minimally-invasive-surgery","destination":"/treatments/minimally-invasive-spine-surgery","permanent":true},
+    {"source":"/treatments/minimally-invasive-surgery","destination":"/treatments/motion-preservation-spine-surgery","permanent":true},
     {"source":"/treatments/non-surgical","destination":"/treatments/non-surgical-spine-treatment","permanent":true},
     {"source":"/treatments/neck-pain-treatment","destination":"/treatments/cervical-facet-radiofrequency","permanent":true},
     
