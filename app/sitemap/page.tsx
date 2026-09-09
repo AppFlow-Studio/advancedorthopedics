@@ -92,7 +92,13 @@ const injuryPages = [
   { url: '/injuries/personal-injury', title: 'Personal Injury Orthopedic Evaluation' },
 ];
 
-// Blog category pages (for reference)
+// Blog category pages.
+//
+// The 14 /blogs/tag/* entries that used to sit here were removed on 2026-09-06:
+// there is no app/blogs/tag route, so every one of them 404d. They were rendered
+// on /sitemap, which is the page a crawler is most likely to follow exhaustively,
+// so this was 14 dead ends on the site's own map. Restore them only alongside a
+// real tag route.
 const blogCategoryPages = [
   { url: '/blogs', title: 'Health & Wellness Blog' },
 ];

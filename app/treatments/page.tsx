@@ -1,11 +1,10 @@
-import HubStaticShell, { type HubLink } from "@/components/HubStaticShell";
-import { AllTreatmentsCombined } from "@/components/data/treatments";
-import { SITEMAP_EXCLUDED_PATHS } from "@/lib/sitemap-exclusions";
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { buildCanonical, canonicalForOg } from '@/lib/seo';
 import { getOgImageForPath } from '@/lib/og';
 import TreatmentsHubClient from '@/components/TreatmentsHubClient';
+import ContentHubIndex from '@/components/ContentHubIndex';
+import { AllTreatmentsCombined } from '@/components/data/treatments';
 import { getVisibleReviews, isProviderVisible, providerIds } from '@/lib/providers/providerVisibility';
 import { sitewideReviews } from '@/components/data/socialProofReviews';
 
@@ -45,22 +44,22 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-function treatmentHubLinks(): HubLink[] {
-  const seen = new Set<string>();
-  return AllTreatmentsCombined
-    .filter((t) => t.slug && t.slug !== "undefined")
-    .map((t) => ({ href: `/treatments/${t.slug}`, label: t.title, group: t.tag || "Other" }))
-    .filter((l) => !SITEMAP_EXCLUDED_PATHS.has(l.href) && !seen.has(l.href) && seen.add(l.href));
-}
-
 export default function TreatmentsPage() {
   return (
-    <Suspense fallback={<HubStaticShell
-      title="Orthopedic Treatments & Procedures"
-      intro="Explore the minimally invasive procedures, injections, and surgical treatments our board-certified orthopedic and spine surgeons perform across Florida, New Jersey, New York, Pennsylvania, and Georgia."
-      links={treatmentHubLinks()}
-    />}>
-      <TreatmentsHubClient reviews={getVisibleReviews(sitewideReviews)} showFeaturedDoctor={isProviderVisible({ slug: providerIds.scottKatzman })} />
-    </Suspense>
+    <>
+      <Suspense>
+        <TreatmentsHubClient reviews={getVisibleReviews(sitewideReviews)} showFeaturedDoctor={isProviderVisible({ slug: providerIds.scottKatzman })} />
+      </Suspense>
+      {/* Outside the Suspense boundary on purpose. TreatmentsHubClient calls
+          useSearchParams(), so anything inside that boundary is skipped during
+          prerender and never reaches the served HTML. That is the bug this fixes. */}
+      <ContentHubIndex
+        items={AllTreatmentsCombined}
+        basePath="/treatments"
+        heading="All treatments and procedures"
+        blurb="Every treatment covered on this site, grouped by body region."
+        headingId="all-treatments-heading"
+      />
+    </>
   );
 }
