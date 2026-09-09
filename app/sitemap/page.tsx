@@ -94,23 +94,15 @@ const injuryPages = [
   { url: '/injuries/personal-injury', title: 'Personal Injury Orthopedic Evaluation' },
 ];
 
-// Blog category pages (for reference)
+// Blog category pages.
+//
+// The 14 /blogs/tag/* entries that used to sit here were removed on 2026-09-06:
+// there is no app/blogs/tag route, so every one of them 404d. They were rendered
+// on /sitemap, which is the page a crawler is most likely to follow exhaustively,
+// so this was 14 dead ends on the site's own map. Restore them only alongside a
+// real tag route.
 const blogCategoryPages = [
   { url: '/blogs', title: 'Health & Wellness Blog' },
-  { url: '/blogs/tag/back-pain', title: 'Blog: Back Pain Articles' },
-  { url: '/blogs/tag/neck-pain', title: 'Blog: Neck Pain Articles' },
-  { url: '/blogs/tag/joint-care', title: 'Blog: Joint Care Articles' },
-  { url: '/blogs/tag/spinal-surgery', title: 'Blog: Spinal Surgery Articles' },
-  { url: '/blogs/tag/sports-injury', title: 'Blog: Sports Injury Articles' },
-  { url: '/blogs/tag/recovery', title: 'Blog: Recovery Tips' },
-  { url: '/blogs/tag/minimally-invasive', title: 'Blog: Minimally Invasive Surgery' },
-  { url: '/blogs/tag/spine', title: 'Blog: Spine Health' },
-  { url: '/blogs/tag/lower-spine', title: 'Blog: Lower Spine' },
-  { url: '/blogs/tag/neck', title: 'Blog: Neck Health' },
-  { url: '/blogs/tag/shoulder', title: 'Blog: Shoulder Health' },
-  { url: '/blogs/tag/knee', title: 'Blog: Knee Health' },
-  { url: '/blogs/tag/hand', title: 'Blog: Hand, Wrist & Elbow' },
-  { url: '/blogs/tag/foot', title: 'Blog: Foot & Ankle' },
 ];
 
 // Section component for better organization
