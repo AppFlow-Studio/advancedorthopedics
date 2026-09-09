@@ -6,6 +6,9 @@ import { Metadata } from 'next';
 import { buildCanonical, canonicalForOg } from '@/lib/seo';
 import { getOgImageForPath } from '@/lib/og';
 import ConditionsHubClient from '@/components/ConditionsHubClient';
+import ContentHubIndex, { REDIRECTED_CONDITION_SLUGS } from '@/components/ContentHubIndex';
+import { conditions, conditionContentPlaceholders } from '@/components/data/conditions';
+import { BODY_PARTS } from '@/components/data/bodyParts';
 import { getVisibleReviews, isProviderVisible, providerIds } from '@/lib/providers/providerVisibility';
 import { sitewideReviews } from '@/components/data/socialProofReviews';
 
@@ -55,12 +58,37 @@ function conditionHubLinks(): HubLink[] {
 
 export default function ConditionsPage() {
   return (
-    <Suspense fallback={<HubStaticShell
-      title="Orthopedic Conditions & Treatments"
-      intro="Browse the spine, joint, and musculoskeletal conditions our board-certified orthopedic surgeons diagnose and treat across Florida, New Jersey, New York, Pennsylvania, and Georgia."
-      links={conditionHubLinks()}
-    />}>
+    <>
+      <Suspense fallback={
+      <main className="w-full flex flex-col items-center justify-center bg-white h-screen">
+        <div className="animate-pulse flex flex-col items-center">
+          <div className="h-12 w-64 bg-gray-200 rounded mb-4"></div>
+          <div className="h-4 w-48 bg-gray-200 rounded"></div>
+        </div>
+      </main>
+    }>
       <ConditionsHubClient reviews={getVisibleReviews(sitewideReviews)} showFeaturedDoctor={isProviderVisible({ slug: providerIds.scottKatzman })} />
-    </Suspense>
+      </Suspense>
+      {/* Outside the Suspense boundary on purpose. ConditionsHubClient calls
+          useSearchParams(), so anything inside that boundary is skipped during
+          prerender and never reaches the served HTML. That is the bug this fixes. */}
+      <ContentHubIndex
+        items={[
+          // Body-part hubs carry no tag of their own, so they get their own group.
+          ...BODY_PARTS.map((bp) => ({
+            title: bp.title,
+            slug: bp.slug,
+            tag: 'Browse by body region',
+          })),
+          ...conditions,
+          ...conditionContentPlaceholders,
+        ]}
+        exclude={REDIRECTED_CONDITION_SLUGS}
+        basePath="/conditions"
+        heading="All conditions we treat"
+        blurb="Every condition covered on this site, grouped by body region."
+        headingId="all-conditions-heading"
+      />
+    </>
   );
 }
