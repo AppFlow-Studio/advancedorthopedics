@@ -1,6 +1,3 @@
-import HubStaticShell, { type HubLink } from "@/components/HubStaticShell";
-import { conditions, conditionContentPlaceholders } from "@/components/data/conditions";
-import { SITEMAP_EXCLUDED_PATHS } from "@/lib/sitemap-exclusions";
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { buildCanonical, canonicalForOg } from '@/lib/seo';
@@ -46,14 +43,6 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [ogImage],
     },
   };
-}
-
-function conditionHubLinks(): HubLink[] {
-  const seen = new Set<string>();
-  return [...conditions, ...conditionContentPlaceholders]
-    .filter((c) => c.slug && c.slug !== "undefined")
-    .map((c) => ({ href: `/conditions/${c.slug}`, label: c.title, group: c.tag || "Other" }))
-    .filter((l) => !SITEMAP_EXCLUDED_PATHS.has(l.href) && !seen.has(l.href) && seen.add(l.href));
 }
 
 export default function ConditionsPage() {
