@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { getAttributionData } from "@/lib/gclid"
+import { EMPTY_ATTRIBUTION, getAttributionData } from "@/lib/gclid"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -18,7 +18,7 @@ import { redirect } from "next/navigation"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { clinicsForMap as clinics } from "@/components/data/clinicsForMap.generated"
-import { pushFormSubmit } from "@/utils/enhancedConversions"
+import { pushAcceptedLead } from "@/utils/enhancedConversions"
 import { STATE_OPTIONS } from "@/lib/stateUtils"
 
 const leadSchema = z.object({
@@ -69,7 +69,7 @@ export function CarAccidentLeadCaptureForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+    const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
 
     useEffect(() => {
         setAttribution(getAttributionData())
@@ -92,7 +92,7 @@ export function CarAccidentLeadCaptureForm() {
     async function onSubmit(values: z.infer<typeof leadSchema>) {
         setIsSubmitting(true)
         const data = await sendContactEmail({ name: values.firstName, email: values.email, phone: values.phone, reason: values.injuryType, bestTime: values.painLevel, has_attorney: values.hasAttorney, injury_type: values.injuryType, pain_level: values.painLevel, location: values.location, state: values.state, gclid: attribution.gclid, utm_source: attribution.utm_source, utm_medium: attribution.utm_medium, utm_campaign: attribution.utm_campaign, utm_term: attribution.utm_term, utm_content: attribution.utm_content })
-        await sendUserEmail({
+        const acceptance = await sendUserEmail({
             name: values.firstName,
             email: values.email,
             phone: values.phone,
@@ -100,6 +100,8 @@ export function CarAccidentLeadCaptureForm() {
             reason: values.injuryType,
             form_source: 'car-accident',
             gclid: attribution.gclid,
+            gbraid: attribution.gbraid,
+            wbraid: attribution.wbraid,
             utm_source: attribution.utm_source,
             utm_medium: attribution.utm_medium,
             utm_campaign: attribution.utm_campaign,
@@ -108,7 +110,7 @@ export function CarAccidentLeadCaptureForm() {
         })
         
         // Enhanced Conversions
-        pushFormSubmit({ form_name: 'CarAccidentLeadForm', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
+        await pushAcceptedLead({ acceptance, form_name: 'CarAccidentLeadForm', form_source: 'car-accident', state: values.state, email: values.email, phone: values.phone, firstName: values.firstName, lastName: values.lastName });
         
         setIsSubmitting(false)
         if (data) {
@@ -269,7 +271,7 @@ export function CarAccidentLeadCaptureForm() {
                                         </FormLabel>
                                         <FormControl>
                                             <div className=" flex  ">
-                                                <Input placeholder="First Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                                <Input aria-label="First Name" placeholder="First Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -293,7 +295,7 @@ export function CarAccidentLeadCaptureForm() {
                                         </FormLabel>
                                         <FormControl>
                                             <div className=" flex  ">
-                                                <Input placeholder="Last Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                                <Input aria-label="Last Name" placeholder="Last Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                             </div>
                                         </FormControl>
                                         <FormMessage />
@@ -318,7 +320,7 @@ export function CarAccidentLeadCaptureForm() {
                                     </FormLabel>
                                     <FormControl>
                                         <div className=" flex  ">
-                                            <Input placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                            <Input aria-label="Phone Number" placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                         </div>
                                     </FormControl>
                                     <FormMessage />
@@ -342,7 +344,7 @@ export function CarAccidentLeadCaptureForm() {
                                     </FormLabel>
                                     <FormControl>
                                         <div className=" flex  ">
-                                            <Input placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                            <Input aria-label="Email" placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                         </div>
                                     </FormControl>
                                     <FormMessage />
@@ -404,7 +406,7 @@ export function CarAccidentLeadCaptureForm() {
                                                 </FormLabel>
                                                 <FormControl>
                                                     <div className=" flex  ">
-                                                        <Input placeholder="First Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                                        <Input aria-label="First Name" placeholder="First Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                                     </div>
                                                 </FormControl>
                                                 <FormMessage />
@@ -428,7 +430,7 @@ export function CarAccidentLeadCaptureForm() {
                                                 </FormLabel>
                                                 <FormControl>
                                                     <div className=" flex  ">
-                                                        <Input placeholder="Last Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                                        <Input aria-label="Last Name" placeholder="Last Name" startIcon={User} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                                     </div>
                                                 </FormControl>
                                                 <FormMessage />
@@ -453,7 +455,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <div className=" flex  ">
-                                                    <Input placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                                    <Input aria-label="Phone Number" placeholder="Phone Number" startIcon={Phone} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                                 </div>
                                             </FormControl>
                                             <FormMessage />
@@ -477,7 +479,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <div className=" flex  ">
-                                                    <Input placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1] " {...field} />
+                                                    <Input aria-label="Email" placeholder="Email" startIcon={Mail} className="h-12 text-lg border-[#DCDEE1] " {...field} />
                                                 </div>
                                             </FormControl>
                                             <FormMessage />
@@ -501,7 +503,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Select onValueChange={(value) => field.onChange(value)}>
-                                                    <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
+                                                    <SelectTrigger aria-label="Select your injury type" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
                                                         <SelectValue placeholder="Select your injury type" className="font-[var(--font-inter)] h-12 text-lg" />
                                                     </SelectTrigger>
                                                     <SelectContent>
@@ -534,7 +536,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Select onValueChange={(value) => field.onChange(value)}>
-                                                    <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
+                                                    <SelectTrigger aria-label="Select pain level" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
                                                         <SelectValue placeholder="Select pain level" className="font-[var(--font-inter)] h-12 text-lg" />
                                                     </SelectTrigger>
                                                     <SelectContent>
@@ -571,7 +573,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Select onValueChange={(value) => field.onChange(value)}>
-                                                    <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
+                                                    <SelectTrigger aria-label="Select pain level" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
                                                         <SelectValue placeholder="Select pain level" className="font-[var(--font-inter)] h-12 text-lg" />
                                                     </SelectTrigger>
                                                     <SelectContent>
@@ -608,7 +610,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Select onValueChange={(value) => field.onChange(value)}>
-                                                    <SelectTrigger className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
+                                                    <SelectTrigger aria-label="Select option" className={`w-full h-12 px-6 bg-[#f0f5ff] border rounded-sm`}>
                                                         <SelectValue placeholder="Select option" className="font-[var(--font-inter)] h-12 text-lg" />
                                                     </SelectTrigger>
                                                     <SelectContent>
@@ -636,7 +638,7 @@ export function CarAccidentLeadCaptureForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full h-12 px-6 bg-[#f0f5ff] border border-[#DCDEE1] rounded-sm">
+                                                    <SelectTrigger aria-label="Select your state" className="w-full h-12 px-6 bg-[#f0f5ff] border border-[#DCDEE1] rounded-sm">
                                                         <SelectValue placeholder="Select your state" />
                                                     </SelectTrigger>
                                                     <SelectContent>

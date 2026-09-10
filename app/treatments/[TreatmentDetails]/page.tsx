@@ -1,12 +1,12 @@
+import { selectRelevantProviders } from "@/lib/providers/providerRelevance";
 import { notFound } from 'next/navigation';
-import { AllTreatments, treatmentContentPlaceholders, allTreatmentContent, TreatmentContent, AllTreatmentsCombined } from '@/components/data/treatments';
+import { AllTreatments, treatmentContentPlaceholders, allTreatmentContent, TreatmentContent, TreatmentSection, AllTreatmentsCombined } from '@/components/data/treatments';
 import { treatmentThumbnailBySlug } from '@/lib/seo/treatment-images';
 import React from 'react';
 import Image from 'next/image';
 import ConditionDetialsLanding from '@/public/ConditionDetails.jpeg';
 import { ConsultationForm } from '@/components/ContactForm';
 import BodyPartHeroForm from '@/components/BodyPartHeroForm';
-import { getVisibleProviders } from '@/lib/providers/providerVisibility';
 import DoctorCard from '@/components/DoctorCard';
 import TreatmentsList from '@/components/TreatmentsList';
 import Link from 'next/link';
@@ -18,6 +18,7 @@ import { BODY_PARTS } from '@/components/data/bodyParts';
 import { isNonEmptyString } from '@/lib/content-validation';
 
 import { conditionContentPlaceholders } from '@/components/data/conditions';
+import { resolveConditionSlugHref } from '@/lib/internal-link-redirects';
 
 // Helper: Build a map of all condition/treatment titles to their slugs and type
 // Include both old and new format data
@@ -120,7 +121,10 @@ function processTextWithBoldAndLinks(text: string, currentSlug: string): string 
         if (hasMatched) return match;
         hasMatched = true;
         linkedSlugs.add(slug);
-        const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
+        const href = type === 'condition' ? resolveConditionSlugHref(slug) : `/treatments/${slug}`;
+        // resolveConditionSlugHref can map a condition slug onto this very
+        // page's treatment URL, so compare the resolved href, not the raw slug.
+        if (href === `/conditions/${currentSlug}` || href === `/treatments/${currentSlug}`) return match;
         return `<a href="${href}" class="underline text-[#252932] hover:text-[#2358AC]">${match}</a>`;
       });
     });
@@ -183,7 +187,10 @@ function linkifyText(text: string, currentSlug: string): string {
     // Only link if the title matches exactly as a whole word/phrase
     const regex = new RegExp(`(?<![\\w-])${title.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}(?![\\w-])`, 'g');
     replaced = replaced.replace(regex, match => {
-      const href = type === 'condition' ? `/conditions/${slug}` : `/treatments/${slug}`;
+      const href = type === 'condition' ? resolveConditionSlugHref(slug) : `/treatments/${slug}`;
+        // resolveConditionSlugHref can map a condition slug onto this very
+        // page's treatment URL, so compare the resolved href, not the raw slug.
+        if (href === `/conditions/${currentSlug}` || href === `/treatments/${currentSlug}`) return match;
       return `<a href="${href}" class="underline text-[#252932]">${match}</a>`;
     });
   });
@@ -195,7 +202,7 @@ function renderField(field: any, currentSlug: string) {
   if (!field) return null;
   if (typeof field === 'string') {
     return (
-      <div
+      <div className="rich-prose"
         dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(field, currentSlug) }}
       />
     );
@@ -214,6 +221,54 @@ export async function generateStaticParams() {
     ...AllTreatments.map(t => ({ TreatmentDetails: t.slug }))
   ];
   return allSlugs;
+}
+
+/**
+ * Question-led sections from `additionalSections`, rendered in place.
+ *
+ * Mirrors the identically-named component in app/conditions/[slug]/ConditionPage.tsx —
+ * same markup, same classes, same server-rendered-HTML behaviour — so a section
+ * reads the same whether it sits on a condition or a treatment page. Returns null
+ * when a record has no sections for this placement, which is every existing
+ * treatment.
+ */
+function AdditionalSections({
+  sections,
+  placement,
+  currentSlug,
+}: {
+  sections: TreatmentSection[] | undefined;
+  placement: NonNullable<TreatmentSection['placement']>;
+  currentSlug: string;
+}) {
+  const matching = (sections ?? []).filter((section) => section.placement === placement);
+  if (matching.length === 0) return null;
+
+  return (
+    <>
+      {matching.map((section) => (
+        <div className=' flex flex-col space-y-[16px] ' key={section.heading}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-public-sans)',
+              fontWeight: 500,
+            }}
+            className='text-[#111315] sm:text-4xl text-2xl'
+          >
+            {section.heading}
+          </h2>
+          <div
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+            }}
+            className="rich-prose text-[#424959] sm:text-xl text-sm space-y-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+            dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(section.body, currentSlug) }}
+          />
+        </div>
+      ))}
+    </>
+  );
 }
 
 export default async function Page({ params }: { params: Promise<{ TreatmentDetails: string }> }) {
@@ -239,18 +294,20 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
   const _bodyPartHub = getBodyPartFromTag(_combinedTreatment?.tag);
   const heroFormLabel = _bodyPartHub?.title ?? 'Orthopedic';
 
-  // Function to perform a Fisher-Yates shuffle on the array
-  function shuffleArray<T>(array: T[]): T[] {
-    const newArray = [...array]; // Clone the array
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1)); // Pick a random index from 0 to i
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Swap elements at indices i and j
-    }
-    return newArray;
-  }
 
-  // Shuffle the Doctors array and then take the first two doctors
-  const randomDoctors = shuffleArray(getVisibleProviders()).slice(0, 2);
+    // Physicians are matched to the treatment's clinical domain rather than picked
+    // from the full roster — see lib/providers/providerRelevance.ts. An empty list
+    // means no verified provider offers this treatment, and the module is hidden.
+    const randomDoctors = selectRelevantProviders({
+      slug: _treatmentSlug,
+      tag: _combinedTreatment?.tag,
+      additionalTags: _combinedTreatment?.additionalTags,
+    });
+
+    // Page-specific physician heading when the record supplies one; every
+    // treatment without it keeps the original wording.
+    const doctorsHeading =
+      (isNewFormat ? treatmentContent!.doctorsHeading : undefined) ?? 'Meet our Doctors';
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -302,7 +359,9 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                 style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
                 className="text-[#252932] flex-wrap text-3xl md:text-6xl lg:text-7xl"
               >
-                {isNewFormat ? treatmentContent!.title : treatment!.title}
+                {isNewFormat
+                  ? (treatmentContent!.h1 || treatmentContent!.title)
+                  : treatment!.title}
               </h1>
               <div className="mt-[24px] lg:max-w-[600px]">
                 {renderField(
@@ -334,6 +393,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
             />
           </div>
 
+          {randomDoctors.length > 0 && (
           <section className='bg-white space-y-[40px] lg:hidden flex flex-col mt-6'>
             <h2
               style={{
@@ -342,7 +402,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }}
               className="text-[#111315] sm:text-5xl text-3xl"
             >
-              Meet our Doctors
+              {doctorsHeading}
             </h2>
             <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
               {
@@ -352,6 +412,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }
             </div>
           </section>
+          )}
           <div className='lg:hidden flex flex-col mt-6'>
             <InternalLinkingSection currentSlug={isNewFormat ? treatmentContent!.slug : treatment!.slug} pageType="treatment" />
           </div>
@@ -380,7 +441,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                         fontFamily: 'var(--font-inter)',
                         fontWeight: 400,
                       }}
-                      className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                      className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatmentContent.overview.body, treatmentContent.slug) }}
                     />
                   </div>
@@ -429,6 +490,12 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   return null;
                 })()}
 
+                <AdditionalSections
+                  sections={isNewFormat ? treatmentContent.additionalSections : undefined}
+                  placement="after-symptoms"
+                  currentSlug={treatmentContent.slug}
+                />
+
                 {/* Candidates Section */}
                 {treatmentContent.candidates && treatmentContent.candidates.list.length > 0 && (
                   <div className=' flex flex-col space-y-[16px] '>
@@ -449,7 +516,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             fontFamily: 'var(--font-inter)',
                             fontWeight: 400,
                           }}
-                          className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                          className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                           dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(candidate, treatmentContent.slug) }}
                         />
                       ))}
@@ -537,6 +604,18 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                   />
                 )}
 
+                <AdditionalSections
+                  sections={isNewFormat ? treatmentContent.additionalSections : undefined}
+                  placement="after-causes"
+                  currentSlug={treatmentContent.slug}
+                />
+
+                <AdditionalSections
+                  sections={isNewFormat ? treatmentContent.additionalSections : undefined}
+                  placement="before-treatment"
+                  currentSlug={treatmentContent.slug}
+                />
+
                 {/* Procedure Section */}
                 {treatmentContent.procedure && treatmentContent.procedure.steps.length > 0 && (
                   <div className=' flex flex-col space-y-[16px] '>
@@ -557,7 +636,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             fontFamily: 'var(--font-inter)',
                             fontWeight: 400,
                           }}
-                          className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                          className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                           dangerouslySetInnerHTML={{ __html: processNumberedListStep(step, treatmentContent.slug) }}
                         />
                       ))}
@@ -585,7 +664,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             fontFamily: 'var(--font-inter)',
                             fontWeight: 400,
                           }}
-                          className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                          className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                           dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(benefit, treatmentContent.slug) }}
                         />
                       ))}
@@ -621,11 +700,17 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                         fontFamily: 'var(--font-inter)',
                         fontWeight: 400,
                       }}
-                      className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                      className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatmentContent.recovery.details, treatmentContent.slug) }}
                     />
                   </div>
                 )}
+
+                <AdditionalSections
+                  sections={isNewFormat ? treatmentContent.additionalSections : undefined}
+                  placement="after-treatment"
+                  currentSlug={treatmentContent.slug}
+                />
 
                 {/* Related {Body Part} Treatments Section */}
                 {(() => {
@@ -708,7 +793,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                         fontFamily: 'var(--font-inter)',
                         fontWeight: 400,
                       }}
-                      className='text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
+                      className='rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]'
                       dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatmentContent.schedule, treatmentContent.slug) }}
                     />
                   )}
@@ -746,7 +831,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                     }}
                     className="text-[#424959] sm:text-xl text-sm"
                   >
-                    Our board-certified specialists offer {treatmentContent.title.toLowerCase()} evaluation and treatment at locations across Florida, New Jersey, New York, and Pennsylvania. Schedule a consultation at a clinic near you.
+                    Our board-certified specialists offer {treatmentContent.title.toLowerCase()} evaluation and treatment at locations across Florida, New Jersey, New York, Pennsylvania, and Georgia. Schedule a consultation at a clinic near you.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Link
@@ -932,7 +1017,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                     >
                       {typeof treatment.benefits === 'string' ? (
                         treatment.benefits.trim().startsWith('<ul>') || treatment.benefits.includes('</li>') ? (
-                          <div className="[&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:list-item" dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatment.benefits, treatment.slug) }} />
+                          <div className="rich-prose [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:list-item" dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(treatment.benefits, treatment.slug) }} />
                         ) : (
                           <ul className="list-disc pl-5 space-y-2">
                             {treatment.benefits
@@ -940,7 +1025,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                               .map((line: string) => line.trim())
                               .filter(Boolean)
                               .map((line: string, index: number) => (
-                                <li key={index} dangerouslySetInnerHTML={{ __html: linkifyText(line, treatment.slug) }} />
+                                <li className="rich-prose" key={index} dangerouslySetInnerHTML={{ __html: linkifyText(line, treatment.slug) }} />
                               ))}
                           </ul>
                         )
@@ -1091,7 +1176,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                     }}
                     className="text-[#424959] sm:text-xl text-sm"
                   >
-                    Our board-certified specialists offer {treatment!.title.toLowerCase()} evaluation and treatment at locations across Florida, New Jersey, New York, and Pennsylvania. Schedule a consultation at a clinic near you.
+                    Our board-certified specialists offer {treatment!.title.toLowerCase()} evaluation and treatment at locations across Florida, New Jersey, New York, Pennsylvania, and Georgia. Schedule a consultation at a clinic near you.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Link
@@ -1135,6 +1220,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
             )}
           </section>
 
+          {randomDoctors.length > 0 && (
           <section className='bg-white space-y-[40px] lg:flex-col lg:flex hidden' aria-labelledby="doctors-desktop">
             <p
               id="doctors-desktop"
@@ -1146,7 +1232,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }}
               className="text-[#111315] sm:text-5xl text-3xl"
             >
-              Meet our Doctors
+              {doctorsHeading}
             </p>
             <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-[32px] gap-y-[32px] '>
               {
@@ -1156,6 +1242,7 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
               }
             </div>
           </section>
+          )}
           <div className='lg:flex hidden flex-col'>
             <InternalLinkingSection currentSlug={isNewFormat ? treatmentContent!.slug : treatment!.slug} pageType="treatment" />
           </div>

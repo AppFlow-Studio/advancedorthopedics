@@ -6,6 +6,7 @@ import { clinics } from '@/components/data/clinics';
 import { getVisibleProviders } from '@/lib/providers/providerVisibility';
 import { buildCanonical } from '@/lib/seo';
 import { GetBlogsPublic } from '@/app/blogs/api/get-blogs';
+import { SITEMAP_EXCLUDED_PATHS } from '@/lib/sitemap-exclusions';
 
 export const metadata: Metadata = {
   title: 'Complete Website Sitemap | Mountain Spine & Orthopedics',
@@ -56,10 +57,8 @@ const findCarePages = [
 // Area of Pain pages - Back Pain
 const backPainPages = [
   { url: '/area-of-pain/back-pain/lower-back-pain', title: 'Lower Back Pain' },
-  { url: '/area-of-pain/back-pain/lumbar-degenerative-disc-disease', title: 'Lumbar Degenerative Disc Disease' },
   { url: '/area-of-pain/back-pain/lumbar-herniated-disc', title: 'Lumbar Herniated Disc' },
   { url: '/area-of-pain/back-pain/foraminal-stenosis-back-pain', title: 'Foraminal Stenosis (Back Pain)' },
-  { url: '/area-of-pain/back-pain/sciatica-nerve-pain', title: 'Sciatica Nerve Pain' },
   { url: '/area-of-pain/back-pain/tailbone-pain-coccydynia', title: 'Tailbone Pain (Coccydynia)' },
   { url: '/area-of-pain/back-pain/back-pain-treatment-options', title: 'Back Pain Treatment Options' },
 ];
@@ -71,7 +70,6 @@ const neckPainPages = [
   { url: '/area-of-pain/neck-and-shoulder-pain/cervical-degenerative-disc-disease', title: 'Cervical Degenerative Disc Disease' },
   { url: '/area-of-pain/neck-and-shoulder-pain/neck-shoulder-arthritis-pain', title: 'Neck & Shoulder Arthritis Pain' },
   { url: '/area-of-pain/neck-and-shoulder-pain/pinched-nerve-neck-shoulder', title: 'Pinched Nerve in Neck or Shoulder' },
-  { url: '/area-of-pain/neck-and-shoulder-pain/neck-and-shoulder-pain-treatment', title: 'Neck & Shoulder Pain Treatment' },
 ];
 
 // Area of Pain pages - Foot Pain
@@ -177,8 +175,13 @@ export default async function SitemapPage() {
   })).sort((a, b) => a.title.localeCompare(b.title));
 
   // Prepare condition links
+  // Same canonical rules as the XML sitemap: never list a URL that redirects.
+  // Four records in the conditions dataset are really treatments and 308 to
+  // /treatments/* (see lib/sitemap-exclusions.ts), and they are already listed
+  // under Treatments below — so they are dropped here rather than duplicated.
   const conditionLinks = conditions
     .filter(c => c.slug && c.slug !== 'undefined')
+    .filter(c => !SITEMAP_EXCLUDED_PATHS.has(`/conditions/${c.slug}`))
     .map(condition => ({
       url: `/conditions/${condition.slug}`,
       title: condition.title || slugToTitle(condition.slug),

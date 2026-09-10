@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: "Orthopedic Surgeries & Procedures | Mountain Spine & Orthopedics",
-    description: "Advanced orthopedic surgeries, minimally invasive procedures, and comprehensive treatments. Expert care for back pain, joint replacement, sports injuries, and spine conditions. Board-certified surgeons in FL, NJ, NY, and PA.",
+    description: "Advanced orthopedic surgeries, minimally invasive procedures, and comprehensive treatments. Expert care for back pain, joint replacement, sports injuries, and spine conditions. Board-certified surgeons in FL, NJ, NY, PA, and GA.",
     keywords: ["orthopedic surgeries", "minimally invasive procedures", "spine surgery", "joint replacement", "sports medicine treatments", "orthopedic surgeons FL NJ NY PA"],
     alternates: {
       canonical: url,

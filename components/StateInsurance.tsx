@@ -13,7 +13,7 @@ export default function StateInsurance({ stateName }: StateInsuranceProps) {
     {
       icon: ShieldCheck,
       title: 'Major PPO Plans',
-      desc: 'We accept most major PPO insurance plans for both in-network and out-of-network benefits.',
+      desc: 'We accept PPO insurance plans only, with both in-network and out-of-network benefits.',
     },
     {
       icon: UserCheck,

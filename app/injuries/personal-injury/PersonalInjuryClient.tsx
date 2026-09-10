@@ -22,8 +22,8 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const siteData = {
-  starRating: 5,
-  reviewCount: 327,
+  starRating: AVERAGE_RATING,
+  reviewCount: TOTAL_REVIEW_COUNT,
   citiesPill: "FL • NJ • NY • PA",
   injuries: [
     {
@@ -78,6 +78,7 @@ const siteData = {
 }
 
 import type { DoctorProp } from "@/components/data/doctors"
+import { AVERAGE_RATING, TOTAL_REVIEW_COUNT } from "@/components/data/reviewAggregate.generated"
 import type { SocialProofReview } from "@/components/data/socialProofReviews"
 
 interface PersonalInjuryClientProps {
@@ -121,7 +122,7 @@ export default function PersonalInjuryClient({ faqs, doctors, reviews }: Persona
                 </Badge>
 
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
-                  Personal Injury Orthopedic Care in FL, NJ, NY & PA
+                  Personal Injury Orthopedic Care in FL, NJ, NY, PA & GA
                 </h1>
 
                 <p className="text-xl text-gray-600 text-pretty">
@@ -335,7 +336,7 @@ export default function PersonalInjuryClient({ faqs, doctors, reviews }: Persona
                   </div>
                   <p className="text-gray-600">
                     Our evidence-based protocols focus on accurate diagnosis, clear communication, and safe recovery for
-                    personal injury patients across FL, NJ, NY & PA.
+                    personal injury patients across FL, NJ, NY, PA & GA.
                   </p>
                 </CardContent>
               </Card>
@@ -391,7 +392,7 @@ export default function PersonalInjuryClient({ faqs, doctors, reviews }: Persona
           <h2 className="text-3xl font-bold mb-4 text-balance">Don&apos;t Wait — Get Expert Care Today</h2>
           <p className="text-xl mb-8 text-blue-100 text-pretty">
             Accident and personal injuries can worsen without proper treatment. Schedule your evaluation with Mountain Spine
-            & Orthopedics across FL, NJ, NY & PA.
+            & Orthopedics across FL, NJ, NY, PA & GA.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

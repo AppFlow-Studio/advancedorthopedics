@@ -40,9 +40,11 @@ import LocationGallerySection from '@/components/LocationGallerySection'
 import TrackedOutboundLink from '@/components/TrackedOutboundLink'
 import { findClinicByStateAndLocation, getAllLocationParams, isValidStateSlug, STATE_METADATA } from '@/lib/locationRedirects'
 import { ReviewLocationCapture } from '@/components/ReviewLocationCapture'
-import { STATE_PHONE_NUMBERS, MAIN_PHONE_DISPLAY } from '@/lib/locationConstants'
+import { STATE_PHONE_NUMBERS, MAIN_PHONE_DISPLAY, MAIN_PHONE_TEL, MAIN_PHONE_E164, MAIN_PHONE_HREF } from '@/lib/locationConstants'
+import SecondOpinionCallout from '@/components/SecondOpinionCallout'
 import { getVisibleReviews } from '@/lib/providers/providerVisibility'
 import MobileHeroConversionPanel from '@/components/MobileHeroConversionPanel'
+import { SpecialistPages } from '@/components/data/specialists'
 
 export const dynamicParams = false;
 
@@ -87,8 +89,8 @@ export default async function LocationDetails(
                     <path fillRule="evenodd" clipRule="evenodd" d="M7 11.2502C7.19892 11.2502 7.38968 11.3293 7.53033 11.4699L9 12.9396L10.4697 11.4699C10.6103 11.3293 10.8011 11.2502 11 11.2502H11H11.0001C12.3676 11.2502 13.5248 11.2502 14.3918 11.3668C15.2919 11.4878 16.0497 11.7467 16.6517 12.3486C17.2536 12.9505 17.5125 13.7084 17.6335 14.6085C17.75 15.4755 17.75 16.5778 17.75 17.9454V21.0002C17.75 21.4145 17.4142 21.7502 17 21.7502L1 21.7502C0.585789 21.7502 0.250001 21.4145 0.250001 21.0002L0.250001 17.9454V17.9454V17.9453C0.249981 16.5778 0.249965 15.4755 0.366525 14.6085C0.487541 13.7084 0.746435 12.9505 1.34835 12.3486C1.95027 11.7467 2.70814 11.4878 3.60825 11.3668C4.4752 11.2502 5.63238 11.2502 6.99994 11.2502H6.99998H7ZM13 13.7502C13.4142 13.7502 13.75 14.086 13.75 14.5002V15.7502H15C15.4142 15.7502 15.75 16.086 15.75 16.5002C15.75 16.9145 15.4142 17.2502 15 17.2502H13.75V18.5002C13.75 18.9145 13.4142 19.2502 13 19.2502C12.5858 19.2502 12.25 18.9145 12.25 18.5002V17.2502H11C10.5858 17.2502 10.25 16.9145 10.25 16.5002C10.25 16.086 10.5858 15.7502 11 15.7502H12.25V14.5002C12.25 14.086 12.5858 13.7502 13 13.7502ZM9 0.250137C6.65279 0.250137 4.75 2.15293 4.75 4.50014V5.50014C4.75 7.84735 6.65279 9.75014 9 9.75014C11.3472 9.75014 13.25 7.84735 13.25 5.50014L13.25 4.50014C13.25 2.15293 11.3472 0.250137 9 0.250137Z" fill="#0A50EC" />
                 </svg>
             ),
-            title: 'World-Class Expertise',
-            body: `Our board-certified ${locationData.name.replace('Mountain Spine & Orthopedics', '').trim()} orthopedic surgeons bring years of experience and a proven track record of successful outcomes.`
+            title: 'Fellowship-Trained Expertise',
+            body: `Our board-certified ${locationData.name.replace('Mountain Spine & Orthopedics', '').trim()} orthopedic surgeons bring years of experience across spine, joint, and orthopedic care.`
         },
         {
             icon: () => (
@@ -122,7 +124,7 @@ export default async function LocationDetails(
     
     // Get state metadata for breadcrumb
     const stateInfo = STATE_METADATA[state];
-    const statePhone = STATE_PHONE_NUMBERS[state as keyof typeof STATE_PHONE_NUMBERS] || { display: MAIN_PHONE_DISPLAY };
+    const statePhone = STATE_PHONE_NUMBERS[state as keyof typeof STATE_PHONE_NUMBERS] || { display: MAIN_PHONE_DISPLAY, tel: MAIN_PHONE_TEL, e164: MAIN_PHONE_E164, href: MAIN_PHONE_HREF };
     
     return (
         <main className='w-full flex-col items-center justify-center h-full'>
@@ -224,12 +226,40 @@ export default async function LocationDetails(
                             <MobileHeroConversionPanel
                                 pageType="location"
                                 phone={statePhone.display}
-                                phoneTel={`tel:${statePhone.tel || `+1${statePhone.display.replace(/\D/g, '')}`}`}
+                                phoneTel={statePhone.href}
                                 cityName={locationData.region.split(',')[0].trim()}
                                 locationName={locationData.name}
                                 locationSlug={locationSlug}
                                 defaultState={stateInfo?.abbr || state.toUpperCase()}
                             />
+                            {/* Address, hours and directions sit directly under the
+                                form on mobile. These are what a patient checks before
+                                committing to a visit, so they come before the secondary
+                                second-opinion offer further down. */}
+                            <div className="mt-4">
+                                <LocationNAP slug={locationData.slug} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
+                            </div>
+                            <div className="mt-3 w-full max-w-[480px] mx-auto">
+                                {/* Get Directions - light grey */}
+                                <TrackedOutboundLink
+                                    href={(locationData.link || (locationData.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(locationData.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${locationData.lat},${locationData.lng}`))}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    eventName="directions_click"
+                                    eventParams={{
+                                    location_name: locationData.name,
+                                    location_state: state,
+                                    }}
+                                    className="w-full h-[52px] rounded-[16px] bg-[#E5E7EB] text-[#252932] flex flex-row items-center justify-center gap-2 font-[500] text-[15px] shadow-sm active:scale-[0.98] transition-all duration-200"
+                                    style={{ fontFamily: 'var(--font-public-sans)' }}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    <span className="whitespace-nowrap">Get Directions</span>
+                                </TrackedOutboundLink>
+                            </div>
                         </SlidingDiv>
 
                         <SlidingDiv position="left" className="z-[2]">
@@ -245,38 +275,18 @@ export default async function LocationDetails(
                                       : `${locationData.region.split(',')[0].trim()}'s trusted orthopedic and spine center — board-certified surgeons, same-day appointments, and minimally invasive treatments that get you back to your life faster.`}
                                 </p>
                             </div>
-                            {/* NAP Block - Mobile */}
-                            <div className="xl:px-[80px] px-8 mt-1 sm:hidden block">
-                                <LocationNAP slug={locationData.slug} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
-                            </div>
                             {/* NAP Block - Desktop */}
                             <div className="xl:px-[80px] px-8 mt-1 sm:block hidden">
                                 <LocationNAP slug={locationData.slug} phoneDisplay={statePhone.display} phoneTel={statePhone.tel} />
                             </div>
                         </SlidingDiv>
 
-                        {/* Mobile CTA row (under paragraph, above certificates) */}
+                        {/* Mobile secondary offer + trust points (under paragraph, above certificates) */}
                         <div className="z-[2] px-4 mt-3 sm:hidden block">
                             <div className="flex flex-col space-y-3 w-full max-w-[480px] mx-auto">
-                                {/* Get Directions - light grey */}
-                                <TrackedOutboundLink
-                                    href={(locationData.link || (locationData.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(locationData.address)}` : `https://www.google.com/maps/dir/?api=1&destination=${locationData.lat},${locationData.lng}`))}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    eventName="directions_click"
-                                    eventParams={{
-                                        location_name: locationData.name,
-                                        location_state: state,
-                                    }}
-                                    className="w-full h-[52px] rounded-[16px] bg-[#E5E7EB] text-[#252932] flex flex-row items-center justify-center gap-2 font-[500] text-[15px] shadow-sm active:scale-[0.98] transition-all duration-200"
-                                    style={{ fontFamily: 'var(--font-public-sans)' }}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
-                                    <span className="whitespace-nowrap">Get Directions</span>
-                                </TrackedOutboundLink>
+                                {/* Secondary offer, below the location details and the
+                                    primary CTAs — booking stays the first action. */}
+                                <SecondOpinionCallout cityName={locationData.region.split(',')[0].trim()} />
 
                                 {/* Checkmark Items - Mobile */}
                                 <div className="flex flex-col space-y-2 mt-4 w-full">
@@ -390,11 +400,20 @@ export default async function LocationDetails(
                     {/* Desktop Form - Positioned higher for above the fold */}
                     <div className="w-[50%] sm:flex hidden flex-col z-[2] justify-start items-center xl:pt-8 lg:pt-12 md:pt-16">
                         <div className="xl:w-[65%] w-[95%] rounded-2xl mx-auto"><DoctorContactForm backgroundcolor={'#0xFF'} buttonText="Get Your Free Consultation" header="" defaultState={stateInfo?.abbr || state.toUpperCase()} /></div>
+                        <div className="xl:w-[65%] w-[95%] mx-auto mt-5">
+                            <SecondOpinionCallout cityName={locationData.region.split(',')[0].trim()} />
+                        </div>
                     </div>
                 </div>
 
+                {/* Kept in normal flow. This band used to be xl:absolute xl:bottom-0,
+                    which pulled it out of flow and let the hero columns render
+                    underneath it once the second-opinion card made the right column
+                    taller. The hero is content-height (no min-height), so flowing the
+                    marquee after the columns puts it in the same place while making
+                    the collision structurally impossible at any width. */}
                 <div
-                    className="z-[2] w-full flex flex-row items-center justify-evenly xl:absolute xl:bottom-0 xl:left-0 xl:right-0 py-12 pt-[32px] pb-[50px]"
+                    className="z-[2] w-full flex flex-row items-center justify-evenly py-12 pt-[32px] pb-[50px]"
 
                 >
                     <Marquee pauseOnHover className="w-full" >
@@ -558,6 +577,25 @@ export default async function LocationDetails(
                 {locationData.nearby}
                 {locationData.advancedTreatments}
             </section>
+
+            {state !== 'georgia' && locationData.locationType === 'office' ? (
+                <section className="w-full max-w-[1440px] flex flex-col py-10 space-y-12 h-full px-2 md:px-[40px]">
+                    <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] sm:text-4xl text-2xl">
+                        Specialists at this location
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {SpecialistPages.map((specialistPage) => (
+                            <Link
+                                key={specialistPage.slug}
+                                href={`/find-care/${specialistPage.slug}`}
+                                className="border border-[#DCDEE1] rounded-[20px] overflow-hidden bg-[#FAFAFA] px-6 py-4 text-[#0A50EC] hover:underline"
+                            >
+                                {specialistPage.conditionName} specialist appointments
+                            </Link>
+                        ))}
+                    </div>
+                </section>
+            ) : null}
 
             {/* FAQ Section */}
             {locationData.faqs && locationData.faqs.length > 0 && (

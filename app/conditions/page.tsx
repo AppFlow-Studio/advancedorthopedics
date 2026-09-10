@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: "Orthopedic & Podiatric Conditions | Mountain Spine & Orthopedics",
-    description: "Comprehensive guide to orthopedic and podiatric conditions. Expert diagnosis for back pain, neck pain, joint conditions, and foot/ankle problems. Board-certified specialists in FL, NJ, NY, and PA. Book a consultation today.",
+    description: "Comprehensive guide to orthopedic and podiatric conditions. Expert diagnosis for back pain, neck pain, joint conditions, and foot/ankle problems. Board-certified specialists in FL, NJ, NY, PA, and GA. Book a consultation today.",
     keywords: ["orthopedic conditions", "podiatric conditions", "spine conditions", "back pain", "neck pain", "joint conditions", "orthopedic specialists FL NJ NY PA"],
     alternates: {
       canonical: url,

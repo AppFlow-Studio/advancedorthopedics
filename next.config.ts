@@ -26,6 +26,13 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'mountainspineortho.b-cdn.net',
         pathname: '/**',
+      },
+      // TEMPORARY - remove once these 6 doctors' photos are migrated to
+      // BunnyCDN and switched to local img imports.
+      {
+        protocol: 'https',
+        hostname: 'www.orthopedicandlaserspinesurgery.com',
+        pathname: '/wp-content/uploads/**',
       }
     ]
   },
@@ -95,7 +102,9 @@ const nextConfig: NextConfig = {
     {"source":"/locations/palm-spring-orthopedics","destination":"/locations/florida/palm-springs-orthopedics","permanent":true},
     
     // --- DOCTOR SLUG REDIRECTS (from dot notation to kebab-case) ---
-    {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors/dr-scott-katzman","permanent":true},
+    // Katzman's public exclusion is intentional. Preserve inbound equity at the directory.
+    {"source":"/about/meetourdoctors/dr-scott-katzman","destination":"/about/meetourdoctors","statusCode":301},
+    {"source":"/about/meetourdoctors/dr.scottkatzman","destination":"/about/meetourdoctors","statusCode":301},
     {"source":"/about/meetourdoctors/dr.davidcowin","destination":"/about/meetourdoctors/dr-david-cowin","permanent":true},
     {"source":"/about/meetourdoctors/dr.christophermccarthy","destination":"/about/meetourdoctors/dr-christopher-mccarthy","permanent":true},
     {"source":"/about/meetourdoctors/dr.monicamcphailpruitt","destination":"/about/meetourdoctors/dr-monica-mcphail-pruitt","permanent":true},
@@ -131,19 +140,27 @@ const nextConfig: NextConfig = {
     {"source":"/treatments/cancer-pain-treatment","destination":"/treatments","permanent":true},
     
     // --- EXISTING AREA-OF-PAIN REDIRECTS ---
-    {"source":"/area-of-pain/neck-and-shoulder-pain/degenerativediscdisease","destination":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","permanent":true},
+    // Chain collapsed: the hyphenated slug is itself a redirect source below, so
+    // point this legacy alias straight at the final target.
+    {"source":"/area-of-pain/neck-and-shoulder-pain/degenerativediscdisease","destination":"/area-of-pain/neck-and-shoulder-pain/cervical-degenerative-disc-disease","permanent":true},
     {"source":"/area-of-pain/back-pain/lowerbackpain","destination":"/area-of-pain/back-pain/lower-back-pain","permanent":true},
-    {"source":"/area-of-pain/back-pain/degenerativediscdisease","destination":"/area-of-pain/back-pain/degenerative-disc-disease","permanent":true},
+    // Chain collapsed: the hyphenated slug is itself a redirect source below, so
+    // point this legacy alias straight at the final target.
+    {"source":"/area-of-pain/back-pain/degenerativediscdisease","destination":"/conditions/degenerative-disc-disease","permanent":true},
     {"source":"/area-of-pain/back-pain/backpaintreatmentoptions","destination":"/area-of-pain/back-pain/back-pain-treatment-options","permanent":true},
     
     // --- DDD LEGACY REDIRECTS ---
-    {"source":"/area-of-pain/back-pain/degenerative-disc-disease","destination":"/area-of-pain/back-pain/lumbar-degenerative-disc-disease","permanent":true},
+    // Chain collapsed: lumbar-degenerative-disc-disease itself 301s to
+    // /conditions/degenerative-disc-disease, so point straight at the target.
+    {"source":"/area-of-pain/back-pain/degenerative-disc-disease","destination":"/conditions/degenerative-disc-disease","permanent":true},
     {"source":"/area-of-pain/neck-and-shoulder-pain/degenerative-disc-disease","destination":"/area-of-pain/neck-and-shoulder-pain/cervical-degenerative-disc-disease","permanent":true},
     
     // --- NEW PAIN SLUG REDIRECTS ---
     // Back Pain Group
     {"source":"/area-of-pain/back-pain/foraminal-stenosis","destination":"/area-of-pain/back-pain/foraminal-stenosis-back-pain","permanent":true},
-    {"source":"/area-of-pain/back-pain/sciatica","destination":"/area-of-pain/back-pain/sciatica-nerve-pain","permanent":true},
+    // Chain collapsed: sciatica-nerve-pain itself 301s to /conditions/sciatica (see
+    // the CONDITIONS URL MIGRATION block above), so point straight at the target.
+    {"source":"/area-of-pain/back-pain/sciatica","destination":"/conditions/sciatica","permanent":true},
     {"source":"/area-of-pain/back-pain/coccydynia","destination":"/area-of-pain/back-pain/tailbone-pain-coccydynia","permanent":true},
     
     // Neck & Shoulder Pain Group
@@ -215,7 +232,9 @@ const nextConfig: NextConfig = {
     {"source":"/locations/orlando-orthopedics","destination":"/locations/florida/orlando-orthopedics","permanent":true},
     {"source":"/locations/fort-pierce-orthopedics","destination":"/locations/florida/fort-pierce-orthopedics","permanent":true},
     {"source":"/locations/palm-beach-gardens-orthopedics","destination":"/locations/florida/palm-beach-gardens-orthopedics","permanent":true},
-    {"source":"/locations/miami-beach-orthopedics","destination":"/locations/florida/miami-beach-orthopedics","permanent":true},
+    {"source":"/locations/miami-beach-orthopedics","destination":"/locations/florida/south-miami-orthopedics","permanent":true},
+    // Entity correction: this clinic is South Miami (7000 SW 62nd Ave), not Miami Beach.
+    {"source":"/locations/florida/miami-beach-orthopedics","destination":"/locations/florida/south-miami-orthopedics","permanent":true},
     {"source":"/locations/boca-raton-orthopedics","destination":"/locations/florida/boca-raton-orthopedics","permanent":true},
     {"source":"/locations/altamonte-springs-orthopedics","destination":"/locations/florida/altamonte-springs-orthopedics","permanent":true},
     {"source":"/locations/davenport-orthopedics","destination":"/locations/florida/davenport-orthopedics","permanent":true},

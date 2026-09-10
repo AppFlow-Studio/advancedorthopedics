@@ -45,11 +45,11 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
 
                         style={{ paddingLeft: paddingLeftValue }}
                         // Adjust styling based on level if needed (e.g., text size)
-                        className={`py-2  rounded-md text-base font-medium text-gray-700 text-left hover:bg-gray-100 hover:text-gray-900 hover:no-underline data-[state=open]:bg-gray-50 w-full`}
+                        className={`py-1.5 rounded-md text-[15px] font-medium text-gray-700 text-left hover:bg-gray-100 hover:text-gray-900 hover:no-underline data-[state=open]:bg-gray-50 w-full`}
                     >
                         <Link href={item.href || '#'} onClick={closeSidebar} className="flex w-fit items-center gap-3">
                             {item.icon && (
-                                <span className="p-2 rounded-xl border aspect-square flex items-center justify-center">
+                                <span className="p-1.5 rounded-lg border aspect-square flex items-center justify-center">
                                     {(() => { const Icon = item.icon!; return <Icon className='w-4 h-4 text-[#252932]' /> })()}
                                 </span>
                             )}
@@ -90,7 +90,7 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                                             className="max-h-40 h-40 w-full sm:max-h-100 sm:h-fit"
                                             imageUrl="https://mountainspineortho.b-cdn.net/public/lowerbackpain.png"
                                             title="Lower Back Pain?"
-                                            subtitle="Meet with our world-class surgeons today"
+                                            subtitle="Meet with our fellowship-trained surgeons today"
                                             link={`/conditions?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`}
 
                                         /></div>
@@ -128,14 +128,14 @@ export const SidebarNavItem = ({ item, pathname, closeSidebar, level = 0, latest
                 <Link
                     href={item.href || '#'} // Provide a fallback href
                     style={{ paddingLeft: paddingLeftValue }} // Apply indentation
-                    className={`flex w-full py-2 rounded-md text-base text-left font-medium items-center gap-3 hover:no-underline ${pathname === item.href
+                    className={`flex w-full py-1.5 rounded-md text-[15px] text-left font-medium items-center gap-3 hover:no-underline ${pathname === item.href
                         ? 'bg-blue-50 text-blue-700'
                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                         }`}
                     onClick={closeSidebar}
                 >
                     {item.icon && (
-                        <span className="p-2 rounded-xl border aspect-square flex items-center justify-center">
+                        <span className="p-1.5 rounded-lg border aspect-square flex items-center justify-center">
                             {(() => { const Icon = item.icon!; return <Icon className='w-4 h-4 text-[#252932]' /> })()}
                         </span>
                     )}

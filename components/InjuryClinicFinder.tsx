@@ -153,7 +153,7 @@ export default function InjuryClinicFinder() {
             Find the Nearest Clinic
           </h2>
           <p className="text-gray-600 text-lg">
-            Open 8 AM – 8 PM, 7 Days · 22+ Locations Across FL, NJ, NY & PA
+            Open 8 AM – 8 PM, 7 Days · 22+ Locations Across FL, NJ, NY, PA & GA
           </p>
         </div>
 
@@ -173,6 +173,10 @@ export default function InjuryClinicFinder() {
                 value={zipInput}
                 onChange={(e) => setZipInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleZipSearch()}
+                aria-label="ZIP code"
+                name="zip"
+                autoComplete="postal-code"
+                inputMode="numeric"
                 placeholder="Enter ZIP code (e.g. 33021)"
                 maxLength={5}
                 className="flex-1 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A50EC]"

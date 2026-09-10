@@ -13,7 +13,7 @@ const DATE_MODIFIED  = '2026-04-03';
 const META_TITLE =
   'Orthopedic Injections & Cortisone Shots Near Me | Mountain Spine & Orthopedics';
 const META_DESCRIPTION =
-  'Board-certified orthopedic specialists offering cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections for back, neck, knee and shoulder pain. 23 locations across FL, NJ, NY & PA. PPO insurance accepted — same-week appointments, no referral needed.';
+  'Cortisone shots, epidural steroid injections, nerve blocks, facet & SI joint injections for back, neck, knee and shoulder pain. 23 locations. PPO accepted.';
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -120,17 +120,10 @@ const consolidatedSchema = {
         { '@type': 'State', name: 'New Jersey',   sameAs: 'https://en.wikipedia.org/wiki/New_Jersey' },
         { '@type': 'State', name: 'New York',     sameAs: 'https://en.wikipedia.org/wiki/New_York_(state)' },
         { '@type': 'State', name: 'Pennsylvania', sameAs: 'https://en.wikipedia.org/wiki/Pennsylvania' },
+        { '@type': 'State', name: 'Georgia',      sameAs: 'https://en.wikipedia.org/wiki/Georgia_(U.S._state)' },
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        reviewCount: '54',
-        bestRating: '5',
-        worstRating: '1',
-      },
       hasCredential: [
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Board Certification', recognizedBy: { '@type': 'Organization', name: 'American Board of Orthopaedic Surgery' } },
-        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Board Certification', recognizedBy: { '@type': 'Organization', name: 'American Board of Neurological Surgery' } },
       ],
     },
 
@@ -240,6 +233,7 @@ const consolidatedSchema = {
         { '@type': 'State', name: 'New Jersey' },
         { '@type': 'State', name: 'New York' },
         { '@type': 'State', name: 'Pennsylvania' },
+        { '@type': 'State', name: 'Georgia' },
       ],
       availableChannel: {
         '@type': 'ServiceChannel',
@@ -249,7 +243,7 @@ const consolidatedSchema = {
       },
       offers: {
         '@type': 'Offer',
-        description: 'PPO and commercial insurance plans accepted. Free MRI review for qualifying PPO-insured patients.',
+        description: 'PPO insurance plans accepted. Free MRI review for qualifying PPO-insured patients.',
         acceptedPaymentMethod: [
           { '@type': 'PaymentMethod', name: 'Insurance' },
           { '@type': 'PaymentMethod', name: 'PPO' },
@@ -374,7 +368,7 @@ const consolidatedSchema = {
           name: 'How quickly can I get an orthopedic injection appointment?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Mountain Spine & Orthopedics offers same-week appointments at 23 locations across Florida, New Jersey, New York, and Pennsylvania. No referral is required for PPO-insured patients. You can book online 24/7 or call (561) 223-9959 to speak with a patient coordinator. Most new patients are seen within 2–5 business days.',
+            text: 'Mountain Spine & Orthopedics offers same-week appointments at 23 locations across Florida, New Jersey, New York, Pennsylvania, and Georgia. No referral is required for PPO-insured patients. You can book online 24/7 or call (561) 223-9959 to speak with a patient coordinator. Most new patients are seen within 2–5 business days.',
           },
         },
       ],
@@ -558,39 +552,6 @@ const consolidatedSchema = {
       url: `${BASE_URL}/about/meetourdoctors/dr-douglas-slaughter`,
       sameAs: ['https://www.healthgrades.com/physician/dr-douglas-slaughter-xc2mw'],
     },
-
-    // ── 10. Review entities — patient testimonials ────────────────────────────
-    {
-      '@type': 'Review',
-      '@id': `${PAGE_URL}#review-david-s`,
-      author: { '@type': 'Person', name: 'David S.' },
-      datePublished: '2024-02-01',
-      description: 'I had been dealing with lower back pain for over a year. After one epidural steroid injection at Mountain Spine, I was back to my normal routine within a week. The whole process took less than 30 minutes.',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-      itemReviewed: { '@id': organizationId },
-      reviewAspect: 'Epidural Steroid Injection — Back Pain',
-    },
-    {
-      '@type': 'Review',
-      '@id': `${PAGE_URL}#review-christina-j`,
-      author: { '@type': 'Person', name: 'Christina J.' },
-      datePublished: '2024-11-01',
-      description: 'My knee was so bad I could barely walk. The cortisone shot they gave me worked better than anything I had tried before. Six months later and I am still doing well.',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-      itemReviewed: { '@id': organizationId },
-      reviewAspect: 'Cortisone Shot — Knee Osteoarthritis',
-    },
-    {
-      '@type': 'Review',
-      '@id': `${PAGE_URL}#review-dean-w`,
-      author: { '@type': 'Person', name: 'Dean W.' },
-      datePublished: '2025-01-01',
-      description: 'I was nervous about needles but the doctor numbed the area first and I barely felt a thing. The facet injection relieved my neck pain faster than I expected. I would recommend this to anyone.',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-      itemReviewed: { '@id': organizationId },
-      reviewAspect: 'Facet Joint Injection — Cervical Pain',
-    },
-
     // ── 11. HowTo — What to Expect at Your Injection Appointment ─────────────
     {
       '@type': 'HowTo',

@@ -6,6 +6,8 @@ import { BODY_PARTS } from "@/components/data/bodyParts";
 import { GetBlogsPublic } from "@/app/blogs/api/get-blogs";
 import { VALID_STATE_SLUGS } from "@/lib/locationRedirects";
 import { generateSitemapEntry, wrapInUrlset } from "@/lib/sitemap-utils";
+import { SITEMAP_EXCLUDED_PATHS } from "@/lib/sitemap-exclusions";
+import { SpecialistPages } from "@/components/data/specialists";
 
 export const revalidate = 3600;
 
@@ -51,6 +53,8 @@ export async function GET() {
     const normalizedPath = path.startsWith("/") ? path : `/${path}`;
     const finalPath =
       normalizedPath === "/" ? "/" : normalizedPath.replace(/\/$/, "");
+    // Never advertise a URL that redirects — see lib/sitemap-exclusions.ts
+    if (SITEMAP_EXCLUDED_PATHS.has(finalPath)) return;
     sitemapEntries.set(finalPath, lastmod);
   };
 
@@ -103,6 +107,11 @@ export async function GET() {
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);
   }
+
+  // 7. Specialist pages (booking intent)
+  SpecialistPages
+    .filter((page) => page.slug && page.slug !== "undefined")
+    .forEach((page) => addEntry(`/find-care/${page.slug}`, page.updatedAt));
 
   // Generate all XML entries from the deduplicated Map
   const allUrls = Array.from(sitemapEntries.entries())

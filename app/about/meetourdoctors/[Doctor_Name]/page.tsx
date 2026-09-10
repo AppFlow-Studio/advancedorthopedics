@@ -10,6 +10,7 @@ import { DoctorContactForm } from '@/components/DoctorContactForm';
 import Link from 'next/link';
 import type { DoctorProp } from '@/components/data/doctors';
 import { findTreatmentLinkForSpecialty, findConditionLinkForCondition } from '@/lib/doctor-linking-utils';
+import { SpecialistPages } from '@/components/data/specialists';
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -24,6 +25,10 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
   if (!doctor_details) {
     return notFound();
   }
+
+  const matchingSpecialistPages = SpecialistPages.filter((page) =>
+    page.physicianSlugs.includes(doctor_details.slug),
+  );
 
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
@@ -87,7 +92,17 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
         <div className=' w-full lg:w-[35%] flex flex-col md:flex-row lg:space-x-0 space-x-6 lg:flex-col h-full'>
           <div className='lg:w-full sm:w-[50%] w-full h-full lg:max-h-[630px] rounded-[16px] overflow-hidden space-y-[24px] hover:cursor-pointer'>
             <div className='w-full h-full flex flex-col'>
-              <Image src={doctor_details.img} alt={doctor_details.name} className={`w-full lg:max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px] aspect-square object-cover ${doctor_details.slug === 'dr-clay-shumway' ? 'object-top' : 'object-center'}`} draggable={false} />
+              {/* A circular-cut-out source (transparent corners) is scaled so the
+            circle covers the square frame - 1.42x is sqrt(2), the exact factor
+            at which an inscribed circle covers its square, so the crop is fixed
+            and cannot be repositioned. Everyone else renders exactly as before. */}
+              {doctor_details.imgCircularMask ? (
+                <div className='w-full lg:max-h-[400px] lg:h-[400px] aspect-square rounded-[16px] overflow-hidden'>
+                  <Image src={doctor_details.img} alt={doctor_details.name} className='w-full h-full object-cover scale-[1.42]' draggable={false} />
+                </div>
+              ) : (
+                <Image src={doctor_details.img} alt={doctor_details.name} className={`w-full lg:max-h-[400px] rounded-[16px] bg-gray-500 lg:h-[400px] aspect-square object-cover ${doctor_details.slug === 'dr-clay-shumway' ? 'object-top' : 'object-center'}`} draggable={false} />
+              )}
               {/* Breadcrumbs */}
               <nav aria-label="Breadcrumb" className="mt-6 mb-2">
                 <ol className="flex flex-row flex-wrap gap-2 text-sm text-[#2358AC]">
@@ -185,6 +200,22 @@ export default async function DoctorDetails({ params }: { params: Promise<{ Doct
               </ul>
             </div>
           </section>
+          {matchingSpecialistPages.length > 0 ? (
+            <section className='flex flex-col space-y-[24px]'>
+              <h2 style={{ fontFamily: "var(--font-public-sans)", fontWeight: 500 }} className="text-[#111315] text-4xl">
+                Condition specialist appointments
+              </h2>
+              <ul className='flex flex-col space-y-4'>
+                {matchingSpecialistPages.map((specialistPage) => (
+                  <li key={specialistPage.slug}>
+                    <Link href={`/find-care/${specialistPage.slug}`} className='text-[#0A50EC] hover:underline'>
+                      See {doctor_details.name} for {specialistPage.conditionName.toLowerCase()}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       </section>
     </main>

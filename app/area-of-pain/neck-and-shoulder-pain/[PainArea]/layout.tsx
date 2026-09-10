@@ -1,3 +1,4 @@
+import { canonicalPathForPainArea, hasCrossCanonicalTarget } from "@/lib/areaOfPainCanonical";
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { conditions as painconditions } from "@/components/data/painconditions";
@@ -14,7 +15,7 @@ export async function generateMetadata(
   let data;
 
   // *** SELF-CANONICALIZATION FOR ALL PAIN PAGES ***
-  const canonicalPath = `/area-of-pain/neck-and-shoulder-pain/${conditionSlug}`;
+  const canonicalPath = canonicalPathForPainArea(`/area-of-pain/neck-and-shoulder-pain/${conditionSlug}`, conditionSlug);
 
   if (conditionSlug === "neck-and-shoulder-pain-treatment") {
     data = PainAreaTreatments.find((x) => x.slug === conditionSlug);
@@ -31,12 +32,13 @@ export async function generateMetadata(
     const title = `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`;
     const description = "Learn about orthopedic care and treatments.";
     
+    // No matching condition record: this is a stub with a slug-derived title and
+    // no H1. Keep it out of the index and emit no canonical rather than
+    // advertising a thin page as canonical content.
     return {
       title,
       description,
-      alternates: { 
-        canonical: buildCanonical(canonicalPath)
-      },
+      robots: { index: false, follow: true },
       openGraph: {
         title,
         description,
@@ -77,6 +79,11 @@ export async function generateMetadata(
     title,
     description,
     keywords: data.keywords || [],
+    // No /conditions equivalent to consolidate onto, so this page would stay a
+    // self-canonical duplicate. Keep it reachable but out of the index.
+    ...(hasCrossCanonicalTarget(conditionSlug)
+      ? {}
+      : { robots: { index: false, follow: true } }),
     alternates: { 
       canonical: buildCanonical(canonicalPath) 
     },

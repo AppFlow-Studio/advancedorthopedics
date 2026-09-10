@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { getAttributionData } from "@/lib/gclid"
+import { EMPTY_ATTRIBUTION, getAttributionData } from "@/lib/gclid"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -17,7 +17,7 @@ import { BorderBeam } from "@/components/magicui/border-beam"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { useRouter, usePathname } from "next/navigation"
-import { pushFormSubmit, persistEC, pushEC } from "@/utils/enhancedConversions"
+import { pushAcceptedLead } from "@/utils/enhancedConversions"
 import { STATE_OPTIONS, slugFromPathname } from "@/lib/stateUtils"
 
 const lawyerSchema = z.object({
@@ -75,7 +75,7 @@ export function LawyerContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [openDialog, setOpenDialog] = useState(false)
-    const [attribution, setAttribution] = useState({ gclid: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '' })
+    const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
     const router = useRouter()
     const pathname = usePathname()
 
@@ -122,7 +122,8 @@ export function LawyerContactForm() {
                 return
             }
 
-            pushFormSubmit({ form_name: 'LawyerContactForm', state: values.clientState, email: values.email, phone: values.phone })
+            const accepted = await pushAcceptedLead({ acceptance: res, form_name: 'LawyerContactForm', form_source: 'attorney-coordination', state: values.clientState, email: values.email, phone: values.phone })
+            if (!accepted) return
             setOpenDialog(false)
             setIsSubmitted(true)
             router.push('/thank-you')
@@ -388,7 +389,7 @@ export function LawyerContactForm() {
                                     <FormItem>
                                         <FormLabel>Practice Areas</FormLabel>
                                         <Select onValueChange={field.onChange} value={field.value}>
-                                            <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select practice areas" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
+                                            <SelectTrigger aria-label="Select practice areas" className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select practice areas" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                             <SelectContent>
                                                 {practiceAreas.map((area) => (<SelectItem key={area} value={area}>{area}</SelectItem>))}
                                             </SelectContent>
@@ -426,7 +427,7 @@ export function LawyerContactForm() {
                                             <FormItem>
                                                 <FormLabel>Accident Date</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="When did accident occur?" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
+                                                    <SelectTrigger aria-label="When did accident occur?" className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="When did accident occur?" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                     <SelectContent>
                                                         {accidentDates.map((date) => (<SelectItem key={date} value={date}>{date}</SelectItem>))}
                                                     </SelectContent>
@@ -444,7 +445,7 @@ export function LawyerContactForm() {
                                         <FormItem className="flex flex-col">
                                             <FormLabel>Case Type</FormLabel>
                                             <Select onValueChange={field.onChange} value={field.value}>
-                                                <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select case type" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
+                                                <SelectTrigger aria-label="Select case type" className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select case type" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                 <SelectContent>
                                                     {caseTypes.map((type) => (<SelectItem key={type} value={type}>{type}</SelectItem>))}
                                                 </SelectContent>
@@ -468,7 +469,7 @@ export function LawyerContactForm() {
                                             <FormItem className="flex flex-col">
                                                 <FormLabel>Urgency Level</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select urgency" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
+                                                    <SelectTrigger aria-label="Select urgency" className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select urgency" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                     <SelectContent>
                                                         <SelectItem value="urgent">Urgent (Same day)</SelectItem>
                                                         <SelectItem value="high">High (This week)</SelectItem>
@@ -483,7 +484,7 @@ export function LawyerContactForm() {
                                             <FormItem className="flex flex-col">
                                                 <FormLabel>Client State<span className="text-red-500">*</span></FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select state" /></SelectTrigger>
+                                                    <SelectTrigger aria-label="Select state" className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select state" /></SelectTrigger>
                                                     <SelectContent>
                                                         {STATE_OPTIONS.map(({ value, label }) => (
                                                             <SelectItem key={value} value={value}>{label}</SelectItem>
@@ -497,7 +498,7 @@ export function LawyerContactForm() {
                                             <FormItem className="flex flex-col">
                                                 <FormLabel>Preferred Location</FormLabel>
                                                 <Select onValueChange={field.onChange} value={field.value}>
-                                                    <SelectTrigger className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select location" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
+                                                    <SelectTrigger aria-label="Select location" className="w-full sm:h-12 h-10 px-6 bg-[#f0f5ff] border rounded-sm"><SelectValue placeholder="Select location" className="sm:h-12 h-10 text-lg" /></SelectTrigger>
                                                     <SelectContent>
                                                         {locations.map((loc) => (<SelectItem key={loc} value={loc}>{loc}</SelectItem>))}
                                                     </SelectContent>

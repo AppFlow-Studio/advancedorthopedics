@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
   const description = safeDescription(
     undefined,
-    `Board-certified spine and orthopedic surgeons in ${stateInfo?.name || state}. ${stateClinics.length} locations in ${topCities}. Most insurance accepted. Same-day appointments. Call today.`
+    `Board-certified spine and orthopedic surgeons in ${stateInfo?.name || state}. ${stateClinics.length} locations in ${topCities}. PPO insurance accepted. Same-day appointments. Call today.`
   );
   const canonicalPath = `/locations/${state}`;
 

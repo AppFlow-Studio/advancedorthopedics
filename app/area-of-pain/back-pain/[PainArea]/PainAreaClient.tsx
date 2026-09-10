@@ -8,10 +8,12 @@ import { DoctorContactForm } from '@/components/DoctorContactForm';
 import { BackPainDropdown } from '@/components/back-pain-dropdown';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { PhoneText } from '@/components/PhoneText';
+import { processTextWithBoldAndLinks } from '@/lib/richText';
 import { PhoneCTA } from '@/components/PhoneCTA';
 import Link from 'next/link';
-import { conditions } from '@/components/data/conditions';
-import { AllTreatmentsCombined } from '@/components/data/treatments';
+import { conditionIndex as conditions } from '@/components/data/taxonomyIndex.generated';
+import { treatmentIndex as AllTreatmentsCombined } from '@/components/data/taxonomyIndex.generated';
+import { resolveConditionSlugHref } from '@/lib/internal-link-redirects';
 
 // Helper to resolve specialty slug for cross-linking
 const SPECIALTY_MAP: Record<string, string> = {
@@ -129,11 +131,10 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       {/* Screen reader only H1 */}
-      <h1 className="sr-only">{condition_details?.title ?? condition_details?.name}</h1>
       
       {/* FAQ JSON-LD Script */}
       {faqs.length > 0 && (
-        <Script 
+        <Script className="rich-prose" 
           id={`faq-${condition_details.slug}`} 
           type="application/ld+json" 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} 
@@ -224,7 +225,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
             </div>
           </div>
           <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-center mt-[12px] w-full">
-            <TextAnimate animation="blurInUp" by="word" once
+            <TextAnimate as="h1" animation="blurInUp" by="word" once
               style={{
                 fontFamily: "var(--font-public-sans)",
                 fontWeight: 400,
@@ -239,7 +240,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
           {specialtySlug && (
             <div className="z-[2] px-6 xl:px-[80px] mt-[16px] w-full flex justify-center">
               <a 
-                href={`/conditions/${specialtySlug}`}
+                href={resolveConditionSlugHref(specialtySlug)}
                 className="inline-flex items-center px-4 py-2 rounded-lg border border-[#2358AC] bg-white/80 hover:bg-[#2358AC] hover:text-white text-[#2358AC] transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
@@ -297,7 +298,18 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
                 }}
                 className='text-[#424959] sm:text-xl text-sm'
               >
-                <PhoneText text={condition_details?.detail} trackLocation="Back Pain Detail Section" />
+                {/* detail carries stored HTML (<strong>, inline links). PhoneText
+                    renders text, so those tags printed literally on every
+                    area-of-pain page. No detail string contains a phone
+                    number, so nothing tracked is lost by rendering it as HTML. */}
+                <span className="rich-prose"
+                  dangerouslySetInnerHTML={{
+                    __html: processTextWithBoldAndLinks(
+                      condition_details?.detail ?? '',
+                      condition_details?.slug ?? ''
+                    ),
+                  }}
+                />
               </div>
             </div>
 
@@ -348,7 +360,7 @@ export function PainAreaClient({ condition_details, randomDoctors, specialtySlug
                 .map((condition) => (
                   <Link
                     key={condition.slug}
-                    href={`/conditions/${condition.slug}`}
+                    href={resolveConditionSlugHref(condition.slug)}
                     className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] rounded-[62px] text-sm transition-colors hover:bg-[#FAFAFA]"
                   >
                     <span

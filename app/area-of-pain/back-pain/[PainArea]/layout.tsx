@@ -1,3 +1,4 @@
+import { canonicalPathForPainArea, hasCrossCanonicalTarget } from "@/lib/areaOfPainCanonical";
 import type { Metadata, ResolvingMetadata } from "next";
 import { conditions } from "@/components/data/conditions";
 import { conditions as painconditions } from "@/components/data/painconditions";
@@ -6,7 +7,7 @@ import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib
 import { getOgImageForPath } from "@/lib/og";
 
 export async function generateMetadata(
-  { params }: { params: { PainArea: string } },
+  { params }: { params: Promise<{ PainArea: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const resolvedParams = await params;
@@ -27,19 +28,20 @@ export async function generateMetadata(
   }
 
   // *** SELF-CANONICALIZATION FOR ALL PAIN PAGES ***
-  const canonicalPath = `/area-of-pain/back-pain/${conditionSlug}`;
+  const canonicalPath = canonicalPathForPainArea(`/area-of-pain/back-pain/${conditionSlug}`, conditionSlug);
 
   if (!data) {
     const readableSlug = conditionSlug.replace(/-/g, " ");
     const title = `${readableSlug.replace(/\b\w/g, (l) => l.toUpperCase())} | Mountain Spine & Orthopedics`;
     const description = "Learn about orthopedic care and treatments.";
     
+    // No matching condition record: this is a stub with a slug-derived title and
+    // no H1. Keep it out of the index and emit no canonical rather than
+    // advertising a thin page as canonical content.
     return {
       title,
       description,
-      alternates: { 
-        canonical: buildCanonical(canonicalPath)
-      },
+      robots: { index: false, follow: true },
       openGraph: {
         title,
         description,
@@ -71,7 +73,7 @@ export async function generateMetadata(
   const normalizedDesc = data.metaDesc ? normalizeUTF8(data.metaDesc) : undefined;
   
   // Title pattern - prefer data.metaTitle if available
-  const title = safeTitle(normalizedTitle, `${painArea} | Orthopedic Pain Treatment in FL, NJ, NY, & PA | Mountain Spine & Orthopedics`);
+  const title = safeTitle(normalizedTitle, `${painArea} | Orthopedic Pain Treatment in FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics`);
   
   // Description - prefer data.metaDesc if available
   const description = safeDescription(normalizedDesc, `Learn causes, symptoms & minimally invasive treatments for ${painArea.toLowerCase()} at Mountain Spine & Orthopedics. Same-day appointments available.`);
@@ -80,6 +82,11 @@ export async function generateMetadata(
     title,
     description,
     keywords: data.keywords || [],
+    // No /conditions equivalent to consolidate onto, so this page would stay a
+    // self-canonical duplicate. Keep it reachable but out of the index.
+    ...(hasCrossCanonicalTarget(conditionSlug)
+      ? {}
+      : { robots: { index: false, follow: true } }),
     alternates: { 
       canonical: buildCanonical(canonicalPath)
     },

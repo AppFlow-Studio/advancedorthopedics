@@ -13,7 +13,7 @@ export default function StateWhyChoose({ stateName }: StateWhyChooseProps) {
     {
       icon: Award,
       title: 'Board-Certified Surgeons',
-      desc: 'Our fellowship-trained specialists represent the top tier of orthopedic and spine surgical expertise.',
+      desc: 'Our fellowship-trained, board-certified specialists cover the full range of orthopedic and spine surgical care.',
     },
     {
       icon: Clock,
@@ -56,7 +56,7 @@ export default function StateWhyChoose({ stateName }: StateWhyChooseProps) {
             style={{ fontFamily: "var(--font-public-sans)" }}
             className="text-base sm:text-lg md:text-xl text-[#424959] max-w-3xl mx-auto leading-relaxed"
           >
-            Mountain Spine & Orthopedics brings world-class musculoskeletal care to your local community, combining elite surgical skill with a patient-first approach.
+            Mountain Spine & Orthopedics brings specialist musculoskeletal care to your local community, combining fellowship-trained surgical skill with a patient-first approach.
           </p>
         </div>
 

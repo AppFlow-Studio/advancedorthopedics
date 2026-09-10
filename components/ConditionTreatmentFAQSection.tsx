@@ -185,7 +185,7 @@ export default function ConditionTreatmentFAQSection({
                   fontFamily: 'var(--font-inter)',
                   fontWeight: 400,
                 }}
-                className="text-[#424959] sm:text-xl text-sm leading-relaxed [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
+                className="rich-prose text-[#424959] sm:text-xl text-sm leading-relaxed [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
                 dangerouslySetInnerHTML={{
                   __html: processTextWithBoldAndLinks(faq.answer, currentSlug)
                 }}
