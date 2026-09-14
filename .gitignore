@@ -47,3 +47,9 @@ hydration-scan.json
 
 # 3D model source archives (rar) - only optimized glb ships in public/
 /3d-source/
+
+# Captured page renders / RSC payload dumps (e.g. the deleted temp_page.html).
+# Build output accidentally saved into the repo, never source. Scoped to
+# root-level temp_* captures so real HTML assets — public/**, homepage.html —
+# keep tracking normally.
+/temp_*.html
