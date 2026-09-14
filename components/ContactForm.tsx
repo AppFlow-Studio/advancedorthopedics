@@ -41,6 +41,7 @@ const formSchema = z.object({
 export function ConsultationForm({ defaultState = "" }: { defaultState?: string }) {
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
   const router = useRouter()
 
@@ -67,6 +68,7 @@ export function ConsultationForm({ defaultState = "" }: { defaultState?: string 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
+    setSubmitError(null)
     try {
       const formSource = resolveFormSource({ pathname, formId: 'ConsultationForm' })
       const res = await fetch("/api/forms/consultation", {
@@ -100,6 +102,7 @@ export function ConsultationForm({ defaultState = "" }: { defaultState?: string 
       }
 
       if (!res.ok) {
+        setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
         setDisabled(false)
         return
       }
@@ -111,6 +114,7 @@ export function ConsultationForm({ defaultState = "" }: { defaultState?: string 
       router.push('/thank-you')
     } catch (error) {
       console.error("[ConsultationForm] Submit failed", error)
+      setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
       setDisabled(false)
     } finally {
       setDisabled(false)
@@ -311,6 +315,9 @@ export function ConsultationForm({ defaultState = "" }: { defaultState?: string 
               </FormItem>
             )}
           />
+          {submitError && (
+            <p role="alert" className="text-sm text-red-600 text-center mt-4">{submitError}</p>
+          )}
           <button type="submit" className="w-full self-center flex items-center justify-center mt-[40px]" disabled={disabled} >
             {disabled ? (
               <div className="max-h-[56px] group h-full px-[32px] py-[16px] hover:bg-[#252932] rounded-[62px] relative flex bg-[#0A50EC] text-white text-[14px] font-semibold w-full justify-center items-center hover:cursor-not-allowed">

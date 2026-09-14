@@ -220,6 +220,7 @@ export default function FreeMRIReviewClient({ reviews }: { reviews: SocialProofR
   const [ConditionStep, setConditionStep] = useState(1)
   const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
 
   React.useEffect(() => {
@@ -245,24 +246,39 @@ export default function FreeMRIReviewClient({ reviews }: { reviews: SocialProofR
   })
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    const data = await sendMRIContactEmail({
-      ...values,
-      gclid: attribution.gclid,
-      gbraid: attribution.gbraid,
-      wbraid: attribution.wbraid,
-      utm_source: attribution.utm_source,
-      utm_medium: attribution.utm_medium,
-      utm_campaign: attribution.utm_campaign,
-      utm_term: attribution.utm_term,
-      utm_content: attribution.utm_content,
-    })
-    if (data) {
-      await pushAcceptedLead({ acceptance: data, form_name: 'FreeMRIReviewForm', form_source: 'free-mri-review', state: normalizeState(values.state), email: values.email, phone: values.phone, firstName: values.first_name, lastName: values.last_name })
-      ConditionForm.reset()
-      redirect('/thank-you')
+    setSubmitError(null)
+    let data
+    try {
+      data = await sendMRIContactEmail({
+        ...values,
+        gclid: attribution.gclid,
+        gbraid: attribution.gbraid,
+        wbraid: attribution.wbraid,
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign,
+        utm_term: attribution.utm_term,
+        utm_content: attribution.utm_content,
+      })
+      if (data) {
+        await pushAcceptedLead({ acceptance: data, form_name: 'FreeMRIReviewForm', form_source: 'free-mri-review', state: normalizeState(values.state), email: values.email, phone: values.phone, firstName: values.first_name, lastName: values.last_name })
+        ConditionForm.reset()
+      }
+    } catch (error) {
+      console.error('[FreeMRIReviewForm] Submit failed', error)
+      setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
       setDisabled(false)
+      return
     }
 
+    // redirect() throws NEXT_REDIRECT to navigate — must stay outside the try/catch
+    // above so it is never swallowed.
+    if (data) {
+      redirect('/thank-you')
+    } else {
+      setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
+      setDisabled(false)
+    }
   }
   return (
     <>
@@ -478,6 +494,9 @@ export default function FreeMRIReviewClient({ reviews }: { reviews: SocialProofR
                 </form>
               </Form>
 
+              {submitError && ConditionStep == 2 && (
+                <p role="alert" className="text-sm text-red-600 text-left w-full">{submitError}</p>
+              )}
               <div className=' flex flex-row pt-[16px] justify-between'>
               {
                 ConditionStep != 1 ?

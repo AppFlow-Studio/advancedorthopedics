@@ -91,6 +91,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
     const [openContactForm, setOpenContactForm] = useState(false)
     const [openAppointmentConfirm, setAppointmentConfirm] = useState(false)
     const [disabled, setDisabled] = useState(false)
+    const [submitError, setSubmitError] = useState<string | null>(null)
     const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
     const [showScrollIndicator, setShowScrollIndicator] = useState(true)
     const formRef = useRef<HTMLFormElement>(null)
@@ -192,6 +193,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
         // console.log('Recaptcha Token:', recaptchaToken);
 
         setDisabled(true)
+        setSubmitError(null)
 
         try {
             const formSource = resolveFormSource({ pathname, formId: 'DoctorContactForm' })
@@ -238,6 +240,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             }
 
             if (!res.ok) {
+                setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
                 return
             }
 
@@ -248,6 +251,7 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
             router.push('/thank-you')
         } catch (error) {
             console.error("[DoctorContactForm] Submit failed", error)
+            setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
         } finally {
             setDisabled(false)
         }
@@ -990,6 +994,10 @@ export function DoctorContactForm({ backgroundcolor = 'white', header = 'Book an
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            {submitError && (
+                                                <p role="alert" className="text-sm text-red-600 text-center">{submitError}</p>
+                                            )}
 
                                             <button
                                                 className="w-full self-center flex items-center justify-center"
