@@ -43,13 +43,22 @@ export async function POST(request: Request) {
   try {
     const body: LawyerPayload = await request.json();
 
+    // sendLawyerContactEmail notifies staff and persists the lead — this is the
+    // critical path and stays fatal (idempotency-keyed, so retries never duplicate).
     const acceptance = await sendLawyerContactEmail(body);
-    await sendLawyerConfirmationEmail({
-      attorneyName: body.attorneyName,
-      email: body.email,
-      firmName: body.firmName,
-      clientName: body.clientName,
-    });
+
+    // The attorney confirmation is best-effort: staff are already notified and the
+    // lead is captured, so a bad attorney email must not 500 the request.
+    try {
+      await sendLawyerConfirmationEmail({
+        attorneyName: body.attorneyName,
+        email: body.email,
+        firmName: body.firmName,
+        clientName: body.clientName,
+      });
+    } catch (confirmationError) {
+      console.error("[LawyerForm] Attorney confirmation failed (non-blocking)", confirmationError);
+    }
 
     return NextResponse.json(acceptance);
   } catch (error) {

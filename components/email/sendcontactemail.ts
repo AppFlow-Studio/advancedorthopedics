@@ -1,7 +1,7 @@
 'use server'
 
 import { Resend } from 'resend';
-import { randomUUID } from 'node:crypto';
+import { randomUUID, createHash } from 'node:crypto';
 import { EmailTemplate } from './emailtemplate';
 import { MRIEmailTemplate } from './mrireviewtemplate';
 import { TreatmentCandidacyEmailTemplate } from './candidemailtemplate';
@@ -24,7 +24,34 @@ function getResendClient() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// logLeadToSupabase — authoritative persistence boundary for accepted leads
+// buildIdempotencyKey — collapse duplicate sends of the same lead
+//
+// Resend honours an `Idempotency-Key` header for 24h: two sends with the same key
+// in that window resolve to a single delivered email. We derive a STABLE key from
+// the submission fingerprint (scope + contact details) so that a user retrying
+// after a transient failure — or double-submitting — never spams info@, WITHOUT
+// needing any client change. `scope` keeps the internal notification, the patient
+// confirmation, and each form type on separate keys so they never dedupe each other.
+// ─────────────────────────────────────────────────────────────────────────────
+function buildIdempotencyKey(scope: string, parts: Array<string | undefined>): string {
+  const fingerprint = createHash('sha256')
+    .update(parts.map((p) => (p || '').trim().toLowerCase()).join('|'))
+    .digest('hex');
+  return `${scope}-${fingerprint}`;
+}
+
+type PersistResult = { submissionId: string; persisted: boolean };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// logLeadToSupabase — best-effort persistence boundary for accepted leads
+//
+// Persistence is deliberately NON-FATAL. The human-facing contract of a submission
+// is "the practice was notified and the patient was confirmed", not "a row was
+// written". If the insert fails (schema drift, RLS, an outage) we log loudly and
+// return persisted:false, but we never throw — so a database problem can never
+// again block the notification email, 500 the request, and drive the retry loop
+// that spammed info@. A fresh submission_id is always returned so downstream
+// measurement still has a stable, non-PII id even when the row did not land.
 // ─────────────────────────────────────────────────────────────────────────────
 async function logLeadToSupabase(data: {
   patient_name?: string;
@@ -60,10 +87,10 @@ async function logLeadToSupabase(data: {
    * keep the path out of GA4, because page_path was already there.
    */
   landing_path?: string;
-}) {
+}): Promise<PersistResult> {
+  const submissionId = randomUUID();
   try {
     const supabase = await createClient();
-    const submissionId = randomUUID();
     const { error } = await supabase.from('forms').insert({
       submission_id:  submissionId,
       patient_name:   data.patient_name   || null,
@@ -87,13 +114,24 @@ async function logLeadToSupabase(data: {
       landing_path:   data.landing_path   || null,
     });
     if (error) {
-      console.error('[logLeadToSupabase]', error);
-      throw new Error('Lead persistence failed');
+      // Loud, structured log so a persistence outage is greppable/alertable and
+      // never silent again (this outage went unnoticed for ~4 days).
+      console.error('[logLeadToSupabase] insert failed — lead NOT persisted', {
+        submissionId,
+        form_source: data.form_source,
+        message: error.message,
+        code: (error as { code?: string }).code,
+      });
+      return { submissionId, persisted: false };
     }
-    return { ok: true as const, submissionId };
+    return { submissionId, persisted: true };
   } catch (err) {
-    console.error('[logLeadToSupabase] unexpected error', err);
-    throw new Error('Lead persistence failed');
+    console.error('[logLeadToSupabase] unexpected error — lead NOT persisted', {
+      submissionId,
+      form_source: data.form_source,
+      err,
+    });
+    return { submissionId, persisted: false };
   }
 }
 
@@ -118,26 +156,30 @@ export async function sendUserEmail(formData: {
   utm_term?: string;
   utm_content?: string;
 }) {
-  try {
-    const acceptance = await logLeadToSupabase({
-      patient_name:  formData.name,
-      patient_email: formData.email,
-      patient_phone: formData.phone,
-      state:         formData.state,
-      reason:        formData.reason,
-      best_time:     formData.bestTime,
-      form_source:   formData.form_source || 'unknown',
-      landing_path:  formData.landing_path,
-      gclid:         formData.gclid,
-      gbraid:        formData.gbraid,
-      wbraid:        formData.wbraid,
-      utm_source:    formData.utm_source,
-      utm_medium:    formData.utm_medium,
-      utm_campaign:  formData.utm_campaign,
-      utm_term:      formData.utm_term,
-      utm_content:   formData.utm_content,
-    });
+  const { submissionId, persisted } = await logLeadToSupabase({
+    patient_name:  formData.name,
+    patient_email: formData.email,
+    patient_phone: formData.phone,
+    state:         formData.state,
+    reason:        formData.reason,
+    best_time:     formData.bestTime,
+    form_source:   formData.form_source || 'unknown',
+    landing_path:  formData.landing_path,
+    gclid:         formData.gclid,
+    gbraid:        formData.gbraid,
+    wbraid:        formData.wbraid,
+    utm_source:    formData.utm_source,
+    utm_medium:    formData.utm_medium,
+    utm_campaign:  formData.utm_campaign,
+    utm_term:      formData.utm_term,
+    utm_content:   formData.utm_content,
+  });
 
+  // The patient confirmation is best-effort: staff have already been notified
+  // (routes call sendContactEmail first) and the lead is captured, so a bad
+  // patient email address must not 500 the request and re-trigger the retry loop.
+  // A real Resend outage still surfaces through the staff notification, which IS fatal.
+  try {
     await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: [formData.email],
@@ -147,13 +189,18 @@ export async function sendUserEmail(formData: {
         email: formData.email,
         phone: formData.phone,
       }),
+    }, {
+      idempotencyKey: buildIdempotencyKey('confirm', [formData.form_source, formData.email, formData.phone]),
     });
-
-    return acceptance;
   } catch (error) {
-    console.error('[sendUserEmail]', error);
-    throw new Error('Failed to send email');
+    console.error('[sendUserEmail] patient confirmation failed (non-blocking)', { submissionId, error });
   }
+
+  if (!persisted) {
+    console.warn('[sendUserEmail] lead accepted but not persisted', { submissionId });
+  }
+
+  return { ok: true as const, submissionId };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -170,6 +217,7 @@ export async function sendContactEmail(formData: {
   pain_level?: string;
   location?: string;
   state?: string;
+  form_source?: string;
   destinationEmail?: string;
   insuranceCardFront?: File;
   insuranceCardBack?: File;
@@ -219,6 +267,8 @@ export async function sendContactEmail(formData: {
         utm_content: formData.utm_content,
       }),
       attachments: attachments?.filter(Boolean) as any[],
+    }, {
+      idempotencyKey: buildIdempotencyKey('notify', [formData.form_source, formData.email, formData.phone]),
     });
 
     return data;
@@ -253,26 +303,26 @@ export async function sendMRIContactEmail(formData: {
   utm_term?: string;
   utm_content?: string;
 }) {
-  try {
-    const acceptance = await logLeadToSupabase({
-      patient_name:   `${formData.first_name} ${formData.last_name}`.trim(),
-      patient_email:  formData.email,
-      patient_phone:  formData.phone,
-      state:          formData.state,
-      reason:         formData.recent_diagnosis || formData.comments || undefined,
-      best_time:      formData.bestTime,
-      insurance_type: formData.insurance_type,
-      form_source:    'free-mri-review',
-      gclid:          formData.gclid,
-      gbraid:         formData.gbraid,
-      wbraid:         formData.wbraid,
-      utm_source:     formData.utm_source,
-      utm_medium:     formData.utm_medium,
-      utm_campaign:   formData.utm_campaign,
-      utm_term:       formData.utm_term,
-      utm_content:    formData.utm_content,
-    });
+  const { submissionId, persisted } = await logLeadToSupabase({
+    patient_name:   `${formData.first_name} ${formData.last_name}`.trim(),
+    patient_email:  formData.email,
+    patient_phone:  formData.phone,
+    state:          formData.state,
+    reason:         formData.recent_diagnosis || formData.comments || undefined,
+    best_time:      formData.bestTime,
+    insurance_type: formData.insurance_type,
+    form_source:    'free-mri-review',
+    gclid:          formData.gclid,
+    gbraid:         formData.gbraid,
+    wbraid:         formData.wbraid,
+    utm_source:     formData.utm_source,
+    utm_medium:     formData.utm_medium,
+    utm_campaign:   formData.utm_campaign,
+    utm_term:       formData.utm_term,
+    utm_content:    formData.utm_content,
+  });
 
+  try {
     await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
@@ -291,13 +341,19 @@ export async function sendMRIContactEmail(formData: {
         state: formData.state,
         bestTime: formData.bestTime,
       }),
+    }, {
+      idempotencyKey: buildIdempotencyKey('mri', [formData.email, formData.phone]),
     });
-
-    return acceptance;
   } catch (error) {
     console.error('[sendMRIContactEmail]', error);
     throw new Error('Failed to send email');
   }
+
+  if (!persisted) {
+    console.warn('[sendMRIContactEmail] notification sent but lead not persisted', { submissionId });
+  }
+
+  return { ok: true as const, submissionId };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -328,25 +384,25 @@ export async function sendCandidacyEmail(formData: {
   utm_term?: string;
   utm_content?: string;
 }) {
-  try {
-    const acceptance = await logLeadToSupabase({
-      patient_name:   `${formData.first_name} ${formData.last_name}`.trim(),
-      patient_email:  formData.email,
-      patient_phone:  formData.phone,
-      state:          formData.state,
-      reason:         formData.condition || undefined,
-      insurance_type: formData.insurance_type,
-      form_source:    'candidacy-check',
-      gclid:          formData.gclid,
-      gbraid:         formData.gbraid,
-      wbraid:         formData.wbraid,
-      utm_source:     formData.utm_source,
-      utm_medium:     formData.utm_medium,
-      utm_campaign:   formData.utm_campaign,
-      utm_term:       formData.utm_term,
-      utm_content:    formData.utm_content,
-    });
+  const { submissionId, persisted } = await logLeadToSupabase({
+    patient_name:   `${formData.first_name} ${formData.last_name}`.trim(),
+    patient_email:  formData.email,
+    patient_phone:  formData.phone,
+    state:          formData.state,
+    reason:         formData.condition || undefined,
+    insurance_type: formData.insurance_type,
+    form_source:    'candidacy-check',
+    gclid:          formData.gclid,
+    gbraid:         formData.gbraid,
+    wbraid:         formData.wbraid,
+    utm_source:     formData.utm_source,
+    utm_medium:     formData.utm_medium,
+    utm_campaign:   formData.utm_campaign,
+    utm_term:       formData.utm_term,
+    utm_content:    formData.utm_content,
+  });
 
+  try {
     await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
@@ -368,13 +424,19 @@ export async function sendCandidacyEmail(formData: {
         comments:         formData.comments,
         email_optout:     formData.email_optout,
       }),
+    }, {
+      idempotencyKey: buildIdempotencyKey('candidacy', [formData.email, formData.phone]),
     });
-
-    return acceptance;
   } catch (error) {
     console.error('[sendCandidacyEmail]', error);
     throw new Error('Failed to send email');
   }
+
+  if (!persisted) {
+    console.warn('[sendCandidacyEmail] notification sent but lead not persisted', { submissionId });
+  }
+
+  return { ok: true as const, submissionId };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -408,25 +470,25 @@ export const sendConditionCheckEmail = async (formData: {
   utm_term?: string;
   utm_content?: string;
 }) => {
-  try {
-    const acceptance = await logLeadToSupabase({
-      patient_name:   `${formData.first_name} ${formData.last_name}`.trim(),
-      patient_email:  formData.email,
-      patient_phone:  formData.phone,
-      state:          formData.state,
-      reason:         formData.pain_area?.join(', ') || undefined,
-      insurance_type: formData.insurance_type,
-      form_source:    'condition-check',
-      gclid:          formData.gclid,
-      gbraid:         formData.gbraid,
-      wbraid:         formData.wbraid,
-      utm_source:     formData.utm_source,
-      utm_medium:     formData.utm_medium,
-      utm_campaign:   formData.utm_campaign,
-      utm_term:       formData.utm_term,
-      utm_content:    formData.utm_content,
-    });
+  const { submissionId, persisted } = await logLeadToSupabase({
+    patient_name:   `${formData.first_name} ${formData.last_name}`.trim(),
+    patient_email:  formData.email,
+    patient_phone:  formData.phone,
+    state:          formData.state,
+    reason:         formData.pain_area?.join(', ') || undefined,
+    insurance_type: formData.insurance_type,
+    form_source:    'condition-check',
+    gclid:          formData.gclid,
+    gbraid:         formData.gbraid,
+    wbraid:         formData.wbraid,
+    utm_source:     formData.utm_source,
+    utm_medium:     formData.utm_medium,
+    utm_campaign:   formData.utm_campaign,
+    utm_term:       formData.utm_term,
+    utm_content:    formData.utm_content,
+  });
 
+  try {
     await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <info@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
@@ -451,13 +513,19 @@ export const sendConditionCheckEmail = async (formData: {
         pain_source:      formData.pain_source,
         pain_test:        formData.pain_test,
       }),
+    }, {
+      idempotencyKey: buildIdempotencyKey('condition', [formData.email, formData.phone]),
     });
-
-    return acceptance;
   } catch (error) {
     console.error('[sendConditionCheckEmail]', error);
     throw new Error('Failed to send email');
   }
+
+  if (!persisted) {
+    console.warn('[sendConditionCheckEmail] notification sent but lead not persisted', { submissionId });
+  }
+
+  return { ok: true as const, submissionId };
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -487,25 +555,25 @@ export async function sendLawyerContactEmail(formData: {
   utm_term?: string;
   utm_content?: string;
 }) {
-  try {
-    const acceptance = await logLeadToSupabase({
-      patient_name:  formData.clientName,
-      patient_email: formData.clientEmail,
-      patient_phone: formData.clientPhone,
-      reason:        `${formData.caseType}: ${formData.injuryDescription}`,
-      form_source:   'attorney-coordination',
-      attorney_firm: formData.firmName,
-      attorney_name: formData.attorneyName,
-      gclid:         formData.gclid,
-      gbraid:        formData.gbraid,
-      wbraid:        formData.wbraid,
-      utm_source:    formData.utm_source,
-      utm_medium:    formData.utm_medium,
-      utm_campaign:  formData.utm_campaign,
-      utm_term:      formData.utm_term,
-      utm_content:   formData.utm_content,
-    });
+  const { submissionId, persisted } = await logLeadToSupabase({
+    patient_name:  formData.clientName,
+    patient_email: formData.clientEmail,
+    patient_phone: formData.clientPhone,
+    reason:        `${formData.caseType}: ${formData.injuryDescription}`,
+    form_source:   'attorney-coordination',
+    attorney_firm: formData.firmName,
+    attorney_name: formData.attorneyName,
+    gclid:         formData.gclid,
+    gbraid:        formData.gbraid,
+    wbraid:        formData.wbraid,
+    utm_source:    formData.utm_source,
+    utm_medium:    formData.utm_medium,
+    utm_campaign:  formData.utm_campaign,
+    utm_term:      formData.utm_term,
+    utm_content:   formData.utm_content,
+  });
 
+  try {
     await getResendClient().emails.send({
       from: 'Mountain Spine & Orthopedics <no-reply@mountainspineorthopedics.com>',
       to: ['info@mountainspineorthopedics.com'],
@@ -526,13 +594,19 @@ export async function sendLawyerContactEmail(formData: {
         urgency:           formData.urgency,
         additionalInfo:    formData.additionalInfo,
       }),
+    }, {
+      idempotencyKey: buildIdempotencyKey('lawyer-notify', [formData.email, formData.clientEmail, formData.clientPhone]),
     });
-
-    return acceptance;
   } catch (error) {
     console.error('[sendLawyerContactEmail]', error);
     throw new Error('Failed to send attorney coordination email');
   }
+
+  if (!persisted) {
+    console.warn('[sendLawyerContactEmail] notification sent but lead not persisted', { submissionId });
+  }
+
+  return { ok: true as const, submissionId };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -555,6 +629,8 @@ export async function sendLawyerConfirmationEmail(formData: {
         firmName:     formData.firmName,
         clientName:   formData.clientName,
       }),
+    }, {
+      idempotencyKey: buildIdempotencyKey('lawyer-confirm', [formData.email, formData.clientName]),
     });
     return data;
   } catch (error) {

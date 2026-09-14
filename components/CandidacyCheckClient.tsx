@@ -147,6 +147,7 @@ export default function CandidacyCheckClient({ reviews }: { reviews: SocialProof
   const [conditionStep, setConditionStep] = useState(1);
   const [appointmentConfirm, setAppointmentConfirm] = useState(false);
   const [disabled, setDisabled] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [attribution, setAttribution] = useState(EMPTY_ATTRIBUTION)
   const router = useRouter()
 
@@ -176,22 +177,31 @@ export default function CandidacyCheckClient({ reviews }: { reviews: SocialProof
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setDisabled(true)
-    const data = await sendCandidacyEmail({ ...values, email_optout: "false", ...attribution });
-    if (data) {
-      await pushAcceptedLead({
-        acceptance: data,
-        form_name: 'CandidacyCheckForm',
-        form_source: 'candidacy-check',
-        state: values.state,
-        email: values.email,
-        phone: values.phone,
-        firstName: values.first_name,
-        lastName: values.last_name,
-      })
-      //setAppointmentConfirm(true);
-      form.reset();
+    setSubmitError(null)
+    try {
+      const data = await sendCandidacyEmail({ ...values, email_optout: "false", ...attribution });
+      if (data) {
+        await pushAcceptedLead({
+          acceptance: data,
+          form_name: 'CandidacyCheckForm',
+          form_source: 'candidacy-check',
+          state: values.state,
+          email: values.email,
+          phone: values.phone,
+          firstName: values.first_name,
+          lastName: values.last_name,
+        })
+        //setAppointmentConfirm(true);
+        form.reset();
+        router.push('/thank-you')
+        return
+      }
+      setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
       setDisabled(false)
-      router.push('/thank-you')
+    } catch (error) {
+      console.error('[CandidacyCheckForm] Submit failed', error)
+      setSubmitError("We couldn't submit your request. Please try again in a moment, or call our office.")
+      setDisabled(false)
     }
   }
 
@@ -427,6 +437,9 @@ export default function CandidacyCheckClient({ reviews }: { reviews: SocialProof
               </form>
             </Form>
 
+            {submitError && conditionStep == 3 && (
+              <p role="alert" className="text-sm text-red-600 text-left w-full">{submitError}</p>
+            )}
             <div className=' flex flex-row pt-[16px] justify-between'>
             {
               conditionStep != 1 ?
