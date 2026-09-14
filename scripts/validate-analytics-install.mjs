@@ -23,7 +23,15 @@
 //   5. No rendered <GoogleAnalytics> from @next/third-parties/google — that is
 //      a second GA4 installation path. An unused *import* is not a failure.
 //   6. Exactly one Consent Mode `default` call.
-//   7. That call must sit in the same file as the container and run before it.
+//   7. Consent must actually run before the container. Source position alone
+//      does not establish that — Next.js executes <Script> by `strategy`, not
+//      by where it sits in the file, so a consent block written above the
+//      container but left at afterInteractive can still execute after it. All
+//      three of these are required:
+//        a. the <Script> wrapping the consent default is beforeInteractive
+//        b. the <Script> wrapping the container carries an explicit strategy
+//           that cannot run earlier (afterInteractive or lazyOnload)
+//        c. the consent block still appears before the container block
 //
 // Deliberately allowed: `gtag('config', 'AW-…')` (Google Ads conversion and
 // user-provided-data tags depend on it) and `gtag('consent', 'update', …)`
@@ -78,6 +86,40 @@ const scan = (src, re, pick) => {
 };
 
 const lineOf = (src, index) => src.slice(0, index).split('\n').length;
+
+// Next.js <Script> strategies, in execution order: beforeInteractive is
+// injected into the initial HTML and runs before hydration; afterInteractive
+// runs once hydration begins; lazyOnload waits for browser idle. Consent state
+// must be established in the earliest phase, and the container must sit in a
+// strictly later one.
+const CONSENT_REQUIRED_STRATEGY = 'beforeInteractive';
+const GTM_ACCEPTED_STRATEGIES = ['afterInteractive', 'lazyOnload'];
+
+const RE_SCRIPT_OPEN = /<Script\b([^>]*?)(\/?)>/g;
+
+// Every <Script> element with the span it covers, so a match index can be
+// resolved back to the element that will actually execute it.
+export function scriptElements(src) {
+  const els = [];
+  RE_SCRIPT_OPEN.lastIndex = 0;
+  let m;
+  while ((m = RE_SCRIPT_OPEN.exec(src)) !== null) {
+    const attrs = m[1] || '';
+    const openEnd = m.index + m[0].length;
+    let end = openEnd;
+    if (m[2] !== '/') {
+      const close = src.indexOf('</Script>', openEnd);
+      end = close === -1 ? src.length : close + '</Script>'.length;
+    }
+    // Accepts strategy="x" and strategy={"x"}.
+    const strat = attrs.match(/strategy\s*=\s*\{?\s*["']([A-Za-z]+)["']/);
+    els.push({ start: m.index, end, strategy: strat ? strat[1] : null });
+  }
+  return els;
+}
+
+const enclosingScript = (src, index) =>
+  scriptElements(src).find((el) => index >= el.start && index < el.end) || null;
 
 export function inspect(src) {
   return {
@@ -159,16 +201,46 @@ export function evaluate(files) {
     }
   }
 
-  // 7 — that default must run before the container.
+  // 7 — consent must actually run before the container. Checked as runtime
+  // ordering (Script strategy), not just source placement, because in Next.js
+  // the two are independent.
   if (consentHits.length === 1 && requiredHits.length === 1) {
     const consent = consentHits[0];
     const gtm = requiredHits[0];
+    const consentEl = enclosingScript(consent.f.src, consent.hit.index);
+    const gtmEl = enclosingScript(gtm.f.src, gtm.hit.index);
+
+    // (a) the consent default must execute in the earliest phase.
+    if (!consentEl) {
+      at(consent.f.path, consent.f.src, consent.hit.index,
+        `Consent Mode 'default' is not inside a next/script <Script> element, so its execution phase cannot be established. Wrap it in <Script strategy="${CONSENT_REQUIRED_STRATEGY}">.`);
+    } else if (!consentEl.strategy) {
+      at(consent.f.path, consent.f.src, consent.hit.index,
+        `the <Script> wrapping Consent Mode 'default' declares no strategy, so it defaults to afterInteractive and can run after ${REQUIRED_GTM_ID}. It must be explicitly strategy="${CONSENT_REQUIRED_STRATEGY}".`);
+    } else if (consentEl.strategy !== CONSENT_REQUIRED_STRATEGY) {
+      at(consent.f.path, consent.f.src, consent.hit.index,
+        `the <Script> wrapping Consent Mode 'default' uses strategy="${consentEl.strategy}" — it must be strategy="${CONSENT_REQUIRED_STRATEGY}", or the container can fire against un-defaulted consent state regardless of source order.`);
+    }
+
+    // (b) the container must carry an explicit, strictly later strategy.
+    if (!gtmEl) {
+      at(gtm.f.path, gtm.f.src, gtm.hit.index,
+        `the ${REQUIRED_GTM_ID} snippet is not inside a next/script <Script> element, so its execution phase cannot be established.`);
+    } else if (!gtmEl.strategy) {
+      at(gtm.f.path, gtm.f.src, gtm.hit.index,
+        `the <Script> installing ${REQUIRED_GTM_ID} declares no strategy. Set it explicitly to one of ${GTM_ACCEPTED_STRATEGIES.join(' or ')} so its ordering against the consent default is stated, not inferred.`);
+    } else if (!GTM_ACCEPTED_STRATEGIES.includes(gtmEl.strategy)) {
+      at(gtm.f.path, gtm.f.src, gtm.hit.index,
+        `the <Script> installing ${REQUIRED_GTM_ID} uses strategy="${gtmEl.strategy}", which can execute no later than the consent default. It must be ${GTM_ACCEPTED_STRATEGIES.join(' or ')}.`);
+    }
+
+    // (c) source placement must agree with the strategy ordering.
     if (consent.f.path !== gtm.f.path) {
       at(consent.f.path, consent.f.src, consent.hit.index,
-        `Consent Mode 'default' is in a different file from the ${REQUIRED_GTM_ID} install (${gtm.f.path}), so execution order cannot be verified statically. Keep both in the same shell file, consent first.`);
+        `Consent Mode 'default' is in a different file from the ${REQUIRED_GTM_ID} install (${gtm.f.path}), so source ordering cannot be verified. Keep both in the same shell file, consent first.`);
     } else if (consent.hit.index > gtm.hit.index) {
       at(consent.f.path, consent.f.src, consent.hit.index,
-        `Consent Mode 'default' appears after the ${REQUIRED_GTM_ID} snippet — it must run before gtm.js loads, or the container fires against un-defaulted consent state.`);
+        `Consent Mode 'default' appears after the ${REQUIRED_GTM_ID} snippet — it must precede it in source as well as in strategy.`);
     }
   }
 
@@ -192,9 +264,15 @@ export function evaluate(files) {
 // ---------------------------------------------------------------------------
 
 if (process.argv.includes('--self-test')) {
-  const GTM = (id = REQUIRED_GTM_ID) =>
-    `<Script id="gtm-head" strategy="afterInteractive">{\`(function(w,d,s,l,i){})(window,document,'script','dataLayer','${id}');\`}</Script>`;
-  const CONSENT = `<Script id="google-consent-default" strategy="beforeInteractive">{\`gtag('consent', 'default', { ad_storage: 'denied' });\`}</Script>`;
+  // `strategy: null` omits the attribute entirely, reproducing the implicit
+  // afterInteractive default.
+  const GTM_WITH = (strategy, id = REQUIRED_GTM_ID) =>
+    `<Script id="gtm-head"${strategy ? ` strategy="${strategy}"` : ''}>{\`(function(w,d,s,l,i){})(window,document,'script','dataLayer','${id}');\`}</Script>`;
+  const CONSENT_WITH = (strategy) =>
+    `<Script id="google-consent-default"${strategy ? ` strategy="${strategy}"` : ''}>{\`gtag('consent', 'default', { ad_storage: 'denied' });\`}</Script>`;
+
+  const GTM = (id = REQUIRED_GTM_ID) => GTM_WITH('afterInteractive', id);
+  const CONSENT = CONSENT_WITH('beforeInteractive');
   const shell = (body) => [{ path: 'app/layout.tsx', src: body }];
   const production = shell(CONSENT + '\n' + GTM());
 
@@ -233,7 +311,30 @@ if (process.argv.includes('--self-test')) {
       failsWith(shell(GTM() + '\n' + CONSENT), 'appears after the ' + REQUIRED_GTM_ID + ' snippet')],
 
     ['consent default in a different file fails (order unverifiable)',
-      failsWith([{ path: 'app/layout.tsx', src: GTM() }, { path: 'components/Consent.tsx', src: CONSENT }], 'execution order cannot be verified statically')],
+      failsWith([{ path: 'app/layout.tsx', src: GTM() }, { path: 'components/Consent.tsx', src: CONSENT }], 'source ordering cannot be verified')],
+
+    // --- Rule 7: runtime ordering by Script strategy, not just source order ---
+
+    ['consent first but afterInteractive fails',
+      failsWith(shell(CONSENT_WITH('afterInteractive') + GTM()), `must be strategy="beforeInteractive"`)],
+
+    ['consent first but lazyOnload fails',
+      failsWith(shell(CONSENT_WITH('lazyOnload') + GTM()), `uses strategy="lazyOnload"`)],
+
+    ['GTM beforeInteractive while consent afterInteractive fails',
+      failsWith(shell(CONSENT_WITH('afterInteractive') + GTM_WITH('beforeInteractive')), `uses strategy="beforeInteractive", which can execute no later than the consent default`)],
+
+    ['strategy omitted on the consent Script fails',
+      failsWith(shell(CONSENT_WITH(null) + GTM()), 'declares no strategy, so it defaults to afterInteractive')],
+
+    ['strategy omitted on the GTM Script fails',
+      failsWith(shell(CONSENT + GTM_WITH(null)), `installing ${REQUIRED_GTM_ID} declares no strategy`)],
+
+    ['consent default outside any <Script> fails',
+      failsWith(shell(`gtag('consent', 'default', {});` + GTM()), 'is not inside a next/script <Script> element')],
+
+    ['GTM on lazyOnload remains allowed (strictly later than consent)',
+      errorsFor(shell(CONSENT + GTM_WITH('lazyOnload'))).length === 0],
 
     ['missing consent default fails',
       failsWith(shell(GTM()), "no Consent Mode 'default' call found")],
