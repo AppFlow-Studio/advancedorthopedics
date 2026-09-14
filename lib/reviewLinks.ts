@@ -48,7 +48,7 @@ export function getReviewLocations(): { locationSlug: string; region: string; ad
     { locationSlug: 'cherry-hill-orthopedics',         region: 'Cherry Hill, NJ',                        address: '100 Springdale Rd, Cherry Hill, NJ 08003',                  reviewUrl: REVIEW_LINKS['cherry-hill-orthopedics'] },
     { locationSlug: 'west-orange-surgery-center',      region: 'West Orange, NJ',                        address: '375 Mount Pleasant Ave, West Orange, NJ 07052',             reviewUrl: REVIEW_LINKS['west-orange-surgery-center'] },
     { locationSlug: 'edison-orthopedics',              region: 'Edison, NJ',                             address: '25 Main St, Edison, NJ 08837',                              reviewUrl: REVIEW_LINKS['edison-orthopedics'] },
-    { locationSlug: 'paramus-orthopedics',             region: 'Paramus, NJ',                            address: '140 NJ-17, Paramus, NJ 07652',                              reviewUrl: REVIEW_LINKS['paramus-orthopedics'] },
+    { locationSlug: 'paramus-orthopedics',             region: 'Paramus, NJ',                            address: '12 North State Route 17, Suite 118, Paramus, NJ 07652',                              reviewUrl: REVIEW_LINKS['paramus-orthopedics'] },
     { locationSlug: 'voorhees-orthopedics',            region: 'Voorhees, NJ',                           address: '701 White Horse Rd, Voorhees, NJ 08043',                    reviewUrl: REVIEW_LINKS['voorhees-orthopedics'] },
   ].sort((a, b) => a.region.localeCompare(b.region));
 }
