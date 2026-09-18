@@ -6847,11 +6847,13 @@ export const clinics: ClinicsProps[] = [
     id: 15,
     name: 'Mountain Spine & Orthopedics Paramus, NJ',
     region: 'Paramus, NJ',
-    lat: 40.9412,
-    lng: -74.0725,
-    address: '140 NJ-17, Suite 101B, Paramus, NJ 07652',
+    lat: 40.92089040,
+    lng: -74.06994430,
+    address: '12 North State Route 17, Suite 118, Paramus, NJ 07652',
     phone: NJ_PHONE_DISPLAY,
-    link: 'https://maps.app.goo.gl/qX5N9x7P7Z7G9N7P9',
+    link: 'https://share.google/sy6PbfLunNWwAzC9L',
+    placeUrl: 'https://www.google.com/maps?cid=4861054328824485611',
+    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.2!2d-74.0699443!3d40.9208904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2fbbd6e2d0403%3A0x4375ef28377556eb!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1789404250460!5m2!1sen!2sus',
     slug: 'paramus-orthopedics',
     stateAbbr: 'NJ',
     stateSlug: 'new-jersey',
@@ -6859,7 +6861,7 @@ export const clinics: ClinicsProps[] = [
     locationType: 'office',
     paragraph: `
     Looking for a spine surgeon in Paramus, NJ, or an orthopedic surgeon in Paramus? Mountain Spine & Orthopedics is Bergen County's trusted choice for orthopedic and spine care — with same-day appointments, board-certified fellowship-trained surgeons, and a patient-first approach that gets results without unnecessary procedures.
-    [PARAGRAPH BREAK]Our Paramus clinic sits at 140 NJ-17, Suite 101B, on the Route 17 corridor — one of Bergen County's most accessible locations. We serve patients from Paramus, Ridgewood, Fair Lawn, Hackensack, Englewood, Teaneck, and across Northern New Jersey. Our specialists diagnose and treat the full spectrum of orthopedic and spine conditions: sciatica, herniated discs, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL injuries, and work-related injuries. Every patient receives a comprehensive individualized treatment plan — conservative options first, minimally invasive surgery when needed.
+    [PARAGRAPH BREAK]Our Paramus clinic sits at 12 North State Route 17, Suite 118, on the Route 17 corridor — one of Bergen County's most accessible locations. We serve patients from Paramus, Ridgewood, Fair Lawn, Hackensack, Englewood, Teaneck, and across Northern New Jersey. Our specialists diagnose and treat the full spectrum of orthopedic and spine conditions: sciatica, herniated discs, spinal stenosis, degenerative disc disease, rotator cuff tears, ACL injuries, and work-related injuries. Every patient receives a comprehensive individualized treatment plan — conservative options first, minimally invasive surgery when needed.
     [PARAGRAPH BREAK]We use the latest diagnostic imaging and minimally invasive surgical techniques at our Paramus orthopedic office, including endoscopic spine surgery and arthroscopic joint procedures. Shorter incisions, less pain, faster recovery. PPO insurance plans, Workers' Compensation, and no-fault coverage are accepted. If you're looking for an orthopedic doctor in Paramus, NJ who puts your recovery above all else, call Mountain Spine & Orthopedics today.
     `,
     keywords: [
@@ -6947,7 +6949,7 @@ export const clinics: ClinicsProps[] = [
     easyToReach: (
       <div className='flex flex-col space-y-[10px]'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Driving Directions to Our Paramus, NJ Orthopedic Clinic</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Paramus clinic is centrally located in the <strong>Route 17 commercial corridor</strong>. We are located at 140 NJ-17, Suite 101B, offering easy access for patients coming from <strong>Ridgewood</strong> and <strong>Oradell</strong> via Route 17.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-base text-[#424959] mb-3'>Our Paramus clinic is centrally located in the <strong>Route 17 commercial corridor</strong>. We are located at 12 North State Route 17, Suite 118, offering easy access for patients coming from <strong>Ridgewood</strong> and <strong>Oradell</strong> via Route 17.</p>
         <h3 style={{ fontFamily: "var(--font-public-sans)" }} className='font-semibold text-lg'>From Major Highways:</h3>
         <ul style={{ fontFamily: "var(--font-public-sans)" }} className='list-disc pl-5 space-y-2 text-base'>
           <li><strong>From NJ Route 17:</strong> Direct access on the Northbound side. Building has direct frontage on Route 17.</li>
@@ -6977,7 +6979,7 @@ export const clinics: ClinicsProps[] = [
     nearby: (
       <div className='flex flex-col space-y-4'>
         <h2 style={{ fontFamily: "var(--font-public-sans)" }} className='font-bold text-xl'>Convenient for Paramus & Surrounding Communities</h2>
-        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Paramus, NJ is perfectly positioned to serve <strong>Ridgewood</strong>, <strong>Oradell</strong>, <strong>Maywood</strong>, Fair Lawn, River Edge, Glen Rock, and Hackensack residents who need expert spine care. Located directly on Route 17 at 140 NJ-17, Suite 101B, we're easily accessible from Route 4, Garden State Parkway, and major Northern New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
+        <p style={{ fontFamily: "var(--font-public-sans)" }} className='text-lg'>Our modern orthopedic facility in Paramus, NJ is perfectly positioned to serve <strong>Ridgewood</strong>, <strong>Oradell</strong>, <strong>Maywood</strong>, Fair Lawn, River Edge, Glen Rock, and Hackensack residents who need expert spine care. Located directly on Route 17 at 12 North State Route 17, Suite 118, we're easily accessible from Route 4, Garden State Parkway, and major Northern New Jersey highways, making it simple for the local community to receive advanced treatment close to home.</p>
       </div>
     ),
     advancedTreatments: (
@@ -7171,7 +7173,7 @@ export const clinics: ClinicsProps[] = [
       },
       {
         question: "Where is your Paramus, NJ orthopedic office located?",
-        answer: "You can find Mountain Spine & Orthopedics in Paramus at 140 NJ-17, Suite 101B, Paramus, NJ 07652. We're located near Route 17 for convenient access. Call (973) 259-6756 if you'd like help with directions."
+        answer: "You can find Mountain Spine & Orthopedics in Paramus at 12 North State Route 17, Suite 118, Paramus, NJ 07652. We're located near Route 17 for convenient access. Call (973) 259-6756 if you'd like help with directions."
       },
       {
         question: "What areas do you serve from your Paramus location?",
@@ -7199,9 +7201,16 @@ export const clinics: ClinicsProps[] = [
       }
     ],
     ogImage: '/Paramus-og.png',
-    formattedAddress: '140 NJ-17, Suite 101B, Paramus, NJ 07652',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=140%20NJ-17%2C%20Suite%20101B%2C%20Paramus%2C%20NJ%2007652',
-    hasMap: 'https://www.google.com/maps/search/?api=1&query=140%20NJ-17%2C%20Suite%20101B%2C%20Paramus%2C%20NJ%2007652',
+    mapEmbed: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.2!2d-74.0699443!3d40.9208904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2fbbd6e2d0403%3A0x4375ef28377556eb!2sMountain%20Spine%20%26%20Orthopedics!5e0!3m2!1sen!2sus!4v1789404250460!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    // GBP data
+    placeId: 'ChIJAwQtbr37wokR61Z1NyjvdUM',
+    cid: '4861054328824485611',
+    businessProfileId: '9162203562000785512',
+    kgId: '/g/11zxmj8cwv',
+    categories: ['Orthopedic surgeon'],
+    formattedAddress: '12 North State Route 17, Suite 118, Paramus, NJ 07652',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=12%20North%20State%20Route%2017%2C%20Suite%20118%2C%20Paramus%2C%20NJ%2007652',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=12%20North%20State%20Route%2017%2C%20Suite%20118%2C%20Paramus%2C%20NJ%2007652',
     gallery: [
       { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
       { src: 'https://mountainspineortho.b-cdn.net/Location-Gallery/Mountain-Spine-Orthopedics-Paramus-Building-Exterior-2.jpg', width: 1200, height: 900, alt: 'Building exterior at Mountain Spine & Orthopedics Paramus, NJ', caption: 'Building exterior (Paramus, NJ)', category: 'Facility' },
