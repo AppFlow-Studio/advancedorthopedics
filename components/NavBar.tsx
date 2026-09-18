@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Logo from "../public/bluemountainspinelogo2.png"
 import { usePathname } from 'next/navigation';
@@ -1190,7 +1190,6 @@ export default function NavBar() {
     queryFn: GetLatestBlog,
   });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <-- State for sidebar
-  const [isScrolled, setIsScrolled] = useState(false);
 
   // iOS-like sidebar animation variants
   const sidebarVariants = {
@@ -1216,21 +1215,11 @@ export default function NavBar() {
     visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
   } as const
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const closeSidebar = () => setIsSidebarOpen(false);
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-1.5 py-1 rounded-b-xl max-h-[96px] lg:h-[56px] ${isSidebarOpen ? 'bg-white' : 'bg-transparent'} transition-all duration-200 ${isScrolled ? 'sm:bg-white/50 sm:backdrop-blur-3xl bg-white' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center self-center lg:py-1.5 py-1 rounded-b-xl max-h-[96px] lg:h-[56px] transition-all duration-200 ${isSidebarOpen ? 'bg-white' : 'bg-white sm:bg-white/50 sm:backdrop-blur-3xl'}`}>
         <nav className="flex justify-between items-center w-full max-w-[1440px] px-6 md:px-[40px] py-1.5 z-[1]">
           <Link href={'/'} className='flex flex-row items-center justify-center space-x-[8px] '>
             <Image src={Logo} alt="Mountain Spine & Orthopedics Logo" className="max-h-[32px] object-cover lg:h-[32px] lg:w-auto w-16 h-8" />
