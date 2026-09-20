@@ -370,6 +370,45 @@ export async function pushFormSubmit({
 
   emittedSubmissionIds.add(acceptance.submissionId);
 
+  // ---------------------------------------------------------------------------
+  // STEP 1 — Business event. Consent-INDEPENDENT by design.
+  //
+  // This payload is operational, not personal: form id, form source, page path,
+  // market code and the server-issued submission id. It contains no identity and
+  // no clinical field, so it is not advertising data and emitting it is not a
+  // tracking decision the visitor needs to authorise.
+  //
+  // Consent governs what the TAGS may do with the event — Google Consent Mode
+  // keeps ad_storage/analytics_storage denied until the visitor chooses, and GTM
+  // degrades to cookieless pings on its own. Gating the PUSH instead meant GTM
+  // never saw the event at all, so Consent Mode could never apply: every visitor
+  // who ignored or rejected the banner became an invisible lead.
+  //
+  // It runs FIRST and outside any try/catch-able enrichment so nothing downstream
+  // can suppress the record of a real, server-accepted lead.
+  // ---------------------------------------------------------------------------
+  const measurementWindow = window as typeof window & {
+    dataLayer?: Array<Record<string, unknown>>;
+  };
+  measurementWindow.dataLayer = measurementWindow.dataLayer || [];
+  measurementWindow.dataLayer.push(buildCanonicalLeadEvent({
+    formId: form_name,
+    formSource: form_source,
+    pagePath: window.location.pathname,
+    state,
+    submissionId: acceptance.submissionId,
+  }));
+
+  // ---------------------------------------------------------------------------
+  // STEP 2 — Enhanced-conversion identity. Consent-GATED and strictly isolated.
+  //
+  // Hashed email/phone/name is advertising identity under ad_user_data, so it is
+  // prepared and transmitted only when marketing consent is granted. It travels
+  // in its own dataLayer push and is best-effort: a failure here must never cost
+  // the business event above, which is why it is wrapped rather than awaited bare.
+  // ---------------------------------------------------------------------------
+  if (!hasMarketingConsent()) return;
+
   // Normalize phone to E.164 once here so every downstream consumer gets the correct format.
   // formatPhoneToE164 returns '' for invalid/short numbers; treat those as absent.
   const normalizedPhone = phone ? formatPhoneToE164(phone, country) : '';
@@ -383,23 +422,11 @@ export async function pushFormSubmit({
     country,
   };
 
-  if (hasMarketingConsent()) {
+  try {
     persistEC(ecData);
     await pushEC(ecData);
-  }
-
-  if (hasMeasurementConsent()) {
-    const measurementWindow = window as typeof window & {
-      dataLayer?: Array<Record<string, unknown>>;
-    };
-    measurementWindow.dataLayer = measurementWindow.dataLayer || [];
-    measurementWindow.dataLayer.push(buildCanonicalLeadEvent({
-      formId: form_name,
-      formSource: form_source,
-      pagePath: window.location.pathname,
-      state,
-      submissionId: acceptance.submissionId,
-    }));
+  } catch {
+    // Identity enrichment is an optimisation on top of an already-recorded lead.
   }
 }
 
