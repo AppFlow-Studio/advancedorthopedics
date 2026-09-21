@@ -2,7 +2,7 @@
 // GCLID + UTM Capture Utility
 // Used for Google Ads offline conversion attribution
 // Mountain Spine & Orthopedics — NJ/NY Expansion
-import { hasMarketingConsent } from './consent';
+import { isAdvertisingAllowed } from './consent';
 
 const GCLID_COOKIE_NAME = 'mso_gclid';
 const GCLID_COOKIE_EXPIRY_DAYS = 90;
@@ -133,10 +133,9 @@ function getParamWithBuffer(name: string): string | null {
   const direct = getQueryParam(name);
   if (direct) return direct;
   if (Object.keys(readAttributionParamsFromUrl()).length > 0) return null;
-  // The buffer only unlocks once advertising consent exists. A visitor who
-  // rejected must behave exactly as before this buffer was introduced: their
-  // arrival parameters stay in memory, unread, and die with the page.
-  if (!hasMarketingConsent()) return null;
+  // The buffer stays locked for a visitor who explicitly declined advertising:
+  // their arrival parameters stay in memory, unread, and die with the page.
+  if (!isAdvertisingAllowed()) return null;
   return landingBuffer?.[name] ?? null;
 }
 
@@ -201,7 +200,7 @@ function getCookie(name: string): string | null {
  * If no gclid in URL, existing cookie value is preserved.
  */
 export function captureGclid(): void {
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
 
   const googleClickParams = ['gclid', 'gbraid', 'wbraid'] as const;
   const currentGoogleClick = googleClickParams
@@ -229,7 +228,7 @@ export function captureGclid(): void {
 export function captureUtmParams(): void {
   UTM_PARAMS.forEach((param) => {
     const value = validCampaignValue(getParamWithBuffer(param));
-    if (value && hasMarketingConsent()) {
+    if (value && isAdvertisingAllowed()) {
       setCookie(param, value, UTM_COOKIE_EXPIRY_DAYS);
     }
   });

@@ -77,6 +77,37 @@ export function hasMarketingConsent() {
   return Boolean(getConsentState()?.categories.marketing);
 }
 
+/**
+ * Whether advertising measurement may run RIGHT NOW.
+ *
+ * Deliberately distinguishes three states, where hasMarketingConsent() only
+ * distinguishes two:
+ *
+ *   undecided (nothing stored) -> ALLOWED
+ *   marketing granted          -> ALLOWED
+ *   marketing explicitly denied -> BLOCKED
+ *
+ * The site owner's decision (2026-09-21) is that silence is not an objection:
+ * advertising measurement runs until the visitor actually declines, and an
+ * explicit Reject or a later revocation stops it and clears its cookies.
+ *
+ * This is deliberately NOT used for Google Enhanced Conversions, which transmit
+ * hashed identity and remain gated on hasMarketingConsent(), nor for Google
+ * Consent Mode, whose defaults stay denied so Google's own cookieless
+ * behaviour applies until the visitor chooses.
+ */
+export function isAdvertisingAllowed() {
+  const state = getConsentState();
+  if (!state) return true; // undecided
+  return Boolean(state.categories.marketing);
+}
+
+/** True only for an explicit, stored refusal of marketing. */
+export function hasDeclinedMarketing() {
+  const state = getConsentState();
+  return Boolean(state && !state.categories.marketing);
+}
+
 export function hasFunctionalConsent() {
   return Boolean(getConsentState()?.categories.functional);
 }
@@ -180,7 +211,13 @@ export function cleanupNonEssentialCookies(categories: ConsentCategories) {
 
   const analyticsPrefixes = ["_ga", "_gid", "_gat", "_clck", "_clsk", "_hj"];
   const marketingPrefixes = ["_gcl", "_fbp", "_fbc", "calltrk", "Calltrk", "callrail", "CallRail", "CLID"];
-  const attributionCookies = ["mso_gclid", "gclid", "gbraid", "wbraid", "fbclid", "msclkid"];
+  const attributionCookies = [
+    "mso_gclid", "gclid", "gbraid", "wbraid", "fbclid", "msclkid",
+    // Campaign context is persisted from landing now, so an explicit refusal
+    // has to clear it as well or the rejection would be only half honoured.
+    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id",
+    "meta_campaign_id", "meta_adset_id", "meta_ad_id",
+  ];
 
   cookies.forEach((name) => {
     const isAnalytics = analyticsPrefixes.some((prefix) => name === prefix || name.startsWith(prefix));

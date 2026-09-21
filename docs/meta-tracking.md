@@ -62,13 +62,33 @@ not Functional (which covers embedded maps) and not Analytics. The existing
 banner, categories, storage key (`mso_cookie_consent_v1`) and state machine were
 reused unchanged. No second banner, no new category, no altered defaults.
 
+Consent is treated as **three** states, not two. `isAdvertisingAllowed()` in
+`lib/consent.ts` is the predicate; `hasMarketingConsent()` still exists and still
+gates the higher-sensitivity paths.
+
 | Visitor state | Meta behaviour |
 |---|---|
-| No decision (banner ignored) | Nothing. No `connect.facebook.net` request at all. |
-| Reject all | Nothing. |
-| Analytics only | Nothing — `marketing` is what gates Meta. |
-| Accept marketing | Loads, inits once, fires one PageView for the current page. No refresh needed. |
-| Revoked after acceptance | `fbq('consent','revoke')`, component unmounts, `_fbp`/`_fbc` expired by `lib/consent.ts`. |
+| **No decision (banner ignored)** | **Tracked.** Pixel loads, inits once, one PageView, Leads fire. Site-owner decision of 2026-09-21: silence is not an objection. |
+| **Reject all** | Nothing. Dispatch revoked and every advertising cookie cleared. |
+| **Analytics only** | Nothing — this is an explicit refusal of marketing. |
+| **Accept marketing** | Loads, inits once, fires one PageView for the current page. No refresh needed. |
+| **Revoked after acceptance** | `fbq('consent','revoke')`, component unmounts, cookies cleared. |
+
+What deliberately did NOT change with that decision:
+
+- **Google Consent Mode defaults stay denied**, so Google's own cookieless
+  behaviour applies until the visitor chooses. The build gate enforces this.
+- **Google Enhanced Conversions still require `hasMarketingConsent()`** — they
+  transmit hashed identity, which is a materially different act from a pixel
+  PageView, and the owner decision did not cover it.
+- **CallRail DNI still requires affirmative consent** — it rewrites phone
+  numbers in the page and was left exactly as found.
+
+Verified in a real browser on an untouched banner: pixel initialized, 1 fbevents,
+1 PageView, `_fbp` set, `_fbc` seeded, all attribution cookies written, and
+GTM/GA4 unchanged with Consent Mode still denied-by-default. Then on explicit
+Reject: `_fbp`, `_fbc`, `fbclid`, every UTM and every `meta_*` cookie cleared to
+null, and zero further events even when `fbq('track','Lead')` was forced.
 
 Google Consent Mode defaults (`ad_storage`, `analytics_storage`, `ad_user_data`,
 `ad_personalization` = denied) were **not touched**. Verified still denied-by-default

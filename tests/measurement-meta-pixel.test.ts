@@ -185,22 +185,28 @@ test('an unknown form source fails OPEN so new generic forms are measured', () =
 // Adapter guards
 // ---------------------------------------------------------------------------
 
-test('no advertising consent means no init and no events', async () => {
+test('an UNDECIDED visitor is tracked — silence is not an objection', async () => {
   const meta = await import('../lib/meta-pixel');
-  // Banner ignored: nothing stored.
+  // Banner ignored: nothing stored. Site-owner decision of 2026-09-21.
+  assert.equal(window.localStorage.getItem(CONSENT_STORAGE_KEY), null);
+  assert.equal(meta.isMetaAllowed(), true);
+  assert.equal(meta.initMetaPixel(), true);
+  assert.equal(metaEvents('PageView').length, 1, 'one PageView for the undecided visitor');
+  assert.equal(meta.trackMetaLead('lead-undecided'), true);
+  assert.equal(metaEvents('Lead').length, 1);
+});
+
+test('an EXPLICIT rejection blocks init and every event', async () => {
+  const meta = await import('../lib/meta-pixel');
+  setConsent(false, false);
   assert.equal(meta.isMetaAllowed(), false);
   assert.equal(meta.initMetaPixel(), false);
   assert.equal(meta.trackMetaLead('lead-1'), false);
   assert.equal(meta.trackMetaContact('contact-1'), false);
   assert.equal(fbqCalls().length, 0, 'nothing may be dispatched to Meta');
-
-  setConsent(false, false); // explicit rejection
-  assert.equal(meta.isMetaAllowed(), false);
-  assert.equal(meta.initMetaPixel(), false);
-  assert.equal(fbqCalls().length, 0);
 });
 
-test('analytics-only consent does not enable Meta', async () => {
+test('analytics-only consent is an explicit refusal of marketing', async () => {
   const meta = await import('../lib/meta-pixel');
   setConsent(true, false);
   assert.equal(meta.isMetaAllowed(), false);
@@ -357,9 +363,10 @@ test('a rejected submission produces no Meta Lead', async () => {
   assert.equal(canonical().length, 0);
 });
 
-test('the canonical Google event is unaffected by Meta consent state', async () => {
+test('the canonical Google event fires regardless of Meta state', async () => {
   const { pushAcceptedLead } = await import('../utils/enhancedConversions');
-  // Banner ignored — Meta must stay silent, the business event must not.
+  // Explicit refusal — Meta must stay silent, the business event must not.
+  setConsent(false, false);
   const submissionId = uniqueId('google-regression');
   await pushAcceptedLead({
     acceptance: { ok: true, submissionId },
@@ -372,7 +379,7 @@ test('the canonical Google event is unaffected by Meta consent state', async () 
   assert.equal(canonical().length, 1, 'Google/GA4 base event still fires');
   assert.equal(canonical()[0].market, 'GA');
   assert.equal(canonical()[0].submission_id, submissionId);
-  assert.equal(fbqCalls().length, 0, 'Meta stays silent without advertising consent');
+  assert.equal(fbqCalls().length, 0, 'Meta stays silent after an explicit refusal');
 });
 
 test('a Meta failure cannot break the lead or the canonical event', async () => {
@@ -480,12 +487,12 @@ test('a late Accept still captures the landing click and campaign', async () => 
   bufferLandingAttribution();
   captureGclid();
   captureUtmParams();
-  assert.equal(document.cookie.includes('fbclid'), false, 'no cookie written before consent');
+  // Undecided is an allowed state, so the click is already persisted here.
+  assert.equal(getAttributionData().fbclid, 'IwAR_landing_click_123');
 
   // Browse away — the parameters are gone from the URL forever.
   goto('/treatments');
   assert.equal(window.location.search, '');
-  assert.equal(getAttributionData().fbclid, '', 'the buffer stays locked until consent exists');
 
   // Only now does the visitor accept.
   setConsent(true, true);
@@ -521,16 +528,34 @@ test('a newer click replaces the buffered older one', async () => {
   );
 });
 
-test('buffering before consent writes nothing to storage', async () => {
-  const { bufferLandingAttribution, getAttributionData } = await import('../lib/gclid');
+test('an explicit rejection keeps the landing buffer locked', async () => {
+  const { bufferLandingAttribution, captureGclid, captureUtmParams, getAttributionData } =
+    await import('../lib/gclid');
   goto('/', '?fbclid=SHOULD_NOT_PERSIST&utm_source=meta');
   bufferLandingAttribution();
-  assert.equal(document.cookie.includes('fbclid'), false, 'no cookie before consent');
 
-  // Explicit rejection: the buffered landing params must stay unreadable, so a
-  // rejected visitor behaves exactly as they did before buffering existed.
   setConsent(false, false);
+  captureGclid();
+  captureUtmParams();
   goto('/treatments');
+
   assert.equal(getAttributionData().fbclid, '', 'rejection keeps the buffer locked');
   assert.equal(getAttributionData().utm_source, '');
+  assert.equal(document.cookie.includes('fbclid'), false, 'no attribution cookie after refusal');
+});
+
+test('an UNDECIDED visitor has their paid click persisted', async () => {
+  const { bufferLandingAttribution, captureGclid, captureUtmParams, getAttributionData } =
+    await import('../lib/gclid');
+  // Nothing stored: the visitor has not answered the banner.
+  goto('/lp/spine-injections', '?fbclid=UNDECIDED_CLICK&utm_source=meta&meta_ad_id=555');
+  bufferLandingAttribution();
+  captureGclid();
+  captureUtmParams();
+
+  goto('/treatments');
+  const attribution = getAttributionData();
+  assert.equal(attribution.fbclid, 'UNDECIDED_CLICK', 'the click survives without a decision');
+  assert.equal(attribution.utm_source, 'meta');
+  assert.equal(attribution.meta_ad_id, '555');
 });

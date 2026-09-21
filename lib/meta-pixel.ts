@@ -24,7 +24,7 @@
  *    into application code — a blocked pixel or a Meta outage must never affect
  *    a patient's ability to submit a lead.
  */
-import { hasMarketingConsent } from "@/lib/consent";
+import { hasDeclinedMarketing, isAdvertisingAllowed } from "@/lib/consent";
 import { getBufferedLandingParam } from "@/lib/gclid";
 import { isMetaEligibleRoute } from "@/lib/route-privacy";
 
@@ -82,17 +82,16 @@ export function isCurrentRouteMetaEligible(): boolean {
 }
 
 /**
- * The single gate. Advertising consent under the site's existing policy
- * (lib/consent.ts, category `marketing`) plus an eligible route.
+ * The single gate: advertising is allowed for the current visitor, and the
+ * current route is eligible.
  *
- * Note this is intentionally STRICTER than the canonical business event, which
- * is consent-independent because it carries no identity and never leaves
- * first-party systems. The Meta pixel sets advertising cookies and transmits to
- * a third party, so it requires affirmative marketing consent.
+ * "Allowed" means undecided OR granted — see isAdvertisingAllowed(). An
+ * explicit Reject, or a revocation after acceptance, blocks everything and
+ * clears the pixel's cookies.
  */
 export function isMetaAllowed(): boolean {
   if (!metaWindow()) return false;
-  if (!hasMarketingConsent()) return false;
+  if (!isAdvertisingAllowed()) return false;
   return isCurrentRouteMetaEligible();
 }
 
@@ -156,8 +155,8 @@ export function initMetaPixel(): boolean {
   if (w.__msoMetaInitialized) return true;
   if (!isMetaAllowed()) {
     debug(
-      !hasMarketingConsent()
-        ? "suppressed: no advertising consent"
+      hasDeclinedMarketing()
+        ? "suppressed: visitor declined advertising"
         : "suppressed: sensitive route",
     );
     return false;
@@ -291,8 +290,8 @@ export function suspendMetaForRoute(): void {
 export function resumeMetaForRoute(): void {
   if (!suspendedForRoute) return;
   if (!metaWindow()?.fbq) return;
-  // Never re-grant against the visitor's actual choice.
-  if (!hasMarketingConsent()) return;
+  // Never re-grant against an explicit refusal.
+  if (!isAdvertisingAllowed()) return;
   callFbq("consent", "grant");
   suspendedForRoute = false;
   debug("resumed: eligible route");

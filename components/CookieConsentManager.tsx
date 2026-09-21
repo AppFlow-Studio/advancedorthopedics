@@ -52,13 +52,16 @@ export default function CookieConsentManager() {
       setDraft(next?.categories ?? allDisabled);
       setShowBanner(!next);
 
-      // Withdrawing advertising consent unmounts <MetaPixel />, which stops new
-      // dispatch, but an already-loaded fbevents.js stays resident on the page.
-      // Tell Meta explicitly to stop. lib/consent.ts separately expires the
-      // first-party _fbp/_fbc cookies; cookies on facebook.com are outside this
-      // origin and are not claimed to be removable from here.
-      // No-ops safely when the pixel never loaded.
-      if (!next?.categories.marketing) revokeMetaConsent();
+      // An EXPLICIT refusal (a stored record with marketing off) unmounts
+      // <MetaPixel />, which stops new dispatch, but an already-loaded
+      // fbevents.js stays resident on the page — so tell Meta to stop too.
+      // lib/consent.ts separately expires the first-party _fbp/_fbc and
+      // campaign cookies; cookies on facebook.com are outside this origin and
+      // are not claimed to be removable from here.
+      //
+      // `next === null` means preferences were reset back to UNDECIDED, which
+      // is an allowed state, so it deliberately does not revoke.
+      if (next && !next.categories.marketing) revokeMetaConsent();
     };
 
     const openPreferences = (event: Event) => {
@@ -137,20 +140,22 @@ export default function CookieConsentManager() {
 
   return (
     <>
+      {/* CallRail DNI stays on AFFIRMATIVE consent — it rewrites phone numbers
+          in the page, so it is left exactly as it was. */}
       {consent?.categories.marketing ? (
-        <>
-          <Script
-            id="callrail-dni"
-            src="//cdn.callrail.com/companies/773929113/e6e5de417599bf7a871c/12/swap.js"
-            strategy="afterInteractive"
-          />
-          {/* Meta advertising pixel. Same marketing gate as CallRail: it mounts
-              only while advertising consent is granted, and unmounts the moment
-              it is withdrawn. Route eligibility and event suppression live
-              inside the component and lib/meta-pixel.ts. */}
-          <MetaPixel />
-        </>
+        <Script
+          id="callrail-dni"
+          src="//cdn.callrail.com/companies/773929113/e6e5de417599bf7a871c/12/swap.js"
+          strategy="afterInteractive"
+        />
       ) : null}
+
+      {/* Meta advertising pixel mounts while advertising is ALLOWED, which means
+          undecided OR granted. Silence is not treated as an objection; an
+          explicit Reject or a later revocation unmounts it, stops dispatch and
+          clears its cookies. Route eligibility and event suppression live in
+          the component and lib/meta-pixel.ts. */}
+      {consent === null || consent.categories.marketing ? <MetaPixel /> : null}
 
       {showBanner ? (
         <section
