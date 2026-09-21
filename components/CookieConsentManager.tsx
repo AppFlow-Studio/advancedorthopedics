@@ -9,7 +9,7 @@ import {
   OPEN_COOKIE_PREFERENCES_EVENT,
   ConsentCategories,
   ConsentState,
-  defaultConsentCategories,
+  undecidedConsentCategories,
   getConsentState,
   setConsentState,
   updateGoogleConsentMode,
@@ -43,7 +43,10 @@ export default function CookieConsentManager() {
     setConsent(stored);
     setShowBanner(!stored);
     setDraft(stored?.categories ?? allDisabled);
-    updateGoogleConsentMode(stored?.categories ?? defaultConsentCategories);
+    // An undecided visitor must receive the GRANTED update, matching the
+    // Consent Mode default in app/layout.tsx. Sending a denying update here
+    // would immediately override that default and re-break measurement.
+    updateGoogleConsentMode(stored?.categories ?? undecidedConsentCategories);
     setLoaded(true);
 
     const onConsentUpdated = (event: Event) => {
@@ -140,9 +143,11 @@ export default function CookieConsentManager() {
 
   return (
     <>
-      {/* CallRail DNI stays on AFFIRMATIVE consent — it rewrites phone numbers
-          in the page, so it is left exactly as it was. */}
-      {consent?.categories.marketing ? (
+      {/* CallRail DNI follows the same rule as the rest of the advertising
+          stack: allowed while undecided or granted, stopped on an explicit
+          refusal. Without this, call attribution would be the one channel still
+          missing the undecided majority. */}
+      {consent === null || consent.categories.marketing ? (
         <Script
           id="callrail-dni"
           src="//cdn.callrail.com/companies/773929113/e6e5de417599bf7a871c/12/swap.js"

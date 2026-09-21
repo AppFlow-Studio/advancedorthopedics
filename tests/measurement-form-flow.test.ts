@@ -202,8 +202,10 @@ test('end-to-end: fetch acceptance to dataLayer, for an ignored banner on a paid
     submission_id: submissionId,
   }]);
 
-  // Banner ignored means no advertising identity, but the lead is still counted.
-  assert.equal(dataLayer().filter((e) => 'enhanced_conversion_data' in e).length, 0);
+  // Owner decision 2026-09-21 (US-only advertising): an ignored banner is an
+  // ALLOWED state, so the hashed enhanced-identity push accompanies the lead.
+  // Only an explicit refusal suppresses it.
+  assert.equal(dataLayer().filter((e) => 'enhanced_conversion_data' in e).length, 1);
 });
 
 // ---------------------------------------------------------------------------

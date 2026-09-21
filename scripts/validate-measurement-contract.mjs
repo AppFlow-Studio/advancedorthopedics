@@ -106,9 +106,11 @@ async function checkAcceptedLeadIsConsentIndependent() {
   const identityCall = /\b(pushEC|persistEC|pushECSilent|captureAndPersistEC)\s*\(/.exec(afterPush);
   if (identityCall) {
     const beforeIdentity = afterPush.slice(0, identityCall.index);
-    if (!/hasMarketingConsent\s*\(/.test(beforeIdentity)) {
-      fail('enhanced user data requires marketing consent',
-        `${identityCall[1]}() runs in pushFormSubmit without a hasMarketingConsent() guard ahead of it`);
+    if (!/isAdvertisingAllowed\s*\(/.test(beforeIdentity)) {
+      fail('enhanced user data stays consent-gated',
+        `${identityCall[1]}() runs in pushFormSubmit without an isAdvertisingAllowed() ` +
+        `guard ahead of it. Identity must still stop on an explicit refusal, even though ` +
+        `undecided US visitors are now allowed.`);
     }
   }
 }
@@ -221,24 +223,72 @@ async function checkFormsShareOneSuccessPath() {
   }
 }
 
-async function checkConsentModeDefaultsStayDenied() {
+async function checkConsentModeDefaults() {
   const source = await read('app/layout.tsx');
-  const defaultBlock = /gtag\s*\(\s*['"]consent['"]\s*,\s*['"]default['"]\s*,\s*\{([\s\S]*?)\}\s*\)/.exec(source);
+  const blocks = [...source.matchAll(
+    /gtag\s*\(\s*['"]consent['"]\s*,\s*['"]default['"]\s*,\s*\{([\s\S]*?)\}\s*\)/g,
+  )].map((m) => m[1]);
 
-  if (!defaultBlock) {
-    fail('Consent Mode defaults are declared before GTM',
-      'app/layout.tsx no longer declares a gtag("consent", "default", {...}) block');
+  if (blocks.length < 2) {
+    fail('Consent Mode declares a US default and an EEA carve-out',
+      `expected TWO gtag("consent","default") blocks in app/layout.tsx — a granted ` +
+      `global default and a denied region override for EEA/UK/CH — found ${blocks.length}`);
     return;
   }
 
-  const block = defaultBlock[1];
-  for (const signal of ['ad_storage', 'analytics_storage', 'ad_user_data', 'ad_personalization']) {
-    const setting = new RegExp(`${signal}\\s*:\\s*['"](\\w+)['"]`).exec(block);
+  const globalBlock = blocks.find((b) => !/region\s*:/.test(b));
+  const regionBlock = blocks.find((b) => /region\s*:/.test(b));
+
+  if (!globalBlock || !regionBlock) {
+    fail('Consent Mode declares a US default and an EEA carve-out',
+      'could not distinguish the global default block from the region-scoped one');
+    return;
+  }
+
+  const AD_SIGNALS = ['ad_storage', 'analytics_storage', 'ad_user_data', 'ad_personalization'];
+
+  // US/global: granted. This is what makes an undecided US visitor measurable.
+  for (const signal of AD_SIGNALS) {
+    const setting = new RegExp(`${signal}\\s*:\\s*['"](\\w+)['"]`).exec(globalBlock);
     if (!setting) {
-      fail('Consent Mode denies advertising signals by default', `${signal} is missing from the consent default block`);
-    } else if (setting[1] !== 'denied') {
-      fail('Consent Mode denies advertising signals by default',
-        `${signal} defaults to "${setting[1]}"; it must be "denied" until the visitor chooses`);
+      fail('US visitors are measured by default', `${signal} is missing from the global consent default`);
+    } else if (setting[1] !== 'granted') {
+      fail('US visitors are measured by default',
+        `${signal} defaults to "${setting[1]}". Owner decision 2026-09-21: US-only ` +
+        `advertising, so the global default grants and only EEA/UK/CH is denied.`);
+    }
+  }
+
+  // EEA/UK/CH: denied. Google's EU user consent policy still applies to them.
+  for (const signal of AD_SIGNALS) {
+    const setting = new RegExp(`${signal}\\s*:\\s*['"](\\w+)['"]`).exec(regionBlock);
+    if (!setting || setting[1] !== 'denied') {
+      fail('EEA, UK and Switzerland stay denied by default',
+        `${signal} must be "denied" in the region-scoped default; found "${setting ? setting[1] : 'missing'}"`);
+    }
+  }
+
+  // The carve-out must actually cover the consent-required regions.
+  for (const code of ['GB', 'CH', 'DE', 'FR', 'IE', 'IT', 'ES', 'NL', 'SE', 'PL']) {
+    if (!new RegExp(`['"]${code}['"]`).test(regionBlock)) {
+      fail('EEA, UK and Switzerland stay denied by default',
+        `region list is missing "${code}"`);
+    }
+  }
+
+  // The runtime must not contradict the HTML default for an undecided visitor.
+  const consent = stripComments(await read('lib/consent.ts'));
+  const undecided = /undecidedConsentCategories[\s\S]*?\{([\s\S]*?)\}/.exec(consent);
+  if (!undecided) {
+    fail('the undecided runtime state matches the Consent Mode default',
+      'lib/consent.ts no longer exports undecidedConsentCategories');
+  } else {
+    for (const cat of ['analytics', 'marketing']) {
+      if (!new RegExp(`${cat}\\s*:\\s*true`).test(undecided[1])) {
+        fail('the undecided runtime state matches the Consent Mode default',
+          `undecidedConsentCategories.${cat} must be true, otherwise the Consent Mode ` +
+          `update sent on mount denies and cancels the granted default`);
+      }
     }
   }
 }
@@ -348,7 +398,7 @@ const CHECKS = [
   ['obsolete form_submit stays retired', checkLegacyEventNotRestored],
   ['thank-you navigation is not the conversion source', checkThankYouIsNotTheConversionSource],
   ['all forms share one success path', checkFormsShareOneSuccessPath],
-  ['Consent Mode defaults stay denied', checkConsentModeDefaultsStayDenied],
+  ['Consent Mode US default + EEA carve-out', checkConsentModeDefaults],
   ['every form source is triaged for Meta', checkMetaFormSourceTriage],
 ];
 

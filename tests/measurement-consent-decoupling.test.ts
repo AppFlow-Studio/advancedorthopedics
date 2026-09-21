@@ -72,7 +72,10 @@ test('banner ignored (no consent stored) still emits the canonical accepted-lead
   assert.equal(canonical().length, 1, 'a server-accepted lead must always produce the business event');
   assert.equal(canonical()[0].market, 'FL');
   assert.equal(canonical()[0].submission_id, submissionId);
-  assert.equal(enhanced().length, 0, 'no enhanced identity without marketing consent');
+  // Owner decision 2026-09-21 (US-only advertising): undecided is an ALLOWED
+  // state, so an ignored banner now also produces the hashed enhanced-identity
+  // push. An explicit refusal still suppresses it — see the rejection test below.
+  assert.equal(enhanced().length, 1, 'undecided is allowed, so enhanced identity is sent');
 });
 
 test('all categories rejected still emits the canonical accepted-lead event', async () => {
@@ -139,4 +142,65 @@ test('the measurement-contract build gate passes against the current source', ()
   const script = fileURLToPath(new URL('../scripts/validate-measurement-contract.mjs', import.meta.url));
   const output = execFileSync(process.execPath, [script], { encoding: 'utf8' });
   assert.match(output, /checks passed/, output);
+});
+
+// ---------------------------------------------------------------------------
+// US-default Consent Mode posture (owner decision 2026-09-21).
+// ---------------------------------------------------------------------------
+
+test('the Consent Mode default grants globally and denies only EEA/UK/CH', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const layout = await readFile(new URL('../app/layout.tsx', import.meta.url), 'utf8');
+
+  const blocks = [...layout.matchAll(
+    /gtag\s*\(\s*['"]consent['"]\s*,\s*['"]default['"]\s*,\s*\{([\s\S]*?)\}\s*\)/g,
+  )].map((m) => m[1]);
+  assert.equal(blocks.length, 2, 'expected a global default and a region-scoped override');
+
+  const global = blocks.find((b) => !/region\s*:/.test(b));
+  const region = blocks.find((b) => /region\s*:/.test(b));
+  assert.ok(global && region);
+
+  for (const signal of ['ad_storage', 'analytics_storage', 'ad_user_data', 'ad_personalization']) {
+    assert.match(global!, new RegExp(`${signal}\\s*:\\s*'granted'`), `${signal} granted for US`);
+    assert.match(region!, new RegExp(`${signal}\\s*:\\s*'denied'`), `${signal} denied for EEA/UK/CH`);
+  }
+  for (const code of ['GB', 'CH', 'DE', 'FR', 'IE']) {
+    assert.match(region!, new RegExp(`'${code}'`), `region list must include ${code}`);
+  }
+});
+
+test('the undecided runtime state cannot cancel the granted default', async () => {
+  // CookieConsentManager issues a Consent Mode update on mount. If the undecided
+  // categories denied while the HTML default granted, that update would silently
+  // re-break measurement for every visitor who never answers the banner.
+  const { undecidedConsentCategories, getGoogleConsentPayload } = await import('../lib/consent');
+  assert.equal(undecidedConsentCategories.analytics, true);
+  assert.equal(undecidedConsentCategories.marketing, true);
+
+  const payload = getGoogleConsentPayload(undecidedConsentCategories);
+  assert.equal(payload.ad_storage, 'granted');
+  assert.equal(payload.analytics_storage, 'granted');
+  assert.equal(payload.ad_user_data, 'granted');
+  assert.equal(payload.ad_personalization, 'granted');
+});
+
+test('an explicit refusal still denies every advertising signal', async () => {
+  const { defaultConsentCategories, getGoogleConsentPayload } = await import('../lib/consent');
+  const payload = getGoogleConsentPayload(defaultConsentCategories);
+  for (const signal of ['ad_storage', 'analytics_storage', 'ad_user_data', 'ad_personalization'] as const) {
+    assert.equal(payload[signal], 'denied', `${signal} must be denied on refusal`);
+  }
+  assert.equal(payload.security_storage, 'granted');
+});
+
+test('an explicit refusal still suppresses enhanced identity', async () => {
+  const meta = await import('../utils/enhancedConversions');
+  setConsent(false, false);
+  await meta.pushAcceptedLead({
+    acceptance: { ok: true, submissionId: uniqueId('refused-ec') },
+    state: 'florida', ...BASE,
+  });
+  assert.equal(canonical().length, 1, 'the business event still fires');
+  assert.equal(enhanced().length, 0, 'identity must stop on an explicit refusal');
 });

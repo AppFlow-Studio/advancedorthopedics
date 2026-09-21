@@ -16,11 +16,34 @@ export type ConsentState = {
   categories: ConsentCategories;
 };
 
+/**
+ * What an EXPLICIT refusal looks like. Used when the visitor rejects, and as the
+ * shape of a fully-denied state.
+ */
 export const defaultConsentCategories: ConsentCategories = {
   necessary: true,
   analytics: false,
   marketing: false,
   functional: false,
+};
+
+/**
+ * What an UNDECIDED visitor gets.
+ *
+ * Owner decision 2026-09-21: the practice advertises only in US states, where
+ * Google's EU user consent policy does not apply, so silence is not treated as
+ * an objection. This mirrors the Consent Mode `default` declared in
+ * app/layout.tsx, which grants globally and denies only for EEA/UK/CH.
+ *
+ * Keeping these two in step matters: CookieConsentManager issues a Consent Mode
+ * `update` on mount, and if that update denied while the HTML default granted,
+ * it would immediately cancel the default and silently re-break measurement.
+ */
+export const undecidedConsentCategories: ConsentCategories = {
+  necessary: true,
+  analytics: true,
+  marketing: true,
+  functional: true,
 };
 
 export function getDefaultConsentState(): ConsentState {
@@ -179,9 +202,10 @@ export function setConsentState(categories: Omit<ConsentCategories, "necessary">
 export function resetConsentPreferences() {
   if (!canUseStorage()) return;
   window.localStorage.removeItem(CONSENT_STORAGE_KEY);
-  updateGoogleConsentMode(defaultConsentCategories);
-  cleanupNonEssentialCookies(defaultConsentCategories);
-  cleanupEnhancedConversionSession();
+  // Clearing the record returns the visitor to UNDECIDED, which is an allowed
+  // state — so this restores the granted posture rather than denying, and does
+  // not scrub advertising cookies. Only an explicit refusal does that.
+  updateGoogleConsentMode(undecidedConsentCategories);
   window.dispatchEvent(new CustomEvent(CONSENT_UPDATED_EVENT, { detail: null }));
 }
 
