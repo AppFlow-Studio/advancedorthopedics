@@ -1,0 +1,36 @@
+id,scenario,suite,input_conditions,expected_result,status
+1,Valid FL submission,measurement-event-contract,"state=florida, accepted, no consent","1 event, market=FL",PASS
+2,Valid NJ submission,measurement-event-contract,"state=new-jersey, accepted, no consent","1 event, market=NJ",PASS
+3,Valid NY submission,measurement-event-contract,"state=new-york, accepted, no consent","1 event, market=NY",PASS
+4,Valid PA submission,measurement-event-contract,"state=pennsylvania, accepted, no consent","1 event, market=PA",PASS
+5,Valid GA submission,measurement-event-contract,"state=georgia, accepted, no consent","1 event, market=GA",PASS
+6,Invalid form,measurement-event-contract,acceptance=null and {ok:false},0 success events,PASS
+7,Failed API response,measurement-event-contract,"HTTP 500, HTTP 504, 200 without submissionId",0 success events,PASS
+7b,Blank submission id,measurement-event-contract,200 with submissionId='   ',0 success events,PASS
+8,Direct thank-you visit,measurement-event-contract,navigate straight to /thank-you,0 success events,PASS
+9,Reload,measurement-event-contract,"dataLayer reset, land on /thank-you",0 additional events,PASS
+10,Back/forward navigation,measurement-event-contract,"pushState to /thank-you, back(), forward()",0 additional events,PASS
+11,React rerender,measurement-event-contract,same callback replayed 3x with same id,1 event total,PASS
+12,Double-click submission,measurement-event-contract,"two concurrent calls, same submission id","1 event, both callers get true",PASS
+13,Consent accepted,measurement-consent-decoupling,"analytics=true, marketing=true",base event + exactly 1 hashed enhanced push,PASS
+14,Consent rejected,measurement-consent-decoupling,"analytics=false, marketing=false","base event present, 0 enhanced identity",PASS
+15,Banner ignored,measurement-consent-decoupling,no consent key in localStorage,"base event present, 0 enhanced identity",PASS
+15b,Analytics-only consent,measurement-consent-decoupling,"analytics=true, marketing=false","base event present, 0 enhanced identity",PASS
+16,No click identifier,measurement-form-flow,no gclid/gbraid/wbraid anywhere,base event still emitted,PASS
+17,Real-format click identifier,measurement-form-flow,"realistic Cj0KCQ... gclid, marketing consent",preserved verbatim across navigation,PASS
+17b,gbraid / wbraid preserved,measurement-form-flow,gbraid with consent granted,preserved verbatim,PASS
+17c,Click id survives repeat grant,measurement-form-flow,"capture, then re-grant consent",legitimate id not deleted,PASS
+17d,Click id blocked under denial,measurement-form-flow,"gclid in URL, consent denied",no advertising cookie written,PASS
+17e,Blocked click id vs base event,measurement-form-flow,denied consent + gclid present,base event still emitted,PASS
+17f,No placeholder click id in source,measurement-form-flow,scan gclid/tracking/consent modules,no TEST_/QA_ or hardcoded id,PASS
+18,No clinical/free-text in payload,measurement-event-contract,"full identity supplied, consent granted",0 plaintext PII; closed 6-key set,PASS
+19,submission_id stable and unique,measurement-event-contract,"ids 'lead-alpha','lead-beta',424242","3 distinct string ids, 1 event each",PASS
+20,Legacy form_submit never pushed,measurement-event-contract,"accepted lead, consent granted",0 form_submit events,PASS
+21,EC failure cannot swallow base event,measurement-consent-decoupling,crypto.subtle.digest throws,base event still emitted,PASS
+22,Build gate passes current source,measurement-consent-decoupling,run validate-measurement-contract.mjs,"exit 0, 7 checks passed",PASS
+23,End-to-end form flow,measurement-form-flow,"fetch->Response->pushAcceptedLead, LP, banner ignored","exact 6-key event, market=FL, 0 enhanced",PASS
+24,All forms share one success path,measurement-form-flow,scan every module posting to /api/forms/,all use pushAcceptedLead; none push dataLayer,PASS
+R1,REGRESSION: re-gate push behind consent,mutation test of build gate,insert hasMeasurementConsent() before push,gate FAILS the build,CAUGHT
+R2,REGRESSION: market emits slug,mutation test of build gate,market: state.toLowerCase(),gate FAILS the build,CAUGHT
+R3,REGRESSION: PHI field added,mutation test of build gate,add reason:'back pain' to payload,gate FAILS the build,CAUGHT
+R4,REGRESSION: consent default granted,mutation test of build gate,ad_storage:'granted' in layout,gate FAILS the build,CAUGHT

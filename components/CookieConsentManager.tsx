@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import MetaPixel from "@/components/MetaPixel";
+import { revokeMetaConsent } from "@/lib/meta-pixel";
 import {
   CONSENT_UPDATED_EVENT,
   OPEN_COOKIE_PREFERENCES_EVENT,
@@ -49,6 +51,17 @@ export default function CookieConsentManager() {
       setConsent(next);
       setDraft(next?.categories ?? allDisabled);
       setShowBanner(!next);
+
+      // An EXPLICIT refusal (a stored record with marketing off) unmounts
+      // <MetaPixel />, which stops new dispatch, but an already-loaded
+      // fbevents.js stays resident on the page — so tell Meta to stop too.
+      // lib/consent.ts separately expires the first-party _fbp/_fbc and
+      // campaign cookies; cookies on facebook.com are outside this origin and
+      // are not claimed to be removable from here.
+      //
+      // `next === null` means preferences were reset back to UNDECIDED, which
+      // is an allowed state, so it deliberately does not revoke.
+      if (next && !next.categories.marketing) revokeMetaConsent();
     };
 
     const openPreferences = (event: Event) => {
@@ -127,6 +140,8 @@ export default function CookieConsentManager() {
 
   return (
     <>
+      {/* CallRail DNI stays on AFFIRMATIVE consent — it rewrites phone numbers
+          in the page, so it is left exactly as it was. */}
       {consent?.categories.marketing ? (
         <Script
           id="callrail-dni"
@@ -134,6 +149,13 @@ export default function CookieConsentManager() {
           strategy="afterInteractive"
         />
       ) : null}
+
+      {/* Meta advertising pixel mounts while advertising is ALLOWED, which means
+          undecided OR granted. Silence is not treated as an objection; an
+          explicit Reject or a later revocation unmounts it, stops dispatch and
+          clears its cookies. Route eligibility and event suppression live in
+          the component and lib/meta-pixel.ts. */}
+      {consent === null || consent.categories.marketing ? <MetaPixel /> : null}
 
       {showBanner ? (
         <section

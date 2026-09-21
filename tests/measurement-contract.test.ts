@@ -122,6 +122,12 @@ test('GCLID, GBRAID, WBRAID, and all supported UTMs persist across navigation', 
     utm_campaign: 'qa_tracking',
     utm_term: 'qa_term',
     utm_content: 'qa_content',
+    // Extended for Meta: campaign-level IDs travel as numeric platform IDs so a
+    // campaign NAME never becomes a URL parameter on a healthcare site.
+    utm_id: '',
+    meta_campaign_id: '',
+    meta_adset_id: '',
+    meta_ad_id: '',
   });
 });
 
