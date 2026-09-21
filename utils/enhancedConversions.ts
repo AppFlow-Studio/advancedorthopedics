@@ -1,5 +1,5 @@
 // utils/enhancedConversions.ts
-import { hasMarketingConsent, hasMeasurementConsent } from "@/lib/consent";
+import { isAdvertisingAllowed } from "@/lib/consent";
 import { createOpaqueEventId, trackMetaContact, trackMetaLead } from "@/lib/meta-pixel";
 import { isMetaEligibleFormSource } from "@/lib/route-privacy";
 import {
@@ -114,7 +114,7 @@ export function normalizeEC(v: ECIn): ECOut {
  */
 export function persistEC(v: ECIn) {
   if (typeof window === 'undefined') return;
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
   const n = normalizeEC(v);
   try {
     sessionStorage.setItem('ec_email', n.email || '');
@@ -185,7 +185,7 @@ async function buildHashedEC(n: ECOut) {
  */
 export async function pushEC(v: ECIn, eventName: string = 'ec_capture') {
   if (typeof window === 'undefined') return;
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
   const n = normalizeEC(v);
   
   // Initialize dataLayer if it doesn't exist
@@ -208,7 +208,7 @@ export async function pushEC(v: ECIn, eventName: string = 'ec_capture') {
  */
 export async function pushECSilent(v: ECIn) {
   if (typeof window === 'undefined') return;
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
   const n = normalizeEC(v);
   (window as any).dataLayer = (window as any).dataLayer || [];
   (window as any).dataLayer.push({
@@ -226,7 +226,7 @@ export async function pushECSilent(v: ECIn) {
  */
 export function restoreECFromSession(eventName: string = 'ec_restore') {
   if (typeof window === 'undefined') return;
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
   try {
     const country = (sessionStorage.getItem('ec_country') || 'US').trim().toUpperCase();
     const rawPhone = sessionStorage.getItem('ec_phone') || '';
@@ -268,14 +268,14 @@ export function captureAndPersistEC(v: ECIn, eventName: string = 'ec_capture') {
 /** Generic custom event push helper (keeps analytics code tidy) */
 export function pushEvent(name: string, params: Record<string, any> = {}) {
   if (typeof window === 'undefined') return;
-  if (!hasMeasurementConsent()) return;
+  if (!isAdvertisingAllowed()) return;
   (window as any).dataLayer = (window as any).dataLayer || [];
   (window as any).dataLayer.push({ event: name, ...params });
 }
 
 export function pushMarketingEvent(name: string, params: Record<string, any> = {}) {
   if (typeof window === 'undefined') return;
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
   (window as any).dataLayer = (window as any).dataLayer || [];
   (window as any).dataLayer.push({ event: name, ...params });
 }
@@ -432,7 +432,7 @@ export async function pushFormSubmit({
     trackMetaLead(acceptance.submissionId);
   }
 
-  if (!hasMarketingConsent()) return;
+  if (!isAdvertisingAllowed()) return;
 
   // Normalize phone to E.164 once here so every downstream consumer gets the correct format.
   // formatPhoneToE164 returns '' for invalid/short numbers; treat those as absent.
