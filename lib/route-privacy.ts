@@ -1,67 +1,69 @@
 /**
- * Route and query-string privacy policy for advertising pixels.
+ * Advertising-pixel eligibility policy.
  *
- * Mountain Spine is a healthcare provider, so this is deny-by-default for any
- * surface where a *patient-specific* medical signal could be exposed. It is the
- * single gate that decides whether an advertising pixel may run at all on the
- * current URL.
+ * The boundary is PATIENT-SPECIFIC INFORMATION, not subject matter. Mountain
+ * Spine publishes a large public library about back pain, herniated discs,
+ * injections and surgery, and buys paid media against it. Those pages are
+ * marketing content and must stay measurable. Treating the topic of a public
+ * webpage as though it were a visitor's diagnosis would destroy legitimate
+ * campaign measurement while protecting nobody.
  *
- * The distinction this file draws, deliberately:
+ * So the rules are deliberately narrow, and split by SURFACE vs SUBMISSION:
  *
- *   PUBLIC CONTENT  — /conditions/herniated-disc, /lp/adult-scoliosis-treatment
- *                     The path names the *page's topic*, not a claim about the
- *                     visitor. These are the pages paid campaigns land on, so
- *                     they stay eligible. No medical value is ever attached as
- *                     an event parameter (see lib/meta-pixel.ts).
+ *   ROUTE (PageView)  — almost everything is eligible, including
+ *                       /conditions/*, /treatments/*, /lp/*, /locations/*,
+ *                       /blogs/*, /about/meetourdoctors/*, and the public
+ *                       assessment landing pages. Landing on a page that
+ *                       offers a symptom checker reveals nothing about the
+ *                       visitor; it is an ad destination like any other.
  *
- *   PATIENT-SPECIFIC — /condition-check, /find-care/candidacy-check,
- *                     /find-care/free-mri-review, /patient-forms
- *                     Here the visitor supplies their own symptoms, imaging,
- *                     candidacy answers or intake details. Blocked outright.
+ *   SUBMISSION (Lead) — three workflows collect patient-specific clinical
+ *                       answers, so completing one must not become an ad
+ *                       conversion. See META_INELIGIBLE_FORM_SOURCES.
  *
- *   SENSITIVE QUERY — /conditions?data={"tags":["Spine"]}
- *                     The site encodes body-area/condition filters as a JSON
- *                     `data` query parameter. Meta's pixel transmits the full
- *                     document location with every event, so any URL carrying
- *                     one of these keys is blocked rather than sanitised — we
- *                     cannot rewrite what the pixel reads from location.
+ * Evidence behind the split (read from the form schemas, 2026-09-21):
+ *   condition-check  — pain_area, pain_symptoms, pain_desc, pain_worst,
+ *                      pain_source, insurance_type
+ *   candidacy-check  — condition, age, health, smoking, recent_diagnosis,
+ *                      last_test_date, insurance_type
+ *   free-mri-review  — recent_diagnosis, last_test_date, insurance_type
+ *
+ * /patient-forms was previously excluded and should NOT have been: it is a
+ * public page offering blank new-patient packets for download. It collects
+ * nothing, uploads nothing, and is a legitimate marketing destination.
  */
-
-/** Path prefixes where no advertising pixel may run. Matched case-insensitively. */
-export const SENSITIVE_PATH_PREFIXES = [
-  "/condition-check",
-  "/find-care/candidacy-check",
-  "/find-care/free-mri-review",
-  "/patient-forms",
-  "/internal",
-] as const;
 
 /**
- * Query keys that can carry a health topic, symptom, payer or reason.
+ * Path prefixes where no advertising pixel may run.
  *
- * `data` is the live one: HomePageUI, NavBar, ServicesAndExpertiseSection and
- * HomeInteractiveAnatomy all link to /conditions and /treatments with
- * `?data=<url-encoded JSON>` describing a body area or condition tag. The rest
- * are defensive — they cost nothing and stop a future link from leaking.
+ * Kept to the genuinely non-public surfaces. Authenticated patient areas would
+ * belong here too — none exist in this application today. Deliberately NOT
+ * listed: /conditions, /treatments, /patient-forms, /condition-check,
+ * /find-care/candidacy-check, /find-care/free-mri-review, and every other
+ * public marketing page.
  */
-export const SENSITIVE_QUERY_KEYS = [
-  "data",
-  "condition",
-  "conditions",
-  "symptom",
-  "symptoms",
-  "diagnosis",
-  "treatment",
-  "procedure",
-  "insurance",
-  "payer",
-  "reason",
-  "bodypart",
-  "body_part",
-  "painarea",
-  "pain_area",
-  "mri",
-] as const;
+export const SENSITIVE_PATH_PREFIXES = ["/internal"] as const;
+
+/**
+ * Query keys that would carry a visitor's OWN clinical answers in the URL.
+ *
+ * Intentionally empty. A repository-wide audit found no route that encodes
+ * patient-submitted health information in a query string: the three assessment
+ * forms keep their answers in React state and POST them, and none of them reads
+ * searchParams.
+ *
+ * What the audit DID find is `?data=<url-encoded JSON>` on /conditions and
+ * /treatments — for example {"tags":["Neck","Spine"]} — linked from
+ * HomePageUI, NavBar, ServicesAndExpertiseSection and HomeInteractiveAnatomy.
+ * That is a PUBLIC CONTENT FILTER chosen by browsing, exactly equivalent to the
+ * path /conditions/sciatica, which is eligible. Blocking one while allowing the
+ * other was incoherent and cost real paid-media measurement, so `data` is NOT
+ * listed here.
+ *
+ * This hook stays in place so a genuinely patient-specific parameter can be
+ * excluded immediately if one is ever introduced.
+ */
+export const SENSITIVE_QUERY_KEYS: readonly string[] = [];
 
 function normalizePath(pathname: string): string {
   if (!pathname) return "/";
@@ -79,10 +81,11 @@ export function isSensitivePath(pathname: string): boolean {
 
 /**
  * Accepts a raw query string ("?a=1", "a=1", or ""), a URLSearchParams, or null.
- * Returns true when any sensitive key is present, regardless of its value.
+ * Returns true when a sensitive key is present, regardless of its value.
  */
 export function hasSensitiveQuery(search: string | URLSearchParams | null | undefined): boolean {
   if (!search) return false;
+  if (SENSITIVE_QUERY_KEYS.length === 0) return false;
 
   let params: URLSearchParams;
   try {
@@ -93,13 +96,13 @@ export function hasSensitiveQuery(search: string | URLSearchParams | null | unde
   }
 
   for (const key of params.keys()) {
-    if ((SENSITIVE_QUERY_KEYS as readonly string[]).includes(key.toLowerCase())) return true;
+    if (SENSITIVE_QUERY_KEYS.includes(key.toLowerCase())) return true;
   }
   return false;
 }
 
 /**
- * The single question every advertising pixel must ask before doing anything.
+ * The single question every advertising pixel asks before dispatching.
  */
 export function isMetaEligibleRoute(
   pathname: string,
@@ -112,44 +115,34 @@ export function isMetaEligibleRoute(
 }
 
 /**
- * Lead sources that may produce a Meta `Lead` event.
+ * Lead sources whose SUBMISSION carries patient-specific clinical answers, and
+ * which therefore must not produce a Meta `Lead`.
  *
- * Deny-by-default: a form source must be listed here explicitly. Values are the
- * FormSource union from lib/lead-contract.ts. The three clinical assessment
- * tools are deliberately absent —
+ * This is an explicit DENY list, not an allow list: every other form source —
+ * including every consultation and contact form on a condition, treatment,
+ * doctor, location or paid-landing page — produces a full-strength Meta Lead.
+ * A lead is not suppressed because of the page it came from, only because the
+ * workflow itself collects symptoms, medical history or insurance status.
  *
- *   free-mri-review  — imaging upload and review request
- *   candidacy-check  — surgical candidacy questionnaire
- *   condition-check  — symptom questionnaire
- *
- * — because a conversion from those surfaces would tell Meta that a specific
- * person completed a clinical assessment. Those leads are still measured
- * first-party (Supabase + the canonical dataLayer event); they simply do not
- * reach an advertising platform.
- *
- * Note the source name itself is NEVER transmitted to Meta. This list only
- * decides whether a bare, parameterless `Lead` fires.
+ * These leads remain fully measured first-party: the canonical
+ * `lead_form_submit_success` event still fires, Google Ads and GA4 still see
+ * them, and they are still persisted with full attribution in Supabase. Only
+ * the third-party advertising conversion is withheld.
  */
-export const META_ELIGIBLE_FORM_SOURCES = [
-  "book-appointment",
-  "doctor-contact",
-  "location-contact",
-  "general-contact",
-  "homepage-consultation",
-  "state-consultation",
-  "location-consultation",
-  "body-part-consultation",
-  "modal-appointment",
-  "patient-advocate",
-  "attorney-coordination",
-  "car-accident",
-  "personal-injury",
-  "slip-and-fall",
-  "work-injury",
-  "paid-landing",
+export const META_INELIGIBLE_FORM_SOURCES = [
+  "condition-check",
+  "candidacy-check",
+  "free-mri-review",
 ] as const;
 
 export function isMetaEligibleFormSource(formSource: string | undefined | null): boolean {
-  if (!formSource) return false;
-  return (META_ELIGIBLE_FORM_SOURCES as readonly string[]).includes(formSource.trim().toLowerCase());
+  // Unknown or missing source: allow. Every caller in the application passes an
+  // explicit source, and the three excluded workflows are named above. Failing
+  // open here is the right trade — a new generic contact form should be measured
+  // from day one, and a new CLINICAL form must be added to the deny list, which
+  // is exactly the review step that belongs with building one.
+  if (!formSource) return true;
+  return !(META_INELIGIBLE_FORM_SOURCES as readonly string[]).includes(
+    formSource.trim().toLowerCase(),
+  );
 }

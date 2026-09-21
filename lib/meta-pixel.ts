@@ -25,6 +25,7 @@
  *    a patient's ability to submit a lead.
  */
 import { hasMarketingConsent } from "@/lib/consent";
+import { getBufferedLandingParam } from "@/lib/gclid";
 import { isMetaEligibleRoute } from "@/lib/route-privacy";
 
 /**
@@ -174,11 +175,39 @@ export function initMetaPixel(): boolean {
   // Meta's own automatic PageView on the very first transition.
   installRouteGuard(w);
 
+  // Recover click attribution that Meta would otherwise miss. fbevents builds
+  // _fbc from an `fbclid` in the CURRENT url; because the pixel only loads
+  // after consent, a visitor who browsed before accepting no longer has it
+  // there and the click becomes unattributed. The buffered landing value
+  // restores it, in Meta's documented fb.1.<ts>.<fbclid> format.
+  seedFbcFromLanding();
+
   // The one PageView for the initial eligible page. Route transitions are
   // handled separately by components/MetaPixel.tsx.
   callFbq("track", "PageView");
   debug("PageView (initial)");
   return true;
+}
+
+/**
+ * Writes the `_fbc` click cookie from the buffered landing `fbclid` when the
+ * pixel could not derive one itself. Runs only after consent (its only caller
+ * is initMetaPixel, which is already gated) and never overwrites an existing
+ * value, so Meta's own cookie always wins.
+ */
+function seedFbcFromLanding(): void {
+  try {
+    if (typeof document === "undefined") return;
+    if (/(^|;\s*)_fbc=/.test(document.cookie)) return;
+    const fbclid = getBufferedLandingParam("fbclid");
+    if (!fbclid || !/^[A-Za-z0-9._~-]{1,256}$/.test(fbclid)) return;
+    const value = `fb.1.${Date.now()}.${fbclid}`;
+    const expires = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toUTCString();
+    document.cookie = `_fbc=${value};expires=${expires};path=/;SameSite=Lax`;
+    debug("seeded _fbc from buffered landing fbclid");
+  } catch {
+    // Attribution enrichment is best-effort and must never break init.
+  }
 }
 
 /**

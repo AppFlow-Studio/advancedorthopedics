@@ -74,20 +74,26 @@ Google Consent Mode defaults (`ad_storage`, `analytics_storage`, `ad_user_data`,
 `ad_personalization` = denied) were **not touched**. Verified still denied-by-default
 after this change.
 
-## 4. Route and query privacy
+## 4. Route and query privacy — SURFACE vs SUBMISSION
 
-**Blocked outright** (`SENSITIVE_PATH_PREFIXES`):
-`/condition-check` · `/find-care/candidacy-check` · `/find-care/free-mri-review` ·
-`/patient-forms` · `/internal`
+The boundary is **patient-specific information, not subject matter**. Public
+pages about back pain, herniated discs, injections and surgery are marketing
+content and stay fully measurable; they are what paid media lands on.
 
-**Blocked by query key** (`SENSITIVE_QUERY_KEYS`): `data`, `condition`, `symptom`,
-`diagnosis`, `treatment`, `procedure`, `insurance`, `payer`, `reason`, `mri`, …
+**Blocked outright** (`SENSITIVE_PATH_PREFIXES`): `/internal` only.
 
-`data` is the live one. The site links to `/conditions?data={"tags":["Neck","Spine"]}`
-from HomePageUI, NavBar, ServicesAndExpertiseSection and HomeInteractiveAnatomy.
-Meta transmits the full document location with every event, and the pixel reads
-`location` itself — it cannot be rewritten — so such URLs are suppressed entirely
-rather than sanitised.
+**Blocked by query key** (`SENSITIVE_QUERY_KEYS`): none. A repo-wide audit found
+no route that encodes patient-submitted health data in a query string.
+
+**Deliberately NOT blocked** (an earlier, over-broad version of this file did
+block them, at real cost to paid-media measurement):
+
+| Surface | Why it is eligible |
+|---|---|
+| `/patient-forms` | Public page offering **blank** new-patient packets for download. Collects nothing, uploads nothing. |
+| `/condition-check`, `/find-care/candidacy-check`, `/find-care/free-mri-review` | Landing on a page that *offers* an assessment reveals nothing about the visitor. These are ad destinations. Only the **submission** is restricted. |
+| `/conditions?data={"tags":["Spine"]}` | A public content filter linked from HomePageUI, NavBar, ServicesAndExpertiseSection and HomeInteractiveAnatomy — equivalent to the path `/conditions/sciatica`, which was always eligible. Blocking one while allowing the other was incoherent. |
+| `/conditions/*`, `/treatments/*`, `/lp/*`, `/locations/*`, `/blogs/*`, doctor pages | Ordinary public marketing content. |
 
 ### The automatic-PageView finding (important)
 
@@ -126,16 +132,26 @@ event naming a condition, procedure or payer.
 All 16 lead forms route through the single `pushAcceptedLead()` funnel. Each passes
 an explicit `form_source`.
 
-| Form source | Meta `Lead`? |
-|---|---|
-| book-appointment, doctor-contact, location-contact, general-contact, homepage-consultation, state-consultation, location-consultation, body-part-consultation, modal-appointment, patient-advocate, attorney-coordination, car-accident, personal-injury, slip-and-fall, work-injury, paid-landing | **Yes** |
-| **free-mri-review** | **No** — imaging review request |
-| **candidacy-check** | **No** — surgical candidacy questionnaire |
-| **condition-check** | **No** — symptom questionnaire |
+A lead is **never** suppressed because of the page it came from — only because
+the workflow itself collects patient-specific clinical answers. This is an
+explicit DENY list of three, from reading the form schemas:
 
-The three clinical surfaces are still measured first-party (Supabase + canonical
-dataLayer event). They simply never reach an ad platform. Unknown/missing sources
-**fail closed**.
+| Form source | Meta `Lead`? | Fields that decided it |
+|---|---|---|
+| **condition-check** | **No** | `pain_area`, `pain_symptoms`, `pain_desc`, `pain_worst`, `pain_source`, `insurance_type` |
+| **candidacy-check** | **No** | `condition`, `age`, `health`, `smoking`, `recent_diagnosis`, `last_test_date`, `insurance_type` |
+| **free-mri-review** | **No** | `recent_diagnosis`, `last_test_date`, `insurance_type` |
+| every other source (16 of 19) | **Yes** | generic contact / consultation / callback |
+
+The three still produce the canonical `lead_form_submit_success` event, still
+reach Google Ads and GA4, and are still persisted with full attribution. Only
+the third-party advertising conversion is withheld.
+
+Unknown sources **fail OPEN**, so a new generic form is measured from day one.
+The safety net is the build gate: `scripts/validate-measurement-contract.mjs`
+fails the build if any `FORM_SOURCES` entry has not been explicitly triaged, and
+if any of the three clinical sources drops off the deny list. Both checks were
+mutation-tested.
 
 ## 6. What Meta never receives
 
@@ -186,10 +202,35 @@ visitor's choice.
 
 ## 10. Attribution (first-party)
 
-`lib/gclid.ts` already captures and persists, under marketing consent only:
-`gclid`, `gbraid`, `wbraid`, **`fbclid`**, `msclkid`, and `utm_source/medium/campaign/term/content`.
-`fbclid` support already existed. Meta campaign IDs (`meta_campaign_id`,
-`meta_adset_id`, `meta_ad_id`) are **not yet captured** — see Next phase.
+`lib/gclid.ts` captures and persists, under marketing consent only: `gclid`,
+`gbraid`, `wbraid`, `fbclid`, `msclkid`, `utm_source/medium/campaign/term/content`,
+and now **`utm_id`, `meta_campaign_id`, `meta_adset_id`, `meta_ad_id`**.
+
+### Landing-parameter buffer — the biggest signal recovery
+
+Capture is gated on marketing consent, but the banner is answered seconds or
+minutes after arrival, and this is a single-page app. A visitor who landed on
+`/lp/x?fbclid=...&utm_campaign=123`, browsed to `/treatments`, and only then
+pressed Accept was captured from a URL that no longer carried any parameters —
+so a consented, attributable **paid click was recorded as organic. Permanently.**
+
+`bufferLandingAttribution()` now snapshots the arrival parameters into **memory
+only** (module scope — no cookie, no storage, nothing transmitted) and the normal
+cookie write reads from it once consent exists.
+
+Two rules keep it honest:
+
+- **Latest click wins.** A URL carrying any attribution parameter replaces the
+  buffer wholesale, so an older `gclid` is never resurrected over a newer `fbclid`.
+- **Rejection keeps it locked.** The buffer is only readable once marketing
+  consent exists. A visitor who rejected behaves exactly as before it existed.
+
+`_fbc` is also seeded after consent, in Meta's documented `fb.1.<ts>.<fbclid>`
+format, when the pixel could not derive one itself — never overwriting Meta's own.
+
+**Verified in a real browser** (land with Meta params → browse away → accept):
+`fbclid`, `utm_source`, `utm_campaign`, `meta_campaign_id`, `meta_adset_id`,
+`meta_ad_id` and `_fbc` were all recovered. Every one of them was `null` before.
 
 ### Recommended Meta ad URL template
 

@@ -267,6 +267,63 @@ async function collectClientFiles() {
   return out;
 }
 
+/**
+ * Meta form-source triage.
+ *
+ * isMetaEligibleFormSource fails OPEN so a new generic contact form is measured
+ * from day one rather than silently losing paid signal. The safety net for that
+ * choice lives here: every source in FORM_SOURCES must be explicitly triaged, so
+ * adding a new CLINICAL workflow fails the build until somebody decides whether
+ * it may become an advertising conversion.
+ */
+const TRIAGED_META_FORM_SOURCES = new Set([
+  // Clinical workflows — denied in lib/route-privacy.ts
+  'condition-check', 'candidacy-check', 'free-mri-review',
+  // Marketing lead workflows — allowed
+  'book-appointment', 'doctor-contact', 'location-contact', 'general-contact',
+  'homepage-consultation', 'state-consultation', 'location-consultation',
+  'body-part-consultation', 'modal-appointment', 'patient-advocate',
+  'attorney-coordination', 'car-accident', 'personal-injury', 'slip-and-fall',
+  'work-injury', 'paid-landing',
+]);
+
+async function checkMetaFormSourceTriage() {
+  const contract = stripComments(await read(CONTRACT_MODULE));
+  const block = /FORM_SOURCES\s*=\s*\[([\s\S]*?)\]\s*as const/.exec(contract);
+  if (!block) {
+    fail('every form source is triaged for Meta', 'could not read FORM_SOURCES from lib/lead-contract.ts');
+    return;
+  }
+  const sources = [...block[1].matchAll(/['"]([a-z0-9-]+)['"]/g)].map((m) => m[1]);
+  if (sources.length === 0) {
+    fail('every form source is triaged for Meta', 'FORM_SOURCES parsed as empty');
+    return;
+  }
+  for (const source of sources) {
+    if (!TRIAGED_META_FORM_SOURCES.has(source)) {
+      fail('every form source is triaged for Meta',
+        `form source "${source}" has not been triaged. Decide whether its SUBMISSION ` +
+        `carries patient-specific clinical answers. If it does, add it to ` +
+        `META_INELIGIBLE_FORM_SOURCES in lib/route-privacy.ts. Either way, add it to ` +
+        `TRIAGED_META_FORM_SOURCES in this file.`);
+    }
+  }
+
+  // And the deny list must not drift from what was triaged as clinical.
+  const privacy = stripComments(await read('lib/route-privacy.ts'));
+  const denyBlock = /META_INELIGIBLE_FORM_SOURCES\s*=\s*\[([\s\S]*?)\]\s*as const/.exec(privacy);
+  if (!denyBlock) {
+    fail('clinical form sources stay denied', 'could not read META_INELIGIBLE_FORM_SOURCES');
+    return;
+  }
+  for (const required of ['condition-check', 'candidacy-check', 'free-mri-review']) {
+    if (!denyBlock[1].includes(required)) {
+      fail('clinical form sources stay denied',
+        `"${required}" collects patient-specific clinical answers and must never produce a Meta Lead`);
+    }
+  }
+}
+
 const CHECKS = [
   ['accepted-lead event is consent-independent', checkAcceptedLeadIsConsentIndependent],
   ['exactly one canonical push per submission path', checkSingleCanonicalPush],
@@ -275,6 +332,7 @@ const CHECKS = [
   ['thank-you navigation is not the conversion source', checkThankYouIsNotTheConversionSource],
   ['all forms share one success path', checkFormsShareOneSuccessPath],
   ['Consent Mode defaults stay denied', checkConsentModeDefaultsStayDenied],
+  ['every form source is triaged for Meta', checkMetaFormSourceTriage],
 ];
 
 async function main() {

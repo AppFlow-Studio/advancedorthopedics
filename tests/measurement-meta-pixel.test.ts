@@ -69,9 +69,17 @@ const IDENTITY = {
   lastName: 'Example',
 };
 
+function clearCookies() {
+  document.cookie.split(';').forEach((cookie) => {
+    const name = cookie.split('=')[0]?.trim();
+    if (name) document.cookie = `${name}=; Max-Age=0; path=/`;
+  });
+}
+
 beforeEach(() => {
   window.localStorage.clear();
   window.sessionStorage.clear();
+  clearCookies();
   w().dataLayer = [];
   w().__msoMetaInitialized = false;
   installFakeFbq();
@@ -82,18 +90,26 @@ beforeEach(() => {
 // Route + query privacy policy
 // ---------------------------------------------------------------------------
 
-test('patient-specific clinical routes are never Meta-eligible', () => {
-  const blocked = [
-    '/condition-check',
-    '/condition-check/',
-    '/find-care/candidacy-check',
-    '/find-care/free-mri-review',
-    '/patient-forms',
-    '/internal/review-links',
-  ];
-  for (const path of blocked) {
+test('only genuinely non-public surfaces are route-excluded', () => {
+  for (const path of ['/internal', '/internal/review-links']) {
     assert.equal(isSensitivePath(path), true, `${path} must be sensitive`);
     assert.equal(isMetaEligibleRoute(path, ''), false, `${path} must be ineligible`);
+  }
+});
+
+test('public assessment landing pages stay measurable', () => {
+  // Landing on a page that OFFERS a symptom checker reveals nothing about the
+  // visitor — these are paid-media destinations. Only the SUBMISSION is
+  // restricted (see the form-source tests below).
+  for (const path of [
+    '/condition-check',
+    '/find-care/candidacy-check',
+    '/find-care/free-mri-review',
+    // A public page offering blank new-patient packets for download. It
+    // collects nothing and must not be excluded.
+    '/patient-forms',
+  ]) {
+    assert.equal(isMetaEligibleRoute(path, ''), true, `${path} must stay eligible`);
   }
 });
 
@@ -112,22 +128,23 @@ test('public marketing and content routes remain eligible', () => {
   }
 });
 
-test('the live ?data= condition filter makes a URL ineligible', () => {
-  // HomePageUI / NavBar / ServicesAndExpertiseSection link like this.
+test('the public ?data= content filter stays measurable', () => {
+  // /conditions?data={"tags":["Spine"]} is a PUBLIC BROWSE FILTER linked from
+  // HomePageUI, NavBar, ServicesAndExpertiseSection and HomeInteractiveAnatomy.
+  // It is equivalent to the path /conditions/sciatica, which is eligible;
+  // excluding one while allowing the other was incoherent and cost real
+  // paid-media measurement.
   const search = `?data=${encodeURIComponent(JSON.stringify({ tags: ['Spine'] }))}`;
-  assert.equal(hasSensitiveQuery(search), true);
-  assert.equal(isMetaEligibleRoute('/conditions', search), false);
-  assert.equal(isMetaEligibleRoute('/treatments', `?data=${encodeURIComponent('{"key":"knee"}')}`), false);
-  // Same path without the parameter is fine.
-  assert.equal(isMetaEligibleRoute('/conditions', ''), true);
+  assert.equal(hasSensitiveQuery(search), false);
+  assert.equal(isMetaEligibleRoute('/conditions', search), true);
+  assert.equal(isMetaEligibleRoute('/treatments', `?data=${encodeURIComponent('{"key":"knee"}')}`), true);
 });
 
-test('other health-shaped query keys are blocked defensively', () => {
-  for (const key of ['condition', 'symptom', 'diagnosis', 'treatment', 'insurance', 'reason', 'mri']) {
-    assert.equal(isMetaEligibleRoute('/conditions', `?${key}=anything`), false, key);
-  }
-  // A harmless campaign parameter must NOT block tracking.
-  assert.equal(isMetaEligibleRoute('/', '?utm_source=meta&utm_medium=paid_social&fbclid=abc'), true);
+test('campaign parameters never block tracking', () => {
+  assert.equal(
+    isMetaEligibleRoute('/', '?utm_source=meta&utm_medium=paid_social&fbclid=abc&meta_ad_id=123'),
+    true,
+  );
 });
 
 // ---------------------------------------------------------------------------
@@ -140,19 +157,28 @@ test('clinical assessment form sources can never produce a Meta Lead', () => {
   }
 });
 
-test('generic contact and consultation sources are Meta-eligible', () => {
-  for (const source of [
-    'book-appointment', 'general-contact', 'location-contact', 'doctor-contact',
-    'state-consultation', 'modal-appointment', 'paid-landing',
-  ]) {
-    assert.equal(isMetaEligibleFormSource(source), true, source);
+test('every non-clinical form source is Meta-eligible', async () => {
+  const { FORM_SOURCES } = await import('../lib/lead-contract');
+  const clinical = new Set(['condition-check', 'candidacy-check', 'free-mri-review']);
+  for (const source of FORM_SOURCES) {
+    assert.equal(
+      isMetaEligibleFormSource(source), !clinical.has(source),
+      `${source} eligibility is wrong`,
+    );
   }
+  // A lead is never suppressed for the PAGE it came from — only for the
+  // workflow it used. A consultation on a condition page is a full Meta Lead.
+  assert.equal(isMetaEligibleFormSource('body-part-consultation'), true);
+  assert.equal(isMetaEligibleFormSource('paid-landing'), true);
 });
 
-test('an unknown or missing form source fails closed', () => {
-  assert.equal(isMetaEligibleFormSource(undefined), false);
-  assert.equal(isMetaEligibleFormSource(''), false);
-  assert.equal(isMetaEligibleFormSource('some-new-form'), false);
+test('an unknown form source fails OPEN so new generic forms are measured', () => {
+  // The three clinical workflows are named explicitly; anything else is a
+  // marketing lead. A new CLINICAL form must be added to the deny list, and the
+  // build gate fails until it is triaged.
+  assert.equal(isMetaEligibleFormSource(undefined), true);
+  assert.equal(isMetaEligibleFormSource('some-new-contact-form'), true);
+  assert.equal(isMetaEligibleFormSource('CONDITION-CHECK'), false, 'case-insensitive');
 });
 
 // ---------------------------------------------------------------------------
@@ -201,7 +227,7 @@ test('marketing consent initializes once and fires exactly one PageView', async 
 test('init is suppressed entirely on a sensitive route', async () => {
   const meta = await import('../lib/meta-pixel');
   setConsent(true, true);
-  goto('/find-care/free-mri-review');
+  goto('/internal/review-links');
   assert.equal(meta.isMetaAllowed(), false);
   assert.equal(meta.initMetaPixel(), false);
 
@@ -406,7 +432,7 @@ test('entering a sensitive route revokes Meta dispatch, leaving it restores', as
   assert.equal(metaEvents('PageView').length, 1);
 
   // Navigate into a clinical route.
-  goto('/patient-forms');
+  goto('/internal/review-links');
   meta.suspendMetaForRoute();
   assert.deepEqual(fbqCalls().at(-1), ['consent', 'revoke'], 'Meta must be told to stop');
 
@@ -427,7 +453,7 @@ test('route suspension never re-grants against a withdrawn consent choice', asyn
   setConsent(true, true);
   meta.initMetaPixel();
 
-  goto('/condition-check');
+  goto('/internal');
   meta.suspendMetaForRoute();
 
   // Visitor withdraws marketing consent while on the sensitive route.
@@ -437,4 +463,74 @@ test('route suspension never re-grants against a withdrawn consent choice', asyn
 
   assert.notDeepEqual(fbqCalls().at(-1), ['consent', 'grant'],
     'must not re-grant when the visitor has withdrawn advertising consent');
+});
+
+// ---------------------------------------------------------------------------
+// Attribution recovery — the biggest source of lost paid signal.
+// ---------------------------------------------------------------------------
+
+test('a late Accept still captures the landing click and campaign', async () => {
+  const { bufferLandingAttribution, captureGclid, captureUtmParams, getAttributionData } =
+    await import('../lib/gclid');
+
+  // Arrive from a Meta ad. No consent yet — nothing may be stored.
+  goto('/lp/adult-scoliosis-treatment',
+    '?fbclid=IwAR_landing_click_123&utm_source=meta&utm_medium=paid_social' +
+    '&utm_campaign=120111&meta_campaign_id=120111&meta_adset_id=120222&meta_ad_id=120333');
+  bufferLandingAttribution();
+  captureGclid();
+  captureUtmParams();
+  assert.equal(document.cookie.includes('fbclid'), false, 'no cookie written before consent');
+
+  // Browse away — the parameters are gone from the URL forever.
+  goto('/treatments');
+  assert.equal(window.location.search, '');
+  assert.equal(getAttributionData().fbclid, '', 'the buffer stays locked until consent exists');
+
+  // Only now does the visitor accept.
+  setConsent(true, true);
+  captureGclid();
+  captureUtmParams();
+
+  const attribution = getAttributionData();
+  assert.equal(attribution.fbclid, 'IwAR_landing_click_123', 'the paid click must survive a late Accept');
+  assert.equal(attribution.utm_source, 'meta');
+  assert.equal(attribution.utm_campaign, '120111');
+  assert.equal(attribution.meta_campaign_id, '120111');
+  assert.equal(attribution.meta_adset_id, '120222');
+  assert.equal(attribution.meta_ad_id, '120333');
+});
+
+test('a newer click replaces the buffered older one', async () => {
+  const { bufferLandingAttribution, getBufferedLandingParam } = await import('../lib/gclid');
+  setConsent(true, true);
+
+  goto('/', '?gclid=OLD_GOOGLE_CLICK');
+  bufferLandingAttribution();
+
+  // A later Meta click in the same page session must replace the buffer
+  // wholesale, not merge into it.
+  goto('/lp/spine-injections', '?fbclid=NEW_META_CLICK');
+  bufferLandingAttribution();
+
+  goto('/treatments');
+  assert.equal(getBufferedLandingParam('fbclid'), 'NEW_META_CLICK', 'latest click wins');
+  assert.equal(
+    getBufferedLandingParam('gclid'), null,
+    'the stale Google click must not be resurrected from the buffer',
+  );
+});
+
+test('buffering before consent writes nothing to storage', async () => {
+  const { bufferLandingAttribution, getAttributionData } = await import('../lib/gclid');
+  goto('/', '?fbclid=SHOULD_NOT_PERSIST&utm_source=meta');
+  bufferLandingAttribution();
+  assert.equal(document.cookie.includes('fbclid'), false, 'no cookie before consent');
+
+  // Explicit rejection: the buffered landing params must stay unreadable, so a
+  // rejected visitor behaves exactly as they did before buffering existed.
+  setConsent(false, false);
+  goto('/treatments');
+  assert.equal(getAttributionData().fbclid, '', 'rejection keeps the buffer locked');
+  assert.equal(getAttributionData().utm_source, '');
 });
