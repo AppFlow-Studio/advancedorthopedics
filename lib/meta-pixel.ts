@@ -37,6 +37,56 @@ import { isMetaEligibleRoute } from "@/lib/route-privacy";
 export const META_PIXEL_ID =
   process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "1114353070995808";
 
+/** True when a pixel id was supplied explicitly, i.e. not the production default. */
+const HAS_EXPLICIT_PIXEL_OVERRIDE = Boolean(process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim());
+
+/**
+ * Non-production origins that must never reach the PRODUCTION dataset.
+ *
+ * `next dev` and a locally served production build both run on localhost, and
+ * during this implementation two local test PageViews did reach the real pixel
+ * before this guard existed. Automated local runs and CI must not pollute the
+ * dataset with events that look like real traffic.
+ *
+ * Escape hatch: set NEXT_PUBLIC_META_PIXEL_ID to a TEST dataset id and local
+ * tracking is enabled against that id instead. The production id is never used
+ * from a local or preview origin.
+ */
+function isNonProductionOrigin(): boolean {
+  const w = metaWindow();
+  if (!w) return true;
+
+  const host = (w.location.hostname || "").toLowerCase();
+  const localHost =
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    host === "0.0.0.0" ||
+    host === "[::1]" ||
+    host === "::1" ||
+    host.endsWith(".local") ||
+    host.endsWith(".localhost");
+  if (localHost) return true;
+
+  // Vercel preview/development deployments, when the flag is exposed.
+  const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV;
+  if (vercelEnv && vercelEnv !== "production") return true;
+
+  return false;
+}
+
+/**
+ * Whether this environment may talk to Meta at all.
+ *
+ * Independent of consent and of route eligibility: it is about WHERE the code
+ * is running, not who the visitor is.
+ */
+export function isMetaEnvironmentEnabled(): boolean {
+  if (!isNonProductionOrigin()) return true;
+  // Non-production origin: allowed only against an explicitly configured
+  // (test) dataset, never against the production default.
+  return HAS_EXPLICIT_PIXEL_OVERRIDE;
+}
+
 export const META_PIXEL_SCRIPT_ID = "meta-pixel-base";
 export const META_PIXEL_SRC = "https://connect.facebook.net/en_US/fbevents.js";
 
@@ -91,6 +141,7 @@ export function isCurrentRouteMetaEligible(): boolean {
  */
 export function isMetaAllowed(): boolean {
   if (!metaWindow()) return false;
+  if (!isMetaEnvironmentEnabled()) return false;
   if (!isAdvertisingAllowed()) return false;
   return isCurrentRouteMetaEligible();
 }
@@ -155,9 +206,11 @@ export function initMetaPixel(): boolean {
   if (w.__msoMetaInitialized) return true;
   if (!isMetaAllowed()) {
     debug(
-      hasDeclinedMarketing()
-        ? "suppressed: visitor declined advertising"
-        : "suppressed: sensitive route",
+      !isMetaEnvironmentEnabled()
+        ? "suppressed: non-production origin (set NEXT_PUBLIC_META_PIXEL_ID to a test dataset to enable)"
+        : hasDeclinedMarketing()
+          ? "suppressed: visitor declined advertising"
+          : "suppressed: sensitive route",
     );
     return false;
   }

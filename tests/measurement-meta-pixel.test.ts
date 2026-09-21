@@ -172,13 +172,36 @@ test('every non-clinical form source is Meta-eligible', async () => {
   assert.equal(isMetaEligibleFormSource('paid-landing'), true);
 });
 
-test('an unknown form source fails OPEN so new generic forms are measured', () => {
-  // The three clinical workflows are named explicitly; anything else is a
-  // marketing lead. A new CLINICAL form must be added to the deny list, and the
-  // build gate fails until it is triaged.
-  assert.equal(isMetaEligibleFormSource(undefined), true);
-  assert.equal(isMetaEligibleFormSource('some-new-contact-form'), true);
-  assert.equal(isMetaEligibleFormSource('CONDITION-CHECK'), false, 'case-insensitive');
+test('an unknown or missing form source fails CLOSED', () => {
+  // Resolution is an explicit allow list. This cannot silently cost signal,
+  // because the build gate fails unless the eligible and ineligible lists
+  // partition FORM_SOURCES exactly.
+  assert.equal(isMetaEligibleFormSource(undefined), false);
+  assert.equal(isMetaEligibleFormSource(''), false);
+  assert.equal(isMetaEligibleFormSource('some-new-contact-form'), false);
+  assert.equal(isMetaEligibleFormSource('CONDITION-CHECK'), false, 'case-insensitive deny');
+  assert.equal(isMetaEligibleFormSource('BOOK-APPOINTMENT'), true, 'case-insensitive allow');
+});
+
+test('the eligible and ineligible lists partition FORM_SOURCES exactly', async () => {
+  const { FORM_SOURCES } = await import('../lib/lead-contract');
+  const { META_ELIGIBLE_FORM_SOURCES, META_INELIGIBLE_FORM_SOURCES } =
+    await import('../lib/route-privacy');
+
+  const eligible = new Set<string>(META_ELIGIBLE_FORM_SOURCES);
+  const ineligible = new Set<string>(META_INELIGIBLE_FORM_SOURCES);
+
+  for (const source of FORM_SOURCES) {
+    const inE = eligible.has(source);
+    const inI = ineligible.has(source);
+    assert.equal(inE || inI, true, `"${source}" is not triaged for Meta`);
+    assert.equal(inE && inI, false, `"${source}" is in both lists`);
+  }
+  const all = new Set<string>(FORM_SOURCES);
+  for (const source of [...eligible, ...ineligible]) {
+    assert.equal(all.has(source), true, `"${source}" is not a real form source`);
+  }
+  assert.equal(eligible.size + ineligible.size, FORM_SOURCES.length);
 });
 
 // ---------------------------------------------------------------------------
@@ -558,4 +581,42 @@ test('an UNDECIDED visitor has their paid click persisted', async () => {
   assert.equal(attribution.fbclid, 'UNDECIDED_CLICK', 'the click survives without a decision');
   assert.equal(attribution.utm_source, 'meta');
   assert.equal(attribution.meta_ad_id, '555');
+});
+
+// ---------------------------------------------------------------------------
+// Environment guard — local and preview origins must never reach the
+// PRODUCTION dataset.
+// ---------------------------------------------------------------------------
+
+test('a local origin is blocked from the production pixel', async () => {
+  const meta = await import('../lib/meta-pixel');
+  const localDom = new JSDOM('<!doctype html><html><body></body></html>', {
+    url: 'http://localhost:3000/lp/adult-scoliosis-treatment',
+  });
+  const realWindow = globalThis.window;
+  const realDocument = globalThis.document;
+  Object.defineProperty(globalThis, 'window', { value: localDom.window, configurable: true });
+  Object.defineProperty(globalThis, 'document', { value: localDom.window.document, configurable: true });
+
+  try {
+    // Marketing granted and an eligible route — only the origin should stop it.
+    localDom.window.localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify({
+      version: CONSENT_VERSION,
+      timestamp: '2026-09-21T00:00:00.000Z',
+      categories: { necessary: true, analytics: true, marketing: true, functional: true },
+    }));
+    assert.equal(meta.isMetaEnvironmentEnabled(), false, 'localhost must not use the production pixel');
+    assert.equal(meta.isMetaAllowed(), false);
+    assert.equal(meta.initMetaPixel(), false);
+    assert.equal(typeof (localDom.window as unknown as { fbq?: unknown }).fbq, 'undefined');
+  } finally {
+    Object.defineProperty(globalThis, 'window', { value: realWindow, configurable: true });
+    Object.defineProperty(globalThis, 'document', { value: realDocument, configurable: true });
+  }
+});
+
+test('a production origin is environment-enabled', async () => {
+  const meta = await import('../lib/meta-pixel');
+  // The suite's own JSDOM is https://mountainspineorthopedics.com/.
+  assert.equal(meta.isMetaEnvironmentEnabled(), true);
 });

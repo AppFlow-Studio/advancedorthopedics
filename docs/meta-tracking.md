@@ -167,11 +167,38 @@ The three still produce the canonical `lead_form_submit_success` event, still
 reach Google Ads and GA4, and are still persisted with full attribution. Only
 the third-party advertising conversion is withheld.
 
-Unknown sources **fail OPEN**, so a new generic form is measured from day one.
-The safety net is the build gate: `scripts/validate-measurement-contract.mjs`
-fails the build if any `FORM_SOURCES` entry has not been explicitly triaged, and
-if any of the three clinical sources drops off the deny list. Both checks were
-mutation-tested.
+Resolution **fails CLOSED**: a source must appear in `META_ELIGIBLE_FORM_SOURCES`
+explicitly. That cannot silently cost signal, because the build gate proves the
+eligible and ineligible lists **partition `FORM_SOURCES` exactly** — no gaps, no
+overlap, no stale entries. Adding a form to `lib/lead-contract.ts` fails the
+build until someone decides whether it may become an advertising conversion.
+Mutation-tested three ways: untriaged source, source in both lists, and a list
+entry that is not a real form source.
+
+## 5b. Environment guard — local and preview never touch the production dataset
+
+`isMetaEnvironmentEnabled()` blocks the pixel entirely on a non-production
+origin: `localhost`, `127.0.0.1`, `0.0.0.0`, `::1`, `*.local`, `*.localhost`,
+and any deployment where `NEXT_PUBLIC_VERCEL_ENV` is set to something other than
+`production`. The component also refuses to render the `<Script>`, so
+`connect.facebook.net` is never even requested.
+
+This exists because two local test PageViews **did** reach the live dataset
+during implementation, before the guard was written. Automated local runs, CI
+and preview deploys must not create events that look like real traffic.
+
+**Escape hatch:** set `NEXT_PUBLIC_META_PIXEL_ID` to a **test** dataset id and
+local tracking runs against that id instead. The production id is never used
+from a local or preview origin.
+
+First-party attribution is deliberately NOT blocked locally — `fbclid`, UTMs and
+`meta_*` IDs are still captured on a dev machine, so attribution work stays
+testable without touching Meta.
+
+Verified in a real browser on `http://localhost:3117` with an eligible route and
+a Meta click in the URL: 0 `connect.facebook.net` requests, 0 beacons, `fbq`
+undefined, no `_fbp`/`_fbc` — while `fbclid`, `utm_source` and `meta_ad_id` were
+all captured and GTM/GA4 were unaffected.
 
 ## 6. What Meta never receives
 

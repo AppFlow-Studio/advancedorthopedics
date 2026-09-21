@@ -8,6 +8,7 @@ import {
   META_PIXEL_SRC,
   initMetaPixel,
   isCurrentRouteMetaEligible,
+  isMetaEnvironmentEnabled,
   resumeMetaForRoute,
   suspendMetaForRoute,
   trackMetaPageView,
@@ -61,7 +62,9 @@ export default function MetaPixel() {
   const lastTrackedPath = useRef<string | null>(null);
 
   // Path-level gate for whether the loader may mount at all. The full check
-  // (path + live query string) runs inside the adapter on every dispatch.
+  // (path + live query string + environment) runs inside the adapter on every
+  // dispatch. The environment check is repeated here so a local or preview
+  // origin never even requests connect.facebook.net.
   const pathAllowed = !isSensitivePath(pathname || "/");
 
   useEffect(() => {
@@ -100,6 +103,7 @@ export default function MetaPixel() {
   // No connect.facebook.net request at all on a sensitive path. Navigating to
   // an eligible path mounts the loader then.
   if (!pathAllowed) return null;
+  if (typeof window !== "undefined" && !isMetaEnvironmentEnabled()) return null;
 
   return (
     <Script

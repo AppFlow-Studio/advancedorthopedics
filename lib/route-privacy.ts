@@ -115,19 +115,18 @@ export function isMetaEligibleRoute(
 }
 
 /**
- * Lead sources whose SUBMISSION carries patient-specific clinical answers, and
- * which therefore must not produce a Meta `Lead`.
+ * Lead sources whose SUBMISSION carries patient-specific clinical answers.
  *
- * This is an explicit DENY list, not an allow list: every other form source —
- * including every consultation and contact form on a condition, treatment,
- * doctor, location or paid-landing page — produces a full-strength Meta Lead.
- * A lead is not suppressed because of the page it came from, only because the
- * workflow itself collects symptoms, medical history or insurance status.
+ * Chosen by reading the form schemas, not by matching on names:
+ *   condition-check  — pain_area, pain_symptoms, pain_desc, pain_worst,
+ *                      pain_source, insurance_type
+ *   candidacy-check  — condition, age, health, smoking, recent_diagnosis,
+ *                      last_test_date, insurance_type
+ *   free-mri-review  — recent_diagnosis, last_test_date, insurance_type
  *
- * These leads remain fully measured first-party: the canonical
- * `lead_form_submit_success` event still fires, Google Ads and GA4 still see
- * them, and they are still persisted with full attribution in Supabase. Only
- * the third-party advertising conversion is withheld.
+ * These still produce the canonical `lead_form_submit_success` event, still
+ * reach Google Ads and GA4, and are still persisted with full attribution in
+ * Supabase. Only the third-party advertising conversion is withheld.
  */
 export const META_INELIGIBLE_FORM_SOURCES = [
   "condition-check",
@@ -135,14 +134,42 @@ export const META_INELIGIBLE_FORM_SOURCES = [
   "free-mri-review",
 ] as const;
 
+/**
+ * Lead sources that MAY produce a Meta `Lead`.
+ *
+ * A lead is never suppressed because of the page it came from — a consultation
+ * request on a condition, treatment, doctor or paid-landing page is a
+ * full-strength Meta Lead. Only the workflow matters.
+ *
+ * Resolution is FAIL CLOSED: a source must appear here explicitly. That cannot
+ * silently cost signal, because `scripts/validate-measurement-contract.mjs`
+ * fails the build unless this list and META_INELIGIBLE_FORM_SOURCES together
+ * partition FORM_SOURCES exactly — no gaps, no overlap. Adding a form to
+ * lib/lead-contract.ts therefore forces a deliberate decision about whether it
+ * may become an advertising conversion, at build time rather than in production.
+ */
+export const META_ELIGIBLE_FORM_SOURCES = [
+  "book-appointment",
+  "doctor-contact",
+  "location-contact",
+  "general-contact",
+  "homepage-consultation",
+  "state-consultation",
+  "location-consultation",
+  "body-part-consultation",
+  "modal-appointment",
+  "patient-advocate",
+  "attorney-coordination",
+  "car-accident",
+  "personal-injury",
+  "slip-and-fall",
+  "work-injury",
+  "paid-landing",
+] as const;
+
 export function isMetaEligibleFormSource(formSource: string | undefined | null): boolean {
-  // Unknown or missing source: allow. Every caller in the application passes an
-  // explicit source, and the three excluded workflows are named above. Failing
-  // open here is the right trade — a new generic contact form should be measured
-  // from day one, and a new CLINICAL form must be added to the deny list, which
-  // is exactly the review step that belongs with building one.
-  if (!formSource) return true;
-  return !(META_INELIGIBLE_FORM_SOURCES as readonly string[]).includes(
-    formSource.trim().toLowerCase(),
-  );
+  if (!formSource) return false;
+  const normalized = formSource.trim().toLowerCase();
+  if ((META_INELIGIBLE_FORM_SOURCES as readonly string[]).includes(normalized)) return false;
+  return (META_ELIGIBLE_FORM_SOURCES as readonly string[]).includes(normalized);
 }
