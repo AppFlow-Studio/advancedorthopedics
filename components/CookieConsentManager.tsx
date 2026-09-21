@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import MetaPixel from "@/components/MetaPixel";
+import { revokeMetaConsent } from "@/lib/meta-pixel";
 import {
   CONSENT_UPDATED_EVENT,
   OPEN_COOKIE_PREFERENCES_EVENT,
@@ -49,6 +51,14 @@ export default function CookieConsentManager() {
       setConsent(next);
       setDraft(next?.categories ?? allDisabled);
       setShowBanner(!next);
+
+      // Withdrawing advertising consent unmounts <MetaPixel />, which stops new
+      // dispatch, but an already-loaded fbevents.js stays resident on the page.
+      // Tell Meta explicitly to stop. lib/consent.ts separately expires the
+      // first-party _fbp/_fbc cookies; cookies on facebook.com are outside this
+      // origin and are not claimed to be removable from here.
+      // No-ops safely when the pixel never loaded.
+      if (!next?.categories.marketing) revokeMetaConsent();
     };
 
     const openPreferences = (event: Event) => {
@@ -128,11 +138,18 @@ export default function CookieConsentManager() {
   return (
     <>
       {consent?.categories.marketing ? (
-        <Script
-          id="callrail-dni"
-          src="//cdn.callrail.com/companies/773929113/e6e5de417599bf7a871c/12/swap.js"
-          strategy="afterInteractive"
-        />
+        <>
+          <Script
+            id="callrail-dni"
+            src="//cdn.callrail.com/companies/773929113/e6e5de417599bf7a871c/12/swap.js"
+            strategy="afterInteractive"
+          />
+          {/* Meta advertising pixel. Same marketing gate as CallRail: it mounts
+              only while advertising consent is granted, and unmounts the moment
+              it is withdrawn. Route eligibility and event suppression live
+              inside the component and lib/meta-pixel.ts. */}
+          <MetaPixel />
+        </>
       ) : null}
 
       {showBanner ? (

@@ -1,5 +1,7 @@
 // utils/enhancedConversions.ts
 import { hasMarketingConsent, hasMeasurementConsent } from "@/lib/consent";
+import { createOpaqueEventId, trackMetaContact, trackMetaLead } from "@/lib/meta-pixel";
+import { isMetaEligibleFormSource } from "@/lib/route-privacy";
 import {
   buildCanonicalLeadEvent,
   parseLeadAcceptance,
@@ -292,6 +294,11 @@ export function pushPhoneClickEvent(params: Record<string, any> = {}, eventName:
   if (eventName !== 'call_click') {
     pushEvent('call_click', params);
   }
+
+  // Secondary Meta micro-conversion. A tel: click is NOT a completed call and
+  // must never be reported as one. The dialled business number and every other
+  // parameter stay first-party; Meta gets a bare Contact with an opaque ID.
+  trackMetaContact(createOpaqueEventId('contact'));
 }
 
 /**
@@ -407,6 +414,24 @@ export async function pushFormSubmit({
   // in its own dataLayer push and is best-effort: a failure here must never cost
   // the business event above, which is why it is wrapped rather than awaited bare.
   // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // STEP 2 — Meta Lead. A separate advertising adapter consuming the same
+  // confirmed success, never a second source of truth.
+  //
+  // Deliberately minimal: Meta receives the event name, an empty custom_data
+  // object, and the server-issued submission ID as eventID. No market, no form
+  // name, no clinic, no identity, no clinical value — the site keeps all of
+  // that first-party. Clinical assessment surfaces (MRI review, candidacy
+  // check, condition check) are excluded by isMetaEligibleFormSource, so a
+  // completed medical questionnaire never becomes an ad-platform conversion.
+  //
+  // trackMetaLead enforces marketing consent and route eligibility itself and
+  // cannot throw, so this can never affect the lead or the base event above.
+  // ---------------------------------------------------------------------------
+  if (isMetaEligibleFormSource(form_source)) {
+    trackMetaLead(acceptance.submissionId);
+  }
+
   if (!hasMarketingConsent()) return;
 
   // Normalize phone to E.164 once here so every downstream consumer gets the correct format.
