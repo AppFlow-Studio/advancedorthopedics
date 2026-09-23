@@ -21,9 +21,13 @@ const PAGES = [
   "/conditions/sciatica",
   "/conditions/herniated-disc",
   "/conditions/slap-tear",
+  "/conditions/shoulder-impingement",
+  "/conditions/frozen-shoulder",
   "/treatments/adult-scoliosis-surgery",
-  "/treatments/spinal-fusion",
   "/treatments/acromioplasty",
+  "/treatments/knee-osteotomy",
+  "/treatments",
+  "/treatments/spinal-fusion",
   "/find-care/scoliosis-doctor",
   "/find-care/spine-specialist",
   "/about/faqs",
@@ -165,7 +169,33 @@ async function checkPage(path) {
     }
   }
 
-  // 6. Body has substantive prerendered content (guards blank-app-shell).
+  // 6. At most one BreadcrumbList. A parent segment layout that renders hub
+  //    schema also wraps every child route, which put two competing trails on
+  //    all 122 procedure pages.
+  const crumbs = ld.filter((o) => o["@type"] === "BreadcrumbList");
+  if (crumbs.length > 1) {
+    fail(path, `${crumbs.length} BreadcrumbList objects: ${crumbs.map((c) => c["@id"]).join(", ")}`);
+  }
+
+  // 7. Entities repeated across blocks must share an @id so consumers merge
+  //    them rather than seeing conflicting duplicates.
+  const byType = {};
+  for (const o of ld) {
+    if (!o["@type"] || o.__parseError) continue;
+    (byType[o["@type"]] ||= []).push(o["@id"]);
+  }
+  for (const [type, ids] of Object.entries(byType)) {
+    if (ids.length > 1 && new Set(ids).size > 1 && type !== "Physician" && type !== "ListItem") {
+      fail(path, `${ids.length} conflicting ${type} objects: ${ids.join(", ")}`);
+    }
+  }
+
+  // 8. Title length. Google truncates near 60; the old boilerplate tail ran to
+  //    134 characters of repeated brand across ~40 pages.
+  const t = titleMatch ? plain(titleMatch[1]) : "";
+  if (t.length > 95) fail(path, `title is ${t.length} chars — ${t}`);
+
+  // 9. Body has substantive prerendered content (guards blank-app-shell).
   const textLength = plain(visible).length;
   if (textLength < 2000) fail(path, `only ${textLength} chars of rendered text — possible empty shell`);
 }

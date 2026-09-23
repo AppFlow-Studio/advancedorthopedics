@@ -133,7 +133,7 @@ export default function TreatmentsHubClient({ reviews, showFeaturedDoctor }: { r
         <div className="z-[1] flex flex-col w-full h-full text-left relative pt-20 pb-6 sm:pt-36 sm:pb-12 lg:pt-48 lg:pb-16">
           <div className="px-4 sm:px-6 xl:px-[80px] z-[2] flex flex-row items-center justify-center w-full">
             <TextAnimate
-              as="h1"
+              as="div"
               animation="blurInUp"
               by="word"
               once

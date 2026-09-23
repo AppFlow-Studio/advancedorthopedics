@@ -272,3 +272,57 @@ Search Console before acting. Not changed without that evidence.
 against a running server. Against the pre-fix production build it reports 41
 failures; against the fixed build, zero. Point it at any base URL:
 `node scripts/seo-smoke-test.mjs https://mountainspineorthopedics.com`.
+
+## Commit 12 — title width, hub schema leak, missing hub H1 (2026-09-22)
+
+Follow-up sweep. Found by widening the smoke test past the originally reported
+pages; none of these were in the ticket.
+
+**Title boilerplate (160 records).** 91 `metaTitle` values in `conditions.tsx`
+ended with `| Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine
+and Joint Pain Specialists`. Rendered titles ran 118–134 characters, so ~40 pages
+showed the same truncated brand string and none of the useful part. Three
+mechanical rules, none of which lengthens a title or touches its descriptive
+half:
+
+1. boilerplate tail → `| Mountain Spine`;
+2. entity-only tail `| Mountain Spine & Orthopedics` → `| Mountain Spine`;
+3. a bare trailing ` FL` is **dropped**, not re-branded — geography belongs to
+   the location/physician/GBP layer (this document's own rule), the practice
+   serves five states, and dropping it shortens the title where appending a
+   brand would have cost 14 characters.
+
+Result: titles over 70 characters fell 101 → 48; longest 134 → 93.
+
+45 rendered titles still carry no brand. Left deliberately: Google appends the
+site name when a title lacks one, and only 4 of the 45 would stay under 65
+characters if the brand were appended. Branding 4 of 45 is inconsistency, not
+consistency.
+
+**Hub schema leaking onto 122 procedure pages.** `app/treatments/layout.tsx`
+rendered `<TreatmentsItemListSchema />`, but an App Router segment layout also
+wraps its dynamic children — so every `/treatments/[TreatmentDetails]` page
+emitted the *index's* `CollectionPage`, `ItemList` and a second `BreadcrumbList`
+("Home › Treatments") competing with its own ("Home › Treatments › <procedure>").
+Moved to `app/treatments/page.tsx`. Detail pages now emit one BreadcrumbList and
+no ItemList; the hub is unchanged.
+
+**Both category hubs shipped with no H1.** `/treatments` and `/conditions` put
+their hero heading inside a client component that calls `useSearchParams()`,
+which bails the whole Suspense boundary out of prerendering — so neither hub had
+an `<h1>` in its initial HTML. The animated hero is now `as="div"` (identical
+styling, it was never the semantic heading that reached a crawler anyway) and
+each page renders a real `<h1 className={srOnly}>` with the same text, matching
+the pattern already used in the app/injuries layouts. Exactly one H1 per hub,
+server-rendered, no visual change.
+
+**Reviewed and deliberately not changed**
+
+- `components/ConditionsItemListSchema.tsx` is dead code. Left unwired: it has no
+  redirect filtering, so its ItemList would assert condition URLs that 308 to
+  `/treatments/*`, and its CollectionPage name reads "…| Spine & Joint
+  Specialists" — the same competitor-shaped brand just removed sitewide. Wire it
+  up only after filtering `REDIRECTED_CONDITION_SLUGS` and fixing that name.
+- The 24 clinic `<h2>`s reading "<City> Spine and Orthopedic Specialists of
+  <Region>" are descriptive location headings, not brand claims. Natural prose,
+  left alone.
