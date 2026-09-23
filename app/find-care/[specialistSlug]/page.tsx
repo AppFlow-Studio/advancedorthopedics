@@ -444,7 +444,7 @@ export default async function SpecialistPage({
       </section>
 
       <FAQsSection
-        header={<span>Frequently asked questions about {page.conditionName}</span>}
+        header={<span>{page.faqHeading}</span>}
         faqItems={faqItems}
       />
 

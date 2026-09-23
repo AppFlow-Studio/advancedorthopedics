@@ -47,6 +47,33 @@ const allTitles = [
   ...allTreatmentContent.map(t => t.title)
 ];
 
+/**
+ * Compose the overview section: direct definition first, expansion after.
+ *
+ * `overview.body` answers the section heading in its first sentence;
+ * `detailedOverview` is the supporting explanation. The section used to render
+ * `detailedOverview || overview.body`, which meant a page carrying both showed
+ * only the expansion and never defined its own subject.
+ *
+ * The duplicate guard is belt-and-braces: none of the current records restate
+ * the definition inside detailedOverview, but if an author later pastes the
+ * definition into both fields this keeps the section from printing it twice.
+ */
+function buildOverviewHtml(body?: string, detailedOverview?: string): string {
+  const definition = typeof body === 'string' ? body.trim() : '';
+  const expansion = typeof detailedOverview === 'string' ? detailedOverview.trim() : '';
+
+  if (!definition) return expansion;
+  if (!expansion) return definition;
+
+  const plain = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+  const opening = plain(definition).slice(0, 40);
+  if (opening && plain(expansion).includes(opening)) return expansion;
+
+  const wrapped = /^\s*</.test(definition) ? definition : `<p>${definition}</p>`;
+  return `${wrapped}${expansion}`;
+}
+
 // Enhanced function to handle both bold text conversion and internal linking
 function processTextWithBoldAndLinks(text: string, currentSlug: string): string {
   if (!text || typeof text !== 'string') return text;
@@ -458,7 +485,19 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
           <section className='bg-[#FAFAFA] space-y-[40px] flex flex-col w-full p-4 md:p-[40px] rounded-[24px]'>
             {isNewFormat ? (
               <>
-                {/* Overview Section - uses detailedOverview for richer SEO content if available */}
+                {/* Overview Section — answer-first.
+
+                    `overview.body` is the direct definition that answers the
+                    heading ("Adult degenerative scoliosis is a sideways spinal
+                    curve that develops after skeletal maturity…"). Rendering
+                    `detailedOverview || overview.body` dropped that definition
+                    on every page that had both, so the section under "What is
+                    X?" opened mid-explanation — "The lumbar spine is especially
+                    vulnerable because…" — and never actually defined the term.
+
+                    All 24 records carrying a detailedOverview were checked: none
+                    of them restate the definition, so the two are concatenated
+                    rather than chosen between. Definition first, expansion after. */}
                 <div className=' flex flex-col space-y-[16px] '>
                   <h2
                     style={{
@@ -475,7 +514,7 @@ export default async function ConditionPage({ conditionSlug }: { conditionSlug: 
                       fontWeight: 400,
                     }}
                     className="rich-prose text-[#424959] sm:text-xl text-sm [&_strong]:font-semibold [&_strong]:text-[#111315] [&_a]:underline [&_a]:text-[#252932] [&_a:hover]:text-[#2358AC]"
-                    dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(conditionContent!.detailedOverview || conditionContent!.overview.body, conditionContent!.slug) }}
+                    dangerouslySetInnerHTML={{ __html: processTextWithBoldAndLinks(buildOverviewHtml(conditionContent!.overview.body, conditionContent!.detailedOverview), conditionContent!.slug) }}
                   />
                 </div>
 

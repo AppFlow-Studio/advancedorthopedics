@@ -30,16 +30,34 @@ function FilteredTreatmentsList({ currentTreatment, tag }: { currentTreatment: s
 
       {related.map((treatment) => {
         const isCurrent = treatment.title === currentTreatment;
+        const className = `flex flex-row items-center justify-between px-4 py-3 rounded-[10px] text-sm transition-colors ${
+          isCurrent
+            ? 'bg-[#252932] text-white'
+            : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F1F3]'
+        }`;
+
+        // The current page is shown highlighted but is NOT a link — otherwise
+        // every treatment page self-links from its own related-treatments rail.
+        if (isCurrent) {
+          return (
+            <div
+              key={treatment.slug}
+              aria-current="page"
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+              className={className}
+            >
+              <span>{treatment.title}</span>
+              {CHEVRON}
+            </div>
+          );
+        }
+
         return (
           <Link
             key={treatment.slug}
             href={`/treatments/${treatment.slug}`}
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
-            className={`flex flex-row items-center justify-between px-4 py-3 rounded-[10px] text-sm transition-colors ${
-              isCurrent
-                ? 'bg-[#252932] text-white'
-                : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F1F3]'
-            }`}
+            className={className}
           >
             <span>{treatment.title}</span>
             {CHEVRON}
@@ -90,20 +108,35 @@ function FullTreatmentsList({ currentTreatment }: { currentTreatment: string }) 
           const visibilityClasses = isInitiallyHidden
             ? `${isExpanded ? 'flex' : 'hidden'} lg:flex`
             : 'flex';
-          return (
-            <Link
-              href={`/treatments/${treatment.slug}`}
-              key={treatment.slug}
-              className={`${
-                currentTreatment === treatment.title
-                  ? 'bg-[#252932] text-white'
-                  : 'bg-[#FAFAFA] text-[#111315]'
-              } p-[16px] w-full flex flex-row justify-between items-center rounded-[10px] ${visibilityClasses} lg:flex-shrink-0`}
-            >
+          const label = (
+            <>
               <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-lg">
                 {treatment.title}
               </span>
               {CHEVRON}
+            </>
+          );
+
+          // Current page: highlighted, not linked. See FilteredTreatmentsList.
+          if (currentTreatment === treatment.title) {
+            return (
+              <div
+                key={treatment.slug}
+                aria-current="page"
+                className={`bg-[#252932] text-white p-[16px] w-full flex flex-row justify-between items-center rounded-[10px] ${visibilityClasses} lg:flex-shrink-0`}
+              >
+                {label}
+              </div>
+            );
+          }
+
+          return (
+            <Link
+              href={`/treatments/${treatment.slug}`}
+              key={treatment.slug}
+              className={`bg-[#FAFAFA] text-[#111315] p-[16px] w-full flex flex-row justify-between items-center rounded-[10px] ${visibilityClasses} lg:flex-shrink-0`}
+            >
+              {label}
             </Link>
           );
         })}

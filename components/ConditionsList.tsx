@@ -55,16 +55,35 @@ function FilteredConditionList({ currentCondition, tag }: { currentCondition: st
 
       {related.map((condition) => {
         const isCurrent = condition.title === currentCondition;
+        const className = `flex flex-row items-center justify-between px-4 py-3 rounded-[10px] text-sm transition-colors ${
+          isCurrent
+            ? 'bg-[#252932] text-white'
+            : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F1F3]'
+        }`;
+
+        // The current page is shown highlighted but is NOT a link. Rendering it
+        // as an anchor made every condition page link to itself from its own
+        // "Related ... Conditions" sidebar.
+        if (isCurrent) {
+          return (
+            <div
+              key={condition.slug}
+              aria-current="page"
+              style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
+              className={className}
+            >
+              <span>{condition.title}</span>
+              {CHEVRON}
+            </div>
+          );
+        }
+
         return (
           <Link
             key={condition.slug}
             href={resolveConditionSlugHref(condition.slug)}
             style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }}
-            className={`flex flex-row items-center justify-between px-4 py-3 rounded-[10px] text-sm transition-colors ${
-              isCurrent
-                ? 'bg-[#252932] text-white'
-                : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F1F3]'
-            }`}
+            className={className}
           >
             <span>{condition.title}</span>
             {CHEVRON}
@@ -117,19 +136,28 @@ function FullConditionList({ currentCondition }: { currentCondition: string }) {
               : 'flex';
             return (
               <li key={condition.title} className={`${visibilityClasses} lg:flex-shrink-0`}>
-                <Link
-                  href={resolveConditionSlugHref(condition.slug)}
-                  className={`${
-                    currentCondition === condition.title
-                      ? 'bg-[#252932] text-white'
-                      : 'bg-[#FAFAFA] text-[#111315]'
-                  } p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]`}
-                >
-                  <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-lg">
-                    {condition.title}
-                  </span>
-                  {CHEVRON}
-                </Link>
+                {currentCondition === condition.title ? (
+                  // Current page: highlighted, not linked. See FilteredConditionList.
+                  <div
+                    aria-current="page"
+                    className="bg-[#252932] text-white p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]"
+                  >
+                    <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-lg">
+                      {condition.title}
+                    </span>
+                    {CHEVRON}
+                  </div>
+                ) : (
+                  <Link
+                    href={resolveConditionSlugHref(condition.slug)}
+                    className="bg-[#FAFAFA] text-[#111315] p-[16px] w-full flex flex-row justify-between items-center rounded-[10px]"
+                  >
+                    <span style={{ fontFamily: 'var(--font-public-sans)', fontWeight: 400 }} className="text-lg">
+                      {condition.title}
+                    </span>
+                    {CHEVRON}
+                  </Link>
+                )}
               </li>
             );
           })}

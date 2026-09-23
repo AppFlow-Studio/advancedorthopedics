@@ -181,3 +181,94 @@ before any decision. Do not build `/conditions/lumbar-scoliosis`.
 Blog content lives in the production Supabase `blogs` table, not this repo.
 `components/data/blogs.ts` is a stale decoy with six unrelated entries that nothing renders.
 Publishing would mean INSERTs against production.
+
+---
+
+## Commit 11 — metadata precedence, FAQ SSR, self-links (2026-09-22)
+
+Triage of a reported-issues list. Several reported symptoms were already correct
+in production and are recorded here so they are not re-investigated.
+
+### Real defects, fixed
+
+**1. Curated titles were silently discarded (64 pages).** `lib/metadata-seo.ts`
+was consulted first and the generic formula fallback second, with no step in
+between for the `metaTitle` each record carries in `components/data/*`. Any page
+missing from the map lost its hand-written title. `/treatments/adult-scoliosis-surgery`
+is the motivating case: its record reads "Adult Scoliosis Surgery | Mountain
+Spine & Orthopedics — …" while production served "…| Spine & Orthopedic
+Specialists". Fixed with `resolveConditionMetadata` / `resolveTreatmentMetadata`,
+which resolve curated map → record's own metaTitle → formula, each field
+independently. The hub also got a proper curated entry.
+
+**2. Brand.** 116 titles were suffixed "| Spine & Orthopedic Specialists" — a
+name belonging to no Mountain Spine entity, closely matching an unrelated
+orthopedic brand, and applied to shoulder/knee/hip/hand pages as well as spine.
+Standardised on "| Mountain Spine" (the convention the newest entries and
+`specialists.tsx` already used). The full entity stays in schema and OG.
+
+**3. FAQ answers were absent from prerendered HTML.** `components/FaqsSection.tsx`
+mounted answers inside `{openItem === index && …}`, so only the first answer
+existed in the document; the rest were created on click. The FAQPage JSON-LD
+meanwhile asserted every answer — structured data describing content the page
+did not show. `/about/faqs` shipped 28 questions and 1 answer. Fixed by keeping
+answers mounted and animating height only. Affects all five `FaqsSection`
+consumers, including the seven `/find-care` specialist pages.
+
+**4. Definition was dropped from every "What is X?" section (24 pages).**
+`ConditionPage.tsx` rendered `detailedOverview || overview.body`. `overview.body`
+holds the direct definition; `detailedOverview` holds the expansion and never
+restates it. So the section under "What is Adult Degenerative Scoliosis?" opened
+"The lumbar spine is especially vulnerable because…" and never defined the term.
+All 24 records were checked for overlap before concatenating — none duplicate.
+This also affected sciatica, herniated disc, spinal stenosis and back pain.
+
+**5. Self-links.** Four render paths in `ConditionsList.tsx` / `TreatmentsList.tsx`
+styled the current page as active but still emitted an anchor to itself. The
+current item now renders as a non-anchor with `aria-current="page"`. The earlier
+claim in this document that related-link rendering "cannot link a page to itself"
+covered the related-*content* modules, not these sidebar rails.
+
+**6. Specialist pages.** FAQ heading was "…about {conditionName}" above six
+questions about referrals, scheduling, insurance and imaging; `faqHeading` is now
+explicit per page. `/find-care/scoliosis-doctor` took adult intent in title and
+H1 — the practice is adult-only and every section already addressed adults.
+
+### Reported but already correct — do not re-investigate
+
+- **Dr. Shumway on `/conditions/spine-deformities`.** Cannot happen.
+  `providerRelevance.ts` maps that slug to `spine-deformity` and Shumway to
+  `foot-ankle` only. Production HTML shows McCarthy, Slaughter, Neuwirth.
+- **Stale footer / missing Georgia / missing PA phone.** Production footer is
+  current and identical across pages: all five states, PA (215) 436-9496,
+  GA (404) 913-6886.
+- **South Miami / Miami Beach URLs.** `/locations/miami-beach-orthopedics` and
+  `/locations/florida/miami-beach-orthopedics` each return a single 308 to
+  `/locations/florida/south-miami-orthopedics`, which returns 200. No chain. The
+  bare `/miami-beach-orthopedics` and `/south-miami-orthopedics` were never real
+  URLs — the location space is `/locations/{state}/{location}`.
+- **`/treatments/adult-scoliosis-surgery` serving an empty shell.** Refuted. The
+  page returns 200 with ~630KB of prerendered HTML including H1 and body copy.
+
+### Pillar title — deliberately unchanged
+
+The request was to add Florida and a surgeon name to
+`/conditions/adult-degenerative-scoliosis`. Both were declined:
+
+- Geography: the pillar is deliberately not geo-locked (see "Cannibalization
+  controls" above). The practice serves five states; locking it to Florida would
+  be wrong for four of them. Geography belongs to the location/physician/GBP layer.
+- Surgeon name: no single physician is uniquely associated with adult scoliosis
+  here. The deformity pool is three providers and the page features three.
+
+The pillar title does still carry "Surgical Options" while
+`/treatments/adult-scoliosis-surgery` now owns surgical intent. That overlap is
+worth watching — but per this document's own rule, prove cannibalization in
+Search Console before acting. Not changed without that evidence.
+
+### Guard
+
+`npm run seo:smoke` (`scripts/seo-smoke-test.mjs`) asserts each of these classes
+against a running server. Against the pre-fix production build it reports 41
+failures; against the fixed build, zero. Point it at any base URL:
+`node scripts/seo-smoke-test.mjs https://mountainspineorthopedics.com`.

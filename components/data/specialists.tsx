@@ -10,6 +10,15 @@ export interface SpecialistPageProp {
   secondaryKeywords: string[];
   intro: string;
   conditionName: string;
+  /**
+   * Heading for the FAQ block. These FAQs cover access and specialist
+   * selection (referral, scheduling, insurance, imaging), not the condition
+   * itself, so the heading must describe seeing a specialist. Without it the
+   * template fell back to "…about {conditionName}", which put "Frequently
+   * asked questions about Adult Degenerative Scoliosis" above six questions
+   * that never discussed the condition.
+   */
+  faqHeading: string;
   relatedConditionSlug?: string;
   relatedTreatmentSlugs?: string[];
   whenToSeeSpecialist: {
@@ -72,6 +81,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "Persistent back, neck, or nerve symptoms can make it difficult to know which kind of doctor to see. A Mountain Spine & Orthopedics spine specialist evaluates your symptoms, examination findings, and available imaging together before recommending next steps. Our physicians provide both non-surgical and surgical perspectives across Florida, New Jersey, New York, Pennsylvania, and Georgia, with same-day callbacks and same-day to same-week appointments often available.",
     conditionName: "Spine Conditions",
+    faqHeading: "Frequently asked questions about seeing a spine specialist",
     relatedConditionSlug: "spine-deformities",
     relatedTreatmentSlugs: [
       "epidural-steroid-injection",
@@ -128,6 +138,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "Back pain may come from muscles, discs, joints, nerves, alignment, or more than one structure at once. A Mountain Spine & Orthopedics back pain doctor looks for the source that best explains your pattern instead of treating an image alone. We evaluate new, persistent, and recurring symptoms across Florida, New Jersey, New York, Pennsylvania, and Georgia, with same-day callbacks and same-day to same-week appointments often available.",
     conditionName: "Lower Back Pain",
+    faqHeading: "Frequently asked questions about seeing a back pain doctor",
     relatedConditionSlug: "lower-back-pain",
     relatedTreatmentSlugs: ["epidural-steroid-injection", "lumbar-decompression", "spinal-fusion"],
     whenToSeeSpecialist: {
@@ -169,8 +180,11 @@ export const SpecialistPages: SpecialistPageProp[] = [
   },
   {
     slug: "scoliosis-doctor",
-    h1: "Find a Scoliosis Doctor and Specialist",
-    metaTitle: "Scoliosis Doctor & Specialist | Mountain Spine",
+    h1: "Find an Adult Scoliosis Doctor and Specialist",
+    // Adult intent is explicit: the practice is an adult orthopedic group and
+    // every section of this page (intro, triggers, FAQs) addresses adult curves.
+    // "Scoliosis Doctor" alone also competes with the pediatric SERP.
+    metaTitle: "Adult Scoliosis Doctor & Specialist | Mountain Spine",
     metaDescription:
       "Meet a scoliosis doctor for adult curve, alignment, pain, or nerve symptoms. Get a detailed imaging review and a plan tailored to your goals.",
     primaryKeyword: "scoliosis doctor",
@@ -178,6 +192,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "Adult scoliosis care requires more than measuring a curve on a single image. A Mountain Spine & Orthopedics scoliosis doctor evaluates spinal balance, curve pattern, nerve symptoms, bone health, and the activities that matter to you. Our specialists review both non-surgical and surgical options across Florida, New Jersey, New York, Pennsylvania, and Georgia, with same-day callbacks and prompt appointment access for new and existing patients.",
     conditionName: "Adult Degenerative Scoliosis",
+    faqHeading: "Frequently asked questions about seeing an adult scoliosis specialist",
     relatedConditionSlug: "adult-degenerative-scoliosis",
     relatedTreatmentSlugs: ["epidural-steroid-injection", "adult-scoliosis-surgery", "spinal-fusion"],
     whenToSeeSpecialist: {
@@ -228,6 +243,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "Sciatica describes pain or nerve symptoms that travel from the lower back or buttock into the leg. The important question is what is irritating the nerve and where. A Mountain Spine & Orthopedics sciatica doctor combines a focused neurological examination with available imaging to identify the likely source. Same-day callbacks and same-day to same-week appointments are often available across our five-state care footprint.",
     conditionName: "Sciatica",
+    faqHeading: "Frequently asked questions about seeing a sciatica doctor",
     relatedConditionSlug: "sciatica",
     relatedTreatmentSlugs: ["epidural-steroid-injection", "lumbar-microdiscectomy-surgery", "lumbar-decompression"],
     whenToSeeSpecialist: {
@@ -278,6 +294,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "Spinal stenosis can affect the central canal, the nerve exits, or both, and treatment depends on which narrowing actually matches your symptoms. A Mountain Spine & Orthopedics spinal stenosis specialist evaluates walking tolerance, balance, strength, sensation, reflexes, and imaging together. We offer same-day callbacks and same-day to same-week appointments across Florida, New Jersey, New York, Pennsylvania, and Georgia for patients seeking a clear next step.",
     conditionName: "Spinal Stenosis",
+    faqHeading: "Frequently asked questions about seeing a spinal stenosis specialist",
     relatedConditionSlug: "spinal-stenosis",
     relatedTreatmentSlugs: ["epidural-steroid-injection", "lumbar-decompression", "spinal-fusion"],
     whenToSeeSpecialist: {
@@ -328,6 +345,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "A herniated disc matters when displaced disc material irritates or compresses a nerve and matches the symptoms you feel. A Mountain Spine & Orthopedics herniated disc specialist reviews the pain pattern, neurological examination, and MRI together before discussing treatment. Same-day callbacks and same-day to same-week appointments are often available throughout our Florida, New Jersey, New York, Pennsylvania, and Georgia care footprint.",
     conditionName: "Lumbar Herniated Disc",
+    faqHeading: "Frequently asked questions about seeing a herniated disc specialist",
     relatedConditionSlug: "lumbar-herniated-disc",
     relatedTreatmentSlugs: ["epidural-steroid-injection", "lumbar-microdiscectomy-surgery", "lumbar-decompression"],
     whenToSeeSpecialist: {
@@ -378,6 +396,7 @@ export const SpecialistPages: SpecialistPageProp[] = [
     intro:
       "A pinched nerve can cause pain, tingling, numbness, or weakness along a specific path into an arm or leg. Finding the site and cause of compression is essential because symptoms can arise from a disc, narrowed nerve exit, bone spur, or another structure. A Mountain Spine & Orthopedics doctor provides focused examination and imaging review, with same-day callbacks and prompt appointments across our five-state care footprint.",
     conditionName: "Pinched Nerve",
+    faqHeading: "Frequently asked questions about seeing a pinched nerve doctor",
     relatedConditionSlug: "pinched-nerve",
     relatedTreatmentSlugs: ["nerve-block-injection", "epidural-steroid-injection", "lumbar-decompression"],
     whenToSeeSpecialist: {
