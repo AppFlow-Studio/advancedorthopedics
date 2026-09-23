@@ -12187,7 +12187,7 @@ export const conditions: ConditionInfoProp[] = [
             "pinched nerve FL, NJ, NY, PA & GA",
             "sciatica radiculopathy",
         ],
-        metaTitle: "Radiculopathy (Pinched Nerve) Treatment | Cervical & Lumbar Radiculopathy FL, NJ, NY, PA & GA",
+        metaTitle: "Radiculopathy (Pinched Nerve): Cervical & Lumbar Treatment | Mountain Spine",
         metaDesc: "Radiculopathy (pinched spinal nerve) causes radiating arm or leg pain. Our FL, NJ, NY, PA & GA specialists offer epidural injections and minimally invasive nerve decompression surgery.",
     },
     {

@@ -12,7 +12,7 @@ const PAGE_URL = "https://mountainspineorthopedics.com/injuries/car-accident";
 export const metadata: Metadata = {
   title: safeTitle(
     undefined,
-    "Car Accident Orthopedic Doctor Near Me | FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics"
+    "Car Accident Orthopedic Doctor Near Me | Mountain Spine"
   ),
   description: safeDescription(
     undefined,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: safeTitle(
       undefined,
-      "Car Accident Orthopedic Doctor Near Me | FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics"
+      "Car Accident Orthopedic Doctor Near Me | Mountain Spine"
     ),
     description: safeDescription(
       undefined,
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: safeTitle(
       undefined,
-      "Car Accident Orthopedic Doctor Near Me | FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics"
+      "Car Accident Orthopedic Doctor Near Me | Mountain Spine"
     ),
     description: safeDescription(
       undefined,

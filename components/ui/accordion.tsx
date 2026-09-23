@@ -47,15 +47,39 @@ function AccordionTrigger({
   )
 }
 
+/**
+ * `forceMount` keeps the answer in the server-rendered HTML so crawlers — and
+ * any FAQPage JSON-LD the page emits — see content that actually exists in the
+ * document. Radix unmounts collapsed content by default, which left 70 FAQ
+ * answers across the injury and location pages asserted in schema but absent
+ * from the page.
+ *
+ * It needs its own collapsed style. The default closed state is
+ * `animate-accordion-up`, an animation that ends at height 0 and then reverts,
+ * which is fine while Radix unmounts the node but leaves a force-mounted panel
+ * permanently expanded. `data-[state=closed]:h-0` is a persistent style rather
+ * than an animation, so it holds. Verified in-browser: without it all ten
+ * panels rendered at full height.
+ *
+ * Non-force-mounted usages (NavBar, SidebarNavItem, …) keep the original
+ * animated behaviour untouched.
+ */
 function AccordionContent({
   className,
   children,
+  forceMount,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
+      forceMount={forceMount}
+      className={cn(
+        "overflow-hidden text-sm",
+        forceMount
+          ? "data-[state=closed]:h-0"
+          : "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+      )}
       {...props}
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>

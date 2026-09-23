@@ -590,7 +590,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 >
                   How do I choose the best location near me?
                 </AccordionTrigger>
-                <AccordionContent 
+                <AccordionContent forceMount 
                   className="text-[#424959] leading-relaxed pt-2"
                 >
                   <p>
@@ -608,7 +608,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 >
                   Do you offer same-day or next-day appointments?
                 </AccordionTrigger>
-                <AccordionContent 
+                <AccordionContent forceMount 
                   className="text-[#424959] leading-relaxed pt-2"
                 >
                   <p>
@@ -626,7 +626,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 >
                   Do I need a referral to see an orthopedic specialist?
                 </AccordionTrigger>
-                <AccordionContent 
+                <AccordionContent forceMount 
                   className="text-[#424959] leading-relaxed pt-2"
                 >
                   <p>
@@ -644,7 +644,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 >
                   What conditions do you treat at your locations?
                 </AccordionTrigger>
-                <AccordionContent 
+                <AccordionContent forceMount 
                   className="text-[#424959] leading-relaxed pt-2"
                 >
                   <p>
@@ -662,7 +662,7 @@ export default function LocationsClient({ selectedLocation, setSelectedLocation 
                 >
                   What should I bring to my appointment?
                 </AccordionTrigger>
-                <AccordionContent 
+                <AccordionContent forceMount 
                   className="text-[#424959] leading-relaxed pt-2"
                 >
                   <p>

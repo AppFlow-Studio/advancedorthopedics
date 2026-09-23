@@ -74,9 +74,15 @@ export function BackPainDropdown({ CurrentCondition }: { CurrentCondition: strin
         <div ref={contentRef} className="rounded-md space-y-[20px] mt-[20px] pb-[20px]">
           {backPainOptions.map((option) => {
             const isActive = CurrentCondition === option.title
+            // The current page renders as a non-link with aria-current so the
+            // rail does not link the page to itself.
+            const Component: any = isActive ? 'div' : Link
+            const linkProps = isActive
+              ? { 'aria-current': 'page' as const }
+              : { href: resolveConditionHref(`/area-of-pain/back-pain/${option.slug}`) }
             return (
-              <Link 
-                href={resolveConditionHref(`/area-of-pain/back-pain/${option.slug}`)} 
+              <Component 
+                {...linkProps} 
                 className={`${isActive 
                   ? 'bg-[#2358AC] text-white border-l-4 border-[#5093FF] shadow-md' 
                   : 'bg-[#FAFAFA] text-[#111315] hover:bg-[#F0F4FF] hover:border-l-4 hover:border-[#2358AC]'
@@ -103,7 +109,7 @@ export function BackPainDropdown({ CurrentCondition }: { CurrentCondition: strin
                     fill={isActive ? "#ffffff" : "#424959"} 
                   />
                 </svg>
-              </Link>
+              </Component>
             )
           })}
         </div>

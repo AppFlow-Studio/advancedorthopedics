@@ -2,7 +2,9 @@ import { buildCanonical } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
 
 export const metadata = {
-  title: 'Orthopedic Clinic Locations in Florida, New Jersey, New York, Pennsylvania & Georgia | Mountain Spine & Orthopedics',
+  // Matches the openGraph/twitter title below. The long-form state list ran
+  // 115 characters and was truncated in SERPs well before the brand.
+  title: 'Orthopedic Clinic Locations in FL, NJ, NY, PA & GA | Mountain Spine',
   description: 'Find expert orthopedic and spine care near you. Mountain Spine & Orthopedics locations across Florida, New Jersey, New York, Pennsylvania, and Georgia. Same-day and next-day appointments available. Book your consultation today.',
   keywords: [
     'orthopedic clinic locations',
@@ -27,7 +29,7 @@ export const metadata = {
     'orthopedic specialist near me'
   ],
   openGraph: {
-    title: 'Orthopedic Clinic Locations in FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics',
+    title: 'Orthopedic Clinic Locations in FL, NJ, NY, PA & GA | Mountain Spine',
     description: 'Find all Mountain Spine & Orthopedics clinic locations across Florida, New Jersey, New York, Pennsylvania, and Georgia. Expert spine and joint care near you.',
     url: buildCanonical('/locations'),
     siteName: 'Mountain Spine & Orthopedics',
@@ -44,7 +46,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Orthopedic Clinic Locations in FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics',
+    title: 'Orthopedic Clinic Locations in FL, NJ, NY, PA & GA | Mountain Spine',
     description: 'Find all Mountain Spine & Orthopedics clinic locations across Florida, New Jersey, New York, Pennsylvania, and Georgia. Expert spine and joint care near you.',
     images: [getOgImageForPath('/locations')],
   },

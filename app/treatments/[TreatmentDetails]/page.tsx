@@ -561,7 +561,9 @@ export default async function Page({ params }: { params: Promise<{ TreatmentDeta
                             {relatedConditions.map((condition) => (
                               <Link
                                 key={condition.slug}
-                                href={`/conditions/${condition.slug}`}
+                                // Resolve through the redirect map: some condition slugs now live
+                                // under /treatments, so the raw slug links at a 308, not the target.
+                                href={resolveConditionSlugHref(condition.slug)}
                                 className="bg-white border hover:cursor-pointer border-[#252932] px-[20px] py-[10px] rounded-[62px] text-sm transition-colors hover:bg-[#FAFAFA]"
                               >
                                 <span

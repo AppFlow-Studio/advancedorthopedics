@@ -1186,7 +1186,7 @@ export default function CarAccidentClient({ faqs, doctors }: CarAccidentClientPr
                                                     }}
                                                 />
                                             </AccordionTrigger>
-                                            <AccordionContent className="text-gray-600">
+                                            <AccordionContent forceMount className="text-gray-600">
                                                 <span
                                                     dangerouslySetInnerHTML={{
                                                         __html: faqSearch
