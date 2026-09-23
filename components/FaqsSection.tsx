@@ -1,7 +1,6 @@
 'use client'
 import React, { useId, useState } from 'react'
 import { Minus, Plus } from "lucide-react"
-import { motion } from "framer-motion"
 
 /**
  * Accordion FAQ list.
@@ -66,33 +65,38 @@ export default function FAQsSection({ header, faqItems }: { header: React.ReactE
                                         }}
                                         className={`${isOpen ? 'text-black' : 'text-[#424959]'} text-2xl`}
                                     >{item.question}</h3>
-                                    <motion.div initial={false} animate={{ rotate: isOpen ? 0 : 0 }}>
+                                    <div>
                                         {isOpen ? (
                                             <Minus className="h-5 w-5 text-black" />
                                         ) : (
                                             <Plus className="h-5 w-5 text-[#838890]" />
                                         )}
-                                    </motion.div>
+                                    </div>
                                 </button>
 
-                                {/* Always rendered. `height` animates; the node is never unmounted. */}
-                                <motion.div
+                                {/* Always rendered; the collapse is pure CSS.
+                                    The grid 1fr/0fr technique animates to the
+                                    content's real height without measuring it,
+                                    and renders collapsed server-side so nothing
+                                    flashes open before hydration. */}
+                                <div
                                     id={panelId}
                                     role="region"
                                     aria-labelledby={buttonId}
-                                    initial={false}
-                                    animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="overflow-hidden text-[#54535C]"
+                                    className={`grid overflow-hidden text-[#54535C] transition-opacity duration-300 ease-in-out ${
+                                        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                                    }`}
                                 >
-                                    <div className="px-6 pb-6 text-gray-600"
-                                        style={{
-                                            fontFamily: 'var(--font-inter)',
-                                            fontWeight: 400,
-                                        }}
+                                    <div className="min-h-0 overflow-hidden">
+                                        <div className="px-6 pb-6 text-gray-600"
+                                            style={{
+                                                fontFamily: 'var(--font-inter)',
+                                                fontWeight: 400,
+                                            }}
 
-                                    >{item.answer}</div>
-                                </motion.div>
+                                        >{item.answer}</div>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })}
