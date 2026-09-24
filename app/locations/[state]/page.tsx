@@ -436,7 +436,7 @@ export default async function StateHubPage({
                     >
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent 
+                    <AccordionContent forceMount 
                       className="text-[#424959] leading-relaxed px-4 sm:px-6 pb-5 pt-0"
                     >
                       <p>{faq.answer}</p>

@@ -7,7 +7,7 @@ import { resolveConditionSlugHref } from "@/lib/internal-link-redirects";
 import { getOgImageForPath } from "@/lib/og";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { conditionFAQs } from "@/components/data/conditionFAQs";
-import { getConditionMetadata, generateConditionMetadataFallback } from "@/lib/metadata-seo";
+import { resolveConditionMetadata } from "@/lib/metadata-seo";
 import { conditionThumbnailBySlug, hubThumbnailBySlug } from "@/lib/seo/condition-images";
 import { getVisibleProviderBySlug } from "@/lib/providers/providerVisibility";
 
@@ -154,7 +154,15 @@ export async function generateMetadata(
     
     const ogAlt = conditionImage?.alt || `Illustration of ${title}`;
     
-    const seoMetadata = getConditionMetadata(slugForMetadata) || generateConditionMetadataFallback(title);
+    // Curated map → the record's own metaTitle/metaDesc → generic formula.
+    // See resolveConditionMetadata in lib/metadata-seo.ts for why the middle
+    // step matters: without it a condition missing from the map lost its
+    // curated, brand-correct title.
+    const seoMetadata = resolveConditionMetadata(
+        slugForMetadata,
+        (isNewFormat ? conditionContent : condition) ?? null,
+        title
+    );
     
     const finalTitle = normalizeUTF8(seoMetadata.metaTitle);
     const finalDescription = normalizeUTF8(seoMetadata.metaDescription);

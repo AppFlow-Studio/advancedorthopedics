@@ -319,7 +319,7 @@ export default function WorkInjuryClient({ faqs, doctors, reviews }: WorkInjuryC
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg medical-shadow">
                 <AccordionTrigger className="px-6 py-4 text-left font-medium">{faq.q}</AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-gray-600">{faq.a}</AccordionContent>
+                <AccordionContent forceMount className="px-6 pb-4 text-gray-600">{faq.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

@@ -276,7 +276,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "neck-pain", text: "Neck Pain After Fusion" }
         ],
         keywords: ["adjacent segment disease", "post-surgery spine pain", "revision spine surgery", "spinal degeneration"],
-        metaTitle: "Adjacent Segment Disease Treatment | Mountain Spine & Orthopedics",
+        metaTitle: "Adjacent Segment Disease Treatment | Mountain Spine",
         metaDesc: "New pain after spine surgery? Adjacent Segment Disease may be the cause. Our FL, NJ, NY, PA & GA experts specialize in ASD diagnosis and revision surgery."
     },
     {
@@ -330,7 +330,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["degenerative disc disease", "chronic back pain", "disc degeneration", "spinal arthritis"],
-        metaTitle: "Degenerative Disc Disease Treatment | Mountain Spine & Orthopedics",
+        metaTitle: "Degenerative Disc Disease Treatment | Mountain Spine",
         metaDesc: "Manage chronic back or neck pain from Degenerative Disc Disease. Our FL, NJ, NY, PA & GA specialists offer precise diagnosis and advanced non-surgical care."
     },
     {
@@ -384,7 +384,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["cervical spinal stenosis", "spinal cord compression", "neck pain treatment", "laminoplasty"],
-        metaTitle: "Cervical Spinal Stenosis Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Cervical Spinal Stenosis Specialist | Mountain Spine",
         metaDesc: "Relieve neck pain and hand numbness caused by cervical spinal stenosis. Our FL, NJ, NY, PA & GA experts offer advanced diagnosis and motion-preserving surgery.",
         additionalSections: [
             {
@@ -445,7 +445,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["spondylolisthesis", "slipped vertebra", "spinal instability", "back pain treatment FL, NJ, NY, PA & GA"],
-        metaTitle: "Spondylolisthesis Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+        metaTitle: "Spondylolisthesis Specialist FL, NJ, NY, PA & GA | Mountain Spine",
         metaDesc: "Treat spinal instability and vertebral slippage. Our FL, NJ, NY, PA & GA specialists offer expert diagnosis and advanced care for spondylolisthesis.",
         additionalSections: [
             {
@@ -506,7 +506,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["cervical herniated disc", "radiating arm pain", "neck pain FL, NJ, NY, PA & GA", "slipped disc in neck"],
-        metaTitle: "Cervical Herniated Disc Treatment | Mountain Spine & Orthopedics",
+        metaTitle: "Cervical Herniated Disc Treatment | Mountain Spine",
         metaDesc: "Suffering from radiating arm pain? Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis and advanced treatments for cervical herniated discs.",
         additionalSections: [
             {
@@ -567,7 +567,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "osteoporosis-treatment", text: "Bone Health" }
         ],
         keywords: ["spinal compression fracture", "kyphoplasty", "osteoporosis back pain", "vertebroplasty"],
-        metaTitle: "Spinal Compression Fracture Treatment | Mountain Spine & Orthopedics",
+        metaTitle: "Spinal Compression Fracture Treatment | Mountain Spine",
         metaDesc: "Sudden back pain or height loss? Our FL, NJ, NY, PA & GA specialists offer kyphoplasty and advanced care for spinal compression fractures.",
         additionalSections: [
             {
@@ -629,7 +629,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["SI joint dysfunction", "pelvic pain", "sacroiliac joint fusion", "lower back pain FL, NJ, NY, PA & GA"],
-        metaTitle: "SI Joint Dysfunction Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "SI Joint Dysfunction Specialist | Mountain Spine",
         metaDesc: "Relieve lower back and buttock pain from SI joint dysfunction. Our FL, NJ, NY, PA & GA experts offer diagnostic injections and minimally invasive fusion.",
         additionalSections: [
             {
@@ -699,7 +699,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["back pain", "chronic back pain relief", "spine specialist FL, NJ, NY, PA & GA", "non-surgical back care"],
-        metaTitle: "Back Pain Relief Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Back Pain Relief Specialist | Mountain Spine",
         metaDesc: "Back pain can come from muscles, joints, discs, stenosis, or instability. Mountain Spine specialists review symptoms and imaging to identify the right treatment path. PPO Insurance Accepted."
     },
     {
@@ -753,7 +753,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["bulging disc", "bulging disc treatment", "spinal disc protrusion", "radiating leg pain"],
-        metaTitle: "Bulging Disc Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+        metaTitle: "Bulging Disc Specialist FL, NJ, NY, PA & GA | Mountain Spine",
         metaDesc: "Relieve pain from a bulging disc. Our FL, NJ, NY, PA & GA spine experts offer precise diagnosis and advanced non-surgical therapies for disc-related pain.",
         additionalSections: [
             {
@@ -814,7 +814,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["pinched nerve", "radiculopathy", "nerve compression", "radiating pain FL, NJ, NY, PA & GA"],
-        metaTitle: "Pinched Nerve Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Pinched Nerve Specialist | Mountain Spine",
         metaDesc: "Pinched nerves can cause radiating arm or leg pain, numbness, and weakness. Mountain Spine evaluates radiculopathy with exam and imaging-guided treatment. PPO Insurance Accepted."
     },
     {
@@ -868,7 +868,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["annular tear", "disc tear", "sharp back pain", "disc pain FL, NJ, NY, PA & GA"],
-        metaTitle: "Disc Tear Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Disc Tear Specialist | Mountain Spine",
         metaDesc: "Sharp back pain when sitting or twisting? You may have an annular disc tear. Our FL, NJ, NY, PA & GA experts offer advanced MRI diagnosis and non-surgical care.",
         additionalSections: [
             {
@@ -930,7 +930,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["facet joint disease", "spinal arthritis", "facet arthropathy", "radiofrequency ablation"],
-        metaTitle: "Facet Joint Pain Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Facet Joint Pain Specialist | Mountain Spine",
         metaDesc: "Struggling with chronic spinal arthritis? Our FL, NJ, NY, PA & GA specialists offer precise diagnostic injections and advanced relief for facet joint disease.",
         additionalSections: [
             {
@@ -993,7 +993,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["lower back pain", "lumbar pain relief", "back pain treatment FL, NJ, NY, PA & GA", "spine specialist"],
-        metaTitle: "Lower Back Pain Relief Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Lower Back Pain Relief Specialist | Mountain Spine",
         metaDesc: "Lower back pain may involve lumbar discs, joints, stenosis, SI joint pain, or instability. Mountain Spine evaluates the cause and treatment options. PPO Insurance Accepted."
     },
     {
@@ -1049,7 +1049,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["sciatica", "radiating leg pain", "sciatic nerve relief", "lower back pain FL, NJ, NY, PA & GA"],
-        metaTitle: "Sciatica Treatment Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Sciatica Treatment Specialist | Mountain Spine",
         metaDesc: "Sciatica causes radiating leg pain from lumbar nerve irritation. Mountain Spine identifies the source and treats disc, stenosis, or nerve-root causes. PPO Insurance Accepted."
     },
     {
@@ -1103,7 +1103,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "impar-block-treatment", text: "Impar Block Injection" }
         ],
         keywords: ["coccydynia", "tailbone pain", "coccyx relief", "pain when sitting FL, NJ, NY, PA & GA"],
-        metaTitle: "Tailbone Pain (Coccydynia) Relief | Mountain Spine & Orthopedics",
+        metaTitle: "Tailbone Pain (Coccydynia) Relief | Mountain Spine",
         metaDesc: "Struggling with painful sitting? Our FL, NJ, NY, PA & GA specialists offer advanced non-surgical and surgical treatments for coccydynia (tailbone pain).",
         additionalSections: [
             {
@@ -1164,7 +1164,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "revision-spinal-surgery", text: "Revision Surgery" }
         ],
         keywords: ["failed back surgery syndrome", "persistent pain after surgery", "revision spine surgery", "FBSS treatment"],
-        metaTitle: "Failed Back Surgery Syndrome Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Failed Back Surgery Syndrome Specialist | Mountain Spine",
         metaDesc: "Persistent pain after spine surgery? Our FL, NJ, NY, PA & GA specialists diagnose and treat Failed Back Surgery Syndrome with advanced revision options.",
         additionalSections: [
             {
@@ -1225,7 +1225,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["foraminal stenosis", "pinched nerve", "radiating pain", "foraminotomy surgery"],
-        metaTitle: "Foraminal Stenosis Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+        metaTitle: "Foraminal Stenosis Specialist FL, NJ, NY, PA & GA | Mountain Spine",
         metaDesc: "Don't live with radiating nerve pain. Our FL, NJ, NY, PA & GA spine specialists provide expert diagnosis and minimally invasive care for foraminal stenosis.",
         additionalSections: [
             {
@@ -1287,7 +1287,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["neck pain", "stiff neck relief", "cervical pain treatment FL, NJ, NY, PA & GA", "tech neck"],
-        metaTitle: "Neck Pain Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+        metaTitle: "Neck Pain Specialist FL, NJ, NY, PA & GA | Mountain Spine",
         metaDesc: "Suffering from neck pain or stiffness? Our FL, NJ, NY, PA & GA spine specialists diagnose the cause and offer advanced non-surgical treatments for relief.",
         additionalSections: [
             {
@@ -1348,7 +1348,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["spinal bone spurs", "osteophytes", "back pain from arthritis", "nerve compression FL, NJ, NY, PA & GA"],
-        metaTitle: "Spinal Bone Spurs Specialist | Mountain Spine & Orthopedics",
+        metaTitle: "Spinal Bone Spurs Specialist | Mountain Spine",
         metaDesc: "Bone spurs can cause pain by pinching nerves. Our FL, NJ, NY, PA & GA spine specialists offer advanced diagnosis and treatments to relieve nerve irritation.",
         additionalSections: [
             {
@@ -1410,7 +1410,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["spinal_stenosis", "leg pain when walking", "laminectomy FL, NJ, NY, PA & GA", "spinal decompression"],
-        metaTitle: "Spinal Stenosis Specialist FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+        metaTitle: "Spinal Stenosis Specialist FL, NJ, NY, PA & GA | Mountain Spine",
         metaDesc: "Spinal stenosis causes pain and numbness from nerve compression. Our FL, NJ, NY, PA & GA specialists offer advanced treatments to restore your mobility.",
         additionalSections: [
             {
@@ -1473,7 +1473,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "second-opinion", text: "Free Second Opinion" }
         ],
         keywords: ["herniated disc", "slipped disc", "sciatica pain relief", "microdiscectomy FL, NJ, NY, PA & GA"],
-        metaTitle: "Herniated Disc Treatment | Mountain Spine & Orthopedics",
+        metaTitle: "Herniated Disc Treatment | Mountain Spine",
         metaDesc: "Herniated discs can cause neck, back, arm, or sciatic leg pain. Mountain Spine evaluates MRI findings and offers non-surgical and surgical options. PPO Insurance Accepted."
     },
     {
@@ -1530,7 +1530,7 @@ export const conditionContentPlaceholders: ConditionContent[] = [
             { slug: "spinal-bone-spurs", text: "Bone Spurs" }
         ],
         keywords: ["lumbar stenosis", "leg pain when walking", "spinal narrowing", "laminectomy FL, NJ, NY, PA & GA"],
-        metaTitle: "Lumbar Spinal Stenosis Treatment | Mountain Spine & Orthopedics",
+        metaTitle: "Lumbar Spinal Stenosis Treatment | Mountain Spine",
         metaDesc: "Struggling with leg pain when walking? Our FL, NJ, NY, PA & GA specialists provide advanced non-surgical and surgical care for lumbar spinal stenosis.",
         additionalSections: [
             {
@@ -1638,7 +1638,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal deformity",
         ],
         metaTitle:
-            "Adult Degenerative Scoliosis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Adult Degenerative Scoliosis | Mountain Spine",
         metaDesc:
             "Adult degenerative scoliosis causes a sideways spinal curve and back pain. Our FL, NJ, NY, PA & GA spine specialists offer advanced diagnosis and minimally invasive care.",
     },
@@ -1677,7 +1677,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal degeneration",
         ],
         metaTitle:
-            "Adjacent Segment Disease | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Adjacent Segment Disease | Mountain Spine",
         metaDesc:
             "Pain after spine surgery may be Adjacent Segment Disease. Our FL, NJ, NY, PA & GA specialists diagnose and treat ASD with advanced non-surgical and revision surgery options.",
     },
@@ -1954,7 +1954,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical back pain treatment",
         ],
         metaTitle:
-            "Lumbar Herniated Disc | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Lumbar Herniated Disc | Mountain Spine",
         metaDesc:
             "A lumbar herniated disc causes lower back pain and sciatica. Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis, MRI reviews, and advanced pain relief options.",
     },
@@ -2215,7 +2215,7 @@ export const conditions: ConditionInfoProp[] = [
             "disc degeneration",
         ],
         metaTitle:
-            "Degenerative Disc Disease | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Degenerative Disc Disease | Mountain Spine",
         metaDesc:
             "Degenerative Disc Disease causes chronic back or neck pain from disc wear. Our FL, NJ, NY, PA & GA specialists offer advanced non-surgical and surgical care for DDD.",
     },
@@ -2491,7 +2491,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical myelopathy",
         ],
         metaTitle:
-            "Cervical Spinal Stenosis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Cervical Spinal Stenosis | Mountain Spine",
         metaDesc:
             "Cervical spinal stenosis narrows the neck's spinal canal, causing pain and numbness. Our FL, NJ, NY, PA & GA specialists offer advanced diagnosis and treatment options.",
     },
@@ -2542,7 +2542,7 @@ export const conditions: ConditionInfoProp[] = [
             "back pain specialist",
         ],
         metaTitle:
-            "Spondylolisthesis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Spondylolisthesis | Mountain Spine",
         metaDesc:
             "Spondylolisthesis causes vertebral slippage, back pain, and nerve compression. Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis and advanced treatment.",
     },
@@ -2882,7 +2882,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical radiculopathy",
         ],
         metaTitle:
-            "Cervical Herniated Disc | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Cervical Herniated Disc | Mountain Spine",
         metaDesc:
             "A cervical herniated disc causes neck and radiating arm pain. Our FL, NJ, NY, PA & GA spine specialists provide advanced diagnosis, MRI reviews, and treatment options.",
     },
@@ -2920,7 +2920,7 @@ export const conditions: ConditionInfoProp[] = [
             "bone density",
         ],
         metaTitle:
-            "Spinal Compression Fractures | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Spinal Compression Fractures | Mountain Spine",
         metaDesc:
             "Spinal compression fractures cause sudden back pain, often from osteoporosis. Our FL, NJ, NY, PA & GA specialists offer kyphoplasty and other advanced treatments for relief.",
     },
@@ -2959,7 +2959,7 @@ export const conditions: ConditionInfoProp[] = [
             "osteoporosis back pain",
         ],
         metaTitle:
-            "Kyphosis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Kyphosis | Mountain Spine",
         metaDesc:
             "Kyphosis, or a rounded back, causes pain and postural issues. Our FL, NJ, NY, PA & GA spine specialists offer advanced therapies and surgery to correct spinal alignment.",
     },
@@ -2998,7 +2998,7 @@ export const conditions: ConditionInfoProp[] = [
             "cartilage restoration",
         ],
         metaTitle:
-            "Osteoarthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Osteoarthritis | Mountain Spine",
         metaDesc:
             "Osteoarthritis causes joint pain and stiffness from cartilage wear. Our FL, NJ, NY, PA & GA specialists offer advanced non-surgical and surgical treatments to restore mobility.",
     },
@@ -3059,7 +3059,7 @@ export const conditions: ConditionInfoProp[] = [
             "minimally invasive shoulder repair",
         ],
         metaTitle:
-            "Rotator Cuff Tear | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Rotator Cuff Tear | Mountain Spine",
         metaDesc:
             "A rotator cuff tear causes shoulder pain and weakness. Our FL, NJ, NY, PA & GA shoulder specialists offer advanced diagnosis and minimally invasive arthroscopic repair.",
     },
@@ -3100,7 +3100,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee giving way",
         ],
         metaTitle:
-            "ACL Injury | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "ACL Injury | Mountain Spine",
         metaDesc:
             "An ACL tear causes knee instability, pain, and swelling. Our FL, NJ, NY, PA & GA sports medicine specialists offer advanced ACL reconstruction to restore knee stability.",
     },
@@ -3139,7 +3139,7 @@ export const conditions: ConditionInfoProp[] = [
             "femoroacetabular impingement",
         ],
         metaTitle:
-            "Labral Tears | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Labral Tears | Mountain Spine",
         metaDesc:
             "Labral tears in the hip or shoulder cause deep joint pain and clicking. Our FL, NJ, NY, PA & GA orthopedic surgeons specialize in arthroscopic labral repair surgery.",
     },
@@ -3180,7 +3180,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee cartilage tear",
         ],
         metaTitle:
-            "Torn Meniscus | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Torn Meniscus | Mountain Spine",
         metaDesc:
             "A torn meniscus causes knee pain, swelling, and locking. Our FL, NJ, NY, PA & GA knee specialists offer advanced arthroscopic surgery for meniscus repair and treatment.",
     },
@@ -3220,7 +3220,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee pain symptoms",
         ],
         metaTitle:
-            "Knee Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Knee Pain | Mountain Spine",
         metaDesc:
             "Knee pain can stem from various causes. Our FL, NJ, NY, PA & GA knee specialists offer comprehensive diagnosis and treatment for all types of knee pain.",
     },
@@ -3260,7 +3260,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee arthritis specialist",
         ],
         metaTitle:
-            "Knee Arthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Knee Arthritis | Mountain Spine",
         metaDesc:
             "Knee arthritis causes pain and stiffness. Our FL, NJ, NY, PA & GA knee specialists offer comprehensive treatment from conservative care to minimally invasive joint replacement.",
     },
@@ -3301,7 +3301,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee specialist PCL",
         ],
         metaTitle:
-            "PCL Tear | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "PCL Tear | Mountain Spine",
         metaDesc:
             "A PCL tear causes knee instability and pain. Our FL, NJ, NY, PA & GA sports medicine specialists offer advanced diagnosis and treatment for posterior cruciate ligament injuries.",
     },
@@ -3341,7 +3341,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee specialist cartilage",
         ],
         metaTitle:
-            "Knee Cartilage Damage | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Knee Cartilage Damage | Mountain Spine",
         metaDesc:
             "Knee cartilage damage causes pain and joint problems. Our FL, NJ, NY, PA & GA knee specialists offer advanced cartilage restoration to preserve your knee joint.",
     },
@@ -3382,7 +3382,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee feels loose",
         ],
         metaTitle:
-            "Knee Instability | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Knee Instability | Mountain Spine",
         metaDesc:
             "Knee instability causes the knee to give way. Our FL, NJ, NY, PA & GA knee specialists offer advanced diagnosis and treatment to restore knee stability.",
     },
@@ -3422,7 +3422,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee pain treatment FL, NJ, NY, PA & GA",
         ],
         metaTitle:
-            "Knee Bursitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Knee Bursitis | Mountain Spine",
         metaDesc:
             "Knee bursitis causes pain and swelling around the knee. Our FL, NJ, NY, PA & GA specialists offer comprehensive treatment from conservative care to minimally invasive procedures.",
     },
@@ -3461,7 +3461,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee specialist PFPS",
             "knee pain treatment FL, NJ, NY, PA & GA",
         ],
-        metaTitle: "Patellofemoral Pain Syndrome (Runner's Knee) | Mountain Spine & Orthopedics",
+        metaTitle: "Patellofemoral Pain Syndrome (Runner's Knee) | Mountain Spine",
         metaDesc:
             "Patellofemoral pain syndrome causes front-of-knee pain. Our FL, NJ, NY, PA & GA sports medicine specialists offer comprehensive treatment to restore pain-free function.",
     },
@@ -3501,7 +3501,7 @@ export const conditions: ConditionInfoProp[] = [
             "patellofemoral cartilage",
         ],
         metaTitle:
-            "Chondromalacia Patella | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Chondromalacia Patella | Mountain Spine",
         metaDesc:
             "Chondromalacia patella causes front-of-knee pain and grinding. Our FL, NJ, NY, PA & GA knee specialists offer comprehensive treatment to preserve knee cartilage.",
     },
@@ -3541,7 +3541,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee pain treatment FL, NJ, NY, PA & GA",
         ],
         metaTitle:
-            "Runner's Knee | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Runner's Knee | Mountain Spine",
         metaDesc:
             "Runner's knee causes front-of-knee pain in runners. Our FL, NJ, NY, PA & GA sports medicine specialists offer comprehensive treatment to restore pain-free running.",
     },
@@ -3581,7 +3581,7 @@ export const conditions: ConditionInfoProp[] = [
             "sports medicine knee",
         ],
         metaTitle:
-            "Iliotibial Band Syndrome | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Iliotibial Band Syndrome | Mountain Spine",
         metaDesc:
             "Iliotibial band syndrome causes outer knee pain in runners and cyclists. Our FL, NJ, NY, PA & GA sports medicine specialists offer comprehensive treatment.",
     },
@@ -3621,7 +3621,7 @@ export const conditions: ConditionInfoProp[] = [
             "knee fluid accumulation",
         ],
         metaTitle:
-            "Baker's Cyst | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Baker's Cyst | Mountain Spine",
         metaDesc:
             "Baker's cyst causes swelling behind the knee. Our FL, NJ, NY, PA & GA knee specialists offer comprehensive treatment addressing both the cyst and underlying knee conditions.",
     },
@@ -3660,7 +3660,7 @@ export const conditions: ConditionInfoProp[] = [
             "pain after lumbar fusion",
         ],
         metaTitle:
-            "Sacroiliac Joint Dysfunction | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Sacroiliac Joint Dysfunction | Mountain Spine",
         metaDesc:
             "SI joint dysfunction causes lower back and buttock pain. Our FL, NJ, NY, PA & GA spine experts offer diagnostic injections and minimally invasive SI joint fusion for relief.",
     },
@@ -3698,7 +3698,7 @@ export const conditions: ConditionInfoProp[] = [
             "IT band syndrome",
         ],
         metaTitle:
-            "Trochanteric Bursitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Trochanteric Bursitis | Mountain Spine",
         metaDesc:
             "Trochanteric bursitis causes sharp outer hip pain. Our FL, NJ, NY, PA & GA specialists offer accurate diagnosis and advanced, image-guided injections for effective relief.",
     },
@@ -3740,7 +3740,7 @@ export const conditions: ConditionInfoProp[] = [
             "nerve conduction study",
         ],
         metaTitle:
-            "Carpal Tunnel Syndrome | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Carpal Tunnel Syndrome | Mountain Spine",
         metaDesc:
             "Carpal tunnel syndrome causes hand numbness and wrist pain. Our FL, NJ, NY, PA & GA hand specialists offer diagnosis, injections, and minimally invasive release surgery.",
     },
@@ -3778,7 +3778,7 @@ export const conditions: ConditionInfoProp[] = [
             "causes of back pain",
         ],
         metaTitle:
-            "Back Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Back Pain | Mountain Spine",
         metaDesc:
             "Struggling with back pain? Our FL, NJ, NY, PA & GA spine specialists diagnose the root cause and provide advanced, non-surgical, and minimally invasive treatments for relief.",
     },
@@ -3817,7 +3817,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical spine treatment",
         ],
         metaTitle:
-            "Bulging Disc | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Bulging Disc | Mountain Spine",
         metaDesc:
             "A bulging disc can cause back or neck pain that radiates into the limbs. Our FL, NJ, NY, PA & GA spine experts offer precise diagnosis and advanced non-surgical therapies.",
     },
@@ -4102,7 +4102,7 @@ export const conditions: ConditionInfoProp[] = [
         ],
         side_img: "https://mountainspineortho.b-cdn.net/conditions-thumbnails/mountain-spine-orthopedics--condition--pinched-nerve--thumbnail.png",
         metaTitle:
-            "Pinched Nerve | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Pinched Nerve | Mountain Spine",
         metaDesc:
             "A pinched nerve causes radiating pain, numbness, and tingling. Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis and treatment to relieve nerve compression.",
     },
@@ -4140,7 +4140,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical back treatment",
         ],
         metaTitle:
-            "Disc Tear | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Disc Tear | Mountain Spine",
         metaDesc:
             "An annular disc tear can cause sharp, localized back or neck pain. Our FL, NJ, NY, PA & GA spine specialists offer accurate MRI diagnosis and advanced, non-surgical care.",
     },
@@ -4181,7 +4181,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip preservation surgery",
         ],
         metaTitle:
-            "Hip Dysplasia | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Hip Dysplasia | Mountain Spine",
         metaDesc:
             "Hip dysplasia can cause hip pain and instability. Our FL, NJ, NY, PA & GA hip specialists offer advanced joint preservation surgery like PAO to treat adult hip dysplasia.",
     },
@@ -4223,7 +4223,7 @@ export const conditions: ConditionInfoProp[] = [
             "non-surgical spine care",
         ],
         metaTitle:
-            "Facet Joint Disease | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Facet Joint Disease | Mountain Spine",
         metaDesc:
             "Facet joint disease causes chronic back and neck pain. Our FL, NJ, NY, PA & GA spine specialists offer facet injections and radiofrequency ablation (RFA) for lasting relief.",
     },
@@ -4493,7 +4493,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic specialist",
         ],
         metaTitle:
-            "Arthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Arthritis | Mountain Spine",
         metaDesc:
             "Arthritis causes joint pain, stiffness, and swelling. Our FL, NJ, NY, PA & GA specialists offer comprehensive care for osteoarthritis, RA, and other types of arthritis.",
     },
@@ -4734,7 +4734,7 @@ export const conditions: ConditionInfoProp[] = [
             "back muscle pain",
         ],
         metaTitle:
-            "Lower Back Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Lower Back Pain | Mountain Spine",
         metaDesc:
             "Lower back pain can be debilitating. Our FL, NJ, NY, PA & GA spine specialists diagnose the cause and provide advanced, personalized treatments to restore your mobility.",
     },
@@ -4991,7 +4991,7 @@ export const conditions: ConditionInfoProp[] = [
             "sciatic nerve relief",
         ],
         metaTitle:
-            "Sciatica | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Sciatica | Mountain Spine",
         metaDesc:
             "Sciatica causes radiating leg pain from a pinched nerve in the lower back. Our FL, NJ, NY, PA & GA spine specialists offer expert diagnosis and treatment to find relief.",
     },
@@ -5426,7 +5426,7 @@ export const conditions: ConditionInfoProp[] = [
             "coccygectomy",
         ],
         metaTitle:
-            "Coccydynia | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Coccydynia | Mountain Spine",
         metaDesc:
             "Coccydynia, or tailbone pain, makes sitting painful. Our FL, NJ, NY, PA & GA spine specialists offer precise diagnosis and advanced therapies to relieve your discomfort.",
     },
@@ -5464,7 +5464,7 @@ export const conditions: ConditionInfoProp[] = [
             "complex spine specialist",
         ],
         metaTitle:
-            "Failed Back or Failed Neck Surgery Syndrome | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Failed Back or Failed Neck Surgery Syndrome | Mountain Spine",
         metaDesc:
             "Persistent pain after spine surgery? Our FL, NJ, NY, PA & GA specialists diagnose and treat Failed Back Surgery Syndrome with advanced revision surgery and pain management.",
     },
@@ -6021,7 +6021,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical radiculopathy",
         ],
         metaTitle:
-            "Foraminal Stenosis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Foraminal Stenosis | Mountain Spine",
         metaDesc:
             "Foraminal stenosis causes radiating pain from a pinched nerve. Our FL, NJ, NY, PA & GA spine specialists offer advanced, minimally invasive treatments to provide relief.",
     },
@@ -6062,7 +6062,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip impingement surgery",
         ],
         metaTitle:
-            "Hip Impingement (FAI) | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Hip Impingement (FAI) | Mountain Spine",
         metaDesc:
             "Hip impingement (FAI) causes groin pain and stiffness. Our FL, NJ, NY, PA & GA hip specialists offer advanced hip arthroscopy to repair damage and preserve your joint.",
     },
@@ -6102,7 +6102,7 @@ export const conditions: ConditionInfoProp[] = [
             "sports medicine orthopedics",
         ],
         metaTitle:
-            "Loose Bodies | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Loose Bodies | Mountain Spine",
         metaDesc:
             "Loose bodies in a joint cause painful locking and catching. Our FL, NJ, NY, PA & GA specialists use minimally invasive arthroscopy to remove fragments and restore motion.",
     },
@@ -6140,7 +6140,7 @@ export const conditions: ConditionInfoProp[] = [
             "maintaining mobility",
         ],
         metaTitle:
-            "Aging Management | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Aging Management | Mountain Spine",
         metaDesc:
             "Our FL, NJ, NY, PA & GA aging management programs focus on bone density, joint health, and fall prevention to help you stay active, strong, and independent as you age.",
     },
@@ -6178,7 +6178,7 @@ export const conditions: ConditionInfoProp[] = [
             "cervical spine specialist",
         ],
         metaTitle:
-            "Neck Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Neck Pain | Mountain Spine",
         metaDesc:
             "Suffering from neck pain or stiffness? Our FL, NJ, NY, PA & GA spine specialists diagnose the cause and offer advanced non-surgical and surgical treatments for relief.",
     },
@@ -6216,7 +6216,7 @@ export const conditions: ConditionInfoProp[] = [
             "spine surgeon",
         ],
         metaTitle:
-            "Degenerative Disc Disease Surgery | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Degenerative Disc Disease Surgery | Mountain Spine",
         metaDesc:
             "Explore surgery for Degenerative Disc Disease. Our FL, NJ, NY, PA & GA surgeons specialize in spinal fusion and artificial disc replacement for lasting pain relief.",
     },
@@ -6254,7 +6254,7 @@ export const conditions: ConditionInfoProp[] = [
             "arthritic shoulder relief",
         ],
         metaTitle:
-            "Shoulder Arthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Shoulder Arthritis | Mountain Spine",
         metaDesc:
             "Shoulder arthritis causes deep pain and stiffness. Our FL, NJ, NY, PA & GA shoulder specialists offer advanced treatments, including total shoulder replacement surgery.",
     },
@@ -6292,7 +6292,7 @@ export const conditions: ConditionInfoProp[] = [
             "shoulder pain relief",
         ],
         metaTitle:
-            "Shoulder Tendonitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Shoulder Tendonitis | Mountain Spine",
         metaDesc:
             "Shoulder tendonitis from overuse causes pain and limited motion. Our FL, NJ, NY, PA & GA specialists offer PRP injections and other advanced treatments to restore function.",
     },
@@ -6332,7 +6332,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic shoulder specialist",
         ],
         metaTitle:
-            "Shoulder Pain Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Shoulder Pain Treatment | Mountain Spine",
         metaDesc:
             "Expert diagnosis and treatment for shoulder pain. Our FL, NJ, NY, PA & GA shoulder specialists offer advanced care including arthroscopic surgery and shoulder replacement.",
     },
@@ -6371,7 +6371,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic shoulder specialist",
         ],
         metaTitle:
-            "Shoulder Impingement Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Shoulder Impingement Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for shoulder impingement. Our FL, NJ, NY, PA & GA specialists offer arthroscopic decompression to relieve rotator cuff compression and restore shoulder function.",
     },
@@ -6410,7 +6410,7 @@ export const conditions: ConditionInfoProp[] = [
             "shoulder mobility restoration",
         ],
         metaTitle:
-            "Frozen Shoulder Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Frozen Shoulder Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for frozen shoulder (adhesive capsulitis). Our FL, NJ, NY, PA & GA specialists offer arthroscopic capsular release to restore shoulder mobility and relieve pain.",
     },
@@ -6449,7 +6449,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic shoulder specialist",
         ],
         metaTitle:
-            "Shoulder Instability Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Shoulder Instability Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for shoulder instability and recurrent dislocations. Our FL, NJ, NY, PA & GA specialists offer arthroscopic stabilization to restore shoulder stability.",
     },
@@ -6488,7 +6488,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic shoulder specialist",
         ],
         metaTitle:
-            "Biceps Tendonitis (Shoulder) Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Biceps Tendonitis (Shoulder) Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for biceps tendonitis in the shoulder. Our FL, NJ, NY, PA & GA specialists offer advanced care including biceps tenodesis to relieve pain and restore function.",
     },
@@ -6527,7 +6527,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic shoulder specialist",
         ],
         metaTitle:
-            "AC Joint Arthritis Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "AC Joint Arthritis Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for AC joint arthritis. Our FL, NJ, NY, PA & GA specialists offer arthroscopic AC joint resection to relieve pain at the top of the shoulder.",
     },
@@ -6564,7 +6564,7 @@ export const conditions: ConditionInfoProp[] = [
             "shoulder pain relief",
         ],
         metaTitle:
-            "Shoulder Bursitis Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Shoulder Bursitis Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for shoulder bursitis. Our FL, NJ, NY, PA & GA specialists offer advanced care including arthroscopic decompression to relieve pain and restore shoulder function.",
     },
@@ -6601,7 +6601,7 @@ export const conditions: ConditionInfoProp[] = [
             "orthopedic shoulder specialist",
         ],
         metaTitle:
-            "Rotator Cuff Tendonitis Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Rotator Cuff Tendonitis Treatment | Mountain Spine",
         metaDesc:
             "Expert treatment for rotator cuff tendonitis. Our FL, NJ, NY, PA & GA specialists offer advanced care including PRP injections and arthroscopic decompression.",
     },
@@ -6641,7 +6641,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip tendonitis",
         ],
         metaTitle:
-            "Snapping Hip Syndrome | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+            "Snapping Hip Syndrome | Mountain Spine",
         metaDesc:
             "Snapping hip syndrome causes a painful popping in the hip joint. Our FL, NJ, NY, PA & GA specialists offer advanced diagnosis and treatment to restore smooth hip motion.",
     },
@@ -6681,7 +6681,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip pain in adults",
         ],
         metaTitle:
-            "Hip Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Hip Pain | Mountain Spine",
         metaDesc:
             "Hip pain can stem from various causes. Our FL, NJ, NY, PA & GA hip specialists offer comprehensive diagnosis and treatment for all types of hip pain.",
     },
@@ -6719,7 +6719,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip arthritis specialist",
         ],
         metaTitle:
-            "Hip Arthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Hip Arthritis | Mountain Spine",
         metaDesc:
             "Hip arthritis causes pain and stiffness. Our FL, NJ, NY, PA & GA hip specialists offer comprehensive treatment from conservative care to minimally invasive joint replacement.",
     },
@@ -6760,7 +6760,7 @@ export const conditions: ConditionInfoProp[] = [
             "FAI and labral tear",
         ],
         metaTitle:
-            "Hip Labral Tear | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Hip Labral Tear | Mountain Spine",
         metaDesc:
             "Hip labral tears cause deep groin pain and clicking. Our FL, NJ, NY, PA & GA hip specialists offer advanced arthroscopic labral repair to restore hip stability.",
     },
@@ -6801,7 +6801,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip specialist AVN",
         ],
         metaTitle:
-            "Avascular Necrosis (AVN) | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Avascular Necrosis (AVN) | Mountain Spine",
         metaDesc:
             "Avascular necrosis causes hip bone death and joint collapse. Our FL, NJ, NY, PA & GA hip specialists offer early detection and joint-preserving treatment for AVN.",
     },
@@ -6839,7 +6839,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip pain from bursitis",
         ],
         metaTitle:
-            "Hip Bursitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Hip Bursitis | Mountain Spine",
         metaDesc:
             "Hip bursitis causes outer hip pain. Our FL, NJ, NY, PA & GA specialists offer comprehensive treatment from conservative care to minimally invasive procedures.",
     },
@@ -6879,7 +6879,7 @@ export const conditions: ConditionInfoProp[] = [
             "hip fracture specialist",
         ],
         metaTitle:
-            "Hip Fracture | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+            "Hip Fracture | Mountain Spine",
         metaDesc:
             "Hip fractures require urgent surgical treatment. Our FL, NJ, NY, PA & GA hip specialists offer advanced, minimally invasive surgery to restore function and relieve pain.",
     },
@@ -6914,7 +6914,7 @@ export const conditions: ConditionInfoProp[] = [
             "nerve compression",
             "facet joint arthritis",
         ],
-        metaTitle: "Spinal Bone Spurs | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Spinal Bone Spurs | Mountain Spine",
         metaDesc: "Spinal bone spurs (osteophytes) can cause pain by pinching nerves. Our FL, NJ, NY, PA & GA spine specialists offer advanced non-surgical and surgical treatment options.",
     },
     {
@@ -6943,7 +6943,7 @@ export const conditions: ConditionInfoProp[] = [
             "spinal decompression",
             "stenosis pain relief",
         ],
-        metaTitle: "Spinal Stenosis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Spinal Stenosis | Mountain Spine",
         metaDesc: "Spinal stenosis causes pain and numbness from nerve compression. Our FL, NJ, NY, PA & GA spine specialists offer advanced, minimally invasive surgery to provide lasting relief.",
     },
     {
@@ -7003,7 +7003,7 @@ export const conditions: ConditionInfoProp[] = [
             "joint aspiration",
             "orthopedic pain management",
         ],
-        metaTitle: "Synovitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Synovitis | Mountain Spine",
         metaDesc: "Synovitis is joint inflammation causing pain and swelling. Our FL, NJ, NY, PA & GA specialists diagnose the cause and offer advanced care to reduce inflammation and pain.",
     },
     {
@@ -7032,7 +7032,7 @@ export const conditions: ConditionInfoProp[] = [
             "nerve compression",
             "EMG test",
         ],
-        metaTitle: "Tingling or Numbness in Extremities | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Tingling or Numbness in Extremities | Mountain Spine",
         metaDesc: "Tingling or numbness can signal nerve compression. Our FL, NJ, NY, PA & GA specialists offer advanced diagnostics like EMG to find the cause and provide effective treatment.",
     },
     {
@@ -7061,7 +7061,7 @@ export const conditions: ConditionInfoProp[] = [
             "microdiscectomy surgery",
             "non-surgical spine care",
         ],
-        metaTitle: "Herniated Disc | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Herniated Disc | Mountain Spine",
         metaDesc: "A herniated disc causes back or neck pain and radiating symptoms. Our FL, NJ, NY, PA & GA spine specialists offer advanced, minimally invasive treatments for lasting relief.",
     },
     {
@@ -7091,7 +7091,7 @@ export const conditions: ConditionInfoProp[] = [
             "biologic agents for RA",
             "arthritis specialist",
         ],
-        metaTitle: "Rheumatoid Arthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Rheumatoid Arthritis | Mountain Spine",
         metaDesc: "Rheumatoid Arthritis causes joint pain, swelling, and damage. Our FL, NJ, NY, PA & GA specialists offer advanced diagnosis and treatment to manage RA and preserve joints.",
     },
     {
@@ -7120,7 +7120,7 @@ export const conditions: ConditionInfoProp[] = [
             "overuse injury",
             "orthopedic hand specialist",
         ],
-        metaTitle: "Tennis Elbow | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Tennis Elbow | Mountain Spine",
         metaDesc: "Tennis elbow causes outer elbow pain from overuse. Our FL, NJ, NY, PA & GA specialists offer advanced non-surgical treatments, including PRP injections, to restore function.",
     },
     {
@@ -7353,7 +7353,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "ESWT for plantar fasciitis",
         ],
-        metaTitle: "Plantar Fasciitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Plantar Fasciitis | Mountain Spine",
         metaDesc: "Plantar fasciitis causes stabbing heel pain. Our FL, NJ, NY, PA & GA foot and ankle specialists offer advanced, effective treatments to relieve pain and restore mobility.",
     },
     {
@@ -7383,7 +7383,7 @@ export const conditions: ConditionInfoProp[] = [
             "joint swelling and pain",
             "corticosteroid injection",
         ],
-        metaTitle: "Bursitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Bursitis | Mountain Spine",
         metaDesc: "Bursitis causes localized joint pain and swelling. Our FL, NJ, NY, PA & GA specialists offer expert diagnosis and advanced, image-guided injections for effective relief.",
     },
     {
@@ -7605,7 +7605,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle surgeon",
             "minimally invasive bunion surgery",
         ],
-        metaTitle: "Bunions (Hallux Valgus) | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Bunions (Hallux Valgus) | Mountain Spine",
         metaDesc: "Bunions cause a painful bony bump on the big toe. Our FL, NJ, NY, PA & GA foot surgeons offer advanced, minimally invasive bunion surgery to correct the deformity.",
     },
     {
@@ -7874,7 +7874,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "running injury",
         ],
-        metaTitle: "Achilles Tendonitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Achilles Tendonitis | Mountain Spine",
         metaDesc: "Achilles tendonitis causes heel and ankle pain from overuse. Our FL, NJ, NY, PA & GA specialists offer advanced treatments like PRP and ESWT to restore tendon health.",
     },
     {
@@ -8108,7 +8108,7 @@ export const conditions: ConditionInfoProp[] = [
             "overpronation",
             "foot and ankle specialist",
         ],
-        metaTitle: "Flat Feet | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Flat Feet | Mountain Spine",
         metaDesc: "Painful flat feet or fallen arches can cause widespread issues. Our FL, NJ, NY, PA & GA foot specialists offer custom orthotics and advanced surgery to restore alignment.",
     },
     {
@@ -8336,7 +8336,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle surgeon",
             "ankle pain relief",
         ],
-        metaTitle: "Ankle Arthroscopy | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Ankle Arthroscopy | Mountain Spine",
         metaDesc: "Ankle arthroscopy treats joint pain and instability. Our FL, NJ, NY, PA & GA surgeons perform this minimally invasive procedure for faster recovery and lasting relief.",
     },
     {
@@ -8559,7 +8559,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "toe pain relief",
         ],
-        metaTitle: "Hammertoes | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Hammertoes | Mountain Spine",
         metaDesc: "Hammertoes are painful, bent toes caused by muscle imbalance or poor footwear. Our FL, NJ, NY, PA & GA foot specialists offer advanced surgical correction for relief.",
     },
     {
@@ -8777,7 +8777,7 @@ export const conditions: ConditionInfoProp[] = [
             "diabetic foot care",
             "foot and ankle specialist",
         ],
-        metaTitle: "Diabetic Foot Ulcers | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Diabetic Foot Ulcers | Mountain Spine",
         metaDesc: "Diabetic foot ulcers require urgent care. Our FL, NJ, NY, PA & GA wound care specialists offer advanced treatments to heal ulcers and prevent serious complications.",
     },
     {
@@ -8999,7 +8999,7 @@ export const conditions: ConditionInfoProp[] = [
             "post-traumatic ankle arthritis",
             "rheumatoid arthritis ankle",
         ],
-        metaTitle: "Ankle Replacement | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA’s Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Ankle Replacement | Mountain Spine",
         metaDesc: "Total ankle replacement relieves arthritis pain and restores motion. Our FL, NJ, NY, PA & GA foot surgeons specialize in this advanced procedure for lasting mobility.",
     },
     // ✅ sports-injury-treatment has been MOVED to treatments.tsx
@@ -9029,7 +9029,7 @@ export const conditions: ConditionInfoProp[] = [
             "running pain diagnosis",
             "sports medicine FL, NJ, NY, PA & GA",
         ],
-        metaTitle: "Running Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Running Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for running injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help runners overcome pain and return to training with personalized care plans.",
         forum: [
             {
@@ -9251,7 +9251,7 @@ export const conditions: ConditionInfoProp[] = [
             "athletic injury evaluation",
             "sports medicine FL, NJ, NY, PA & GA",
         ],
-        metaTitle: "Golf Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Golf Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for golf-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help golfers overcome pain and improve performance.",
         forum: [
             {
@@ -9472,7 +9472,7 @@ export const conditions: ConditionInfoProp[] = [
             "athletic injury evaluation",
             "sports medicine FL, NJ, NY, PA & GA",
         ],
-        metaTitle: "Tennis Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Tennis Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for tennis-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help tennis players overcome pain and return to the court.",
         forum: [
             {
@@ -9686,7 +9686,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing persistent pickleball-related pain or an injury affecting your play, professional evaluation can identify the cause and guide appropriate treatment.</p><p>Seek evaluation if you experience:</p><ul><li>Elbow or wrist pain that affects your grip or paddle control</li><li>Shoulder pain during overhead shots that doesn't improve with rest</li><li>Knee or ankle pain from lateral movements on the court</li><li>Symptoms that persist between play sessions</li></ul><p>Our sports medicine specialists understand the specific demands of pickleball and develop treatment plans that support your return to the court.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "pickleball-injuries",
         keywords: ["pickleball injuries", "pickleball shoulder pain", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation"],
-        metaTitle: "Pickleball Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Pickleball Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for pickleball-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help players overcome pain and return to the court.",
         forum: [
             {
@@ -9900,7 +9900,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing swimming-related pain or injury, early evaluation and proper treatment are essential for optimal recovery and safe return to swimming.</p><p>Seek evaluation if you experience:</p><ul><li>Shoulder pain that affects your stroke mechanics</li><li>Pain that persists between training sessions</li><li>Neck or back pain that worsens with swimming</li><li>Knee pain from breaststroke that doesn't improve with rest</li></ul><p>Our sports medicine specialists provide comprehensive evaluations, stroke analysis when appropriate, and personalized treatment plans tailored to your injury and swimming goals.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "swimming-injuries",
         keywords: ["swimming injuries", "swimmer's shoulder", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation"],
-        metaTitle: "Swimming Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Swimming Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for swimming-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help swimmers overcome pain and improve performance.",
         forum: [
             {
@@ -10114,7 +10114,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing cycling-related pain or injury, early evaluation and proper treatment are essential for optimal recovery and safe return to cycling.</p><p>Seek evaluation if you experience:</p><ul><li>Knee pain that affects your pedaling or doesn't improve with rest</li><li>Lower back pain that worsens on longer rides</li><li>Hand numbness that persists after rides</li><li>Neck or shoulder pain that limits your riding</li></ul><p>Our sports medicine specialists provide comprehensive evaluations, bike fit recommendations when appropriate, and personalized treatment plans tailored to your injury and cycling goals.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "cycling-injuries",
         keywords: ["cycling injuries", "bike fit issues", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation"],
-        metaTitle: "Cycling Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Cycling Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for cycling-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help cyclists overcome pain and improve performance.",
         forum: [
             {
@@ -10328,7 +10328,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing CrossFit-related pain or injury, early evaluation and proper treatment are essential for optimal recovery and safe return to training.</p><p>Seek evaluation if you experience:</p><ul><li>Shoulder pain during overhead movements that limits your training</li><li>Lower back pain during deadlifts, squats, or Olympic lifts</li><li>Knee pain that affects your squatting or jumping</li><li>Wrist pain that persists despite rest</li></ul><p>Our sports medicine specialists provide comprehensive evaluations, movement analysis when appropriate, and personalized treatment plans tailored to your injury and CrossFit goals.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "crossfit-injuries",
         keywords: ["crossfit injuries", "high intensity training injuries", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation"],
-        metaTitle: "CrossFit Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "CrossFit Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for CrossFit-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help athletes overcome pain and train safely.",
         forum: [
             {
@@ -10542,7 +10542,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing weightlifting-related pain or injury, early evaluation and proper treatment are essential for optimal recovery and safe return to lifting.</p><p>Seek evaluation if you experience:</p><ul><li>Lower back pain during deadlifts, squats, or rows</li><li>Shoulder pain that affects your pressing or pulling movements</li><li>Knee pain during squats or leg exercises</li><li>Pain that limits your weight capacity or requires form modifications</li></ul><p>Our sports medicine specialists provide comprehensive evaluations, movement analysis when appropriate, and personalized treatment plans tailored to your injury and lifting goals.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "weightlifting-injuries",
         keywords: ["weightlifting injuries", "lifting injuries", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation"],
-        metaTitle: "Weightlifting Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Weightlifting Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for weightlifting-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help lifters overcome pain and train safely.",
         forum: [
             {
@@ -10588,7 +10588,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing persistent yoga-related pain or an injury that's affecting your practice, professional evaluation can help identify the cause and guide appropriate treatment.</p><p>Seek evaluation if you experience:</p><ul><li>Hip pain or catching during external rotation poses (pigeon, lotus)</li><li>Lower back pain during forward folds or backbends</li><li>Wrist pain during weight-bearing poses that persists</li><li>Shoulder discomfort during chaturangas or arm balances</li></ul><p>Our sports medicine specialists understand yoga-specific demands and develop treatment plans that support your practice goals.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "yoga-injuries",
         keywords: ["yoga injuries", "yoga pain", "yoga hip pain", "yoga shoulder injury", "yoga wrist pain", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation", "yoga lower back pain"],
-        metaTitle: "Yoga Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Yoga Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for yoga-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help practitioners overcome pain and practice safely.",
         forum: [
             {
@@ -10802,7 +10802,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing persistent surfing-related pain or an injury that's keeping you out of the water, professional evaluation can identify the cause and guide appropriate treatment.</p><p>Seek evaluation if you experience:</p><ul><li>Shoulder pain during paddling that affects your performance</li><li>Lower back pain that persists after sessions</li><li>Knee or ankle pain from pop-ups or maneuvers</li><li>Deep lacerations from fins or reef</li></ul><p>Our sports medicine specialists understand surfing-specific demands and develop treatment plans that support your goals.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "surfing-injuries",
         keywords: ["surfing injuries", "surfer's shoulder", "surfing shoulder pain", "surfing back pain", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation", "surfing knee injury"],
-        metaTitle: "Surfing Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Surfing Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for surfing-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help surfers overcome pain and return to the waves.",
         forum: [
             {
@@ -11016,7 +11016,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you've experienced a water sports injury or have persistent pain affecting your activity, professional evaluation can identify the cause and guide appropriate treatment.</p><p>Seek evaluation if you experience:</p><ul><li>Knee pain or instability after landing impacts</li><li>Shoulder pain when holding the tow rope or paddling</li><li>Lower back pain that affects your activity</li><li>Acute injuries with swelling, instability, or inability to bear weight</li></ul><p>Our sports medicine specialists understand the demands of water sports and develop treatment plans that support your return to the water.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "water-sports-injuries",
         keywords: ["water sports injuries", "water skiing injuries", "wakeboarding injuries", "kayaking injuries", "paddleboarding injuries", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation", "ACL tear water skiing"],
-        metaTitle: "Water Sports Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Water Sports Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for water sports-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help athletes overcome pain and stay active.",
         forum: [
             {
@@ -11230,7 +11230,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing throwing-related pain or have noticed changes in your velocity or control, early evaluation can identify the problem before it progresses.</p><p>Seek evaluation if you experience:</p><ul><li>Pain on the inside of the elbow during throwing</li><li>Shoulder pain during the cocking or acceleration phase</li><li>Loss of throwing velocity or control</li><li>Dead arm sensation or persistent stiffness</li></ul><p>Our sports medicine specialists understand throwing biomechanics and develop treatment plans that support your return to competition.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "throwing-injuries",
         keywords: ["throwing injuries", "shoulder pain throwing", "elbow pain pitching", "UCL injury", "Tommy John injury", "baseball shoulder injury", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation", "SLAP tear throwing"],
-        metaTitle: "Throwing Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Throwing Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for throwing-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help throwing athletes overcome pain and improve performance.",
         forum: [
             {
@@ -11444,7 +11444,7 @@ export const conditions: ConditionInfoProp[] = [
         schedule: "<p>If you're experiencing persistent beach volleyball-related pain or an injury affecting your play, professional evaluation can identify the cause and guide appropriate treatment.</p><p>Seek evaluation if you experience:</p><ul><li>Knee pain below the kneecap with jumping and landing</li><li>Shoulder pain during spiking or serving</li><li>Ankle instability or recurrent sprains</li><li>Lower back pain affecting your play</li></ul><p>Our sports medicine specialists understand the specific demands of beach volleyball and develop treatment plans that support your return to competition.</p><p>To get started on your path to recovery, <a href=\"/find-care/book-an-appointment\" class=\"text-blue-600 hover:underline\">book an appointment</a> with Mountain Spine & Orthopedics today. Same-day and next-day appointments are available.</p>",
         slug: "beach-volleyball-injuries",
         keywords: ["beach volleyball injuries", "volleyball shoulder pain", "jumper's knee volleyball", "patellar tendinopathy", "volleyball ankle sprain", "FL, NJ, NY, PA & GA sports medicine", "athletic injury evaluation"],
-        metaTitle: "Beach Volleyball Injuries | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+        metaTitle: "Beach Volleyball Injuries | Mountain Spine",
         metaDesc: "Expert evaluation and treatment for beach volleyball-related injuries. Our FL, NJ, NY, PA & GA sports medicine specialists help players overcome pain and return to the court.",
         forum: [
             {
@@ -11669,7 +11669,7 @@ export const conditions: ConditionInfoProp[] = [
             "finger tendon problems",
             "trigger finger injection",
         ],
-        metaTitle: "Trigger Finger | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Hand Specialists",
+        metaTitle: "Trigger Finger | Mountain Spine",
         metaDesc: "Trigger finger causes painful clicking and locking of the finger. Our FL, NJ, NY, PA & GA hand specialists offer injections and minimally invasive release surgery for relief.",
     },
     {
@@ -11700,7 +11700,7 @@ export const conditions: ConditionInfoProp[] = [
             "hand numbness treatment",
             "nerve conduction study elbow",
         ],
-        metaTitle: "Cubital Tunnel Syndrome | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Nerve Specialists",
+        metaTitle: "Cubital Tunnel Syndrome | Mountain Spine",
         metaDesc: "Cubital tunnel syndrome causes numbness in the ring and small fingers from ulnar nerve compression. Our FL, NJ, NY, PA & GA specialists offer diagnosis and treatment options.",
     },
     {
@@ -11731,7 +11731,7 @@ export const conditions: ConditionInfoProp[] = [
             "overuse elbow injury",
             "medial epicondyle pain",
         ],
-        metaTitle: "Golfer's Elbow | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Elbow Pain Specialists",
+        metaTitle: "Golfer's Elbow | Mountain Spine",
         metaDesc: "Golfer's elbow causes inner elbow pain from overuse. Our FL, NJ, NY, PA & GA specialists offer PRP injections, therapy, and minimally invasive surgery for lasting relief.",
     },
     {
@@ -11762,7 +11762,7 @@ export const conditions: ConditionInfoProp[] = [
             "chronic wrist pain",
             "wrist pain causes",
         ],
-        metaTitle: "Wrist Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Wrist Specialists",
+        metaTitle: "Wrist Pain | Mountain Spine",
         metaDesc: "Wrist pain can result from injuries, tendinitis, or arthritis. Our FL, NJ, NY, PA & GA hand specialists offer accurate diagnosis and advanced treatment options for relief.",
     },
     {
@@ -11793,7 +11793,7 @@ export const conditions: ConditionInfoProp[] = [
             "hand stiffness",
             "finger pain causes",
         ],
-        metaTitle: "Hand Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Hand Pain Specialists",
+        metaTitle: "Hand Pain | Mountain Spine",
         metaDesc: "Hand pain can result from arthritis, injuries, or nerve conditions. Our FL, NJ, NY, PA & GA hand specialists provide accurate diagnosis and comprehensive treatment options.",
     },
     {
@@ -11824,7 +11824,7 @@ export const conditions: ConditionInfoProp[] = [
             "elbow stiffness",
             "elbow pain causes",
         ],
-        metaTitle: "Elbow Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Elbow Specialists",
+        metaTitle: "Elbow Pain | Mountain Spine",
         metaDesc: "Elbow pain can result from overuse injuries, arthritis, or nerve compression. Our FL, NJ, NY, PA & GA specialists offer diagnosis and advanced treatment for lasting relief.",
     },
     {
@@ -11855,7 +11855,7 @@ export const conditions: ConditionInfoProp[] = [
             "hand specialist FL, NJ, NY, PA & GA",
             "Viking disease",
         ],
-        metaTitle: "Dupuytren's Contracture | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Hand Specialists",
+        metaTitle: "Dupuytren's Contracture | Mountain Spine",
         metaDesc: "Dupuytren's contracture causes fingers to bend toward the palm. Our FL, NJ, NY, PA & GA hand specialists offer injections, needle procedures, and surgery to restore hand function.",
     },
     {
@@ -11886,7 +11886,7 @@ export const conditions: ConditionInfoProp[] = [
             "hand specialist FL, NJ, NY, PA & GA",
             "thumb tendon inflammation",
         ],
-        metaTitle: "De Quervain's Tenosynovitis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Hand Specialists",
+        metaTitle: "De Quervain's Tenosynovitis | Mountain Spine",
         metaDesc: "De Quervain's tenosynovitis causes thumb and wrist pain from tendon inflammation. Our FL, NJ, NY, PA & GA specialists offer injections and surgery for effective relief.",
     },
     {
@@ -11917,7 +11917,7 @@ export const conditions: ConditionInfoProp[] = [
             "hand specialist FL, NJ, NY, PA & GA",
             "ulnar sided wrist pain",
         ],
-        metaTitle: "TFCC Tear | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Wrist Specialists",
+        metaTitle: "TFCC Tear | Mountain Spine",
         metaDesc: "TFCC tears cause pain on the pinky side of the wrist with gripping and rotation. Our FL, NJ, NY, PA & GA specialists offer diagnosis, injections, and wrist arthroscopy for relief.",
     },
     // ========== FOOT & ANKLE CONDITIONS ==========
@@ -11949,7 +11949,7 @@ export const conditions: ConditionInfoProp[] = [
             "forefoot pain treatment",
             "toe numbness",
         ],
-        metaTitle: "Morton's Neuroma | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Foot Specialists",
+        metaTitle: "Morton's Neuroma | Mountain Spine",
         metaDesc: "Morton's neuroma causes burning pain in the ball of the foot. Our FL, NJ, NY, PA & GA specialists offer ultrasound-guided injections and minimally invasive surgery for relief.",
     },
     {
@@ -11980,7 +11980,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "ankle pain relief",
         ],
-        metaTitle: "Ankle Arthritis | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Ankle Specialists",
+        metaTitle: "Ankle Arthritis | Mountain Spine",
         metaDesc: "Ankle arthritis causes chronic pain and stiffness. Our FL, NJ, NY, PA & GA specialists offer injections, arthroscopy, and ankle replacement for effective pain relief.",
     },
     {
@@ -12011,7 +12011,7 @@ export const conditions: ConditionInfoProp[] = [
             "heel pain relief",
             "calcaneal pain",
         ],
-        metaTitle: "Heel Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Foot Specialists",
+        metaTitle: "Heel Pain | Mountain Spine",
         metaDesc: "Heel pain can have many causes including plantar fasciitis and heel spurs. Our FL, NJ, NY, PA & GA specialists provide accurate diagnosis and effective treatment for relief.",
     },
     {
@@ -12042,7 +12042,7 @@ export const conditions: ConditionInfoProp[] = [
             "ankle arthritis",
             "ankle instability",
         ],
-        metaTitle: "Ankle Pain | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Ankle Specialists",
+        metaTitle: "Ankle Pain | Mountain Spine",
         metaDesc: "Ankle pain can result from sprains, arthritis, or tendonitis. Our FL, NJ, NY, PA & GA specialists provide expert diagnosis and treatment for lasting relief.",
     },
     {
@@ -12073,7 +12073,7 @@ export const conditions: ConditionInfoProp[] = [
             "foot and ankle specialist",
             "ankle stabilization surgery",
         ],
-        metaTitle: "Chronic Ankle Instability | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA Specialists",
+        metaTitle: "Chronic Ankle Instability | Mountain Spine",
         metaDesc: "Chronic ankle instability causes repeated sprains and ankle giving way. Our FL, NJ, NY, PA & GA specialists offer expert evaluation and ligament repair surgery.",
     },
     {
@@ -12111,7 +12111,7 @@ export const conditions: ConditionInfoProp[] = [
             "pain management clinic FL, NJ, NY, PA & GA",
             "comprehensive pain care",
         ],
-        metaTitle: "Chronic Pain Management | FL, NJ, NY, PA & GA Pain Specialists | Mountain Spine & Orthopedics",
+        metaTitle: "Chronic Pain Management | FL, NJ, NY, PA & GA Pain Specialists | Mountain Spine",
         metaDesc: "Chronic pain management combining non-surgical treatments, image-guided injections, radiofrequency ablation, and surgical options. Comprehensive pain care in FL, NJ, NY, PA & GA.",
     },
     {
@@ -12187,7 +12187,7 @@ export const conditions: ConditionInfoProp[] = [
             "pinched nerve FL, NJ, NY, PA & GA",
             "sciatica radiculopathy",
         ],
-        metaTitle: "Radiculopathy (Pinched Nerve) Treatment | Cervical & Lumbar Radiculopathy FL, NJ, NY, PA & GA",
+        metaTitle: "Radiculopathy (Pinched Nerve): Cervical & Lumbar Treatment | Mountain Spine",
         metaDesc: "Radiculopathy (pinched spinal nerve) causes radiating arm or leg pain. Our FL, NJ, NY, PA & GA specialists offer epidural injections and minimally invasive nerve decompression surgery.",
     },
     {

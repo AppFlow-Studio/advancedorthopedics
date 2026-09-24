@@ -39,10 +39,11 @@ export function safeTitle(primary?: string, fallback?: string): string {
   const text = normalizeUTF8(primary || fallback || "Mountain Spine & Orthopedics");
   const cleaned = removeHTML(text).trim();
   
-  // Ensure title ends with "Mountain Spine Orthopedics" or variant if not already included
+  // Ensure the title carries the brand. "Mountain Spine Orthopedics" (no
+  // ampersand) is not the entity name — it is "Mountain Spine & Orthopedics" —
+  // and titles across the site use the shortened "| Mountain Spine".
   if (!cleaned.includes("Mountain Spine")) {
-    // If title doesn't include brand, add it
-    return `${cleaned} | Mountain Spine Orthopedics`;
+    return `${cleaned} | Mountain Spine`;
   }
   
   return cleaned;

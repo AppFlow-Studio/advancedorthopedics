@@ -9,7 +9,7 @@ import { treatmentFAQs } from "@/components/data/treatmentFAQs";
 import { generateFAQPageSchema } from "@/lib/faq-utils";
 import { buildCanonical, safeTitle, safeDescription, normalizeUTF8 } from "@/lib/seo";
 import { getOgImageForPath } from "@/lib/og";
-import { getTreatmentMetadata, generateTreatmentMetadataFallback } from "@/lib/metadata-seo";
+import { resolveTreatmentMetadata } from "@/lib/metadata-seo";
 import { getVisibleProviderBySlug } from "@/lib/providers/providerVisibility";
 
 // Helper function to safely get the image source URL as a string
@@ -74,7 +74,14 @@ export async function generateMetadata(
 
   // Get SEO-optimized metadata from centralized helper
   const treatmentTitle = isNewFormat && treatmentContent ? treatmentContent.title : (treatment?.title ?? '');
-  const seoMetadata = getTreatmentMetadata(slug) || generateTreatmentMetadataFallback(treatmentTitle);
+  // Curated map → the record's own metaTitle/metaDescription → generic formula.
+  // Without the middle step a treatment missing from the map lost its curated
+  // title entirely; see resolveTreatmentMetadata in lib/metadata-seo.ts.
+  const seoMetadata = resolveTreatmentMetadata(
+    slug,
+    (isNewFormat ? treatmentContent : treatment) ?? null,
+    treatmentTitle
+  );
   
   // Use SEO metadata with normalization
   const title = normalizeUTF8(seoMetadata.metaTitle);

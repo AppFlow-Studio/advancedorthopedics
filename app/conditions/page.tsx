@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
-import { buildCanonical, canonicalForOg } from '@/lib/seo';
+import { buildCanonical, canonicalForOg, srOnly } from '@/lib/seo';
 import { getOgImageForPath } from '@/lib/og';
 import ConditionsHubClient from '@/components/ConditionsHubClient';
 import ContentHubIndex, { REDIRECTED_CONDITION_SLUGS } from '@/components/ContentHubIndex';
@@ -48,6 +48,14 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ConditionsPage() {
   return (
     <>
+      {/* Server-rendered H1. The visible hero heading lives inside
+          ConditionsHubClient, which calls useSearchParams() and therefore bails
+          out of prerendering entirely — so the hub shipped with no H1 in its
+          initial HTML at all. The animated hero keeps the exact same styling but
+          is no longer the heading element; this carries the same text and is
+          exposed to assistive tech, matching the srOnly h2 pattern already used
+          in the app/injuries layouts. */}
+      <h1 className={srOnly}>Orthopedic Conditions & Treatments</h1>
       <Suspense fallback={
       <main className="w-full flex flex-col items-center justify-center bg-white h-screen">
         <div className="animate-pulse flex flex-col items-center">

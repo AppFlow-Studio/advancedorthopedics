@@ -1592,7 +1592,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "posterior-cervical-fusion-with-instrumentation-surgery",
     slug: "posterior-cervical-fusion-with-instrumentation-surgery",
-    metaTitle: "Posterior Cervical Fusion with Instrumentation | Neck Stabilization FL",
+    metaTitle: "Posterior Cervical Fusion with Instrumentation | Neck Stabilization",
     metaDescription: "Stabilize the cervical spine with posterior fusion and instrumentation. Our FL, NJ, NY, PA & GA surgeons treat fractures and severe instability to relieve neck pain.",
     keywords: [
       "Posterior cervical fusion instrumentation",
@@ -2532,7 +2532,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "lumbar-microendoscopic-discectomy-surgery",
     slug: "lumbar-microendoscopic-discectomy-surgery",
-    metaTitle: "Microendoscopic Discectomy (MED) | Minimally Invasive Spine FL",
+    metaTitle: "Microendoscopic Discectomy (MED) | Minimally Invasive Spine",
     metaDescription: "Treat herniated discs with Microendoscopic Discectomy (MED). Our FL, NJ, NY, PA & GA surgeons use advanced endoscopic techniques for ultra-minimally invasive relief.",
     keywords: [
       "Lumbar microendoscopic discectomy",
@@ -2664,7 +2664,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "degenerative-disc-disease-surgery",
     slug: "degenerative-disc-disease-surgery",
-    metaTitle: "Degenerative Disc Disease Surgery | Fusion & Replacement FL",
+    metaTitle: "Degenerative Disc Disease Surgery | Fusion & Replacement",
     metaDescription: "Degenerative disc disease surgery may involve decompression, fusion, or disc replacement when imaging, symptoms, and failed conservative care support surgery.",
     keywords: [
       "Degenerative disc disease surgery",
@@ -2729,7 +2729,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "percutaneous-discectomy",
     slug: "percutaneous-discectomy",
-    metaTitle: "Percutaneous Discectomy | Minimally Invasive Disc Relief FL",
+    metaTitle: "Percutaneous Discectomy | Minimally Invasive Disc Relief",
     metaDescription: "Treat herniated discs with Percutaneous Discectomy. A needle-based, outpatient procedure in FL, NJ, NY, PA & GA to relieve sciatica without major surgery.",
     keywords: [
       "Percutaneous discectomy",
@@ -2794,7 +2794,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "resurfacing-shoulder-replacement",
     slug: "resurfacing-shoulder-replacement",
-    metaTitle: "Resurfacing Shoulder Replacement | Bone-Sparing Surgery FL",
+    metaTitle: "Resurfacing Shoulder Replacement | Bone-Sparing Surgery",
     metaDescription: "Preserve your shoulder bone with Resurfacing Shoulder Replacement. Our FL, NJ, NY, PA & GA experts treat arthritis in active patients with this conservative implant option.",
     keywords: [
       "Resurfacing shoulder replacement",
@@ -2940,7 +2940,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "hip-labral-repair",
     slug: "hip-labral-repair",
-    metaTitle: "Hip Labral Repair Surgery | Arthroscopic Labrum Reconstruction FL",
+    metaTitle: "Hip Labral Repair Surgery | Arthroscopic Labrum Reconstruction",
     metaDescription: "Repair or reconstruct torn hip labrum with minimally invasive arthroscopic surgery. Our FL, NJ, NY, PA & GA hip specialists restore hip stability and function.",
     keywords: [
       "hip labral repair",
@@ -3011,7 +3011,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "hip-resurfacing",
     slug: "hip-resurfacing",
-    metaTitle: "Hip Resurfacing Surgery | Metal-on-Metal Hip Preservation FL",
+    metaTitle: "Hip Resurfacing Surgery | Metal-on-Metal Hip Preservation",
     metaDescription: "Hip resurfacing preserves more bone than total replacement. Our FL, NJ, NY, PA & GA hip specialists offer this joint-preserving option for active patients.",
     keywords: [
       "hip resurfacing",
@@ -3081,7 +3081,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "hip-fracture-surgery",
     slug: "hip-fracture-surgery",
-    metaTitle: "Hip Fracture Surgery | Urgent Hip Repair & Replacement FL",
+    metaTitle: "Hip Fracture Surgery | Urgent Hip Repair & Replacement",
     metaDescription: "Urgent surgical treatment for hip fractures. Our FL, NJ, NY, PA & GA hip specialists offer advanced fixation and replacement options to restore function quickly.",
     keywords: [
       "hip fracture surgery",
@@ -3151,7 +3151,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "revision-hip-replacement",
     slug: "revision-hip-replacement",
-    metaTitle: "Revision Hip Replacement | Failed Hip Replacement Surgery FL",
+    metaTitle: "Revision Hip Replacement | Failed Hip Replacement Surgery",
     metaDescription: "Revision hip replacement addresses failed or worn hip implants. Our FL, NJ, NY, PA & GA specialists offer advanced revision techniques to restore function.",
     keywords: [
       "revision hip replacement",
@@ -3222,7 +3222,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "hip-impingement-surgery",
     slug: "hip-impingement-surgery",
-    metaTitle: "Hip Impingement Surgery | FAI Correction & Bone Reshaping FL",
+    metaTitle: "Hip Impingement Surgery | FAI Correction & Bone Reshaping",
     metaDescription: "Surgical correction of hip impingement (FAI) through bone reshaping. Our FL, NJ, NY, PA & GA hip specialists preserve your joint and relieve pain.",
     keywords: [
       "hip impingement surgery",
@@ -3294,7 +3294,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "core-decompression",
     slug: "core-decompression",
-    metaTitle: "Core Decompression | Avascular Necrosis Treatment FL",
+    metaTitle: "Core Decompression | Avascular Necrosis Treatment",
     metaDescription: "Core decompression treats early avascular necrosis by relieving pressure and stimulating healing. Our FL, NJ, NY, PA & GA hip specialists preserve your joint.",
     keywords: [
       "core decompression",
@@ -3364,7 +3364,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "hip-bursectomy",
     slug: "hip-bursectomy",
-    metaTitle: "Hip Bursectomy | Chronic Bursitis Surgery FL",
+    metaTitle: "Hip Bursectomy | Chronic Bursitis Surgery",
     metaDescription: "Hip bursectomy removes inflamed bursa for chronic bursitis. Our FL, NJ, NY, PA & GA specialists offer minimally invasive surgery when conservative care fails.",
     keywords: [
       "hip bursectomy",
@@ -3446,7 +3446,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
         body: "<p>\u201cArthroscopy\u201d names the access, not the operation. Several quite different procedures are performed through the same two small portals, and knowing which one you are having matters more than the word itself.</p><p><strong>Meniscal trimming.</strong> The torn portion is removed back to a stable rim, leaving as much meniscus as possible. See <a href=\"/treatments/meniscus-surgery\" class=\"underline text-[#252932] hover:text-[#2358AC]\">meniscus surgery</a> for how this compares with repairing the tear instead.</p><p><strong>Meniscal repair.</strong> The tear is stitched. A different recovery entirely, because tissue now has to heal.</p><p><strong>Removing loose bodies.</strong> Fragments of cartilage or bone floating in the joint, which is among the most clearly beneficial things arthroscopy does.</p><p><strong>Cartilage work.</strong> Ranging from smoothing a frayed surface to procedures intended to restore it. These are not the same operation and the recovery differs substantially.</p><p><strong>Ligament reconstruction.</strong> Performed arthroscopically but a much larger undertaking than any of the above.</p><p>The recovery instructions you are given follow from which of these was done, not from the fact that it was arthroscopic \u2014 which is why two people with the same-sized scars can be given very different restrictions.</p>"
       }
     ],
-    metaTitle: "Arthroscopic Knee Surgery | Meniscus & Cartilage Repair FL",
+    metaTitle: "Arthroscopic Knee Surgery | Meniscus & Cartilage Repair",
     metaDescription: "Diagnose and treat knee pain with Arthroscopic Knee Surgery. Minimally invasive care for meniscus tears, ACL, and cartilage damage in FL, NJ, NY, PA & GA.",
     keywords: [
       "Arthroscopic knee surgery",
@@ -3521,7 +3521,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
         body: "<p>Not every rotator cuff tear can be repaired, and the factors that decide it are visible on imaging before surgery is planned.</p><p><strong>How far the tendon has pulled back.</strong> A torn tendon retracts toward the muscle over time. A recently torn tendon usually still sits near its attachment and can be brought back without undue tension. One that has been torn for years may have retracted well away from the bone, and pulling it back under tension produces a repair that is fighting to stay attached.</p><p><strong>What has happened to the muscle.</strong> This is the finding that most often decides the plan. A muscle whose tendon has been detached for a long time gradually changes character, and a muscle in that state does not regain function even when the tendon is reattached. Where imaging shows advanced change, repair may not be the operation that helps.</p><p><strong>How many tendons are involved.</strong> The cuff is four tendons. A single-tendon tear is a different proposition from one involving several.</p><p><strong>Tissue quality.</strong> Independent of size \u2014 tendon can be robust or thin and friable, and that is partly what the surgeon is assessing during the procedure.</p><p>Where a cuff is not repairable, alternatives exist \u2014 debridement to address pain rather than restore function, tendon transfer, or for the right patient a reverse shoulder replacement, which works by changing the mechanics of the joint so the deltoid does the work the cuff no longer can.</p>"
       }
     ],
-    metaTitle: "Rotator Cuff Repair Surgery | Arthroscopic Shoulder Relief FL",
+    metaTitle: "Rotator Cuff Repair Surgery | Arthroscopic Shoulder Relief",
     metaDescription: "Restore shoulder strength with Rotator Cuff Repair. Our FL, NJ, NY, PA & GA surgeons use arthroscopic techniques to fix torn tendons and relieve shoulder pain.",
     keywords: [
       "Rotator cuff repair surgery",
@@ -3653,7 +3653,7 @@ export const treatmentContentPlaceholders: TreatmentContent[] = [
   {
     id: "disc-replacement-vs-fusion-what-you-need-to-know",
     slug: "disc-replacement-vs-fusion-what-you-need-to-know",
-    metaTitle: "Disc Replacement vs Fusion | Spine Surgery Comparison FL",
+    metaTitle: "Disc Replacement vs Fusion | Spine Surgery Comparison",
     metaDescription: "Deciding between spinal fusion and artificial disc replacement? Learn the differences, benefits, and which option fits your needs from FL, NJ, NY, PA & GA experts.",
     keywords: [
       "Disc replacement vs fusion",
@@ -4784,7 +4784,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "partial-knee-replacement",
     slug: "partial-knee-replacement",
-    metaTitle: "Partial Knee Replacement | Unicompartmental Knee Arthroplasty FL",
+    metaTitle: "Partial Knee Replacement | Unicompartmental Knee Arthroplasty",
     metaDescription: "Partial knee replacement preserves healthy bone and ligaments. Our FL, NJ, NY, PA & GA knee specialists offer this less invasive option for localized arthritis.",
     keywords: [
       "partial knee replacement",
@@ -4867,7 +4867,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
         body: "<p>A fair question, and the honest answer is that it depends entirely on which tear you have.</p><p><strong>Many degenerative tears settle.</strong> Tears that appear gradually without a clear injury are common findings in knees that have no symptoms at all. Where symptoms exist, they often improve with time and activity modification, and a torn meniscus on a scan is not by itself a reason to operate.</p><p><strong>Some tears do not settle, and a few should not be left.</strong> A fragment that displaces into the joint can physically block the knee from straightening. That is a mechanical problem that does not resolve on its own and is one of the clearer indications for surgery.</p><p><strong>The long-term consideration.</strong> The meniscus distributes load across the joint surface. A knee that has lost meniscal tissue — whether to a tear or to surgery removing it — carries load over a smaller area. This is why preserving meniscus is preferred where the tear allows it, and why removal is not treated as a free option.</p><p><strong>What tips the decision toward surgery:</strong> true mechanical symptoms such as locking or catching, a knee that will not fully straighten, and symptoms that have not improved with a genuine period of non-operative management.</p>"
       }
     ],
-    metaTitle: "Meniscus Surgery | Partial Meniscectomy & Meniscal Treatment FL",
+    metaTitle: "Meniscus Surgery | Partial Meniscectomy & Meniscal Treatment",
     metaDescription: "Meniscus surgery removes damaged cartilage when repair isn't possible. Our FL, NJ, NY, PA & GA knee specialists offer minimally invasive arthroscopic meniscectomy.",
     keywords: [
       "meniscus surgery",
@@ -4938,7 +4938,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "knee-ligament-repair",
     slug: "knee-ligament-repair",
-    metaTitle: "Knee Ligament Repair | MCL & LCL Reconstruction FL",
+    metaTitle: "Knee Ligament Repair | MCL & LCL Reconstruction",
     metaDescription: "Knee ligament repair restores stability after MCL, LCL, or other ligament injuries. Our FL, NJ, NY, PA & GA knee specialists offer advanced reconstruction techniques.",
     keywords: [
       "knee ligament repair",
@@ -5009,7 +5009,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "pcl-reconstruction",
     slug: "pcl-reconstruction",
-    metaTitle: "PCL Reconstruction | Posterior Cruciate Ligament Surgery FL",
+    metaTitle: "PCL Reconstruction | Posterior Cruciate Ligament Surgery",
     metaDescription: "PCL reconstruction restores knee stability after posterior cruciate ligament tears. Our FL, NJ, NY, PA & GA sports medicine specialists offer advanced PCL surgery.",
     keywords: [
       "PCL reconstruction",
@@ -5081,7 +5081,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "knee-cartilage-restoration",
     slug: "knee-cartilage-restoration",
-    metaTitle: "Knee Cartilage Restoration | Cartilage Repair & Regeneration FL",
+    metaTitle: "Knee Cartilage Restoration | Cartilage Repair & Regeneration",
     metaDescription: "Knee cartilage restoration repairs damaged knee cartilage using advanced techniques. Our FL, NJ, NY, PA & GA knee specialists preserve your joint and prevent arthritis.",
     keywords: [
       "knee cartilage restoration",
@@ -5153,7 +5153,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "knee-osteotomy",
     slug: "knee-osteotomy",
-    metaTitle: "Knee Osteotomy | Realignment Surgery for Arthritis FL",
+    metaTitle: "Knee Osteotomy | Realignment Surgery for Arthritis",
     metaDescription: "Knee osteotomy realigns the knee to shift weight away from damaged cartilage. Our FL, NJ, NY, PA & GA knee specialists offer this joint-preserving option for younger patients.",
     keywords: [
       "knee osteotomy",
@@ -5223,7 +5223,7 @@ export const treatmentContentBatch2: TreatmentContent[] = [
   {
     id: "revision-knee-replacement",
     slug: "revision-knee-replacement",
-    metaTitle: "Revision Knee Replacement | Failed Knee Replacement Surgery FL",
+    metaTitle: "Revision Knee Replacement | Failed Knee Replacement Surgery",
     metaDescription: "Revision knee replacement treats loose, infected, unstable, fractured, or worn knee implants. Learn workup, surgery planning, recovery, and PPO coverage.",
     keywords: [
       "revision knee replacement",
@@ -6728,7 +6728,7 @@ export const treatmentContentBatch5: TreatmentContent[] = [
   {
     id: "adult-scoliosis-surgery",
     slug: "adult-scoliosis-surgery",
-    metaTitle: "Adult Scoliosis Surgery | Mountain Spine & Orthopedics - FL, NJ, NY, PA & GA Spinal Deformity Correction",
+    metaTitle: "Adult Scoliosis Surgery | Mountain Spine",
     metaDescription: "Adult scoliosis surgery for curves that have progressed past conservative care. Candidacy, approaches, and recovery explained by spine surgeons across FL, NJ, NY, PA & GA.",
     keywords: [
       "adult scoliosis surgery",
@@ -6805,7 +6805,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "sports-injury-treatment",
     slug: "sports-injury-treatment",
-    metaTitle: "Sports Injury Treatment | Mountain Spine & Orthopedics – FL, NJ, NY, PA & GA's Trusted Spine and Joint Pain Specialists",
+    metaTitle: "Sports Injury Treatment | Mountain Spine",
     metaDescription: "Expert sports injury evaluation and treatment for athletes. Our FL, NJ, NY, PA & GA orthopedic specialists provide advanced care for acute and overuse injuries with personalized return-to-sport plans.",
     keywords: [
       "sports injury treatment",
@@ -6910,7 +6910,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "athletic-evaluation",
     slug: "athletic-evaluation",
-    metaTitle: "Athletic Injury Evaluation | Sports Medicine FL, NJ, NY, PA & GA | Mountain Spine & Orthopedics",
+    metaTitle: "Athletic Injury Evaluation | Sports Medicine FL, NJ, NY, PA & GA | Mountain Spine",
     metaDescription: "Comprehensive athletic injury evaluation for athletes of all levels. Our FL, NJ, NY, PA & GA sports medicine specialists provide advanced diagnostic imaging and personalized treatment plans for return to sport.",
     keywords: [
       "athletic injury evaluation",
@@ -7681,7 +7681,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "shoulder-replacement",
     slug: "shoulder-replacement",
-    metaTitle: "Total Shoulder Replacement | Shoulder Arthritis Surgery FL",
+    metaTitle: "Total Shoulder Replacement | Shoulder Arthritis Surgery",
     metaDescription: "Expert total shoulder replacement surgery for advanced shoulder arthritis. Our FL, NJ, NY, PA & GA specialists restore shoulder function and relieve chronic pain with modern implants.",
     keywords: [
       "total shoulder replacement",
@@ -7747,7 +7747,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "reverse-shoulder-replacement",
     slug: "reverse-shoulder-replacement",
-    metaTitle: "Reverse Shoulder Replacement | Rotator Cuff Tear Arthritis FL",
+    metaTitle: "Reverse Shoulder Replacement | Rotator Cuff Tear Arthritis",
     metaDescription: "Expert reverse shoulder replacement for patients with rotator cuff tears and arthritis. Our FL, NJ, NY, PA & GA specialists restore shoulder function when traditional replacement isn't suitable.",
     keywords: [
       "reverse shoulder replacement",
@@ -7814,7 +7814,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "labral-repair-shoulder",
     slug: "labral-repair-shoulder",
-    metaTitle: "Shoulder Labral Repair | SLAP & Bankart Lesion Surgery FL",
+    metaTitle: "Shoulder Labral Repair | SLAP & Bankart Lesion Surgery",
     metaDescription: "Shoulder labral repair treats selected Bankart, SLAP, and posterior labral tears causing instability or mechanical shoulder pain. PPO insurance accepted.",
     keywords: [
       "labral repair shoulder",
@@ -7881,7 +7881,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "biceps-tenodesis",
     slug: "biceps-tenodesis",
-    metaTitle: "Biceps Tenodesis | Biceps Tendon Repair Shoulder FL",
+    metaTitle: "Biceps Tenodesis | Biceps Tendon Repair Shoulder",
     metaDescription: "Biceps tenodesis treats painful long-head biceps tendon problems, SLAP-related biceps pain, and combined shoulder injuries. PPO insurance accepted.",
     keywords: [
       "biceps tenodesis",
@@ -7948,7 +7948,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "shoulder-instability-surgery",
     slug: "shoulder-instability-surgery",
-    metaTitle: "Shoulder Instability Surgery | Bankart Repair & Stabilization FL",
+    metaTitle: "Shoulder Instability Surgery | Bankart Repair & Stabilization",
     metaDescription: "Expert arthroscopic shoulder stabilization for recurrent dislocations. Our FL, NJ, NY, PA & GA specialists restore shoulder stability with minimally invasive Bankart repair.",
     keywords: [
       "shoulder instability surgery",
@@ -8016,7 +8016,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "acromioplasty",
     slug: "acromioplasty",
-    metaTitle: "Acromioplasty | Shoulder Impingement Surgery FL",
+    metaTitle: "Acromioplasty | Shoulder Impingement Surgery",
     metaDescription: "Expert arthroscopic acromioplasty to relieve shoulder impingement. Our FL, NJ, NY, PA & GA specialists remove bone spurs and create space for the rotator cuff tendons.",
     keywords: [
       "acromioplasty",
@@ -8085,7 +8085,7 @@ export const allTreatmentContent: TreatmentContent[] = [
   {
     id: "shoulder-fracture-surgery",
     slug: "shoulder-fracture-surgery",
-    metaTitle: "Shoulder Fracture Surgery | Proximal Humerus Fracture Repair FL",
+    metaTitle: "Shoulder Fracture Surgery | Proximal Humerus Fracture Repair",
     metaDescription: "Expert surgical treatment for shoulder fractures. Our FL, NJ, NY, PA & GA specialists use advanced techniques to repair broken shoulder bones and restore function.",
     keywords: [
       "shoulder fracture surgery",

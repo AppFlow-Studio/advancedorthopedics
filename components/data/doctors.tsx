@@ -113,8 +113,8 @@ export const Doctors: DoctorProp[] = [
             'Clinical instructor for Biomet, Johnson & Johnson, Orthocore, Kyphon, and Clarus',
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Scott Katzman | Expert Spine Surgery & Minimally Invasive Procedures | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Scott Katzman at Mountain Spine Orthopedics performs advanced spine surgery including laser spine surgery, artificial disc replacement, and endoscopic procedures. Expert surgical care in Florida.',
+        metaTitle: 'Dr. Scott Katzman | Spine Surgery & Minimally Invasive Procedures | Mountain Spine',
+        metaDescription: 'Dr. Scott Katzman at Mountain Spine & Orthopedics performs advanced spine surgery including laser spine surgery, artificial disc replacement, and endoscopic procedures. Expert surgical care in Florida.',
         keywords: ["Dr. Scott Katzman", "Mountain Spine Orthopedics", "spine surgery", "laser spine surgery", "artificial disc replacement", "endoscopic spine surgery", "minimally invasive spine surgery", "Florida spine surgeon"],
         ogImage: "/" + (KATZMAN_IMG?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Spine Surgery"],
@@ -143,8 +143,8 @@ export const Doctors: DoctorProp[] = [
             'Undergraduate research in orthopedic surgery at Dartmouth College',
             'Experience treating both upper and lower extremities and spine conditions'],
         // --- SEO Data ---
-        metaTitle: 'Dr. David Cowin | Expert Orthopedic Surgery & Joint Reconstruction | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. David Cowin at Mountain Spine Orthopedics performs advanced orthopedic surgery including spine surgery, joint reconstruction, and endoscopic procedures. Expert surgical care in Florida.',
+        metaTitle: 'Dr. David Cowin | Orthopedic Surgery & Joint Reconstruction | Mountain Spine',
+        metaDescription: 'Dr. David Cowin at Mountain Spine & Orthopedics performs advanced orthopedic surgery including spine surgery, joint reconstruction, and endoscopic procedures. Expert surgical care in Florida.',
         keywords: ["Dr. David Cowin", "Mountain Spine Orthopedics", "orthopedic surgery", "spine surgery", "joint reconstruction surgery", "endoscopic surgery", "TLIF surgery", "Florida orthopedic surgeon"],
         ogImage: "/" + (David?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery"],
@@ -177,8 +177,8 @@ export const Doctors: DoctorProp[] = [
             'Performed hundreds of major spine trauma surgeries at a top trauma center'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Christopher McCarthy | Expert Spine Surgery & Trauma Reconstruction | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Christopher McCarthy at Mountain Spine Orthopedics performs advanced spine surgery including trauma reconstruction, minimally invasive procedures, and complex spinal surgeries. Expert surgical care in Florida.',
+        metaTitle: 'Dr. Christopher McCarthy | Spine Surgery & Trauma Reconstruction | Mountain Spine',
+        metaDescription: 'Dr. Christopher McCarthy at Mountain Spine & Orthopedics performs advanced spine surgery including trauma reconstruction, minimally invasive procedures, and complex spinal surgeries. Expert surgical care in Florida.',
         keywords: ["Dr. Christopher McCarthy", "Mountain Spine Orthopedics", "spine surgery", "trauma spine surgery", "spinal reconstruction surgery", "minimally invasive spine surgery", "Harvard trained surgeon", "Florida spine surgeon"],
         ogImage: "/" + (Christopher?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Emergency Medicine", "Spine Surgery"],
@@ -213,8 +213,8 @@ export const Doctors: DoctorProp[] = [
             'Key contributor to Mountain Spine & Orthopedics advanced medical and therapeutic procedures'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Monica McPhail-Pruitt | Expert Surgical Anesthesia & Pain Management | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Monica McPhail-Pruitt at Mountain Spine Orthopedics provides expert surgical anesthesia and pain management for orthopedic procedures. Advanced perioperative care in Florida.',
+        metaTitle: 'Dr. Monica McPhail-Pruitt | Surgical Anesthesia & Pain Management | Mountain Spine',
+        metaDescription: 'Dr. Monica McPhail-Pruitt at Mountain Spine & Orthopedics provides expert surgical anesthesia and pain management for orthopedic procedures. Advanced perioperative care in Florida.',
         keywords: ["Dr. Monica McPhail-Pruitt", "Mountain Spine Orthopedics", "surgical anesthesia", "orthopedic surgery anesthesia", "pain management", "perioperative care", "surgical pain relief", "Florida anesthesiologist"],
         ogImage: "/" + (Monica?.src || "newlogo4.png"),
         medicalSpecialty: ["Anesthesiology", "Pain Management"],
@@ -248,8 +248,8 @@ export const Doctors: DoctorProp[] = [
             'Currently practicing at Mountain Spine & Orthopedics'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Douglas Slaughter | Expert Reconstructive Spine Surgery & Advanced Procedures | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Douglas Slaughter at Mountain Spine Orthopedics performs advanced reconstructive spine surgery and comprehensive spinal procedures. Expert surgical care in Florida.',
+        metaTitle: 'Dr. Douglas Slaughter | Reconstructive Spine Surgery & Advanced Procedures | Mountain Spine',
+        metaDescription: 'Dr. Douglas Slaughter at Mountain Spine & Orthopedics performs advanced reconstructive spine surgery and comprehensive spinal procedures. Expert surgical care in Florida.',
         keywords: ["Dr. Douglas Slaughter", "Mountain Spine Orthopedics", "reconstructive spine surgery", "spinal reconstruction surgery", "orthopedic spine surgery", "minimally invasive surgery", "top spine surgeon", "Florida spine surgeon"],
         ogImage: "/" + (Douglas?.src || "newlogo4.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Spine Surgery"],
@@ -282,8 +282,8 @@ export const Doctors: DoctorProp[] = [
             'Completed Pennsylvania Intensive Lower Extremity Fellowship'
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Clay Shumway | Expert Foot & Ankle Surgery & Advanced Procedures | Mountain Spine Orthopedics | Florida',
-        metaDescription: 'Dr. Clay Shumway at Mountain Spine Orthopedics performs advanced foot and ankle surgery including total ankle replacement, 3D bunion correction, and arthroscopic procedures. Expert surgical care in Florida.',
+        metaTitle: 'Dr. Clay Shumway | Foot & Ankle Surgery & Advanced Procedures | Mountain Spine',
+        metaDescription: 'Dr. Clay Shumway at Mountain Spine & Orthopedics performs advanced foot and ankle surgery including total ankle replacement, 3D bunion correction, and arthroscopic procedures. Expert surgical care in Florida.',
         keywords: ["Dr. Clay Shumway", "Mountain Spine Orthopedics", "foot and ankle surgery", "total ankle replacement surgery", "3D bunion correction surgery", "Lapiplasty surgery", "arthroscopic ankle surgery", "Florida foot and ankle surgeon"],
         ogImage: "/" + (Shumway?.src || "https://mountainspineortho.b-cdn.net/clay.png"),
         medicalSpecialty: ["Orthopedic Surgery", "Foot and Ankle Surgery"],
@@ -315,7 +315,7 @@ export const Doctors: DoctorProp[] = [
             'Osteopathic, conservative-first approach to spinal pain',
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Steven Schiebert, DO | Orthopedic Spine Surgeon | Mountain Spine & Orthopedics | New Jersey & New York',
+        metaTitle: 'Dr. Steven Schiebert, DO | Orthopedic Spine Surgeon | Mountain Spine',
         metaDescription: 'Dr. Steven Schiebert, DO, is an orthopedic spine surgeon at Mountain Spine & Orthopedics treating patients in New Jersey and New York. Brown University spine fellowship; minimally invasive fusion, discectomy and decompression.',
         keywords: ["Dr. Steven Schiebert", "Steven Schiebert DO", "Mountain Spine & Orthopedics", "orthopedic spine surgeon New Jersey", "spine surgeon New York", "osteopathic spine surgeon", "minimally invasive spine surgery", "TLIF", "percutaneous discectomy", "laminectomy"],
         ogImage: SCHIEBERT_IMG.src,
@@ -356,7 +356,7 @@ export const Doctors: DoctorProp[] = [
             'B.S. Biology, St. Joseph’s University, Philadelphia (1992)',
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Dean Sorrento | Foot & Ankle Surgeon in Allentown, PA | Mountain Spine & Orthopedics',
+        metaTitle: 'Dr. Dean Sorrento | Foot & Ankle Surgeon in Allentown, PA | Mountain Spine',
         metaDescription: 'Dr. Dean Sorrento is a board certified foot and ankle surgeon at Mountain Spine & Orthopedics in Allentown, PA, with 21+ years on the St. Luke’s University residency teaching faculty. Bunions, flat foot, arthritis, tendon injury and revision surgery.',
         keywords: ["Dr. Dean Sorrento", "foot and ankle surgeon Allentown", "podiatric surgeon Lehigh Valley", "Mountain Spine & Orthopedics", "bunion surgery Allentown PA", "flat foot correction", "ankle arthritis treatment", "foot and ankle revision surgery", "second opinion foot surgery Pennsylvania"],
         ogImage: SORRENTO_IMG.src,
@@ -393,7 +393,7 @@ export const Doctors: DoctorProp[] = [
             'Published in the American Journal of Surgery; member of the AMA and North American Spine Society',
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Howard Sharf | Orthopedic Spine & Neck Surgeon | Mountain Spine & Orthopedics | Florida',
+        metaTitle: 'Dr. Howard Sharf | Orthopedic Spine & Neck Surgeon | Mountain Spine',
         metaDescription: 'Dr. Howard Sharf is a board certified orthopedic spine surgeon at Mountain Spine & Orthopedics in Florida. Former U.S. Army Chief of Surgery treating spinal disorders and deformities with non-invasive, minimally invasive and traditional techniques.',
         keywords: ["Dr. Howard Sharf", "orthopedic spine surgeon Florida", "neck surgeon Florida", "Mountain Spine & Orthopedics", "spinal deformity treatment", "minimally invasive spine surgery Florida", "military orthopedic surgeon", "North American Spine Society"],
         ogImage: SHARF_IMG.src,
@@ -434,7 +434,7 @@ export const Doctors: DoctorProp[] = [
             'Fluent in Mandarin Chinese, Spanish and Brazilian Portuguese',
         ],
         // --- SEO Data ---
-        metaTitle: 'Dr. Johnson Ho | Orthopedic Physician, Pain & Musculoskeletal Medicine | Mountain Spine & Orthopedics | New York',
+        metaTitle: 'Dr. Johnson Ho | Orthopedic Physician, Pain & Musculoskeletal Medicine | Mountain Spine',
         metaDescription: 'Dr. Johnson Ho is an orthopedic physician at Mountain Spine & Orthopedics in New York with interests in pain management, musculoskeletal and sports medicine. Patented neuromodulation researcher and incoming Interventional Pain Medicine fellow at Rutgers.',
         keywords: ["Dr. Johnson Ho", "orthopedic physician New York", "pain management New York", "musculoskeletal medicine", "sports medicine physician NYC", "Mountain Spine & Orthopedics", "medical acupuncture", "neuromodulation research"],
         ogImage: HO_IMG.src,
@@ -468,7 +468,7 @@ export const Doctors: DoctorProp[] = [
             'Growing focus on minimally invasive spine procedures since joining the practice in 2024',
         ],
         // --- SEO Data ---
-        metaTitle: 'Joseph Cunningham, PA-C | Spine Physician Assistant | Mountain Spine & Orthopedics | New York & New Jersey',
+        metaTitle: 'Joseph Cunningham, PA-C | Spine Physician Assistant | Mountain Spine',
         metaDescription: 'Joseph Cunningham, PA-C is a nationally certified physician assistant in spine care at Mountain Spine & Orthopedics, serving New York and New Jersey. Former Chief PA at South Brooklyn Health.',
         keywords: ["Joseph Cunningham PA-C", "physician assistant spine care", "spine physician assistant New York", "physician assistant New Jersey", "Mountain Spine & Orthopedics", "minimally invasive spine care", "neuropathic spine disorders"],
         ogImage: CUNNINGHAM_IMG.src,
@@ -506,7 +506,7 @@ export const Doctors: DoctorProp[] = [
         ],
         // --- SEO Data ---
         // State-agnostic on purpose: no practice location is confirmed yet.
-        metaTitle: 'Sharmez Savory, PA-C | Physician Assistant | Mountain Spine & Orthopedics',
+        metaTitle: 'Sharmez Savory, PA-C | Physician Assistant | Mountain Spine',
         metaDescription: 'Sharmez Savory, PA-C is a board certified physician assistant at Mountain Spine & Orthopedics with experience in family medicine and pain management and surgical fellowship training.',
         keywords: ["Sharmez Savory PA-C", "physician assistant", "Mountain Spine & Orthopedics", "pain management physician assistant", "fellowship trained physician assistant", "family medicine physician assistant"],
         ogImage: SAVORY_IMG.src,

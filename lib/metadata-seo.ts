@@ -1,14 +1,25 @@
 /**
  * SEO-Optimized Metadata for All Conditions and Treatments
  * 
- * BRAND SUFFIX: "Spine & Orthopedic Specialists"
- * 
+ * BRAND SUFFIX: "Mountain Spine"
+ *
+ * The practice entity is "Mountain Spine & Orthopedics" (see the Organization
+ * JSON-LD in app/layout.tsx, and openGraph.siteName on the condition/treatment
+ * layouts). Titles use the shortened "| Mountain Spine" so the descriptive half
+ * of the title survives SERP truncation; the full entity name is still asserted
+ * in schema and OG metadata.
+ *
+ * This file previously suffixed 116 titles with "Spine & Orthopedic Specialists",
+ * which names no Mountain Spine entity and closely matches an unrelated
+ * orthopedic brand. It also mislabelled shoulder/knee/hip/hand pages as "Spine".
+ * Do not reintroduce it.
+ *
  * FORMULAS:
- * - Conditions: [Condition] – Symptoms & Treatment | Spine & Orthopedic Specialists
- * - Treatments: [Procedure] – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists
+ * - Conditions: [Condition] – Symptoms & Treatment | Mountain Spine
+ * - Treatments: [Procedure] – Procedure, Recovery & Candidacy | Mountain Spine
  * - Injections: [Injection] | Non-Surgical Spine & Joint Pain Relief
- * - Comparisons: [Topic] – Key Differences Explained | Spine Specialists
- * - Minimally Invasive: [Procedure] – Minimally Invasive Option | Spine & Orthopedic Specialists
+ * - Comparisons: [Topic] – Key Differences Explained | Mountain Spine
+ * - Minimally Invasive: [Procedure] – Minimally Invasive Option | Mountain Spine
  */
 
 export interface SEOMetadata {
@@ -25,163 +36,163 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Degenerative scoliosis causes progressive spinal curvature, back pain, and nerve compression in adults. Surgical and non-surgical evaluation. PPO accepted."
   },
   "adjacent-segment-disease": {
-    metaTitle: "Adjacent Segment Disease – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Adjacent Segment Disease – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about adjacent segment disease, symptoms after spinal fusion, and treatment options. Expert spine care focused on accurate diagnosis and personalized solutions."
   },
   "lumbar-herniated-disc": {
-    metaTitle: "Lumbar Herniated Disc – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Lumbar Herniated Disc – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about lumbar herniated disc, symptoms like sciatica and leg pain, and treatment options. Expert spine care with non-surgical and minimally invasive solutions."
   },
   "degenerative-disc-disease": {
-    metaTitle: "Degenerative Disc Disease – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Degenerative Disc Disease – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about degenerative disc disease, common symptoms, causes, and treatment options. Expert spine care with non-surgical and advanced solutions for lasting relief."
   },
   "cervical-spinal-stenosis": {
-    metaTitle: "Cervical Spinal Stenosis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Cervical Spinal Stenosis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about cervical spinal stenosis, symptoms like neck pain and numbness, and treatment options. Expert spine care focused on accurate diagnosis and relief."
   },
   "spondylolisthesis": {
-    metaTitle: "Spondylolisthesis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Spondylolisthesis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about spondylolisthesis, symptoms like back pain and leg weakness, and treatment options. Expert spine care with non-surgical and surgical solutions."
   },
   "cervical-herniated-disc": {
-    metaTitle: "Cervical Herniated Disc – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Cervical Herniated Disc – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about cervical herniated disc, symptoms like neck and arm pain, and treatment options. Expert spine care with non-surgical and minimally invasive solutions."
   },
   "spinal-compression-fractures": {
-    metaTitle: "Spinal Compression Fractures – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Spinal Compression Fractures – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about spinal compression fractures, symptoms like sudden back pain, and treatment options including kyphoplasty. Expert spine care for lasting relief."
   },
   "kyphosis": {
-    metaTitle: "Kyphosis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Kyphosis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about kyphosis, symptoms like hunched posture and back pain, and treatment options. Expert spine care with non-surgical and surgical correction solutions."
   },
   "osteoarthritis": {
-    metaTitle: "Osteoarthritis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Osteoarthritis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about osteoarthritis, common symptoms like joint pain and stiffness, and treatment options. Expert orthopedic care focused on pain relief and mobility."
   },
   "rotator-cuff-tear": {
-    metaTitle: "Rotator Cuff Tear – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Rotator Cuff Tear – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about rotator cuff tears, symptoms like shoulder pain and weakness, and treatment options. Expert orthopedic care with surgical and non-surgical solutions."
   },
   "acl-injury": {
-    metaTitle: "ACL Injury – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "ACL Injury – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about ACL injuries, symptoms like knee instability and swelling, and treatment options. Expert orthopedic care including reconstruction surgery."
   },
   "labral-tears": {
-    metaTitle: "Labral Tears – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Labral Tears – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about labral tears in the hip and shoulder, symptoms like clicking and pain, and treatment options. Expert orthopedic care for accurate diagnosis."
   },
   "torn-meniscus": {
-    metaTitle: "Torn Meniscus – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Torn Meniscus – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about torn meniscus, symptoms like knee pain and locking, and treatment options. Expert orthopedic care with repair and minimally invasive solutions."
   },
   "sacroiliac-joint-dysfunction": {
-    metaTitle: "Sacroiliac Joint Dysfunction – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Sacroiliac Joint Dysfunction – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about sacroiliac joint dysfunction, symptoms like lower back and hip pain, and treatment options. Expert spine care for accurate diagnosis and relief."
   },
   "trochanteric-bursitis": {
-    metaTitle: "Trochanteric Bursitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Trochanteric Bursitis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about trochanteric bursitis, symptoms like hip pain and tenderness, and treatment options. Expert orthopedic care with non-surgical and injection therapies."
   },
   "carpal-tunnel-syndrome": {
-    metaTitle: "Carpal Tunnel Syndrome – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Carpal Tunnel Syndrome – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about carpal tunnel syndrome, symptoms like hand numbness and tingling, and treatment options. Expert orthopedic care including surgical release."
   },
   "back-pain": {
-    metaTitle: "Back Pain – Causes, Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Back Pain – Causes, Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about back pain, common causes and symptoms, and treatment options. Expert spine care with non-surgical and advanced solutions for lasting relief."
   },
   "bulging-disc": {
-    metaTitle: "Bulging Disc – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Bulging Disc – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about bulging disc, symptoms like back pain and nerve compression, and treatment options. Expert spine care with non-surgical and minimally invasive solutions."
   },
   "pinched-nerve": {
-    metaTitle: "Pinched Nerve – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Pinched Nerve – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about pinched nerves, symptoms like radiating pain and numbness, and treatment options. Expert spine and orthopedic care for accurate diagnosis and relief."
   },
   "cervical-deformities": {
-    metaTitle: "Cervical Deformities – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Cervical Deformities – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about cervical deformities, symptoms like neck pain and posture issues, and treatment options. Expert spine care with surgical correction solutions."
   },
   "disc-tear": {
-    metaTitle: "Disc Tear (Annular Tear) – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Disc Tear (Annular Tear) – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about disc tears, symptoms like localized back pain, and treatment options. Expert spine care focused on accurate diagnosis and non-surgical solutions."
   },
   "hip-dysplasia": {
-    metaTitle: "Hip Dysplasia – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Hip Dysplasia – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about hip dysplasia, symptoms like groin pain and hip instability, and treatment options. Expert orthopedic care with surgical and non-surgical solutions."
   },
   "facet-joint-disease": {
-    metaTitle: "Facet Joint Disease – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Facet Joint Disease – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about facet joint disease, symptoms like back pain with twisting, and treatment options. Expert spine care with injections and ablation therapies."
   },
   "arthritis": {
-    metaTitle: "Arthritis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Arthritis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about arthritis, common symptoms like joint pain and stiffness, and treatment options. Expert orthopedic care focused on pain management and mobility."
   },
   "lower-back-pain": {
-    metaTitle: "Lower Back Pain – Causes, Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Lower Back Pain – Causes, Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about lower back pain, common causes, symptoms, and treatment options. Expert spine care with non-surgical and advanced solutions for lasting relief."
   },
   "sciatica": {
-    metaTitle: "Sciatica – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Sciatica – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about sciatica, symptoms like leg pain and numbness, and treatment options. Expert spine care with non-surgical and minimally invasive solutions for relief."
   },
   "coccydynia": {
-    metaTitle: "Coccydynia (Tailbone Pain) – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Coccydynia (Tailbone Pain) – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about coccydynia, symptoms like tailbone pain when sitting, and treatment options. Expert spine care with injections and surgical solutions."
   },
   "failed-back-surgery-syndrome": {
-    metaTitle: "Failed Back Surgery Syndrome – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Failed Back Surgery Syndrome – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about failed back surgery syndrome, persistent symptoms after spine surgery, and treatment options. Expert care with revision surgery and pain management."
   },
   "foraminal-stenosis": {
-    metaTitle: "Foraminal Stenosis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Foraminal Stenosis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about foraminal stenosis, symptoms like radiating nerve pain, and treatment options. Expert spine care with decompression and minimally invasive solutions."
   },
   "hip-impingement": {
-    metaTitle: "Hip Impingement (FAI) – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Hip Impingement (FAI) – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about hip impingement, symptoms like groin pain and limited motion, and treatment options. Expert orthopedic care with arthroscopy and conservative therapies."
   },
   "loose-bodies": {
-    metaTitle: "Loose Bodies in Joints – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Loose Bodies in Joints – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about loose bodies in joints, symptoms like locking and catching, and treatment options. Expert orthopedic care with arthroscopic removal solutions."
   },
   "aging-management": {
-    metaTitle: "Orthopedic Aging Management – Bone & Joint Health | Spine & Orthopedic Specialists",
+    metaTitle: "Orthopedic Aging Management – Bone & Joint Health | Mountain Spine",
     metaDescription: "Learn about orthopedic aging management, including bone health, fall prevention, and mobility preservation. Expert care focused on maintaining quality of life."
   },
   "neck-pain": {
-    metaTitle: "Neck Pain – Causes, Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Neck Pain – Causes, Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about neck pain, common causes and symptoms, and treatment options. Expert spine care with non-surgical and advanced solutions for lasting relief."
   },
   "degenerative-disc-disease-surgery": {
-    metaTitle: "Degenerative Disc Disease Surgery – Options & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Degenerative Disc Disease Surgery – Options & Recovery | Mountain Spine",
     metaDescription: "Learn about surgery options for degenerative disc disease, including fusion and disc replacement. Expert spine care focused on recovery and candidacy."
   },
   "pseudarthrosis-revision-surgery": {
-    metaTitle: "Pseudarthrosis & Revision Surgery – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Pseudarthrosis & Revision Surgery – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about pseudarthrosis (failed fusion), symptoms like persistent pain, and revision surgery options. Expert spine care for complex cases."
   },
   "shoulder-arthritis": {
-    metaTitle: "Shoulder Arthritis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Shoulder Arthritis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about shoulder arthritis, symptoms like joint pain and grinding, and treatment options. Expert orthopedic care with replacement and conservative therapies."
   },
   "shoulder-tendonitis": {
-    metaTitle: "Shoulder Tendonitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Shoulder Tendonitis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about shoulder tendonitis, symptoms like pain and stiffness, and treatment options. Expert orthopedic care with non-surgical and injection-based options."
   },
   "snapping-hip-syndrome": {
-    metaTitle: "Snapping Hip Syndrome – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Snapping Hip Syndrome – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about snapping hip syndrome, symptoms like clicking and hip pain, and treatment options. Expert orthopedic care with stretching and surgical solutions."
   },
   "spinal-bone-spurs": {
-    metaTitle: "Spinal Bone Spurs – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Spinal Bone Spurs – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about spinal bone spurs, symptoms like nerve compression, and treatment options. Expert spine care with decompression and minimally invasive solutions."
   },
   "spinal-stenosis": {
-    metaTitle: "Spinal Stenosis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Spinal Stenosis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about spinal stenosis, symptoms like leg pain and numbness, and treatment options. Expert spine care with decompression and minimally invasive solutions."
   },
   "spine-deformities": {
@@ -189,59 +200,59 @@ export const conditionMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Adult spinal deformity - scoliosis, kyphosis, and sagittal imbalance - causing chronic pain and nerve compression. Advanced deformity correction. PPO accepted."
   },
   "synovitis": {
-    metaTitle: "Synovitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Synovitis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about synovitis, symptoms like joint swelling and pain, and treatment options. Expert orthopedic care with anti-inflammatory and surgical solutions."
   },
   "tingling-or-numbness-in-extremities": {
-    metaTitle: "Tingling or Numbness – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Tingling or Numbness – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about tingling or numbness in hands and feet, potential causes, and treatment options. Expert spine and orthopedic care for accurate diagnosis."
   },
   "herniated-disc": {
-    metaTitle: "Herniated Disc – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Herniated Disc – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about herniated discs, symptoms like radiating pain and numbness, and treatment options. Expert spine care with non-surgical and minimally invasive solutions."
   },
   "rheumatoid-arthritis": {
-    metaTitle: "Rheumatoid Arthritis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Rheumatoid Arthritis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about rheumatoid arthritis, symptoms like joint swelling and stiffness, and treatment options. Expert orthopedic care for autoimmune joint conditions."
   },
   "tennis-elbow": {
-    metaTitle: "Tennis Elbow – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Tennis Elbow – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about tennis elbow, symptoms like elbow pain with gripping, and treatment options. Expert orthopedic care with non-surgical and injection-based options."
   },
   "plantar-fasciitis": {
-    metaTitle: "Plantar Fasciitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Plantar Fasciitis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about plantar fasciitis, symptoms like heel pain in the morning, and treatment options. Expert orthopedic care with stretching and injection therapies."
   },
   "bursitis": {
-    metaTitle: "Bursitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Bursitis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about bursitis, symptoms like joint swelling and tenderness, and treatment options. Expert orthopedic care with anti-inflammatory and injection solutions."
   },
   "bunions-hallux-valgus": {
-    metaTitle: "Bunions (Hallux Valgus) – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Bunions (Hallux Valgus) – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about bunions, symptoms like toe pain and deformity, and treatment options. Expert orthopedic care with surgical correction and conservative therapies."
   },
   "achilles-tendonitis": {
-    metaTitle: "Achilles Tendonitis – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Achilles Tendonitis – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about Achilles tendonitis, symptoms like heel pain and stiffness, and treatment options. Expert orthopedic care with treatment and regenerative options."
   },
   "flat-feet": {
-    metaTitle: "Flat Feet – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Flat Feet – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about flat feet, symptoms like arch pain and fatigue, and treatment options. Expert orthopedic care with orthotics and surgical reconstruction."
   },
   "ankle-arthroscopy": {
-    metaTitle: "Ankle Arthroscopy – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Ankle Arthroscopy – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about conditions treated with ankle arthroscopy, symptoms, and recovery. Expert orthopedic care with minimally invasive ankle solutions."
   },
   "hammer-toes": {
-    metaTitle: "Hammer Toes – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Hammer Toes – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about hammer toes, symptoms like toe pain and curling, and treatment options. Expert orthopedic care with surgical correction and conservative therapies."
   },
   "diabetic-foot-ulcers": {
-    metaTitle: "Diabetic Foot Ulcers – Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Diabetic Foot Ulcers – Symptoms & Treatment | Mountain Spine",
     metaDescription: "Learn about diabetic foot ulcers, symptoms, prevention, and treatment options. Expert orthopedic care focused on wound healing and limb preservation."
   },
   "ankle-replacement": {
-    metaTitle: "Ankle Replacement – Candidacy & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Ankle Replacement – Candidacy & Recovery | Mountain Spine",
     metaDescription: "Learn about ankle replacement surgery, who may be a candidate, and recovery expectations. Expert orthopedic care with motion-preserving solutions."
   }
 };
@@ -259,7 +270,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Multilevel spine surgery for degenerative disc disease and scoliosis spanning multiple vertebral levels. Complex spine specialists. PPO accepted."
   },
   "anterior-lumbar-corpectomy-and-fusion": {
-    metaTitle: "Anterior Lumbar Corpectomy & Fusion – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Anterior Lumbar Corpectomy & Fusion – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how anterior lumbar corpectomy and fusion works, who may be a candidate, and recovery expectations. Expert spine surgery for severe conditions."
   },
   "anterior-lumbar-interbody-fusion": {
@@ -267,12 +278,20 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "ALIF surgery approaches the lumbar spine from the front, restoring disc height and lordosis for superior scoliosis correction and fusion rates. PPO Insurance Accepted."
   },
   "hybrid-lumbar-spine-surgery": {
-    metaTitle: "Hybrid Lumbar Spine Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Hybrid Lumbar Spine Surgery – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how hybrid lumbar spine surgery combines fusion and disc replacement. Expert spine treatment preserving motion while stabilizing the spine."
   },
   "lumbar-fusion-surgery": {
     metaTitle: "Lumbar Fusion Surgery: Costs, Recovery & What to Expect | Mountain Spine",
     metaDescription: "Lumbar fusion surgery relieves chronic back and leg pain from disc disease, spondylolisthesis, and scoliosis. Expert spine surgeons in Florida. PPO Insurance Accepted."
+  },
+  // Surgical hub for the adult scoliosis cluster (see docs/seo/scoliosis-query-page-map.md).
+  // Owns candidacy / approach / recovery / risk intent; the condition pillar at
+  // /conditions/adult-degenerative-scoliosis owns "what is this", so the two titles
+  // lead with different head terms on purpose.
+  "adult-scoliosis-surgery": {
+    metaTitle: "Adult Scoliosis Surgery: Candidacy, Recovery & Risks | Mountain Spine",
+    metaDescription: "Adult scoliosis surgery for curves that have progressed past conservative care. Who is a candidate, how correction is planned, and what recovery involves. PPO accepted."
   },
   "spinal-fusion": {
     metaTitle: "Spinal Fusion Surgery for Scoliosis & Back Pain | Mountain Spine",
@@ -283,131 +302,131 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "TLIF surgery fuses damaged lumbar vertebrae through a posterior approach, relieving disc pain, nerve compression, and instability. PPO accepted."
   },
   "posterior-cervical-fusion-with-instrumentation-surgery": {
-    metaTitle: "Posterior Cervical Fusion – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Posterior Cervical Fusion – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how posterior cervical fusion with instrumentation works, candidacy, and recovery. Expert spine surgery for neck stability and deformity correction."
   },
   "posterior-cervical-fusion-surgery": {
-    metaTitle: "Posterior Cervical Fusion Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Posterior Cervical Fusion Surgery – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how posterior cervical fusion surgery works, who may be a candidate, and recovery. Advanced spine treatment for cervical instability."
   },
   "anterior-cervical-corpectomy-and-fusion": {
-    metaTitle: "ACCF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "ACCF Surgery – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how anterior cervical corpectomy and fusion (ACCF) works, candidacy, and recovery. Expert spine surgery for severe cervical compression."
   },
   "acdf-surgery": {
-    metaTitle: "ACDF Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "ACDF Surgery – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how ACDF (anterior cervical discectomy and fusion) works, who may be a candidate, and what to expect. Expert cervical spine treatment."
   },
   "lumbar-disc-replacement-surgery": {
-    metaTitle: "Lumbar Disc Replacement – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Lumbar Disc Replacement – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how lumbar disc replacement works, who may be a candidate, and recovery expectations. Motion-preserving spine treatment for disc degeneration."
   },
   "artificial-disc-replacement-surgery": {
-    metaTitle: "Artificial Disc Replacement – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Artificial Disc Replacement – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how artificial disc replacement works, candidacy criteria, and recovery. Motion-preserving spine surgery as an alternative to fusion."
   },
   "cervical-disc-arthroplasty": {
-    metaTitle: "Cervical Disc Arthroplasty – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Cervical Disc Arthroplasty – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how cervical disc arthroplasty works, who may be a candidate, and recovery. Motion-preserving neck surgery for herniated discs."
   },
   "motion-preservation-spine-surgery": {
-    metaTitle: "Motion Preservation Spine Surgery – Options & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Motion Preservation Spine Surgery – Options & Recovery | Mountain Spine",
     metaDescription: "Learn about motion preservation spine surgery options, candidacy, and recovery. Expert spine treatment that maintains natural spinal movement."
   },
   "total-hip-replacement": {
-    metaTitle: "Total Hip Replacement – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Total Hip Replacement – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how total hip replacement works, who may be a candidate, and what to expect. Advanced orthopedic treatment for hip arthritis and pain."
   },
   "total-knee-replacement": {
-    metaTitle: "Total Knee Replacement – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Total Knee Replacement – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how total knee replacement works, who may be a candidate, and recovery expectations. Advanced orthopedic treatment for knee arthritis."
   },
   "posterior-cervical-laminoplasty": {
-    metaTitle: "Posterior Cervical Laminoplasty – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Posterior Cervical Laminoplasty – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how posterior cervical laminoplasty works, candidacy, and recovery. Motion-preserving spine surgery for cervical stenosis."
   },
   "posterior-cervical-foraminotomy-surgery": {
-    metaTitle: "Posterior Cervical Foraminotomy – Minimally Invasive Option | Spine & Orthopedic Specialists",
+    metaTitle: "Posterior Cervical Foraminotomy – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how posterior cervical foraminotomy works, candidacy, and recovery. Minimally invasive nerve decompression without fusion."
   },
   "lumbar-laminectomy-surgery": {
-    metaTitle: "Lumbar Laminectomy – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Lumbar Laminectomy – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how lumbar laminectomy works, who may be a candidate, and recovery expectations. Expert spine decompression for stenosis relief."
   },
   "lumbar-decompression": {
-    metaTitle: "Lumbar Decompression – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Lumbar Decompression – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how lumbar decompression works, who may be a candidate, and what to expect. Expert spine treatment for stenosis and nerve compression."
   },
   "lumbar-microendoscopic-discectomy-surgery": {
-    metaTitle: "Microendoscopic Discectomy – Minimally Invasive Option | Spine & Orthopedic Specialists",
+    metaTitle: "Microendoscopic Discectomy – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how microendoscopic discectomy works, candidacy, and recovery. Minimally invasive spine surgery for herniated disc relief."
   },
   "lumbar-microdiscectomy-surgery": {
-    metaTitle: "Lumbar Microdiscectomy – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Lumbar Microdiscectomy – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how lumbar microdiscectomy works, who may be a candidate, and recovery expectations. Expert minimally invasive herniated disc treatment."
   },
   "degenerative-disc-disease-surgery": {
-    metaTitle: "Degenerative Disc Disease Surgery – Options & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Degenerative Disc Disease Surgery – Options & Recovery | Mountain Spine",
     metaDescription: "Learn about surgery options for degenerative disc disease, candidacy criteria, and recovery. Expert spine treatment tailored to your condition."
   },
   "percutaneous-discectomy": {
-    metaTitle: "Percutaneous Discectomy – Minimally Invasive Option | Spine & Orthopedic Specialists",
+    metaTitle: "Percutaneous Discectomy – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how percutaneous discectomy works, who may be a candidate, and recovery. Ultra-minimally invasive treatment for contained disc herniations."
   },
   "resurfacing-shoulder-replacement": {
-    metaTitle: "Shoulder Resurfacing – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Shoulder Resurfacing – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how shoulder resurfacing works, who may be a candidate, and recovery expectations. Bone-preserving orthopedic treatment for shoulder arthritis."
   },
   "hip-arthroscopy-treatment": {
-    metaTitle: "Hip Arthroscopy – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Hip Arthroscopy – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how hip arthroscopy works, who may be a candidate, and what to expect. Minimally invasive orthopedic treatment for hip pain and labral tears."
   },
   "arthroscopic-knee-surgery": {
-    metaTitle: "Arthroscopic Knee Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Arthroscopic Knee Surgery – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how arthroscopic knee surgery works, candidacy, and recovery. Minimally invasive orthopedic treatment for meniscus tears and knee injuries."
   },
   "rotator-cuff-repair-surgery": {
-    metaTitle: "Rotator Cuff Repair – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Rotator Cuff Repair – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how rotator cuff repair surgery works, who may be a candidate, and recovery expectations. Expert shoulder treatment for torn tendons."
   },
   "meniscus-repair-surgery": {
-    metaTitle: "Meniscus Repair Surgery – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Meniscus Repair Surgery – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how meniscus repair works, who may be a candidate, and what to expect. Expert knee treatment preserving the meniscus for long-term health."
   },
   "disc-replacement-vs-fusion-what-you-need-to-know": {
-    metaTitle: "Disc Replacement vs Fusion – Key Differences Explained | Spine Specialists",
+    metaTitle: "Disc Replacement vs Fusion – Key Differences Explained | Mountain Spine",
     metaDescription: "Compare disc replacement vs spinal fusion, including benefits, risks, recovery, and candidacy. Learn which spine surgery option may fit your condition."
   },
   "ankle-ligament-reconstruction-surgery": {
-    metaTitle: "Ankle Ligament Reconstruction – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Ankle Ligament Reconstruction – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how ankle ligament reconstruction works, candidacy, and recovery expectations. Expert orthopedic treatment for chronic ankle instability."
   },
   "axial-fusion-surgery": {
-    metaTitle: "Axial Fusion Surgery (AxiaLIF) – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Axial Fusion Surgery (AxiaLIF) – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how axial fusion surgery works, who may be a candidate, and recovery. Minimally invasive L5-S1 fusion through a tissue-sparing approach."
   },
   "hybrid-cervical-spine-surgery": {
-    metaTitle: "Hybrid Cervical Spine Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Hybrid Cervical Spine Surgery – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how hybrid cervical surgery combines fusion and disc replacement. Expert spine treatment balancing stability and motion preservation."
   },
   "back-pain-treatment": {
-    metaTitle: "Back Pain Treatment – Options & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Back Pain Treatment – Options & Candidacy | Mountain Spine",
     metaDescription: "Explore back pain treatment options including medications, injections, and surgery. Expert spine care focused on accurate diagnosis and lasting relief."
   },
   "bunion-correction-surgery": {
-    metaTitle: "Bunion Correction Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Bunion Correction Surgery – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how bunion correction surgery works, candidacy, and recovery expectations. Expert orthopedic treatment with modern 3D correction techniques."
   },
   "carpal-tunnel-release": {
-    metaTitle: "Carpal Tunnel Release – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Carpal Tunnel Release – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how carpal tunnel release works, who may be a candidate, and what to expect. Expert hand treatment for numbness and tingling relief."
   },
   "cervical-disc-replacement": {
-    metaTitle: "Cervical Disc Replacement – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Cervical Disc Replacement – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how cervical disc replacement works, candidacy criteria, and recovery. Motion-preserving neck surgery as an alternative to fusion."
   },
   "coccygectomy-tailbone-removal-surgery": {
-    metaTitle: "Coccygectomy (Tailbone Removal) – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "Coccygectomy (Tailbone Removal) – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how coccygectomy works, who may be a candidate, and recovery expectations. Expert surgical treatment for chronic tailbone pain."
   },
   "anti-inflammatory-injections-for-joint-and-spine-pain": {
@@ -427,19 +446,19 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Learn how cortisone injections help reduce back pain and inflammation. Non-surgical spine treatment options focused on targeted relief."
   },
   "degenerative-disc-disease-surgery-details": {
-    metaTitle: "DDD Surgery Details – Options & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "DDD Surgery Details – Options & Recovery | Mountain Spine",
     metaDescription: "Learn detailed information about degenerative disc disease surgery options, candidacy, and recovery. Expert spine care tailored to your condition."
   },
   "endoscopic-discectomy-surgery": {
-    metaTitle: "Endoscopic Discectomy – Minimally Invasive Option | Spine & Orthopedic Specialists",
+    metaTitle: "Endoscopic Discectomy – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how endoscopic discectomy works, candidacy, and recovery. Ultra-minimally invasive spine surgery with rapid return to activity."
   },
   "endoscopic-foraminotomy-surgery": {
-    metaTitle: "Endoscopic Foraminotomy – Minimally Invasive Option | Spine & Orthopedic Specialists",
+    metaTitle: "Endoscopic Foraminotomy – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how endoscopic foraminotomy works, candidacy, and recovery. Minimally invasive nerve decompression for foraminal stenosis relief."
   },
   "acl-reconstruction-surgery": {
-    metaTitle: "ACL Reconstruction Surgery – Procedure & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "ACL Reconstruction Surgery – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how ACL reconstruction works, graft options, and recovery expectations. Expert orthopedic knee surgery for athletes and active patients."
   },
   "core-decompression": {
@@ -459,11 +478,11 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Learn how facet ablation and rhizotomy help reduce facet joint pain. Non-surgical treatment using radiofrequency energy for lasting relief."
   },
   "facet-block-ablation-rhizotomy-and-facet-fusion": {
-    metaTitle: "Facet Block, Ablation & Fusion – Treatment Options | Spine Specialists",
+    metaTitle: "Facet Block, Ablation & Fusion – Treatment Options | Mountain Spine",
     metaDescription: "Learn about facet block, ablation, and fusion treatment options for facet joint pain. Expert spine care from diagnosis to targeted relief."
   },
   "fracture-fixation": {
-    metaTitle: "Spinal Fracture Fixation (Kyphoplasty) – Procedure & Recovery | Spine Specialists",
+    metaTitle: "Spinal Fracture Fixation (Kyphoplasty) – Procedure & Recovery | Mountain Spine",
     metaDescription: "Learn how spinal fracture fixation and kyphoplasty work, candidacy, and recovery. Expert treatment for compression fractures with rapid pain relief."
   },
   "impar-block-treatment": {
@@ -471,7 +490,7 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Learn how impar block injections help reduce tailbone and pelvic pain. Non-surgical treatment targeting the ganglion impar for lasting relief."
   },
   "neck-pain-treatment-and-shoulder-pain-relief": {
-    metaTitle: "Neck & Shoulder Pain Treatment – Options & Relief | Spine & Orthopedic Specialists",
+    metaTitle: "Neck & Shoulder Pain Treatment – Options & Relief | Mountain Spine",
     metaDescription: "Explore neck and shoulder pain treatment options including medications and injections. Expert care focused on accurate diagnosis and lasting relief."
   },
   "non-surgical-treatments-for-pain-management": {
@@ -483,11 +502,11 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "OLIF approaches the lumbar spine obliquely from the side, preserving posterior structures. Used for scoliosis and degenerative disc disease. PPO accepted."
   },
   "percutaneous-carpal-tunnel-release": {
-    metaTitle: "Percutaneous Carpal Tunnel Release – Minimally Invasive Option | Orthopedic Specialists",
+    metaTitle: "Percutaneous Carpal Tunnel Release – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how percutaneous carpal tunnel release works, candidacy, and recovery. Ultra-minimally invasive treatment with rapid return to activity."
   },
   "shoulder-arthroscopy": {
-    metaTitle: "Shoulder Arthroscopy – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists",
+    metaTitle: "Shoulder Arthroscopy – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how shoulder arthroscopy works, who may be a candidate, and what to expect. Minimally invasive orthopedic treatment for shoulder injuries."
   },
   "stem-cell-treatment": {
@@ -499,83 +518,83 @@ export const treatmentMetadata: Record<string, SEOMetadata> = {
     metaDescription: "Explore surgical treatment options for spine and orthopedic conditions. Expert care with minimally invasive and advanced surgical solutions."
   },
   "trigger-finger-release": {
-    metaTitle: "Trigger Finger Release – Procedure, Recovery & Candidacy | Orthopedic Specialists",
+    metaTitle: "Trigger Finger Release – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how trigger finger release works, who may be a candidate, and recovery expectations. Expert hand treatment for clicking and locking fingers."
   },
   "ankle-replacement-surgery": {
-    metaTitle: "Ankle Replacement Surgery – Procedure, Recovery & Candidacy | Orthopedic Specialists",
+    metaTitle: "Ankle Replacement Surgery – Procedure, Recovery & Candidacy | Mountain Spine",
     metaDescription: "Learn how ankle replacement surgery works, who may be a candidate, and what to expect. Motion-preserving orthopedic treatment for ankle arthritis."
   },
   "ankle-arthroscopy-minimally-invasive-surgery": {
-    metaTitle: "Ankle Arthroscopy – Minimally Invasive Option | Spine & Orthopedic Specialists",
+    metaTitle: "Ankle Arthroscopy – Minimally Invasive Option | Mountain Spine",
     metaDescription: "Learn how minimally invasive ankle arthroscopy works, candidacy, and recovery. Expert orthopedic treatment for ankle impingement and cartilage issues."
   },
   "slap-tear": {
-    metaTitle: "SLAP Tear – Symptoms, MRI Findings & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "SLAP Tear – Symptoms, MRI Findings & Treatment | Mountain Spine",
     metaDescription: "Learn SLAP tear symptoms, diagnosis, and treatment—from therapy to surgery. Know when shoulder pain or clicking needs a specialist evaluation."
   },
   "shoulder-dislocation": {
-    metaTitle: "Shoulder Dislocation – Symptoms, Reduction & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Shoulder Dislocation – Symptoms, Reduction & Treatment | Mountain Spine",
     metaDescription: "Shoulder dislocation causes sudden pain and instability. Learn symptoms, imaging, and treatment options—including when surgery is recommended."
   },
   "ac-joint-injury": {
-    metaTitle: "AC Joint Injury – Shoulder Separation Symptoms & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "AC Joint Injury – Shoulder Separation Symptoms & Treatment | Mountain Spine",
     metaDescription: "AC joint injuries cause top-of-shoulder pain after falls or sports. Learn grades, imaging, and treatment—from rest to surgery when needed."
   },
   "kyphoplasty": {
-    metaTitle: "Kyphoplasty – Vertebral Compression Fracture Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Kyphoplasty – Vertebral Compression Fracture Treatment | Mountain Spine",
     metaDescription: "Kyphoplasty can reduce pain from compression fractures. Learn candidacy, steps, recovery, and when to consider this minimally invasive procedure."
   },
   "vertebroplasty": {
-    metaTitle: "Vertebroplasty – Compression Fracture Stabilization | Spine & Orthopedic Specialists",
+    metaTitle: "Vertebroplasty – Compression Fracture Stabilization | Mountain Spine",
     metaDescription: "Vertebroplasty stabilizes painful vertebral compression fractures using cement. Learn candidacy, benefits, risks, and recovery expectations."
   },
   "plif": {
-    metaTitle: "PLIF Surgery – Posterior Lumbar Interbody Fusion | Spine & Orthopedic Specialists",
+    metaTitle: "PLIF Surgery – Posterior Lumbar Interbody Fusion | Mountain Spine",
     metaDescription: "PLIF is a lumbar fusion option for instability or nerve compression. Learn when it's used, how it works, and recovery expectations."
   },
   "thoracic-spine-surgery": {
-    metaTitle: "Thoracic Spine Surgery – When It's Needed & Options | Spine & Orthopedic Specialists",
+    metaTitle: "Thoracic Spine Surgery – When It's Needed & Options | Mountain Spine",
     metaDescription: "Thoracic spine surgery may treat compression, fractures, deformity, or tumors. Learn indications, common procedures, and recovery basics."
   },
   "si-joint-fusion": {
-    metaTitle: "SI Joint Fusion – Candidacy, Benefits & Recovery | Spine & Orthopedic Specialists",
+    metaTitle: "SI Joint Fusion – Candidacy, Benefits & Recovery | Mountain Spine",
     metaDescription: "SI joint fusion may help confirmed sacroiliac joint pain that doesn't improve with conservative care. Learn diagnosis steps and recovery."
   },
   "cervical-laminectomy": {
-    metaTitle: "Cervical Laminectomy – Decompression for Neck Myelopathy | Spine & Orthopedic Specialists",
+    metaTitle: "Cervical Laminectomy – Decompression for Neck Myelopathy | Mountain Spine",
     metaDescription: "Cervical laminectomy relieves spinal cord pressure from stenosis. Learn symptoms, candidacy, procedure basics, and recovery expectations."
   },
   "chronic-pain-treatment": {
-    metaTitle: "Chronic Pain Treatment – Evaluation, Options & Next Steps | Spine & Orthopedic Specialists",
+    metaTitle: "Chronic Pain Treatment – Evaluation, Options & Next Steps | Mountain Spine",
     metaDescription: "Chronic pain needs a structured plan. Learn evaluation steps and treatment options—therapy, medications, injections, and when to consider procedures."
   },
   "joint-pain-treatment": {
-    metaTitle: "Joint Pain Treatment – Shoulder, Hip, Knee & More | Spine & Orthopedic Specialists",
+    metaTitle: "Joint Pain Treatment – Shoulder, Hip, Knee & More | Mountain Spine",
     metaDescription: "Joint pain can come from arthritis, tendon problems, or injury. Learn evaluation and treatment options—from therapy to injections and surgery."
   },
   "arthritis-treatment": {
-    metaTitle: "Arthritis Treatment – Options to Reduce Pain & Improve Function | Spine & Orthopedic Specialists",
+    metaTitle: "Arthritis Treatment – Options to Reduce Pain & Improve Function | Mountain Spine",
     metaDescription: "Learn arthritis treatment options—from therapy and injections to joint replacement when needed. Know when pain and stiffness warrant evaluation."
   },
   "bursitis-treatment": {
-    metaTitle: "Bursitis Treatment – Relief for Hip, Shoulder & Knee | Spine & Orthopedic Specialists",
+    metaTitle: "Bursitis Treatment – Relief for Hip, Shoulder & Knee | Mountain Spine",
     metaDescription: "Bursitis causes localized joint pain and tenderness. Learn diagnosis and treatment options—rest, therapy, and injections when appropriate."
   },
   "tendonitis-treatment": {
-    metaTitle: "Tendonitis Treatment – Causes, Symptoms & Best Options | Spine & Orthopedic Specialists",
+    metaTitle: "Tendonitis Treatment – Causes, Symptoms & Best Options | Mountain Spine",
     metaDescription: "Tendonitis causes pain with motion and overuse. Learn diagnosis and treatment—rehab, load management, and procedures for stubborn cases."
   },
   "osteoporosis-treatment": {
-    metaTitle: "Osteoporosis Treatment – Protect Bone Health & Prevent Fractures | Spine & Orthopedic Specialists",
+    metaTitle: "Osteoporosis Treatment – Protect Bone Health & Prevent Fractures | Mountain Spine",
     metaDescription: "Osteoporosis increases fracture risk. Learn evaluation, prevention, and treatment strategies—and when spine procedures may be considered."
   },
   "work-injury": {
-    metaTitle: "Work Injury Orthopedic Care – Evaluation & Treatment | Spine & Orthopedic Specialists",
+    metaTitle: "Work Injury Orthopedic Care – Evaluation & Treatment | Mountain Spine",
     metaDescription: "Injured at work? Get an orthopedic evaluation, imaging when appropriate, and a clear treatment plan to help you return to function safely."
   },
   "personal-injury": {
-    metaTitle: "Personal Injury Orthopedic Evaluation – Next Steps After Trauma | Spine & Orthopedic Specialists",
+    metaTitle: "Personal Injury Orthopedic Evaluation – Next Steps After Trauma | Mountain Spine",
     metaDescription: "After an accident or fall, get a clear orthopedic diagnosis and treatment plan. Learn common injuries, warning signs, and treatment options."
   }
 };
@@ -599,11 +618,82 @@ export function getTreatmentMetadata(slug: string): SEOMetadata | null {
 }
 
 /**
+ * Metadata a condition/treatment record carries in components/data/*.
+ *
+ * The two data files disagree on the description field name — treatments.tsx
+ * uses `metaDescription`, conditions.tsx uses `metaDesc` — so both are accepted.
+ */
+export interface ContentMetadataSource {
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  metaDesc?: string | null;
+}
+
+function trimmed(value: string | null | undefined): string | null {
+  const text = typeof value === "string" ? value.trim() : "";
+  return text.length > 0 ? text : null;
+}
+
+/**
+ * Resolve the metadata a page should emit, highest precedence first:
+ *
+ *   1. the curated entry in this file
+ *   2. the page's OWN metaTitle/metaDesc in components/data/*
+ *   3. the generic formula fallback
+ *
+ * Step 2 did not previously exist. Both layouts went straight from (1) to (3),
+ * so any page missing an entry here had its hand-written, brand-correct title
+ * silently discarded in favour of a generic one — 34 treatment and 30 condition
+ * pages, including /treatments/adult-scoliosis-surgery, whose own record reads
+ * "Adult Scoliosis Surgery | Mountain Spine & Orthopedics — …" while production
+ * served "…| Spine & Orthopedic Specialists".
+ *
+ * Each field falls through independently, so a record that curates only a title
+ * still gets a sensible generated description.
+ */
+function resolveWithContent(
+  curated: SEOMetadata | null,
+  content: ContentMetadataSource | null | undefined,
+  fallback: SEOMetadata
+): SEOMetadata {
+  if (curated) return curated;
+  return {
+    metaTitle: trimmed(content?.metaTitle) ?? fallback.metaTitle,
+    metaDescription:
+      trimmed(content?.metaDescription) ?? trimmed(content?.metaDesc) ?? fallback.metaDescription,
+  };
+}
+
+export function resolveConditionMetadata(
+  slug: string,
+  content: ContentMetadataSource | null | undefined,
+  title: string
+): SEOMetadata {
+  return resolveWithContent(
+    getConditionMetadata(slug),
+    content,
+    generateConditionMetadataFallback(title)
+  );
+}
+
+export function resolveTreatmentMetadata(
+  slug: string,
+  content: ContentMetadataSource | null | undefined,
+  title: string
+): SEOMetadata {
+  return resolveWithContent(
+    getTreatmentMetadata(slug),
+    content,
+    generateTreatmentMetadataFallback(title)
+  );
+}
+
+/**
  * Generate fallback condition metadata if not found in map
  */
 export function generateConditionMetadataFallback(title: string): SEOMetadata {
   return {
-    metaTitle: `${title} – Symptoms & Treatment | Spine & Orthopedic Specialists`,
+    metaTitle: `${title} – Symptoms & Treatment | Mountain Spine`,
     metaDescription: `Learn about ${title.toLowerCase()}, common symptoms, causes, and treatment options. Expert spine and orthopedic care with non-surgical and advanced solutions.`
   };
 }
@@ -613,7 +703,7 @@ export function generateConditionMetadataFallback(title: string): SEOMetadata {
  */
 export function generateTreatmentMetadataFallback(title: string): SEOMetadata {
   return {
-    metaTitle: `${title} – Procedure, Recovery & Candidacy | Spine & Orthopedic Specialists`,
+    metaTitle: `${title} – Procedure, Recovery & Candidacy | Mountain Spine`,
     metaDescription: `Learn how ${title.toLowerCase()} works, who may be a candidate, and what to expect. Advanced spine and orthopedic treatment focused on safety and recovery.`
   };
 }

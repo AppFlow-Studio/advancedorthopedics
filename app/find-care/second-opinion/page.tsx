@@ -78,7 +78,7 @@ const faqItems: { question: string, answer: React.ReactElement }[] = [
         question: 'What does a second opinion cost?',
         answer: (
             <p>
-                Many insurance plans cover the cost of a second opinion, especially when surgery is recommended. We recommend checking with your provider about your specific coverage. For more details on navigating costs, you can review our <a href="/insurance-policy" className="text-blue-600 hover:underline">insurance information page</a> or read our blog post about <a href="/blogs/orthopedic-visit-cost-without-insurance" className="text-blue-600 hover:underline">costs without insurance</a>.
+                Many insurance plans cover the cost of a second opinion, especially when surgery is recommended. We recommend checking with your provider about your specific coverage. For more details on navigating costs, you can review our <a href="/insurance-policy" className="text-blue-600 hover:underline">insurance information page</a>.
             </p>
         )
     },

@@ -15,7 +15,9 @@ const SPECIALTY_OVERRIDES: Record<string, string> = {
   
   // Dr. Cowin's specialties
   "TLIF (Transforaminal Lumbar Interbody Fusion)": "/treatments/understanding-tlif-surgery",
-  "Axial Fusion": "/treatments/axial-fusion-surgery",
+  // /treatments/axial-fusion-surgery 301s to spinal-fusion; link the destination
+  // directly so the doctor pages don't hop through a redirect.
+  "Axial Fusion": "/treatments/spinal-fusion",
   "Endoscopic Discectomy": "/treatments/endoscopic-discectomy-surgery",
   
   // Dr. McCarthy's specialties

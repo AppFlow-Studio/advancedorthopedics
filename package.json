@@ -26,6 +26,7 @@
     "seo:audit:debug": "node scripts/seo-local-sitemap-audit.mjs --concurrency=2 --timeout=30000 --debug",
     "seo:audit:only": "node scripts/seo-local-sitemap-audit.mjs --only=",
     "seo:test": "node scripts/test-seo-rendering.mjs",
+    "seo:smoke": "node scripts/seo-smoke-test.mjs",
     "seo:check": "tsx scripts/seo/check-canonicals.ts",
     "seo:check:local": "tsx scripts/seo/check-canonicals-local.ts",
     "seo:check:static": "tsx scripts/seo/check-canonicals-static.ts",
